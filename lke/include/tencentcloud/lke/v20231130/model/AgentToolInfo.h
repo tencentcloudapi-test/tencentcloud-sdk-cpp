@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AgentToolReqParam;
+                class AgentToolRspParam;
+                class AgentMCPServerInfo;
+                class AgentPluginHeader;
+                class AgentPluginQuery;
+
                 /**
                 * Agent的工具信息
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     AgentToolInfo();
-                    ~AgentToolInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

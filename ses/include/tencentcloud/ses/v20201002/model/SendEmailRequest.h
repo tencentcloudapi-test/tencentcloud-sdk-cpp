@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Template;
+                class Simple;
+                class Attachment;
+
                 /**
                 * SendEmail请求参数结构体
                 */

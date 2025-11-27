@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceConfs;
+
                 /**
                 * ModifyDiagDBInstanceConf请求参数结构体
                 */

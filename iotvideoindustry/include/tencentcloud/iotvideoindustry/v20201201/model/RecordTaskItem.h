@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 普通设备的录像详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RecordTaskItem();
-                    ~RecordTaskItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 镜像仓库详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageRegistryInfo();
-                    ~ImageRegistryInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

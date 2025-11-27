@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReverseShellEventInfo;
+
                 /**
                 * DescribeReverseShellEventInfo返回参数结构体
                 */

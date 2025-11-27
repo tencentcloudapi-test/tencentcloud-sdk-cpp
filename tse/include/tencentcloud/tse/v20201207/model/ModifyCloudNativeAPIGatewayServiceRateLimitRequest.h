@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudNativeAPIGatewayRateLimitDetail;
+
                 /**
                 * ModifyCloudNativeAPIGatewayServiceRateLimit请求参数结构体
                 */

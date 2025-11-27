@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 上游节点字段信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SourceFieldInfo();
-                    ~SourceFieldInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

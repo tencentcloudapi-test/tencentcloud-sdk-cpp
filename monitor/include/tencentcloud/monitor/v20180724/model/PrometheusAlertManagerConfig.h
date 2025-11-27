@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 告警渠道使用自建alertmanager的配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusAlertManagerConfig();
-                    ~PrometheusAlertManagerConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

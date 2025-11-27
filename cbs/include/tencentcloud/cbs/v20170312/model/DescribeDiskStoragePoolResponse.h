@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Cdc;
+
                 /**
                 * DescribeDiskStoragePool返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeConfigDataListPage;
+
                 /**
                 * DescribeConfigDataList返回参数结构体
                 */

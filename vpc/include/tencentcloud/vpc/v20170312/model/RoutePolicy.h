@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoutePolicyEntry;
+                class RoutePolicyAssociation;
+                class Tag;
+
                 /**
                 * 路由接收策略。当云联网或其他业务添加路由到VPC自定义路由表时，可以丢弃或启用，禁用相应的路由条目。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     RoutePolicy();
-                    ~RoutePolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

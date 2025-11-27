@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CodePack;
+
                 /**
                 * DescribeCodePacks返回参数结构体
                 */

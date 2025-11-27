@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实例可修改参数 Integer 类型集合。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceIntegerParam();
-                    ~InstanceIntegerParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

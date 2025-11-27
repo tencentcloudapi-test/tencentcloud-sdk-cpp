@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskRule;
+                class AdvanceSettings;
+                class ShardArgument;
+
                 /**
                 * 任务定义
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskRecord();
-                    ~TaskRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

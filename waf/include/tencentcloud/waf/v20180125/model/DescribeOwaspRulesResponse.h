@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OwaspRule;
+
                 /**
                 * DescribeOwaspRules返回参数结构体
                 */

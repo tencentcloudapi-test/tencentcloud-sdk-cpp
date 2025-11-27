@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 任务监控信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskMonitorInfo();
-                    ~TaskMonitorInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

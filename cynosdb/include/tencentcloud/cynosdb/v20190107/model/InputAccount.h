@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 账号，包含accountName和host
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InputAccount();
-                    ~InputAccount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

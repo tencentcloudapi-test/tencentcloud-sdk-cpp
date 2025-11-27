@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GrafanaNotificationChannel;
+
                 /**
                 * DescribeGrafanaNotificationChannels返回参数结构体
                 */

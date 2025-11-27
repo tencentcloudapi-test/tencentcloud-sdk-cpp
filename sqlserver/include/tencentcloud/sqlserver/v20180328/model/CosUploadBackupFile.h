@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询已经上传的备份文件大小。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CosUploadBackupFile();
-                    ~CosUploadBackupFile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

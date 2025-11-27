@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceNetworkConfig;
+                class VpcConfig;
+                class Tag;
+
                 /**
                 * CreateExclusiveInstances请求参数结构体
                 */

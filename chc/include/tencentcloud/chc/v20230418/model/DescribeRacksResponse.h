@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Rack;
+
                 /**
                 * DescribeRacks返回参数结构体
                 */

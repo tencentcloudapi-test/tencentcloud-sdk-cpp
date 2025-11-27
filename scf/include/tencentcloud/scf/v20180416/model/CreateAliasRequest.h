@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoutingConfig;
+
                 /**
                 * CreateAlias请求参数结构体
                 */

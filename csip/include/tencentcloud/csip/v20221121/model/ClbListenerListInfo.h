@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * clb实例和监听器信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClbListenerListInfo();
-                    ~ClbListenerListInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

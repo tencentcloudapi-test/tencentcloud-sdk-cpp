@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 混合表中，change表的数据保存时间，单位为天
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SmartOptimizerChangeTablePolicy();
-                    ~SmartOptimizerChangeTablePolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

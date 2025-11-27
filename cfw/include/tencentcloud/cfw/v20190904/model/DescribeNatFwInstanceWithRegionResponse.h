@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NatFwInstance;
+
                 /**
                 * DescribeNatFwInstanceWithRegion返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyAppStatusResp;
+
                 /**
                 * ModifyAppStatus返回参数结构体
                 */

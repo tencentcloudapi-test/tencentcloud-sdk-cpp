@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * RumUv 访问量
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RumUvInfo();
-                    ~RumUvInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

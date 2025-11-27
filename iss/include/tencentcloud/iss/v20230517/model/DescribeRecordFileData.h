@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordTimeLine;
+
                 /**
                 * 用于查询设备云端录像时间轴信息返回数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeRecordFileData();
-                    ~DescribeRecordFileData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

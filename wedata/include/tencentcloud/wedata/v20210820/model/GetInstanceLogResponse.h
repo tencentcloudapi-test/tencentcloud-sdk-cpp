@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceLogVO;
+
                 /**
                 * GetInstanceLog返回参数结构体
                 */

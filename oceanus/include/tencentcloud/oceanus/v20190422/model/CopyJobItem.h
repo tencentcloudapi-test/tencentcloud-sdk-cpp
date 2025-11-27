@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 复制作业单条明细
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CopyJobItem();
-                    ~CopyJobItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

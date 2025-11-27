@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ObjectType;
+
                 /**
                 * DescribeObjectTypeList返回参数结构体
                 */

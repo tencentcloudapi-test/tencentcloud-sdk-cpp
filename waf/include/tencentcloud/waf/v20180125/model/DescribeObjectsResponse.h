@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClbObject;
+
                 /**
                 * DescribeObjects返回参数结构体
                 */

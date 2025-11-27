@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Admin;
+
                 /**
                 * 成员企业信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     GroupOrganization();
-                    ~GroupOrganization() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

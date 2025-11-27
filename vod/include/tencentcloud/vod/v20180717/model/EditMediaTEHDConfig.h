@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视频编辑极速高清参数配置。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EditMediaTEHDConfig();
-                    ~EditMediaTEHDConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

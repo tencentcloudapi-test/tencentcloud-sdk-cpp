@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RegionInfo;
+
                 /**
                 * 可用区的地域大类描述
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RegionAreaInfo();
-                    ~RegionAreaInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

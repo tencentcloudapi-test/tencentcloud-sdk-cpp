@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateNatRuleItem;
+
                 /**
                 * AddNatAcRule请求参数结构体
                 */

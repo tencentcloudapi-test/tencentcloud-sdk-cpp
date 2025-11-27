@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PodVolume;
+                class DynamicPodSpec;
+
                 /**
                 * 扩容容器资源时的资源描述
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     PodNewSpec();
-                    ~PodNewSpec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

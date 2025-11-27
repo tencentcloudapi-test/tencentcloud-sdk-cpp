@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CCN;
+
                 /**
                 * DescribeCcns返回参数结构体
                 */

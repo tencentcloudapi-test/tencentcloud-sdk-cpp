@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CrossTargets;
+
                 /**
                 * DescribeCrossTargets返回参数结构体
                 */

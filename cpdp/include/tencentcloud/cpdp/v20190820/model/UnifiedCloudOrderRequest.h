@@ -40,6 +40,16 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudSubOrder;
+                class CloudSettleInfo;
+                class CloudAttachmentInfo;
+                class CloudGlobalPayTimeInfo;
+                class CloudStoreInfo;
+                class CloudClientInfo;
+                class CloudExternalPromptGroup;
+                class CloudExternalUserInfo;
+                class CloudExternalAttachmentData;
+
                 /**
                 * UnifiedCloudOrder请求参数结构体
                 */

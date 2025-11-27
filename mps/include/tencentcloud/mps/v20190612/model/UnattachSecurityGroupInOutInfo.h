@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 安全组解绑输入/输出请求信息。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UnattachSecurityGroupInOutInfo();
-                    ~UnattachSecurityGroupInOutInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

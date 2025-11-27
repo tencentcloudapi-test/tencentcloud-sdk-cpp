@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoginStatusInfo;
+
                 /**
                 * DescribeLoginStatus返回参数结构体
                 */

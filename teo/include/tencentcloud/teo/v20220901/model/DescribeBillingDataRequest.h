@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BillingDataFilter;
+
                 /**
                 * DescribeBillingData请求参数结构体
                 */

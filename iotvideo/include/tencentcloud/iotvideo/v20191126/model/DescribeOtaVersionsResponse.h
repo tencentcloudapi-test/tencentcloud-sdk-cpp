@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VersionData;
+
                 /**
                 * DescribeOtaVersions返回参数结构体
                 */

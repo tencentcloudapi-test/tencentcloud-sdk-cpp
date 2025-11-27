@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttributeLabel;
+
                 /**
                 * DescribeAttributeLabel返回参数结构体
                 */

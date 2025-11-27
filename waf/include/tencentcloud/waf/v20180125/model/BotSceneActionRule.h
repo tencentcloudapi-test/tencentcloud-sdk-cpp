@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BotScoreRuleEntry;
+                class BotActionScopeRuleEntry;
+
                 /**
                 * 获取场景动作策略列表时的动作策略实体
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     BotSceneActionRule();
-                    ~BotSceneActionRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

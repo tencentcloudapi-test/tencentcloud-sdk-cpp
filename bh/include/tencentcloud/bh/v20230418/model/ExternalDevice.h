@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 主机参数，导入外部主机时使用
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ExternalDevice();
-                    ~ExternalDevice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

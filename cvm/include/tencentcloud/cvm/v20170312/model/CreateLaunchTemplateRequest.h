@@ -43,6 +43,19 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Placement;
+                class SystemDisk;
+                class DataDisk;
+                class VirtualPrivateCloud;
+                class InternetAccessible;
+                class LoginSettings;
+                class EnhancedService;
+                class ActionTimer;
+                class TagSpecification;
+                class InstanceMarketOptionsRequest;
+                class InstanceChargePrepaid;
+                class Metadata;
+
                 /**
                 * CreateLaunchTemplate请求参数结构体
                 */

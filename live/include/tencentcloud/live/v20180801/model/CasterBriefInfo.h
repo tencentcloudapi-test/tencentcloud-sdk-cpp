@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 导播台简略信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CasterBriefInfo();
-                    ~CasterBriefInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeleteTaskResult;
+
                 /**
                 * DeleteTask返回参数结构体
                 */

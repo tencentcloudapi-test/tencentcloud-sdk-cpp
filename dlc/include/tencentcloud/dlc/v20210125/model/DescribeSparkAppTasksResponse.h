@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskResponseInfo;
+
                 /**
                 * DescribeSparkAppTasks返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CC地域封禁列表详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CcGeoIpPolicyNew();
-                    ~CcGeoIpPolicyNew() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

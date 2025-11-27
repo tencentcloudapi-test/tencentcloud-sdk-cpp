@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LiveAiParagraphInfo;
+
                 /**
                 * 直播摘要结果信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     LiveAiAnalysisDescriptionItem();
-                    ~LiveAiAnalysisDescriptionItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

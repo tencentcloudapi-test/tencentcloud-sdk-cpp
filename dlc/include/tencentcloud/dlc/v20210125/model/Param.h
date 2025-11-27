@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 对指定参数的更新、增加、删除
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Param();
-                    ~Param() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

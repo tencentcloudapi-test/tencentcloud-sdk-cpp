@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableSpaceTimeSeries;
+
                 /**
                 * DescribeTopSpaceTableTimeSeries返回参数结构体
                 */

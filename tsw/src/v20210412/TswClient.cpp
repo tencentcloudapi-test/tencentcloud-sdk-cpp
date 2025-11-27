@@ -62,32 +62,25 @@ TswClient::DescribeComponentAlertObjectOutcome TswClient::DescribeComponentAlert
 
 void TswClient::DescribeComponentAlertObjectAsync(const DescribeComponentAlertObjectRequest& request, const DescribeComponentAlertObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeComponentAlertObjectRequest&;
-    using Resp = DescribeComponentAlertObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeComponentAlertObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeComponentAlertObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TswClient::DescribeComponentAlertObjectOutcomeCallable TswClient::DescribeComponentAlertObjectCallable(const DescribeComponentAlertObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeComponentAlertObjectOutcome>>();
-    DescribeComponentAlertObjectAsync(
-    request,
-    [prom](
-        const TswClient*,
-        const DescribeComponentAlertObjectRequest&,
-        DescribeComponentAlertObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeComponentAlertObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeComponentAlertObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TswClient::DescribeServiceAlertObjectOutcome TswClient::DescribeServiceAlertObject(const DescribeServiceAlertObjectRequest &request)
@@ -112,32 +105,25 @@ TswClient::DescribeServiceAlertObjectOutcome TswClient::DescribeServiceAlertObje
 
 void TswClient::DescribeServiceAlertObjectAsync(const DescribeServiceAlertObjectRequest& request, const DescribeServiceAlertObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeServiceAlertObjectRequest&;
-    using Resp = DescribeServiceAlertObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeServiceAlertObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeServiceAlertObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TswClient::DescribeServiceAlertObjectOutcomeCallable TswClient::DescribeServiceAlertObjectCallable(const DescribeServiceAlertObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeServiceAlertObjectOutcome>>();
-    DescribeServiceAlertObjectAsync(
-    request,
-    [prom](
-        const TswClient*,
-        const DescribeServiceAlertObjectRequest&,
-        DescribeServiceAlertObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeServiceAlertObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeServiceAlertObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TswClient::DescribeTokenOutcome TswClient::DescribeToken(const DescribeTokenRequest &request)
@@ -162,31 +148,24 @@ TswClient::DescribeTokenOutcome TswClient::DescribeToken(const DescribeTokenRequ
 
 void TswClient::DescribeTokenAsync(const DescribeTokenRequest& request, const DescribeTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTokenRequest&;
-    using Resp = DescribeTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TswClient::DescribeTokenOutcomeCallable TswClient::DescribeTokenCallable(const DescribeTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTokenOutcome>>();
-    DescribeTokenAsync(
-    request,
-    [prom](
-        const TswClient*,
-        const DescribeTokenRequest&,
-        DescribeTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

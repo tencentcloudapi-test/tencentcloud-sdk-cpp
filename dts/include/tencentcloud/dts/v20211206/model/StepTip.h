@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 当前步骤错误信息或者警告信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StepTip();
-                    ~StepTip() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

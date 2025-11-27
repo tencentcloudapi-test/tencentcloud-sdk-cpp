@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 会话时长明细
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DurationDetails();
-                    ~DurationDetails() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

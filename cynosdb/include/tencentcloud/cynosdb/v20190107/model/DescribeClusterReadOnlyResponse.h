@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClusterReadOnlyValue;
+
                 /**
                 * DescribeClusterReadOnly返回参数结构体
                 */

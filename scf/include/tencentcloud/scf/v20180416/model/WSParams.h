@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * HTTP函数通过WebSockets协议访问时的参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WSParams();
-                    ~WSParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

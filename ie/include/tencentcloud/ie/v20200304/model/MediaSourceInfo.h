@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DownInfo;
+
                 /**
                 * 编辑处理的媒体源
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaSourceInfo();
-                    ~MediaSourceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 布尔值，标识指定设备是否在白名单中
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TraceStatus();
-                    ~TraceStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CacheConfig;
+
                 /**
                 * 启发式缓存配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HeuristicCache();
-                    ~HeuristicCache() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

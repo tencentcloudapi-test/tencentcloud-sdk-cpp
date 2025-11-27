@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpanTag;
+
                 /**
                 * 服务相关信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SpanProcess();
-                    ~SpanProcess() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

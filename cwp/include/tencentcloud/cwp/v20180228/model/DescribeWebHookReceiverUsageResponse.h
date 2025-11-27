@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WebHookReceiverUsage;
+
                 /**
                 * DescribeWebHookReceiverUsage返回参数结构体
                 */

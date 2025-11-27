@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 创建媒体传输流的输出SRT的目标地址。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CreateOutputSRTSettingsDestinations();
-                    ~CreateOutputSRTSettingsDestinations() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

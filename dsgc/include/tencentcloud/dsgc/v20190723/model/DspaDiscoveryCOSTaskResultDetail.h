@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * COS扫描任务结果详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DspaDiscoveryCOSTaskResultDetail();
-                    ~DspaDiscoveryCOSTaskResultDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

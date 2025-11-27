@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Header;
+
                 /**
                 * CreatePrefetchTask请求参数结构体
                 */

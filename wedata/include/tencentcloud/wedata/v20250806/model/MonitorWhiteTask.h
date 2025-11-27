@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 告警规则监控白名单配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MonitorWhiteTask();
-                    ~MonitorWhiteTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

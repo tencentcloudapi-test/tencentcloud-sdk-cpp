@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RebuildVideoInfo;
+                class RebuildAudioInfo;
+                class RebuildMediaTargetVideoStream;
+                class RebuildMediaTargetAudioStream;
+
                 /**
                 * 音画质重生模板详情。
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     RebuildMediaTemplate();
-                    ~RebuildMediaTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

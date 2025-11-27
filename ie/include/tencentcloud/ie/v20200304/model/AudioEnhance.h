@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 音频音效增强，只支持无背景音的音频
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AudioEnhance();
-                    ~AudioEnhance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

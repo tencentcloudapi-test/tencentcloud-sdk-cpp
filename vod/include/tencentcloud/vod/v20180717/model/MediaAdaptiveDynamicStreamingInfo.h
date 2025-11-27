@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AdaptiveDynamicStreamingInfoItem;
+
                 /**
                 * 转自适应码流信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaAdaptiveDynamicStreamingInfo();
-                    ~MediaAdaptiveDynamicStreamingInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

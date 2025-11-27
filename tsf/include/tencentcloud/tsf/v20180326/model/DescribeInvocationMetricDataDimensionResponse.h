@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TsfPageDimension;
+
                 /**
                 * DescribeInvocationMetricDataDimension返回参数结构体
                 */

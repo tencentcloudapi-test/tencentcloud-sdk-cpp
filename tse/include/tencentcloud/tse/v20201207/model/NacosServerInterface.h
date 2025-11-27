@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * nacos服务端接口列表，用于云监控
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NacosServerInterface();
-                    ~NacosServerInterface() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

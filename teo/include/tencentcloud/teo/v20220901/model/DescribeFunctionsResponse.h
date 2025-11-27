@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Function;
+
                 /**
                 * DescribeFunctions返回参数结构体
                 */

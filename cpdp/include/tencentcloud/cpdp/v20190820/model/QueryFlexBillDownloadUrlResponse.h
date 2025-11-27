@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlexBillDownloadUrlResult;
+
                 /**
                 * QueryFlexBillDownloadUrl返回参数结构体
                 */

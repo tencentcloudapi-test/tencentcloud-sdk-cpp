@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcInfo;
+                class TagInfo;
+
                 /**
                 * CreateServerlessSpaceV2请求参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BitRateInfo;
+
                 /**
                 * 查询视频通道码率的返回结果列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeVideoBitRateList();
-                    ~DescribeVideoBitRateList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceData;
+
                 /**
                 * DescribeIpVisit返回参数结构体
                 */

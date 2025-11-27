@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchTags;
+
                 /**
                 * DescribeInstances请求参数结构体
                 */

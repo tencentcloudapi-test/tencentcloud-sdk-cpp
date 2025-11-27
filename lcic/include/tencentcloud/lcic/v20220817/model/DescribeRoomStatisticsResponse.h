@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MemberRecord;
+
                 /**
                 * DescribeRoomStatistics返回参数结构体
                 */

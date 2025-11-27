@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 压力分布配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GeoRegionsLoadItem();
-                    ~GeoRegionsLoadItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

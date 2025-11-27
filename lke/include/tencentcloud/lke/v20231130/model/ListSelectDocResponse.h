@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Option;
+
                 /**
                 * ListSelectDoc返回参数结构体
                 */

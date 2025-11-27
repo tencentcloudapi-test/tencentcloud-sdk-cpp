@@ -62,32 +62,25 @@ LcicClient::AddGroupMemberOutcome LcicClient::AddGroupMember(const AddGroupMembe
 
 void LcicClient::AddGroupMemberAsync(const AddGroupMemberRequest& request, const AddGroupMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddGroupMemberRequest&;
-    using Resp = AddGroupMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddGroupMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddGroupMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::AddGroupMemberOutcomeCallable LcicClient::AddGroupMemberCallable(const AddGroupMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddGroupMemberOutcome>>();
-    AddGroupMemberAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const AddGroupMemberRequest&,
-        AddGroupMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddGroupMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->AddGroupMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::BatchAddGroupMemberOutcome LcicClient::BatchAddGroupMember(const BatchAddGroupMemberRequest &request)
@@ -112,32 +105,25 @@ LcicClient::BatchAddGroupMemberOutcome LcicClient::BatchAddGroupMember(const Bat
 
 void LcicClient::BatchAddGroupMemberAsync(const BatchAddGroupMemberRequest& request, const BatchAddGroupMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchAddGroupMemberRequest&;
-    using Resp = BatchAddGroupMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchAddGroupMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchAddGroupMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::BatchAddGroupMemberOutcomeCallable LcicClient::BatchAddGroupMemberCallable(const BatchAddGroupMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchAddGroupMemberOutcome>>();
-    BatchAddGroupMemberAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const BatchAddGroupMemberRequest&,
-        BatchAddGroupMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchAddGroupMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchAddGroupMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::BatchCreateGroupWithMembersOutcome LcicClient::BatchCreateGroupWithMembers(const BatchCreateGroupWithMembersRequest &request)
@@ -162,32 +148,25 @@ LcicClient::BatchCreateGroupWithMembersOutcome LcicClient::BatchCreateGroupWithM
 
 void LcicClient::BatchCreateGroupWithMembersAsync(const BatchCreateGroupWithMembersRequest& request, const BatchCreateGroupWithMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchCreateGroupWithMembersRequest&;
-    using Resp = BatchCreateGroupWithMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchCreateGroupWithMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchCreateGroupWithMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::BatchCreateGroupWithMembersOutcomeCallable LcicClient::BatchCreateGroupWithMembersCallable(const BatchCreateGroupWithMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchCreateGroupWithMembersOutcome>>();
-    BatchCreateGroupWithMembersAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const BatchCreateGroupWithMembersRequest&,
-        BatchCreateGroupWithMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchCreateGroupWithMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchCreateGroupWithMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::BatchCreateRoomOutcome LcicClient::BatchCreateRoom(const BatchCreateRoomRequest &request)
@@ -212,32 +191,25 @@ LcicClient::BatchCreateRoomOutcome LcicClient::BatchCreateRoom(const BatchCreate
 
 void LcicClient::BatchCreateRoomAsync(const BatchCreateRoomRequest& request, const BatchCreateRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchCreateRoomRequest&;
-    using Resp = BatchCreateRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchCreateRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchCreateRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::BatchCreateRoomOutcomeCallable LcicClient::BatchCreateRoomCallable(const BatchCreateRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchCreateRoomOutcome>>();
-    BatchCreateRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const BatchCreateRoomRequest&,
-        BatchCreateRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchCreateRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchCreateRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::BatchDeleteGroupMemberOutcome LcicClient::BatchDeleteGroupMember(const BatchDeleteGroupMemberRequest &request)
@@ -262,32 +234,25 @@ LcicClient::BatchDeleteGroupMemberOutcome LcicClient::BatchDeleteGroupMember(con
 
 void LcicClient::BatchDeleteGroupMemberAsync(const BatchDeleteGroupMemberRequest& request, const BatchDeleteGroupMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDeleteGroupMemberRequest&;
-    using Resp = BatchDeleteGroupMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDeleteGroupMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDeleteGroupMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::BatchDeleteGroupMemberOutcomeCallable LcicClient::BatchDeleteGroupMemberCallable(const BatchDeleteGroupMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDeleteGroupMemberOutcome>>();
-    BatchDeleteGroupMemberAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const BatchDeleteGroupMemberRequest&,
-        BatchDeleteGroupMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDeleteGroupMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDeleteGroupMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::BatchDeleteRecordOutcome LcicClient::BatchDeleteRecord(const BatchDeleteRecordRequest &request)
@@ -312,32 +277,25 @@ LcicClient::BatchDeleteRecordOutcome LcicClient::BatchDeleteRecord(const BatchDe
 
 void LcicClient::BatchDeleteRecordAsync(const BatchDeleteRecordRequest& request, const BatchDeleteRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDeleteRecordRequest&;
-    using Resp = BatchDeleteRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDeleteRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDeleteRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::BatchDeleteRecordOutcomeCallable LcicClient::BatchDeleteRecordCallable(const BatchDeleteRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDeleteRecordOutcome>>();
-    BatchDeleteRecordAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const BatchDeleteRecordRequest&,
-        BatchDeleteRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDeleteRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDeleteRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::BatchDescribeDocumentOutcome LcicClient::BatchDescribeDocument(const BatchDescribeDocumentRequest &request)
@@ -362,32 +320,25 @@ LcicClient::BatchDescribeDocumentOutcome LcicClient::BatchDescribeDocument(const
 
 void LcicClient::BatchDescribeDocumentAsync(const BatchDescribeDocumentRequest& request, const BatchDescribeDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDescribeDocumentRequest&;
-    using Resp = BatchDescribeDocumentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDescribeDocument(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDescribeDocument", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::BatchDescribeDocumentOutcomeCallable LcicClient::BatchDescribeDocumentCallable(const BatchDescribeDocumentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDescribeDocumentOutcome>>();
-    BatchDescribeDocumentAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const BatchDescribeDocumentRequest&,
-        BatchDescribeDocumentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDescribeDocumentOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDescribeDocument(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::BatchRegisterOutcome LcicClient::BatchRegister(const BatchRegisterRequest &request)
@@ -412,32 +363,25 @@ LcicClient::BatchRegisterOutcome LcicClient::BatchRegister(const BatchRegisterRe
 
 void LcicClient::BatchRegisterAsync(const BatchRegisterRequest& request, const BatchRegisterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchRegisterRequest&;
-    using Resp = BatchRegisterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchRegister(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchRegister", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::BatchRegisterOutcomeCallable LcicClient::BatchRegisterCallable(const BatchRegisterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchRegisterOutcome>>();
-    BatchRegisterAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const BatchRegisterRequest&,
-        BatchRegisterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchRegisterOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchRegister(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::BindDocumentToRoomOutcome LcicClient::BindDocumentToRoom(const BindDocumentToRoomRequest &request)
@@ -462,32 +406,25 @@ LcicClient::BindDocumentToRoomOutcome LcicClient::BindDocumentToRoom(const BindD
 
 void LcicClient::BindDocumentToRoomAsync(const BindDocumentToRoomRequest& request, const BindDocumentToRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindDocumentToRoomRequest&;
-    using Resp = BindDocumentToRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindDocumentToRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindDocumentToRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::BindDocumentToRoomOutcomeCallable LcicClient::BindDocumentToRoomCallable(const BindDocumentToRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindDocumentToRoomOutcome>>();
-    BindDocumentToRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const BindDocumentToRoomRequest&,
-        BindDocumentToRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindDocumentToRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->BindDocumentToRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::CreateDocumentOutcome LcicClient::CreateDocument(const CreateDocumentRequest &request)
@@ -512,32 +449,25 @@ LcicClient::CreateDocumentOutcome LcicClient::CreateDocument(const CreateDocumen
 
 void LcicClient::CreateDocumentAsync(const CreateDocumentRequest& request, const CreateDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDocumentRequest&;
-    using Resp = CreateDocumentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDocument(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDocument", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::CreateDocumentOutcomeCallable LcicClient::CreateDocumentCallable(const CreateDocumentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDocumentOutcome>>();
-    CreateDocumentAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const CreateDocumentRequest&,
-        CreateDocumentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDocumentOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDocument(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::CreateGroupWithMembersOutcome LcicClient::CreateGroupWithMembers(const CreateGroupWithMembersRequest &request)
@@ -562,32 +492,25 @@ LcicClient::CreateGroupWithMembersOutcome LcicClient::CreateGroupWithMembers(con
 
 void LcicClient::CreateGroupWithMembersAsync(const CreateGroupWithMembersRequest& request, const CreateGroupWithMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGroupWithMembersRequest&;
-    using Resp = CreateGroupWithMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGroupWithMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGroupWithMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::CreateGroupWithMembersOutcomeCallable LcicClient::CreateGroupWithMembersCallable(const CreateGroupWithMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGroupWithMembersOutcome>>();
-    CreateGroupWithMembersAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const CreateGroupWithMembersRequest&,
-        CreateGroupWithMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGroupWithMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGroupWithMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::CreateGroupWithSubGroupOutcome LcicClient::CreateGroupWithSubGroup(const CreateGroupWithSubGroupRequest &request)
@@ -612,32 +535,25 @@ LcicClient::CreateGroupWithSubGroupOutcome LcicClient::CreateGroupWithSubGroup(c
 
 void LcicClient::CreateGroupWithSubGroupAsync(const CreateGroupWithSubGroupRequest& request, const CreateGroupWithSubGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGroupWithSubGroupRequest&;
-    using Resp = CreateGroupWithSubGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGroupWithSubGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGroupWithSubGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::CreateGroupWithSubGroupOutcomeCallable LcicClient::CreateGroupWithSubGroupCallable(const CreateGroupWithSubGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGroupWithSubGroupOutcome>>();
-    CreateGroupWithSubGroupAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const CreateGroupWithSubGroupRequest&,
-        CreateGroupWithSubGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGroupWithSubGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGroupWithSubGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::CreateRoomOutcome LcicClient::CreateRoom(const CreateRoomRequest &request)
@@ -662,32 +578,25 @@ LcicClient::CreateRoomOutcome LcicClient::CreateRoom(const CreateRoomRequest &re
 
 void LcicClient::CreateRoomAsync(const CreateRoomRequest& request, const CreateRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoomRequest&;
-    using Resp = CreateRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::CreateRoomOutcomeCallable LcicClient::CreateRoomCallable(const CreateRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoomOutcome>>();
-    CreateRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const CreateRoomRequest&,
-        CreateRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::CreateSupervisorOutcome LcicClient::CreateSupervisor(const CreateSupervisorRequest &request)
@@ -712,32 +621,25 @@ LcicClient::CreateSupervisorOutcome LcicClient::CreateSupervisor(const CreateSup
 
 void LcicClient::CreateSupervisorAsync(const CreateSupervisorRequest& request, const CreateSupervisorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSupervisorRequest&;
-    using Resp = CreateSupervisorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSupervisor(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSupervisor", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::CreateSupervisorOutcomeCallable LcicClient::CreateSupervisorCallable(const CreateSupervisorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSupervisorOutcome>>();
-    CreateSupervisorAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const CreateSupervisorRequest&,
-        CreateSupervisorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSupervisorOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSupervisor(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteAppCustomContentOutcome LcicClient::DeleteAppCustomContent(const DeleteAppCustomContentRequest &request)
@@ -762,32 +664,25 @@ LcicClient::DeleteAppCustomContentOutcome LcicClient::DeleteAppCustomContent(con
 
 void LcicClient::DeleteAppCustomContentAsync(const DeleteAppCustomContentRequest& request, const DeleteAppCustomContentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAppCustomContentRequest&;
-    using Resp = DeleteAppCustomContentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAppCustomContent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAppCustomContent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteAppCustomContentOutcomeCallable LcicClient::DeleteAppCustomContentCallable(const DeleteAppCustomContentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAppCustomContentOutcome>>();
-    DeleteAppCustomContentAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteAppCustomContentRequest&,
-        DeleteAppCustomContentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAppCustomContentOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAppCustomContent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteDocumentOutcome LcicClient::DeleteDocument(const DeleteDocumentRequest &request)
@@ -812,32 +707,25 @@ LcicClient::DeleteDocumentOutcome LcicClient::DeleteDocument(const DeleteDocumen
 
 void LcicClient::DeleteDocumentAsync(const DeleteDocumentRequest& request, const DeleteDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDocumentRequest&;
-    using Resp = DeleteDocumentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDocument(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDocument", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteDocumentOutcomeCallable LcicClient::DeleteDocumentCallable(const DeleteDocumentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDocumentOutcome>>();
-    DeleteDocumentAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteDocumentRequest&,
-        DeleteDocumentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDocumentOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDocument(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteGroupOutcome LcicClient::DeleteGroup(const DeleteGroupRequest &request)
@@ -862,32 +750,25 @@ LcicClient::DeleteGroupOutcome LcicClient::DeleteGroup(const DeleteGroupRequest 
 
 void LcicClient::DeleteGroupAsync(const DeleteGroupRequest& request, const DeleteGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGroupRequest&;
-    using Resp = DeleteGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteGroupOutcomeCallable LcicClient::DeleteGroupCallable(const DeleteGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGroupOutcome>>();
-    DeleteGroupAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteGroupRequest&,
-        DeleteGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteGroupMemberOutcome LcicClient::DeleteGroupMember(const DeleteGroupMemberRequest &request)
@@ -912,32 +793,25 @@ LcicClient::DeleteGroupMemberOutcome LcicClient::DeleteGroupMember(const DeleteG
 
 void LcicClient::DeleteGroupMemberAsync(const DeleteGroupMemberRequest& request, const DeleteGroupMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGroupMemberRequest&;
-    using Resp = DeleteGroupMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGroupMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGroupMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteGroupMemberOutcomeCallable LcicClient::DeleteGroupMemberCallable(const DeleteGroupMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGroupMemberOutcome>>();
-    DeleteGroupMemberAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteGroupMemberRequest&,
-        DeleteGroupMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGroupMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGroupMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteRecordOutcome LcicClient::DeleteRecord(const DeleteRecordRequest &request)
@@ -962,32 +836,25 @@ LcicClient::DeleteRecordOutcome LcicClient::DeleteRecord(const DeleteRecordReque
 
 void LcicClient::DeleteRecordAsync(const DeleteRecordRequest& request, const DeleteRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRecordRequest&;
-    using Resp = DeleteRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteRecordOutcomeCallable LcicClient::DeleteRecordCallable(const DeleteRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRecordOutcome>>();
-    DeleteRecordAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteRecordRequest&,
-        DeleteRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteRoomOutcome LcicClient::DeleteRoom(const DeleteRoomRequest &request)
@@ -1012,32 +879,25 @@ LcicClient::DeleteRoomOutcome LcicClient::DeleteRoom(const DeleteRoomRequest &re
 
 void LcicClient::DeleteRoomAsync(const DeleteRoomRequest& request, const DeleteRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRoomRequest&;
-    using Resp = DeleteRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteRoomOutcomeCallable LcicClient::DeleteRoomCallable(const DeleteRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRoomOutcome>>();
-    DeleteRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteRoomRequest&,
-        DeleteRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteSupervisorOutcome LcicClient::DeleteSupervisor(const DeleteSupervisorRequest &request)
@@ -1062,32 +922,25 @@ LcicClient::DeleteSupervisorOutcome LcicClient::DeleteSupervisor(const DeleteSup
 
 void LcicClient::DeleteSupervisorAsync(const DeleteSupervisorRequest& request, const DeleteSupervisorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSupervisorRequest&;
-    using Resp = DeleteSupervisorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSupervisor(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSupervisor", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteSupervisorOutcomeCallable LcicClient::DeleteSupervisorCallable(const DeleteSupervisorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSupervisorOutcome>>();
-    DeleteSupervisorAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteSupervisorRequest&,
-        DeleteSupervisorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSupervisorOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSupervisor(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteUserOutcome LcicClient::DeleteUser(const DeleteUserRequest &request)
@@ -1112,32 +965,25 @@ LcicClient::DeleteUserOutcome LcicClient::DeleteUser(const DeleteUserRequest &re
 
 void LcicClient::DeleteUserAsync(const DeleteUserRequest& request, const DeleteUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteUserRequest&;
-    using Resp = DeleteUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteUserOutcomeCallable LcicClient::DeleteUserCallable(const DeleteUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteUserOutcome>>();
-    DeleteUserAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteUserRequest&,
-        DeleteUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteUserOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DeleteWhiteBoardSnapshotOutcome LcicClient::DeleteWhiteBoardSnapshot(const DeleteWhiteBoardSnapshotRequest &request)
@@ -1162,32 +1008,25 @@ LcicClient::DeleteWhiteBoardSnapshotOutcome LcicClient::DeleteWhiteBoardSnapshot
 
 void LcicClient::DeleteWhiteBoardSnapshotAsync(const DeleteWhiteBoardSnapshotRequest& request, const DeleteWhiteBoardSnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteWhiteBoardSnapshotRequest&;
-    using Resp = DeleteWhiteBoardSnapshotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteWhiteBoardSnapshot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteWhiteBoardSnapshot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DeleteWhiteBoardSnapshotOutcomeCallable LcicClient::DeleteWhiteBoardSnapshotCallable(const DeleteWhiteBoardSnapshotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteWhiteBoardSnapshotOutcome>>();
-    DeleteWhiteBoardSnapshotAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DeleteWhiteBoardSnapshotRequest&,
-        DeleteWhiteBoardSnapshotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteWhiteBoardSnapshotOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteWhiteBoardSnapshot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeAnswerListOutcome LcicClient::DescribeAnswerList(const DescribeAnswerListRequest &request)
@@ -1212,32 +1051,25 @@ LcicClient::DescribeAnswerListOutcome LcicClient::DescribeAnswerList(const Descr
 
 void LcicClient::DescribeAnswerListAsync(const DescribeAnswerListRequest& request, const DescribeAnswerListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAnswerListRequest&;
-    using Resp = DescribeAnswerListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAnswerList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAnswerList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeAnswerListOutcomeCallable LcicClient::DescribeAnswerListCallable(const DescribeAnswerListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAnswerListOutcome>>();
-    DescribeAnswerListAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeAnswerListRequest&,
-        DescribeAnswerListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAnswerListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAnswerList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeAppDetailOutcome LcicClient::DescribeAppDetail(const DescribeAppDetailRequest &request)
@@ -1262,32 +1094,25 @@ LcicClient::DescribeAppDetailOutcome LcicClient::DescribeAppDetail(const Describ
 
 void LcicClient::DescribeAppDetailAsync(const DescribeAppDetailRequest& request, const DescribeAppDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAppDetailRequest&;
-    using Resp = DescribeAppDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAppDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAppDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeAppDetailOutcomeCallable LcicClient::DescribeAppDetailCallable(const DescribeAppDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAppDetailOutcome>>();
-    DescribeAppDetailAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeAppDetailRequest&,
-        DescribeAppDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAppDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAppDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeCurrentMemberListOutcome LcicClient::DescribeCurrentMemberList(const DescribeCurrentMemberListRequest &request)
@@ -1312,32 +1137,25 @@ LcicClient::DescribeCurrentMemberListOutcome LcicClient::DescribeCurrentMemberLi
 
 void LcicClient::DescribeCurrentMemberListAsync(const DescribeCurrentMemberListRequest& request, const DescribeCurrentMemberListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCurrentMemberListRequest&;
-    using Resp = DescribeCurrentMemberListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCurrentMemberList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCurrentMemberList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeCurrentMemberListOutcomeCallable LcicClient::DescribeCurrentMemberListCallable(const DescribeCurrentMemberListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCurrentMemberListOutcome>>();
-    DescribeCurrentMemberListAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeCurrentMemberListRequest&,
-        DescribeCurrentMemberListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCurrentMemberListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCurrentMemberList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeDeveloperOutcome LcicClient::DescribeDeveloper(const DescribeDeveloperRequest &request)
@@ -1362,32 +1180,25 @@ LcicClient::DescribeDeveloperOutcome LcicClient::DescribeDeveloper(const Describ
 
 void LcicClient::DescribeDeveloperAsync(const DescribeDeveloperRequest& request, const DescribeDeveloperAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeveloperRequest&;
-    using Resp = DescribeDeveloperResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeveloper(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeveloper", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeDeveloperOutcomeCallable LcicClient::DescribeDeveloperCallable(const DescribeDeveloperRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeveloperOutcome>>();
-    DescribeDeveloperAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeDeveloperRequest&,
-        DescribeDeveloperOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeveloperOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeveloper(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeDocumentOutcome LcicClient::DescribeDocument(const DescribeDocumentRequest &request)
@@ -1412,32 +1223,25 @@ LcicClient::DescribeDocumentOutcome LcicClient::DescribeDocument(const DescribeD
 
 void LcicClient::DescribeDocumentAsync(const DescribeDocumentRequest& request, const DescribeDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDocumentRequest&;
-    using Resp = DescribeDocumentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDocument(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDocument", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeDocumentOutcomeCallable LcicClient::DescribeDocumentCallable(const DescribeDocumentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDocumentOutcome>>();
-    DescribeDocumentAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeDocumentRequest&,
-        DescribeDocumentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDocumentOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDocument(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeDocumentsOutcome LcicClient::DescribeDocuments(const DescribeDocumentsRequest &request)
@@ -1462,32 +1266,25 @@ LcicClient::DescribeDocumentsOutcome LcicClient::DescribeDocuments(const Describ
 
 void LcicClient::DescribeDocumentsAsync(const DescribeDocumentsRequest& request, const DescribeDocumentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDocumentsRequest&;
-    using Resp = DescribeDocumentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDocuments(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDocuments", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeDocumentsOutcomeCallable LcicClient::DescribeDocumentsCallable(const DescribeDocumentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDocumentsOutcome>>();
-    DescribeDocumentsAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeDocumentsRequest&,
-        DescribeDocumentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDocumentsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDocuments(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeDocumentsByRoomOutcome LcicClient::DescribeDocumentsByRoom(const DescribeDocumentsByRoomRequest &request)
@@ -1512,32 +1309,25 @@ LcicClient::DescribeDocumentsByRoomOutcome LcicClient::DescribeDocumentsByRoom(c
 
 void LcicClient::DescribeDocumentsByRoomAsync(const DescribeDocumentsByRoomRequest& request, const DescribeDocumentsByRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDocumentsByRoomRequest&;
-    using Resp = DescribeDocumentsByRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDocumentsByRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDocumentsByRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeDocumentsByRoomOutcomeCallable LcicClient::DescribeDocumentsByRoomCallable(const DescribeDocumentsByRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDocumentsByRoomOutcome>>();
-    DescribeDocumentsByRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeDocumentsByRoomRequest&,
-        DescribeDocumentsByRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDocumentsByRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDocumentsByRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeGroupOutcome LcicClient::DescribeGroup(const DescribeGroupRequest &request)
@@ -1562,32 +1352,25 @@ LcicClient::DescribeGroupOutcome LcicClient::DescribeGroup(const DescribeGroupRe
 
 void LcicClient::DescribeGroupAsync(const DescribeGroupRequest& request, const DescribeGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupRequest&;
-    using Resp = DescribeGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeGroupOutcomeCallable LcicClient::DescribeGroupCallable(const DescribeGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupOutcome>>();
-    DescribeGroupAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeGroupRequest&,
-        DescribeGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeGroupListOutcome LcicClient::DescribeGroupList(const DescribeGroupListRequest &request)
@@ -1612,32 +1395,25 @@ LcicClient::DescribeGroupListOutcome LcicClient::DescribeGroupList(const Describ
 
 void LcicClient::DescribeGroupListAsync(const DescribeGroupListRequest& request, const DescribeGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupListRequest&;
-    using Resp = DescribeGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeGroupListOutcomeCallable LcicClient::DescribeGroupListCallable(const DescribeGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupListOutcome>>();
-    DescribeGroupListAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeGroupListRequest&,
-        DescribeGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeGroupMemberListOutcome LcicClient::DescribeGroupMemberList(const DescribeGroupMemberListRequest &request)
@@ -1662,32 +1438,25 @@ LcicClient::DescribeGroupMemberListOutcome LcicClient::DescribeGroupMemberList(c
 
 void LcicClient::DescribeGroupMemberListAsync(const DescribeGroupMemberListRequest& request, const DescribeGroupMemberListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupMemberListRequest&;
-    using Resp = DescribeGroupMemberListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroupMemberList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroupMemberList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeGroupMemberListOutcomeCallable LcicClient::DescribeGroupMemberListCallable(const DescribeGroupMemberListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupMemberListOutcome>>();
-    DescribeGroupMemberListAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeGroupMemberListRequest&,
-        DescribeGroupMemberListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupMemberListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroupMemberList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeMarqueeOutcome LcicClient::DescribeMarquee(const DescribeMarqueeRequest &request)
@@ -1712,32 +1481,25 @@ LcicClient::DescribeMarqueeOutcome LcicClient::DescribeMarquee(const DescribeMar
 
 void LcicClient::DescribeMarqueeAsync(const DescribeMarqueeRequest& request, const DescribeMarqueeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMarqueeRequest&;
-    using Resp = DescribeMarqueeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMarquee(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMarquee", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeMarqueeOutcomeCallable LcicClient::DescribeMarqueeCallable(const DescribeMarqueeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMarqueeOutcome>>();
-    DescribeMarqueeAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeMarqueeRequest&,
-        DescribeMarqueeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMarqueeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMarquee(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeQuestionListOutcome LcicClient::DescribeQuestionList(const DescribeQuestionListRequest &request)
@@ -1762,32 +1524,25 @@ LcicClient::DescribeQuestionListOutcome LcicClient::DescribeQuestionList(const D
 
 void LcicClient::DescribeQuestionListAsync(const DescribeQuestionListRequest& request, const DescribeQuestionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeQuestionListRequest&;
-    using Resp = DescribeQuestionListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeQuestionList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeQuestionList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeQuestionListOutcomeCallable LcicClient::DescribeQuestionListCallable(const DescribeQuestionListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeQuestionListOutcome>>();
-    DescribeQuestionListAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeQuestionListRequest&,
-        DescribeQuestionListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeQuestionListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeQuestionList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeRecordOutcome LcicClient::DescribeRecord(const DescribeRecordRequest &request)
@@ -1812,32 +1567,25 @@ LcicClient::DescribeRecordOutcome LcicClient::DescribeRecord(const DescribeRecor
 
 void LcicClient::DescribeRecordAsync(const DescribeRecordRequest& request, const DescribeRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordRequest&;
-    using Resp = DescribeRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeRecordOutcomeCallable LcicClient::DescribeRecordCallable(const DescribeRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordOutcome>>();
-    DescribeRecordAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeRecordRequest&,
-        DescribeRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeRecordStreamOutcome LcicClient::DescribeRecordStream(const DescribeRecordStreamRequest &request)
@@ -1862,32 +1610,25 @@ LcicClient::DescribeRecordStreamOutcome LcicClient::DescribeRecordStream(const D
 
 void LcicClient::DescribeRecordStreamAsync(const DescribeRecordStreamRequest& request, const DescribeRecordStreamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordStreamRequest&;
-    using Resp = DescribeRecordStreamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordStream(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordStream", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeRecordStreamOutcomeCallable LcicClient::DescribeRecordStreamCallable(const DescribeRecordStreamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordStreamOutcome>>();
-    DescribeRecordStreamAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeRecordStreamRequest&,
-        DescribeRecordStreamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordStreamOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordStream(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeRecordTaskOutcome LcicClient::DescribeRecordTask(const DescribeRecordTaskRequest &request)
@@ -1912,32 +1653,25 @@ LcicClient::DescribeRecordTaskOutcome LcicClient::DescribeRecordTask(const Descr
 
 void LcicClient::DescribeRecordTaskAsync(const DescribeRecordTaskRequest& request, const DescribeRecordTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordTaskRequest&;
-    using Resp = DescribeRecordTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeRecordTaskOutcomeCallable LcicClient::DescribeRecordTaskCallable(const DescribeRecordTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordTaskOutcome>>();
-    DescribeRecordTaskAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeRecordTaskRequest&,
-        DescribeRecordTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeRoomOutcome LcicClient::DescribeRoom(const DescribeRoomRequest &request)
@@ -1962,32 +1696,25 @@ LcicClient::DescribeRoomOutcome LcicClient::DescribeRoom(const DescribeRoomReque
 
 void LcicClient::DescribeRoomAsync(const DescribeRoomRequest& request, const DescribeRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRoomRequest&;
-    using Resp = DescribeRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeRoomOutcomeCallable LcicClient::DescribeRoomCallable(const DescribeRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRoomOutcome>>();
-    DescribeRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeRoomRequest&,
-        DescribeRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeRoomForbiddenUserOutcome LcicClient::DescribeRoomForbiddenUser(const DescribeRoomForbiddenUserRequest &request)
@@ -2012,32 +1739,25 @@ LcicClient::DescribeRoomForbiddenUserOutcome LcicClient::DescribeRoomForbiddenUs
 
 void LcicClient::DescribeRoomForbiddenUserAsync(const DescribeRoomForbiddenUserRequest& request, const DescribeRoomForbiddenUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRoomForbiddenUserRequest&;
-    using Resp = DescribeRoomForbiddenUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoomForbiddenUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoomForbiddenUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeRoomForbiddenUserOutcomeCallable LcicClient::DescribeRoomForbiddenUserCallable(const DescribeRoomForbiddenUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRoomForbiddenUserOutcome>>();
-    DescribeRoomForbiddenUserAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeRoomForbiddenUserRequest&,
-        DescribeRoomForbiddenUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRoomForbiddenUserOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoomForbiddenUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeRoomStatisticsOutcome LcicClient::DescribeRoomStatistics(const DescribeRoomStatisticsRequest &request)
@@ -2062,32 +1782,25 @@ LcicClient::DescribeRoomStatisticsOutcome LcicClient::DescribeRoomStatistics(con
 
 void LcicClient::DescribeRoomStatisticsAsync(const DescribeRoomStatisticsRequest& request, const DescribeRoomStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRoomStatisticsRequest&;
-    using Resp = DescribeRoomStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoomStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoomStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeRoomStatisticsOutcomeCallable LcicClient::DescribeRoomStatisticsCallable(const DescribeRoomStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRoomStatisticsOutcome>>();
-    DescribeRoomStatisticsAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeRoomStatisticsRequest&,
-        DescribeRoomStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRoomStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoomStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeScoreListOutcome LcicClient::DescribeScoreList(const DescribeScoreListRequest &request)
@@ -2112,32 +1825,25 @@ LcicClient::DescribeScoreListOutcome LcicClient::DescribeScoreList(const Describ
 
 void LcicClient::DescribeScoreListAsync(const DescribeScoreListRequest& request, const DescribeScoreListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeScoreListRequest&;
-    using Resp = DescribeScoreListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeScoreList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeScoreList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeScoreListOutcomeCallable LcicClient::DescribeScoreListCallable(const DescribeScoreListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeScoreListOutcome>>();
-    DescribeScoreListAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeScoreListRequest&,
-        DescribeScoreListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeScoreListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeScoreList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeSdkAppIdUsersOutcome LcicClient::DescribeSdkAppIdUsers(const DescribeSdkAppIdUsersRequest &request)
@@ -2162,32 +1868,25 @@ LcicClient::DescribeSdkAppIdUsersOutcome LcicClient::DescribeSdkAppIdUsers(const
 
 void LcicClient::DescribeSdkAppIdUsersAsync(const DescribeSdkAppIdUsersRequest& request, const DescribeSdkAppIdUsersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSdkAppIdUsersRequest&;
-    using Resp = DescribeSdkAppIdUsersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSdkAppIdUsers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSdkAppIdUsers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeSdkAppIdUsersOutcomeCallable LcicClient::DescribeSdkAppIdUsersCallable(const DescribeSdkAppIdUsersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSdkAppIdUsersOutcome>>();
-    DescribeSdkAppIdUsersAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeSdkAppIdUsersRequest&,
-        DescribeSdkAppIdUsersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSdkAppIdUsersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSdkAppIdUsers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeSupervisorsOutcome LcicClient::DescribeSupervisors(const DescribeSupervisorsRequest &request)
@@ -2212,32 +1911,25 @@ LcicClient::DescribeSupervisorsOutcome LcicClient::DescribeSupervisors(const Des
 
 void LcicClient::DescribeSupervisorsAsync(const DescribeSupervisorsRequest& request, const DescribeSupervisorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSupervisorsRequest&;
-    using Resp = DescribeSupervisorsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSupervisors(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSupervisors", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeSupervisorsOutcomeCallable LcicClient::DescribeSupervisorsCallable(const DescribeSupervisorsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSupervisorsOutcome>>();
-    DescribeSupervisorsAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeSupervisorsRequest&,
-        DescribeSupervisorsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSupervisorsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSupervisors(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeUserOutcome LcicClient::DescribeUser(const DescribeUserRequest &request)
@@ -2262,32 +1954,25 @@ LcicClient::DescribeUserOutcome LcicClient::DescribeUser(const DescribeUserReque
 
 void LcicClient::DescribeUserAsync(const DescribeUserRequest& request, const DescribeUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserRequest&;
-    using Resp = DescribeUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeUserOutcomeCallable LcicClient::DescribeUserCallable(const DescribeUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserOutcome>>();
-    DescribeUserAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeUserRequest&,
-        DescribeUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeUserDetailOutcome LcicClient::DescribeUserDetail(const DescribeUserDetailRequest &request)
@@ -2312,32 +1997,25 @@ LcicClient::DescribeUserDetailOutcome LcicClient::DescribeUserDetail(const Descr
 
 void LcicClient::DescribeUserDetailAsync(const DescribeUserDetailRequest& request, const DescribeUserDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserDetailRequest&;
-    using Resp = DescribeUserDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeUserDetailOutcomeCallable LcicClient::DescribeUserDetailCallable(const DescribeUserDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserDetailOutcome>>();
-    DescribeUserDetailAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeUserDetailRequest&,
-        DescribeUserDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::DescribeWhiteBoardSnapshotOutcome LcicClient::DescribeWhiteBoardSnapshot(const DescribeWhiteBoardSnapshotRequest &request)
@@ -2362,32 +2040,25 @@ LcicClient::DescribeWhiteBoardSnapshotOutcome LcicClient::DescribeWhiteBoardSnap
 
 void LcicClient::DescribeWhiteBoardSnapshotAsync(const DescribeWhiteBoardSnapshotRequest& request, const DescribeWhiteBoardSnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWhiteBoardSnapshotRequest&;
-    using Resp = DescribeWhiteBoardSnapshotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWhiteBoardSnapshot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWhiteBoardSnapshot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::DescribeWhiteBoardSnapshotOutcomeCallable LcicClient::DescribeWhiteBoardSnapshotCallable(const DescribeWhiteBoardSnapshotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWhiteBoardSnapshotOutcome>>();
-    DescribeWhiteBoardSnapshotAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const DescribeWhiteBoardSnapshotRequest&,
-        DescribeWhiteBoardSnapshotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWhiteBoardSnapshotOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWhiteBoardSnapshot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::EndRoomOutcome LcicClient::EndRoom(const EndRoomRequest &request)
@@ -2412,32 +2083,25 @@ LcicClient::EndRoomOutcome LcicClient::EndRoom(const EndRoomRequest &request)
 
 void LcicClient::EndRoomAsync(const EndRoomRequest& request, const EndRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EndRoomRequest&;
-    using Resp = EndRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EndRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EndRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::EndRoomOutcomeCallable LcicClient::EndRoomCallable(const EndRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EndRoomOutcome>>();
-    EndRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const EndRoomRequest&,
-        EndRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EndRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->EndRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::ForbidSendMsgOutcome LcicClient::ForbidSendMsg(const ForbidSendMsgRequest &request)
@@ -2462,32 +2126,25 @@ LcicClient::ForbidSendMsgOutcome LcicClient::ForbidSendMsg(const ForbidSendMsgRe
 
 void LcicClient::ForbidSendMsgAsync(const ForbidSendMsgRequest& request, const ForbidSendMsgAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ForbidSendMsgRequest&;
-    using Resp = ForbidSendMsgResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ForbidSendMsg(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ForbidSendMsg", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::ForbidSendMsgOutcomeCallable LcicClient::ForbidSendMsgCallable(const ForbidSendMsgRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ForbidSendMsgOutcome>>();
-    ForbidSendMsgAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const ForbidSendMsgRequest&,
-        ForbidSendMsgOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ForbidSendMsgOutcome()>>(
+        [this, request]()
+        {
+            return this->ForbidSendMsg(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::GetRoomEventOutcome LcicClient::GetRoomEvent(const GetRoomEventRequest &request)
@@ -2512,32 +2169,25 @@ LcicClient::GetRoomEventOutcome LcicClient::GetRoomEvent(const GetRoomEventReque
 
 void LcicClient::GetRoomEventAsync(const GetRoomEventRequest& request, const GetRoomEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRoomEventRequest&;
-    using Resp = GetRoomEventResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRoomEvent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRoomEvent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::GetRoomEventOutcomeCallable LcicClient::GetRoomEventCallable(const GetRoomEventRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRoomEventOutcome>>();
-    GetRoomEventAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const GetRoomEventRequest&,
-        GetRoomEventOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRoomEventOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRoomEvent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::GetRoomMessageOutcome LcicClient::GetRoomMessage(const GetRoomMessageRequest &request)
@@ -2562,32 +2212,25 @@ LcicClient::GetRoomMessageOutcome LcicClient::GetRoomMessage(const GetRoomMessag
 
 void LcicClient::GetRoomMessageAsync(const GetRoomMessageRequest& request, const GetRoomMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRoomMessageRequest&;
-    using Resp = GetRoomMessageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRoomMessage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRoomMessage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::GetRoomMessageOutcomeCallable LcicClient::GetRoomMessageCallable(const GetRoomMessageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRoomMessageOutcome>>();
-    GetRoomMessageAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const GetRoomMessageRequest&,
-        GetRoomMessageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRoomMessageOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRoomMessage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::GetRoomsOutcome LcicClient::GetRooms(const GetRoomsRequest &request)
@@ -2612,32 +2255,25 @@ LcicClient::GetRoomsOutcome LcicClient::GetRooms(const GetRoomsRequest &request)
 
 void LcicClient::GetRoomsAsync(const GetRoomsRequest& request, const GetRoomsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRoomsRequest&;
-    using Resp = GetRoomsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRooms(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRooms", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::GetRoomsOutcomeCallable LcicClient::GetRoomsCallable(const GetRoomsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRoomsOutcome>>();
-    GetRoomsAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const GetRoomsRequest&,
-        GetRoomsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRoomsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRooms(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::GetWatermarkOutcome LcicClient::GetWatermark(const GetWatermarkRequest &request)
@@ -2662,32 +2298,25 @@ LcicClient::GetWatermarkOutcome LcicClient::GetWatermark(const GetWatermarkReque
 
 void LcicClient::GetWatermarkAsync(const GetWatermarkRequest& request, const GetWatermarkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetWatermarkRequest&;
-    using Resp = GetWatermarkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetWatermark(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetWatermark", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::GetWatermarkOutcomeCallable LcicClient::GetWatermarkCallable(const GetWatermarkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetWatermarkOutcome>>();
-    GetWatermarkAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const GetWatermarkRequest&,
-        GetWatermarkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetWatermarkOutcome()>>(
+        [this, request]()
+        {
+            return this->GetWatermark(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::KickUserFromRoomOutcome LcicClient::KickUserFromRoom(const KickUserFromRoomRequest &request)
@@ -2712,32 +2341,25 @@ LcicClient::KickUserFromRoomOutcome LcicClient::KickUserFromRoom(const KickUserF
 
 void LcicClient::KickUserFromRoomAsync(const KickUserFromRoomRequest& request, const KickUserFromRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const KickUserFromRoomRequest&;
-    using Resp = KickUserFromRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->KickUserFromRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "KickUserFromRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::KickUserFromRoomOutcomeCallable LcicClient::KickUserFromRoomCallable(const KickUserFromRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<KickUserFromRoomOutcome>>();
-    KickUserFromRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const KickUserFromRoomRequest&,
-        KickUserFromRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<KickUserFromRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->KickUserFromRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::LoginOriginIdOutcome LcicClient::LoginOriginId(const LoginOriginIdRequest &request)
@@ -2762,32 +2384,25 @@ LcicClient::LoginOriginIdOutcome LcicClient::LoginOriginId(const LoginOriginIdRe
 
 void LcicClient::LoginOriginIdAsync(const LoginOriginIdRequest& request, const LoginOriginIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const LoginOriginIdRequest&;
-    using Resp = LoginOriginIdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->LoginOriginId(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "LoginOriginId", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::LoginOriginIdOutcomeCallable LcicClient::LoginOriginIdCallable(const LoginOriginIdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<LoginOriginIdOutcome>>();
-    LoginOriginIdAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const LoginOriginIdRequest&,
-        LoginOriginIdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<LoginOriginIdOutcome()>>(
+        [this, request]()
+        {
+            return this->LoginOriginId(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::LoginUserOutcome LcicClient::LoginUser(const LoginUserRequest &request)
@@ -2812,32 +2427,25 @@ LcicClient::LoginUserOutcome LcicClient::LoginUser(const LoginUserRequest &reque
 
 void LcicClient::LoginUserAsync(const LoginUserRequest& request, const LoginUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const LoginUserRequest&;
-    using Resp = LoginUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->LoginUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "LoginUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::LoginUserOutcomeCallable LcicClient::LoginUserCallable(const LoginUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<LoginUserOutcome>>();
-    LoginUserAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const LoginUserRequest&,
-        LoginUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<LoginUserOutcome()>>(
+        [this, request]()
+        {
+            return this->LoginUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::ModifyAppOutcome LcicClient::ModifyApp(const ModifyAppRequest &request)
@@ -2862,32 +2470,25 @@ LcicClient::ModifyAppOutcome LcicClient::ModifyApp(const ModifyAppRequest &reque
 
 void LcicClient::ModifyAppAsync(const ModifyAppRequest& request, const ModifyAppAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAppRequest&;
-    using Resp = ModifyAppResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::ModifyAppOutcomeCallable LcicClient::ModifyAppCallable(const ModifyAppRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAppOutcome>>();
-    ModifyAppAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const ModifyAppRequest&,
-        ModifyAppOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAppOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::ModifyGroupOutcome LcicClient::ModifyGroup(const ModifyGroupRequest &request)
@@ -2912,32 +2513,25 @@ LcicClient::ModifyGroupOutcome LcicClient::ModifyGroup(const ModifyGroupRequest 
 
 void LcicClient::ModifyGroupAsync(const ModifyGroupRequest& request, const ModifyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGroupRequest&;
-    using Resp = ModifyGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::ModifyGroupOutcomeCallable LcicClient::ModifyGroupCallable(const ModifyGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGroupOutcome>>();
-    ModifyGroupAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const ModifyGroupRequest&,
-        ModifyGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::ModifyRoomOutcome LcicClient::ModifyRoom(const ModifyRoomRequest &request)
@@ -2962,32 +2556,25 @@ LcicClient::ModifyRoomOutcome LcicClient::ModifyRoom(const ModifyRoomRequest &re
 
 void LcicClient::ModifyRoomAsync(const ModifyRoomRequest& request, const ModifyRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRoomRequest&;
-    using Resp = ModifyRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::ModifyRoomOutcomeCallable LcicClient::ModifyRoomCallable(const ModifyRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRoomOutcome>>();
-    ModifyRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const ModifyRoomRequest&,
-        ModifyRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::ModifyUserProfileOutcome LcicClient::ModifyUserProfile(const ModifyUserProfileRequest &request)
@@ -3012,32 +2599,25 @@ LcicClient::ModifyUserProfileOutcome LcicClient::ModifyUserProfile(const ModifyU
 
 void LcicClient::ModifyUserProfileAsync(const ModifyUserProfileRequest& request, const ModifyUserProfileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserProfileRequest&;
-    using Resp = ModifyUserProfileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserProfile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserProfile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::ModifyUserProfileOutcomeCallable LcicClient::ModifyUserProfileCallable(const ModifyUserProfileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserProfileOutcome>>();
-    ModifyUserProfileAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const ModifyUserProfileRequest&,
-        ModifyUserProfileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserProfileOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserProfile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::RegisterUserOutcome LcicClient::RegisterUser(const RegisterUserRequest &request)
@@ -3062,32 +2642,25 @@ LcicClient::RegisterUserOutcome LcicClient::RegisterUser(const RegisterUserReque
 
 void LcicClient::RegisterUserAsync(const RegisterUserRequest& request, const RegisterUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RegisterUserRequest&;
-    using Resp = RegisterUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RegisterUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RegisterUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::RegisterUserOutcomeCallable LcicClient::RegisterUserCallable(const RegisterUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RegisterUserOutcome>>();
-    RegisterUserAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const RegisterUserRequest&,
-        RegisterUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RegisterUserOutcome()>>(
+        [this, request]()
+        {
+            return this->RegisterUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::SendRoomNormalMessageOutcome LcicClient::SendRoomNormalMessage(const SendRoomNormalMessageRequest &request)
@@ -3112,32 +2685,25 @@ LcicClient::SendRoomNormalMessageOutcome LcicClient::SendRoomNormalMessage(const
 
 void LcicClient::SendRoomNormalMessageAsync(const SendRoomNormalMessageRequest& request, const SendRoomNormalMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendRoomNormalMessageRequest&;
-    using Resp = SendRoomNormalMessageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendRoomNormalMessage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendRoomNormalMessage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::SendRoomNormalMessageOutcomeCallable LcicClient::SendRoomNormalMessageCallable(const SendRoomNormalMessageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendRoomNormalMessageOutcome>>();
-    SendRoomNormalMessageAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const SendRoomNormalMessageRequest&,
-        SendRoomNormalMessageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendRoomNormalMessageOutcome()>>(
+        [this, request]()
+        {
+            return this->SendRoomNormalMessage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::SendRoomNotificationMessageOutcome LcicClient::SendRoomNotificationMessage(const SendRoomNotificationMessageRequest &request)
@@ -3162,32 +2728,25 @@ LcicClient::SendRoomNotificationMessageOutcome LcicClient::SendRoomNotificationM
 
 void LcicClient::SendRoomNotificationMessageAsync(const SendRoomNotificationMessageRequest& request, const SendRoomNotificationMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendRoomNotificationMessageRequest&;
-    using Resp = SendRoomNotificationMessageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendRoomNotificationMessage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendRoomNotificationMessage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::SendRoomNotificationMessageOutcomeCallable LcicClient::SendRoomNotificationMessageCallable(const SendRoomNotificationMessageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendRoomNotificationMessageOutcome>>();
-    SendRoomNotificationMessageAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const SendRoomNotificationMessageRequest&,
-        SendRoomNotificationMessageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendRoomNotificationMessageOutcome()>>(
+        [this, request]()
+        {
+            return this->SendRoomNotificationMessage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::SetAppCustomContentOutcome LcicClient::SetAppCustomContent(const SetAppCustomContentRequest &request)
@@ -3212,32 +2771,25 @@ LcicClient::SetAppCustomContentOutcome LcicClient::SetAppCustomContent(const Set
 
 void LcicClient::SetAppCustomContentAsync(const SetAppCustomContentRequest& request, const SetAppCustomContentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetAppCustomContentRequest&;
-    using Resp = SetAppCustomContentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetAppCustomContent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetAppCustomContent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::SetAppCustomContentOutcomeCallable LcicClient::SetAppCustomContentCallable(const SetAppCustomContentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetAppCustomContentOutcome>>();
-    SetAppCustomContentAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const SetAppCustomContentRequest&,
-        SetAppCustomContentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetAppCustomContentOutcome()>>(
+        [this, request]()
+        {
+            return this->SetAppCustomContent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::SetMarqueeOutcome LcicClient::SetMarquee(const SetMarqueeRequest &request)
@@ -3262,32 +2814,25 @@ LcicClient::SetMarqueeOutcome LcicClient::SetMarquee(const SetMarqueeRequest &re
 
 void LcicClient::SetMarqueeAsync(const SetMarqueeRequest& request, const SetMarqueeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetMarqueeRequest&;
-    using Resp = SetMarqueeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetMarquee(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetMarquee", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::SetMarqueeOutcomeCallable LcicClient::SetMarqueeCallable(const SetMarqueeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetMarqueeOutcome>>();
-    SetMarqueeAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const SetMarqueeRequest&,
-        SetMarqueeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetMarqueeOutcome()>>(
+        [this, request]()
+        {
+            return this->SetMarquee(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::SetWatermarkOutcome LcicClient::SetWatermark(const SetWatermarkRequest &request)
@@ -3312,32 +2857,25 @@ LcicClient::SetWatermarkOutcome LcicClient::SetWatermark(const SetWatermarkReque
 
 void LcicClient::SetWatermarkAsync(const SetWatermarkRequest& request, const SetWatermarkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetWatermarkRequest&;
-    using Resp = SetWatermarkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetWatermark(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetWatermark", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::SetWatermarkOutcomeCallable LcicClient::SetWatermarkCallable(const SetWatermarkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetWatermarkOutcome>>();
-    SetWatermarkAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const SetWatermarkRequest&,
-        SetWatermarkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetWatermarkOutcome()>>(
+        [this, request]()
+        {
+            return this->SetWatermark(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::StartRecordOutcome LcicClient::StartRecord(const StartRecordRequest &request)
@@ -3362,32 +2900,25 @@ LcicClient::StartRecordOutcome LcicClient::StartRecord(const StartRecordRequest 
 
 void LcicClient::StartRecordAsync(const StartRecordRequest& request, const StartRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartRecordRequest&;
-    using Resp = StartRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::StartRecordOutcomeCallable LcicClient::StartRecordCallable(const StartRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartRecordOutcome>>();
-    StartRecordAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const StartRecordRequest&,
-        StartRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->StartRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::StartRoomOutcome LcicClient::StartRoom(const StartRoomRequest &request)
@@ -3412,32 +2943,25 @@ LcicClient::StartRoomOutcome LcicClient::StartRoom(const StartRoomRequest &reque
 
 void LcicClient::StartRoomAsync(const StartRoomRequest& request, const StartRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartRoomRequest&;
-    using Resp = StartRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::StartRoomOutcomeCallable LcicClient::StartRoomCallable(const StartRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartRoomOutcome>>();
-    StartRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const StartRoomRequest&,
-        StartRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->StartRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::StopRecordOutcome LcicClient::StopRecord(const StopRecordRequest &request)
@@ -3462,32 +2986,25 @@ LcicClient::StopRecordOutcome LcicClient::StopRecord(const StopRecordRequest &re
 
 void LcicClient::StopRecordAsync(const StopRecordRequest& request, const StopRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopRecordRequest&;
-    using Resp = StopRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::StopRecordOutcomeCallable LcicClient::StopRecordCallable(const StopRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopRecordOutcome>>();
-    StopRecordAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const StopRecordRequest&,
-        StopRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->StopRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::UnbindDocumentFromRoomOutcome LcicClient::UnbindDocumentFromRoom(const UnbindDocumentFromRoomRequest &request)
@@ -3512,32 +3029,25 @@ LcicClient::UnbindDocumentFromRoomOutcome LcicClient::UnbindDocumentFromRoom(con
 
 void LcicClient::UnbindDocumentFromRoomAsync(const UnbindDocumentFromRoomRequest& request, const UnbindDocumentFromRoomAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnbindDocumentFromRoomRequest&;
-    using Resp = UnbindDocumentFromRoomResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnbindDocumentFromRoom(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnbindDocumentFromRoom", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::UnbindDocumentFromRoomOutcomeCallable LcicClient::UnbindDocumentFromRoomCallable(const UnbindDocumentFromRoomRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnbindDocumentFromRoomOutcome>>();
-    UnbindDocumentFromRoomAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const UnbindDocumentFromRoomRequest&,
-        UnbindDocumentFromRoomOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnbindDocumentFromRoomOutcome()>>(
+        [this, request]()
+        {
+            return this->UnbindDocumentFromRoom(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LcicClient::UnblockKickedUserOutcome LcicClient::UnblockKickedUser(const UnblockKickedUserRequest &request)
@@ -3562,31 +3072,24 @@ LcicClient::UnblockKickedUserOutcome LcicClient::UnblockKickedUser(const Unblock
 
 void LcicClient::UnblockKickedUserAsync(const UnblockKickedUserRequest& request, const UnblockKickedUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnblockKickedUserRequest&;
-    using Resp = UnblockKickedUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnblockKickedUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnblockKickedUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LcicClient::UnblockKickedUserOutcomeCallable LcicClient::UnblockKickedUserCallable(const UnblockKickedUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnblockKickedUserOutcome>>();
-    UnblockKickedUserAsync(
-    request,
-    [prom](
-        const LcicClient*,
-        const UnblockKickedUserRequest&,
-        UnblockKickedUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnblockKickedUserOutcome()>>(
+        [this, request]()
+        {
+            return this->UnblockKickedUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

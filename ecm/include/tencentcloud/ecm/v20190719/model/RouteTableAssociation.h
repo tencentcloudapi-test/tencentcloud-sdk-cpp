@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 路由表关联关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RouteTableAssociation();
-                    ~RouteTableAssociation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

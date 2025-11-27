@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * IP线路信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IPLineInfo();
-                    ~IPLineInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

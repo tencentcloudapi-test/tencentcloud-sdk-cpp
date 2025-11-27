@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QueryTransferResultData;
+
                 /**
                 * QueryTransferResult返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RealTimeTaskInstanceNodeInfo;
+
                 /**
                 * DescribeRealTimeTaskInstanceNodeInfo返回参数结构体
                 */

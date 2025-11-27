@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 消耗按资源汇总详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ConsumptionResourceSummaryDataItem();
-                    ~ConsumptionResourceSummaryDataItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceTag;
+                class DBParamValue;
+
                 /**
                 * CreateDedicatedClusterDCDBInstance请求参数结构体
                 */

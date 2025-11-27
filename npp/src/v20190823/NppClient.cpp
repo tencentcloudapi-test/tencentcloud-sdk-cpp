@@ -62,32 +62,25 @@ NppClient::CreateCallBackOutcome NppClient::CreateCallBack(const CreateCallBackR
 
 void NppClient::CreateCallBackAsync(const CreateCallBackRequest& request, const CreateCallBackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCallBackRequest&;
-    using Resp = CreateCallBackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCallBack(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCallBack", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 NppClient::CreateCallBackOutcomeCallable NppClient::CreateCallBackCallable(const CreateCallBackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCallBackOutcome>>();
-    CreateCallBackAsync(
-    request,
-    [prom](
-        const NppClient*,
-        const CreateCallBackRequest&,
-        CreateCallBackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCallBackOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCallBack(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 NppClient::DelVirtualNumOutcome NppClient::DelVirtualNum(const DelVirtualNumRequest &request)
@@ -112,32 +105,25 @@ NppClient::DelVirtualNumOutcome NppClient::DelVirtualNum(const DelVirtualNumRequ
 
 void NppClient::DelVirtualNumAsync(const DelVirtualNumRequest& request, const DelVirtualNumAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DelVirtualNumRequest&;
-    using Resp = DelVirtualNumResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DelVirtualNum(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DelVirtualNum", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 NppClient::DelVirtualNumOutcomeCallable NppClient::DelVirtualNumCallable(const DelVirtualNumRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DelVirtualNumOutcome>>();
-    DelVirtualNumAsync(
-    request,
-    [prom](
-        const NppClient*,
-        const DelVirtualNumRequest&,
-        DelVirtualNumOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DelVirtualNumOutcome()>>(
+        [this, request]()
+        {
+            return this->DelVirtualNum(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 NppClient::DeleteCallBackOutcome NppClient::DeleteCallBack(const DeleteCallBackRequest &request)
@@ -162,32 +148,25 @@ NppClient::DeleteCallBackOutcome NppClient::DeleteCallBack(const DeleteCallBackR
 
 void NppClient::DeleteCallBackAsync(const DeleteCallBackRequest& request, const DeleteCallBackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCallBackRequest&;
-    using Resp = DeleteCallBackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCallBack(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCallBack", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 NppClient::DeleteCallBackOutcomeCallable NppClient::DeleteCallBackCallable(const DeleteCallBackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCallBackOutcome>>();
-    DeleteCallBackAsync(
-    request,
-    [prom](
-        const NppClient*,
-        const DeleteCallBackRequest&,
-        DeleteCallBackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCallBackOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCallBack(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 NppClient::DescribeCallBackCdrOutcome NppClient::DescribeCallBackCdr(const DescribeCallBackCdrRequest &request)
@@ -212,32 +191,25 @@ NppClient::DescribeCallBackCdrOutcome NppClient::DescribeCallBackCdr(const Descr
 
 void NppClient::DescribeCallBackCdrAsync(const DescribeCallBackCdrRequest& request, const DescribeCallBackCdrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCallBackCdrRequest&;
-    using Resp = DescribeCallBackCdrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCallBackCdr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCallBackCdr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 NppClient::DescribeCallBackCdrOutcomeCallable NppClient::DescribeCallBackCdrCallable(const DescribeCallBackCdrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCallBackCdrOutcome>>();
-    DescribeCallBackCdrAsync(
-    request,
-    [prom](
-        const NppClient*,
-        const DescribeCallBackCdrRequest&,
-        DescribeCallBackCdrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCallBackCdrOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCallBackCdr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 NppClient::DescribeCallBackStatusOutcome NppClient::DescribeCallBackStatus(const DescribeCallBackStatusRequest &request)
@@ -262,32 +234,25 @@ NppClient::DescribeCallBackStatusOutcome NppClient::DescribeCallBackStatus(const
 
 void NppClient::DescribeCallBackStatusAsync(const DescribeCallBackStatusRequest& request, const DescribeCallBackStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCallBackStatusRequest&;
-    using Resp = DescribeCallBackStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCallBackStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCallBackStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 NppClient::DescribeCallBackStatusOutcomeCallable NppClient::DescribeCallBackStatusCallable(const DescribeCallBackStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCallBackStatusOutcome>>();
-    DescribeCallBackStatusAsync(
-    request,
-    [prom](
-        const NppClient*,
-        const DescribeCallBackStatusRequest&,
-        DescribeCallBackStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCallBackStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCallBackStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 NppClient::DescribeCallerDisplayListOutcome NppClient::DescribeCallerDisplayList(const DescribeCallerDisplayListRequest &request)
@@ -312,32 +277,25 @@ NppClient::DescribeCallerDisplayListOutcome NppClient::DescribeCallerDisplayList
 
 void NppClient::DescribeCallerDisplayListAsync(const DescribeCallerDisplayListRequest& request, const DescribeCallerDisplayListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCallerDisplayListRequest&;
-    using Resp = DescribeCallerDisplayListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCallerDisplayList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCallerDisplayList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 NppClient::DescribeCallerDisplayListOutcomeCallable NppClient::DescribeCallerDisplayListCallable(const DescribeCallerDisplayListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCallerDisplayListOutcome>>();
-    DescribeCallerDisplayListAsync(
-    request,
-    [prom](
-        const NppClient*,
-        const DescribeCallerDisplayListRequest&,
-        DescribeCallerDisplayListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCallerDisplayListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCallerDisplayList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 NppClient::Get400CdrOutcome NppClient::Get400Cdr(const Get400CdrRequest &request)
@@ -362,32 +320,25 @@ NppClient::Get400CdrOutcome NppClient::Get400Cdr(const Get400CdrRequest &request
 
 void NppClient::Get400CdrAsync(const Get400CdrRequest& request, const Get400CdrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const Get400CdrRequest&;
-    using Resp = Get400CdrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->Get400Cdr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "Get400Cdr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 NppClient::Get400CdrOutcomeCallable NppClient::Get400CdrCallable(const Get400CdrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<Get400CdrOutcome>>();
-    Get400CdrAsync(
-    request,
-    [prom](
-        const NppClient*,
-        const Get400CdrRequest&,
-        Get400CdrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<Get400CdrOutcome()>>(
+        [this, request]()
+        {
+            return this->Get400Cdr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 NppClient::GetVirtualNumOutcome NppClient::GetVirtualNum(const GetVirtualNumRequest &request)
@@ -412,31 +363,24 @@ NppClient::GetVirtualNumOutcome NppClient::GetVirtualNum(const GetVirtualNumRequ
 
 void NppClient::GetVirtualNumAsync(const GetVirtualNumRequest& request, const GetVirtualNumAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetVirtualNumRequest&;
-    using Resp = GetVirtualNumResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetVirtualNum(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetVirtualNum", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 NppClient::GetVirtualNumOutcomeCallable NppClient::GetVirtualNumCallable(const GetVirtualNumRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetVirtualNumOutcome>>();
-    GetVirtualNumAsync(
-    request,
-    [prom](
-        const NppClient*,
-        const GetVirtualNumRequest&,
-        GetVirtualNumOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetVirtualNumOutcome()>>(
+        [this, request]()
+        {
+            return this->GetVirtualNum(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

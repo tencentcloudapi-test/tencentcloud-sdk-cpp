@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 成员和子账号的授权关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OrgMemberAuthAccount();
-                    ~OrgMemberAuthAccount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

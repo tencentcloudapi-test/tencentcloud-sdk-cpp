@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 流程签署二维码的签署信息，适用于客户系统整合二维码功能。
 通过链接，用户可直接访问电子签名小程序并签署合同。
@@ -42,7 +43,6 @@ namespace TencentCloud
                 {
                 public:
                     SignUrl();
-                    ~SignUrl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

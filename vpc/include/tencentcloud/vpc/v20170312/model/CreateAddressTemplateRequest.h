@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AddressInfo;
+                class Tag;
+
                 /**
                 * CreateAddressTemplate请求参数结构体
                 */

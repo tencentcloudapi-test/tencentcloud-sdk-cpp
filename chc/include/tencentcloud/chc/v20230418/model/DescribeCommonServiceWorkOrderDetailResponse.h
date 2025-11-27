@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrderStep;
+                class CommonServiceBaseInfo;
+                class DevicePosition;
+
                 /**
                 * DescribeCommonServiceWorkOrderDetail返回参数结构体
                 */

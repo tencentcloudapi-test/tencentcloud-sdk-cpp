@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Windows事件日志采集配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EventLog();
-                    ~EventLog() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

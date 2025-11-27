@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * waf斯巴达-编辑防护域名中的端口结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpartaProtectionPort();
-                    ~SpartaProtectionPort() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BizCatalogsInfo;
+
                 /**
                 * DescribeBaseBizCatalogs返回参数结构体
                 */

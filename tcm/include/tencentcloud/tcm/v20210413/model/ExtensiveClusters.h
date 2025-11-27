@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExtensiveCluster;
+
                 /**
                 * 内网独占集群配置列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ExtensiveClusters();
-                    ~ExtensiveClusters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Caller;
+
                 /**
                 * DescribeCatalogSignComponents请求参数结构体
                 */

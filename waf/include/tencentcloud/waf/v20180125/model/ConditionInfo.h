@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 免鉴权条件信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ConditionInfo();
-                    ~ConditionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

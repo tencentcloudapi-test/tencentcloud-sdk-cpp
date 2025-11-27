@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CreateRedInvoiceV2请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 片头片尾识别结果项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OpeningEndingTaskResultItem();
-                    ~OpeningEndingTaskResultItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

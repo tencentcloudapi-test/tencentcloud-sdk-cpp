@@ -62,32 +62,25 @@ TioneClient::ChatCompletionOutcome TioneClient::ChatCompletion(const ChatComplet
 
 void TioneClient::ChatCompletionAsync(const ChatCompletionRequest& request, const ChatCompletionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChatCompletionRequest&;
-    using Resp = ChatCompletionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChatCompletion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChatCompletion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::ChatCompletionOutcomeCallable TioneClient::ChatCompletionCallable(const ChatCompletionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChatCompletionOutcome>>();
-    ChatCompletionAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const ChatCompletionRequest&,
-        ChatCompletionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChatCompletionOutcome()>>(
+        [this, request]()
+        {
+            return this->ChatCompletion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateDatasetOutcome TioneClient::CreateDataset(const CreateDatasetRequest &request)
@@ -112,32 +105,25 @@ TioneClient::CreateDatasetOutcome TioneClient::CreateDataset(const CreateDataset
 
 void TioneClient::CreateDatasetAsync(const CreateDatasetRequest& request, const CreateDatasetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDatasetRequest&;
-    using Resp = CreateDatasetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDataset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDataset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateDatasetOutcomeCallable TioneClient::CreateDatasetCallable(const CreateDatasetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDatasetOutcome>>();
-    CreateDatasetAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateDatasetRequest&,
-        CreateDatasetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDatasetOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDataset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateExportOutcome TioneClient::CreateExport(const CreateExportRequest &request)
@@ -162,32 +148,25 @@ TioneClient::CreateExportOutcome TioneClient::CreateExport(const CreateExportReq
 
 void TioneClient::CreateExportAsync(const CreateExportRequest& request, const CreateExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateExportRequest&;
-    using Resp = CreateExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateExportOutcomeCallable TioneClient::CreateExportCallable(const CreateExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateExportOutcome>>();
-    CreateExportAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateExportRequest&,
-        CreateExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateExportOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateModelServiceOutcome TioneClient::CreateModelService(const CreateModelServiceRequest &request)
@@ -212,32 +191,25 @@ TioneClient::CreateModelServiceOutcome TioneClient::CreateModelService(const Cre
 
 void TioneClient::CreateModelServiceAsync(const CreateModelServiceRequest& request, const CreateModelServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateModelServiceRequest&;
-    using Resp = CreateModelServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateModelService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateModelService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateModelServiceOutcomeCallable TioneClient::CreateModelServiceCallable(const CreateModelServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateModelServiceOutcome>>();
-    CreateModelServiceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateModelServiceRequest&,
-        CreateModelServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateModelServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateModelService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateModelServiceAuthTokenOutcome TioneClient::CreateModelServiceAuthToken(const CreateModelServiceAuthTokenRequest &request)
@@ -262,32 +234,25 @@ TioneClient::CreateModelServiceAuthTokenOutcome TioneClient::CreateModelServiceA
 
 void TioneClient::CreateModelServiceAuthTokenAsync(const CreateModelServiceAuthTokenRequest& request, const CreateModelServiceAuthTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateModelServiceAuthTokenRequest&;
-    using Resp = CreateModelServiceAuthTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateModelServiceAuthToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateModelServiceAuthToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateModelServiceAuthTokenOutcomeCallable TioneClient::CreateModelServiceAuthTokenCallable(const CreateModelServiceAuthTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateModelServiceAuthTokenOutcome>>();
-    CreateModelServiceAuthTokenAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateModelServiceAuthTokenRequest&,
-        CreateModelServiceAuthTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateModelServiceAuthTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateModelServiceAuthToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateNotebookOutcome TioneClient::CreateNotebook(const CreateNotebookRequest &request)
@@ -312,32 +277,25 @@ TioneClient::CreateNotebookOutcome TioneClient::CreateNotebook(const CreateNoteb
 
 void TioneClient::CreateNotebookAsync(const CreateNotebookRequest& request, const CreateNotebookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNotebookRequest&;
-    using Resp = CreateNotebookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNotebook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNotebook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateNotebookOutcomeCallable TioneClient::CreateNotebookCallable(const CreateNotebookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNotebookOutcome>>();
-    CreateNotebookAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateNotebookRequest&,
-        CreateNotebookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNotebookOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNotebook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreatePresignedNotebookUrlOutcome TioneClient::CreatePresignedNotebookUrl(const CreatePresignedNotebookUrlRequest &request)
@@ -362,32 +320,25 @@ TioneClient::CreatePresignedNotebookUrlOutcome TioneClient::CreatePresignedNoteb
 
 void TioneClient::CreatePresignedNotebookUrlAsync(const CreatePresignedNotebookUrlRequest& request, const CreatePresignedNotebookUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePresignedNotebookUrlRequest&;
-    using Resp = CreatePresignedNotebookUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePresignedNotebookUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePresignedNotebookUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreatePresignedNotebookUrlOutcomeCallable TioneClient::CreatePresignedNotebookUrlCallable(const CreatePresignedNotebookUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePresignedNotebookUrlOutcome>>();
-    CreatePresignedNotebookUrlAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreatePresignedNotebookUrlRequest&,
-        CreatePresignedNotebookUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePresignedNotebookUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePresignedNotebookUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateTrainingModelOutcome TioneClient::CreateTrainingModel(const CreateTrainingModelRequest &request)
@@ -412,32 +363,25 @@ TioneClient::CreateTrainingModelOutcome TioneClient::CreateTrainingModel(const C
 
 void TioneClient::CreateTrainingModelAsync(const CreateTrainingModelRequest& request, const CreateTrainingModelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTrainingModelRequest&;
-    using Resp = CreateTrainingModelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTrainingModel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTrainingModel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateTrainingModelOutcomeCallable TioneClient::CreateTrainingModelCallable(const CreateTrainingModelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTrainingModelOutcome>>();
-    CreateTrainingModelAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateTrainingModelRequest&,
-        CreateTrainingModelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTrainingModelOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTrainingModel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateTrainingTaskOutcome TioneClient::CreateTrainingTask(const CreateTrainingTaskRequest &request)
@@ -462,32 +406,25 @@ TioneClient::CreateTrainingTaskOutcome TioneClient::CreateTrainingTask(const Cre
 
 void TioneClient::CreateTrainingTaskAsync(const CreateTrainingTaskRequest& request, const CreateTrainingTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTrainingTaskRequest&;
-    using Resp = CreateTrainingTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTrainingTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTrainingTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateTrainingTaskOutcomeCallable TioneClient::CreateTrainingTaskCallable(const CreateTrainingTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTrainingTaskOutcome>>();
-    CreateTrainingTaskAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateTrainingTaskRequest&,
-        CreateTrainingTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTrainingTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTrainingTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteDatasetOutcome TioneClient::DeleteDataset(const DeleteDatasetRequest &request)
@@ -512,32 +449,25 @@ TioneClient::DeleteDatasetOutcome TioneClient::DeleteDataset(const DeleteDataset
 
 void TioneClient::DeleteDatasetAsync(const DeleteDatasetRequest& request, const DeleteDatasetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDatasetRequest&;
-    using Resp = DeleteDatasetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDataset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDataset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteDatasetOutcomeCallable TioneClient::DeleteDatasetCallable(const DeleteDatasetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDatasetOutcome>>();
-    DeleteDatasetAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteDatasetRequest&,
-        DeleteDatasetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDatasetOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDataset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteExportOutcome TioneClient::DeleteExport(const DeleteExportRequest &request)
@@ -562,32 +492,25 @@ TioneClient::DeleteExportOutcome TioneClient::DeleteExport(const DeleteExportReq
 
 void TioneClient::DeleteExportAsync(const DeleteExportRequest& request, const DeleteExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteExportRequest&;
-    using Resp = DeleteExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteExportOutcomeCallable TioneClient::DeleteExportCallable(const DeleteExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteExportOutcome>>();
-    DeleteExportAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteExportRequest&,
-        DeleteExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteExportOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteModelServiceOutcome TioneClient::DeleteModelService(const DeleteModelServiceRequest &request)
@@ -612,32 +535,25 @@ TioneClient::DeleteModelServiceOutcome TioneClient::DeleteModelService(const Del
 
 void TioneClient::DeleteModelServiceAsync(const DeleteModelServiceRequest& request, const DeleteModelServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteModelServiceRequest&;
-    using Resp = DeleteModelServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteModelService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteModelService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteModelServiceOutcomeCallable TioneClient::DeleteModelServiceCallable(const DeleteModelServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteModelServiceOutcome>>();
-    DeleteModelServiceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteModelServiceRequest&,
-        DeleteModelServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteModelServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteModelService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteModelServiceAuthTokenOutcome TioneClient::DeleteModelServiceAuthToken(const DeleteModelServiceAuthTokenRequest &request)
@@ -662,32 +578,25 @@ TioneClient::DeleteModelServiceAuthTokenOutcome TioneClient::DeleteModelServiceA
 
 void TioneClient::DeleteModelServiceAuthTokenAsync(const DeleteModelServiceAuthTokenRequest& request, const DeleteModelServiceAuthTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteModelServiceAuthTokenRequest&;
-    using Resp = DeleteModelServiceAuthTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteModelServiceAuthToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteModelServiceAuthToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteModelServiceAuthTokenOutcomeCallable TioneClient::DeleteModelServiceAuthTokenCallable(const DeleteModelServiceAuthTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteModelServiceAuthTokenOutcome>>();
-    DeleteModelServiceAuthTokenAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteModelServiceAuthTokenRequest&,
-        DeleteModelServiceAuthTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteModelServiceAuthTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteModelServiceAuthToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteModelServiceGroupOutcome TioneClient::DeleteModelServiceGroup(const DeleteModelServiceGroupRequest &request)
@@ -712,32 +621,25 @@ TioneClient::DeleteModelServiceGroupOutcome TioneClient::DeleteModelServiceGroup
 
 void TioneClient::DeleteModelServiceGroupAsync(const DeleteModelServiceGroupRequest& request, const DeleteModelServiceGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteModelServiceGroupRequest&;
-    using Resp = DeleteModelServiceGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteModelServiceGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteModelServiceGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteModelServiceGroupOutcomeCallable TioneClient::DeleteModelServiceGroupCallable(const DeleteModelServiceGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteModelServiceGroupOutcome>>();
-    DeleteModelServiceGroupAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteModelServiceGroupRequest&,
-        DeleteModelServiceGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteModelServiceGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteModelServiceGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteNotebookOutcome TioneClient::DeleteNotebook(const DeleteNotebookRequest &request)
@@ -762,32 +664,25 @@ TioneClient::DeleteNotebookOutcome TioneClient::DeleteNotebook(const DeleteNoteb
 
 void TioneClient::DeleteNotebookAsync(const DeleteNotebookRequest& request, const DeleteNotebookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNotebookRequest&;
-    using Resp = DeleteNotebookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNotebook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNotebook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteNotebookOutcomeCallable TioneClient::DeleteNotebookCallable(const DeleteNotebookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNotebookOutcome>>();
-    DeleteNotebookAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteNotebookRequest&,
-        DeleteNotebookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNotebookOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNotebook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteTrainingModelOutcome TioneClient::DeleteTrainingModel(const DeleteTrainingModelRequest &request)
@@ -812,32 +707,25 @@ TioneClient::DeleteTrainingModelOutcome TioneClient::DeleteTrainingModel(const D
 
 void TioneClient::DeleteTrainingModelAsync(const DeleteTrainingModelRequest& request, const DeleteTrainingModelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTrainingModelRequest&;
-    using Resp = DeleteTrainingModelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTrainingModel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTrainingModel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteTrainingModelOutcomeCallable TioneClient::DeleteTrainingModelCallable(const DeleteTrainingModelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTrainingModelOutcome>>();
-    DeleteTrainingModelAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteTrainingModelRequest&,
-        DeleteTrainingModelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTrainingModelOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTrainingModel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteTrainingModelVersionOutcome TioneClient::DeleteTrainingModelVersion(const DeleteTrainingModelVersionRequest &request)
@@ -862,32 +750,25 @@ TioneClient::DeleteTrainingModelVersionOutcome TioneClient::DeleteTrainingModelV
 
 void TioneClient::DeleteTrainingModelVersionAsync(const DeleteTrainingModelVersionRequest& request, const DeleteTrainingModelVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTrainingModelVersionRequest&;
-    using Resp = DeleteTrainingModelVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTrainingModelVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTrainingModelVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteTrainingModelVersionOutcomeCallable TioneClient::DeleteTrainingModelVersionCallable(const DeleteTrainingModelVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTrainingModelVersionOutcome>>();
-    DeleteTrainingModelVersionAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteTrainingModelVersionRequest&,
-        DeleteTrainingModelVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTrainingModelVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTrainingModelVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteTrainingTaskOutcome TioneClient::DeleteTrainingTask(const DeleteTrainingTaskRequest &request)
@@ -912,32 +793,25 @@ TioneClient::DeleteTrainingTaskOutcome TioneClient::DeleteTrainingTask(const Del
 
 void TioneClient::DeleteTrainingTaskAsync(const DeleteTrainingTaskRequest& request, const DeleteTrainingTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTrainingTaskRequest&;
-    using Resp = DeleteTrainingTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTrainingTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTrainingTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteTrainingTaskOutcomeCallable TioneClient::DeleteTrainingTaskCallable(const DeleteTrainingTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTrainingTaskOutcome>>();
-    DeleteTrainingTaskAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteTrainingTaskRequest&,
-        DeleteTrainingTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTrainingTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTrainingTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeBillingResourceGroupOutcome TioneClient::DescribeBillingResourceGroup(const DescribeBillingResourceGroupRequest &request)
@@ -962,32 +836,25 @@ TioneClient::DescribeBillingResourceGroupOutcome TioneClient::DescribeBillingRes
 
 void TioneClient::DescribeBillingResourceGroupAsync(const DescribeBillingResourceGroupRequest& request, const DescribeBillingResourceGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBillingResourceGroupRequest&;
-    using Resp = DescribeBillingResourceGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBillingResourceGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBillingResourceGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeBillingResourceGroupOutcomeCallable TioneClient::DescribeBillingResourceGroupCallable(const DescribeBillingResourceGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBillingResourceGroupOutcome>>();
-    DescribeBillingResourceGroupAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeBillingResourceGroupRequest&,
-        DescribeBillingResourceGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBillingResourceGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBillingResourceGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeBillingResourceGroupsOutcome TioneClient::DescribeBillingResourceGroups(const DescribeBillingResourceGroupsRequest &request)
@@ -1012,32 +879,25 @@ TioneClient::DescribeBillingResourceGroupsOutcome TioneClient::DescribeBillingRe
 
 void TioneClient::DescribeBillingResourceGroupsAsync(const DescribeBillingResourceGroupsRequest& request, const DescribeBillingResourceGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBillingResourceGroupsRequest&;
-    using Resp = DescribeBillingResourceGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBillingResourceGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBillingResourceGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeBillingResourceGroupsOutcomeCallable TioneClient::DescribeBillingResourceGroupsCallable(const DescribeBillingResourceGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBillingResourceGroupsOutcome>>();
-    DescribeBillingResourceGroupsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeBillingResourceGroupsRequest&,
-        DescribeBillingResourceGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBillingResourceGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBillingResourceGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeBillingResourceInstanceRunningJobsOutcome TioneClient::DescribeBillingResourceInstanceRunningJobs(const DescribeBillingResourceInstanceRunningJobsRequest &request)
@@ -1062,32 +922,25 @@ TioneClient::DescribeBillingResourceInstanceRunningJobsOutcome TioneClient::Desc
 
 void TioneClient::DescribeBillingResourceInstanceRunningJobsAsync(const DescribeBillingResourceInstanceRunningJobsRequest& request, const DescribeBillingResourceInstanceRunningJobsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBillingResourceInstanceRunningJobsRequest&;
-    using Resp = DescribeBillingResourceInstanceRunningJobsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBillingResourceInstanceRunningJobs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBillingResourceInstanceRunningJobs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeBillingResourceInstanceRunningJobsOutcomeCallable TioneClient::DescribeBillingResourceInstanceRunningJobsCallable(const DescribeBillingResourceInstanceRunningJobsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBillingResourceInstanceRunningJobsOutcome>>();
-    DescribeBillingResourceInstanceRunningJobsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeBillingResourceInstanceRunningJobsRequest&,
-        DescribeBillingResourceInstanceRunningJobsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBillingResourceInstanceRunningJobsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBillingResourceInstanceRunningJobs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeBillingSpecsOutcome TioneClient::DescribeBillingSpecs(const DescribeBillingSpecsRequest &request)
@@ -1112,32 +965,25 @@ TioneClient::DescribeBillingSpecsOutcome TioneClient::DescribeBillingSpecs(const
 
 void TioneClient::DescribeBillingSpecsAsync(const DescribeBillingSpecsRequest& request, const DescribeBillingSpecsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBillingSpecsRequest&;
-    using Resp = DescribeBillingSpecsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBillingSpecs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBillingSpecs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeBillingSpecsOutcomeCallable TioneClient::DescribeBillingSpecsCallable(const DescribeBillingSpecsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBillingSpecsOutcome>>();
-    DescribeBillingSpecsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeBillingSpecsRequest&,
-        DescribeBillingSpecsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBillingSpecsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBillingSpecs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeBillingSpecsPriceOutcome TioneClient::DescribeBillingSpecsPrice(const DescribeBillingSpecsPriceRequest &request)
@@ -1162,32 +1008,25 @@ TioneClient::DescribeBillingSpecsPriceOutcome TioneClient::DescribeBillingSpecsP
 
 void TioneClient::DescribeBillingSpecsPriceAsync(const DescribeBillingSpecsPriceRequest& request, const DescribeBillingSpecsPriceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBillingSpecsPriceRequest&;
-    using Resp = DescribeBillingSpecsPriceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBillingSpecsPrice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBillingSpecsPrice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeBillingSpecsPriceOutcomeCallable TioneClient::DescribeBillingSpecsPriceCallable(const DescribeBillingSpecsPriceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBillingSpecsPriceOutcome>>();
-    DescribeBillingSpecsPriceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeBillingSpecsPriceRequest&,
-        DescribeBillingSpecsPriceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBillingSpecsPriceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBillingSpecsPrice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeBuildInImagesOutcome TioneClient::DescribeBuildInImages(const DescribeBuildInImagesRequest &request)
@@ -1212,32 +1051,25 @@ TioneClient::DescribeBuildInImagesOutcome TioneClient::DescribeBuildInImages(con
 
 void TioneClient::DescribeBuildInImagesAsync(const DescribeBuildInImagesRequest& request, const DescribeBuildInImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBuildInImagesRequest&;
-    using Resp = DescribeBuildInImagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBuildInImages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBuildInImages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeBuildInImagesOutcomeCallable TioneClient::DescribeBuildInImagesCallable(const DescribeBuildInImagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBuildInImagesOutcome>>();
-    DescribeBuildInImagesAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeBuildInImagesRequest&,
-        DescribeBuildInImagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBuildInImagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBuildInImages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeDatasetsOutcome TioneClient::DescribeDatasets(const DescribeDatasetsRequest &request)
@@ -1262,32 +1094,25 @@ TioneClient::DescribeDatasetsOutcome TioneClient::DescribeDatasets(const Describ
 
 void TioneClient::DescribeDatasetsAsync(const DescribeDatasetsRequest& request, const DescribeDatasetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDatasetsRequest&;
-    using Resp = DescribeDatasetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDatasets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatasets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeDatasetsOutcomeCallable TioneClient::DescribeDatasetsCallable(const DescribeDatasetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDatasetsOutcome>>();
-    DescribeDatasetsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeDatasetsRequest&,
-        DescribeDatasetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDatasetsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDatasets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeEventsOutcome TioneClient::DescribeEvents(const DescribeEventsRequest &request)
@@ -1312,32 +1137,25 @@ TioneClient::DescribeEventsOutcome TioneClient::DescribeEvents(const DescribeEve
 
 void TioneClient::DescribeEventsAsync(const DescribeEventsRequest& request, const DescribeEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEventsRequest&;
-    using Resp = DescribeEventsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEvents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEvents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeEventsOutcomeCallable TioneClient::DescribeEventsCallable(const DescribeEventsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEventsOutcome>>();
-    DescribeEventsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeEventsRequest&,
-        DescribeEventsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEventsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEvents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeExportOutcome TioneClient::DescribeExport(const DescribeExportRequest &request)
@@ -1362,32 +1180,25 @@ TioneClient::DescribeExportOutcome TioneClient::DescribeExport(const DescribeExp
 
 void TioneClient::DescribeExportAsync(const DescribeExportRequest& request, const DescribeExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExportRequest&;
-    using Resp = DescribeExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeExportOutcomeCallable TioneClient::DescribeExportCallable(const DescribeExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExportOutcome>>();
-    DescribeExportAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeExportRequest&,
-        DescribeExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExportOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeInferTemplatesOutcome TioneClient::DescribeInferTemplates(const DescribeInferTemplatesRequest &request)
@@ -1412,32 +1223,25 @@ TioneClient::DescribeInferTemplatesOutcome TioneClient::DescribeInferTemplates(c
 
 void TioneClient::DescribeInferTemplatesAsync(const DescribeInferTemplatesRequest& request, const DescribeInferTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInferTemplatesRequest&;
-    using Resp = DescribeInferTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInferTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInferTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeInferTemplatesOutcomeCallable TioneClient::DescribeInferTemplatesCallable(const DescribeInferTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInferTemplatesOutcome>>();
-    DescribeInferTemplatesAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeInferTemplatesRequest&,
-        DescribeInferTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInferTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInferTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeLogsOutcome TioneClient::DescribeLogs(const DescribeLogsRequest &request)
@@ -1462,32 +1266,25 @@ TioneClient::DescribeLogsOutcome TioneClient::DescribeLogs(const DescribeLogsReq
 
 void TioneClient::DescribeLogsAsync(const DescribeLogsRequest& request, const DescribeLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLogsRequest&;
-    using Resp = DescribeLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeLogsOutcomeCallable TioneClient::DescribeLogsCallable(const DescribeLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLogsOutcome>>();
-    DescribeLogsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeLogsRequest&,
-        DescribeLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeModelAccelerateTaskOutcome TioneClient::DescribeModelAccelerateTask(const DescribeModelAccelerateTaskRequest &request)
@@ -1512,32 +1309,25 @@ TioneClient::DescribeModelAccelerateTaskOutcome TioneClient::DescribeModelAccele
 
 void TioneClient::DescribeModelAccelerateTaskAsync(const DescribeModelAccelerateTaskRequest& request, const DescribeModelAccelerateTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModelAccelerateTaskRequest&;
-    using Resp = DescribeModelAccelerateTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModelAccelerateTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModelAccelerateTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeModelAccelerateTaskOutcomeCallable TioneClient::DescribeModelAccelerateTaskCallable(const DescribeModelAccelerateTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModelAccelerateTaskOutcome>>();
-    DescribeModelAccelerateTaskAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeModelAccelerateTaskRequest&,
-        DescribeModelAccelerateTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModelAccelerateTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModelAccelerateTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeModelAccelerateVersionsOutcome TioneClient::DescribeModelAccelerateVersions(const DescribeModelAccelerateVersionsRequest &request)
@@ -1562,32 +1352,25 @@ TioneClient::DescribeModelAccelerateVersionsOutcome TioneClient::DescribeModelAc
 
 void TioneClient::DescribeModelAccelerateVersionsAsync(const DescribeModelAccelerateVersionsRequest& request, const DescribeModelAccelerateVersionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModelAccelerateVersionsRequest&;
-    using Resp = DescribeModelAccelerateVersionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModelAccelerateVersions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModelAccelerateVersions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeModelAccelerateVersionsOutcomeCallable TioneClient::DescribeModelAccelerateVersionsCallable(const DescribeModelAccelerateVersionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModelAccelerateVersionsOutcome>>();
-    DescribeModelAccelerateVersionsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeModelAccelerateVersionsRequest&,
-        DescribeModelAccelerateVersionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModelAccelerateVersionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModelAccelerateVersions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeModelServiceOutcome TioneClient::DescribeModelService(const DescribeModelServiceRequest &request)
@@ -1612,32 +1395,25 @@ TioneClient::DescribeModelServiceOutcome TioneClient::DescribeModelService(const
 
 void TioneClient::DescribeModelServiceAsync(const DescribeModelServiceRequest& request, const DescribeModelServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModelServiceRequest&;
-    using Resp = DescribeModelServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModelService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModelService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeModelServiceOutcomeCallable TioneClient::DescribeModelServiceCallable(const DescribeModelServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModelServiceOutcome>>();
-    DescribeModelServiceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeModelServiceRequest&,
-        DescribeModelServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModelServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModelService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeModelServiceCallInfoOutcome TioneClient::DescribeModelServiceCallInfo(const DescribeModelServiceCallInfoRequest &request)
@@ -1662,32 +1438,25 @@ TioneClient::DescribeModelServiceCallInfoOutcome TioneClient::DescribeModelServi
 
 void TioneClient::DescribeModelServiceCallInfoAsync(const DescribeModelServiceCallInfoRequest& request, const DescribeModelServiceCallInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModelServiceCallInfoRequest&;
-    using Resp = DescribeModelServiceCallInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModelServiceCallInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModelServiceCallInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeModelServiceCallInfoOutcomeCallable TioneClient::DescribeModelServiceCallInfoCallable(const DescribeModelServiceCallInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModelServiceCallInfoOutcome>>();
-    DescribeModelServiceCallInfoAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeModelServiceCallInfoRequest&,
-        DescribeModelServiceCallInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModelServiceCallInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModelServiceCallInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeModelServiceGroupOutcome TioneClient::DescribeModelServiceGroup(const DescribeModelServiceGroupRequest &request)
@@ -1712,32 +1481,25 @@ TioneClient::DescribeModelServiceGroupOutcome TioneClient::DescribeModelServiceG
 
 void TioneClient::DescribeModelServiceGroupAsync(const DescribeModelServiceGroupRequest& request, const DescribeModelServiceGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModelServiceGroupRequest&;
-    using Resp = DescribeModelServiceGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModelServiceGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModelServiceGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeModelServiceGroupOutcomeCallable TioneClient::DescribeModelServiceGroupCallable(const DescribeModelServiceGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModelServiceGroupOutcome>>();
-    DescribeModelServiceGroupAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeModelServiceGroupRequest&,
-        DescribeModelServiceGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModelServiceGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModelServiceGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeModelServiceGroupsOutcome TioneClient::DescribeModelServiceGroups(const DescribeModelServiceGroupsRequest &request)
@@ -1762,32 +1524,25 @@ TioneClient::DescribeModelServiceGroupsOutcome TioneClient::DescribeModelService
 
 void TioneClient::DescribeModelServiceGroupsAsync(const DescribeModelServiceGroupsRequest& request, const DescribeModelServiceGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModelServiceGroupsRequest&;
-    using Resp = DescribeModelServiceGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModelServiceGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModelServiceGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeModelServiceGroupsOutcomeCallable TioneClient::DescribeModelServiceGroupsCallable(const DescribeModelServiceGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModelServiceGroupsOutcome>>();
-    DescribeModelServiceGroupsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeModelServiceGroupsRequest&,
-        DescribeModelServiceGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModelServiceGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModelServiceGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeModelServiceHotUpdatedOutcome TioneClient::DescribeModelServiceHotUpdated(const DescribeModelServiceHotUpdatedRequest &request)
@@ -1812,32 +1567,25 @@ TioneClient::DescribeModelServiceHotUpdatedOutcome TioneClient::DescribeModelSer
 
 void TioneClient::DescribeModelServiceHotUpdatedAsync(const DescribeModelServiceHotUpdatedRequest& request, const DescribeModelServiceHotUpdatedAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModelServiceHotUpdatedRequest&;
-    using Resp = DescribeModelServiceHotUpdatedResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModelServiceHotUpdated(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModelServiceHotUpdated", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeModelServiceHotUpdatedOutcomeCallable TioneClient::DescribeModelServiceHotUpdatedCallable(const DescribeModelServiceHotUpdatedRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModelServiceHotUpdatedOutcome>>();
-    DescribeModelServiceHotUpdatedAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeModelServiceHotUpdatedRequest&,
-        DescribeModelServiceHotUpdatedOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModelServiceHotUpdatedOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModelServiceHotUpdated(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeNotebookOutcome TioneClient::DescribeNotebook(const DescribeNotebookRequest &request)
@@ -1862,32 +1610,25 @@ TioneClient::DescribeNotebookOutcome TioneClient::DescribeNotebook(const Describ
 
 void TioneClient::DescribeNotebookAsync(const DescribeNotebookRequest& request, const DescribeNotebookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNotebookRequest&;
-    using Resp = DescribeNotebookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNotebook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotebook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeNotebookOutcomeCallable TioneClient::DescribeNotebookCallable(const DescribeNotebookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNotebookOutcome>>();
-    DescribeNotebookAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeNotebookRequest&,
-        DescribeNotebookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNotebookOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNotebook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeNotebooksOutcome TioneClient::DescribeNotebooks(const DescribeNotebooksRequest &request)
@@ -1912,32 +1653,25 @@ TioneClient::DescribeNotebooksOutcome TioneClient::DescribeNotebooks(const Descr
 
 void TioneClient::DescribeNotebooksAsync(const DescribeNotebooksRequest& request, const DescribeNotebooksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNotebooksRequest&;
-    using Resp = DescribeNotebooksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNotebooks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotebooks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeNotebooksOutcomeCallable TioneClient::DescribeNotebooksCallable(const DescribeNotebooksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNotebooksOutcome>>();
-    DescribeNotebooksAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeNotebooksRequest&,
-        DescribeNotebooksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNotebooksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNotebooks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribePlatformImagesOutcome TioneClient::DescribePlatformImages(const DescribePlatformImagesRequest &request)
@@ -1962,32 +1696,25 @@ TioneClient::DescribePlatformImagesOutcome TioneClient::DescribePlatformImages(c
 
 void TioneClient::DescribePlatformImagesAsync(const DescribePlatformImagesRequest& request, const DescribePlatformImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePlatformImagesRequest&;
-    using Resp = DescribePlatformImagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePlatformImages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePlatformImages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribePlatformImagesOutcomeCallable TioneClient::DescribePlatformImagesCallable(const DescribePlatformImagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePlatformImagesOutcome>>();
-    DescribePlatformImagesAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribePlatformImagesRequest&,
-        DescribePlatformImagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePlatformImagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePlatformImages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeTrainingModelVersionOutcome TioneClient::DescribeTrainingModelVersion(const DescribeTrainingModelVersionRequest &request)
@@ -2012,32 +1739,25 @@ TioneClient::DescribeTrainingModelVersionOutcome TioneClient::DescribeTrainingMo
 
 void TioneClient::DescribeTrainingModelVersionAsync(const DescribeTrainingModelVersionRequest& request, const DescribeTrainingModelVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrainingModelVersionRequest&;
-    using Resp = DescribeTrainingModelVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrainingModelVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrainingModelVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeTrainingModelVersionOutcomeCallable TioneClient::DescribeTrainingModelVersionCallable(const DescribeTrainingModelVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrainingModelVersionOutcome>>();
-    DescribeTrainingModelVersionAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeTrainingModelVersionRequest&,
-        DescribeTrainingModelVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrainingModelVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrainingModelVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeTrainingModelVersionsOutcome TioneClient::DescribeTrainingModelVersions(const DescribeTrainingModelVersionsRequest &request)
@@ -2062,32 +1782,25 @@ TioneClient::DescribeTrainingModelVersionsOutcome TioneClient::DescribeTrainingM
 
 void TioneClient::DescribeTrainingModelVersionsAsync(const DescribeTrainingModelVersionsRequest& request, const DescribeTrainingModelVersionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrainingModelVersionsRequest&;
-    using Resp = DescribeTrainingModelVersionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrainingModelVersions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrainingModelVersions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeTrainingModelVersionsOutcomeCallable TioneClient::DescribeTrainingModelVersionsCallable(const DescribeTrainingModelVersionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrainingModelVersionsOutcome>>();
-    DescribeTrainingModelVersionsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeTrainingModelVersionsRequest&,
-        DescribeTrainingModelVersionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrainingModelVersionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrainingModelVersions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeTrainingTaskOutcome TioneClient::DescribeTrainingTask(const DescribeTrainingTaskRequest &request)
@@ -2112,32 +1825,25 @@ TioneClient::DescribeTrainingTaskOutcome TioneClient::DescribeTrainingTask(const
 
 void TioneClient::DescribeTrainingTaskAsync(const DescribeTrainingTaskRequest& request, const DescribeTrainingTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrainingTaskRequest&;
-    using Resp = DescribeTrainingTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrainingTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrainingTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeTrainingTaskOutcomeCallable TioneClient::DescribeTrainingTaskCallable(const DescribeTrainingTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrainingTaskOutcome>>();
-    DescribeTrainingTaskAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeTrainingTaskRequest&,
-        DescribeTrainingTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrainingTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrainingTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeTrainingTaskPodsOutcome TioneClient::DescribeTrainingTaskPods(const DescribeTrainingTaskPodsRequest &request)
@@ -2162,32 +1868,25 @@ TioneClient::DescribeTrainingTaskPodsOutcome TioneClient::DescribeTrainingTaskPo
 
 void TioneClient::DescribeTrainingTaskPodsAsync(const DescribeTrainingTaskPodsRequest& request, const DescribeTrainingTaskPodsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrainingTaskPodsRequest&;
-    using Resp = DescribeTrainingTaskPodsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrainingTaskPods(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrainingTaskPods", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeTrainingTaskPodsOutcomeCallable TioneClient::DescribeTrainingTaskPodsCallable(const DescribeTrainingTaskPodsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrainingTaskPodsOutcome>>();
-    DescribeTrainingTaskPodsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeTrainingTaskPodsRequest&,
-        DescribeTrainingTaskPodsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrainingTaskPodsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrainingTaskPods(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeTrainingTasksOutcome TioneClient::DescribeTrainingTasks(const DescribeTrainingTasksRequest &request)
@@ -2212,32 +1911,25 @@ TioneClient::DescribeTrainingTasksOutcome TioneClient::DescribeTrainingTasks(con
 
 void TioneClient::DescribeTrainingTasksAsync(const DescribeTrainingTasksRequest& request, const DescribeTrainingTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrainingTasksRequest&;
-    using Resp = DescribeTrainingTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrainingTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrainingTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeTrainingTasksOutcomeCallable TioneClient::DescribeTrainingTasksCallable(const DescribeTrainingTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrainingTasksOutcome>>();
-    DescribeTrainingTasksAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeTrainingTasksRequest&,
-        DescribeTrainingTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrainingTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrainingTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::ModifyModelServiceOutcome TioneClient::ModifyModelService(const ModifyModelServiceRequest &request)
@@ -2262,32 +1954,25 @@ TioneClient::ModifyModelServiceOutcome TioneClient::ModifyModelService(const Mod
 
 void TioneClient::ModifyModelServiceAsync(const ModifyModelServiceRequest& request, const ModifyModelServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyModelServiceRequest&;
-    using Resp = ModifyModelServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyModelService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyModelService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::ModifyModelServiceOutcomeCallable TioneClient::ModifyModelServiceCallable(const ModifyModelServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyModelServiceOutcome>>();
-    ModifyModelServiceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const ModifyModelServiceRequest&,
-        ModifyModelServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyModelServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyModelService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::ModifyModelServiceAuthTokenOutcome TioneClient::ModifyModelServiceAuthToken(const ModifyModelServiceAuthTokenRequest &request)
@@ -2312,32 +1997,25 @@ TioneClient::ModifyModelServiceAuthTokenOutcome TioneClient::ModifyModelServiceA
 
 void TioneClient::ModifyModelServiceAuthTokenAsync(const ModifyModelServiceAuthTokenRequest& request, const ModifyModelServiceAuthTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyModelServiceAuthTokenRequest&;
-    using Resp = ModifyModelServiceAuthTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyModelServiceAuthToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyModelServiceAuthToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::ModifyModelServiceAuthTokenOutcomeCallable TioneClient::ModifyModelServiceAuthTokenCallable(const ModifyModelServiceAuthTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyModelServiceAuthTokenOutcome>>();
-    ModifyModelServiceAuthTokenAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const ModifyModelServiceAuthTokenRequest&,
-        ModifyModelServiceAuthTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyModelServiceAuthTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyModelServiceAuthToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::ModifyModelServiceAuthorizationOutcome TioneClient::ModifyModelServiceAuthorization(const ModifyModelServiceAuthorizationRequest &request)
@@ -2362,32 +2040,25 @@ TioneClient::ModifyModelServiceAuthorizationOutcome TioneClient::ModifyModelServ
 
 void TioneClient::ModifyModelServiceAuthorizationAsync(const ModifyModelServiceAuthorizationRequest& request, const ModifyModelServiceAuthorizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyModelServiceAuthorizationRequest&;
-    using Resp = ModifyModelServiceAuthorizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyModelServiceAuthorization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyModelServiceAuthorization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::ModifyModelServiceAuthorizationOutcomeCallable TioneClient::ModifyModelServiceAuthorizationCallable(const ModifyModelServiceAuthorizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyModelServiceAuthorizationOutcome>>();
-    ModifyModelServiceAuthorizationAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const ModifyModelServiceAuthorizationRequest&,
-        ModifyModelServiceAuthorizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyModelServiceAuthorizationOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyModelServiceAuthorization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::ModifyNotebookTagsOutcome TioneClient::ModifyNotebookTags(const ModifyNotebookTagsRequest &request)
@@ -2412,32 +2083,25 @@ TioneClient::ModifyNotebookTagsOutcome TioneClient::ModifyNotebookTags(const Mod
 
 void TioneClient::ModifyNotebookTagsAsync(const ModifyNotebookTagsRequest& request, const ModifyNotebookTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNotebookTagsRequest&;
-    using Resp = ModifyNotebookTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNotebookTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNotebookTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::ModifyNotebookTagsOutcomeCallable TioneClient::ModifyNotebookTagsCallable(const ModifyNotebookTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNotebookTagsOutcome>>();
-    ModifyNotebookTagsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const ModifyNotebookTagsRequest&,
-        ModifyNotebookTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNotebookTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNotebookTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::PushTrainingMetricsOutcome TioneClient::PushTrainingMetrics(const PushTrainingMetricsRequest &request)
@@ -2462,32 +2126,25 @@ TioneClient::PushTrainingMetricsOutcome TioneClient::PushTrainingMetrics(const P
 
 void TioneClient::PushTrainingMetricsAsync(const PushTrainingMetricsRequest& request, const PushTrainingMetricsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PushTrainingMetricsRequest&;
-    using Resp = PushTrainingMetricsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PushTrainingMetrics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PushTrainingMetrics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::PushTrainingMetricsOutcomeCallable TioneClient::PushTrainingMetricsCallable(const PushTrainingMetricsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PushTrainingMetricsOutcome>>();
-    PushTrainingMetricsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const PushTrainingMetricsRequest&,
-        PushTrainingMetricsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PushTrainingMetricsOutcome()>>(
+        [this, request]()
+        {
+            return this->PushTrainingMetrics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::StartNotebookOutcome TioneClient::StartNotebook(const StartNotebookRequest &request)
@@ -2512,32 +2169,25 @@ TioneClient::StartNotebookOutcome TioneClient::StartNotebook(const StartNotebook
 
 void TioneClient::StartNotebookAsync(const StartNotebookRequest& request, const StartNotebookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartNotebookRequest&;
-    using Resp = StartNotebookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartNotebook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartNotebook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::StartNotebookOutcomeCallable TioneClient::StartNotebookCallable(const StartNotebookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartNotebookOutcome>>();
-    StartNotebookAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const StartNotebookRequest&,
-        StartNotebookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartNotebookOutcome()>>(
+        [this, request]()
+        {
+            return this->StartNotebook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::StartTrainingTaskOutcome TioneClient::StartTrainingTask(const StartTrainingTaskRequest &request)
@@ -2562,32 +2212,25 @@ TioneClient::StartTrainingTaskOutcome TioneClient::StartTrainingTask(const Start
 
 void TioneClient::StartTrainingTaskAsync(const StartTrainingTaskRequest& request, const StartTrainingTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartTrainingTaskRequest&;
-    using Resp = StartTrainingTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartTrainingTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartTrainingTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::StartTrainingTaskOutcomeCallable TioneClient::StartTrainingTaskCallable(const StartTrainingTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartTrainingTaskOutcome>>();
-    StartTrainingTaskAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const StartTrainingTaskRequest&,
-        StartTrainingTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartTrainingTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->StartTrainingTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::StopModelAccelerateTaskOutcome TioneClient::StopModelAccelerateTask(const StopModelAccelerateTaskRequest &request)
@@ -2612,32 +2255,25 @@ TioneClient::StopModelAccelerateTaskOutcome TioneClient::StopModelAccelerateTask
 
 void TioneClient::StopModelAccelerateTaskAsync(const StopModelAccelerateTaskRequest& request, const StopModelAccelerateTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopModelAccelerateTaskRequest&;
-    using Resp = StopModelAccelerateTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopModelAccelerateTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopModelAccelerateTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::StopModelAccelerateTaskOutcomeCallable TioneClient::StopModelAccelerateTaskCallable(const StopModelAccelerateTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopModelAccelerateTaskOutcome>>();
-    StopModelAccelerateTaskAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const StopModelAccelerateTaskRequest&,
-        StopModelAccelerateTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopModelAccelerateTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->StopModelAccelerateTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::StopNotebookOutcome TioneClient::StopNotebook(const StopNotebookRequest &request)
@@ -2662,32 +2298,25 @@ TioneClient::StopNotebookOutcome TioneClient::StopNotebook(const StopNotebookReq
 
 void TioneClient::StopNotebookAsync(const StopNotebookRequest& request, const StopNotebookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopNotebookRequest&;
-    using Resp = StopNotebookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopNotebook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopNotebook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::StopNotebookOutcomeCallable TioneClient::StopNotebookCallable(const StopNotebookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopNotebookOutcome>>();
-    StopNotebookAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const StopNotebookRequest&,
-        StopNotebookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopNotebookOutcome()>>(
+        [this, request]()
+        {
+            return this->StopNotebook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::StopTrainingTaskOutcome TioneClient::StopTrainingTask(const StopTrainingTaskRequest &request)
@@ -2712,31 +2341,24 @@ TioneClient::StopTrainingTaskOutcome TioneClient::StopTrainingTask(const StopTra
 
 void TioneClient::StopTrainingTaskAsync(const StopTrainingTaskRequest& request, const StopTrainingTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopTrainingTaskRequest&;
-    using Resp = StopTrainingTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopTrainingTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopTrainingTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::StopTrainingTaskOutcomeCallable TioneClient::StopTrainingTaskCallable(const StopTrainingTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopTrainingTaskOutcome>>();
-    StopTrainingTaskAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const StopTrainingTaskRequest&,
-        StopTrainingTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopTrainingTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->StopTrainingTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * CreateNetDetect请求参数结构体
                 */

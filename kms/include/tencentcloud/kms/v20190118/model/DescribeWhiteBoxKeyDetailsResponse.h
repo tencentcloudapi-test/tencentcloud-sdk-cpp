@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WhiteboxKeyInfo;
+
                 /**
                 * DescribeWhiteBoxKeyDetails返回参数结构体
                 */

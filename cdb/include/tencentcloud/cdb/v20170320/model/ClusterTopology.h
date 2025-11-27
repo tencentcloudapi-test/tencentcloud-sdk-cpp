@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReadWriteNode;
+                class ReadonlyNode;
+
                 /**
                 * 云盘版的节点拓扑配置。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ClusterTopology();
-                    ~ClusterTopology() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

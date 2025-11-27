@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrganizationServiceAssign;
+
                 /**
                 * ListOrganizationService返回参数结构体
                 */

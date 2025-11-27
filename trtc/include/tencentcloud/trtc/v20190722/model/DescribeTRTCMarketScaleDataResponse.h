@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TRTCDataResult;
+
                 /**
                 * DescribeTRTCMarketScaleData返回参数结构体
                 */

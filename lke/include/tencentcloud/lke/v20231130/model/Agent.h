@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AgentModelInfo;
+                class AgentToolInfo;
+                class AgentPluginInfo;
+                class AgentAdvancedConfig;
+
                 /**
                 * Agent 的定义
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     Agent();
-                    ~Agent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

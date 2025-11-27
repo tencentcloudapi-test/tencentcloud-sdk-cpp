@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LifecycleRule;
+
                 /**
                 * 有规则冲突时返回的已有冲突规则信息列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CheckResult();
-                    ~CheckResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

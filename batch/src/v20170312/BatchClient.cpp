@@ -62,32 +62,25 @@ BatchClient::AttachInstancesOutcome BatchClient::AttachInstances(const AttachIns
 
 void BatchClient::AttachInstancesAsync(const AttachInstancesRequest& request, const AttachInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachInstancesRequest&;
-    using Resp = AttachInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::AttachInstancesOutcomeCallable BatchClient::AttachInstancesCallable(const AttachInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachInstancesOutcome>>();
-    AttachInstancesAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const AttachInstancesRequest&,
-        AttachInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::CreateComputeEnvOutcome BatchClient::CreateComputeEnv(const CreateComputeEnvRequest &request)
@@ -112,32 +105,25 @@ BatchClient::CreateComputeEnvOutcome BatchClient::CreateComputeEnv(const CreateC
 
 void BatchClient::CreateComputeEnvAsync(const CreateComputeEnvRequest& request, const CreateComputeEnvAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateComputeEnvRequest&;
-    using Resp = CreateComputeEnvResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateComputeEnv(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateComputeEnv", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::CreateComputeEnvOutcomeCallable BatchClient::CreateComputeEnvCallable(const CreateComputeEnvRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateComputeEnvOutcome>>();
-    CreateComputeEnvAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const CreateComputeEnvRequest&,
-        CreateComputeEnvOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateComputeEnvOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateComputeEnv(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::CreateTaskTemplateOutcome BatchClient::CreateTaskTemplate(const CreateTaskTemplateRequest &request)
@@ -162,32 +148,25 @@ BatchClient::CreateTaskTemplateOutcome BatchClient::CreateTaskTemplate(const Cre
 
 void BatchClient::CreateTaskTemplateAsync(const CreateTaskTemplateRequest& request, const CreateTaskTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTaskTemplateRequest&;
-    using Resp = CreateTaskTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTaskTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTaskTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::CreateTaskTemplateOutcomeCallable BatchClient::CreateTaskTemplateCallable(const CreateTaskTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTaskTemplateOutcome>>();
-    CreateTaskTemplateAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const CreateTaskTemplateRequest&,
-        CreateTaskTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTaskTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTaskTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DeleteComputeEnvOutcome BatchClient::DeleteComputeEnv(const DeleteComputeEnvRequest &request)
@@ -212,32 +191,25 @@ BatchClient::DeleteComputeEnvOutcome BatchClient::DeleteComputeEnv(const DeleteC
 
 void BatchClient::DeleteComputeEnvAsync(const DeleteComputeEnvRequest& request, const DeleteComputeEnvAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteComputeEnvRequest&;
-    using Resp = DeleteComputeEnvResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteComputeEnv(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteComputeEnv", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DeleteComputeEnvOutcomeCallable BatchClient::DeleteComputeEnvCallable(const DeleteComputeEnvRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteComputeEnvOutcome>>();
-    DeleteComputeEnvAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DeleteComputeEnvRequest&,
-        DeleteComputeEnvOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteComputeEnvOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteComputeEnv(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DeleteJobOutcome BatchClient::DeleteJob(const DeleteJobRequest &request)
@@ -262,32 +234,25 @@ BatchClient::DeleteJobOutcome BatchClient::DeleteJob(const DeleteJobRequest &req
 
 void BatchClient::DeleteJobAsync(const DeleteJobRequest& request, const DeleteJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteJobRequest&;
-    using Resp = DeleteJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DeleteJobOutcomeCallable BatchClient::DeleteJobCallable(const DeleteJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteJobOutcome>>();
-    DeleteJobAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DeleteJobRequest&,
-        DeleteJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DeleteTaskTemplatesOutcome BatchClient::DeleteTaskTemplates(const DeleteTaskTemplatesRequest &request)
@@ -312,32 +277,25 @@ BatchClient::DeleteTaskTemplatesOutcome BatchClient::DeleteTaskTemplates(const D
 
 void BatchClient::DeleteTaskTemplatesAsync(const DeleteTaskTemplatesRequest& request, const DeleteTaskTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTaskTemplatesRequest&;
-    using Resp = DeleteTaskTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTaskTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTaskTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DeleteTaskTemplatesOutcomeCallable BatchClient::DeleteTaskTemplatesCallable(const DeleteTaskTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTaskTemplatesOutcome>>();
-    DeleteTaskTemplatesAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DeleteTaskTemplatesRequest&,
-        DeleteTaskTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTaskTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTaskTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeAvailableCvmInstanceTypesOutcome BatchClient::DescribeAvailableCvmInstanceTypes(const DescribeAvailableCvmInstanceTypesRequest &request)
@@ -362,32 +320,25 @@ BatchClient::DescribeAvailableCvmInstanceTypesOutcome BatchClient::DescribeAvail
 
 void BatchClient::DescribeAvailableCvmInstanceTypesAsync(const DescribeAvailableCvmInstanceTypesRequest& request, const DescribeAvailableCvmInstanceTypesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAvailableCvmInstanceTypesRequest&;
-    using Resp = DescribeAvailableCvmInstanceTypesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAvailableCvmInstanceTypes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAvailableCvmInstanceTypes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeAvailableCvmInstanceTypesOutcomeCallable BatchClient::DescribeAvailableCvmInstanceTypesCallable(const DescribeAvailableCvmInstanceTypesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAvailableCvmInstanceTypesOutcome>>();
-    DescribeAvailableCvmInstanceTypesAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeAvailableCvmInstanceTypesRequest&,
-        DescribeAvailableCvmInstanceTypesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAvailableCvmInstanceTypesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAvailableCvmInstanceTypes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeComputeEnvOutcome BatchClient::DescribeComputeEnv(const DescribeComputeEnvRequest &request)
@@ -412,32 +363,25 @@ BatchClient::DescribeComputeEnvOutcome BatchClient::DescribeComputeEnv(const Des
 
 void BatchClient::DescribeComputeEnvAsync(const DescribeComputeEnvRequest& request, const DescribeComputeEnvAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeComputeEnvRequest&;
-    using Resp = DescribeComputeEnvResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeComputeEnv(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeComputeEnv", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeComputeEnvOutcomeCallable BatchClient::DescribeComputeEnvCallable(const DescribeComputeEnvRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeComputeEnvOutcome>>();
-    DescribeComputeEnvAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeComputeEnvRequest&,
-        DescribeComputeEnvOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeComputeEnvOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeComputeEnv(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeComputeEnvActivitiesOutcome BatchClient::DescribeComputeEnvActivities(const DescribeComputeEnvActivitiesRequest &request)
@@ -462,32 +406,25 @@ BatchClient::DescribeComputeEnvActivitiesOutcome BatchClient::DescribeComputeEnv
 
 void BatchClient::DescribeComputeEnvActivitiesAsync(const DescribeComputeEnvActivitiesRequest& request, const DescribeComputeEnvActivitiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeComputeEnvActivitiesRequest&;
-    using Resp = DescribeComputeEnvActivitiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeComputeEnvActivities(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeComputeEnvActivities", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeComputeEnvActivitiesOutcomeCallable BatchClient::DescribeComputeEnvActivitiesCallable(const DescribeComputeEnvActivitiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeComputeEnvActivitiesOutcome>>();
-    DescribeComputeEnvActivitiesAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeComputeEnvActivitiesRequest&,
-        DescribeComputeEnvActivitiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeComputeEnvActivitiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeComputeEnvActivities(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeComputeEnvCreateInfoOutcome BatchClient::DescribeComputeEnvCreateInfo(const DescribeComputeEnvCreateInfoRequest &request)
@@ -512,32 +449,25 @@ BatchClient::DescribeComputeEnvCreateInfoOutcome BatchClient::DescribeComputeEnv
 
 void BatchClient::DescribeComputeEnvCreateInfoAsync(const DescribeComputeEnvCreateInfoRequest& request, const DescribeComputeEnvCreateInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeComputeEnvCreateInfoRequest&;
-    using Resp = DescribeComputeEnvCreateInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeComputeEnvCreateInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeComputeEnvCreateInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeComputeEnvCreateInfoOutcomeCallable BatchClient::DescribeComputeEnvCreateInfoCallable(const DescribeComputeEnvCreateInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeComputeEnvCreateInfoOutcome>>();
-    DescribeComputeEnvCreateInfoAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeComputeEnvCreateInfoRequest&,
-        DescribeComputeEnvCreateInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeComputeEnvCreateInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeComputeEnvCreateInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeComputeEnvCreateInfosOutcome BatchClient::DescribeComputeEnvCreateInfos(const DescribeComputeEnvCreateInfosRequest &request)
@@ -562,32 +492,25 @@ BatchClient::DescribeComputeEnvCreateInfosOutcome BatchClient::DescribeComputeEn
 
 void BatchClient::DescribeComputeEnvCreateInfosAsync(const DescribeComputeEnvCreateInfosRequest& request, const DescribeComputeEnvCreateInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeComputeEnvCreateInfosRequest&;
-    using Resp = DescribeComputeEnvCreateInfosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeComputeEnvCreateInfos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeComputeEnvCreateInfos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeComputeEnvCreateInfosOutcomeCallable BatchClient::DescribeComputeEnvCreateInfosCallable(const DescribeComputeEnvCreateInfosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeComputeEnvCreateInfosOutcome>>();
-    DescribeComputeEnvCreateInfosAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeComputeEnvCreateInfosRequest&,
-        DescribeComputeEnvCreateInfosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeComputeEnvCreateInfosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeComputeEnvCreateInfos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeComputeEnvsOutcome BatchClient::DescribeComputeEnvs(const DescribeComputeEnvsRequest &request)
@@ -612,32 +535,25 @@ BatchClient::DescribeComputeEnvsOutcome BatchClient::DescribeComputeEnvs(const D
 
 void BatchClient::DescribeComputeEnvsAsync(const DescribeComputeEnvsRequest& request, const DescribeComputeEnvsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeComputeEnvsRequest&;
-    using Resp = DescribeComputeEnvsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeComputeEnvs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeComputeEnvs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeComputeEnvsOutcomeCallable BatchClient::DescribeComputeEnvsCallable(const DescribeComputeEnvsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeComputeEnvsOutcome>>();
-    DescribeComputeEnvsAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeComputeEnvsRequest&,
-        DescribeComputeEnvsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeComputeEnvsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeComputeEnvs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeCvmZoneInstanceConfigInfosOutcome BatchClient::DescribeCvmZoneInstanceConfigInfos(const DescribeCvmZoneInstanceConfigInfosRequest &request)
@@ -662,32 +578,25 @@ BatchClient::DescribeCvmZoneInstanceConfigInfosOutcome BatchClient::DescribeCvmZ
 
 void BatchClient::DescribeCvmZoneInstanceConfigInfosAsync(const DescribeCvmZoneInstanceConfigInfosRequest& request, const DescribeCvmZoneInstanceConfigInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCvmZoneInstanceConfigInfosRequest&;
-    using Resp = DescribeCvmZoneInstanceConfigInfosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCvmZoneInstanceConfigInfos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCvmZoneInstanceConfigInfos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeCvmZoneInstanceConfigInfosOutcomeCallable BatchClient::DescribeCvmZoneInstanceConfigInfosCallable(const DescribeCvmZoneInstanceConfigInfosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCvmZoneInstanceConfigInfosOutcome>>();
-    DescribeCvmZoneInstanceConfigInfosAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeCvmZoneInstanceConfigInfosRequest&,
-        DescribeCvmZoneInstanceConfigInfosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCvmZoneInstanceConfigInfosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCvmZoneInstanceConfigInfos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeInstanceCategoriesOutcome BatchClient::DescribeInstanceCategories(const DescribeInstanceCategoriesRequest &request)
@@ -712,32 +621,25 @@ BatchClient::DescribeInstanceCategoriesOutcome BatchClient::DescribeInstanceCate
 
 void BatchClient::DescribeInstanceCategoriesAsync(const DescribeInstanceCategoriesRequest& request, const DescribeInstanceCategoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceCategoriesRequest&;
-    using Resp = DescribeInstanceCategoriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceCategories(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceCategories", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeInstanceCategoriesOutcomeCallable BatchClient::DescribeInstanceCategoriesCallable(const DescribeInstanceCategoriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceCategoriesOutcome>>();
-    DescribeInstanceCategoriesAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeInstanceCategoriesRequest&,
-        DescribeInstanceCategoriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceCategoriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceCategories(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeJobOutcome BatchClient::DescribeJob(const DescribeJobRequest &request)
@@ -762,32 +664,25 @@ BatchClient::DescribeJobOutcome BatchClient::DescribeJob(const DescribeJobReques
 
 void BatchClient::DescribeJobAsync(const DescribeJobRequest& request, const DescribeJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeJobRequest&;
-    using Resp = DescribeJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeJobOutcomeCallable BatchClient::DescribeJobCallable(const DescribeJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeJobOutcome>>();
-    DescribeJobAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeJobRequest&,
-        DescribeJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeJobMonitorDataOutcome BatchClient::DescribeJobMonitorData(const DescribeJobMonitorDataRequest &request)
@@ -812,32 +707,25 @@ BatchClient::DescribeJobMonitorDataOutcome BatchClient::DescribeJobMonitorData(c
 
 void BatchClient::DescribeJobMonitorDataAsync(const DescribeJobMonitorDataRequest& request, const DescribeJobMonitorDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeJobMonitorDataRequest&;
-    using Resp = DescribeJobMonitorDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeJobMonitorData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeJobMonitorData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeJobMonitorDataOutcomeCallable BatchClient::DescribeJobMonitorDataCallable(const DescribeJobMonitorDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeJobMonitorDataOutcome>>();
-    DescribeJobMonitorDataAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeJobMonitorDataRequest&,
-        DescribeJobMonitorDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeJobMonitorDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeJobMonitorData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeJobSubmitInfoOutcome BatchClient::DescribeJobSubmitInfo(const DescribeJobSubmitInfoRequest &request)
@@ -862,32 +750,25 @@ BatchClient::DescribeJobSubmitInfoOutcome BatchClient::DescribeJobSubmitInfo(con
 
 void BatchClient::DescribeJobSubmitInfoAsync(const DescribeJobSubmitInfoRequest& request, const DescribeJobSubmitInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeJobSubmitInfoRequest&;
-    using Resp = DescribeJobSubmitInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeJobSubmitInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeJobSubmitInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeJobSubmitInfoOutcomeCallable BatchClient::DescribeJobSubmitInfoCallable(const DescribeJobSubmitInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeJobSubmitInfoOutcome>>();
-    DescribeJobSubmitInfoAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeJobSubmitInfoRequest&,
-        DescribeJobSubmitInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeJobSubmitInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeJobSubmitInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeJobsOutcome BatchClient::DescribeJobs(const DescribeJobsRequest &request)
@@ -912,32 +793,25 @@ BatchClient::DescribeJobsOutcome BatchClient::DescribeJobs(const DescribeJobsReq
 
 void BatchClient::DescribeJobsAsync(const DescribeJobsRequest& request, const DescribeJobsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeJobsRequest&;
-    using Resp = DescribeJobsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeJobs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeJobs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeJobsOutcomeCallable BatchClient::DescribeJobsCallable(const DescribeJobsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeJobsOutcome>>();
-    DescribeJobsAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeJobsRequest&,
-        DescribeJobsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeJobsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeJobs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeTaskOutcome BatchClient::DescribeTask(const DescribeTaskRequest &request)
@@ -962,32 +836,25 @@ BatchClient::DescribeTaskOutcome BatchClient::DescribeTask(const DescribeTaskReq
 
 void BatchClient::DescribeTaskAsync(const DescribeTaskRequest& request, const DescribeTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskRequest&;
-    using Resp = DescribeTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeTaskOutcomeCallable BatchClient::DescribeTaskCallable(const DescribeTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskOutcome>>();
-    DescribeTaskAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeTaskRequest&,
-        DescribeTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeTaskLogsOutcome BatchClient::DescribeTaskLogs(const DescribeTaskLogsRequest &request)
@@ -1012,32 +879,25 @@ BatchClient::DescribeTaskLogsOutcome BatchClient::DescribeTaskLogs(const Describ
 
 void BatchClient::DescribeTaskLogsAsync(const DescribeTaskLogsRequest& request, const DescribeTaskLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskLogsRequest&;
-    using Resp = DescribeTaskLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeTaskLogsOutcomeCallable BatchClient::DescribeTaskLogsCallable(const DescribeTaskLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskLogsOutcome>>();
-    DescribeTaskLogsAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeTaskLogsRequest&,
-        DescribeTaskLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DescribeTaskTemplatesOutcome BatchClient::DescribeTaskTemplates(const DescribeTaskTemplatesRequest &request)
@@ -1062,32 +922,25 @@ BatchClient::DescribeTaskTemplatesOutcome BatchClient::DescribeTaskTemplates(con
 
 void BatchClient::DescribeTaskTemplatesAsync(const DescribeTaskTemplatesRequest& request, const DescribeTaskTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskTemplatesRequest&;
-    using Resp = DescribeTaskTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DescribeTaskTemplatesOutcomeCallable BatchClient::DescribeTaskTemplatesCallable(const DescribeTaskTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskTemplatesOutcome>>();
-    DescribeTaskTemplatesAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DescribeTaskTemplatesRequest&,
-        DescribeTaskTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::DetachInstancesOutcome BatchClient::DetachInstances(const DetachInstancesRequest &request)
@@ -1112,32 +965,25 @@ BatchClient::DetachInstancesOutcome BatchClient::DetachInstances(const DetachIns
 
 void BatchClient::DetachInstancesAsync(const DetachInstancesRequest& request, const DetachInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachInstancesRequest&;
-    using Resp = DetachInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::DetachInstancesOutcomeCallable BatchClient::DetachInstancesCallable(const DetachInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachInstancesOutcome>>();
-    DetachInstancesAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const DetachInstancesRequest&,
-        DetachInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::ModifyComputeEnvOutcome BatchClient::ModifyComputeEnv(const ModifyComputeEnvRequest &request)
@@ -1162,32 +1008,25 @@ BatchClient::ModifyComputeEnvOutcome BatchClient::ModifyComputeEnv(const ModifyC
 
 void BatchClient::ModifyComputeEnvAsync(const ModifyComputeEnvRequest& request, const ModifyComputeEnvAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyComputeEnvRequest&;
-    using Resp = ModifyComputeEnvResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyComputeEnv(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyComputeEnv", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::ModifyComputeEnvOutcomeCallable BatchClient::ModifyComputeEnvCallable(const ModifyComputeEnvRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyComputeEnvOutcome>>();
-    ModifyComputeEnvAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const ModifyComputeEnvRequest&,
-        ModifyComputeEnvOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyComputeEnvOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyComputeEnv(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::ModifyTaskTemplateOutcome BatchClient::ModifyTaskTemplate(const ModifyTaskTemplateRequest &request)
@@ -1212,32 +1051,25 @@ BatchClient::ModifyTaskTemplateOutcome BatchClient::ModifyTaskTemplate(const Mod
 
 void BatchClient::ModifyTaskTemplateAsync(const ModifyTaskTemplateRequest& request, const ModifyTaskTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTaskTemplateRequest&;
-    using Resp = ModifyTaskTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTaskTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTaskTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::ModifyTaskTemplateOutcomeCallable BatchClient::ModifyTaskTemplateCallable(const ModifyTaskTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTaskTemplateOutcome>>();
-    ModifyTaskTemplateAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const ModifyTaskTemplateRequest&,
-        ModifyTaskTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTaskTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTaskTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::RetryJobsOutcome BatchClient::RetryJobs(const RetryJobsRequest &request)
@@ -1262,32 +1094,25 @@ BatchClient::RetryJobsOutcome BatchClient::RetryJobs(const RetryJobsRequest &req
 
 void BatchClient::RetryJobsAsync(const RetryJobsRequest& request, const RetryJobsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RetryJobsRequest&;
-    using Resp = RetryJobsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RetryJobs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RetryJobs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::RetryJobsOutcomeCallable BatchClient::RetryJobsCallable(const RetryJobsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RetryJobsOutcome>>();
-    RetryJobsAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const RetryJobsRequest&,
-        RetryJobsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RetryJobsOutcome()>>(
+        [this, request]()
+        {
+            return this->RetryJobs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::SubmitJobOutcome BatchClient::SubmitJob(const SubmitJobRequest &request)
@@ -1312,32 +1137,25 @@ BatchClient::SubmitJobOutcome BatchClient::SubmitJob(const SubmitJobRequest &req
 
 void BatchClient::SubmitJobAsync(const SubmitJobRequest& request, const SubmitJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitJobRequest&;
-    using Resp = SubmitJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::SubmitJobOutcomeCallable BatchClient::SubmitJobCallable(const SubmitJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitJobOutcome>>();
-    SubmitJobAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const SubmitJobRequest&,
-        SubmitJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::TerminateComputeNodeOutcome BatchClient::TerminateComputeNode(const TerminateComputeNodeRequest &request)
@@ -1362,32 +1180,25 @@ BatchClient::TerminateComputeNodeOutcome BatchClient::TerminateComputeNode(const
 
 void BatchClient::TerminateComputeNodeAsync(const TerminateComputeNodeRequest& request, const TerminateComputeNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminateComputeNodeRequest&;
-    using Resp = TerminateComputeNodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminateComputeNode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminateComputeNode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::TerminateComputeNodeOutcomeCallable BatchClient::TerminateComputeNodeCallable(const TerminateComputeNodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminateComputeNodeOutcome>>();
-    TerminateComputeNodeAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const TerminateComputeNodeRequest&,
-        TerminateComputeNodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminateComputeNodeOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminateComputeNode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::TerminateComputeNodesOutcome BatchClient::TerminateComputeNodes(const TerminateComputeNodesRequest &request)
@@ -1412,32 +1223,25 @@ BatchClient::TerminateComputeNodesOutcome BatchClient::TerminateComputeNodes(con
 
 void BatchClient::TerminateComputeNodesAsync(const TerminateComputeNodesRequest& request, const TerminateComputeNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminateComputeNodesRequest&;
-    using Resp = TerminateComputeNodesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminateComputeNodes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminateComputeNodes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::TerminateComputeNodesOutcomeCallable BatchClient::TerminateComputeNodesCallable(const TerminateComputeNodesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminateComputeNodesOutcome>>();
-    TerminateComputeNodesAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const TerminateComputeNodesRequest&,
-        TerminateComputeNodesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminateComputeNodesOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminateComputeNodes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::TerminateJobOutcome BatchClient::TerminateJob(const TerminateJobRequest &request)
@@ -1462,32 +1266,25 @@ BatchClient::TerminateJobOutcome BatchClient::TerminateJob(const TerminateJobReq
 
 void BatchClient::TerminateJobAsync(const TerminateJobRequest& request, const TerminateJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminateJobRequest&;
-    using Resp = TerminateJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminateJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminateJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::TerminateJobOutcomeCallable BatchClient::TerminateJobCallable(const TerminateJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminateJobOutcome>>();
-    TerminateJobAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const TerminateJobRequest&,
-        TerminateJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminateJobOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminateJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BatchClient::TerminateTaskInstanceOutcome BatchClient::TerminateTaskInstance(const TerminateTaskInstanceRequest &request)
@@ -1512,31 +1309,24 @@ BatchClient::TerminateTaskInstanceOutcome BatchClient::TerminateTaskInstance(con
 
 void BatchClient::TerminateTaskInstanceAsync(const TerminateTaskInstanceRequest& request, const TerminateTaskInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminateTaskInstanceRequest&;
-    using Resp = TerminateTaskInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminateTaskInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminateTaskInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BatchClient::TerminateTaskInstanceOutcomeCallable BatchClient::TerminateTaskInstanceCallable(const TerminateTaskInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminateTaskInstanceOutcome>>();
-    TerminateTaskInstanceAsync(
-    request,
-    [prom](
-        const BatchClient*,
-        const TerminateTaskInstanceRequest&,
-        TerminateTaskInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminateTaskInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminateTaskInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用于回档的数据库名
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RollbackDBName();
-                    ~RollbackDBName() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

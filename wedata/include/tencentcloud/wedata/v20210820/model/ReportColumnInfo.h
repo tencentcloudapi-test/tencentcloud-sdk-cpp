@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 上报表元数据的字段结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ReportColumnInfo();
-                    ~ReportColumnInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

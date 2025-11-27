@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 现病史
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DiseasePresentBlock();
-                    ~DiseasePresentBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MachineTag;
+
                 /**
                 * 展示登录审计白名单时的主机信息实体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HostDesc();
-                    ~HostDesc() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

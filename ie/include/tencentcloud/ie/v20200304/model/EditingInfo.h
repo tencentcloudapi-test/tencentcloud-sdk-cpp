@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagEditingInfo;
+                class ClassificationEditingInfo;
+                class StripEditingInfo;
+                class HighlightsEditingInfo;
+                class CoverEditingInfo;
+                class OpeningEndingEditingInfo;
+
                 /**
                 * 智能编辑任务参数信息
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     EditingInfo();
-                    ~EditingInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 逃逸白名单
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EscapeWhiteListInfo();
-                    ~EscapeWhiteListInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

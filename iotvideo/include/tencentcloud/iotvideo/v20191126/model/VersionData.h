@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Contents;
+
                 /**
                 * 固件版本详细信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VersionData();
-                    ~VersionData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

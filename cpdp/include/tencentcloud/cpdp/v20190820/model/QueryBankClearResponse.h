@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClearItem;
+
                 /**
                 * QueryBankClear返回参数结构体
                 */

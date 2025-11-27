@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TopicDetail;
+
                 /**
                 * 主题详情返回实体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TopicDetailResponse();
-                    ~TopicDetailResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

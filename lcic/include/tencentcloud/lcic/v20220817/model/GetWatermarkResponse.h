@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WatermarkConfig;
+                class BackgroundPictureConfig;
+                class TextMarkConfig;
+
                 /**
                 * GetWatermark返回参数结构体
                 */

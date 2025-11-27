@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComponentSeal;
+                class SmsTemplate;
+
                 /**
                 * 此结构体 (FlowApproverInfo) 用于描述流程参与者信息。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     FlowApproverInfo();
-                    ~FlowApproverInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MQTTInstanceItem;
+
                 /**
                 * DescribeMQTTInstanceList返回参数结构体
                 */

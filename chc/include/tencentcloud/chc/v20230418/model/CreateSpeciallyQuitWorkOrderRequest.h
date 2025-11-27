@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogisticsReceipt;
+                class CustomerReceipt;
+                class OtherDevReceivingInfo;
+
                 /**
                 * CreateSpeciallyQuitWorkOrder请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 订阅接收人
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SubscribeReceiver();
-                    ~SubscribeReceiver() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

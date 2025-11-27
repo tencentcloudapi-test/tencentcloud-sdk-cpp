@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 可视化节点配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WebNodeTypeInfo();
-                    ~WebNodeTypeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

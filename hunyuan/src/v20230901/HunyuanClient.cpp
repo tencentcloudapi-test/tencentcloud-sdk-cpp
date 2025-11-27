@@ -62,32 +62,25 @@ HunyuanClient::ActivateServiceOutcome HunyuanClient::ActivateService(const Activ
 
 void HunyuanClient::ActivateServiceAsync(const ActivateServiceRequest& request, const ActivateServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ActivateServiceRequest&;
-    using Resp = ActivateServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ActivateService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ActivateService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::ActivateServiceOutcomeCallable HunyuanClient::ActivateServiceCallable(const ActivateServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ActivateServiceOutcome>>();
-    ActivateServiceAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const ActivateServiceRequest&,
-        ActivateServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ActivateServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->ActivateService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::ChatCompletionsOutcome HunyuanClient::ChatCompletions(const ChatCompletionsRequest &request)
@@ -112,32 +105,25 @@ HunyuanClient::ChatCompletionsOutcome HunyuanClient::ChatCompletions(const ChatC
 
 void HunyuanClient::ChatCompletionsAsync(const ChatCompletionsRequest& request, const ChatCompletionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChatCompletionsRequest&;
-    using Resp = ChatCompletionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChatCompletions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChatCompletions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::ChatCompletionsOutcomeCallable HunyuanClient::ChatCompletionsCallable(const ChatCompletionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChatCompletionsOutcome>>();
-    ChatCompletionsAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const ChatCompletionsRequest&,
-        ChatCompletionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChatCompletionsOutcome()>>(
+        [this, request]()
+        {
+            return this->ChatCompletions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::ChatTranslationsOutcome HunyuanClient::ChatTranslations(const ChatTranslationsRequest &request)
@@ -162,32 +148,25 @@ HunyuanClient::ChatTranslationsOutcome HunyuanClient::ChatTranslations(const Cha
 
 void HunyuanClient::ChatTranslationsAsync(const ChatTranslationsRequest& request, const ChatTranslationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChatTranslationsRequest&;
-    using Resp = ChatTranslationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChatTranslations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChatTranslations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::ChatTranslationsOutcomeCallable HunyuanClient::ChatTranslationsCallable(const ChatTranslationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChatTranslationsOutcome>>();
-    ChatTranslationsAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const ChatTranslationsRequest&,
-        ChatTranslationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChatTranslationsOutcome()>>(
+        [this, request]()
+        {
+            return this->ChatTranslations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::CreateThreadOutcome HunyuanClient::CreateThread(const CreateThreadRequest &request)
@@ -212,32 +191,25 @@ HunyuanClient::CreateThreadOutcome HunyuanClient::CreateThread(const CreateThrea
 
 void HunyuanClient::CreateThreadAsync(const CreateThreadRequest& request, const CreateThreadAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateThreadRequest&;
-    using Resp = CreateThreadResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateThread(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateThread", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::CreateThreadOutcomeCallable HunyuanClient::CreateThreadCallable(const CreateThreadRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateThreadOutcome>>();
-    CreateThreadAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const CreateThreadRequest&,
-        CreateThreadOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateThreadOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateThread(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::FilesDeletionsOutcome HunyuanClient::FilesDeletions(const FilesDeletionsRequest &request)
@@ -262,32 +234,25 @@ HunyuanClient::FilesDeletionsOutcome HunyuanClient::FilesDeletions(const FilesDe
 
 void HunyuanClient::FilesDeletionsAsync(const FilesDeletionsRequest& request, const FilesDeletionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FilesDeletionsRequest&;
-    using Resp = FilesDeletionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FilesDeletions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FilesDeletions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::FilesDeletionsOutcomeCallable HunyuanClient::FilesDeletionsCallable(const FilesDeletionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FilesDeletionsOutcome>>();
-    FilesDeletionsAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const FilesDeletionsRequest&,
-        FilesDeletionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FilesDeletionsOutcome()>>(
+        [this, request]()
+        {
+            return this->FilesDeletions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::FilesListOutcome HunyuanClient::FilesList(const FilesListRequest &request)
@@ -312,32 +277,25 @@ HunyuanClient::FilesListOutcome HunyuanClient::FilesList(const FilesListRequest 
 
 void HunyuanClient::FilesListAsync(const FilesListRequest& request, const FilesListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FilesListRequest&;
-    using Resp = FilesListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FilesList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FilesList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::FilesListOutcomeCallable HunyuanClient::FilesListCallable(const FilesListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FilesListOutcome>>();
-    FilesListAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const FilesListRequest&,
-        FilesListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FilesListOutcome()>>(
+        [this, request]()
+        {
+            return this->FilesList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::FilesUploadsOutcome HunyuanClient::FilesUploads(const FilesUploadsRequest &request)
@@ -362,32 +320,25 @@ HunyuanClient::FilesUploadsOutcome HunyuanClient::FilesUploads(const FilesUpload
 
 void HunyuanClient::FilesUploadsAsync(const FilesUploadsRequest& request, const FilesUploadsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FilesUploadsRequest&;
-    using Resp = FilesUploadsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FilesUploads(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FilesUploads", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::FilesUploadsOutcomeCallable HunyuanClient::FilesUploadsCallable(const FilesUploadsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FilesUploadsOutcome>>();
-    FilesUploadsAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const FilesUploadsRequest&,
-        FilesUploadsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FilesUploadsOutcome()>>(
+        [this, request]()
+        {
+            return this->FilesUploads(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::GetEmbeddingOutcome HunyuanClient::GetEmbedding(const GetEmbeddingRequest &request)
@@ -412,32 +363,25 @@ HunyuanClient::GetEmbeddingOutcome HunyuanClient::GetEmbedding(const GetEmbeddin
 
 void HunyuanClient::GetEmbeddingAsync(const GetEmbeddingRequest& request, const GetEmbeddingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetEmbeddingRequest&;
-    using Resp = GetEmbeddingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetEmbedding(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetEmbedding", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::GetEmbeddingOutcomeCallable HunyuanClient::GetEmbeddingCallable(const GetEmbeddingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetEmbeddingOutcome>>();
-    GetEmbeddingAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const GetEmbeddingRequest&,
-        GetEmbeddingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetEmbeddingOutcome()>>(
+        [this, request]()
+        {
+            return this->GetEmbedding(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::GetThreadOutcome HunyuanClient::GetThread(const GetThreadRequest &request)
@@ -462,32 +406,25 @@ HunyuanClient::GetThreadOutcome HunyuanClient::GetThread(const GetThreadRequest 
 
 void HunyuanClient::GetThreadAsync(const GetThreadRequest& request, const GetThreadAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetThreadRequest&;
-    using Resp = GetThreadResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetThread(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetThread", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::GetThreadOutcomeCallable HunyuanClient::GetThreadCallable(const GetThreadRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetThreadOutcome>>();
-    GetThreadAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const GetThreadRequest&,
-        GetThreadOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetThreadOutcome()>>(
+        [this, request]()
+        {
+            return this->GetThread(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::GetThreadMessageOutcome HunyuanClient::GetThreadMessage(const GetThreadMessageRequest &request)
@@ -512,32 +449,25 @@ HunyuanClient::GetThreadMessageOutcome HunyuanClient::GetThreadMessage(const Get
 
 void HunyuanClient::GetThreadMessageAsync(const GetThreadMessageRequest& request, const GetThreadMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetThreadMessageRequest&;
-    using Resp = GetThreadMessageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetThreadMessage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetThreadMessage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::GetThreadMessageOutcomeCallable HunyuanClient::GetThreadMessageCallable(const GetThreadMessageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetThreadMessageOutcome>>();
-    GetThreadMessageAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const GetThreadMessageRequest&,
-        GetThreadMessageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetThreadMessageOutcome()>>(
+        [this, request]()
+        {
+            return this->GetThreadMessage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::GetThreadMessageListOutcome HunyuanClient::GetThreadMessageList(const GetThreadMessageListRequest &request)
@@ -562,32 +492,25 @@ HunyuanClient::GetThreadMessageListOutcome HunyuanClient::GetThreadMessageList(c
 
 void HunyuanClient::GetThreadMessageListAsync(const GetThreadMessageListRequest& request, const GetThreadMessageListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetThreadMessageListRequest&;
-    using Resp = GetThreadMessageListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetThreadMessageList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetThreadMessageList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::GetThreadMessageListOutcomeCallable HunyuanClient::GetThreadMessageListCallable(const GetThreadMessageListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetThreadMessageListOutcome>>();
-    GetThreadMessageListAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const GetThreadMessageListRequest&,
-        GetThreadMessageListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetThreadMessageListOutcome()>>(
+        [this, request]()
+        {
+            return this->GetThreadMessageList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::GetTokenCountOutcome HunyuanClient::GetTokenCount(const GetTokenCountRequest &request)
@@ -612,32 +535,25 @@ HunyuanClient::GetTokenCountOutcome HunyuanClient::GetTokenCount(const GetTokenC
 
 void HunyuanClient::GetTokenCountAsync(const GetTokenCountRequest& request, const GetTokenCountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTokenCountRequest&;
-    using Resp = GetTokenCountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTokenCount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTokenCount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::GetTokenCountOutcomeCallable HunyuanClient::GetTokenCountCallable(const GetTokenCountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTokenCountOutcome>>();
-    GetTokenCountAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const GetTokenCountRequest&,
-        GetTokenCountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTokenCountOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTokenCount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::GroupChatCompletionsOutcome HunyuanClient::GroupChatCompletions(const GroupChatCompletionsRequest &request)
@@ -662,32 +578,25 @@ HunyuanClient::GroupChatCompletionsOutcome HunyuanClient::GroupChatCompletions(c
 
 void HunyuanClient::GroupChatCompletionsAsync(const GroupChatCompletionsRequest& request, const GroupChatCompletionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GroupChatCompletionsRequest&;
-    using Resp = GroupChatCompletionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GroupChatCompletions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GroupChatCompletions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::GroupChatCompletionsOutcomeCallable HunyuanClient::GroupChatCompletionsCallable(const GroupChatCompletionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GroupChatCompletionsOutcome>>();
-    GroupChatCompletionsAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const GroupChatCompletionsRequest&,
-        GroupChatCompletionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GroupChatCompletionsOutcome()>>(
+        [this, request]()
+        {
+            return this->GroupChatCompletions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::ImageQuestionOutcome HunyuanClient::ImageQuestion(const ImageQuestionRequest &request)
@@ -712,32 +621,25 @@ HunyuanClient::ImageQuestionOutcome HunyuanClient::ImageQuestion(const ImageQues
 
 void HunyuanClient::ImageQuestionAsync(const ImageQuestionRequest& request, const ImageQuestionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageQuestionRequest&;
-    using Resp = ImageQuestionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageQuestion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageQuestion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::ImageQuestionOutcomeCallable HunyuanClient::ImageQuestionCallable(const ImageQuestionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageQuestionOutcome>>();
-    ImageQuestionAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const ImageQuestionRequest&,
-        ImageQuestionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageQuestionOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageQuestion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::QueryHunyuanImageChatJobOutcome HunyuanClient::QueryHunyuanImageChatJob(const QueryHunyuanImageChatJobRequest &request)
@@ -762,32 +664,25 @@ HunyuanClient::QueryHunyuanImageChatJobOutcome HunyuanClient::QueryHunyuanImageC
 
 void HunyuanClient::QueryHunyuanImageChatJobAsync(const QueryHunyuanImageChatJobRequest& request, const QueryHunyuanImageChatJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryHunyuanImageChatJobRequest&;
-    using Resp = QueryHunyuanImageChatJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryHunyuanImageChatJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryHunyuanImageChatJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::QueryHunyuanImageChatJobOutcomeCallable HunyuanClient::QueryHunyuanImageChatJobCallable(const QueryHunyuanImageChatJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryHunyuanImageChatJobOutcome>>();
-    QueryHunyuanImageChatJobAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const QueryHunyuanImageChatJobRequest&,
-        QueryHunyuanImageChatJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryHunyuanImageChatJobOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryHunyuanImageChatJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::QueryHunyuanImageJobOutcome HunyuanClient::QueryHunyuanImageJob(const QueryHunyuanImageJobRequest &request)
@@ -812,32 +707,25 @@ HunyuanClient::QueryHunyuanImageJobOutcome HunyuanClient::QueryHunyuanImageJob(c
 
 void HunyuanClient::QueryHunyuanImageJobAsync(const QueryHunyuanImageJobRequest& request, const QueryHunyuanImageJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryHunyuanImageJobRequest&;
-    using Resp = QueryHunyuanImageJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryHunyuanImageJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryHunyuanImageJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::QueryHunyuanImageJobOutcomeCallable HunyuanClient::QueryHunyuanImageJobCallable(const QueryHunyuanImageJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryHunyuanImageJobOutcome>>();
-    QueryHunyuanImageJobAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const QueryHunyuanImageJobRequest&,
-        QueryHunyuanImageJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryHunyuanImageJobOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryHunyuanImageJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::RunThreadOutcome HunyuanClient::RunThread(const RunThreadRequest &request)
@@ -862,32 +750,25 @@ HunyuanClient::RunThreadOutcome HunyuanClient::RunThread(const RunThreadRequest 
 
 void HunyuanClient::RunThreadAsync(const RunThreadRequest& request, const RunThreadAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunThreadRequest&;
-    using Resp = RunThreadResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunThread(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunThread", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::RunThreadOutcomeCallable HunyuanClient::RunThreadCallable(const RunThreadRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunThreadOutcome>>();
-    RunThreadAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const RunThreadRequest&,
-        RunThreadOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunThreadOutcome()>>(
+        [this, request]()
+        {
+            return this->RunThread(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::SetPayModeOutcome HunyuanClient::SetPayMode(const SetPayModeRequest &request)
@@ -912,32 +793,25 @@ HunyuanClient::SetPayModeOutcome HunyuanClient::SetPayMode(const SetPayModeReque
 
 void HunyuanClient::SetPayModeAsync(const SetPayModeRequest& request, const SetPayModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetPayModeRequest&;
-    using Resp = SetPayModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetPayMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetPayMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::SetPayModeOutcomeCallable HunyuanClient::SetPayModeCallable(const SetPayModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetPayModeOutcome>>();
-    SetPayModeAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const SetPayModeRequest&,
-        SetPayModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetPayModeOutcome()>>(
+        [this, request]()
+        {
+            return this->SetPayMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::SubmitHunyuanImageChatJobOutcome HunyuanClient::SubmitHunyuanImageChatJob(const SubmitHunyuanImageChatJobRequest &request)
@@ -962,32 +836,25 @@ HunyuanClient::SubmitHunyuanImageChatJobOutcome HunyuanClient::SubmitHunyuanImag
 
 void HunyuanClient::SubmitHunyuanImageChatJobAsync(const SubmitHunyuanImageChatJobRequest& request, const SubmitHunyuanImageChatJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitHunyuanImageChatJobRequest&;
-    using Resp = SubmitHunyuanImageChatJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitHunyuanImageChatJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitHunyuanImageChatJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::SubmitHunyuanImageChatJobOutcomeCallable HunyuanClient::SubmitHunyuanImageChatJobCallable(const SubmitHunyuanImageChatJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitHunyuanImageChatJobOutcome>>();
-    SubmitHunyuanImageChatJobAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const SubmitHunyuanImageChatJobRequest&,
-        SubmitHunyuanImageChatJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitHunyuanImageChatJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitHunyuanImageChatJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::SubmitHunyuanImageJobOutcome HunyuanClient::SubmitHunyuanImageJob(const SubmitHunyuanImageJobRequest &request)
@@ -1012,32 +879,25 @@ HunyuanClient::SubmitHunyuanImageJobOutcome HunyuanClient::SubmitHunyuanImageJob
 
 void HunyuanClient::SubmitHunyuanImageJobAsync(const SubmitHunyuanImageJobRequest& request, const SubmitHunyuanImageJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitHunyuanImageJobRequest&;
-    using Resp = SubmitHunyuanImageJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitHunyuanImageJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitHunyuanImageJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::SubmitHunyuanImageJobOutcomeCallable HunyuanClient::SubmitHunyuanImageJobCallable(const SubmitHunyuanImageJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitHunyuanImageJobOutcome>>();
-    SubmitHunyuanImageJobAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const SubmitHunyuanImageJobRequest&,
-        SubmitHunyuanImageJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitHunyuanImageJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitHunyuanImageJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HunyuanClient::TextToImageLiteOutcome HunyuanClient::TextToImageLite(const TextToImageLiteRequest &request)
@@ -1062,31 +922,24 @@ HunyuanClient::TextToImageLiteOutcome HunyuanClient::TextToImageLite(const TextT
 
 void HunyuanClient::TextToImageLiteAsync(const TextToImageLiteRequest& request, const TextToImageLiteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextToImageLiteRequest&;
-    using Resp = TextToImageLiteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextToImageLite(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextToImageLite", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HunyuanClient::TextToImageLiteOutcomeCallable HunyuanClient::TextToImageLiteCallable(const TextToImageLiteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextToImageLiteOutcome>>();
-    TextToImageLiteAsync(
-    request,
-    [prom](
-        const HunyuanClient*,
-        const TextToImageLiteRequest&,
-        TextToImageLiteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextToImageLiteOutcome()>>(
+        [this, request]()
+        {
+            return this->TextToImageLite(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

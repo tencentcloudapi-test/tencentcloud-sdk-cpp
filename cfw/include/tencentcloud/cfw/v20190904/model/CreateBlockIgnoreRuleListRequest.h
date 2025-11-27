@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IntrusionDefenseRule;
+
                 /**
                 * CreateBlockIgnoreRuleList请求参数结构体
                 */

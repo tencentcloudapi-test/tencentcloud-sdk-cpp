@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LiveChannelInfo;
+
                 /**
                 * DescribeLiveChannelList返回参数结构体
                 */

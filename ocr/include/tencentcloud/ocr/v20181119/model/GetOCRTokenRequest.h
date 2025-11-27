@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IDCardConfig;
+
                 /**
                 * GetOCRToken请求参数结构体
                 */

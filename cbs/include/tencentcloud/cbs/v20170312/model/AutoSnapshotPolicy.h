@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Policy;
+                class AdvancedRetentionPolicy;
+                class Tag;
+
                 /**
                 * 描述了定期快照策略的详细信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     AutoSnapshotPolicy();
-                    ~AutoSnapshotPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

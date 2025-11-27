@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TsfPageSimpleGroup;
+
                 /**
                 * DescribeSimpleGroups返回参数结构体
                 */

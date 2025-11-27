@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * RestartAndroidInstancesApp请求参数结构体
                 */

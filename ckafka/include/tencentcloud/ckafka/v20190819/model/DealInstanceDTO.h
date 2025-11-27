@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 预付费/后付费接口中，订单和 CKafka 实例映射数据结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DealInstanceDTO();
-                    ~DealInstanceDTO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

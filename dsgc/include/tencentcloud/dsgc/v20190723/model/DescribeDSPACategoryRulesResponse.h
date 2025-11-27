@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CategoryRule;
+
                 /**
                 * DescribeDSPACategoryRules返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpotMarketOptions;
+
                 /**
                 * CVM竞价请求相关选项
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceMarketOptionsRequest();
-                    ~InstanceMarketOptionsRequest() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

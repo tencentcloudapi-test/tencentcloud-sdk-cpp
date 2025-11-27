@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServiceSupport;
+                class VulTrend;
+                class VULRiskInfo;
+
                 /**
                 * DescribeVULRiskDetail返回参数结构体
                 */

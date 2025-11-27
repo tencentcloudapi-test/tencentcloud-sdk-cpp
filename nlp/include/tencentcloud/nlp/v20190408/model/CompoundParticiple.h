@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 复合粒度分词和词性标注的结果。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CompoundParticiple();
-                    ~CompoundParticiple() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

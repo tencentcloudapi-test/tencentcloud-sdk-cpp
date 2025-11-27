@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RowsCountDifference;
+
                 /**
                 * mongodb行数校验不一致性详情结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DifferenceRowDetail();
-                    ~DifferenceRowDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

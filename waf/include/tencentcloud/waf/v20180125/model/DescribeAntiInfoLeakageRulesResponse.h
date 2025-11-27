@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeAntiLeakageItem;
+
                 /**
                 * DescribeAntiInfoLeakageRules返回参数结构体
                 */

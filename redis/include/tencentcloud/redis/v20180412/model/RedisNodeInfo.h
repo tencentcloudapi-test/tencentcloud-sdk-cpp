@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述 Redis 实例的主节点或者副本节点信息。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RedisNodeInfo();
-                    ~RedisNodeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

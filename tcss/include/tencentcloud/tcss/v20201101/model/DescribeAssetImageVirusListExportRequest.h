@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetFilters;
+
                 /**
                 * DescribeAssetImageVirusListExport请求参数结构体
                 */

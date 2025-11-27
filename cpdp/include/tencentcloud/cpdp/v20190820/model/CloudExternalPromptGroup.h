@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudExternalPromptInfo;
+
                 /**
                 * 渠道扩展促销信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudExternalPromptGroup();
-                    ~CloudExternalPromptGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TargetGroupInstance;
+
                 /**
                 * RegisterTargetGroupInstances请求参数结构体
                 */

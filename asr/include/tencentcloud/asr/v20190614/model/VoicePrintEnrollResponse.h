@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VoicePrintBaseData;
+
                 /**
                 * VoicePrintEnroll返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ForceSchedule;
+                class TrySchedule;
+
                 /**
                 * 自定义Pod调度规则
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     CustomPodSchedule();
-                    ~CustomPodSchedule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -41,6 +41,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Addr;
+                class Ability;
+                class ObjectTask;
+                class ClusterInstanceDetail;
+                class Tag;
+                class ResourcePackage;
+                class SlaveZoneAttrItem;
+
                 /**
                 * 集群详情详细信息
                 */
@@ -48,7 +56,6 @@ namespace TencentCloud
                 {
                 public:
                     CynosdbClusterDetail();
-                    ~CynosdbClusterDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

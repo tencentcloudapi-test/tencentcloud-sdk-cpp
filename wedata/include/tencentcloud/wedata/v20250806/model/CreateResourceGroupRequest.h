@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceType;
+
                 /**
                 * CreateResourceGroup请求参数结构体
                 */

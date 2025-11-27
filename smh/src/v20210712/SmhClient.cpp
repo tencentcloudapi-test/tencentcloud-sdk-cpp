@@ -62,32 +62,25 @@ SmhClient::CreateLibraryOutcome SmhClient::CreateLibrary(const CreateLibraryRequ
 
 void SmhClient::CreateLibraryAsync(const CreateLibraryRequest& request, const CreateLibraryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLibraryRequest&;
-    using Resp = CreateLibraryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLibrary(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLibrary", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::CreateLibraryOutcomeCallable SmhClient::CreateLibraryCallable(const CreateLibraryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLibraryOutcome>>();
-    CreateLibraryAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const CreateLibraryRequest&,
-        CreateLibraryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLibraryOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLibrary(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::CreateUserOutcome SmhClient::CreateUser(const CreateUserRequest &request)
@@ -112,32 +105,25 @@ SmhClient::CreateUserOutcome SmhClient::CreateUser(const CreateUserRequest &requ
 
 void SmhClient::CreateUserAsync(const CreateUserRequest& request, const CreateUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserRequest&;
-    using Resp = CreateUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::CreateUserOutcomeCallable SmhClient::CreateUserCallable(const CreateUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserOutcome>>();
-    CreateUserAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const CreateUserRequest&,
-        CreateUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::CreateUserLifecycleOutcome SmhClient::CreateUserLifecycle(const CreateUserLifecycleRequest &request)
@@ -162,32 +148,25 @@ SmhClient::CreateUserLifecycleOutcome SmhClient::CreateUserLifecycle(const Creat
 
 void SmhClient::CreateUserLifecycleAsync(const CreateUserLifecycleRequest& request, const CreateUserLifecycleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserLifecycleRequest&;
-    using Resp = CreateUserLifecycleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUserLifecycle(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUserLifecycle", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::CreateUserLifecycleOutcomeCallable SmhClient::CreateUserLifecycleCallable(const CreateUserLifecycleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserLifecycleOutcome>>();
-    CreateUserLifecycleAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const CreateUserLifecycleRequest&,
-        CreateUserLifecycleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserLifecycleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUserLifecycle(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::DeleteLibraryOutcome SmhClient::DeleteLibrary(const DeleteLibraryRequest &request)
@@ -212,32 +191,25 @@ SmhClient::DeleteLibraryOutcome SmhClient::DeleteLibrary(const DeleteLibraryRequ
 
 void SmhClient::DeleteLibraryAsync(const DeleteLibraryRequest& request, const DeleteLibraryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteLibraryRequest&;
-    using Resp = DeleteLibraryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteLibrary(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteLibrary", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::DeleteLibraryOutcomeCallable SmhClient::DeleteLibraryCallable(const DeleteLibraryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteLibraryOutcome>>();
-    DeleteLibraryAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const DeleteLibraryRequest&,
-        DeleteLibraryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteLibraryOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteLibrary(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::DeleteUserOutcome SmhClient::DeleteUser(const DeleteUserRequest &request)
@@ -262,32 +234,25 @@ SmhClient::DeleteUserOutcome SmhClient::DeleteUser(const DeleteUserRequest &requ
 
 void SmhClient::DeleteUserAsync(const DeleteUserRequest& request, const DeleteUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteUserRequest&;
-    using Resp = DeleteUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::DeleteUserOutcomeCallable SmhClient::DeleteUserCallable(const DeleteUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteUserOutcome>>();
-    DeleteUserAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const DeleteUserRequest&,
-        DeleteUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteUserOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::DescribeLibrariesOutcome SmhClient::DescribeLibraries(const DescribeLibrariesRequest &request)
@@ -312,32 +277,25 @@ SmhClient::DescribeLibrariesOutcome SmhClient::DescribeLibraries(const DescribeL
 
 void SmhClient::DescribeLibrariesAsync(const DescribeLibrariesRequest& request, const DescribeLibrariesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLibrariesRequest&;
-    using Resp = DescribeLibrariesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLibraries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLibraries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::DescribeLibrariesOutcomeCallable SmhClient::DescribeLibrariesCallable(const DescribeLibrariesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLibrariesOutcome>>();
-    DescribeLibrariesAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const DescribeLibrariesRequest&,
-        DescribeLibrariesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLibrariesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLibraries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::DescribeLibrarySecretOutcome SmhClient::DescribeLibrarySecret(const DescribeLibrarySecretRequest &request)
@@ -362,32 +320,25 @@ SmhClient::DescribeLibrarySecretOutcome SmhClient::DescribeLibrarySecret(const D
 
 void SmhClient::DescribeLibrarySecretAsync(const DescribeLibrarySecretRequest& request, const DescribeLibrarySecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLibrarySecretRequest&;
-    using Resp = DescribeLibrarySecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLibrarySecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLibrarySecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::DescribeLibrarySecretOutcomeCallable SmhClient::DescribeLibrarySecretCallable(const DescribeLibrarySecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLibrarySecretOutcome>>();
-    DescribeLibrarySecretAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const DescribeLibrarySecretRequest&,
-        DescribeLibrarySecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLibrarySecretOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLibrarySecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::DescribeOfficialInstancesOutcome SmhClient::DescribeOfficialInstances(const DescribeOfficialInstancesRequest &request)
@@ -412,32 +363,25 @@ SmhClient::DescribeOfficialInstancesOutcome SmhClient::DescribeOfficialInstances
 
 void SmhClient::DescribeOfficialInstancesAsync(const DescribeOfficialInstancesRequest& request, const DescribeOfficialInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOfficialInstancesRequest&;
-    using Resp = DescribeOfficialInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOfficialInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOfficialInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::DescribeOfficialInstancesOutcomeCallable SmhClient::DescribeOfficialInstancesCallable(const DescribeOfficialInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOfficialInstancesOutcome>>();
-    DescribeOfficialInstancesAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const DescribeOfficialInstancesRequest&,
-        DescribeOfficialInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOfficialInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOfficialInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::DescribeOfficialOverviewOutcome SmhClient::DescribeOfficialOverview(const DescribeOfficialOverviewRequest &request)
@@ -462,32 +406,25 @@ SmhClient::DescribeOfficialOverviewOutcome SmhClient::DescribeOfficialOverview(c
 
 void SmhClient::DescribeOfficialOverviewAsync(const DescribeOfficialOverviewRequest& request, const DescribeOfficialOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOfficialOverviewRequest&;
-    using Resp = DescribeOfficialOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOfficialOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOfficialOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::DescribeOfficialOverviewOutcomeCallable SmhClient::DescribeOfficialOverviewCallable(const DescribeOfficialOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOfficialOverviewOutcome>>();
-    DescribeOfficialOverviewAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const DescribeOfficialOverviewRequest&,
-        DescribeOfficialOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOfficialOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOfficialOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::DescribeTrafficPackagesOutcome SmhClient::DescribeTrafficPackages(const DescribeTrafficPackagesRequest &request)
@@ -512,32 +449,25 @@ SmhClient::DescribeTrafficPackagesOutcome SmhClient::DescribeTrafficPackages(con
 
 void SmhClient::DescribeTrafficPackagesAsync(const DescribeTrafficPackagesRequest& request, const DescribeTrafficPackagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrafficPackagesRequest&;
-    using Resp = DescribeTrafficPackagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrafficPackages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrafficPackages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::DescribeTrafficPackagesOutcomeCallable SmhClient::DescribeTrafficPackagesCallable(const DescribeTrafficPackagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrafficPackagesOutcome>>();
-    DescribeTrafficPackagesAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const DescribeTrafficPackagesRequest&,
-        DescribeTrafficPackagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrafficPackagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrafficPackages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::DescribeUserLifecycleOutcome SmhClient::DescribeUserLifecycle(const DescribeUserLifecycleRequest &request)
@@ -562,32 +492,25 @@ SmhClient::DescribeUserLifecycleOutcome SmhClient::DescribeUserLifecycle(const D
 
 void SmhClient::DescribeUserLifecycleAsync(const DescribeUserLifecycleRequest& request, const DescribeUserLifecycleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserLifecycleRequest&;
-    using Resp = DescribeUserLifecycleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserLifecycle(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserLifecycle", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::DescribeUserLifecycleOutcomeCallable SmhClient::DescribeUserLifecycleCallable(const DescribeUserLifecycleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserLifecycleOutcome>>();
-    DescribeUserLifecycleAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const DescribeUserLifecycleRequest&,
-        DescribeUserLifecycleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserLifecycleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserLifecycle(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::ModifyLibraryOutcome SmhClient::ModifyLibrary(const ModifyLibraryRequest &request)
@@ -612,32 +535,25 @@ SmhClient::ModifyLibraryOutcome SmhClient::ModifyLibrary(const ModifyLibraryRequ
 
 void SmhClient::ModifyLibraryAsync(const ModifyLibraryRequest& request, const ModifyLibraryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLibraryRequest&;
-    using Resp = ModifyLibraryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLibrary(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLibrary", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::ModifyLibraryOutcomeCallable SmhClient::ModifyLibraryCallable(const ModifyLibraryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLibraryOutcome>>();
-    ModifyLibraryAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const ModifyLibraryRequest&,
-        ModifyLibraryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLibraryOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLibrary(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::ModifyUserOutcome SmhClient::ModifyUser(const ModifyUserRequest &request)
@@ -662,32 +578,25 @@ SmhClient::ModifyUserOutcome SmhClient::ModifyUser(const ModifyUserRequest &requ
 
 void SmhClient::ModifyUserAsync(const ModifyUserRequest& request, const ModifyUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserRequest&;
-    using Resp = ModifyUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::ModifyUserOutcomeCallable SmhClient::ModifyUserCallable(const ModifyUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserOutcome>>();
-    ModifyUserAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const ModifyUserRequest&,
-        ModifyUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::SendSmsCodeOutcome SmhClient::SendSmsCode(const SendSmsCodeRequest &request)
@@ -712,32 +621,25 @@ SmhClient::SendSmsCodeOutcome SmhClient::SendSmsCode(const SendSmsCodeRequest &r
 
 void SmhClient::SendSmsCodeAsync(const SendSmsCodeRequest& request, const SendSmsCodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendSmsCodeRequest&;
-    using Resp = SendSmsCodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendSmsCode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendSmsCode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::SendSmsCodeOutcomeCallable SmhClient::SendSmsCodeCallable(const SendSmsCodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendSmsCodeOutcome>>();
-    SendSmsCodeAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const SendSmsCodeRequest&,
-        SendSmsCodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendSmsCodeOutcome()>>(
+        [this, request]()
+        {
+            return this->SendSmsCode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SmhClient::VerifySmsCodeOutcome SmhClient::VerifySmsCode(const VerifySmsCodeRequest &request)
@@ -762,31 +664,24 @@ SmhClient::VerifySmsCodeOutcome SmhClient::VerifySmsCode(const VerifySmsCodeRequ
 
 void SmhClient::VerifySmsCodeAsync(const VerifySmsCodeRequest& request, const VerifySmsCodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const VerifySmsCodeRequest&;
-    using Resp = VerifySmsCodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->VerifySmsCode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "VerifySmsCode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SmhClient::VerifySmsCodeOutcomeCallable SmhClient::VerifySmsCodeCallable(const VerifySmsCodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<VerifySmsCodeOutcome>>();
-    VerifySmsCodeAsync(
-    request,
-    [prom](
-        const SmhClient*,
-        const VerifySmsCodeRequest&,
-        VerifySmsCodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<VerifySmsCodeOutcome()>>(
+        [this, request]()
+        {
+            return this->VerifySmsCode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

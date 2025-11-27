@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DeleteCloudBaseProjectLatestVersion返回参数结构体
                 */

@@ -49,6 +49,22 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QPSPackageNew;
+                class DomainPackageNew;
+                class FraudPkg;
+                class BotPkg;
+                class BotQPS;
+                class MajorEventsPkg;
+                class HybridPkg;
+                class ApiPkg;
+                class MiniPkg;
+                class MiniExtendPkg;
+                class MajorEventsProPkg;
+                class NetworkConfig;
+                class RCEPkg;
+                class LLMPkg;
+                class LLMMonPkg;
+
                 /**
                 * 一个实例的详细信息
                 */
@@ -56,7 +72,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceInfo();
-                    ~InstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

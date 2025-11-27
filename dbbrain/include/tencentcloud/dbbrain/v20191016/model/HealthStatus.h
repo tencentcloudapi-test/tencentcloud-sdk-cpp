@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScoreDetail;
+
                 /**
                 * 实例健康详情。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HealthStatus();
-                    ~HealthStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

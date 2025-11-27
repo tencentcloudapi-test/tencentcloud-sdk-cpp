@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Category;
+
                 /**
                 * ClassifyContent返回参数结构体
                 */

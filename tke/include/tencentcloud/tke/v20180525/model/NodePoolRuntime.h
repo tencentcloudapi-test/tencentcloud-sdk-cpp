@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * NodePool的运行时配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NodePoolRuntime();
-                    ~NodePoolRuntime() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

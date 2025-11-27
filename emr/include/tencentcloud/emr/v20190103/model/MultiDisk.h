@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 多云盘参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MultiDisk();
-                    ~MultiDisk() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

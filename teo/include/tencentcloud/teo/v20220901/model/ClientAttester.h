@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TCRCEOption;
+                class TCCaptchaOption;
+
                 /**
                 * 认证选项配置。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ClientAttester();
-                    ~ClientAttester() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Logo;
+
                 /**
                 * 图片涉政详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ImagePolityDetect();
-                    ~ImagePolityDetect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatabaseTuple;
+
                 /**
                 * 要修改的数据库订阅发布关系集合
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ModifyDataBaseTuple();
-                    ~ModifyDataBaseTuple() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

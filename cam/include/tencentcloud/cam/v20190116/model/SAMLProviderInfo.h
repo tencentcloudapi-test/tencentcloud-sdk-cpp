@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SAML身份提供商
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SAMLProviderInfo();
-                    ~SAMLProviderInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

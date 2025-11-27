@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchValueInput;
+                class TaskNotifyConfig;
+
                 /**
                 * CreateVideoSearchTask请求参数结构体
                 */

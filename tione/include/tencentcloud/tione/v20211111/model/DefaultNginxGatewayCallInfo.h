@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 默认Nginx网关结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DefaultNginxGatewayCallInfo();
-                    ~DefaultNginxGatewayCallInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

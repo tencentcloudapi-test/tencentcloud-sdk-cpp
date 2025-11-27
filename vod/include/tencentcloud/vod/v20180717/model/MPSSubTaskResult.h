@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MPSTaskOutput;
+
                 /**
                 * MPS 具体子任务查询结果类型。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MPSSubTaskResult();
-                    ~MPSSubTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

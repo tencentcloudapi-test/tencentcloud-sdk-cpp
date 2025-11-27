@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 合同对比差异结果详情。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ComparisonDetail();
-                    ~ComparisonDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

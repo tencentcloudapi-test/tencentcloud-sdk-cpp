@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DisplayLeakageData;
+
                 /**
                 * DescribeLeakageDatas返回参数结构体
                 */

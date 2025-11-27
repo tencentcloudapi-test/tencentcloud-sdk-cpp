@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class Element;
+
                 /**
                 * 主机资产信息
 
@@ -52,7 +55,6 @@ namespace TencentCloud
                 {
                 public:
                     CVMAssetVO();
-                    ~CVMAssetVO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

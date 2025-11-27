@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunTimeFilters;
+
                 /**
                 * DescribeVirusAutoIsolateSampleList请求参数结构体
                 */

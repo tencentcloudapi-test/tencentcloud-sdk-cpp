@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 媒体质检输入参数类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AiQualityControlTaskInput();
-                    ~AiQualityControlTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

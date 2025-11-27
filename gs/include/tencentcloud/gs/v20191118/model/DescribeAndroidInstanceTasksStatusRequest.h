@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Filter;
+
                 /**
                 * DescribeAndroidInstanceTasksStatus请求参数结构体
                 */

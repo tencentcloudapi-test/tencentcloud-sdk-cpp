@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 机票行程卡条目
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FlightItem();
-                    ~FlightItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PGroup;
+                class TagInfo;
+                class TieringDetailInfo;
+                class AutoScaleUpRule;
+                class ExstraPerformanceInfo;
+
                 /**
                 * 文件系统基本信息
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     FileSystemInfo();
-                    ~FileSystemInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

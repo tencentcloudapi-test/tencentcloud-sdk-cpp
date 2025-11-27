@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NamespaceStatusInfo;
+
                 /**
                 * DescribeEnvironmentStatus返回参数结构体
                 */

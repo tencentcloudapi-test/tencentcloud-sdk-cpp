@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EditMediaFileInfo;
+                class TaskOutputStorage;
+                class EditMediaOutputConfig;
+                class ComposeMediaConfig;
+                class TaskNotifyConfig;
+
                 /**
                 * EditMedia请求参数结构体
                 */

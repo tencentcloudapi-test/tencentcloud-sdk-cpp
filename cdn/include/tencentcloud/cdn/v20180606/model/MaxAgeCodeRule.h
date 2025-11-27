@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * MaxAge 状态码相关规则配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MaxAgeCodeRule();
-                    ~MaxAgeCodeRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

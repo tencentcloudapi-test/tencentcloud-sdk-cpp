@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeVirtualDevicesPageRsp;
+
                 /**
                 * DescribeVirtualDevices返回参数结构体
                 */

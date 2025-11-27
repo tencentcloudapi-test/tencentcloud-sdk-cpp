@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 购买完额外性能之后的值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ExstraPerformanceInfo();
-                    ~ExstraPerformanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

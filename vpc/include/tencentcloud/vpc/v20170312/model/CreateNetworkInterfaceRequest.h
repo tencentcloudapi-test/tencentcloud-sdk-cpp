@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrivateIpAddressSpecification;
+                class Tag;
+
                 /**
                 * CreateNetworkInterface请求参数结构体
                 */

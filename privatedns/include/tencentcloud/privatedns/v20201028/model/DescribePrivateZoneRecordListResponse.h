@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrivateZoneRecord;
+
                 /**
                 * DescribePrivateZoneRecordList返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClsLogObject;
+
                 /**
                 * Cls日志搜索结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ClsSearchLogs();
-                    ~ClsSearchLogs() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

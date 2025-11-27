@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 待处理异常进程事件趋势
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AbnormalProcessEventTendencyInfo();
-                    ~AbnormalProcessEventTendencyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 每个检查步骤里的具体检查项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DetailCheckItem();
-                    ~DetailCheckItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

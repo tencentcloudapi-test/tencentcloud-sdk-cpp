@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CnameStatus;
+
                 /**
                 * CheckCnameStatus返回参数结构体
                 */

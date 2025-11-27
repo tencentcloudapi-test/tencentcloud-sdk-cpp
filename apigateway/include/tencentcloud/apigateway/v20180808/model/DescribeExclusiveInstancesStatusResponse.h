@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceSummary;
+
                 /**
                 * DescribeExclusiveInstancesStatus返回参数结构体
                 */

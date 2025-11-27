@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccessHistogramItem;
+
                 /**
                 * DescribeAccessHistogram返回参数结构体
                 */

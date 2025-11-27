@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExternalDevice;
+
                 /**
                 * ImportExternalDevice请求参数结构体
                 */

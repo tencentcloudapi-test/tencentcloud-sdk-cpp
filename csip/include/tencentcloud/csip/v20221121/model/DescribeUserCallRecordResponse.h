@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserCallRecord;
+
                 /**
                 * DescribeUserCallRecord返回参数结构体
                 */

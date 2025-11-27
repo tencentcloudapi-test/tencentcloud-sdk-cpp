@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ModifyWorkOrderTypeCollectFlag返回参数结构体
                 */

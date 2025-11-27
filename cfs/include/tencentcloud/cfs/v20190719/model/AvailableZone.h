@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AvailableType;
+
                 /**
                 * 版本控制-可用区数组
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AvailableZone();
-                    ~AvailableZone() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

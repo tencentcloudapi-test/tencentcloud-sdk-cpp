@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskInfo;
+                class FlowApproverItem;
+
                 /**
                 * CreateFlowsByTemplates返回参数结构体
                 */

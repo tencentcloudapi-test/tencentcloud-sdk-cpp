@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeApply;
+
                 /**
                 * DescribeApproveList返回参数结构体
                 */

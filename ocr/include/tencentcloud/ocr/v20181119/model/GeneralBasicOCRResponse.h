@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextDetection;
+
                 /**
                 * GeneralBasicOCR返回参数结构体
                 */

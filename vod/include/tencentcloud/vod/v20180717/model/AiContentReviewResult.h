@@ -44,6 +44,17 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiReviewTaskPornResult;
+                class AiReviewTaskTerrorismResult;
+                class AiReviewTaskPoliticalResult;
+                class AiReviewTaskPornAsrResult;
+                class AiReviewTaskPornOcrResult;
+                class AiReviewTaskPoliticalAsrResult;
+                class AiReviewTaskPoliticalOcrResult;
+                class AiReviewTaskTerrorismOcrResult;
+                class AiReviewTaskProhibitedOcrResult;
+                class AiReviewTaskProhibitedAsrResult;
+
                 /**
                 * 音视频审核结果
                 */
@@ -51,7 +62,6 @@ namespace TencentCloud
                 {
                 public:
                     AiContentReviewResult();
-                    ~AiContentReviewResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

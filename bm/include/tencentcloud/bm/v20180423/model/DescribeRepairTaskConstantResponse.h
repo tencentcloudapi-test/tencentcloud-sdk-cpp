@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskType;
+
                 /**
                 * DescribeRepairTaskConstant返回参数结构体
                 */

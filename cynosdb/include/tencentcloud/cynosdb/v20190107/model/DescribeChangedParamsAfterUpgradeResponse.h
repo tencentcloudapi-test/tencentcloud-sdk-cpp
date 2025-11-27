@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ParamItemInfo;
+
                 /**
                 * DescribeChangedParamsAfterUpgrade返回参数结构体
                 */

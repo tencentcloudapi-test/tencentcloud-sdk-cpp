@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListenerItem;
+
                 /**
                 * 反查Lb绑定关系。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     LBItem();
-                    ~LBItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

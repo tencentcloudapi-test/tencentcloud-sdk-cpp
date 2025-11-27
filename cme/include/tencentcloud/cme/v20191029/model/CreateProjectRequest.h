@@ -39,6 +39,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Entity;
+                class SwitcherProjectInput;
+                class LiveStreamClipProjectInput;
+                class VideoEditProjectInput;
+                class VideoSegmentationProjectInput;
+                class StreamConnectProjectInput;
+                class RecordReplayProjectInput;
+                class MediaCastProjectInput;
+
                 /**
                 * CreateProject请求参数结构体
                 */

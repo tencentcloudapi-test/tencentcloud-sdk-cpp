@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeUserThirdPartyAccountInfo请求参数结构体
                 */

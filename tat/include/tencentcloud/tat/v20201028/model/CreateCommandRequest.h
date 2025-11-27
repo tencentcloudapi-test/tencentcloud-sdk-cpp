@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DefaultParameterConf;
+                class Tag;
+
                 /**
                 * CreateCommand请求参数结构体
                 */

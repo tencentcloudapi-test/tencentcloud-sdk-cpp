@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 导播台展示信息，包括使用的布局、水印、字幕、转场、音频等信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CasterDisplayInfo();
-                    ~CasterDisplayInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

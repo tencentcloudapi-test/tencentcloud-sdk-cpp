@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KnowledgeBase;
+
                 /**
                 * GetKnowledgeBaseList返回参数结构体
                 */

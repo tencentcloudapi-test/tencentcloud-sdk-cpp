@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DDLDetail;
+
                 /**
                 * DescribeOnlineDDLJob返回参数结构体
                 */

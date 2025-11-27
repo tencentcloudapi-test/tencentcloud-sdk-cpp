@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 高防包资产实例的使用信息统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BGPInstanceUsages();
-                    ~BGPInstanceUsages() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

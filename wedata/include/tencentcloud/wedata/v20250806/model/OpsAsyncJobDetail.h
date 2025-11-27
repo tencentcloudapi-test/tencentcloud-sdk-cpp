@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 异步操作详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OpsAsyncJobDetail();
-                    ~OpsAsyncJobDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

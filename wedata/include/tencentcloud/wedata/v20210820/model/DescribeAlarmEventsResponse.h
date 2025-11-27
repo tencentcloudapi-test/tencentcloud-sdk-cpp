@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmEventInfo;
+
                 /**
                 * DescribeAlarmEvents返回参数结构体
                 */

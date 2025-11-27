@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 负载均衡的监听器
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LoadBalancer();
-                    ~LoadBalancer() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

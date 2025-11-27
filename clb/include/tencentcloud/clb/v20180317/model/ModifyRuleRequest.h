@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthCheck;
+                class OAuth;
+
                 /**
                 * ModifyRule请求参数结构体
                 */

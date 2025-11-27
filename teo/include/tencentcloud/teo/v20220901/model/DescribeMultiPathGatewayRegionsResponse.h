@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GatewayRegion;
+
                 /**
                 * DescribeMultiPathGatewayRegions返回参数结构体
                 */

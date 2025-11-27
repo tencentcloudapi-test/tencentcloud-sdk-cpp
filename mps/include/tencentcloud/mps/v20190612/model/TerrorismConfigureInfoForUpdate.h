@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TerrorismImgReviewTemplateInfoForUpdate;
+                class TerrorismOcrReviewTemplateInfoForUpdate;
+
                 /**
                 * 涉敏任务控制参数。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TerrorismConfigureInfoForUpdate();
-                    ~TerrorismConfigureInfoForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

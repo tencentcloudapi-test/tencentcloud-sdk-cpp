@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Waf 攻击自动封禁详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AutoDenyDetail();
-                    ~AutoDenyDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

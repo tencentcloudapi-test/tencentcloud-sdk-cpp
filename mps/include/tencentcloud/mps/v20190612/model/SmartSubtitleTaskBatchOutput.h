@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SmartSubtitleTaskTransTextResultOutput;
+                class SmartSubtitleTaskAsrFullTextResultOutput;
+
                 /**
                 * 智能字幕输出信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SmartSubtitleTaskBatchOutput();
-                    ~SmartSubtitleTaskBatchOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

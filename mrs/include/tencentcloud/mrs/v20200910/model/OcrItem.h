@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Coordinate;
+
                 /**
                 * 图片进行OCR之后,包含字符块的信息，包含字符与坐标，一个图片进行OCR之后可能分为多个这样的块
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OcrItem();
-                    ~OcrItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

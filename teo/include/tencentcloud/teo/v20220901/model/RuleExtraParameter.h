@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 规则引擎参数详情信息，特殊参数类型。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleExtraParameter();
-                    ~RuleExtraParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

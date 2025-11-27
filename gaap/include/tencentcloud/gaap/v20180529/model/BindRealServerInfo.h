@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagPair;
+
                 /**
                 * 添加源站的源站信息返回值
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BindRealServerInfo();
-                    ~BindRealServerInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

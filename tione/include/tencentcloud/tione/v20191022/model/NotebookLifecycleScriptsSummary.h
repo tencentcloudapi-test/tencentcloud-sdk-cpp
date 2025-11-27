@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * notebook生命周期脚本实例概览
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NotebookLifecycleScriptsSummary();
-                    ~NotebookLifecycleScriptsSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VisionRecognitionResult;
+                class CloudStorageAIServiceTaskFileInfo;
+
                 /**
                 * TWeSee 语义理解任务信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     VisionRecognitionTask();
-                    ~VisionRecognitionTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

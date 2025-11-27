@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 集群pod列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AssetClusterPod();
-                    ~AssetClusterPod() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

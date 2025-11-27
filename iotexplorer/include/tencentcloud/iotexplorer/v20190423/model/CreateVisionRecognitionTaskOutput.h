@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 批量创建 TWeSee 语义理解任务的响应
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CreateVisionRecognitionTaskOutput();
-                    ~CreateVisionRecognitionTaskOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

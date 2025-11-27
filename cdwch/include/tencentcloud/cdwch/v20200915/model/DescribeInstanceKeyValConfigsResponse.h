@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceConfigInfo;
+                class MapConfigItem;
+
                 /**
                 * DescribeInstanceKeyValConfigs返回参数结构体
                 */

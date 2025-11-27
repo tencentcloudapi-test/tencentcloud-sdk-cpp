@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeDLPEdgeNodeGroupsRspItem;
+                class Paging;
+
                 /**
                 * 业务响应数据
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeDLPEdgeNodeGroupsRspData();
-                    ~DescribeDLPEdgeNodeGroupsRspData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

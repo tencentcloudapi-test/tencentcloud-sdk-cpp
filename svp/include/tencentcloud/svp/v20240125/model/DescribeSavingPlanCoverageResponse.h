@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SavingPlanCoverageDetail;
+                class SavingPlanCoverageRate;
+
                 /**
                 * DescribeSavingPlanCoverage返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FakeAPPData;
+
                 /**
                 * DescribeBPFakeAPPList返回参数结构体
                 */

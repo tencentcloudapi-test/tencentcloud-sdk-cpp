@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * MQTT客户端监控
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PacketStatistics();
-                    ~PacketStatistics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

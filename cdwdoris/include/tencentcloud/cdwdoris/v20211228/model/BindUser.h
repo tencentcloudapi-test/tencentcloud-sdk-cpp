@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 资源组绑定的用户信息，需要username和host信息进行授权
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BindUser();
-                    ~BindUser() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

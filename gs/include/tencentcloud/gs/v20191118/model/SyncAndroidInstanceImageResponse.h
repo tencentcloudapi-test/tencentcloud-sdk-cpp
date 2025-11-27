@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SyncAndroidInstanceImage;
+
                 /**
                 * SyncAndroidInstanceImage返回参数结构体
                 */

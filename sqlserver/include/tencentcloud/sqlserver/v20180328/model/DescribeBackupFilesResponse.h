@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackupFile;
+
                 /**
                 * DescribeBackupFiles返回参数结构体
                 */

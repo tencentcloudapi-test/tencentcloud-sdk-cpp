@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleGroupExecResult;
+
                 /**
                 * 规则组执行结果分页
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleGroupExecResultPage();
-                    ~RuleGroupExecResultPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

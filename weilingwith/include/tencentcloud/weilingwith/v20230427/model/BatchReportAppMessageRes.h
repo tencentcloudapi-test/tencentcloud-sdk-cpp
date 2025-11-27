@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReportMsgRes;
+
                 /**
                 * 批量消息上报结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BatchReportAppMessageRes();
-                    ~BatchReportAppMessageRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

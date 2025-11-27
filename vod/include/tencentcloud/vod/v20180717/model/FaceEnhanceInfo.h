@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 人脸增强控制
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FaceEnhanceInfo();
-                    ~FaceEnhanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

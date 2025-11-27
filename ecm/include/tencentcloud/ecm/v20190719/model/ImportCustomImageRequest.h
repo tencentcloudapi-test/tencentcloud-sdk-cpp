@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageUrl;
+
                 /**
                 * ImportCustomImage请求参数结构体
                 */

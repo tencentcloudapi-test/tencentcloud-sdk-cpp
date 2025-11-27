@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RetryConfig;
+
                 /**
                 * 函数的异步重试配置详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AsyncTriggerConfig();
-                    ~AsyncTriggerConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

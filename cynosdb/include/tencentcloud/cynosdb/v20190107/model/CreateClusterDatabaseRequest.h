@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserHostPrivilege;
+
                 /**
                 * CreateClusterDatabase请求参数结构体
                 */

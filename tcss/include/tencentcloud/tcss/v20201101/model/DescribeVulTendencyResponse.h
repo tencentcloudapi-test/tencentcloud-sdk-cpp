@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulTendencyInfo;
+
                 /**
                 * DescribeVulTendency返回参数结构体
                 */

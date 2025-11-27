@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskTypeCnt;
+
                 /**
                 * DescribeSchedulerTaskTypeCnt返回参数结构体
                 */

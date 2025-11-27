@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 指定补充签署人信息
 - RecipientId 必须指定
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FillApproverInfo();
-                    ~FillApproverInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

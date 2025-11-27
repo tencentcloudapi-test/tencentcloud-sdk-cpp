@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrivateParameter;
+
                 /**
                 * 源站组记录
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OriginRecord();
-                    ~OriginRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

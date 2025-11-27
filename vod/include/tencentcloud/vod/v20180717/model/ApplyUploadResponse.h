@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TempCertificate;
+
                 /**
                 * ApplyUpload返回参数结构体
                 */

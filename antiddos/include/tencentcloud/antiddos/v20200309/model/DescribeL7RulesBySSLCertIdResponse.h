@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertIdInsL7Rules;
+
                 /**
                 * DescribeL7RulesBySSLCertId返回参数结构体
                 */

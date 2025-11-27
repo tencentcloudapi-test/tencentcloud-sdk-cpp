@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 表情识别参数配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ExpressionConfigInfo();
-                    ~ExpressionConfigInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

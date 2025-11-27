@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Impala查询详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ImpalaQuery();
-                    ~ImpalaQuery() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

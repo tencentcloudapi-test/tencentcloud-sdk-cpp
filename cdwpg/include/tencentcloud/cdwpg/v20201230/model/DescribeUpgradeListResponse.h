@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpgradeItem;
+
                 /**
                 * DescribeUpgradeList返回参数结构体
                 */

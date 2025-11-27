@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Candidate;
+
                 /**
                 * 分组识别结果Item
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     GroupCandidate();
-                    ~GroupCandidate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

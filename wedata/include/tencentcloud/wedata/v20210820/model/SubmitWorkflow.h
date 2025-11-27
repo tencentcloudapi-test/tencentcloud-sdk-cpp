@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 提交工作流实体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SubmitWorkflow();
-                    ~SubmitWorkflow() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

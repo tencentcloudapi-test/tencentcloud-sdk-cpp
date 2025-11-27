@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述了实例的抽象位置，包括其所在的可用区，所属的项目
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpacePlacement();
-                    ~SpacePlacement() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PeriodsSt;
+                class MetricObjectMeaning;
+                class DimensionsDesc;
+
                 /**
                 * 对业务指标的单位及支持统计周期的描述
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     MetricSet();
-                    ~MetricSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

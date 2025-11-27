@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyList;
+
                 /**
                 * 结构体，主叫呼叫预处理操作，根据不同操作确认是否呼通被叫。如需使用，本结构体需要与 keyList 结构体配合使用，此时这两个参数都为必填项
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RreCallerHandle();
-                    ~RreCallerHandle() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

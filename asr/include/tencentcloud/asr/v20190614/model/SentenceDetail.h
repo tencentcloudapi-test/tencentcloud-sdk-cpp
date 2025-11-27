@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SentenceWords;
+                class KeyWordResult;
+
                 /**
                 * 单句的详细识别结果，包含单个词的时间偏移，一般用于生成字幕的场景。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SentenceDetail();
-                    ~SentenceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

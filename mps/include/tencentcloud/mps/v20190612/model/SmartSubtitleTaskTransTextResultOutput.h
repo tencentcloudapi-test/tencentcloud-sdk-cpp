@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SmartSubtitleTaskTransTextSegmentItem;
+                class TaskOutputStorage;
+                class SubtitleTransResultItem;
+
                 /**
                 * 翻译结果。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     SmartSubtitleTaskTransTextResultOutput();
-                    ~SmartSubtitleTaskTransTextResultOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

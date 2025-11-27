@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DrmSourceObject;
+                class DrmOutputObject;
+
                 /**
                 * StartEncryption请求参数结构体
                 */

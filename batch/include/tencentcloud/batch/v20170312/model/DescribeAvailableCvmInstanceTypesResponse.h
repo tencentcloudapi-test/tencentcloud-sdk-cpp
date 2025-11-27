@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceTypeConfig;
+
                 /**
                 * DescribeAvailableCvmInstanceTypes返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 直播实时翻译结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LiveStreamTransTextRecognitionResult();
-                    ~LiveStreamTransTextRecognitionResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

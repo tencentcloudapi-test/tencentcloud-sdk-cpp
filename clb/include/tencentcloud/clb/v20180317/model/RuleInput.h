@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthCheck;
+                class CertificateInput;
+                class MultiCertInfo;
+
                 /**
                 * HTTP/HTTPS转发规则（输入）
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleInput();
-                    ~RuleInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

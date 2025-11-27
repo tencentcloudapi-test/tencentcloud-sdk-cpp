@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceRackOn;
+                class SelfOperation;
+
                 /**
                 * CreateRackOnWorkOrder请求参数结构体
                 */

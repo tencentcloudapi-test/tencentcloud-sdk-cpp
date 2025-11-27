@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrivilegeEventInfo;
+
                 /**
                 * DescribePrivilegeEventInfo返回参数结构体
                 */

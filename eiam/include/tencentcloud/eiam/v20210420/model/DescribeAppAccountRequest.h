@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppAccountSearchCriteria;
+
                 /**
                 * DescribeAppAccount请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 批量转账查询返回批次明细实体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TransferDetailResponse();
-                    ~TransferDetailResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 获取七层转发规则时返回的转发域名下面的转发路径。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     L7RulesLocation();
-                    ~L7RulesLocation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

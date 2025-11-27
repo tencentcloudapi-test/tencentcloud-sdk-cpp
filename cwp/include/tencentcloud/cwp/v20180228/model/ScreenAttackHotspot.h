@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 大屏全网攻击热点
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ScreenAttackHotspot();
-                    ~ScreenAttackHotspot() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

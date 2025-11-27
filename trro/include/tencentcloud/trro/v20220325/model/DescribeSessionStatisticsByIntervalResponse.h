@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SessionIntervalStatistic;
+
                 /**
                 * DescribeSessionStatisticsByInterval返回参数结构体
                 */

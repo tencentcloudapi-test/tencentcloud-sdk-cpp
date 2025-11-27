@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 管理人预审核的域名列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ManagerPreAuditDomain();
-                    ~ManagerPreAuditDomain() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

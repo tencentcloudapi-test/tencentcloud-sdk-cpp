@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 机动车销售统一发票
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MotorVehicleSaleInvoice();
-                    ~MotorVehicleSaleInvoice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

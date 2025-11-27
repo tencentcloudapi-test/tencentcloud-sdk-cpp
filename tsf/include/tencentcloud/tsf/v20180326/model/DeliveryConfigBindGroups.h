@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeliveryConfigBindGroup;
+
                 /**
                 * 描述配置项绑定的部署组
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DeliveryConfigBindGroups();
-                    ~DeliveryConfigBindGroups() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

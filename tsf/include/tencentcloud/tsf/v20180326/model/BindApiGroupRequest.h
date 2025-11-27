@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GatewayGroupIds;
+
                 /**
                 * BindApiGroup请求参数结构体
                 */

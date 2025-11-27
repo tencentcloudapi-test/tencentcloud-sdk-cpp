@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 监听器绑定的后端服务的详细信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Backend();
-                    ~Backend() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

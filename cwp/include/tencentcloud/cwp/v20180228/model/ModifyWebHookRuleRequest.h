@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WebHookRuleDetail;
+
                 /**
                 * ModifyWebHookRule请求参数结构体
                 */

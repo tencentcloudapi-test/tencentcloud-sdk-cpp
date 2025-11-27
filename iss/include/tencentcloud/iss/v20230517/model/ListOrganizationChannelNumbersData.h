@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 组织目录下的未添加到实时上云计划中的通道数量返回数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ListOrganizationChannelNumbersData();
-                    ~ListOrganizationChannelNumbersData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

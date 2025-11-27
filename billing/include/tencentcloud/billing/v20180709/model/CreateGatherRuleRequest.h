@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GatherRuleSummary;
+
                 /**
                 * CreateGatherRule请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SplitMediaTaskConfig;
+
                 /**
                 * SplitMedia请求参数结构体
                 */

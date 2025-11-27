@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SingleOrderedDataPoint;
+
                 /**
                 * GetTopNMonitorData返回参数结构体
                 */

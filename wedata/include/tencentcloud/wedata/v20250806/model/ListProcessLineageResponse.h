@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListProcessLineagePage;
+
                 /**
                 * ListProcessLineage返回参数结构体
                 */

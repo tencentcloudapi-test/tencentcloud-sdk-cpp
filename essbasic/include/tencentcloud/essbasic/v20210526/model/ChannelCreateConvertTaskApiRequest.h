@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+                class UserInfo;
+                class OrganizationInfo;
+
                 /**
                 * ChannelCreateConvertTaskApi请求参数结构体
                 */

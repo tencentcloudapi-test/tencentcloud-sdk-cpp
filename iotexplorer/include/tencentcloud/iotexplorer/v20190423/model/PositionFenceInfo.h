@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PositionFenceItem;
+
                 /**
                 * 围栏详细信息(包含创建时间及更新时间)
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PositionFenceInfo();
-                    ~PositionFenceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

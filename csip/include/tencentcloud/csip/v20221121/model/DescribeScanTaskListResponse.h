@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScanTaskInfoList;
+                class FilterDataObject;
+
                 /**
                 * DescribeScanTaskList返回参数结构体
                 */

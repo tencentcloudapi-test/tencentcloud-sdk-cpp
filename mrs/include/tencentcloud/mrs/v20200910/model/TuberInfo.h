@@ -41,6 +41,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BlockInfo;
+                class Part;
+                class Size;
+                class Multiple;
+                class AspectRatio;
+                class Elastic;
+                class Coord;
+
                 /**
                 * 结节
                 */
@@ -48,7 +56,6 @@ namespace TencentCloud
                 {
                 public:
                     TuberInfo();
-                    ~TuberInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

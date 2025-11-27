@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 反光点覆盖区域详情结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ReflectDetailInfo();
-                    ~ReflectDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

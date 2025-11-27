@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReplicationRule;
+                class PeerReplicationOption;
+
                 /**
                 * ManageReplication请求参数结构体
                 */

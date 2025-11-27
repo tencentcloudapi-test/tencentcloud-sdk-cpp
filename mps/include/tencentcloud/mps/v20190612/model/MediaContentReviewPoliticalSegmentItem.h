@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 内容审核涉敏嫌疑片段
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaContentReviewPoliticalSegmentItem();
-                    ~MediaContentReviewPoliticalSegmentItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

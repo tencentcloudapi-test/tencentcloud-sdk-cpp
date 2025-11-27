@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DspaInstance;
+
                 /**
                 * ListDSPAClusters返回参数结构体
                 */

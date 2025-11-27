@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserFileDTONew;
+
                 /**
                 * UploadResource返回参数结构体
                 */

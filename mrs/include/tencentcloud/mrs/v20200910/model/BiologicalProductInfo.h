@@ -49,6 +49,22 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BiologicalProductInfoName;
+                class BiologicalProductInfoIngredientAndAppearance;
+                class BiologicalProductInfoVaccinationTarget;
+                class BiologicalProductInfoIndications;
+                class BiologicalProductInfoBrochure;
+                class BiologicalProductInfoDosage;
+                class BiologicalProductInfoAdverseReaction;
+                class BiologicalProductInfoContraindications;
+                class BiologicalProductInfoPrecautions;
+                class BiologicalProductInfoStorage;
+                class BiologicalProductInfoPackaging;
+                class BiologicalProductInfoValidityPeriod;
+                class BiologicalProductInfoExecutiveStandards;
+                class BiologicalProductInfoApproval;
+                class BiologicalProductInfoManufacturer;
+
                 /**
                 * 预防用生物制品说明书
                 */
@@ -56,7 +72,6 @@ namespace TencentCloud
                 {
                 public:
                     BiologicalProductInfo();
-                    ~BiologicalProductInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

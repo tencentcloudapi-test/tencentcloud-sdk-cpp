@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 动态添加签署人的结果信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DynamicFlowApproverResult();
-                    ~DynamicFlowApproverResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

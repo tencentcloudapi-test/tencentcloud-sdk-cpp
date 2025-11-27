@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 下架歌曲复合结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TakeMusicOffShelves();
-                    ~TakeMusicOffShelves() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RiskDetailInfo;
+                class FinanceOtherModelScores;
+
                 /**
                 * 借贷反欺查询返回结果出参
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     FinanceAntiFraudRecord();
-                    ~FinanceAntiFraudRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

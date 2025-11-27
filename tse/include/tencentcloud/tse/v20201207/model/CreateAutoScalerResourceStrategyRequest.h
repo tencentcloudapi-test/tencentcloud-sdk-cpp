@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudNativeAPIGatewayStrategyAutoScalerConfig;
+                class CloudNativeAPIGatewayStrategyCronScalerConfig;
+
                 /**
                 * CreateAutoScalerResourceStrategy请求参数结构体
                 */

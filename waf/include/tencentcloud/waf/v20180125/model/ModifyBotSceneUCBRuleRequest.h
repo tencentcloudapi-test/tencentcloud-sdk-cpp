@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InOutputBotUCBRule;
+
                 /**
                 * ModifyBotSceneUCBRule请求参数结构体
                 */

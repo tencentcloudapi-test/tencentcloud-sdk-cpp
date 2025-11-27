@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/oceanus/v20190422/model/TreeJobSets.h>
-#include <tencentcloud/oceanus/v20190422/model/DescribeTreeJobsRsp.h>
 
 
 namespace TencentCloud
@@ -36,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TreeJobSets;
+
                 /**
                 * 自定义树结构遍历子节点
                 */
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeTreeJobsRsp();
-                    ~DescribeTreeJobsRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

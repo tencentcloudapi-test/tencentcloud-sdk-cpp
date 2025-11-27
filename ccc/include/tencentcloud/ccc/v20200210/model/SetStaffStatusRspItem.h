@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 设置 staff 状态应答 item
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SetStaffStatusRspItem();
-                    ~SetStaffStatusRspItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

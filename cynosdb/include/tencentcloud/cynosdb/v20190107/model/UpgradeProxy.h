@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProxyZone;
+
                 /**
                 * 添加实例或者变配实例时同步升级proxy.
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     UpgradeProxy();
-                    ~UpgradeProxy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

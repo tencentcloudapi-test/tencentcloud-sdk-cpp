@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeAlarmTypeListRes;
+
                 /**
                 * DescribeAlarmTypeList返回参数结构体
                 */

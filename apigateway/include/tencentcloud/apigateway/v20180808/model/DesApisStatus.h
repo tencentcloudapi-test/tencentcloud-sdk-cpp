@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OauthConfig;
+
                 /**
                 * api状态详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DesApisStatus();
-                    ~DesApisStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

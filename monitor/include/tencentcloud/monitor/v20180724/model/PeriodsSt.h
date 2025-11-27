@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 周期内的统计方式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PeriodsSt();
-                    ~PeriodsSt() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

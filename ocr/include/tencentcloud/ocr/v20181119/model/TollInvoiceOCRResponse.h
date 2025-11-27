@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TollInvoiceInfo;
+
                 /**
                 * TollInvoiceOCR返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 域名增值服务用量
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VASStatisticItem();
-                    ~VASStatisticItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

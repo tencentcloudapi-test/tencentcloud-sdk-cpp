@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PullSmsSendStatus;
+
                 /**
                 * PullSmsSendStatusByPhoneNumber返回参数结构体
                 */

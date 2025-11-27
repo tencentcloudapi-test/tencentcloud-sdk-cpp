@@ -46,6 +46,22 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModelInfo;
+                class ImageInfo;
+                class EnvVar;
+                class ResourceInfo;
+                class HorizontalPodAutoscaler;
+                class LogConfig;
+                class Tag;
+                class CronScaleJob;
+                class ScheduledAction;
+                class VolumeMount;
+                class ServiceLimit;
+                class ServiceEIP;
+                class HealthProbe;
+                class RollingUpdate;
+                class SidecarSpec;
+
                 /**
                 * CreateModelService请求参数结构体
                 */

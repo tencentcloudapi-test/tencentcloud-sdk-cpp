@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 需要开通专业版机器信息。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ProVersionMachine();
-                    ~ProVersionMachine() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

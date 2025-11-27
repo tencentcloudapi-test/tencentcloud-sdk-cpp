@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OmittedDuration;
+                class VideoInfo;
+                class Interrupt;
+
                 /**
                 * DescribeOnlineRecord返回参数结构体
                 */

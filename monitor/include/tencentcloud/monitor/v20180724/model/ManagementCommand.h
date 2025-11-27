@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Prometheus Agent 管理命令行
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ManagementCommand();
-                    ~ManagementCommand() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ParamType;
+
                 /**
                 * CreateDBInstanceParamTpl请求参数结构体
                 */

@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VPCOption;
+                class ClusterOption;
+                class DatabaseOption;
+                class StorageOption;
+                class CVMOption;
+                class SecurityGroupOption;
+
                 /**
                 * 环境配置。
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     EnvironmentConfig();
-                    ~EnvironmentConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

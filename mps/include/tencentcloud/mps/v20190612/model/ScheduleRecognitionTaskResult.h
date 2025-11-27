@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiRecognitionTaskInput;
+                class AiRecognitionResult;
+
                 /**
                 * 编排视频识别任务结果类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ScheduleRecognitionTaskResult();
-                    ~ScheduleRecognitionTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

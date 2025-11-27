@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IntegrationStatisticsTrendResult;
+
                 /**
                 * DescribeIntegrationStatisticsInstanceTrend返回参数结构体
                 */

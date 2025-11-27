@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ManualTriggerRecordOpsDtoPage;
+
                 /**
                 * DescribeManualTriggerRecordPage返回参数结构体
                 */

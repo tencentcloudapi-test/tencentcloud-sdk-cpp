@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 转码任务数。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TranscodeTaskNum();
-                    ~TranscodeTaskNum() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

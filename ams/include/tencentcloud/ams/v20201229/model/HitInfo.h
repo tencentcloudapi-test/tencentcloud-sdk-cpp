@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Position;
+
                 /**
                 * 关键词命中位置信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HitInfo();
-                    ~HitInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

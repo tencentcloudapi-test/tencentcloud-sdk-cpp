@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BusinessCardInfo;
+
                 /**
                 * BusinessCardOCR返回参数结构体
                 */

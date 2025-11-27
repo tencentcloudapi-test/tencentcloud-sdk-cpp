@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户基础信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UserBaseInfo();
-                    ~UserBaseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

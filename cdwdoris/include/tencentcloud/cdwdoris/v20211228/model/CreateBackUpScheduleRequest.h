@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackupTableContent;
+                class DorisSourceInfo;
+                class CosSourceInfo;
+                class ScheduleInfo;
+                class SnapshotRemainPolicy;
+
                 /**
                 * CreateBackUpSchedule请求参数结构体
                 */

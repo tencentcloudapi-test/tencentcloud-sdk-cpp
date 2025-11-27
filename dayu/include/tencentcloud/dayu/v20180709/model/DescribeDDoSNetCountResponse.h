@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValue;
+
                 /**
                 * DescribeDDoSNetCount返回参数结构体
                 */

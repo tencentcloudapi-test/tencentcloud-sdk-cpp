@@ -62,32 +62,25 @@ AmeClient::BatchDescribeKTVMusicDetailsOutcome AmeClient::BatchDescribeKTVMusicD
 
 void AmeClient::BatchDescribeKTVMusicDetailsAsync(const BatchDescribeKTVMusicDetailsRequest& request, const BatchDescribeKTVMusicDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDescribeKTVMusicDetailsRequest&;
-    using Resp = BatchDescribeKTVMusicDetailsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDescribeKTVMusicDetails(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDescribeKTVMusicDetails", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::BatchDescribeKTVMusicDetailsOutcomeCallable AmeClient::BatchDescribeKTVMusicDetailsCallable(const BatchDescribeKTVMusicDetailsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDescribeKTVMusicDetailsOutcome>>();
-    BatchDescribeKTVMusicDetailsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const BatchDescribeKTVMusicDetailsRequest&,
-        BatchDescribeKTVMusicDetailsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDescribeKTVMusicDetailsOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDescribeKTVMusicDetails(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::CreateKTVRobotOutcome AmeClient::CreateKTVRobot(const CreateKTVRobotRequest &request)
@@ -112,32 +105,25 @@ AmeClient::CreateKTVRobotOutcome AmeClient::CreateKTVRobot(const CreateKTVRobotR
 
 void AmeClient::CreateKTVRobotAsync(const CreateKTVRobotRequest& request, const CreateKTVRobotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateKTVRobotRequest&;
-    using Resp = CreateKTVRobotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateKTVRobot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateKTVRobot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::CreateKTVRobotOutcomeCallable AmeClient::CreateKTVRobotCallable(const CreateKTVRobotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateKTVRobotOutcome>>();
-    CreateKTVRobotAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const CreateKTVRobotRequest&,
-        CreateKTVRobotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateKTVRobotOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateKTVRobot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeAuthInfoOutcome AmeClient::DescribeAuthInfo(const DescribeAuthInfoRequest &request)
@@ -162,32 +148,25 @@ AmeClient::DescribeAuthInfoOutcome AmeClient::DescribeAuthInfo(const DescribeAut
 
 void AmeClient::DescribeAuthInfoAsync(const DescribeAuthInfoRequest& request, const DescribeAuthInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuthInfoRequest&;
-    using Resp = DescribeAuthInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuthInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuthInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeAuthInfoOutcomeCallable AmeClient::DescribeAuthInfoCallable(const DescribeAuthInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuthInfoOutcome>>();
-    DescribeAuthInfoAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeAuthInfoRequest&,
-        DescribeAuthInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuthInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuthInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeCloudMusicOutcome AmeClient::DescribeCloudMusic(const DescribeCloudMusicRequest &request)
@@ -212,32 +191,25 @@ AmeClient::DescribeCloudMusicOutcome AmeClient::DescribeCloudMusic(const Describ
 
 void AmeClient::DescribeCloudMusicAsync(const DescribeCloudMusicRequest& request, const DescribeCloudMusicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudMusicRequest&;
-    using Resp = DescribeCloudMusicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudMusic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudMusic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeCloudMusicOutcomeCallable AmeClient::DescribeCloudMusicCallable(const DescribeCloudMusicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudMusicOutcome>>();
-    DescribeCloudMusicAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeCloudMusicRequest&,
-        DescribeCloudMusicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudMusicOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudMusic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeCloudMusicPurchasedOutcome AmeClient::DescribeCloudMusicPurchased(const DescribeCloudMusicPurchasedRequest &request)
@@ -262,32 +234,25 @@ AmeClient::DescribeCloudMusicPurchasedOutcome AmeClient::DescribeCloudMusicPurch
 
 void AmeClient::DescribeCloudMusicPurchasedAsync(const DescribeCloudMusicPurchasedRequest& request, const DescribeCloudMusicPurchasedAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudMusicPurchasedRequest&;
-    using Resp = DescribeCloudMusicPurchasedResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudMusicPurchased(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudMusicPurchased", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeCloudMusicPurchasedOutcomeCallable AmeClient::DescribeCloudMusicPurchasedCallable(const DescribeCloudMusicPurchasedRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudMusicPurchasedOutcome>>();
-    DescribeCloudMusicPurchasedAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeCloudMusicPurchasedRequest&,
-        DescribeCloudMusicPurchasedOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudMusicPurchasedOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudMusicPurchased(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeItemByIdOutcome AmeClient::DescribeItemById(const DescribeItemByIdRequest &request)
@@ -312,32 +277,25 @@ AmeClient::DescribeItemByIdOutcome AmeClient::DescribeItemById(const DescribeIte
 
 void AmeClient::DescribeItemByIdAsync(const DescribeItemByIdRequest& request, const DescribeItemByIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeItemByIdRequest&;
-    using Resp = DescribeItemByIdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeItemById(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeItemById", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeItemByIdOutcomeCallable AmeClient::DescribeItemByIdCallable(const DescribeItemByIdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeItemByIdOutcome>>();
-    DescribeItemByIdAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeItemByIdRequest&,
-        DescribeItemByIdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeItemByIdOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeItemById(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeItemsOutcome AmeClient::DescribeItems(const DescribeItemsRequest &request)
@@ -362,32 +320,25 @@ AmeClient::DescribeItemsOutcome AmeClient::DescribeItems(const DescribeItemsRequ
 
 void AmeClient::DescribeItemsAsync(const DescribeItemsRequest& request, const DescribeItemsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeItemsRequest&;
-    using Resp = DescribeItemsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeItems(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeItems", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeItemsOutcomeCallable AmeClient::DescribeItemsCallable(const DescribeItemsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeItemsOutcome>>();
-    DescribeItemsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeItemsRequest&,
-        DescribeItemsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeItemsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeItems(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVMusicDetailOutcome AmeClient::DescribeKTVMusicDetail(const DescribeKTVMusicDetailRequest &request)
@@ -412,32 +363,25 @@ AmeClient::DescribeKTVMusicDetailOutcome AmeClient::DescribeKTVMusicDetail(const
 
 void AmeClient::DescribeKTVMusicDetailAsync(const DescribeKTVMusicDetailRequest& request, const DescribeKTVMusicDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVMusicDetailRequest&;
-    using Resp = DescribeKTVMusicDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVMusicDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVMusicDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVMusicDetailOutcomeCallable AmeClient::DescribeKTVMusicDetailCallable(const DescribeKTVMusicDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVMusicDetailOutcome>>();
-    DescribeKTVMusicDetailAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVMusicDetailRequest&,
-        DescribeKTVMusicDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVMusicDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVMusicDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVMusicTagsOutcome AmeClient::DescribeKTVMusicTags(const DescribeKTVMusicTagsRequest &request)
@@ -462,32 +406,25 @@ AmeClient::DescribeKTVMusicTagsOutcome AmeClient::DescribeKTVMusicTags(const Des
 
 void AmeClient::DescribeKTVMusicTagsAsync(const DescribeKTVMusicTagsRequest& request, const DescribeKTVMusicTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVMusicTagsRequest&;
-    using Resp = DescribeKTVMusicTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVMusicTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVMusicTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVMusicTagsOutcomeCallable AmeClient::DescribeKTVMusicTagsCallable(const DescribeKTVMusicTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVMusicTagsOutcome>>();
-    DescribeKTVMusicTagsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVMusicTagsRequest&,
-        DescribeKTVMusicTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVMusicTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVMusicTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVPlaylistDetailOutcome AmeClient::DescribeKTVPlaylistDetail(const DescribeKTVPlaylistDetailRequest &request)
@@ -512,32 +449,25 @@ AmeClient::DescribeKTVPlaylistDetailOutcome AmeClient::DescribeKTVPlaylistDetail
 
 void AmeClient::DescribeKTVPlaylistDetailAsync(const DescribeKTVPlaylistDetailRequest& request, const DescribeKTVPlaylistDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVPlaylistDetailRequest&;
-    using Resp = DescribeKTVPlaylistDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVPlaylistDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVPlaylistDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVPlaylistDetailOutcomeCallable AmeClient::DescribeKTVPlaylistDetailCallable(const DescribeKTVPlaylistDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVPlaylistDetailOutcome>>();
-    DescribeKTVPlaylistDetailAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVPlaylistDetailRequest&,
-        DescribeKTVPlaylistDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVPlaylistDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVPlaylistDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVPlaylistsOutcome AmeClient::DescribeKTVPlaylists(const DescribeKTVPlaylistsRequest &request)
@@ -562,32 +492,25 @@ AmeClient::DescribeKTVPlaylistsOutcome AmeClient::DescribeKTVPlaylists(const Des
 
 void AmeClient::DescribeKTVPlaylistsAsync(const DescribeKTVPlaylistsRequest& request, const DescribeKTVPlaylistsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVPlaylistsRequest&;
-    using Resp = DescribeKTVPlaylistsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVPlaylists(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVPlaylists", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVPlaylistsOutcomeCallable AmeClient::DescribeKTVPlaylistsCallable(const DescribeKTVPlaylistsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVPlaylistsOutcome>>();
-    DescribeKTVPlaylistsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVPlaylistsRequest&,
-        DescribeKTVPlaylistsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVPlaylistsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVPlaylists(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVRobotsOutcome AmeClient::DescribeKTVRobots(const DescribeKTVRobotsRequest &request)
@@ -612,32 +535,25 @@ AmeClient::DescribeKTVRobotsOutcome AmeClient::DescribeKTVRobots(const DescribeK
 
 void AmeClient::DescribeKTVRobotsAsync(const DescribeKTVRobotsRequest& request, const DescribeKTVRobotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVRobotsRequest&;
-    using Resp = DescribeKTVRobotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVRobots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVRobots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVRobotsOutcomeCallable AmeClient::DescribeKTVRobotsCallable(const DescribeKTVRobotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVRobotsOutcome>>();
-    DescribeKTVRobotsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVRobotsRequest&,
-        DescribeKTVRobotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVRobotsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVRobots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVSingerCategoriesOutcome AmeClient::DescribeKTVSingerCategories(const DescribeKTVSingerCategoriesRequest &request)
@@ -662,32 +578,25 @@ AmeClient::DescribeKTVSingerCategoriesOutcome AmeClient::DescribeKTVSingerCatego
 
 void AmeClient::DescribeKTVSingerCategoriesAsync(const DescribeKTVSingerCategoriesRequest& request, const DescribeKTVSingerCategoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVSingerCategoriesRequest&;
-    using Resp = DescribeKTVSingerCategoriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVSingerCategories(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVSingerCategories", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVSingerCategoriesOutcomeCallable AmeClient::DescribeKTVSingerCategoriesCallable(const DescribeKTVSingerCategoriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVSingerCategoriesOutcome>>();
-    DescribeKTVSingerCategoriesAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVSingerCategoriesRequest&,
-        DescribeKTVSingerCategoriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVSingerCategoriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVSingerCategories(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVSingerMusicsOutcome AmeClient::DescribeKTVSingerMusics(const DescribeKTVSingerMusicsRequest &request)
@@ -712,32 +621,25 @@ AmeClient::DescribeKTVSingerMusicsOutcome AmeClient::DescribeKTVSingerMusics(con
 
 void AmeClient::DescribeKTVSingerMusicsAsync(const DescribeKTVSingerMusicsRequest& request, const DescribeKTVSingerMusicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVSingerMusicsRequest&;
-    using Resp = DescribeKTVSingerMusicsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVSingerMusics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVSingerMusics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVSingerMusicsOutcomeCallable AmeClient::DescribeKTVSingerMusicsCallable(const DescribeKTVSingerMusicsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVSingerMusicsOutcome>>();
-    DescribeKTVSingerMusicsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVSingerMusicsRequest&,
-        DescribeKTVSingerMusicsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVSingerMusicsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVSingerMusics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVSingersOutcome AmeClient::DescribeKTVSingers(const DescribeKTVSingersRequest &request)
@@ -762,32 +664,25 @@ AmeClient::DescribeKTVSingersOutcome AmeClient::DescribeKTVSingers(const Describ
 
 void AmeClient::DescribeKTVSingersAsync(const DescribeKTVSingersRequest& request, const DescribeKTVSingersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVSingersRequest&;
-    using Resp = DescribeKTVSingersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVSingers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVSingers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVSingersOutcomeCallable AmeClient::DescribeKTVSingersCallable(const DescribeKTVSingersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVSingersOutcome>>();
-    DescribeKTVSingersAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVSingersRequest&,
-        DescribeKTVSingersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVSingersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVSingers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVSuggestionsOutcome AmeClient::DescribeKTVSuggestions(const DescribeKTVSuggestionsRequest &request)
@@ -812,32 +707,25 @@ AmeClient::DescribeKTVSuggestionsOutcome AmeClient::DescribeKTVSuggestions(const
 
 void AmeClient::DescribeKTVSuggestionsAsync(const DescribeKTVSuggestionsRequest& request, const DescribeKTVSuggestionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVSuggestionsRequest&;
-    using Resp = DescribeKTVSuggestionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVSuggestions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVSuggestions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVSuggestionsOutcomeCallable AmeClient::DescribeKTVSuggestionsCallable(const DescribeKTVSuggestionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVSuggestionsOutcome>>();
-    DescribeKTVSuggestionsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVSuggestionsRequest&,
-        DescribeKTVSuggestionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVSuggestionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVSuggestions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeKTVTopListOutcome AmeClient::DescribeKTVTopList(const DescribeKTVTopListRequest &request)
@@ -862,32 +750,25 @@ AmeClient::DescribeKTVTopListOutcome AmeClient::DescribeKTVTopList(const Describ
 
 void AmeClient::DescribeKTVTopListAsync(const DescribeKTVTopListRequest& request, const DescribeKTVTopListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVTopListRequest&;
-    using Resp = DescribeKTVTopListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVTopList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVTopList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeKTVTopListOutcomeCallable AmeClient::DescribeKTVTopListCallable(const DescribeKTVTopListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVTopListOutcome>>();
-    DescribeKTVTopListAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeKTVTopListRequest&,
-        DescribeKTVTopListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVTopListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVTopList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeLyricOutcome AmeClient::DescribeLyric(const DescribeLyricRequest &request)
@@ -912,32 +793,25 @@ AmeClient::DescribeLyricOutcome AmeClient::DescribeLyric(const DescribeLyricRequ
 
 void AmeClient::DescribeLyricAsync(const DescribeLyricRequest& request, const DescribeLyricAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLyricRequest&;
-    using Resp = DescribeLyricResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLyric(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLyric", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeLyricOutcomeCallable AmeClient::DescribeLyricCallable(const DescribeLyricRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLyricOutcome>>();
-    DescribeLyricAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeLyricRequest&,
-        DescribeLyricOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLyricOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLyric(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeMusicOutcome AmeClient::DescribeMusic(const DescribeMusicRequest &request)
@@ -962,32 +836,25 @@ AmeClient::DescribeMusicOutcome AmeClient::DescribeMusic(const DescribeMusicRequ
 
 void AmeClient::DescribeMusicAsync(const DescribeMusicRequest& request, const DescribeMusicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMusicRequest&;
-    using Resp = DescribeMusicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMusic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMusic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeMusicOutcomeCallable AmeClient::DescribeMusicCallable(const DescribeMusicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMusicOutcome>>();
-    DescribeMusicAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeMusicRequest&,
-        DescribeMusicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMusicOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMusic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeMusicSaleStatusOutcome AmeClient::DescribeMusicSaleStatus(const DescribeMusicSaleStatusRequest &request)
@@ -1012,32 +879,25 @@ AmeClient::DescribeMusicSaleStatusOutcome AmeClient::DescribeMusicSaleStatus(con
 
 void AmeClient::DescribeMusicSaleStatusAsync(const DescribeMusicSaleStatusRequest& request, const DescribeMusicSaleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMusicSaleStatusRequest&;
-    using Resp = DescribeMusicSaleStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMusicSaleStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMusicSaleStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeMusicSaleStatusOutcomeCallable AmeClient::DescribeMusicSaleStatusCallable(const DescribeMusicSaleStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMusicSaleStatusOutcome>>();
-    DescribeMusicSaleStatusAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeMusicSaleStatusRequest&,
-        DescribeMusicSaleStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMusicSaleStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMusicSaleStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribePackageItemsOutcome AmeClient::DescribePackageItems(const DescribePackageItemsRequest &request)
@@ -1062,32 +922,25 @@ AmeClient::DescribePackageItemsOutcome AmeClient::DescribePackageItems(const Des
 
 void AmeClient::DescribePackageItemsAsync(const DescribePackageItemsRequest& request, const DescribePackageItemsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePackageItemsRequest&;
-    using Resp = DescribePackageItemsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePackageItems(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePackageItems", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribePackageItemsOutcomeCallable AmeClient::DescribePackageItemsCallable(const DescribePackageItemsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePackageItemsOutcome>>();
-    DescribePackageItemsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribePackageItemsRequest&,
-        DescribePackageItemsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePackageItemsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePackageItems(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribePackagesOutcome AmeClient::DescribePackages(const DescribePackagesRequest &request)
@@ -1112,32 +965,25 @@ AmeClient::DescribePackagesOutcome AmeClient::DescribePackages(const DescribePac
 
 void AmeClient::DescribePackagesAsync(const DescribePackagesRequest& request, const DescribePackagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePackagesRequest&;
-    using Resp = DescribePackagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePackages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePackages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribePackagesOutcomeCallable AmeClient::DescribePackagesCallable(const DescribePackagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePackagesOutcome>>();
-    DescribePackagesAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribePackagesRequest&,
-        DescribePackagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePackagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePackages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribePkgOfflineMusicOutcome AmeClient::DescribePkgOfflineMusic(const DescribePkgOfflineMusicRequest &request)
@@ -1162,32 +1008,25 @@ AmeClient::DescribePkgOfflineMusicOutcome AmeClient::DescribePkgOfflineMusic(con
 
 void AmeClient::DescribePkgOfflineMusicAsync(const DescribePkgOfflineMusicRequest& request, const DescribePkgOfflineMusicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePkgOfflineMusicRequest&;
-    using Resp = DescribePkgOfflineMusicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePkgOfflineMusic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePkgOfflineMusic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribePkgOfflineMusicOutcomeCallable AmeClient::DescribePkgOfflineMusicCallable(const DescribePkgOfflineMusicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePkgOfflineMusicOutcome>>();
-    DescribePkgOfflineMusicAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribePkgOfflineMusicRequest&,
-        DescribePkgOfflineMusicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePkgOfflineMusicOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePkgOfflineMusic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DescribeStationsOutcome AmeClient::DescribeStations(const DescribeStationsRequest &request)
@@ -1212,32 +1051,25 @@ AmeClient::DescribeStationsOutcome AmeClient::DescribeStations(const DescribeSta
 
 void AmeClient::DescribeStationsAsync(const DescribeStationsRequest& request, const DescribeStationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStationsRequest&;
-    using Resp = DescribeStationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DescribeStationsOutcomeCallable AmeClient::DescribeStationsCallable(const DescribeStationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStationsOutcome>>();
-    DescribeStationsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DescribeStationsRequest&,
-        DescribeStationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::DestroyKTVRobotOutcome AmeClient::DestroyKTVRobot(const DestroyKTVRobotRequest &request)
@@ -1262,32 +1094,25 @@ AmeClient::DestroyKTVRobotOutcome AmeClient::DestroyKTVRobot(const DestroyKTVRob
 
 void AmeClient::DestroyKTVRobotAsync(const DestroyKTVRobotRequest& request, const DestroyKTVRobotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyKTVRobotRequest&;
-    using Resp = DestroyKTVRobotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyKTVRobot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyKTVRobot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::DestroyKTVRobotOutcomeCallable AmeClient::DestroyKTVRobotCallable(const DestroyKTVRobotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyKTVRobotOutcome>>();
-    DestroyKTVRobotAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const DestroyKTVRobotRequest&,
-        DestroyKTVRobotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyKTVRobotOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyKTVRobot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::ModifyMusicOnShelvesOutcome AmeClient::ModifyMusicOnShelves(const ModifyMusicOnShelvesRequest &request)
@@ -1312,32 +1137,25 @@ AmeClient::ModifyMusicOnShelvesOutcome AmeClient::ModifyMusicOnShelves(const Mod
 
 void AmeClient::ModifyMusicOnShelvesAsync(const ModifyMusicOnShelvesRequest& request, const ModifyMusicOnShelvesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMusicOnShelvesRequest&;
-    using Resp = ModifyMusicOnShelvesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMusicOnShelves(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMusicOnShelves", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::ModifyMusicOnShelvesOutcomeCallable AmeClient::ModifyMusicOnShelvesCallable(const ModifyMusicOnShelvesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMusicOnShelvesOutcome>>();
-    ModifyMusicOnShelvesAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const ModifyMusicOnShelvesRequest&,
-        ModifyMusicOnShelvesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMusicOnShelvesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMusicOnShelves(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::PutMusicOnTheShelvesOutcome AmeClient::PutMusicOnTheShelves(const PutMusicOnTheShelvesRequest &request)
@@ -1362,32 +1180,25 @@ AmeClient::PutMusicOnTheShelvesOutcome AmeClient::PutMusicOnTheShelves(const Put
 
 void AmeClient::PutMusicOnTheShelvesAsync(const PutMusicOnTheShelvesRequest& request, const PutMusicOnTheShelvesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PutMusicOnTheShelvesRequest&;
-    using Resp = PutMusicOnTheShelvesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PutMusicOnTheShelves(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PutMusicOnTheShelves", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::PutMusicOnTheShelvesOutcomeCallable AmeClient::PutMusicOnTheShelvesCallable(const PutMusicOnTheShelvesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PutMusicOnTheShelvesOutcome>>();
-    PutMusicOnTheShelvesAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const PutMusicOnTheShelvesRequest&,
-        PutMusicOnTheShelvesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PutMusicOnTheShelvesOutcome()>>(
+        [this, request]()
+        {
+            return this->PutMusicOnTheShelves(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::ReportDataOutcome AmeClient::ReportData(const ReportDataRequest &request)
@@ -1412,32 +1223,25 @@ AmeClient::ReportDataOutcome AmeClient::ReportData(const ReportDataRequest &requ
 
 void AmeClient::ReportDataAsync(const ReportDataRequest& request, const ReportDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReportDataRequest&;
-    using Resp = ReportDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReportData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReportData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::ReportDataOutcomeCallable AmeClient::ReportDataCallable(const ReportDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReportDataOutcome>>();
-    ReportDataAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const ReportDataRequest&,
-        ReportDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReportDataOutcome()>>(
+        [this, request]()
+        {
+            return this->ReportData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::SearchKTVMusicsOutcome AmeClient::SearchKTVMusics(const SearchKTVMusicsRequest &request)
@@ -1462,32 +1266,25 @@ AmeClient::SearchKTVMusicsOutcome AmeClient::SearchKTVMusics(const SearchKTVMusi
 
 void AmeClient::SearchKTVMusicsAsync(const SearchKTVMusicsRequest& request, const SearchKTVMusicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchKTVMusicsRequest&;
-    using Resp = SearchKTVMusicsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchKTVMusics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchKTVMusics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::SearchKTVMusicsOutcomeCallable AmeClient::SearchKTVMusicsCallable(const SearchKTVMusicsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchKTVMusicsOutcome>>();
-    SearchKTVMusicsAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const SearchKTVMusicsRequest&,
-        SearchKTVMusicsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchKTVMusicsOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchKTVMusics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::SyncKTVRobotCommandOutcome AmeClient::SyncKTVRobotCommand(const SyncKTVRobotCommandRequest &request)
@@ -1512,32 +1309,25 @@ AmeClient::SyncKTVRobotCommandOutcome AmeClient::SyncKTVRobotCommand(const SyncK
 
 void AmeClient::SyncKTVRobotCommandAsync(const SyncKTVRobotCommandRequest& request, const SyncKTVRobotCommandAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SyncKTVRobotCommandRequest&;
-    using Resp = SyncKTVRobotCommandResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SyncKTVRobotCommand(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SyncKTVRobotCommand", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::SyncKTVRobotCommandOutcomeCallable AmeClient::SyncKTVRobotCommandCallable(const SyncKTVRobotCommandRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SyncKTVRobotCommandOutcome>>();
-    SyncKTVRobotCommandAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const SyncKTVRobotCommandRequest&,
-        SyncKTVRobotCommandOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SyncKTVRobotCommandOutcome()>>(
+        [this, request]()
+        {
+            return this->SyncKTVRobotCommand(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AmeClient::TakeMusicOffShelvesOutcome AmeClient::TakeMusicOffShelves(const TakeMusicOffShelvesRequest &request)
@@ -1562,31 +1352,24 @@ AmeClient::TakeMusicOffShelvesOutcome AmeClient::TakeMusicOffShelves(const TakeM
 
 void AmeClient::TakeMusicOffShelvesAsync(const TakeMusicOffShelvesRequest& request, const TakeMusicOffShelvesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TakeMusicOffShelvesRequest&;
-    using Resp = TakeMusicOffShelvesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TakeMusicOffShelves(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TakeMusicOffShelves", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AmeClient::TakeMusicOffShelvesOutcomeCallable AmeClient::TakeMusicOffShelvesCallable(const TakeMusicOffShelvesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TakeMusicOffShelvesOutcome>>();
-    TakeMusicOffShelvesAsync(
-    request,
-    [prom](
-        const AmeClient*,
-        const TakeMusicOffShelvesRequest&,
-        TakeMusicOffShelvesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TakeMusicOffShelvesOutcome()>>(
+        [this, request]()
+        {
+            return this->TakeMusicOffShelves(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

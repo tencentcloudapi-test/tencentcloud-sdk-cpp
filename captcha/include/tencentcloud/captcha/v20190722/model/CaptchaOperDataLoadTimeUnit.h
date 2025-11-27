@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 操作数据查询方法DescribeCaptchaOperData 的返回结果，安全验证码加载耗时type = 1
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CaptchaOperDataLoadTimeUnit();
-                    ~CaptchaOperDataLoadTimeUnit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

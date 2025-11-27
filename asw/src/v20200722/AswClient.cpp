@@ -62,32 +62,25 @@ AswClient::CreateFlowServiceOutcome AswClient::CreateFlowService(const CreateFlo
 
 void AswClient::CreateFlowServiceAsync(const CreateFlowServiceRequest& request, const CreateFlowServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateFlowServiceRequest&;
-    using Resp = CreateFlowServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateFlowService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateFlowService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::CreateFlowServiceOutcomeCallable AswClient::CreateFlowServiceCallable(const CreateFlowServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateFlowServiceOutcome>>();
-    CreateFlowServiceAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const CreateFlowServiceRequest&,
-        CreateFlowServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateFlowServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateFlowService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AswClient::DescribeExecutionOutcome AswClient::DescribeExecution(const DescribeExecutionRequest &request)
@@ -112,32 +105,25 @@ AswClient::DescribeExecutionOutcome AswClient::DescribeExecution(const DescribeE
 
 void AswClient::DescribeExecutionAsync(const DescribeExecutionRequest& request, const DescribeExecutionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExecutionRequest&;
-    using Resp = DescribeExecutionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExecution(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExecution", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::DescribeExecutionOutcomeCallable AswClient::DescribeExecutionCallable(const DescribeExecutionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExecutionOutcome>>();
-    DescribeExecutionAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const DescribeExecutionRequest&,
-        DescribeExecutionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExecutionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExecution(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AswClient::DescribeExecutionHistoryOutcome AswClient::DescribeExecutionHistory(const DescribeExecutionHistoryRequest &request)
@@ -162,32 +148,25 @@ AswClient::DescribeExecutionHistoryOutcome AswClient::DescribeExecutionHistory(c
 
 void AswClient::DescribeExecutionHistoryAsync(const DescribeExecutionHistoryRequest& request, const DescribeExecutionHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExecutionHistoryRequest&;
-    using Resp = DescribeExecutionHistoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExecutionHistory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExecutionHistory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::DescribeExecutionHistoryOutcomeCallable AswClient::DescribeExecutionHistoryCallable(const DescribeExecutionHistoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExecutionHistoryOutcome>>();
-    DescribeExecutionHistoryAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const DescribeExecutionHistoryRequest&,
-        DescribeExecutionHistoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExecutionHistoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExecutionHistory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AswClient::DescribeExecutionsOutcome AswClient::DescribeExecutions(const DescribeExecutionsRequest &request)
@@ -212,32 +191,25 @@ AswClient::DescribeExecutionsOutcome AswClient::DescribeExecutions(const Describ
 
 void AswClient::DescribeExecutionsAsync(const DescribeExecutionsRequest& request, const DescribeExecutionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExecutionsRequest&;
-    using Resp = DescribeExecutionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExecutions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExecutions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::DescribeExecutionsOutcomeCallable AswClient::DescribeExecutionsCallable(const DescribeExecutionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExecutionsOutcome>>();
-    DescribeExecutionsAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const DescribeExecutionsRequest&,
-        DescribeExecutionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExecutionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExecutions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AswClient::DescribeFlowServiceDetailOutcome AswClient::DescribeFlowServiceDetail(const DescribeFlowServiceDetailRequest &request)
@@ -262,32 +234,25 @@ AswClient::DescribeFlowServiceDetailOutcome AswClient::DescribeFlowServiceDetail
 
 void AswClient::DescribeFlowServiceDetailAsync(const DescribeFlowServiceDetailRequest& request, const DescribeFlowServiceDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFlowServiceDetailRequest&;
-    using Resp = DescribeFlowServiceDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFlowServiceDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFlowServiceDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::DescribeFlowServiceDetailOutcomeCallable AswClient::DescribeFlowServiceDetailCallable(const DescribeFlowServiceDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFlowServiceDetailOutcome>>();
-    DescribeFlowServiceDetailAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const DescribeFlowServiceDetailRequest&,
-        DescribeFlowServiceDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFlowServiceDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFlowServiceDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AswClient::DescribeFlowServicesOutcome AswClient::DescribeFlowServices(const DescribeFlowServicesRequest &request)
@@ -312,32 +277,25 @@ AswClient::DescribeFlowServicesOutcome AswClient::DescribeFlowServices(const Des
 
 void AswClient::DescribeFlowServicesAsync(const DescribeFlowServicesRequest& request, const DescribeFlowServicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFlowServicesRequest&;
-    using Resp = DescribeFlowServicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFlowServices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFlowServices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::DescribeFlowServicesOutcomeCallable AswClient::DescribeFlowServicesCallable(const DescribeFlowServicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFlowServicesOutcome>>();
-    DescribeFlowServicesAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const DescribeFlowServicesRequest&,
-        DescribeFlowServicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFlowServicesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFlowServices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AswClient::ModifyFlowServiceOutcome AswClient::ModifyFlowService(const ModifyFlowServiceRequest &request)
@@ -362,32 +320,25 @@ AswClient::ModifyFlowServiceOutcome AswClient::ModifyFlowService(const ModifyFlo
 
 void AswClient::ModifyFlowServiceAsync(const ModifyFlowServiceRequest& request, const ModifyFlowServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyFlowServiceRequest&;
-    using Resp = ModifyFlowServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyFlowService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyFlowService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::ModifyFlowServiceOutcomeCallable AswClient::ModifyFlowServiceCallable(const ModifyFlowServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyFlowServiceOutcome>>();
-    ModifyFlowServiceAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const ModifyFlowServiceRequest&,
-        ModifyFlowServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyFlowServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyFlowService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AswClient::StartExecutionOutcome AswClient::StartExecution(const StartExecutionRequest &request)
@@ -412,32 +363,25 @@ AswClient::StartExecutionOutcome AswClient::StartExecution(const StartExecutionR
 
 void AswClient::StartExecutionAsync(const StartExecutionRequest& request, const StartExecutionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartExecutionRequest&;
-    using Resp = StartExecutionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartExecution(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartExecution", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::StartExecutionOutcomeCallable AswClient::StartExecutionCallable(const StartExecutionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartExecutionOutcome>>();
-    StartExecutionAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const StartExecutionRequest&,
-        StartExecutionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartExecutionOutcome()>>(
+        [this, request]()
+        {
+            return this->StartExecution(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AswClient::StopExecutionOutcome AswClient::StopExecution(const StopExecutionRequest &request)
@@ -462,31 +406,24 @@ AswClient::StopExecutionOutcome AswClient::StopExecution(const StopExecutionRequ
 
 void AswClient::StopExecutionAsync(const StopExecutionRequest& request, const StopExecutionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopExecutionRequest&;
-    using Resp = StopExecutionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopExecution(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopExecution", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AswClient::StopExecutionOutcomeCallable AswClient::StopExecutionCallable(const StopExecutionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopExecutionOutcome>>();
-    StopExecutionAsync(
-    request,
-    [prom](
-        const AswClient*,
-        const StopExecutionRequest&,
-        StopExecutionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopExecutionOutcome()>>(
+        [this, request]()
+        {
+            return this->StopExecution(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

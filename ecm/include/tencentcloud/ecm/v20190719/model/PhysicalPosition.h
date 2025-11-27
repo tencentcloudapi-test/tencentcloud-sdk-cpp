@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 物理位置信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PhysicalPosition();
-                    ~PhysicalPosition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

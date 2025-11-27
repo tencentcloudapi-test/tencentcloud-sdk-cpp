@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudStorageEvent;
+
                 /**
                 * DescribeCloudStorageEvents返回参数结构体
                 */

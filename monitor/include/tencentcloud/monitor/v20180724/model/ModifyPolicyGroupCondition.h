@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 修改告警策略组传入的指标阈值条件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ModifyPolicyGroupCondition();
-                    ~ModifyPolicyGroupCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

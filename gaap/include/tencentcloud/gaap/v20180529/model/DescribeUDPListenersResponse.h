@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UDPListener;
+
                 /**
                 * DescribeUDPListeners返回参数结构体
                 */

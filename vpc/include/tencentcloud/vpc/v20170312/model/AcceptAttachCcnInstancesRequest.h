@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CcnInstance;
+
                 /**
                 * AcceptAttachCcnInstances请求参数结构体
                 */

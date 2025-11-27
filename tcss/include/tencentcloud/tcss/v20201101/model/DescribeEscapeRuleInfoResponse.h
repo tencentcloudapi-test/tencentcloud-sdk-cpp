@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EscapeRule;
+
                 /**
                 * DescribeEscapeRuleInfo返回参数结构体
                 */

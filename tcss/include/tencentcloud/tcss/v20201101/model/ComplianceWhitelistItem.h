@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 表示一条白名单记录。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ComplianceWhitelistItem();
-                    ~ComplianceWhitelistItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

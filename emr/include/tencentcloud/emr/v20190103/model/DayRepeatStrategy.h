@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 弹性扩缩容按天重复任务描述
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DayRepeatStrategy();
-                    ~DayRepeatStrategy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

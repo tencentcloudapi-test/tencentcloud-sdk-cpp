@@ -42,6 +42,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceConfigInfo;
+                class Tag;
+                class CosPathInfo;
+                class StartCmdInfo;
+                class DataConfig;
+                class LogConfig;
+                class ImageInfo;
+                class CodeRepoConfig;
+
                 /**
                 * 训练任务详情
                 */
@@ -49,7 +58,6 @@ namespace TencentCloud
                 {
                 public:
                     TrainingTaskDetail();
-                    ~TrainingTaskDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Span上下游关联关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpanReference();
-                    ~SpanReference() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

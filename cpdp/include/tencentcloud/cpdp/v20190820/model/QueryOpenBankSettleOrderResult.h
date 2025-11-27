@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 云企付结算查询结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     QueryOpenBankSettleOrderResult();
-                    ~QueryOpenBankSettleOrderResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

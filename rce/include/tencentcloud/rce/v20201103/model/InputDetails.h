@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 入参的详细参数信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InputDetails();
-                    ~InputDetails() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

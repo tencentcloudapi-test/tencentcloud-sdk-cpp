@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceLocParam;
+
                 /**
                 * 资源位置描述
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ResourceLoc();
-                    ~ResourceLoc() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DisplayToolCommon;
+
                 /**
                 * 目录爆破详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DisplayConfig();
-                    ~DisplayConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NICAsset;
+                class FilterDataObject;
+
                 /**
                 * DescribeNICAssets返回参数结构体
                 */

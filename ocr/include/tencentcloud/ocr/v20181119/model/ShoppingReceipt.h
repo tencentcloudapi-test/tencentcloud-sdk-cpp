@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OtherInvoiceItem;
+
                 /**
                 * 购物小票
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ShoppingReceipt();
-                    ~ShoppingReceipt() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Usage;
+
                 /**
                 * RunRerank返回参数结构体
                 */

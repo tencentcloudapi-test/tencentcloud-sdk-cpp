@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SubmitTextToImageJob返回参数结构体
                 */

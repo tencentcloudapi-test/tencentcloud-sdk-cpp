@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextTable;
+
                 /**
                 * TableOCR返回参数结构体
                 */

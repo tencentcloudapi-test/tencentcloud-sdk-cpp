@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ActionFieldConfigDetail;
+
                 /**
                 * 动作栏位配置结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ActionFieldConfigResult();
-                    ~ActionFieldConfigResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

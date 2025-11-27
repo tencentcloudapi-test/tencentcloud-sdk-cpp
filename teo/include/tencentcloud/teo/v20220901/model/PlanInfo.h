@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * edgeone套餐信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PlanInfo();
-                    ~PlanInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

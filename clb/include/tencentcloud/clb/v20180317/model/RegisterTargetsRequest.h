@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Target;
+
                 /**
                 * RegisterTargets请求参数结构体
                 */

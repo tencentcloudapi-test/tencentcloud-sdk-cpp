@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 支持标准debug结构体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StandardDebug();
-                    ~StandardDebug() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

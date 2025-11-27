@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TranscodeTaskInput;
+                class MediaTranscodeItem;
+
                 /**
                 * 转码任务结果类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaProcessTaskTranscodeResult();
-                    ~MediaProcessTaskTranscodeResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

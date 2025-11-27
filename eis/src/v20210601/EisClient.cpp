@@ -62,32 +62,25 @@ EisClient::GetRuntimeMCOutcome EisClient::GetRuntimeMC(const GetRuntimeMCRequest
 
 void EisClient::GetRuntimeMCAsync(const GetRuntimeMCRequest& request, const GetRuntimeMCAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRuntimeMCRequest&;
-    using Resp = GetRuntimeMCResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRuntimeMC(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRuntimeMC", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EisClient::GetRuntimeMCOutcomeCallable EisClient::GetRuntimeMCCallable(const GetRuntimeMCRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRuntimeMCOutcome>>();
-    GetRuntimeMCAsync(
-    request,
-    [prom](
-        const EisClient*,
-        const GetRuntimeMCRequest&,
-        GetRuntimeMCOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRuntimeMCOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRuntimeMC(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EisClient::GetRuntimeResourceMonitorMetricMCOutcome EisClient::GetRuntimeResourceMonitorMetricMC(const GetRuntimeResourceMonitorMetricMCRequest &request)
@@ -112,32 +105,25 @@ EisClient::GetRuntimeResourceMonitorMetricMCOutcome EisClient::GetRuntimeResourc
 
 void EisClient::GetRuntimeResourceMonitorMetricMCAsync(const GetRuntimeResourceMonitorMetricMCRequest& request, const GetRuntimeResourceMonitorMetricMCAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRuntimeResourceMonitorMetricMCRequest&;
-    using Resp = GetRuntimeResourceMonitorMetricMCResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRuntimeResourceMonitorMetricMC(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRuntimeResourceMonitorMetricMC", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EisClient::GetRuntimeResourceMonitorMetricMCOutcomeCallable EisClient::GetRuntimeResourceMonitorMetricMCCallable(const GetRuntimeResourceMonitorMetricMCRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRuntimeResourceMonitorMetricMCOutcome>>();
-    GetRuntimeResourceMonitorMetricMCAsync(
-    request,
-    [prom](
-        const EisClient*,
-        const GetRuntimeResourceMonitorMetricMCRequest&,
-        GetRuntimeResourceMonitorMetricMCOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRuntimeResourceMonitorMetricMCOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRuntimeResourceMonitorMetricMC(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EisClient::ListDeployableRuntimesMCOutcome EisClient::ListDeployableRuntimesMC(const ListDeployableRuntimesMCRequest &request)
@@ -162,32 +148,25 @@ EisClient::ListDeployableRuntimesMCOutcome EisClient::ListDeployableRuntimesMC(c
 
 void EisClient::ListDeployableRuntimesMCAsync(const ListDeployableRuntimesMCRequest& request, const ListDeployableRuntimesMCAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListDeployableRuntimesMCRequest&;
-    using Resp = ListDeployableRuntimesMCResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListDeployableRuntimesMC(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListDeployableRuntimesMC", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EisClient::ListDeployableRuntimesMCOutcomeCallable EisClient::ListDeployableRuntimesMCCallable(const ListDeployableRuntimesMCRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListDeployableRuntimesMCOutcome>>();
-    ListDeployableRuntimesMCAsync(
-    request,
-    [prom](
-        const EisClient*,
-        const ListDeployableRuntimesMCRequest&,
-        ListDeployableRuntimesMCOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListDeployableRuntimesMCOutcome()>>(
+        [this, request]()
+        {
+            return this->ListDeployableRuntimesMC(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EisClient::ListRuntimeDeployedInstancesMCOutcome EisClient::ListRuntimeDeployedInstancesMC(const ListRuntimeDeployedInstancesMCRequest &request)
@@ -212,32 +191,25 @@ EisClient::ListRuntimeDeployedInstancesMCOutcome EisClient::ListRuntimeDeployedI
 
 void EisClient::ListRuntimeDeployedInstancesMCAsync(const ListRuntimeDeployedInstancesMCRequest& request, const ListRuntimeDeployedInstancesMCAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRuntimeDeployedInstancesMCRequest&;
-    using Resp = ListRuntimeDeployedInstancesMCResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRuntimeDeployedInstancesMC(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRuntimeDeployedInstancesMC", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EisClient::ListRuntimeDeployedInstancesMCOutcomeCallable EisClient::ListRuntimeDeployedInstancesMCCallable(const ListRuntimeDeployedInstancesMCRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRuntimeDeployedInstancesMCOutcome>>();
-    ListRuntimeDeployedInstancesMCAsync(
-    request,
-    [prom](
-        const EisClient*,
-        const ListRuntimeDeployedInstancesMCRequest&,
-        ListRuntimeDeployedInstancesMCOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRuntimeDeployedInstancesMCOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRuntimeDeployedInstancesMC(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EisClient::ListRuntimesMCOutcome EisClient::ListRuntimesMC(const ListRuntimesMCRequest &request)
@@ -262,31 +234,24 @@ EisClient::ListRuntimesMCOutcome EisClient::ListRuntimesMC(const ListRuntimesMCR
 
 void EisClient::ListRuntimesMCAsync(const ListRuntimesMCRequest& request, const ListRuntimesMCAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRuntimesMCRequest&;
-    using Resp = ListRuntimesMCResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRuntimesMC(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRuntimesMC", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EisClient::ListRuntimesMCOutcomeCallable EisClient::ListRuntimesMCCallable(const ListRuntimesMCRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRuntimesMCOutcome>>();
-    ListRuntimesMCAsync(
-    request,
-    [prom](
-        const EisClient*,
-        const ListRuntimesMCRequest&,
-        ListRuntimesMCOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRuntimesMCOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRuntimesMC(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OriginRecord;
+
                 /**
                 * CreateOriginGroup请求参数结构体
                 */

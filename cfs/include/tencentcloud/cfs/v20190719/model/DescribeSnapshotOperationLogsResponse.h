@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SnapshotOperateLog;
+
                 /**
                 * DescribeSnapshotOperationLogs返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Credentials;
+
                 /**
                 * GetSessionToken返回参数结构体
                 */

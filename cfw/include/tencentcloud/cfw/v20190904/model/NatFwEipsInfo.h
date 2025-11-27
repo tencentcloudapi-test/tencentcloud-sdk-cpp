@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Nat防火墙弹性公网ip列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NatFwEipsInfo();
-                    ~NatFwEipsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

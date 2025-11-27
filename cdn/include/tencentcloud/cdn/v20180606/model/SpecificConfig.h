@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MainlandConfig;
+                class OverseaConfig;
+
                 /**
                 * 域名国内海外分地区特殊配置。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SpecificConfig();
-                    ~SpecificConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+
                 /**
                 * CreateCloseOrganizationUrl请求参数结构体
                 */

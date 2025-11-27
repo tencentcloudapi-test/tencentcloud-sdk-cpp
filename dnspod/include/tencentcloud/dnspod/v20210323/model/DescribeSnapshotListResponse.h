@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SnapshotPageInfo;
+                class SnapshotInfo;
+
                 /**
                 * DescribeSnapshotList返回参数结构体
                 */

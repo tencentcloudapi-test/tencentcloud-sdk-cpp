@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 同一个用户绑定的工作组集合
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkGroupIdSetOfUserId();
-                    ~WorkGroupIdSetOfUserId() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

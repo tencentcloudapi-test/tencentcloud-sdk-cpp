@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppCustomContent;
+
                 /**
                 * SetAppCustomContent请求参数结构体
                 */

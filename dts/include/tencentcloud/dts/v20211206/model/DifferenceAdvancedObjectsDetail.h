@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AdvancedObjectsItem;
+
                 /**
                 * 数据库不一致的详情，mongodb业务用到
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DifferenceAdvancedObjectsDetail();
-                    ~DifferenceAdvancedObjectsDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

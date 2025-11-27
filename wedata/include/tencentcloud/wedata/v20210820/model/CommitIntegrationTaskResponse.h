@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommitTaskDataDto;
+
                 /**
                 * CommitIntegrationTask返回参数结构体
                 */

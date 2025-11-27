@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleTemplateRecordInfo;
+
                 /**
                 * DescribeAuditRuleTemplateModifyHistory返回参数结构体
                 */

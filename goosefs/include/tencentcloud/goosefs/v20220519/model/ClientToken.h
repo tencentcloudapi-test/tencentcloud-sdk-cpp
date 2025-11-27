@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询Client Token
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClientToken();
-                    ~ClientToken() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

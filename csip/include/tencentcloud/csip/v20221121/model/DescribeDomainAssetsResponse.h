@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DomainAssetVO;
+                class FilterDataObject;
+
                 /**
                 * DescribeDomainAssets返回参数结构体
                 */

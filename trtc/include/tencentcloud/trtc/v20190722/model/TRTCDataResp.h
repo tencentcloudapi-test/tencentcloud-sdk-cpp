@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SeriesInfo;
+
                 /**
                 * TRTC数据大盘/实时监控 API接口数据出参
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TRTCDataResp();
-                    ~TRTCDataResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

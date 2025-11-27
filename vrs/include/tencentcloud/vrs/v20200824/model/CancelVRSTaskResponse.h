@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CancelVRSTaskRsp;
+
                 /**
                 * CancelVRSTask返回参数结构体
                 */

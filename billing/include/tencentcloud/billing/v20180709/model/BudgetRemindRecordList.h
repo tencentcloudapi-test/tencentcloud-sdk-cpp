@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrderDto;
+                class BudgetRemindRecords;
+
                 /**
                 * 预算管理的分页数据
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     BudgetRemindRecordList();
-                    ~BudgetRemindRecordList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

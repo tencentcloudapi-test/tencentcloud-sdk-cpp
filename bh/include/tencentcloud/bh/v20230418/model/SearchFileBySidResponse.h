@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchFileBySidResult;
+
                 /**
                 * SearchFileBySid返回参数结构体
                 */

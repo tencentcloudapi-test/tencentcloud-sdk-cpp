@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AndroidInstanceLabel;
+
                 /**
                 * 安卓实例标签详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AndroidInstanceLabelDetail();
-                    ~AndroidInstanceLabelDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

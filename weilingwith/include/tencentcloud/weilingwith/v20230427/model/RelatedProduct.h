@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 关联产品信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RelatedProduct();
-                    ~RelatedProduct() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

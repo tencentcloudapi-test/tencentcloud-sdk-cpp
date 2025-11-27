@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProtocolPort;
+
                 /**
                 * 容器网络设置。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ServiceSetting();
-                    ~ServiceSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

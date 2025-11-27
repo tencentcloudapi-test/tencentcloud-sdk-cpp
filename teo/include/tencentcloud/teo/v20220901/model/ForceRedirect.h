@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 访问协议强制 HTTPS 跳转配置。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ForceRedirect();
-                    ~ForceRedirect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

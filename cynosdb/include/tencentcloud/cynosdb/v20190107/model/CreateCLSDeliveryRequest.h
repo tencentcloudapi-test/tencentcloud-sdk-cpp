@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CLSInfo;
+
                 /**
                 * CreateCLSDelivery请求参数结构体
                 */

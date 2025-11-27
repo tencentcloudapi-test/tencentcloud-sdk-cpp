@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FrameTagItem;
+
                 /**
                 * 帧标签结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FrameTagResult();
-                    ~FrameTagResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

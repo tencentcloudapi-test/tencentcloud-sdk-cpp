@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SuccessCode;
+
                 /**
                 * ModifyDDoSPolicyName返回参数结构体
                 */

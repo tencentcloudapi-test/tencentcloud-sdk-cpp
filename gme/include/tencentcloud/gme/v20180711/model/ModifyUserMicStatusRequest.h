@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserMicStatus;
+
                 /**
                 * ModifyUserMicStatus请求参数结构体
                 */

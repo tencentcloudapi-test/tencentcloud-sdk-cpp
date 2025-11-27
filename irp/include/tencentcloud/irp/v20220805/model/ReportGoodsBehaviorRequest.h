@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GoodsBehaviorInfo;
+
                 /**
                 * ReportGoodsBehavior请求参数结构体
                 */

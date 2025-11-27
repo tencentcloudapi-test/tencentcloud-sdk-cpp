@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InputAccount;
+                class DbTable;
+
                 /**
                 * RevokeAccountPrivileges请求参数结构体
                 */

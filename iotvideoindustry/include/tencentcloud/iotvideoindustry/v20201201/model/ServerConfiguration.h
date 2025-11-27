@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SIIP服务器相关配置项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ServerConfiguration();
-                    ~ServerConfiguration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

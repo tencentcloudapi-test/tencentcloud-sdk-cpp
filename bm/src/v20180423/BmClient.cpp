@@ -62,32 +62,25 @@ BmClient::AttachCamRoleOutcome BmClient::AttachCamRole(const AttachCamRoleReques
 
 void BmClient::AttachCamRoleAsync(const AttachCamRoleRequest& request, const AttachCamRoleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachCamRoleRequest&;
-    using Resp = AttachCamRoleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachCamRole(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachCamRole", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::AttachCamRoleOutcomeCallable BmClient::AttachCamRoleCallable(const AttachCamRoleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachCamRoleOutcome>>();
-    AttachCamRoleAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const AttachCamRoleRequest&,
-        AttachCamRoleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachCamRoleOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachCamRole(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::BindPsaTagOutcome BmClient::BindPsaTag(const BindPsaTagRequest &request)
@@ -112,32 +105,25 @@ BmClient::BindPsaTagOutcome BmClient::BindPsaTag(const BindPsaTagRequest &reques
 
 void BmClient::BindPsaTagAsync(const BindPsaTagRequest& request, const BindPsaTagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindPsaTagRequest&;
-    using Resp = BindPsaTagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindPsaTag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindPsaTag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::BindPsaTagOutcomeCallable BmClient::BindPsaTagCallable(const BindPsaTagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindPsaTagOutcome>>();
-    BindPsaTagAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const BindPsaTagRequest&,
-        BindPsaTagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindPsaTagOutcome()>>(
+        [this, request]()
+        {
+            return this->BindPsaTag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::BuyDevicesOutcome BmClient::BuyDevices(const BuyDevicesRequest &request)
@@ -162,32 +148,25 @@ BmClient::BuyDevicesOutcome BmClient::BuyDevices(const BuyDevicesRequest &reques
 
 void BmClient::BuyDevicesAsync(const BuyDevicesRequest& request, const BuyDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BuyDevicesRequest&;
-    using Resp = BuyDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BuyDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BuyDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::BuyDevicesOutcomeCallable BmClient::BuyDevicesCallable(const BuyDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BuyDevicesOutcome>>();
-    BuyDevicesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const BuyDevicesRequest&,
-        BuyDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BuyDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->BuyDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::CreateCustomImageOutcome BmClient::CreateCustomImage(const CreateCustomImageRequest &request)
@@ -212,32 +191,25 @@ BmClient::CreateCustomImageOutcome BmClient::CreateCustomImage(const CreateCusto
 
 void BmClient::CreateCustomImageAsync(const CreateCustomImageRequest& request, const CreateCustomImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCustomImageRequest&;
-    using Resp = CreateCustomImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCustomImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCustomImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::CreateCustomImageOutcomeCallable BmClient::CreateCustomImageCallable(const CreateCustomImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCustomImageOutcome>>();
-    CreateCustomImageAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const CreateCustomImageRequest&,
-        CreateCustomImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCustomImageOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCustomImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::CreatePsaRegulationOutcome BmClient::CreatePsaRegulation(const CreatePsaRegulationRequest &request)
@@ -262,32 +234,25 @@ BmClient::CreatePsaRegulationOutcome BmClient::CreatePsaRegulation(const CreateP
 
 void BmClient::CreatePsaRegulationAsync(const CreatePsaRegulationRequest& request, const CreatePsaRegulationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePsaRegulationRequest&;
-    using Resp = CreatePsaRegulationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePsaRegulation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePsaRegulation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::CreatePsaRegulationOutcomeCallable BmClient::CreatePsaRegulationCallable(const CreatePsaRegulationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePsaRegulationOutcome>>();
-    CreatePsaRegulationAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const CreatePsaRegulationRequest&,
-        CreatePsaRegulationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePsaRegulationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePsaRegulation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::CreateSpotDeviceOutcome BmClient::CreateSpotDevice(const CreateSpotDeviceRequest &request)
@@ -312,32 +277,25 @@ BmClient::CreateSpotDeviceOutcome BmClient::CreateSpotDevice(const CreateSpotDev
 
 void BmClient::CreateSpotDeviceAsync(const CreateSpotDeviceRequest& request, const CreateSpotDeviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSpotDeviceRequest&;
-    using Resp = CreateSpotDeviceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSpotDevice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSpotDevice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::CreateSpotDeviceOutcomeCallable BmClient::CreateSpotDeviceCallable(const CreateSpotDeviceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSpotDeviceOutcome>>();
-    CreateSpotDeviceAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const CreateSpotDeviceRequest&,
-        CreateSpotDeviceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSpotDeviceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSpotDevice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::CreateUserCmdOutcome BmClient::CreateUserCmd(const CreateUserCmdRequest &request)
@@ -362,32 +320,25 @@ BmClient::CreateUserCmdOutcome BmClient::CreateUserCmd(const CreateUserCmdReques
 
 void BmClient::CreateUserCmdAsync(const CreateUserCmdRequest& request, const CreateUserCmdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserCmdRequest&;
-    using Resp = CreateUserCmdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUserCmd(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUserCmd", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::CreateUserCmdOutcomeCallable BmClient::CreateUserCmdCallable(const CreateUserCmdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserCmdOutcome>>();
-    CreateUserCmdAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const CreateUserCmdRequest&,
-        CreateUserCmdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserCmdOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUserCmd(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DeleteCustomImagesOutcome BmClient::DeleteCustomImages(const DeleteCustomImagesRequest &request)
@@ -412,32 +363,25 @@ BmClient::DeleteCustomImagesOutcome BmClient::DeleteCustomImages(const DeleteCus
 
 void BmClient::DeleteCustomImagesAsync(const DeleteCustomImagesRequest& request, const DeleteCustomImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCustomImagesRequest&;
-    using Resp = DeleteCustomImagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCustomImages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCustomImages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DeleteCustomImagesOutcomeCallable BmClient::DeleteCustomImagesCallable(const DeleteCustomImagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCustomImagesOutcome>>();
-    DeleteCustomImagesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DeleteCustomImagesRequest&,
-        DeleteCustomImagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCustomImagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCustomImages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DeletePsaRegulationOutcome BmClient::DeletePsaRegulation(const DeletePsaRegulationRequest &request)
@@ -462,32 +406,25 @@ BmClient::DeletePsaRegulationOutcome BmClient::DeletePsaRegulation(const DeleteP
 
 void BmClient::DeletePsaRegulationAsync(const DeletePsaRegulationRequest& request, const DeletePsaRegulationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePsaRegulationRequest&;
-    using Resp = DeletePsaRegulationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePsaRegulation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePsaRegulation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DeletePsaRegulationOutcomeCallable BmClient::DeletePsaRegulationCallable(const DeletePsaRegulationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePsaRegulationOutcome>>();
-    DeletePsaRegulationAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DeletePsaRegulationRequest&,
-        DeletePsaRegulationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePsaRegulationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePsaRegulation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DeleteUserCmdsOutcome BmClient::DeleteUserCmds(const DeleteUserCmdsRequest &request)
@@ -512,32 +449,25 @@ BmClient::DeleteUserCmdsOutcome BmClient::DeleteUserCmds(const DeleteUserCmdsReq
 
 void BmClient::DeleteUserCmdsAsync(const DeleteUserCmdsRequest& request, const DeleteUserCmdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteUserCmdsRequest&;
-    using Resp = DeleteUserCmdsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteUserCmds(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteUserCmds", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DeleteUserCmdsOutcomeCallable BmClient::DeleteUserCmdsCallable(const DeleteUserCmdsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteUserCmdsOutcome>>();
-    DeleteUserCmdsAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DeleteUserCmdsRequest&,
-        DeleteUserCmdsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteUserCmdsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteUserCmds(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeCustomImageProcessOutcome BmClient::DescribeCustomImageProcess(const DescribeCustomImageProcessRequest &request)
@@ -562,32 +492,25 @@ BmClient::DescribeCustomImageProcessOutcome BmClient::DescribeCustomImageProcess
 
 void BmClient::DescribeCustomImageProcessAsync(const DescribeCustomImageProcessRequest& request, const DescribeCustomImageProcessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomImageProcessRequest&;
-    using Resp = DescribeCustomImageProcessResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomImageProcess(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomImageProcess", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeCustomImageProcessOutcomeCallable BmClient::DescribeCustomImageProcessCallable(const DescribeCustomImageProcessRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomImageProcessOutcome>>();
-    DescribeCustomImageProcessAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeCustomImageProcessRequest&,
-        DescribeCustomImageProcessOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomImageProcessOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomImageProcess(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeCustomImagesOutcome BmClient::DescribeCustomImages(const DescribeCustomImagesRequest &request)
@@ -612,32 +535,25 @@ BmClient::DescribeCustomImagesOutcome BmClient::DescribeCustomImages(const Descr
 
 void BmClient::DescribeCustomImagesAsync(const DescribeCustomImagesRequest& request, const DescribeCustomImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomImagesRequest&;
-    using Resp = DescribeCustomImagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomImages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomImages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeCustomImagesOutcomeCallable BmClient::DescribeCustomImagesCallable(const DescribeCustomImagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomImagesOutcome>>();
-    DescribeCustomImagesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeCustomImagesRequest&,
-        DescribeCustomImagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomImagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomImages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDeviceClassOutcome BmClient::DescribeDeviceClass(const DescribeDeviceClassRequest &request)
@@ -662,32 +578,25 @@ BmClient::DescribeDeviceClassOutcome BmClient::DescribeDeviceClass(const Describ
 
 void BmClient::DescribeDeviceClassAsync(const DescribeDeviceClassRequest& request, const DescribeDeviceClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeviceClassRequest&;
-    using Resp = DescribeDeviceClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeviceClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeviceClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDeviceClassOutcomeCallable BmClient::DescribeDeviceClassCallable(const DescribeDeviceClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeviceClassOutcome>>();
-    DescribeDeviceClassAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDeviceClassRequest&,
-        DescribeDeviceClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeviceClassOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeviceClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDeviceClassPartitionOutcome BmClient::DescribeDeviceClassPartition(const DescribeDeviceClassPartitionRequest &request)
@@ -712,32 +621,25 @@ BmClient::DescribeDeviceClassPartitionOutcome BmClient::DescribeDeviceClassParti
 
 void BmClient::DescribeDeviceClassPartitionAsync(const DescribeDeviceClassPartitionRequest& request, const DescribeDeviceClassPartitionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeviceClassPartitionRequest&;
-    using Resp = DescribeDeviceClassPartitionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeviceClassPartition(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeviceClassPartition", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDeviceClassPartitionOutcomeCallable BmClient::DescribeDeviceClassPartitionCallable(const DescribeDeviceClassPartitionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeviceClassPartitionOutcome>>();
-    DescribeDeviceClassPartitionAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDeviceClassPartitionRequest&,
-        DescribeDeviceClassPartitionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeviceClassPartitionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeviceClassPartition(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDeviceHardwareInfoOutcome BmClient::DescribeDeviceHardwareInfo(const DescribeDeviceHardwareInfoRequest &request)
@@ -762,32 +664,25 @@ BmClient::DescribeDeviceHardwareInfoOutcome BmClient::DescribeDeviceHardwareInfo
 
 void BmClient::DescribeDeviceHardwareInfoAsync(const DescribeDeviceHardwareInfoRequest& request, const DescribeDeviceHardwareInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeviceHardwareInfoRequest&;
-    using Resp = DescribeDeviceHardwareInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeviceHardwareInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeviceHardwareInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDeviceHardwareInfoOutcomeCallable BmClient::DescribeDeviceHardwareInfoCallable(const DescribeDeviceHardwareInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeviceHardwareInfoOutcome>>();
-    DescribeDeviceHardwareInfoAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDeviceHardwareInfoRequest&,
-        DescribeDeviceHardwareInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeviceHardwareInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeviceHardwareInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDeviceInventoryOutcome BmClient::DescribeDeviceInventory(const DescribeDeviceInventoryRequest &request)
@@ -812,32 +707,25 @@ BmClient::DescribeDeviceInventoryOutcome BmClient::DescribeDeviceInventory(const
 
 void BmClient::DescribeDeviceInventoryAsync(const DescribeDeviceInventoryRequest& request, const DescribeDeviceInventoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeviceInventoryRequest&;
-    using Resp = DescribeDeviceInventoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeviceInventory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeviceInventory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDeviceInventoryOutcomeCallable BmClient::DescribeDeviceInventoryCallable(const DescribeDeviceInventoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeviceInventoryOutcome>>();
-    DescribeDeviceInventoryAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDeviceInventoryRequest&,
-        DescribeDeviceInventoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeviceInventoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeviceInventory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDeviceOperationLogOutcome BmClient::DescribeDeviceOperationLog(const DescribeDeviceOperationLogRequest &request)
@@ -862,32 +750,25 @@ BmClient::DescribeDeviceOperationLogOutcome BmClient::DescribeDeviceOperationLog
 
 void BmClient::DescribeDeviceOperationLogAsync(const DescribeDeviceOperationLogRequest& request, const DescribeDeviceOperationLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeviceOperationLogRequest&;
-    using Resp = DescribeDeviceOperationLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeviceOperationLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeviceOperationLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDeviceOperationLogOutcomeCallable BmClient::DescribeDeviceOperationLogCallable(const DescribeDeviceOperationLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeviceOperationLogOutcome>>();
-    DescribeDeviceOperationLogAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDeviceOperationLogRequest&,
-        DescribeDeviceOperationLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeviceOperationLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeviceOperationLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDevicePartitionOutcome BmClient::DescribeDevicePartition(const DescribeDevicePartitionRequest &request)
@@ -912,32 +793,25 @@ BmClient::DescribeDevicePartitionOutcome BmClient::DescribeDevicePartition(const
 
 void BmClient::DescribeDevicePartitionAsync(const DescribeDevicePartitionRequest& request, const DescribeDevicePartitionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDevicePartitionRequest&;
-    using Resp = DescribeDevicePartitionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDevicePartition(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDevicePartition", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDevicePartitionOutcomeCallable BmClient::DescribeDevicePartitionCallable(const DescribeDevicePartitionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDevicePartitionOutcome>>();
-    DescribeDevicePartitionAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDevicePartitionRequest&,
-        DescribeDevicePartitionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDevicePartitionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDevicePartition(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDevicePositionOutcome BmClient::DescribeDevicePosition(const DescribeDevicePositionRequest &request)
@@ -962,32 +836,25 @@ BmClient::DescribeDevicePositionOutcome BmClient::DescribeDevicePosition(const D
 
 void BmClient::DescribeDevicePositionAsync(const DescribeDevicePositionRequest& request, const DescribeDevicePositionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDevicePositionRequest&;
-    using Resp = DescribeDevicePositionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDevicePosition(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDevicePosition", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDevicePositionOutcomeCallable BmClient::DescribeDevicePositionCallable(const DescribeDevicePositionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDevicePositionOutcome>>();
-    DescribeDevicePositionAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDevicePositionRequest&,
-        DescribeDevicePositionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDevicePositionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDevicePosition(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDevicePriceInfoOutcome BmClient::DescribeDevicePriceInfo(const DescribeDevicePriceInfoRequest &request)
@@ -1012,32 +879,25 @@ BmClient::DescribeDevicePriceInfoOutcome BmClient::DescribeDevicePriceInfo(const
 
 void BmClient::DescribeDevicePriceInfoAsync(const DescribeDevicePriceInfoRequest& request, const DescribeDevicePriceInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDevicePriceInfoRequest&;
-    using Resp = DescribeDevicePriceInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDevicePriceInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDevicePriceInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDevicePriceInfoOutcomeCallable BmClient::DescribeDevicePriceInfoCallable(const DescribeDevicePriceInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDevicePriceInfoOutcome>>();
-    DescribeDevicePriceInfoAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDevicePriceInfoRequest&,
-        DescribeDevicePriceInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDevicePriceInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDevicePriceInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeDevicesOutcome BmClient::DescribeDevices(const DescribeDevicesRequest &request)
@@ -1062,32 +922,25 @@ BmClient::DescribeDevicesOutcome BmClient::DescribeDevices(const DescribeDevices
 
 void BmClient::DescribeDevicesAsync(const DescribeDevicesRequest& request, const DescribeDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDevicesRequest&;
-    using Resp = DescribeDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeDevicesOutcomeCallable BmClient::DescribeDevicesCallable(const DescribeDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDevicesOutcome>>();
-    DescribeDevicesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeDevicesRequest&,
-        DescribeDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeHardwareSpecificationOutcome BmClient::DescribeHardwareSpecification(const DescribeHardwareSpecificationRequest &request)
@@ -1112,32 +965,25 @@ BmClient::DescribeHardwareSpecificationOutcome BmClient::DescribeHardwareSpecifi
 
 void BmClient::DescribeHardwareSpecificationAsync(const DescribeHardwareSpecificationRequest& request, const DescribeHardwareSpecificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHardwareSpecificationRequest&;
-    using Resp = DescribeHardwareSpecificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHardwareSpecification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHardwareSpecification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeHardwareSpecificationOutcomeCallable BmClient::DescribeHardwareSpecificationCallable(const DescribeHardwareSpecificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHardwareSpecificationOutcome>>();
-    DescribeHardwareSpecificationAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeHardwareSpecificationRequest&,
-        DescribeHardwareSpecificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHardwareSpecificationOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHardwareSpecification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeHostedDeviceOutBandInfoOutcome BmClient::DescribeHostedDeviceOutBandInfo(const DescribeHostedDeviceOutBandInfoRequest &request)
@@ -1162,32 +1008,25 @@ BmClient::DescribeHostedDeviceOutBandInfoOutcome BmClient::DescribeHostedDeviceO
 
 void BmClient::DescribeHostedDeviceOutBandInfoAsync(const DescribeHostedDeviceOutBandInfoRequest& request, const DescribeHostedDeviceOutBandInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHostedDeviceOutBandInfoRequest&;
-    using Resp = DescribeHostedDeviceOutBandInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHostedDeviceOutBandInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHostedDeviceOutBandInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeHostedDeviceOutBandInfoOutcomeCallable BmClient::DescribeHostedDeviceOutBandInfoCallable(const DescribeHostedDeviceOutBandInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHostedDeviceOutBandInfoOutcome>>();
-    DescribeHostedDeviceOutBandInfoAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeHostedDeviceOutBandInfoRequest&,
-        DescribeHostedDeviceOutBandInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHostedDeviceOutBandInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHostedDeviceOutBandInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeOperationResultOutcome BmClient::DescribeOperationResult(const DescribeOperationResultRequest &request)
@@ -1212,32 +1051,25 @@ BmClient::DescribeOperationResultOutcome BmClient::DescribeOperationResult(const
 
 void BmClient::DescribeOperationResultAsync(const DescribeOperationResultRequest& request, const DescribeOperationResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOperationResultRequest&;
-    using Resp = DescribeOperationResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOperationResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOperationResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeOperationResultOutcomeCallable BmClient::DescribeOperationResultCallable(const DescribeOperationResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOperationResultOutcome>>();
-    DescribeOperationResultAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeOperationResultRequest&,
-        DescribeOperationResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOperationResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOperationResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeOsInfoOutcome BmClient::DescribeOsInfo(const DescribeOsInfoRequest &request)
@@ -1262,32 +1094,25 @@ BmClient::DescribeOsInfoOutcome BmClient::DescribeOsInfo(const DescribeOsInfoReq
 
 void BmClient::DescribeOsInfoAsync(const DescribeOsInfoRequest& request, const DescribeOsInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOsInfoRequest&;
-    using Resp = DescribeOsInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOsInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOsInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeOsInfoOutcomeCallable BmClient::DescribeOsInfoCallable(const DescribeOsInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOsInfoOutcome>>();
-    DescribeOsInfoAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeOsInfoRequest&,
-        DescribeOsInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOsInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOsInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribePsaRegulationsOutcome BmClient::DescribePsaRegulations(const DescribePsaRegulationsRequest &request)
@@ -1312,32 +1137,25 @@ BmClient::DescribePsaRegulationsOutcome BmClient::DescribePsaRegulations(const D
 
 void BmClient::DescribePsaRegulationsAsync(const DescribePsaRegulationsRequest& request, const DescribePsaRegulationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePsaRegulationsRequest&;
-    using Resp = DescribePsaRegulationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePsaRegulations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePsaRegulations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribePsaRegulationsOutcomeCallable BmClient::DescribePsaRegulationsCallable(const DescribePsaRegulationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePsaRegulationsOutcome>>();
-    DescribePsaRegulationsAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribePsaRegulationsRequest&,
-        DescribePsaRegulationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePsaRegulationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePsaRegulations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeRegionsOutcome BmClient::DescribeRegions(const DescribeRegionsRequest &request)
@@ -1362,32 +1180,25 @@ BmClient::DescribeRegionsOutcome BmClient::DescribeRegions(const DescribeRegions
 
 void BmClient::DescribeRegionsAsync(const DescribeRegionsRequest& request, const DescribeRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRegionsRequest&;
-    using Resp = DescribeRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeRegionsOutcomeCallable BmClient::DescribeRegionsCallable(const DescribeRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRegionsOutcome>>();
-    DescribeRegionsAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeRegionsRequest&,
-        DescribeRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeRepairTaskConstantOutcome BmClient::DescribeRepairTaskConstant(const DescribeRepairTaskConstantRequest &request)
@@ -1412,32 +1223,25 @@ BmClient::DescribeRepairTaskConstantOutcome BmClient::DescribeRepairTaskConstant
 
 void BmClient::DescribeRepairTaskConstantAsync(const DescribeRepairTaskConstantRequest& request, const DescribeRepairTaskConstantAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRepairTaskConstantRequest&;
-    using Resp = DescribeRepairTaskConstantResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRepairTaskConstant(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRepairTaskConstant", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeRepairTaskConstantOutcomeCallable BmClient::DescribeRepairTaskConstantCallable(const DescribeRepairTaskConstantRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRepairTaskConstantOutcome>>();
-    DescribeRepairTaskConstantAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeRepairTaskConstantRequest&,
-        DescribeRepairTaskConstantOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRepairTaskConstantOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRepairTaskConstant(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeTaskInfoOutcome BmClient::DescribeTaskInfo(const DescribeTaskInfoRequest &request)
@@ -1462,32 +1266,25 @@ BmClient::DescribeTaskInfoOutcome BmClient::DescribeTaskInfo(const DescribeTaskI
 
 void BmClient::DescribeTaskInfoAsync(const DescribeTaskInfoRequest& request, const DescribeTaskInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskInfoRequest&;
-    using Resp = DescribeTaskInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeTaskInfoOutcomeCallable BmClient::DescribeTaskInfoCallable(const DescribeTaskInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskInfoOutcome>>();
-    DescribeTaskInfoAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeTaskInfoRequest&,
-        DescribeTaskInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeTaskOperationLogOutcome BmClient::DescribeTaskOperationLog(const DescribeTaskOperationLogRequest &request)
@@ -1512,32 +1309,25 @@ BmClient::DescribeTaskOperationLogOutcome BmClient::DescribeTaskOperationLog(con
 
 void BmClient::DescribeTaskOperationLogAsync(const DescribeTaskOperationLogRequest& request, const DescribeTaskOperationLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskOperationLogRequest&;
-    using Resp = DescribeTaskOperationLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskOperationLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskOperationLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeTaskOperationLogOutcomeCallable BmClient::DescribeTaskOperationLogCallable(const DescribeTaskOperationLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskOperationLogOutcome>>();
-    DescribeTaskOperationLogAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeTaskOperationLogRequest&,
-        DescribeTaskOperationLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskOperationLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskOperationLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeUserCmdTaskInfoOutcome BmClient::DescribeUserCmdTaskInfo(const DescribeUserCmdTaskInfoRequest &request)
@@ -1562,32 +1352,25 @@ BmClient::DescribeUserCmdTaskInfoOutcome BmClient::DescribeUserCmdTaskInfo(const
 
 void BmClient::DescribeUserCmdTaskInfoAsync(const DescribeUserCmdTaskInfoRequest& request, const DescribeUserCmdTaskInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserCmdTaskInfoRequest&;
-    using Resp = DescribeUserCmdTaskInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserCmdTaskInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserCmdTaskInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeUserCmdTaskInfoOutcomeCallable BmClient::DescribeUserCmdTaskInfoCallable(const DescribeUserCmdTaskInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserCmdTaskInfoOutcome>>();
-    DescribeUserCmdTaskInfoAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeUserCmdTaskInfoRequest&,
-        DescribeUserCmdTaskInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserCmdTaskInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserCmdTaskInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeUserCmdTasksOutcome BmClient::DescribeUserCmdTasks(const DescribeUserCmdTasksRequest &request)
@@ -1612,32 +1395,25 @@ BmClient::DescribeUserCmdTasksOutcome BmClient::DescribeUserCmdTasks(const Descr
 
 void BmClient::DescribeUserCmdTasksAsync(const DescribeUserCmdTasksRequest& request, const DescribeUserCmdTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserCmdTasksRequest&;
-    using Resp = DescribeUserCmdTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserCmdTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserCmdTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeUserCmdTasksOutcomeCallable BmClient::DescribeUserCmdTasksCallable(const DescribeUserCmdTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserCmdTasksOutcome>>();
-    DescribeUserCmdTasksAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeUserCmdTasksRequest&,
-        DescribeUserCmdTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserCmdTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserCmdTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DescribeUserCmdsOutcome BmClient::DescribeUserCmds(const DescribeUserCmdsRequest &request)
@@ -1662,32 +1438,25 @@ BmClient::DescribeUserCmdsOutcome BmClient::DescribeUserCmds(const DescribeUserC
 
 void BmClient::DescribeUserCmdsAsync(const DescribeUserCmdsRequest& request, const DescribeUserCmdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserCmdsRequest&;
-    using Resp = DescribeUserCmdsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserCmds(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserCmds", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DescribeUserCmdsOutcomeCallable BmClient::DescribeUserCmdsCallable(const DescribeUserCmdsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserCmdsOutcome>>();
-    DescribeUserCmdsAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DescribeUserCmdsRequest&,
-        DescribeUserCmdsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserCmdsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserCmds(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::DetachCamRoleOutcome BmClient::DetachCamRole(const DetachCamRoleRequest &request)
@@ -1712,32 +1481,25 @@ BmClient::DetachCamRoleOutcome BmClient::DetachCamRole(const DetachCamRoleReques
 
 void BmClient::DetachCamRoleAsync(const DetachCamRoleRequest& request, const DetachCamRoleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachCamRoleRequest&;
-    using Resp = DetachCamRoleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachCamRole(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachCamRole", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::DetachCamRoleOutcomeCallable BmClient::DetachCamRoleCallable(const DetachCamRoleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachCamRoleOutcome>>();
-    DetachCamRoleAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const DetachCamRoleRequest&,
-        DetachCamRoleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachCamRoleOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachCamRole(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ModifyCustomImageAttributeOutcome BmClient::ModifyCustomImageAttribute(const ModifyCustomImageAttributeRequest &request)
@@ -1762,32 +1524,25 @@ BmClient::ModifyCustomImageAttributeOutcome BmClient::ModifyCustomImageAttribute
 
 void BmClient::ModifyCustomImageAttributeAsync(const ModifyCustomImageAttributeRequest& request, const ModifyCustomImageAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCustomImageAttributeRequest&;
-    using Resp = ModifyCustomImageAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCustomImageAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCustomImageAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ModifyCustomImageAttributeOutcomeCallable BmClient::ModifyCustomImageAttributeCallable(const ModifyCustomImageAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCustomImageAttributeOutcome>>();
-    ModifyCustomImageAttributeAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ModifyCustomImageAttributeRequest&,
-        ModifyCustomImageAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCustomImageAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCustomImageAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ModifyDeviceAliasesOutcome BmClient::ModifyDeviceAliases(const ModifyDeviceAliasesRequest &request)
@@ -1812,32 +1567,25 @@ BmClient::ModifyDeviceAliasesOutcome BmClient::ModifyDeviceAliases(const ModifyD
 
 void BmClient::ModifyDeviceAliasesAsync(const ModifyDeviceAliasesRequest& request, const ModifyDeviceAliasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDeviceAliasesRequest&;
-    using Resp = ModifyDeviceAliasesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDeviceAliases(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDeviceAliases", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ModifyDeviceAliasesOutcomeCallable BmClient::ModifyDeviceAliasesCallable(const ModifyDeviceAliasesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDeviceAliasesOutcome>>();
-    ModifyDeviceAliasesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ModifyDeviceAliasesRequest&,
-        ModifyDeviceAliasesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDeviceAliasesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDeviceAliases(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ModifyDeviceAutoRenewFlagOutcome BmClient::ModifyDeviceAutoRenewFlag(const ModifyDeviceAutoRenewFlagRequest &request)
@@ -1862,32 +1610,25 @@ BmClient::ModifyDeviceAutoRenewFlagOutcome BmClient::ModifyDeviceAutoRenewFlag(c
 
 void BmClient::ModifyDeviceAutoRenewFlagAsync(const ModifyDeviceAutoRenewFlagRequest& request, const ModifyDeviceAutoRenewFlagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDeviceAutoRenewFlagRequest&;
-    using Resp = ModifyDeviceAutoRenewFlagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDeviceAutoRenewFlag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDeviceAutoRenewFlag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ModifyDeviceAutoRenewFlagOutcomeCallable BmClient::ModifyDeviceAutoRenewFlagCallable(const ModifyDeviceAutoRenewFlagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDeviceAutoRenewFlagOutcome>>();
-    ModifyDeviceAutoRenewFlagAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ModifyDeviceAutoRenewFlagRequest&,
-        ModifyDeviceAutoRenewFlagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDeviceAutoRenewFlagOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDeviceAutoRenewFlag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ModifyLanIpOutcome BmClient::ModifyLanIp(const ModifyLanIpRequest &request)
@@ -1912,32 +1653,25 @@ BmClient::ModifyLanIpOutcome BmClient::ModifyLanIp(const ModifyLanIpRequest &req
 
 void BmClient::ModifyLanIpAsync(const ModifyLanIpRequest& request, const ModifyLanIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLanIpRequest&;
-    using Resp = ModifyLanIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLanIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLanIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ModifyLanIpOutcomeCallable BmClient::ModifyLanIpCallable(const ModifyLanIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLanIpOutcome>>();
-    ModifyLanIpAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ModifyLanIpRequest&,
-        ModifyLanIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLanIpOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLanIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ModifyPayModePre2PostOutcome BmClient::ModifyPayModePre2Post(const ModifyPayModePre2PostRequest &request)
@@ -1962,32 +1696,25 @@ BmClient::ModifyPayModePre2PostOutcome BmClient::ModifyPayModePre2Post(const Mod
 
 void BmClient::ModifyPayModePre2PostAsync(const ModifyPayModePre2PostRequest& request, const ModifyPayModePre2PostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPayModePre2PostRequest&;
-    using Resp = ModifyPayModePre2PostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPayModePre2Post(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPayModePre2Post", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ModifyPayModePre2PostOutcomeCallable BmClient::ModifyPayModePre2PostCallable(const ModifyPayModePre2PostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPayModePre2PostOutcome>>();
-    ModifyPayModePre2PostAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ModifyPayModePre2PostRequest&,
-        ModifyPayModePre2PostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPayModePre2PostOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPayModePre2Post(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ModifyPsaRegulationOutcome BmClient::ModifyPsaRegulation(const ModifyPsaRegulationRequest &request)
@@ -2012,32 +1739,25 @@ BmClient::ModifyPsaRegulationOutcome BmClient::ModifyPsaRegulation(const ModifyP
 
 void BmClient::ModifyPsaRegulationAsync(const ModifyPsaRegulationRequest& request, const ModifyPsaRegulationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPsaRegulationRequest&;
-    using Resp = ModifyPsaRegulationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPsaRegulation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPsaRegulation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ModifyPsaRegulationOutcomeCallable BmClient::ModifyPsaRegulationCallable(const ModifyPsaRegulationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPsaRegulationOutcome>>();
-    ModifyPsaRegulationAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ModifyPsaRegulationRequest&,
-        ModifyPsaRegulationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPsaRegulationOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPsaRegulation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ModifyUserCmdOutcome BmClient::ModifyUserCmd(const ModifyUserCmdRequest &request)
@@ -2062,32 +1782,25 @@ BmClient::ModifyUserCmdOutcome BmClient::ModifyUserCmd(const ModifyUserCmdReques
 
 void BmClient::ModifyUserCmdAsync(const ModifyUserCmdRequest& request, const ModifyUserCmdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserCmdRequest&;
-    using Resp = ModifyUserCmdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserCmd(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserCmd", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ModifyUserCmdOutcomeCallable BmClient::ModifyUserCmdCallable(const ModifyUserCmdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserCmdOutcome>>();
-    ModifyUserCmdAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ModifyUserCmdRequest&,
-        ModifyUserCmdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserCmdOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserCmd(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::OfflineDevicesOutcome BmClient::OfflineDevices(const OfflineDevicesRequest &request)
@@ -2112,32 +1825,25 @@ BmClient::OfflineDevicesOutcome BmClient::OfflineDevices(const OfflineDevicesReq
 
 void BmClient::OfflineDevicesAsync(const OfflineDevicesRequest& request, const OfflineDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OfflineDevicesRequest&;
-    using Resp = OfflineDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OfflineDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OfflineDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::OfflineDevicesOutcomeCallable BmClient::OfflineDevicesCallable(const OfflineDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OfflineDevicesOutcome>>();
-    OfflineDevicesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const OfflineDevicesRequest&,
-        OfflineDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OfflineDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->OfflineDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::RebootDevicesOutcome BmClient::RebootDevices(const RebootDevicesRequest &request)
@@ -2162,32 +1868,25 @@ BmClient::RebootDevicesOutcome BmClient::RebootDevices(const RebootDevicesReques
 
 void BmClient::RebootDevicesAsync(const RebootDevicesRequest& request, const RebootDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RebootDevicesRequest&;
-    using Resp = RebootDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RebootDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RebootDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::RebootDevicesOutcomeCallable BmClient::RebootDevicesCallable(const RebootDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RebootDevicesOutcome>>();
-    RebootDevicesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const RebootDevicesRequest&,
-        RebootDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RebootDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->RebootDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::RecoverDevicesOutcome BmClient::RecoverDevices(const RecoverDevicesRequest &request)
@@ -2212,32 +1911,25 @@ BmClient::RecoverDevicesOutcome BmClient::RecoverDevices(const RecoverDevicesReq
 
 void BmClient::RecoverDevicesAsync(const RecoverDevicesRequest& request, const RecoverDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RecoverDevicesRequest&;
-    using Resp = RecoverDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RecoverDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RecoverDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::RecoverDevicesOutcomeCallable BmClient::RecoverDevicesCallable(const RecoverDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RecoverDevicesOutcome>>();
-    RecoverDevicesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const RecoverDevicesRequest&,
-        RecoverDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RecoverDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->RecoverDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ReloadDeviceOsOutcome BmClient::ReloadDeviceOs(const ReloadDeviceOsRequest &request)
@@ -2262,32 +1954,25 @@ BmClient::ReloadDeviceOsOutcome BmClient::ReloadDeviceOs(const ReloadDeviceOsReq
 
 void BmClient::ReloadDeviceOsAsync(const ReloadDeviceOsRequest& request, const ReloadDeviceOsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReloadDeviceOsRequest&;
-    using Resp = ReloadDeviceOsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReloadDeviceOs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReloadDeviceOs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ReloadDeviceOsOutcomeCallable BmClient::ReloadDeviceOsCallable(const ReloadDeviceOsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReloadDeviceOsOutcome>>();
-    ReloadDeviceOsAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ReloadDeviceOsRequest&,
-        ReloadDeviceOsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReloadDeviceOsOutcome()>>(
+        [this, request]()
+        {
+            return this->ReloadDeviceOs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::RepairTaskControlOutcome BmClient::RepairTaskControl(const RepairTaskControlRequest &request)
@@ -2312,32 +1997,25 @@ BmClient::RepairTaskControlOutcome BmClient::RepairTaskControl(const RepairTaskC
 
 void BmClient::RepairTaskControlAsync(const RepairTaskControlRequest& request, const RepairTaskControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RepairTaskControlRequest&;
-    using Resp = RepairTaskControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RepairTaskControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RepairTaskControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::RepairTaskControlOutcomeCallable BmClient::RepairTaskControlCallable(const RepairTaskControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RepairTaskControlOutcome>>();
-    RepairTaskControlAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const RepairTaskControlRequest&,
-        RepairTaskControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RepairTaskControlOutcome()>>(
+        [this, request]()
+        {
+            return this->RepairTaskControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ResetDevicePasswordOutcome BmClient::ResetDevicePassword(const ResetDevicePasswordRequest &request)
@@ -2362,32 +2040,25 @@ BmClient::ResetDevicePasswordOutcome BmClient::ResetDevicePassword(const ResetDe
 
 void BmClient::ResetDevicePasswordAsync(const ResetDevicePasswordRequest& request, const ResetDevicePasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetDevicePasswordRequest&;
-    using Resp = ResetDevicePasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetDevicePassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetDevicePassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ResetDevicePasswordOutcomeCallable BmClient::ResetDevicePasswordCallable(const ResetDevicePasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetDevicePasswordOutcome>>();
-    ResetDevicePasswordAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ResetDevicePasswordRequest&,
-        ResetDevicePasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetDevicePasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetDevicePassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ReturnDevicesOutcome BmClient::ReturnDevices(const ReturnDevicesRequest &request)
@@ -2412,32 +2083,25 @@ BmClient::ReturnDevicesOutcome BmClient::ReturnDevices(const ReturnDevicesReques
 
 void BmClient::ReturnDevicesAsync(const ReturnDevicesRequest& request, const ReturnDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReturnDevicesRequest&;
-    using Resp = ReturnDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReturnDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReturnDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ReturnDevicesOutcomeCallable BmClient::ReturnDevicesCallable(const ReturnDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReturnDevicesOutcome>>();
-    ReturnDevicesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ReturnDevicesRequest&,
-        ReturnDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReturnDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReturnDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::RunUserCmdOutcome BmClient::RunUserCmd(const RunUserCmdRequest &request)
@@ -2462,32 +2126,25 @@ BmClient::RunUserCmdOutcome BmClient::RunUserCmd(const RunUserCmdRequest &reques
 
 void BmClient::RunUserCmdAsync(const RunUserCmdRequest& request, const RunUserCmdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunUserCmdRequest&;
-    using Resp = RunUserCmdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunUserCmd(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunUserCmd", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::RunUserCmdOutcomeCallable BmClient::RunUserCmdCallable(const RunUserCmdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunUserCmdOutcome>>();
-    RunUserCmdAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const RunUserCmdRequest&,
-        RunUserCmdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunUserCmdOutcome()>>(
+        [this, request]()
+        {
+            return this->RunUserCmd(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::SetOutBandVpnAuthPasswordOutcome BmClient::SetOutBandVpnAuthPassword(const SetOutBandVpnAuthPasswordRequest &request)
@@ -2512,32 +2169,25 @@ BmClient::SetOutBandVpnAuthPasswordOutcome BmClient::SetOutBandVpnAuthPassword(c
 
 void BmClient::SetOutBandVpnAuthPasswordAsync(const SetOutBandVpnAuthPasswordRequest& request, const SetOutBandVpnAuthPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetOutBandVpnAuthPasswordRequest&;
-    using Resp = SetOutBandVpnAuthPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetOutBandVpnAuthPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetOutBandVpnAuthPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::SetOutBandVpnAuthPasswordOutcomeCallable BmClient::SetOutBandVpnAuthPasswordCallable(const SetOutBandVpnAuthPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetOutBandVpnAuthPasswordOutcome>>();
-    SetOutBandVpnAuthPasswordAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const SetOutBandVpnAuthPasswordRequest&,
-        SetOutBandVpnAuthPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetOutBandVpnAuthPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->SetOutBandVpnAuthPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::ShutdownDevicesOutcome BmClient::ShutdownDevices(const ShutdownDevicesRequest &request)
@@ -2562,32 +2212,25 @@ BmClient::ShutdownDevicesOutcome BmClient::ShutdownDevices(const ShutdownDevices
 
 void BmClient::ShutdownDevicesAsync(const ShutdownDevicesRequest& request, const ShutdownDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ShutdownDevicesRequest&;
-    using Resp = ShutdownDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ShutdownDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ShutdownDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::ShutdownDevicesOutcomeCallable BmClient::ShutdownDevicesCallable(const ShutdownDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ShutdownDevicesOutcome>>();
-    ShutdownDevicesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const ShutdownDevicesRequest&,
-        ShutdownDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ShutdownDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->ShutdownDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::StartDevicesOutcome BmClient::StartDevices(const StartDevicesRequest &request)
@@ -2612,32 +2255,25 @@ BmClient::StartDevicesOutcome BmClient::StartDevices(const StartDevicesRequest &
 
 void BmClient::StartDevicesAsync(const StartDevicesRequest& request, const StartDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartDevicesRequest&;
-    using Resp = StartDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::StartDevicesOutcomeCallable BmClient::StartDevicesCallable(const StartDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartDevicesOutcome>>();
-    StartDevicesAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const StartDevicesRequest&,
-        StartDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->StartDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmClient::UnbindPsaTagOutcome BmClient::UnbindPsaTag(const UnbindPsaTagRequest &request)
@@ -2662,31 +2298,24 @@ BmClient::UnbindPsaTagOutcome BmClient::UnbindPsaTag(const UnbindPsaTagRequest &
 
 void BmClient::UnbindPsaTagAsync(const UnbindPsaTagRequest& request, const UnbindPsaTagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnbindPsaTagRequest&;
-    using Resp = UnbindPsaTagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnbindPsaTag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnbindPsaTag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmClient::UnbindPsaTagOutcomeCallable BmClient::UnbindPsaTagCallable(const UnbindPsaTagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnbindPsaTagOutcome>>();
-    UnbindPsaTagAsync(
-    request,
-    [prom](
-        const BmClient*,
-        const UnbindPsaTagRequest&,
-        UnbindPsaTagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnbindPsaTagOutcome()>>(
+        [this, request]()
+        {
+            return this->UnbindPsaTag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommonRspData;
+
                 /**
                 * BatchOperateUserSignatureRules返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 生命周期规则当前路径具体存储量信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Summary();
-                    ~Summary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

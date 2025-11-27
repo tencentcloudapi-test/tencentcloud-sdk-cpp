@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CfsInsInfo;
+
                 /**
                 * 文件系统(cfs)配置描述
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CfsConfig();
-                    ~CfsConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

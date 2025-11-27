@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TImeCycle;
+                class TimeInterval;
+
                 /**
                 * 按周期扩容策略中的所选择的周期
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     PeriodStrategy();
-                    ~PeriodStrategy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

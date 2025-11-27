@@ -62,32 +62,25 @@ TdidClient::CreateDisclosedCredentialOutcome TdidClient::CreateDisclosedCredenti
 
 void TdidClient::CreateDisclosedCredentialAsync(const CreateDisclosedCredentialRequest& request, const CreateDisclosedCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDisclosedCredentialRequest&;
-    using Resp = CreateDisclosedCredentialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDisclosedCredential(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDisclosedCredential", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::CreateDisclosedCredentialOutcomeCallable TdidClient::CreateDisclosedCredentialCallable(const CreateDisclosedCredentialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDisclosedCredentialOutcome>>();
-    CreateDisclosedCredentialAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const CreateDisclosedCredentialRequest&,
-        CreateDisclosedCredentialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDisclosedCredentialOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDisclosedCredential(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::CreatePresentationOutcome TdidClient::CreatePresentation(const CreatePresentationRequest &request)
@@ -112,32 +105,25 @@ TdidClient::CreatePresentationOutcome TdidClient::CreatePresentation(const Creat
 
 void TdidClient::CreatePresentationAsync(const CreatePresentationRequest& request, const CreatePresentationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePresentationRequest&;
-    using Resp = CreatePresentationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePresentation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePresentation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::CreatePresentationOutcomeCallable TdidClient::CreatePresentationCallable(const CreatePresentationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePresentationOutcome>>();
-    CreatePresentationAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const CreatePresentationRequest&,
-        CreatePresentationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePresentationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePresentation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::CreateTDidByHostOutcome TdidClient::CreateTDidByHost(const CreateTDidByHostRequest &request)
@@ -162,32 +148,25 @@ TdidClient::CreateTDidByHostOutcome TdidClient::CreateTDidByHost(const CreateTDi
 
 void TdidClient::CreateTDidByHostAsync(const CreateTDidByHostRequest& request, const CreateTDidByHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTDidByHostRequest&;
-    using Resp = CreateTDidByHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTDidByHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTDidByHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::CreateTDidByHostOutcomeCallable TdidClient::CreateTDidByHostCallable(const CreateTDidByHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTDidByHostOutcome>>();
-    CreateTDidByHostAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const CreateTDidByHostRequest&,
-        CreateTDidByHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTDidByHostOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTDidByHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::CreateTDidByPubKeyOutcome TdidClient::CreateTDidByPubKey(const CreateTDidByPubKeyRequest &request)
@@ -212,32 +191,25 @@ TdidClient::CreateTDidByPubKeyOutcome TdidClient::CreateTDidByPubKey(const Creat
 
 void TdidClient::CreateTDidByPubKeyAsync(const CreateTDidByPubKeyRequest& request, const CreateTDidByPubKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTDidByPubKeyRequest&;
-    using Resp = CreateTDidByPubKeyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTDidByPubKey(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTDidByPubKey", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::CreateTDidByPubKeyOutcomeCallable TdidClient::CreateTDidByPubKeyCallable(const CreateTDidByPubKeyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTDidByPubKeyOutcome>>();
-    CreateTDidByPubKeyAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const CreateTDidByPubKeyRequest&,
-        CreateTDidByPubKeyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTDidByPubKeyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTDidByPubKey(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::DeactivateTDidOutcome TdidClient::DeactivateTDid(const DeactivateTDidRequest &request)
@@ -262,32 +234,25 @@ TdidClient::DeactivateTDidOutcome TdidClient::DeactivateTDid(const DeactivateTDi
 
 void TdidClient::DeactivateTDidAsync(const DeactivateTDidRequest& request, const DeactivateTDidAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeactivateTDidRequest&;
-    using Resp = DeactivateTDidResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeactivateTDid(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeactivateTDid", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::DeactivateTDidOutcomeCallable TdidClient::DeactivateTDidCallable(const DeactivateTDidRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeactivateTDidOutcome>>();
-    DeactivateTDidAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const DeactivateTDidRequest&,
-        DeactivateTDidOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeactivateTDidOutcome()>>(
+        [this, request]()
+        {
+            return this->DeactivateTDid(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::GetAppSummaryOutcome TdidClient::GetAppSummary(const GetAppSummaryRequest &request)
@@ -312,32 +277,25 @@ TdidClient::GetAppSummaryOutcome TdidClient::GetAppSummary(const GetAppSummaryRe
 
 void TdidClient::GetAppSummaryAsync(const GetAppSummaryRequest& request, const GetAppSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetAppSummaryRequest&;
-    using Resp = GetAppSummaryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetAppSummary(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetAppSummary", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::GetAppSummaryOutcomeCallable TdidClient::GetAppSummaryCallable(const GetAppSummaryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetAppSummaryOutcome>>();
-    GetAppSummaryAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const GetAppSummaryRequest&,
-        GetAppSummaryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetAppSummaryOutcome()>>(
+        [this, request]()
+        {
+            return this->GetAppSummary(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::GetCredentialStateOutcome TdidClient::GetCredentialState(const GetCredentialStateRequest &request)
@@ -362,32 +320,25 @@ TdidClient::GetCredentialStateOutcome TdidClient::GetCredentialState(const GetCr
 
 void TdidClient::GetCredentialStateAsync(const GetCredentialStateRequest& request, const GetCredentialStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetCredentialStateRequest&;
-    using Resp = GetCredentialStateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetCredentialState(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetCredentialState", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::GetCredentialStateOutcomeCallable TdidClient::GetCredentialStateCallable(const GetCredentialStateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetCredentialStateOutcome>>();
-    GetCredentialStateAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const GetCredentialStateRequest&,
-        GetCredentialStateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetCredentialStateOutcome()>>(
+        [this, request]()
+        {
+            return this->GetCredentialState(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::GetOverSummaryOutcome TdidClient::GetOverSummary(const GetOverSummaryRequest &request)
@@ -412,32 +363,25 @@ TdidClient::GetOverSummaryOutcome TdidClient::GetOverSummary(const GetOverSummar
 
 void TdidClient::GetOverSummaryAsync(const GetOverSummaryRequest& request, const GetOverSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetOverSummaryRequest&;
-    using Resp = GetOverSummaryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetOverSummary(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetOverSummary", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::GetOverSummaryOutcomeCallable TdidClient::GetOverSummaryCallable(const GetOverSummaryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetOverSummaryOutcome>>();
-    GetOverSummaryAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const GetOverSummaryRequest&,
-        GetOverSummaryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetOverSummaryOutcome()>>(
+        [this, request]()
+        {
+            return this->GetOverSummary(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::GetTDidByObjectIdOutcome TdidClient::GetTDidByObjectId(const GetTDidByObjectIdRequest &request)
@@ -462,32 +406,25 @@ TdidClient::GetTDidByObjectIdOutcome TdidClient::GetTDidByObjectId(const GetTDid
 
 void TdidClient::GetTDidByObjectIdAsync(const GetTDidByObjectIdRequest& request, const GetTDidByObjectIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTDidByObjectIdRequest&;
-    using Resp = GetTDidByObjectIdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTDidByObjectId(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTDidByObjectId", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::GetTDidByObjectIdOutcomeCallable TdidClient::GetTDidByObjectIdCallable(const GetTDidByObjectIdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTDidByObjectIdOutcome>>();
-    GetTDidByObjectIdAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const GetTDidByObjectIdRequest&,
-        GetTDidByObjectIdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTDidByObjectIdOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTDidByObjectId(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::GetTDidDocumentOutcome TdidClient::GetTDidDocument(const GetTDidDocumentRequest &request)
@@ -512,32 +449,25 @@ TdidClient::GetTDidDocumentOutcome TdidClient::GetTDidDocument(const GetTDidDocu
 
 void TdidClient::GetTDidDocumentAsync(const GetTDidDocumentRequest& request, const GetTDidDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTDidDocumentRequest&;
-    using Resp = GetTDidDocumentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTDidDocument(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTDidDocument", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::GetTDidDocumentOutcomeCallable TdidClient::GetTDidDocumentCallable(const GetTDidDocumentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTDidDocumentOutcome>>();
-    GetTDidDocumentAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const GetTDidDocumentRequest&,
-        GetTDidDocumentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTDidDocumentOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTDidDocument(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::GetTDidPubKeyOutcome TdidClient::GetTDidPubKey(const GetTDidPubKeyRequest &request)
@@ -562,32 +492,25 @@ TdidClient::GetTDidPubKeyOutcome TdidClient::GetTDidPubKey(const GetTDidPubKeyRe
 
 void TdidClient::GetTDidPubKeyAsync(const GetTDidPubKeyRequest& request, const GetTDidPubKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTDidPubKeyRequest&;
-    using Resp = GetTDidPubKeyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTDidPubKey(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTDidPubKey", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::GetTDidPubKeyOutcomeCallable TdidClient::GetTDidPubKeyCallable(const GetTDidPubKeyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTDidPubKeyOutcome>>();
-    GetTDidPubKeyAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const GetTDidPubKeyRequest&,
-        GetTDidPubKeyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTDidPubKeyOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTDidPubKey(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::IssueCredentialOutcome TdidClient::IssueCredential(const IssueCredentialRequest &request)
@@ -612,32 +535,25 @@ TdidClient::IssueCredentialOutcome TdidClient::IssueCredential(const IssueCreden
 
 void TdidClient::IssueCredentialAsync(const IssueCredentialRequest& request, const IssueCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const IssueCredentialRequest&;
-    using Resp = IssueCredentialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->IssueCredential(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "IssueCredential", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::IssueCredentialOutcomeCallable TdidClient::IssueCredentialCallable(const IssueCredentialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<IssueCredentialOutcome>>();
-    IssueCredentialAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const IssueCredentialRequest&,
-        IssueCredentialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<IssueCredentialOutcome()>>(
+        [this, request]()
+        {
+            return this->IssueCredential(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::QueryAuthorityInfoOutcome TdidClient::QueryAuthorityInfo(const QueryAuthorityInfoRequest &request)
@@ -662,32 +578,25 @@ TdidClient::QueryAuthorityInfoOutcome TdidClient::QueryAuthorityInfo(const Query
 
 void TdidClient::QueryAuthorityInfoAsync(const QueryAuthorityInfoRequest& request, const QueryAuthorityInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryAuthorityInfoRequest&;
-    using Resp = QueryAuthorityInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryAuthorityInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryAuthorityInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::QueryAuthorityInfoOutcomeCallable TdidClient::QueryAuthorityInfoCallable(const QueryAuthorityInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryAuthorityInfoOutcome>>();
-    QueryAuthorityInfoAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const QueryAuthorityInfoRequest&,
-        QueryAuthorityInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryAuthorityInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryAuthorityInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::QueryCPTOutcome TdidClient::QueryCPT(const QueryCPTRequest &request)
@@ -712,32 +621,25 @@ TdidClient::QueryCPTOutcome TdidClient::QueryCPT(const QueryCPTRequest &request)
 
 void TdidClient::QueryCPTAsync(const QueryCPTRequest& request, const QueryCPTAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryCPTRequest&;
-    using Resp = QueryCPTResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryCPT(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryCPT", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::QueryCPTOutcomeCallable TdidClient::QueryCPTCallable(const QueryCPTRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryCPTOutcome>>();
-    QueryCPTAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const QueryCPTRequest&,
-        QueryCPTOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryCPTOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryCPT(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::SetTDidAttributeOutcome TdidClient::SetTDidAttribute(const SetTDidAttributeRequest &request)
@@ -762,32 +664,25 @@ TdidClient::SetTDidAttributeOutcome TdidClient::SetTDidAttribute(const SetTDidAt
 
 void TdidClient::SetTDidAttributeAsync(const SetTDidAttributeRequest& request, const SetTDidAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetTDidAttributeRequest&;
-    using Resp = SetTDidAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetTDidAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetTDidAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::SetTDidAttributeOutcomeCallable TdidClient::SetTDidAttributeCallable(const SetTDidAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetTDidAttributeOutcome>>();
-    SetTDidAttributeAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const SetTDidAttributeRequest&,
-        SetTDidAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetTDidAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->SetTDidAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::UpdateCredentialStateOutcome TdidClient::UpdateCredentialState(const UpdateCredentialStateRequest &request)
@@ -812,32 +707,25 @@ TdidClient::UpdateCredentialStateOutcome TdidClient::UpdateCredentialState(const
 
 void TdidClient::UpdateCredentialStateAsync(const UpdateCredentialStateRequest& request, const UpdateCredentialStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCredentialStateRequest&;
-    using Resp = UpdateCredentialStateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCredentialState(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCredentialState", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::UpdateCredentialStateOutcomeCallable TdidClient::UpdateCredentialStateCallable(const UpdateCredentialStateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCredentialStateOutcome>>();
-    UpdateCredentialStateAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const UpdateCredentialStateRequest&,
-        UpdateCredentialStateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCredentialStateOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCredentialState(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::VerifyCredentialsOutcome TdidClient::VerifyCredentials(const VerifyCredentialsRequest &request)
@@ -862,32 +750,25 @@ TdidClient::VerifyCredentialsOutcome TdidClient::VerifyCredentials(const VerifyC
 
 void TdidClient::VerifyCredentialsAsync(const VerifyCredentialsRequest& request, const VerifyCredentialsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const VerifyCredentialsRequest&;
-    using Resp = VerifyCredentialsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->VerifyCredentials(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "VerifyCredentials", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::VerifyCredentialsOutcomeCallable TdidClient::VerifyCredentialsCallable(const VerifyCredentialsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<VerifyCredentialsOutcome>>();
-    VerifyCredentialsAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const VerifyCredentialsRequest&,
-        VerifyCredentialsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<VerifyCredentialsOutcome()>>(
+        [this, request]()
+        {
+            return this->VerifyCredentials(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TdidClient::VerifyPresentationOutcome TdidClient::VerifyPresentation(const VerifyPresentationRequest &request)
@@ -912,31 +793,24 @@ TdidClient::VerifyPresentationOutcome TdidClient::VerifyPresentation(const Verif
 
 void TdidClient::VerifyPresentationAsync(const VerifyPresentationRequest& request, const VerifyPresentationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const VerifyPresentationRequest&;
-    using Resp = VerifyPresentationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->VerifyPresentation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "VerifyPresentation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TdidClient::VerifyPresentationOutcomeCallable TdidClient::VerifyPresentationCallable(const VerifyPresentationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<VerifyPresentationOutcome>>();
-    VerifyPresentationAsync(
-    request,
-    [prom](
-        const TdidClient*,
-        const VerifyPresentationRequest&,
-        VerifyPresentationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<VerifyPresentationOutcome()>>(
+        [this, request]()
+        {
+            return this->VerifyPresentation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

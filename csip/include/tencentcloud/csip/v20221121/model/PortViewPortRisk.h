@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 端口视角的端口风险对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PortViewPortRisk();
-                    ~PortViewPortRisk() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulAffectedContainerInfo;
+
                 /**
                 * DescribeVulContainerList返回参数结构体
                 */

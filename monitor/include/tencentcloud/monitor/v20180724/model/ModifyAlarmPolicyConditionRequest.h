@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmPolicyCondition;
+                class AlarmPolicyEventCondition;
+                class AlarmPolicyFilter;
+                class LogAlarmReq;
+
                 /**
                 * ModifyAlarmPolicyCondition请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserFileInfo;
+
                 /**
                 * DeleteFilePath返回参数结构体
                 */

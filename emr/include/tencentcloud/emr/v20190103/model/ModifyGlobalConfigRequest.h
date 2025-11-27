@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Item;
+
                 /**
                 * ModifyGlobalConfig请求参数结构体
                 */

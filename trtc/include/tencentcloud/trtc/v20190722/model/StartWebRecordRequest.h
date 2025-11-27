@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StorageParams;
+                class WebRecordVideoParams;
+                class McuPublishCdnParam;
+                class EmulateMobileParams;
+
                 /**
                 * StartWebRecord请求参数结构体
                 */

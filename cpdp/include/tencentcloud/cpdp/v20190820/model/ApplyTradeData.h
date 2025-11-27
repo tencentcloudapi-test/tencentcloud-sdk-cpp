@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 提交贸易材料结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ApplyTradeData();
-                    ~ApplyTradeData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

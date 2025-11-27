@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JgwOperateResponse;
+
                 /**
                 * ModifyDatahubTopic返回参数结构体
                 */

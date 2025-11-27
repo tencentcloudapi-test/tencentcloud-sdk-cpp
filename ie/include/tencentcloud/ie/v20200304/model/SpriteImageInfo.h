@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 雪碧图参数信息
 注意：雪碧图大图整体的宽和高都不能大于 15000 像素。
@@ -42,7 +43,6 @@ namespace TencentCloud
                 {
                 public:
                     SpriteImageInfo();
-                    ~SpriteImageInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

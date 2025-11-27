@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceFingerprint;
+
                 /**
                 * DescribeWhiteBoxDeviceFingerprints返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BudgetOperationLogEntity;
+
                 /**
                 * 预算修改记录信息分页数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DataForBudgetOperationLogPage();
-                    ~DataForBudgetOperationLogPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

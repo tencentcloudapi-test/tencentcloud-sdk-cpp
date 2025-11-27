@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RenameRestoreDatabase;
+
                 /**
                 * RollbackInstance请求参数结构体
                 */

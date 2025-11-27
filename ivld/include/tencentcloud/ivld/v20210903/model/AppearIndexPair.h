@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 出现信息索引对
 
@@ -52,7 +53,6 @@ AppearIndex可选值定义如下：
                 {
                 public:
                     AppearIndexPair();
-                    ~AppearIndexPair() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

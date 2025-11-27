@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeAccessExports接口
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ExportAccessInfo();
-                    ~ExportAccessInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

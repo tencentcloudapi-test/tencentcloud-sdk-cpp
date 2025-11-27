@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ThreadAdditionalMessage;
+                class Tool;
+
                 /**
                 * RunThread请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetworkClusterNamespaceInfo;
+
                 /**
                 * DescribeNetworkFirewallNamespaceList返回参数结构体
                 */

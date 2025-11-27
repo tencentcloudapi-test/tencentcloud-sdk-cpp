@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ShipperTaskInfo;
+
                 /**
                 * DescribeShipperTasks返回参数结构体
                 */

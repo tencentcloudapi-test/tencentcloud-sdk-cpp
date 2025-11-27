@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaInputInfo;
+
                 /**
                 * 片头片尾参数
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HeadTailParameter();
-                    ~HeadTailParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SqlCostDistribution;
+
                 /**
                 * DescribeSlowLogQueryTimeStats返回参数结构体
                 */

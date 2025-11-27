@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PropagatingProperty;
+
                 /**
                 * ModifyDeviceIdentity请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 限流Header参数名
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LimitHeaderName();
-                    ~LimitHeaderName() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

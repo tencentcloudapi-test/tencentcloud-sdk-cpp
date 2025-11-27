@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModelSource;
+                class CosPathInfo;
+
                 /**
                 * 优化模型版本列表
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ModelAccelerateVersion();
-                    ~ModelAccelerateVersion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

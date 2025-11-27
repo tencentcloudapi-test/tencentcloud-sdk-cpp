@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Placement;
+                class ChargePrepaid;
+                class TagSpecification;
+
                 /**
                 * AllocateHosts请求参数结构体
                 */

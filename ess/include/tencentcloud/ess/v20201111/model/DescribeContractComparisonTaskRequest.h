@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+
                 /**
                 * DescribeContractComparisonTask请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceAlias;
+
                 /**
                 * ModifyDeviceAliases请求参数结构体
                 */

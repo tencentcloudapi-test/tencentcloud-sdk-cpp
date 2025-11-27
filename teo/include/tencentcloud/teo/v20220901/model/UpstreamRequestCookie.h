@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 回源请求参数 Cookie 配置。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UpstreamRequestCookie();
-                    ~UpstreamRequestCookie() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

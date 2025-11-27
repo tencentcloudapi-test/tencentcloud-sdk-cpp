@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 音频识别结果信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AudioInfo();
-                    ~AudioInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

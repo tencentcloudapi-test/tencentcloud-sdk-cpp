@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DCN的状态信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DCNReplicaStatus();
-                    ~DCNReplicaStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

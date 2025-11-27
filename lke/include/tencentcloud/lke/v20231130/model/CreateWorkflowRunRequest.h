@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomVariable;
+
                 /**
                 * CreateWorkflowRun请求参数结构体
                 */

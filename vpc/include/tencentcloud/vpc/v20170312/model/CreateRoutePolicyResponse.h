@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoutePolicy;
+
                 /**
                 * CreateRoutePolicy返回参数结构体
                 */

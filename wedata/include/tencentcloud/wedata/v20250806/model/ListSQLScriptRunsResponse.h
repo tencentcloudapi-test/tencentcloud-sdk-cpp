@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JobDto;
+
                 /**
                 * ListSQLScriptRuns返回参数结构体
                 */

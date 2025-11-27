@@ -39,6 +39,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlgorithmSpecification;
+                class InputDataConfig;
+                class OutputDataConfig;
+                class StoppingCondition;
+                class ResourceConfig;
+                class VpcConfig;
+                class ModelArtifacts;
+                class SecondaryStatusTransition;
+
                 /**
                 * DescribeTrainingJob返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * CreateDirectConnect请求参数结构体
                 */

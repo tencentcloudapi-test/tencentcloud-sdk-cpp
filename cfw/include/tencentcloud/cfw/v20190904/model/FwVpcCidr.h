@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * vpc的防火墙网段
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FwVpcCidr();
-                    ~FwVpcCidr() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

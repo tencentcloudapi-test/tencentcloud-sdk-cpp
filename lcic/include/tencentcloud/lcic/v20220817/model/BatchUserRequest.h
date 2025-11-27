@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户注册请求信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BatchUserRequest();
-                    ~BatchUserRequest() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

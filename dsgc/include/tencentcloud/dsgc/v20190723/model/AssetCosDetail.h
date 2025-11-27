@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Note;
+
                 /**
                 * 数据资产报告-cos的资产详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AssetCosDetail();
-                    ~AssetCosDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

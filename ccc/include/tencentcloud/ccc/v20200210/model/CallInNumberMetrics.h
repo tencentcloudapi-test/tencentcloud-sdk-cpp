@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CallInMetrics;
+                class CallInSkillGroupMetrics;
+
                 /**
                 * 呼入线路维度相关指标
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     CallInNumberMetrics();
-                    ~CallInNumberMetrics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

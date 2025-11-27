@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppChart;
+
                 /**
                 * GetTkeAppChartList返回参数结构体
                 */

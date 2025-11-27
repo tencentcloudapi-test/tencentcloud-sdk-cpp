@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Filters;
+
                 /**
                 * ExportBaselineEffectHostList请求参数结构体
                 */

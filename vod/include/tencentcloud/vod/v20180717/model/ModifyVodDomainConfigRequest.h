@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RefererAuthPolicy;
+                class UrlSignatureAuthPolicy;
+                class DomainQUICConfig;
+                class IPFilterPolicy;
+
                 /**
                 * ModifyVodDomainConfig请求参数结构体
                 */

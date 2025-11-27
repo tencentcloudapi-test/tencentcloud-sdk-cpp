@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AbnormalExperience;
+
                 /**
                 * DescribeUnusualEvent返回参数结构体
                 */

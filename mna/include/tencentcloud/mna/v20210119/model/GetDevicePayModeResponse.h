@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DevicePayModeInfo;
+
                 /**
                 * GetDevicePayMode返回参数结构体
                 */

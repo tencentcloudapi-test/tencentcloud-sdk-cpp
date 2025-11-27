@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Target;
+
                 /**
                 * 修改节点权重的数据类型
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RsWeightRule();
-                    ~RsWeightRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

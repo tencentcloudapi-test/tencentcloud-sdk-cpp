@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 运维大屏实例状态统计和实例状态趋势
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceStatisticInfo();
-                    ~InstanceStatisticInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

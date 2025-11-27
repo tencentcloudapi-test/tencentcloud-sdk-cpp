@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 安全放回状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SecurityStatus();
-                    ~SecurityStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

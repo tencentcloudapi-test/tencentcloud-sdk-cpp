@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 后付费实例配额
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PostPaidQuota();
-                    ~PostPaidQuota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

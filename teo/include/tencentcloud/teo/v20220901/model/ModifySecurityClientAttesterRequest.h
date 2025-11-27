@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClientAttester;
+
                 /**
                 * ModifySecurityClientAttester请求参数结构体
                 */

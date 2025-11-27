@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 表示是否启用合规标准。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ComplianceBenchmarkStandardEnable();
-                    ~ComplianceBenchmarkStandardEnable() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

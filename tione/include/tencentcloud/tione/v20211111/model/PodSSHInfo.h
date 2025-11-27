@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SSH pod访问信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PodSSHInfo();
-                    ~PodSSHInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

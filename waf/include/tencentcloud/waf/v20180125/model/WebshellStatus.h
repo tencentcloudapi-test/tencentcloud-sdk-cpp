@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 域名的webshell开启状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WebshellStatus();
-                    ~WebshellStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

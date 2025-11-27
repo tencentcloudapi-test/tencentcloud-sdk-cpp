@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 依赖配置策略
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DependencyStrategyTask();
-                    ~DependencyStrategyTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeAppStatisticsResp;
+
                 /**
                 * DescribeAppStatistics返回参数结构体
                 */

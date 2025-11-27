@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Package;
+                class AppInfo;
+
                 /**
                 * license 资源信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     LicenseResourceInfo();
-                    ~LicenseResourceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

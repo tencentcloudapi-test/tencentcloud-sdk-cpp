@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 监控类型详细信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MonitorTypeInfo();
-                    ~MonitorTypeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

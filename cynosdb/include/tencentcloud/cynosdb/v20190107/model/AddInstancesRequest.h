@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyParamItem;
+                class UpgradeProxy;
+
                 /**
                 * AddInstances请求参数结构体
                 */

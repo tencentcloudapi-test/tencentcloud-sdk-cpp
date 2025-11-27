@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JobExecutionDto;
+
                 /**
                 * 数据探索任务JOB
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     JobDto();
-                    ~JobDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

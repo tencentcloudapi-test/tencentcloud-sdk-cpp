@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AvailableModelVersion;
+
                 /**
                 * DescribeAvailableModelList返回参数结构体
                 */

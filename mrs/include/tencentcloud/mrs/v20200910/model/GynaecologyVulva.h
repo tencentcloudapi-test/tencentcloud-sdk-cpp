@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValueItem;
+
                 /**
                 * 体检报告-妇科-外阴
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     GynaecologyVulva();
-                    ~GynaecologyVulva() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

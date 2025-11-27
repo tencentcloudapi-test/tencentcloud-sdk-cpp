@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogoParam;
+
                 /**
                 * ChangeClothes请求参数结构体
                 */

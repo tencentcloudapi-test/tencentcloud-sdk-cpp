@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Gateway引用资源信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GatewayRefItem();
-                    ~GatewayRefItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

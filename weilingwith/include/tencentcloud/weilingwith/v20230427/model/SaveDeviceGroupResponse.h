@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SaveDeviceGroupRes;
+
                 /**
                 * SaveDeviceGroup返回参数结构体
                 */

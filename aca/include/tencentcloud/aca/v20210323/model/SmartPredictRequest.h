@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommonHeader;
+                class SmartPredictReqData;
+
                 /**
                 * SmartPredict请求参数结构体
                 */

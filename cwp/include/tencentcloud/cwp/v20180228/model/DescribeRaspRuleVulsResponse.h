@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RaspRuleVul;
+
                 /**
                 * DescribeRaspRuleVuls返回参数结构体
                 */

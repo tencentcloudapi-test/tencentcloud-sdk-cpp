@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Message;
+                class Tool;
+                class WebSearchOptions;
+
                 /**
                 * ChatCompletions请求参数结构体
                 */

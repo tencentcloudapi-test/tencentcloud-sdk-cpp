@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaTrack;
+                class ComposeMediaOutput;
+                class Canvas;
+
                 /**
                 * ComposeMedia请求参数结构体
                 */

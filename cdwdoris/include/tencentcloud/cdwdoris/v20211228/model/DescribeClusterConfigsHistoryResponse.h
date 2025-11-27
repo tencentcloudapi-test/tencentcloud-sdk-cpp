@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClusterConfigsHistory;
+
                 /**
                 * DescribeClusterConfigsHistory返回参数结构体
                 */

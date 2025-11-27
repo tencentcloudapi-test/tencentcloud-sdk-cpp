@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagWithDelete;
+
                 /**
                 * DescribeTags返回参数结构体
                 */

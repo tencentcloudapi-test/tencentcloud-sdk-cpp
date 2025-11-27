@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Task;
+
                 /**
                 * CreateRecTask返回参数结构体
                 */

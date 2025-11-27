@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网络相关信息。（该数据结构已废弃，网络相关信息使用DBInstanceNetInfo）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NetworkAccess();
-                    ~NetworkAccess() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

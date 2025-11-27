@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述输入媒资的先验知识，例如文件类型(视频)，媒体类型(新闻/综艺等)
 
@@ -82,7 +83,6 @@ MediaMeta.MediaLang
                 {
                 public:
                     MediaPreknownInfo();
-                    ~MediaPreknownInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

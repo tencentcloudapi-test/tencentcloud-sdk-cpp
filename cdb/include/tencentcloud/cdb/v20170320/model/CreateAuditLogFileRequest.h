@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuditLogFilter;
+                class InstanceAuditLogFilters;
+
                 /**
                 * CreateAuditLogFile请求参数结构体
                 */

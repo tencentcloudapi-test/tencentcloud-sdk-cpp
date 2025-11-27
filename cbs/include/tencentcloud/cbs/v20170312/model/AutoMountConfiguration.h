@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述了新购云硬盘时自动将云硬盘初始化并挂载至云服务器内部的配置。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AutoMountConfiguration();
-                    ~AutoMountConfiguration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

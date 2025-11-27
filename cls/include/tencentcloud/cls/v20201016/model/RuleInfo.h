@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FullTextInfo;
+                class RuleKeyValueInfo;
+                class RuleTagInfo;
+                class DynamicIndex;
+
                 /**
                 * 索引规则，FullText、KeyValue、Tag参数必须输入一个有效参数
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleInfo();
-                    ~RuleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

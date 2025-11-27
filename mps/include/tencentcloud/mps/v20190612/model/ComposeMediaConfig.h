@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComposeTargetInfo;
+                class ComposeCanvas;
+                class ComposeStyles;
+                class ComposeMediaTrack;
+
                 /**
                 * 视频编辑/合成任务 信息。
 
@@ -49,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     ComposeMediaConfig();
-                    ~ComposeMediaConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

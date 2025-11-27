@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommonMixInputParam;
+                class CommonMixOutputParams;
+                class CommonMixControlParams;
+
                 /**
                 * CreateCommonMixStream请求参数结构体
                 */

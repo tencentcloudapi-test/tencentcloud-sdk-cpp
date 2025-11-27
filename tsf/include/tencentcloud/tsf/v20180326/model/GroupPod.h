@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 部署组实例列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GroupPod();
-                    ~GroupPod() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

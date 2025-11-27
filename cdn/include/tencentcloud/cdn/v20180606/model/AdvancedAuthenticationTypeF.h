@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 时间戳防盗链高级鉴权模式TypeF配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AdvancedAuthenticationTypeF();
-                    ~AdvancedAuthenticationTypeF() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

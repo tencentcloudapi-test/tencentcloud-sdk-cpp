@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Nextflow工作流引擎设置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NextflowConfig();
-                    ~NextflowConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

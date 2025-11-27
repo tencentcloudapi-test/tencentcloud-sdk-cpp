@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 计费时间参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ChargeProperties();
-                    ~ChargeProperties() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiReviewProhibitedOcrTaskInput;
+                class AiReviewProhibitedOcrTaskOutput;
+
                 /**
                 * 内容审核 Ocr 文字鉴任违禁务结果类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewTaskProhibitedOcrResult();
-                    ~AiReviewTaskProhibitedOcrResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

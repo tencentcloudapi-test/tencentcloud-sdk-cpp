@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数据卷挂载路径信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VolumeMount();
-                    ~VolumeMount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BotManagementCustomRule;
+
                 /**
                 * Bot 自定义规则的配置。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BotManagementCustomRules();
-                    ~BotManagementCustomRules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

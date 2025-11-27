@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrderBy;
+
                 /**
                 * DescribeResourceList请求参数结构体
                 */

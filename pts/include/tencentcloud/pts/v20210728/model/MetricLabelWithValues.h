@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LabelWithValues;
+
                 /**
                 * PTS提供的指标名，指标对应的labels及values
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MetricLabelWithValues();
-                    ~MetricLabelWithValues() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

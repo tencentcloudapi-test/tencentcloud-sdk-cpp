@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KVPair;
+
                 /**
                 * 迁移列对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DMSColumn();
-                    ~DMSColumn() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

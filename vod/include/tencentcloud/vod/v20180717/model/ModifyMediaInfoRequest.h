@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaKeyFrameDescItem;
+                class MediaSubtitleInput;
+
                 /**
                 * ModifyMediaInfo请求参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaMetaData;
+
                 /**
                 * 智能去除水印任务的输出。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RemoveWaterMarkTaskOutput();
-                    ~RemoveWaterMarkTaskOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

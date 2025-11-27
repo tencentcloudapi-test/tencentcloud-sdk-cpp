@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimelineEvent;
+
                 /**
                 * 时间轴
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TimelineInformation();
-                    ~TimelineInformation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupResource;
+                class Instance;
+                class Tag;
+
                 /**
                 * 资源组
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     ResourceGroup();
-                    ~ResourceGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

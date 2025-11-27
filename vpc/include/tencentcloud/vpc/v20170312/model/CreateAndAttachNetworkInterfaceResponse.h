@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetworkInterface;
+
                 /**
                 * CreateAndAttachNetworkInterface返回参数结构体
                 */

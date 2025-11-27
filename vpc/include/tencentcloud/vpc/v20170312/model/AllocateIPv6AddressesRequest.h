@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * AllocateIPv6Addresses请求参数结构体
                 */

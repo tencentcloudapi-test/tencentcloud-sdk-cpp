@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 当type为video_url时使用，标识具体的视频链接内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VideoUrl();
-                    ~VideoUrl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

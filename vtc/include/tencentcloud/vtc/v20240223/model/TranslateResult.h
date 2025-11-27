@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 音频翻译结果。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TranslateResult();
-                    ~TranslateResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

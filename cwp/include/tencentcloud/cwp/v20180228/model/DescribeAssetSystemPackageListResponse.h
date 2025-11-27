@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetSystemPackageInfo;
+
                 /**
                 * DescribeAssetSystemPackageList返回参数结构体
                 */

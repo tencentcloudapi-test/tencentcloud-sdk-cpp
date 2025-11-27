@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WaterPrintConfig;
+
                 /**
                 * CreateWaterPrintConfig请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 动态生成的变更详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DiffHeader();
-                    ~DiffHeader() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

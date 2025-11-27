@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 腾讯云可观测平台通知渠道组信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MonitorNoticeRule();
-                    ~MonitorNoticeRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

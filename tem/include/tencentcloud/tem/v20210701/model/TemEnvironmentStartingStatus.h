@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 环境启动进程（只统计由环境启动操作触发的应用数量）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TemEnvironmentStartingStatus();
-                    ~TemEnvironmentStartingStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

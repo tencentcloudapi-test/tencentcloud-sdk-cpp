@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiSampleFaceInfo;
+
                 /**
                 * AI 样本管理，人物信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AiSamplePerson();
-                    ~AiSamplePerson() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

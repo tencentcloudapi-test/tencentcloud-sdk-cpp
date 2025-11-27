@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ShareCname配置
 ShareCname 为内测功能,如需使用,请联系腾讯云工程师开白.
@@ -42,7 +43,6 @@ ShareCname 为内测功能,如需使用,请联系腾讯云工程师开白.
                 {
                 public:
                     ShareCname();
-                    ~ShareCname() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Bot扩展处置方式，多处置动作组合。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BotExtendAction();
-                    ~BotExtendAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

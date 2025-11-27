@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageRegistryInfo;
+
                 /**
                 * 表示检测项所影响的资产的信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ComplianceAffectedAsset();
-                    ~ComplianceAffectedAsset() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

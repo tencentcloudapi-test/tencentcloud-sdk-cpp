@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RabbitMQServerlessInstance;
+
                 /**
                 * ListRabbitMQServerlessInstances返回参数结构体
                 */

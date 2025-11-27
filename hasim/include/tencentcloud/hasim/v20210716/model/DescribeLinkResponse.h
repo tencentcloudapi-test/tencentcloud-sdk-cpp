@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LinkDetailInfo;
+
                 /**
                 * DescribeLink返回参数结构体
                 */

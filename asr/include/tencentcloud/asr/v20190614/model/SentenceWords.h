@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 识别结果中词文本，以及对应时间偏移
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SentenceWords();
-                    ~SentenceWords() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

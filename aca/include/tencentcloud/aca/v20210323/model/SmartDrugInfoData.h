@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 智能用药请求数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SmartDrugInfoData();
-                    ~SmartDrugInfoData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

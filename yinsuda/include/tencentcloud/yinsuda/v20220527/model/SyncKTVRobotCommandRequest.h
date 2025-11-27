@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SyncRobotCommand;
+
                 /**
                 * SyncKTVRobotCommand请求参数结构体
                 */

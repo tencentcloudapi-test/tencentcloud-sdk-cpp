@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * OpenIdentityCenter请求参数结构体
                 */

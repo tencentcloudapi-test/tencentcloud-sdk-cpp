@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 批量添加解析记录结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RecordsInfoStatus();
-                    ~RecordsInfoStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

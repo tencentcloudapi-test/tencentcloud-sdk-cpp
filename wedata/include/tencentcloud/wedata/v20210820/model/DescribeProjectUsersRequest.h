@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FilterOptional;
+                class OrderFieldOptional;
+
                 /**
                 * DescribeProjectUsers请求参数结构体
                 */

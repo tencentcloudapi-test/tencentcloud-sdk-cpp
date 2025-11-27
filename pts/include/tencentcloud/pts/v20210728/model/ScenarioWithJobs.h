@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Scenario;
+                class Job;
+
                 /**
                 * 带已执行任务的scenario
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ScenarioWithJobs();
-                    ~ScenarioWithJobs() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

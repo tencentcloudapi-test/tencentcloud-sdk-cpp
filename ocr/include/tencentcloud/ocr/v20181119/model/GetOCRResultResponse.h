@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OCRResult;
+                class RequestIdInfo;
+
                 /**
                 * GetOCRResult返回参数结构体
                 */

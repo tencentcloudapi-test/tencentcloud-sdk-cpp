@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Image;
+                class LogoParam;
+
                 /**
                 * SubmitHunyuanImageJob请求参数结构体
                 */

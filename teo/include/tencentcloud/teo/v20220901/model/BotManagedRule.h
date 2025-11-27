@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Bot 规则，下列规则ID可参考接口 DescribeBotManagedRules返回的ID信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BotManagedRule();
-                    ~BotManagedRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

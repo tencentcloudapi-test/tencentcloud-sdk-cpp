@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoRaGatewayLocation;
+
                 /**
                 * ModifyLoRaGateway请求参数结构体
                 */

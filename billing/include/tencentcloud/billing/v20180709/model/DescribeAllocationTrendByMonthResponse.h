@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AllocationBillTrendDetail;
+                class AllocationStat;
+
                 /**
                 * DescribeAllocationTrendByMonth返回参数结构体
                 */

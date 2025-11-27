@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RateLimitCommonRsp;
+                class LimitRuleV2;
+
                 /**
                 * DescribeRateLimitsV2返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NatSubnetInfo;
+
                 /**
                 * DescribeNatSubnets返回参数结构体
                 */

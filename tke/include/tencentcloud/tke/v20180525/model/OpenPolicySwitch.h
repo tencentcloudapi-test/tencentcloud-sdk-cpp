@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpenConstraintInfo;
+
                 /**
                 * opa策略开关
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OpenPolicySwitch();
-                    ~OpenPolicySwitch() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

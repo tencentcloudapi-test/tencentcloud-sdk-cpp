@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Entity;
+
                 /**
                 * DeleteClass请求参数结构体
                 */

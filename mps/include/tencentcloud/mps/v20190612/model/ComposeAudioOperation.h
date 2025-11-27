@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视频编辑/合成任务 音频操作。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ComposeAudioOperation();
-                    ~ComposeAudioOperation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

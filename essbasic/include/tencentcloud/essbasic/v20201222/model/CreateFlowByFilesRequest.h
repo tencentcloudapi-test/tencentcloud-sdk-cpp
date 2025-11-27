@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Caller;
+                class FlowInfo;
+
                 /**
                 * CreateFlowByFiles请求参数结构体
                 */

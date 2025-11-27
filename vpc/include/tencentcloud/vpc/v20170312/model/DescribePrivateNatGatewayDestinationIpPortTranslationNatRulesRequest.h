@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Filter;
+
                 /**
                 * DescribePrivateNatGatewayDestinationIpPortTranslationNatRules请求参数结构体
                 */

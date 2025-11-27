@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Event;
+
                 /**
                 * PublishEvent请求参数结构体
                 */

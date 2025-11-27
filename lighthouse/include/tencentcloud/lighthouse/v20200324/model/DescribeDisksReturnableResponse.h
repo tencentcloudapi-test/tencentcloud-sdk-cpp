@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiskReturnable;
+
                 /**
                 * DescribeDisksReturnable返回参数结构体
                 */

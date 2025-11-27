@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaMetaData;
+
                 /**
                 * SimpleHlsClip返回参数结构体
                 */

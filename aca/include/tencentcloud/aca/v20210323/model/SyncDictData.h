@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Dict;
+
                 /**
                 * 同步字典数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SyncDictData();
-                    ~SyncDictData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

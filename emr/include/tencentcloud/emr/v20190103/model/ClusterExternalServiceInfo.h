@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 当前集群共用组件与集群对应关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClusterExternalServiceInfo();
-                    ~ClusterExternalServiceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

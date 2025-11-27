@@ -40,6 +40,16 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpacePlacement;
+                class SpaceChargePrepaid;
+                class SpaceSystemDisk;
+                class SpaceDataDisk;
+                class SpaceVirtualPrivateCloud;
+                class SpaceInternetAccessible;
+                class LoginSettings;
+                class EnhancedService;
+                class TagSpecification;
+
                 /**
                 * CreateWorkspaces请求参数结构体
                 */

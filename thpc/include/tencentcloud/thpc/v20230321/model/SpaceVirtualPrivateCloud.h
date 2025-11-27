@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述了工作空间VPC相关信息，包括子网，IP信息等
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpaceVirtualPrivateCloud();
-                    ~SpaceVirtualPrivateCloud() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

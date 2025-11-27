@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 子商户资质文件查询
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     QueryOpenBankSubMerchantCredentialResult();
-                    ~QueryOpenBankSubMerchantCredentialResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

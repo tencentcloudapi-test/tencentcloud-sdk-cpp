@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * POST请求上传文件流式传输最大限制
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PostMaxSize();
-                    ~PostMaxSize() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

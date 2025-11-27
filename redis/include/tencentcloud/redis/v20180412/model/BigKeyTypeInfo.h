@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 大Key类型分布详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BigKeyTypeInfo();
-                    ~BigKeyTypeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * TriggerCount描述不同类型触发器的数量
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TriggerCount();
-                    ~TriggerCount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskLastExecuteStatus;
+
                 /**
                 * DescribeTaskLastStatus返回参数结构体
                 */

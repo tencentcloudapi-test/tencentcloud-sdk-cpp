@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 直播 AI 内容审核图片涉敏结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LiveStreamAiReviewImageTerrorismResult();
-                    ~LiveStreamAiReviewImageTerrorismResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

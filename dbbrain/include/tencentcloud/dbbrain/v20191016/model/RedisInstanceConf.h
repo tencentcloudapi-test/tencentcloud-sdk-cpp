@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Redis实例内存配置参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RedisInstanceConf();
-                    ~RedisInstanceConf() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

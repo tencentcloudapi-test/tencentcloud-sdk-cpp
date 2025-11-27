@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 检测出的人脸框的位置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FaceRect();
-                    ~FaceRect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcInfo;
+                class TagInfo;
+
                 /**
                 * 转发规则详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ForwardRule();
-                    ~ForwardRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

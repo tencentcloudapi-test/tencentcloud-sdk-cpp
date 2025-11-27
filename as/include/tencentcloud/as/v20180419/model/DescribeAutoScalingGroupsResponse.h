@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AutoScalingGroup;
+
                 /**
                 * DescribeAutoScalingGroups返回参数结构体
                 */

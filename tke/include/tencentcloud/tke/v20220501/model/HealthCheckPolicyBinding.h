@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 健康检测策略和节点池的绑定关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HealthCheckPolicyBinding();
-                    ~HealthCheckPolicyBinding() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

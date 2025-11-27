@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiDataSourceCvm;
+                class DiDataSourceTke;
+                class DiDataSinkServerless;
+
                 /**
                 * 数据接入信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     DiData();
-                    ~DiData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 运行失败的自定义脚本信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FailedTaskInfo();
-                    ~FailedTaskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

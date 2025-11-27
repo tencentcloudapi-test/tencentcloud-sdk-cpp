@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BlueprintInstance;
+
                 /**
                 * DescribeBlueprintInstances返回参数结构体
                 */

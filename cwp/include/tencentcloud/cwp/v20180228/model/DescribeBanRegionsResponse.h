@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RegionSet;
+
                 /**
                 * DescribeBanRegions返回参数结构体
                 */

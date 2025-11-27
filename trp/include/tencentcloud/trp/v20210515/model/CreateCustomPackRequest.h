@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PackSpec;
+                class CodePart;
+
                 /**
                 * CreateCustomPack请求参数结构体
                 */

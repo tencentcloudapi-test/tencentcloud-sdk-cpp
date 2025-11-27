@@ -62,32 +62,25 @@ CloudappClient::DescribeLicenseOutcome CloudappClient::DescribeLicense(const Des
 
 void CloudappClient::DescribeLicenseAsync(const DescribeLicenseRequest& request, const DescribeLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLicenseRequest&;
-    using Resp = DescribeLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudappClient::DescribeLicenseOutcomeCallable CloudappClient::DescribeLicenseCallable(const DescribeLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLicenseOutcome>>();
-    DescribeLicenseAsync(
-    request,
-    [prom](
-        const CloudappClient*,
-        const DescribeLicenseRequest&,
-        DescribeLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudappClient::VerifyLicenseOutcome CloudappClient::VerifyLicense(const VerifyLicenseRequest &request)
@@ -112,31 +105,24 @@ CloudappClient::VerifyLicenseOutcome CloudappClient::VerifyLicense(const VerifyL
 
 void CloudappClient::VerifyLicenseAsync(const VerifyLicenseRequest& request, const VerifyLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const VerifyLicenseRequest&;
-    using Resp = VerifyLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->VerifyLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "VerifyLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudappClient::VerifyLicenseOutcomeCallable CloudappClient::VerifyLicenseCallable(const VerifyLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<VerifyLicenseOutcome>>();
-    VerifyLicenseAsync(
-    request,
-    [prom](
-        const CloudappClient*,
-        const VerifyLicenseRequest&,
-        VerifyLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<VerifyLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->VerifyLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

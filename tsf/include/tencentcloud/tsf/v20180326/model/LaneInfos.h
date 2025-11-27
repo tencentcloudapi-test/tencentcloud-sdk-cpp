@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LaneInfo;
+
                 /**
                 * 泳道分页查询
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     LaneInfos();
-                    ~LaneInfos() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

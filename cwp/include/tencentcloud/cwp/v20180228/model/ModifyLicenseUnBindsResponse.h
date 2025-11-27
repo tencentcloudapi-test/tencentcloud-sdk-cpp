@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LicenseUnBindRsp;
+
                 /**
                 * ModifyLicenseUnBinds返回参数结构体
                 */

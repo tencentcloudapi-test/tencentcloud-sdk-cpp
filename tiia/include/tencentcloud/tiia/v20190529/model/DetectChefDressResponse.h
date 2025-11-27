@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttributesForBody;
+
                 /**
                 * DetectChefDress返回参数结构体
                 */

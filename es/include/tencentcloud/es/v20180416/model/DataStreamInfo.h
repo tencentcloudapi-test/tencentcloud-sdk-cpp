@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 自治索引信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DataStreamInfo();
-                    ~DataStreamInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网赚防刷相关参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SponsorInfo();
-                    ~SponsorInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

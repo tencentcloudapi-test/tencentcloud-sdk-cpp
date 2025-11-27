@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskListItem;
+
                 /**
                 * DescribeTaskList返回参数结构体
                 */

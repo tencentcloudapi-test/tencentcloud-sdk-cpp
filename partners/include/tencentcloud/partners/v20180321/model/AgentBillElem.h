@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 业务信息定义
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AgentBillElem();
-                    ~AgentBillElem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

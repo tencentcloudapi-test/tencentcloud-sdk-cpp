@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * VPC防火墙接入的网络实例类型及数量
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VpcFwJoinInstanceType();
-                    ~VpcFwJoinInstanceType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

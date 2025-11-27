@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeDeviceGroupListRes;
+
                 /**
                 * DescribeDeviceGroupList返回参数结构体
                 */

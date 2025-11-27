@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GateWayAsset;
+                class FilterDataObject;
+
                 /**
                 * DescribeGatewayAssets返回参数结构体
                 */

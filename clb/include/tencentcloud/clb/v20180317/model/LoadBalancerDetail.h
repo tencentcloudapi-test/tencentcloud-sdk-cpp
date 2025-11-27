@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InternetAccessible;
+                class LBChargePrepaid;
+                class ExtraInfo;
+                class TagInfo;
+
                 /**
                 * 负载均衡详细信息
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     LoadBalancerDetail();
-                    ~LoadBalancerDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

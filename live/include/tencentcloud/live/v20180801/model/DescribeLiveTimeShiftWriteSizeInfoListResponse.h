@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimeShiftWriteSizeData;
+
                 /**
                 * DescribeLiveTimeShiftWriteSizeInfoList返回参数结构体
                 */

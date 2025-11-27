@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageOperation;
+
                 /**
                 * 图片处理模板， 最多支持三次操作。例如：裁剪-缩略-裁剪。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageProcessingTemplate();
-                    ~ImageProcessingTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

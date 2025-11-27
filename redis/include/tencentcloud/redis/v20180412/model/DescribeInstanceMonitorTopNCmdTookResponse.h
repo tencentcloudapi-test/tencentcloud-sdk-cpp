@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommandTake;
+
                 /**
                 * DescribeInstanceMonitorTopNCmdTook返回参数结构体
                 */

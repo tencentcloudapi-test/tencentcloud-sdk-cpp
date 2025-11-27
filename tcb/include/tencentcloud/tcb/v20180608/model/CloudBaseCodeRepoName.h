@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 代码仓库 repo的名字
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudBaseCodeRepoName();
-                    ~CloudBaseCodeRepoName() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

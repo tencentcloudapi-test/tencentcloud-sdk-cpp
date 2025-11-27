@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SuperNodePodListItem;
+
                 /**
                 * DescribeSuperNodePodList返回参数结构体
                 */

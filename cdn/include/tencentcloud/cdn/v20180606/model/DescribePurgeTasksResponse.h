@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PurgeTask;
+
                 /**
                 * DescribePurgeTasks返回参数结构体
                 */

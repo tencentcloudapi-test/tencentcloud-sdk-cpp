@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EventBus;
+
                 /**
                 * ListEventBuses返回参数结构体
                 */

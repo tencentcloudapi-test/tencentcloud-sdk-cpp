@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 腾讯云点播相关参数。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TencentVod();
-                    ~TencentVod() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

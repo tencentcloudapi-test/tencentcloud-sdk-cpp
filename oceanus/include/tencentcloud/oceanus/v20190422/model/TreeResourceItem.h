@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RefJobStatusCountItem;
+
                 /**
                 * 树状结构资源对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TreeResourceItem();
-                    ~TreeResourceItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

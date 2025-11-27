@@ -42,6 +42,18 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoginSettings;
+                class VPCSettings;
+                class NewResourceSpec;
+                class COSSettings;
+                class Placement;
+                class PreExecuteFileSettings;
+                class Tag;
+                class CustomMetaInfo;
+                class ExternalService;
+                class MultiZoneSetting;
+                class NodeMark;
+
                 /**
                 * CreateInstance请求参数结构体
                 */

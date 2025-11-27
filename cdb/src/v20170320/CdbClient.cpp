@@ -62,32 +62,25 @@ CdbClient::AddTimeWindowOutcome CdbClient::AddTimeWindow(const AddTimeWindowRequ
 
 void CdbClient::AddTimeWindowAsync(const AddTimeWindowRequest& request, const AddTimeWindowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddTimeWindowRequest&;
-    using Resp = AddTimeWindowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddTimeWindow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddTimeWindow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::AddTimeWindowOutcomeCallable CdbClient::AddTimeWindowCallable(const AddTimeWindowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddTimeWindowOutcome>>();
-    AddTimeWindowAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const AddTimeWindowRequest&,
-        AddTimeWindowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddTimeWindowOutcome()>>(
+        [this, request]()
+        {
+            return this->AddTimeWindow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::AdjustCdbProxyOutcome CdbClient::AdjustCdbProxy(const AdjustCdbProxyRequest &request)
@@ -112,32 +105,25 @@ CdbClient::AdjustCdbProxyOutcome CdbClient::AdjustCdbProxy(const AdjustCdbProxyR
 
 void CdbClient::AdjustCdbProxyAsync(const AdjustCdbProxyRequest& request, const AdjustCdbProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AdjustCdbProxyRequest&;
-    using Resp = AdjustCdbProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AdjustCdbProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AdjustCdbProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::AdjustCdbProxyOutcomeCallable CdbClient::AdjustCdbProxyCallable(const AdjustCdbProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AdjustCdbProxyOutcome>>();
-    AdjustCdbProxyAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const AdjustCdbProxyRequest&,
-        AdjustCdbProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AdjustCdbProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->AdjustCdbProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::AdjustCdbProxyAddressOutcome CdbClient::AdjustCdbProxyAddress(const AdjustCdbProxyAddressRequest &request)
@@ -162,32 +148,25 @@ CdbClient::AdjustCdbProxyAddressOutcome CdbClient::AdjustCdbProxyAddress(const A
 
 void CdbClient::AdjustCdbProxyAddressAsync(const AdjustCdbProxyAddressRequest& request, const AdjustCdbProxyAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AdjustCdbProxyAddressRequest&;
-    using Resp = AdjustCdbProxyAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AdjustCdbProxyAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AdjustCdbProxyAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::AdjustCdbProxyAddressOutcomeCallable CdbClient::AdjustCdbProxyAddressCallable(const AdjustCdbProxyAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AdjustCdbProxyAddressOutcome>>();
-    AdjustCdbProxyAddressAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const AdjustCdbProxyAddressRequest&,
-        AdjustCdbProxyAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AdjustCdbProxyAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->AdjustCdbProxyAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::AnalyzeAuditLogsOutcome CdbClient::AnalyzeAuditLogs(const AnalyzeAuditLogsRequest &request)
@@ -212,32 +191,25 @@ CdbClient::AnalyzeAuditLogsOutcome CdbClient::AnalyzeAuditLogs(const AnalyzeAudi
 
 void CdbClient::AnalyzeAuditLogsAsync(const AnalyzeAuditLogsRequest& request, const AnalyzeAuditLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AnalyzeAuditLogsRequest&;
-    using Resp = AnalyzeAuditLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AnalyzeAuditLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AnalyzeAuditLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::AnalyzeAuditLogsOutcomeCallable CdbClient::AnalyzeAuditLogsCallable(const AnalyzeAuditLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AnalyzeAuditLogsOutcome>>();
-    AnalyzeAuditLogsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const AnalyzeAuditLogsRequest&,
-        AnalyzeAuditLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AnalyzeAuditLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->AnalyzeAuditLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::AssociateSecurityGroupsOutcome CdbClient::AssociateSecurityGroups(const AssociateSecurityGroupsRequest &request)
@@ -262,32 +234,25 @@ CdbClient::AssociateSecurityGroupsOutcome CdbClient::AssociateSecurityGroups(con
 
 void CdbClient::AssociateSecurityGroupsAsync(const AssociateSecurityGroupsRequest& request, const AssociateSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateSecurityGroupsRequest&;
-    using Resp = AssociateSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::AssociateSecurityGroupsOutcomeCallable CdbClient::AssociateSecurityGroupsCallable(const AssociateSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateSecurityGroupsOutcome>>();
-    AssociateSecurityGroupsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const AssociateSecurityGroupsRequest&,
-        AssociateSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::BalanceRoGroupLoadOutcome CdbClient::BalanceRoGroupLoad(const BalanceRoGroupLoadRequest &request)
@@ -312,32 +277,25 @@ CdbClient::BalanceRoGroupLoadOutcome CdbClient::BalanceRoGroupLoad(const Balance
 
 void CdbClient::BalanceRoGroupLoadAsync(const BalanceRoGroupLoadRequest& request, const BalanceRoGroupLoadAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BalanceRoGroupLoadRequest&;
-    using Resp = BalanceRoGroupLoadResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BalanceRoGroupLoad(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BalanceRoGroupLoad", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::BalanceRoGroupLoadOutcomeCallable CdbClient::BalanceRoGroupLoadCallable(const BalanceRoGroupLoadRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BalanceRoGroupLoadOutcome>>();
-    BalanceRoGroupLoadAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const BalanceRoGroupLoadRequest&,
-        BalanceRoGroupLoadOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BalanceRoGroupLoadOutcome()>>(
+        [this, request]()
+        {
+            return this->BalanceRoGroupLoad(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CheckMigrateClusterOutcome CdbClient::CheckMigrateCluster(const CheckMigrateClusterRequest &request)
@@ -362,32 +320,25 @@ CdbClient::CheckMigrateClusterOutcome CdbClient::CheckMigrateCluster(const Check
 
 void CdbClient::CheckMigrateClusterAsync(const CheckMigrateClusterRequest& request, const CheckMigrateClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckMigrateClusterRequest&;
-    using Resp = CheckMigrateClusterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckMigrateCluster(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckMigrateCluster", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CheckMigrateClusterOutcomeCallable CdbClient::CheckMigrateClusterCallable(const CheckMigrateClusterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckMigrateClusterOutcome>>();
-    CheckMigrateClusterAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CheckMigrateClusterRequest&,
-        CheckMigrateClusterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckMigrateClusterOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckMigrateCluster(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CloseAuditServiceOutcome CdbClient::CloseAuditService(const CloseAuditServiceRequest &request)
@@ -412,32 +363,25 @@ CdbClient::CloseAuditServiceOutcome CdbClient::CloseAuditService(const CloseAudi
 
 void CdbClient::CloseAuditServiceAsync(const CloseAuditServiceRequest& request, const CloseAuditServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseAuditServiceRequest&;
-    using Resp = CloseAuditServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseAuditService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseAuditService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CloseAuditServiceOutcomeCallable CdbClient::CloseAuditServiceCallable(const CloseAuditServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseAuditServiceOutcome>>();
-    CloseAuditServiceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CloseAuditServiceRequest&,
-        CloseAuditServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseAuditServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseAuditService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CloseCDBProxyOutcome CdbClient::CloseCDBProxy(const CloseCDBProxyRequest &request)
@@ -462,32 +406,25 @@ CdbClient::CloseCDBProxyOutcome CdbClient::CloseCDBProxy(const CloseCDBProxyRequ
 
 void CdbClient::CloseCDBProxyAsync(const CloseCDBProxyRequest& request, const CloseCDBProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseCDBProxyRequest&;
-    using Resp = CloseCDBProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseCDBProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseCDBProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CloseCDBProxyOutcomeCallable CdbClient::CloseCDBProxyCallable(const CloseCDBProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseCDBProxyOutcome>>();
-    CloseCDBProxyAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CloseCDBProxyRequest&,
-        CloseCDBProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseCDBProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseCDBProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CloseCdbProxyAddressOutcome CdbClient::CloseCdbProxyAddress(const CloseCdbProxyAddressRequest &request)
@@ -512,32 +449,25 @@ CdbClient::CloseCdbProxyAddressOutcome CdbClient::CloseCdbProxyAddress(const Clo
 
 void CdbClient::CloseCdbProxyAddressAsync(const CloseCdbProxyAddressRequest& request, const CloseCdbProxyAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseCdbProxyAddressRequest&;
-    using Resp = CloseCdbProxyAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseCdbProxyAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseCdbProxyAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CloseCdbProxyAddressOutcomeCallable CdbClient::CloseCdbProxyAddressCallable(const CloseCdbProxyAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseCdbProxyAddressOutcome>>();
-    CloseCdbProxyAddressAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CloseCdbProxyAddressRequest&,
-        CloseCdbProxyAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseCdbProxyAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseCdbProxyAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CloseSSLOutcome CdbClient::CloseSSL(const CloseSSLRequest &request)
@@ -562,32 +492,25 @@ CdbClient::CloseSSLOutcome CdbClient::CloseSSL(const CloseSSLRequest &request)
 
 void CdbClient::CloseSSLAsync(const CloseSSLRequest& request, const CloseSSLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseSSLRequest&;
-    using Resp = CloseSSLResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseSSL(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseSSL", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CloseSSLOutcomeCallable CdbClient::CloseSSLCallable(const CloseSSLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseSSLOutcome>>();
-    CloseSSLAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CloseSSLRequest&,
-        CloseSSLOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseSSLOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseSSL(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CloseWanServiceOutcome CdbClient::CloseWanService(const CloseWanServiceRequest &request)
@@ -612,32 +535,25 @@ CdbClient::CloseWanServiceOutcome CdbClient::CloseWanService(const CloseWanServi
 
 void CdbClient::CloseWanServiceAsync(const CloseWanServiceRequest& request, const CloseWanServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseWanServiceRequest&;
-    using Resp = CloseWanServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseWanService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseWanService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CloseWanServiceOutcomeCallable CdbClient::CloseWanServiceCallable(const CloseWanServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseWanServiceOutcome>>();
-    CloseWanServiceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CloseWanServiceRequest&,
-        CloseWanServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseWanServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseWanService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateAccountsOutcome CdbClient::CreateAccounts(const CreateAccountsRequest &request)
@@ -662,32 +578,25 @@ CdbClient::CreateAccountsOutcome CdbClient::CreateAccounts(const CreateAccountsR
 
 void CdbClient::CreateAccountsAsync(const CreateAccountsRequest& request, const CreateAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAccountsRequest&;
-    using Resp = CreateAccountsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAccounts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAccounts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateAccountsOutcomeCallable CdbClient::CreateAccountsCallable(const CreateAccountsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAccountsOutcome>>();
-    CreateAccountsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateAccountsRequest&,
-        CreateAccountsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAccountsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAccounts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateAuditLogFileOutcome CdbClient::CreateAuditLogFile(const CreateAuditLogFileRequest &request)
@@ -712,32 +621,25 @@ CdbClient::CreateAuditLogFileOutcome CdbClient::CreateAuditLogFile(const CreateA
 
 void CdbClient::CreateAuditLogFileAsync(const CreateAuditLogFileRequest& request, const CreateAuditLogFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAuditLogFileRequest&;
-    using Resp = CreateAuditLogFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAuditLogFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAuditLogFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateAuditLogFileOutcomeCallable CdbClient::CreateAuditLogFileCallable(const CreateAuditLogFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAuditLogFileOutcome>>();
-    CreateAuditLogFileAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateAuditLogFileRequest&,
-        CreateAuditLogFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAuditLogFileOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAuditLogFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateAuditPolicyOutcome CdbClient::CreateAuditPolicy(const CreateAuditPolicyRequest &request)
@@ -762,32 +664,25 @@ CdbClient::CreateAuditPolicyOutcome CdbClient::CreateAuditPolicy(const CreateAud
 
 void CdbClient::CreateAuditPolicyAsync(const CreateAuditPolicyRequest& request, const CreateAuditPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAuditPolicyRequest&;
-    using Resp = CreateAuditPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAuditPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAuditPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateAuditPolicyOutcomeCallable CdbClient::CreateAuditPolicyCallable(const CreateAuditPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAuditPolicyOutcome>>();
-    CreateAuditPolicyAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateAuditPolicyRequest&,
-        CreateAuditPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAuditPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAuditPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateAuditRuleOutcome CdbClient::CreateAuditRule(const CreateAuditRuleRequest &request)
@@ -812,32 +707,25 @@ CdbClient::CreateAuditRuleOutcome CdbClient::CreateAuditRule(const CreateAuditRu
 
 void CdbClient::CreateAuditRuleAsync(const CreateAuditRuleRequest& request, const CreateAuditRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAuditRuleRequest&;
-    using Resp = CreateAuditRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAuditRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAuditRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateAuditRuleOutcomeCallable CdbClient::CreateAuditRuleCallable(const CreateAuditRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAuditRuleOutcome>>();
-    CreateAuditRuleAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateAuditRuleRequest&,
-        CreateAuditRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAuditRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAuditRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateAuditRuleTemplateOutcome CdbClient::CreateAuditRuleTemplate(const CreateAuditRuleTemplateRequest &request)
@@ -862,32 +750,25 @@ CdbClient::CreateAuditRuleTemplateOutcome CdbClient::CreateAuditRuleTemplate(con
 
 void CdbClient::CreateAuditRuleTemplateAsync(const CreateAuditRuleTemplateRequest& request, const CreateAuditRuleTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAuditRuleTemplateRequest&;
-    using Resp = CreateAuditRuleTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAuditRuleTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAuditRuleTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateAuditRuleTemplateOutcomeCallable CdbClient::CreateAuditRuleTemplateCallable(const CreateAuditRuleTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAuditRuleTemplateOutcome>>();
-    CreateAuditRuleTemplateAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateAuditRuleTemplateRequest&,
-        CreateAuditRuleTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAuditRuleTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAuditRuleTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateBackupOutcome CdbClient::CreateBackup(const CreateBackupRequest &request)
@@ -912,32 +793,25 @@ CdbClient::CreateBackupOutcome CdbClient::CreateBackup(const CreateBackupRequest
 
 void CdbClient::CreateBackupAsync(const CreateBackupRequest& request, const CreateBackupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBackupRequest&;
-    using Resp = CreateBackupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBackup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBackup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateBackupOutcomeCallable CdbClient::CreateBackupCallable(const CreateBackupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBackupOutcome>>();
-    CreateBackupAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateBackupRequest&,
-        CreateBackupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBackupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBackup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateCdbProxyOutcome CdbClient::CreateCdbProxy(const CreateCdbProxyRequest &request)
@@ -962,32 +836,25 @@ CdbClient::CreateCdbProxyOutcome CdbClient::CreateCdbProxy(const CreateCdbProxyR
 
 void CdbClient::CreateCdbProxyAsync(const CreateCdbProxyRequest& request, const CreateCdbProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCdbProxyRequest&;
-    using Resp = CreateCdbProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCdbProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCdbProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateCdbProxyOutcomeCallable CdbClient::CreateCdbProxyCallable(const CreateCdbProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCdbProxyOutcome>>();
-    CreateCdbProxyAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateCdbProxyRequest&,
-        CreateCdbProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCdbProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCdbProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateCdbProxyAddressOutcome CdbClient::CreateCdbProxyAddress(const CreateCdbProxyAddressRequest &request)
@@ -1012,32 +879,25 @@ CdbClient::CreateCdbProxyAddressOutcome CdbClient::CreateCdbProxyAddress(const C
 
 void CdbClient::CreateCdbProxyAddressAsync(const CreateCdbProxyAddressRequest& request, const CreateCdbProxyAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCdbProxyAddressRequest&;
-    using Resp = CreateCdbProxyAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCdbProxyAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCdbProxyAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateCdbProxyAddressOutcomeCallable CdbClient::CreateCdbProxyAddressCallable(const CreateCdbProxyAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCdbProxyAddressOutcome>>();
-    CreateCdbProxyAddressAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateCdbProxyAddressRequest&,
-        CreateCdbProxyAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCdbProxyAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCdbProxyAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateCloneInstanceOutcome CdbClient::CreateCloneInstance(const CreateCloneInstanceRequest &request)
@@ -1062,32 +922,25 @@ CdbClient::CreateCloneInstanceOutcome CdbClient::CreateCloneInstance(const Creat
 
 void CdbClient::CreateCloneInstanceAsync(const CreateCloneInstanceRequest& request, const CreateCloneInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloneInstanceRequest&;
-    using Resp = CreateCloneInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloneInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloneInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateCloneInstanceOutcomeCallable CdbClient::CreateCloneInstanceCallable(const CreateCloneInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloneInstanceOutcome>>();
-    CreateCloneInstanceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateCloneInstanceRequest&,
-        CreateCloneInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloneInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloneInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateDBImportJobOutcome CdbClient::CreateDBImportJob(const CreateDBImportJobRequest &request)
@@ -1112,32 +965,25 @@ CdbClient::CreateDBImportJobOutcome CdbClient::CreateDBImportJob(const CreateDBI
 
 void CdbClient::CreateDBImportJobAsync(const CreateDBImportJobRequest& request, const CreateDBImportJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDBImportJobRequest&;
-    using Resp = CreateDBImportJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDBImportJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDBImportJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateDBImportJobOutcomeCallable CdbClient::CreateDBImportJobCallable(const CreateDBImportJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDBImportJobOutcome>>();
-    CreateDBImportJobAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateDBImportJobRequest&,
-        CreateDBImportJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDBImportJobOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDBImportJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateDBInstanceOutcome CdbClient::CreateDBInstance(const CreateDBInstanceRequest &request)
@@ -1162,32 +1008,25 @@ CdbClient::CreateDBInstanceOutcome CdbClient::CreateDBInstance(const CreateDBIns
 
 void CdbClient::CreateDBInstanceAsync(const CreateDBInstanceRequest& request, const CreateDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDBInstanceRequest&;
-    using Resp = CreateDBInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDBInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDBInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateDBInstanceOutcomeCallable CdbClient::CreateDBInstanceCallable(const CreateDBInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDBInstanceOutcome>>();
-    CreateDBInstanceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateDBInstanceRequest&,
-        CreateDBInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDBInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDBInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateDBInstanceHourOutcome CdbClient::CreateDBInstanceHour(const CreateDBInstanceHourRequest &request)
@@ -1212,32 +1051,25 @@ CdbClient::CreateDBInstanceHourOutcome CdbClient::CreateDBInstanceHour(const Cre
 
 void CdbClient::CreateDBInstanceHourAsync(const CreateDBInstanceHourRequest& request, const CreateDBInstanceHourAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDBInstanceHourRequest&;
-    using Resp = CreateDBInstanceHourResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDBInstanceHour(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDBInstanceHour", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateDBInstanceHourOutcomeCallable CdbClient::CreateDBInstanceHourCallable(const CreateDBInstanceHourRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDBInstanceHourOutcome>>();
-    CreateDBInstanceHourAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateDBInstanceHourRequest&,
-        CreateDBInstanceHourOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDBInstanceHourOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDBInstanceHour(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateDatabaseOutcome CdbClient::CreateDatabase(const CreateDatabaseRequest &request)
@@ -1262,32 +1094,25 @@ CdbClient::CreateDatabaseOutcome CdbClient::CreateDatabase(const CreateDatabaseR
 
 void CdbClient::CreateDatabaseAsync(const CreateDatabaseRequest& request, const CreateDatabaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDatabaseRequest&;
-    using Resp = CreateDatabaseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDatabase(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDatabase", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateDatabaseOutcomeCallable CdbClient::CreateDatabaseCallable(const CreateDatabaseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDatabaseOutcome>>();
-    CreateDatabaseAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateDatabaseRequest&,
-        CreateDatabaseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDatabaseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDatabase(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateDeployGroupOutcome CdbClient::CreateDeployGroup(const CreateDeployGroupRequest &request)
@@ -1312,32 +1137,25 @@ CdbClient::CreateDeployGroupOutcome CdbClient::CreateDeployGroup(const CreateDep
 
 void CdbClient::CreateDeployGroupAsync(const CreateDeployGroupRequest& request, const CreateDeployGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDeployGroupRequest&;
-    using Resp = CreateDeployGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDeployGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDeployGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateDeployGroupOutcomeCallable CdbClient::CreateDeployGroupCallable(const CreateDeployGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDeployGroupOutcome>>();
-    CreateDeployGroupAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateDeployGroupRequest&,
-        CreateDeployGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDeployGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDeployGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateParamTemplateOutcome CdbClient::CreateParamTemplate(const CreateParamTemplateRequest &request)
@@ -1362,32 +1180,25 @@ CdbClient::CreateParamTemplateOutcome CdbClient::CreateParamTemplate(const Creat
 
 void CdbClient::CreateParamTemplateAsync(const CreateParamTemplateRequest& request, const CreateParamTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateParamTemplateRequest&;
-    using Resp = CreateParamTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateParamTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateParamTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateParamTemplateOutcomeCallable CdbClient::CreateParamTemplateCallable(const CreateParamTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateParamTemplateOutcome>>();
-    CreateParamTemplateAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateParamTemplateRequest&,
-        CreateParamTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateParamTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateParamTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateRoInstanceIpOutcome CdbClient::CreateRoInstanceIp(const CreateRoInstanceIpRequest &request)
@@ -1412,32 +1223,25 @@ CdbClient::CreateRoInstanceIpOutcome CdbClient::CreateRoInstanceIp(const CreateR
 
 void CdbClient::CreateRoInstanceIpAsync(const CreateRoInstanceIpRequest& request, const CreateRoInstanceIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoInstanceIpRequest&;
-    using Resp = CreateRoInstanceIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoInstanceIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoInstanceIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateRoInstanceIpOutcomeCallable CdbClient::CreateRoInstanceIpCallable(const CreateRoInstanceIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoInstanceIpOutcome>>();
-    CreateRoInstanceIpAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateRoInstanceIpRequest&,
-        CreateRoInstanceIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoInstanceIpOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoInstanceIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::CreateRotationPasswordOutcome CdbClient::CreateRotationPassword(const CreateRotationPasswordRequest &request)
@@ -1462,32 +1266,25 @@ CdbClient::CreateRotationPasswordOutcome CdbClient::CreateRotationPassword(const
 
 void CdbClient::CreateRotationPasswordAsync(const CreateRotationPasswordRequest& request, const CreateRotationPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRotationPasswordRequest&;
-    using Resp = CreateRotationPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRotationPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRotationPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::CreateRotationPasswordOutcomeCallable CdbClient::CreateRotationPasswordCallable(const CreateRotationPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRotationPasswordOutcome>>();
-    CreateRotationPasswordAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const CreateRotationPasswordRequest&,
-        CreateRotationPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRotationPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRotationPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteAccountsOutcome CdbClient::DeleteAccounts(const DeleteAccountsRequest &request)
@@ -1512,32 +1309,25 @@ CdbClient::DeleteAccountsOutcome CdbClient::DeleteAccounts(const DeleteAccountsR
 
 void CdbClient::DeleteAccountsAsync(const DeleteAccountsRequest& request, const DeleteAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAccountsRequest&;
-    using Resp = DeleteAccountsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAccounts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAccounts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteAccountsOutcomeCallable CdbClient::DeleteAccountsCallable(const DeleteAccountsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAccountsOutcome>>();
-    DeleteAccountsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteAccountsRequest&,
-        DeleteAccountsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAccountsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAccounts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteAuditLogFileOutcome CdbClient::DeleteAuditLogFile(const DeleteAuditLogFileRequest &request)
@@ -1562,32 +1352,25 @@ CdbClient::DeleteAuditLogFileOutcome CdbClient::DeleteAuditLogFile(const DeleteA
 
 void CdbClient::DeleteAuditLogFileAsync(const DeleteAuditLogFileRequest& request, const DeleteAuditLogFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAuditLogFileRequest&;
-    using Resp = DeleteAuditLogFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAuditLogFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAuditLogFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteAuditLogFileOutcomeCallable CdbClient::DeleteAuditLogFileCallable(const DeleteAuditLogFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAuditLogFileOutcome>>();
-    DeleteAuditLogFileAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteAuditLogFileRequest&,
-        DeleteAuditLogFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAuditLogFileOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAuditLogFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteAuditPolicyOutcome CdbClient::DeleteAuditPolicy(const DeleteAuditPolicyRequest &request)
@@ -1612,32 +1395,25 @@ CdbClient::DeleteAuditPolicyOutcome CdbClient::DeleteAuditPolicy(const DeleteAud
 
 void CdbClient::DeleteAuditPolicyAsync(const DeleteAuditPolicyRequest& request, const DeleteAuditPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAuditPolicyRequest&;
-    using Resp = DeleteAuditPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAuditPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAuditPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteAuditPolicyOutcomeCallable CdbClient::DeleteAuditPolicyCallable(const DeleteAuditPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAuditPolicyOutcome>>();
-    DeleteAuditPolicyAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteAuditPolicyRequest&,
-        DeleteAuditPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAuditPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAuditPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteAuditRuleOutcome CdbClient::DeleteAuditRule(const DeleteAuditRuleRequest &request)
@@ -1662,32 +1438,25 @@ CdbClient::DeleteAuditRuleOutcome CdbClient::DeleteAuditRule(const DeleteAuditRu
 
 void CdbClient::DeleteAuditRuleAsync(const DeleteAuditRuleRequest& request, const DeleteAuditRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAuditRuleRequest&;
-    using Resp = DeleteAuditRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAuditRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAuditRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteAuditRuleOutcomeCallable CdbClient::DeleteAuditRuleCallable(const DeleteAuditRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAuditRuleOutcome>>();
-    DeleteAuditRuleAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteAuditRuleRequest&,
-        DeleteAuditRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAuditRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAuditRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteAuditRuleTemplatesOutcome CdbClient::DeleteAuditRuleTemplates(const DeleteAuditRuleTemplatesRequest &request)
@@ -1712,32 +1481,25 @@ CdbClient::DeleteAuditRuleTemplatesOutcome CdbClient::DeleteAuditRuleTemplates(c
 
 void CdbClient::DeleteAuditRuleTemplatesAsync(const DeleteAuditRuleTemplatesRequest& request, const DeleteAuditRuleTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAuditRuleTemplatesRequest&;
-    using Resp = DeleteAuditRuleTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAuditRuleTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAuditRuleTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteAuditRuleTemplatesOutcomeCallable CdbClient::DeleteAuditRuleTemplatesCallable(const DeleteAuditRuleTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAuditRuleTemplatesOutcome>>();
-    DeleteAuditRuleTemplatesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteAuditRuleTemplatesRequest&,
-        DeleteAuditRuleTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAuditRuleTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAuditRuleTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteBackupOutcome CdbClient::DeleteBackup(const DeleteBackupRequest &request)
@@ -1762,32 +1524,25 @@ CdbClient::DeleteBackupOutcome CdbClient::DeleteBackup(const DeleteBackupRequest
 
 void CdbClient::DeleteBackupAsync(const DeleteBackupRequest& request, const DeleteBackupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteBackupRequest&;
-    using Resp = DeleteBackupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteBackup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteBackup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteBackupOutcomeCallable CdbClient::DeleteBackupCallable(const DeleteBackupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteBackupOutcome>>();
-    DeleteBackupAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteBackupRequest&,
-        DeleteBackupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteBackupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteBackup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteDatabaseOutcome CdbClient::DeleteDatabase(const DeleteDatabaseRequest &request)
@@ -1812,32 +1567,25 @@ CdbClient::DeleteDatabaseOutcome CdbClient::DeleteDatabase(const DeleteDatabaseR
 
 void CdbClient::DeleteDatabaseAsync(const DeleteDatabaseRequest& request, const DeleteDatabaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDatabaseRequest&;
-    using Resp = DeleteDatabaseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDatabase(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDatabase", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteDatabaseOutcomeCallable CdbClient::DeleteDatabaseCallable(const DeleteDatabaseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDatabaseOutcome>>();
-    DeleteDatabaseAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteDatabaseRequest&,
-        DeleteDatabaseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDatabaseOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDatabase(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteDeployGroupsOutcome CdbClient::DeleteDeployGroups(const DeleteDeployGroupsRequest &request)
@@ -1862,32 +1610,25 @@ CdbClient::DeleteDeployGroupsOutcome CdbClient::DeleteDeployGroups(const DeleteD
 
 void CdbClient::DeleteDeployGroupsAsync(const DeleteDeployGroupsRequest& request, const DeleteDeployGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDeployGroupsRequest&;
-    using Resp = DeleteDeployGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDeployGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDeployGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteDeployGroupsOutcomeCallable CdbClient::DeleteDeployGroupsCallable(const DeleteDeployGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDeployGroupsOutcome>>();
-    DeleteDeployGroupsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteDeployGroupsRequest&,
-        DeleteDeployGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDeployGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDeployGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteParamTemplateOutcome CdbClient::DeleteParamTemplate(const DeleteParamTemplateRequest &request)
@@ -1912,32 +1653,25 @@ CdbClient::DeleteParamTemplateOutcome CdbClient::DeleteParamTemplate(const Delet
 
 void CdbClient::DeleteParamTemplateAsync(const DeleteParamTemplateRequest& request, const DeleteParamTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteParamTemplateRequest&;
-    using Resp = DeleteParamTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteParamTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteParamTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteParamTemplateOutcomeCallable CdbClient::DeleteParamTemplateCallable(const DeleteParamTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteParamTemplateOutcome>>();
-    DeleteParamTemplateAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteParamTemplateRequest&,
-        DeleteParamTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteParamTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteParamTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteRotationPasswordOutcome CdbClient::DeleteRotationPassword(const DeleteRotationPasswordRequest &request)
@@ -1962,32 +1696,25 @@ CdbClient::DeleteRotationPasswordOutcome CdbClient::DeleteRotationPassword(const
 
 void CdbClient::DeleteRotationPasswordAsync(const DeleteRotationPasswordRequest& request, const DeleteRotationPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRotationPasswordRequest&;
-    using Resp = DeleteRotationPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRotationPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRotationPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteRotationPasswordOutcomeCallable CdbClient::DeleteRotationPasswordCallable(const DeleteRotationPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRotationPasswordOutcome>>();
-    DeleteRotationPasswordAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteRotationPasswordRequest&,
-        DeleteRotationPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRotationPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRotationPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DeleteTimeWindowOutcome CdbClient::DeleteTimeWindow(const DeleteTimeWindowRequest &request)
@@ -2012,32 +1739,25 @@ CdbClient::DeleteTimeWindowOutcome CdbClient::DeleteTimeWindow(const DeleteTimeW
 
 void CdbClient::DeleteTimeWindowAsync(const DeleteTimeWindowRequest& request, const DeleteTimeWindowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTimeWindowRequest&;
-    using Resp = DeleteTimeWindowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTimeWindow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTimeWindow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DeleteTimeWindowOutcomeCallable CdbClient::DeleteTimeWindowCallable(const DeleteTimeWindowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTimeWindowOutcome>>();
-    DeleteTimeWindowAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DeleteTimeWindowRequest&,
-        DeleteTimeWindowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTimeWindowOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTimeWindow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAccountPrivilegesOutcome CdbClient::DescribeAccountPrivileges(const DescribeAccountPrivilegesRequest &request)
@@ -2062,32 +1782,25 @@ CdbClient::DescribeAccountPrivilegesOutcome CdbClient::DescribeAccountPrivileges
 
 void CdbClient::DescribeAccountPrivilegesAsync(const DescribeAccountPrivilegesRequest& request, const DescribeAccountPrivilegesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccountPrivilegesRequest&;
-    using Resp = DescribeAccountPrivilegesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccountPrivileges(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccountPrivileges", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAccountPrivilegesOutcomeCallable CdbClient::DescribeAccountPrivilegesCallable(const DescribeAccountPrivilegesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccountPrivilegesOutcome>>();
-    DescribeAccountPrivilegesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAccountPrivilegesRequest&,
-        DescribeAccountPrivilegesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccountPrivilegesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccountPrivileges(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAccountsOutcome CdbClient::DescribeAccounts(const DescribeAccountsRequest &request)
@@ -2112,32 +1825,25 @@ CdbClient::DescribeAccountsOutcome CdbClient::DescribeAccounts(const DescribeAcc
 
 void CdbClient::DescribeAccountsAsync(const DescribeAccountsRequest& request, const DescribeAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccountsRequest&;
-    using Resp = DescribeAccountsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccounts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccounts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAccountsOutcomeCallable CdbClient::DescribeAccountsCallable(const DescribeAccountsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccountsOutcome>>();
-    DescribeAccountsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAccountsRequest&,
-        DescribeAccountsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccountsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccounts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAsyncRequestInfoOutcome CdbClient::DescribeAsyncRequestInfo(const DescribeAsyncRequestInfoRequest &request)
@@ -2162,32 +1868,25 @@ CdbClient::DescribeAsyncRequestInfoOutcome CdbClient::DescribeAsyncRequestInfo(c
 
 void CdbClient::DescribeAsyncRequestInfoAsync(const DescribeAsyncRequestInfoRequest& request, const DescribeAsyncRequestInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAsyncRequestInfoRequest&;
-    using Resp = DescribeAsyncRequestInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAsyncRequestInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAsyncRequestInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAsyncRequestInfoOutcomeCallable CdbClient::DescribeAsyncRequestInfoCallable(const DescribeAsyncRequestInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAsyncRequestInfoOutcome>>();
-    DescribeAsyncRequestInfoAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAsyncRequestInfoRequest&,
-        DescribeAsyncRequestInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAsyncRequestInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAsyncRequestInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAuditConfigOutcome CdbClient::DescribeAuditConfig(const DescribeAuditConfigRequest &request)
@@ -2212,32 +1911,25 @@ CdbClient::DescribeAuditConfigOutcome CdbClient::DescribeAuditConfig(const Descr
 
 void CdbClient::DescribeAuditConfigAsync(const DescribeAuditConfigRequest& request, const DescribeAuditConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditConfigRequest&;
-    using Resp = DescribeAuditConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAuditConfigOutcomeCallable CdbClient::DescribeAuditConfigCallable(const DescribeAuditConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditConfigOutcome>>();
-    DescribeAuditConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAuditConfigRequest&,
-        DescribeAuditConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAuditInstanceListOutcome CdbClient::DescribeAuditInstanceList(const DescribeAuditInstanceListRequest &request)
@@ -2262,32 +1954,25 @@ CdbClient::DescribeAuditInstanceListOutcome CdbClient::DescribeAuditInstanceList
 
 void CdbClient::DescribeAuditInstanceListAsync(const DescribeAuditInstanceListRequest& request, const DescribeAuditInstanceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditInstanceListRequest&;
-    using Resp = DescribeAuditInstanceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditInstanceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditInstanceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAuditInstanceListOutcomeCallable CdbClient::DescribeAuditInstanceListCallable(const DescribeAuditInstanceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditInstanceListOutcome>>();
-    DescribeAuditInstanceListAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAuditInstanceListRequest&,
-        DescribeAuditInstanceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditInstanceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditInstanceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAuditLogFilesOutcome CdbClient::DescribeAuditLogFiles(const DescribeAuditLogFilesRequest &request)
@@ -2312,32 +1997,25 @@ CdbClient::DescribeAuditLogFilesOutcome CdbClient::DescribeAuditLogFiles(const D
 
 void CdbClient::DescribeAuditLogFilesAsync(const DescribeAuditLogFilesRequest& request, const DescribeAuditLogFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditLogFilesRequest&;
-    using Resp = DescribeAuditLogFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditLogFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditLogFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAuditLogFilesOutcomeCallable CdbClient::DescribeAuditLogFilesCallable(const DescribeAuditLogFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditLogFilesOutcome>>();
-    DescribeAuditLogFilesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAuditLogFilesRequest&,
-        DescribeAuditLogFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditLogFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditLogFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAuditLogsOutcome CdbClient::DescribeAuditLogs(const DescribeAuditLogsRequest &request)
@@ -2362,32 +2040,25 @@ CdbClient::DescribeAuditLogsOutcome CdbClient::DescribeAuditLogs(const DescribeA
 
 void CdbClient::DescribeAuditLogsAsync(const DescribeAuditLogsRequest& request, const DescribeAuditLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditLogsRequest&;
-    using Resp = DescribeAuditLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAuditLogsOutcomeCallable CdbClient::DescribeAuditLogsCallable(const DescribeAuditLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditLogsOutcome>>();
-    DescribeAuditLogsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAuditLogsRequest&,
-        DescribeAuditLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAuditPoliciesOutcome CdbClient::DescribeAuditPolicies(const DescribeAuditPoliciesRequest &request)
@@ -2412,32 +2083,25 @@ CdbClient::DescribeAuditPoliciesOutcome CdbClient::DescribeAuditPolicies(const D
 
 void CdbClient::DescribeAuditPoliciesAsync(const DescribeAuditPoliciesRequest& request, const DescribeAuditPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditPoliciesRequest&;
-    using Resp = DescribeAuditPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAuditPoliciesOutcomeCallable CdbClient::DescribeAuditPoliciesCallable(const DescribeAuditPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditPoliciesOutcome>>();
-    DescribeAuditPoliciesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAuditPoliciesRequest&,
-        DescribeAuditPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAuditRuleTemplateModifyHistoryOutcome CdbClient::DescribeAuditRuleTemplateModifyHistory(const DescribeAuditRuleTemplateModifyHistoryRequest &request)
@@ -2462,32 +2126,25 @@ CdbClient::DescribeAuditRuleTemplateModifyHistoryOutcome CdbClient::DescribeAudi
 
 void CdbClient::DescribeAuditRuleTemplateModifyHistoryAsync(const DescribeAuditRuleTemplateModifyHistoryRequest& request, const DescribeAuditRuleTemplateModifyHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditRuleTemplateModifyHistoryRequest&;
-    using Resp = DescribeAuditRuleTemplateModifyHistoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditRuleTemplateModifyHistory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditRuleTemplateModifyHistory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAuditRuleTemplateModifyHistoryOutcomeCallable CdbClient::DescribeAuditRuleTemplateModifyHistoryCallable(const DescribeAuditRuleTemplateModifyHistoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditRuleTemplateModifyHistoryOutcome>>();
-    DescribeAuditRuleTemplateModifyHistoryAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAuditRuleTemplateModifyHistoryRequest&,
-        DescribeAuditRuleTemplateModifyHistoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditRuleTemplateModifyHistoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditRuleTemplateModifyHistory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAuditRuleTemplatesOutcome CdbClient::DescribeAuditRuleTemplates(const DescribeAuditRuleTemplatesRequest &request)
@@ -2512,32 +2169,25 @@ CdbClient::DescribeAuditRuleTemplatesOutcome CdbClient::DescribeAuditRuleTemplat
 
 void CdbClient::DescribeAuditRuleTemplatesAsync(const DescribeAuditRuleTemplatesRequest& request, const DescribeAuditRuleTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditRuleTemplatesRequest&;
-    using Resp = DescribeAuditRuleTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditRuleTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditRuleTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAuditRuleTemplatesOutcomeCallable CdbClient::DescribeAuditRuleTemplatesCallable(const DescribeAuditRuleTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditRuleTemplatesOutcome>>();
-    DescribeAuditRuleTemplatesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAuditRuleTemplatesRequest&,
-        DescribeAuditRuleTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditRuleTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditRuleTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeAuditRulesOutcome CdbClient::DescribeAuditRules(const DescribeAuditRulesRequest &request)
@@ -2562,32 +2212,25 @@ CdbClient::DescribeAuditRulesOutcome CdbClient::DescribeAuditRules(const Describ
 
 void CdbClient::DescribeAuditRulesAsync(const DescribeAuditRulesRequest& request, const DescribeAuditRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditRulesRequest&;
-    using Resp = DescribeAuditRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeAuditRulesOutcomeCallable CdbClient::DescribeAuditRulesCallable(const DescribeAuditRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditRulesOutcome>>();
-    DescribeAuditRulesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeAuditRulesRequest&,
-        DescribeAuditRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBackupConfigOutcome CdbClient::DescribeBackupConfig(const DescribeBackupConfigRequest &request)
@@ -2612,32 +2255,25 @@ CdbClient::DescribeBackupConfigOutcome CdbClient::DescribeBackupConfig(const Des
 
 void CdbClient::DescribeBackupConfigAsync(const DescribeBackupConfigRequest& request, const DescribeBackupConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupConfigRequest&;
-    using Resp = DescribeBackupConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBackupConfigOutcomeCallable CdbClient::DescribeBackupConfigCallable(const DescribeBackupConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupConfigOutcome>>();
-    DescribeBackupConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBackupConfigRequest&,
-        DescribeBackupConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBackupDecryptionKeyOutcome CdbClient::DescribeBackupDecryptionKey(const DescribeBackupDecryptionKeyRequest &request)
@@ -2662,32 +2298,25 @@ CdbClient::DescribeBackupDecryptionKeyOutcome CdbClient::DescribeBackupDecryptio
 
 void CdbClient::DescribeBackupDecryptionKeyAsync(const DescribeBackupDecryptionKeyRequest& request, const DescribeBackupDecryptionKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupDecryptionKeyRequest&;
-    using Resp = DescribeBackupDecryptionKeyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupDecryptionKey(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupDecryptionKey", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBackupDecryptionKeyOutcomeCallable CdbClient::DescribeBackupDecryptionKeyCallable(const DescribeBackupDecryptionKeyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupDecryptionKeyOutcome>>();
-    DescribeBackupDecryptionKeyAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBackupDecryptionKeyRequest&,
-        DescribeBackupDecryptionKeyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupDecryptionKeyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupDecryptionKey(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBackupDownloadRestrictionOutcome CdbClient::DescribeBackupDownloadRestriction(const DescribeBackupDownloadRestrictionRequest &request)
@@ -2712,32 +2341,25 @@ CdbClient::DescribeBackupDownloadRestrictionOutcome CdbClient::DescribeBackupDow
 
 void CdbClient::DescribeBackupDownloadRestrictionAsync(const DescribeBackupDownloadRestrictionRequest& request, const DescribeBackupDownloadRestrictionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupDownloadRestrictionRequest&;
-    using Resp = DescribeBackupDownloadRestrictionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupDownloadRestriction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupDownloadRestriction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBackupDownloadRestrictionOutcomeCallable CdbClient::DescribeBackupDownloadRestrictionCallable(const DescribeBackupDownloadRestrictionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupDownloadRestrictionOutcome>>();
-    DescribeBackupDownloadRestrictionAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBackupDownloadRestrictionRequest&,
-        DescribeBackupDownloadRestrictionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupDownloadRestrictionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupDownloadRestriction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBackupEncryptionStatusOutcome CdbClient::DescribeBackupEncryptionStatus(const DescribeBackupEncryptionStatusRequest &request)
@@ -2762,32 +2384,25 @@ CdbClient::DescribeBackupEncryptionStatusOutcome CdbClient::DescribeBackupEncryp
 
 void CdbClient::DescribeBackupEncryptionStatusAsync(const DescribeBackupEncryptionStatusRequest& request, const DescribeBackupEncryptionStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupEncryptionStatusRequest&;
-    using Resp = DescribeBackupEncryptionStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupEncryptionStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupEncryptionStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBackupEncryptionStatusOutcomeCallable CdbClient::DescribeBackupEncryptionStatusCallable(const DescribeBackupEncryptionStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupEncryptionStatusOutcome>>();
-    DescribeBackupEncryptionStatusAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBackupEncryptionStatusRequest&,
-        DescribeBackupEncryptionStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupEncryptionStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupEncryptionStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBackupOverviewOutcome CdbClient::DescribeBackupOverview(const DescribeBackupOverviewRequest &request)
@@ -2812,32 +2427,25 @@ CdbClient::DescribeBackupOverviewOutcome CdbClient::DescribeBackupOverview(const
 
 void CdbClient::DescribeBackupOverviewAsync(const DescribeBackupOverviewRequest& request, const DescribeBackupOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupOverviewRequest&;
-    using Resp = DescribeBackupOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBackupOverviewOutcomeCallable CdbClient::DescribeBackupOverviewCallable(const DescribeBackupOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupOverviewOutcome>>();
-    DescribeBackupOverviewAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBackupOverviewRequest&,
-        DescribeBackupOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBackupSummariesOutcome CdbClient::DescribeBackupSummaries(const DescribeBackupSummariesRequest &request)
@@ -2862,32 +2470,25 @@ CdbClient::DescribeBackupSummariesOutcome CdbClient::DescribeBackupSummaries(con
 
 void CdbClient::DescribeBackupSummariesAsync(const DescribeBackupSummariesRequest& request, const DescribeBackupSummariesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupSummariesRequest&;
-    using Resp = DescribeBackupSummariesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupSummaries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupSummaries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBackupSummariesOutcomeCallable CdbClient::DescribeBackupSummariesCallable(const DescribeBackupSummariesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupSummariesOutcome>>();
-    DescribeBackupSummariesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBackupSummariesRequest&,
-        DescribeBackupSummariesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupSummariesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupSummaries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBackupsOutcome CdbClient::DescribeBackups(const DescribeBackupsRequest &request)
@@ -2912,32 +2513,25 @@ CdbClient::DescribeBackupsOutcome CdbClient::DescribeBackups(const DescribeBacku
 
 void CdbClient::DescribeBackupsAsync(const DescribeBackupsRequest& request, const DescribeBackupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupsRequest&;
-    using Resp = DescribeBackupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBackupsOutcomeCallable CdbClient::DescribeBackupsCallable(const DescribeBackupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupsOutcome>>();
-    DescribeBackupsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBackupsRequest&,
-        DescribeBackupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBinlogBackupOverviewOutcome CdbClient::DescribeBinlogBackupOverview(const DescribeBinlogBackupOverviewRequest &request)
@@ -2962,32 +2556,25 @@ CdbClient::DescribeBinlogBackupOverviewOutcome CdbClient::DescribeBinlogBackupOv
 
 void CdbClient::DescribeBinlogBackupOverviewAsync(const DescribeBinlogBackupOverviewRequest& request, const DescribeBinlogBackupOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBinlogBackupOverviewRequest&;
-    using Resp = DescribeBinlogBackupOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBinlogBackupOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBinlogBackupOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBinlogBackupOverviewOutcomeCallable CdbClient::DescribeBinlogBackupOverviewCallable(const DescribeBinlogBackupOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBinlogBackupOverviewOutcome>>();
-    DescribeBinlogBackupOverviewAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBinlogBackupOverviewRequest&,
-        DescribeBinlogBackupOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBinlogBackupOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBinlogBackupOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeBinlogsOutcome CdbClient::DescribeBinlogs(const DescribeBinlogsRequest &request)
@@ -3012,32 +2599,25 @@ CdbClient::DescribeBinlogsOutcome CdbClient::DescribeBinlogs(const DescribeBinlo
 
 void CdbClient::DescribeBinlogsAsync(const DescribeBinlogsRequest& request, const DescribeBinlogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBinlogsRequest&;
-    using Resp = DescribeBinlogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBinlogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBinlogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeBinlogsOutcomeCallable CdbClient::DescribeBinlogsCallable(const DescribeBinlogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBinlogsOutcome>>();
-    DescribeBinlogsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeBinlogsRequest&,
-        DescribeBinlogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBinlogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBinlogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeCPUExpandStrategyInfoOutcome CdbClient::DescribeCPUExpandStrategyInfo(const DescribeCPUExpandStrategyInfoRequest &request)
@@ -3062,32 +2642,25 @@ CdbClient::DescribeCPUExpandStrategyInfoOutcome CdbClient::DescribeCPUExpandStra
 
 void CdbClient::DescribeCPUExpandStrategyInfoAsync(const DescribeCPUExpandStrategyInfoRequest& request, const DescribeCPUExpandStrategyInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCPUExpandStrategyInfoRequest&;
-    using Resp = DescribeCPUExpandStrategyInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCPUExpandStrategyInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCPUExpandStrategyInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeCPUExpandStrategyInfoOutcomeCallable CdbClient::DescribeCPUExpandStrategyInfoCallable(const DescribeCPUExpandStrategyInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCPUExpandStrategyInfoOutcome>>();
-    DescribeCPUExpandStrategyInfoAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeCPUExpandStrategyInfoRequest&,
-        DescribeCPUExpandStrategyInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCPUExpandStrategyInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCPUExpandStrategyInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeCdbProxyInfoOutcome CdbClient::DescribeCdbProxyInfo(const DescribeCdbProxyInfoRequest &request)
@@ -3112,32 +2685,25 @@ CdbClient::DescribeCdbProxyInfoOutcome CdbClient::DescribeCdbProxyInfo(const Des
 
 void CdbClient::DescribeCdbProxyInfoAsync(const DescribeCdbProxyInfoRequest& request, const DescribeCdbProxyInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCdbProxyInfoRequest&;
-    using Resp = DescribeCdbProxyInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCdbProxyInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCdbProxyInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeCdbProxyInfoOutcomeCallable CdbClient::DescribeCdbProxyInfoCallable(const DescribeCdbProxyInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCdbProxyInfoOutcome>>();
-    DescribeCdbProxyInfoAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeCdbProxyInfoRequest&,
-        DescribeCdbProxyInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCdbProxyInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCdbProxyInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeCdbZoneConfigOutcome CdbClient::DescribeCdbZoneConfig(const DescribeCdbZoneConfigRequest &request)
@@ -3162,32 +2728,25 @@ CdbClient::DescribeCdbZoneConfigOutcome CdbClient::DescribeCdbZoneConfig(const D
 
 void CdbClient::DescribeCdbZoneConfigAsync(const DescribeCdbZoneConfigRequest& request, const DescribeCdbZoneConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCdbZoneConfigRequest&;
-    using Resp = DescribeCdbZoneConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCdbZoneConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCdbZoneConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeCdbZoneConfigOutcomeCallable CdbClient::DescribeCdbZoneConfigCallable(const DescribeCdbZoneConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCdbZoneConfigOutcome>>();
-    DescribeCdbZoneConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeCdbZoneConfigRequest&,
-        DescribeCdbZoneConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCdbZoneConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCdbZoneConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeCloneListOutcome CdbClient::DescribeCloneList(const DescribeCloneListRequest &request)
@@ -3212,32 +2771,25 @@ CdbClient::DescribeCloneListOutcome CdbClient::DescribeCloneList(const DescribeC
 
 void CdbClient::DescribeCloneListAsync(const DescribeCloneListRequest& request, const DescribeCloneListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloneListRequest&;
-    using Resp = DescribeCloneListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloneList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloneList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeCloneListOutcomeCallable CdbClient::DescribeCloneListCallable(const DescribeCloneListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloneListOutcome>>();
-    DescribeCloneListAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeCloneListRequest&,
-        DescribeCloneListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloneListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloneList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeClusterInfoOutcome CdbClient::DescribeClusterInfo(const DescribeClusterInfoRequest &request)
@@ -3262,32 +2814,25 @@ CdbClient::DescribeClusterInfoOutcome CdbClient::DescribeClusterInfo(const Descr
 
 void CdbClient::DescribeClusterInfoAsync(const DescribeClusterInfoRequest& request, const DescribeClusterInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeClusterInfoRequest&;
-    using Resp = DescribeClusterInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeClusterInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeClusterInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeClusterInfoOutcomeCallable CdbClient::DescribeClusterInfoCallable(const DescribeClusterInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeClusterInfoOutcome>>();
-    DescribeClusterInfoAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeClusterInfoRequest&,
-        DescribeClusterInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeClusterInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeClusterInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeCpuExpandHistoryOutcome CdbClient::DescribeCpuExpandHistory(const DescribeCpuExpandHistoryRequest &request)
@@ -3312,32 +2857,25 @@ CdbClient::DescribeCpuExpandHistoryOutcome CdbClient::DescribeCpuExpandHistory(c
 
 void CdbClient::DescribeCpuExpandHistoryAsync(const DescribeCpuExpandHistoryRequest& request, const DescribeCpuExpandHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCpuExpandHistoryRequest&;
-    using Resp = DescribeCpuExpandHistoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCpuExpandHistory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCpuExpandHistory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeCpuExpandHistoryOutcomeCallable CdbClient::DescribeCpuExpandHistoryCallable(const DescribeCpuExpandHistoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCpuExpandHistoryOutcome>>();
-    DescribeCpuExpandHistoryAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeCpuExpandHistoryRequest&,
-        DescribeCpuExpandHistoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCpuExpandHistoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCpuExpandHistory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBFeaturesOutcome CdbClient::DescribeDBFeatures(const DescribeDBFeaturesRequest &request)
@@ -3362,32 +2900,25 @@ CdbClient::DescribeDBFeaturesOutcome CdbClient::DescribeDBFeatures(const Describ
 
 void CdbClient::DescribeDBFeaturesAsync(const DescribeDBFeaturesRequest& request, const DescribeDBFeaturesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBFeaturesRequest&;
-    using Resp = DescribeDBFeaturesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBFeatures(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBFeatures", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBFeaturesOutcomeCallable CdbClient::DescribeDBFeaturesCallable(const DescribeDBFeaturesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBFeaturesOutcome>>();
-    DescribeDBFeaturesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBFeaturesRequest&,
-        DescribeDBFeaturesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBFeaturesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBFeatures(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBImportRecordsOutcome CdbClient::DescribeDBImportRecords(const DescribeDBImportRecordsRequest &request)
@@ -3412,32 +2943,25 @@ CdbClient::DescribeDBImportRecordsOutcome CdbClient::DescribeDBImportRecords(con
 
 void CdbClient::DescribeDBImportRecordsAsync(const DescribeDBImportRecordsRequest& request, const DescribeDBImportRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBImportRecordsRequest&;
-    using Resp = DescribeDBImportRecordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBImportRecords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBImportRecords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBImportRecordsOutcomeCallable CdbClient::DescribeDBImportRecordsCallable(const DescribeDBImportRecordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBImportRecordsOutcome>>();
-    DescribeDBImportRecordsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBImportRecordsRequest&,
-        DescribeDBImportRecordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBImportRecordsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBImportRecords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBInstanceCharsetOutcome CdbClient::DescribeDBInstanceCharset(const DescribeDBInstanceCharsetRequest &request)
@@ -3462,32 +2986,25 @@ CdbClient::DescribeDBInstanceCharsetOutcome CdbClient::DescribeDBInstanceCharset
 
 void CdbClient::DescribeDBInstanceCharsetAsync(const DescribeDBInstanceCharsetRequest& request, const DescribeDBInstanceCharsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBInstanceCharsetRequest&;
-    using Resp = DescribeDBInstanceCharsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBInstanceCharset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBInstanceCharset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBInstanceCharsetOutcomeCallable CdbClient::DescribeDBInstanceCharsetCallable(const DescribeDBInstanceCharsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBInstanceCharsetOutcome>>();
-    DescribeDBInstanceCharsetAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBInstanceCharsetRequest&,
-        DescribeDBInstanceCharsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBInstanceCharsetOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBInstanceCharset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBInstanceConfigOutcome CdbClient::DescribeDBInstanceConfig(const DescribeDBInstanceConfigRequest &request)
@@ -3512,32 +3029,25 @@ CdbClient::DescribeDBInstanceConfigOutcome CdbClient::DescribeDBInstanceConfig(c
 
 void CdbClient::DescribeDBInstanceConfigAsync(const DescribeDBInstanceConfigRequest& request, const DescribeDBInstanceConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBInstanceConfigRequest&;
-    using Resp = DescribeDBInstanceConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBInstanceConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBInstanceConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBInstanceConfigOutcomeCallable CdbClient::DescribeDBInstanceConfigCallable(const DescribeDBInstanceConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBInstanceConfigOutcome>>();
-    DescribeDBInstanceConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBInstanceConfigRequest&,
-        DescribeDBInstanceConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBInstanceConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBInstanceConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBInstanceGTIDOutcome CdbClient::DescribeDBInstanceGTID(const DescribeDBInstanceGTIDRequest &request)
@@ -3562,32 +3072,25 @@ CdbClient::DescribeDBInstanceGTIDOutcome CdbClient::DescribeDBInstanceGTID(const
 
 void CdbClient::DescribeDBInstanceGTIDAsync(const DescribeDBInstanceGTIDRequest& request, const DescribeDBInstanceGTIDAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBInstanceGTIDRequest&;
-    using Resp = DescribeDBInstanceGTIDResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBInstanceGTID(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBInstanceGTID", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBInstanceGTIDOutcomeCallable CdbClient::DescribeDBInstanceGTIDCallable(const DescribeDBInstanceGTIDRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBInstanceGTIDOutcome>>();
-    DescribeDBInstanceGTIDAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBInstanceGTIDRequest&,
-        DescribeDBInstanceGTIDOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBInstanceGTIDOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBInstanceGTID(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBInstanceInfoOutcome CdbClient::DescribeDBInstanceInfo(const DescribeDBInstanceInfoRequest &request)
@@ -3612,32 +3115,25 @@ CdbClient::DescribeDBInstanceInfoOutcome CdbClient::DescribeDBInstanceInfo(const
 
 void CdbClient::DescribeDBInstanceInfoAsync(const DescribeDBInstanceInfoRequest& request, const DescribeDBInstanceInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBInstanceInfoRequest&;
-    using Resp = DescribeDBInstanceInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBInstanceInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBInstanceInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBInstanceInfoOutcomeCallable CdbClient::DescribeDBInstanceInfoCallable(const DescribeDBInstanceInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBInstanceInfoOutcome>>();
-    DescribeDBInstanceInfoAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBInstanceInfoRequest&,
-        DescribeDBInstanceInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBInstanceInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBInstanceInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBInstanceLogToCLSOutcome CdbClient::DescribeDBInstanceLogToCLS(const DescribeDBInstanceLogToCLSRequest &request)
@@ -3662,32 +3158,25 @@ CdbClient::DescribeDBInstanceLogToCLSOutcome CdbClient::DescribeDBInstanceLogToC
 
 void CdbClient::DescribeDBInstanceLogToCLSAsync(const DescribeDBInstanceLogToCLSRequest& request, const DescribeDBInstanceLogToCLSAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBInstanceLogToCLSRequest&;
-    using Resp = DescribeDBInstanceLogToCLSResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBInstanceLogToCLS(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBInstanceLogToCLS", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBInstanceLogToCLSOutcomeCallable CdbClient::DescribeDBInstanceLogToCLSCallable(const DescribeDBInstanceLogToCLSRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBInstanceLogToCLSOutcome>>();
-    DescribeDBInstanceLogToCLSAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBInstanceLogToCLSRequest&,
-        DescribeDBInstanceLogToCLSOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBInstanceLogToCLSOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBInstanceLogToCLS(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBInstanceRebootTimeOutcome CdbClient::DescribeDBInstanceRebootTime(const DescribeDBInstanceRebootTimeRequest &request)
@@ -3712,32 +3201,25 @@ CdbClient::DescribeDBInstanceRebootTimeOutcome CdbClient::DescribeDBInstanceRebo
 
 void CdbClient::DescribeDBInstanceRebootTimeAsync(const DescribeDBInstanceRebootTimeRequest& request, const DescribeDBInstanceRebootTimeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBInstanceRebootTimeRequest&;
-    using Resp = DescribeDBInstanceRebootTimeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBInstanceRebootTime(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBInstanceRebootTime", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBInstanceRebootTimeOutcomeCallable CdbClient::DescribeDBInstanceRebootTimeCallable(const DescribeDBInstanceRebootTimeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBInstanceRebootTimeOutcome>>();
-    DescribeDBInstanceRebootTimeAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBInstanceRebootTimeRequest&,
-        DescribeDBInstanceRebootTimeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBInstanceRebootTimeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBInstanceRebootTime(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBInstancesOutcome CdbClient::DescribeDBInstances(const DescribeDBInstancesRequest &request)
@@ -3762,32 +3244,25 @@ CdbClient::DescribeDBInstancesOutcome CdbClient::DescribeDBInstances(const Descr
 
 void CdbClient::DescribeDBInstancesAsync(const DescribeDBInstancesRequest& request, const DescribeDBInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBInstancesRequest&;
-    using Resp = DescribeDBInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBInstancesOutcomeCallable CdbClient::DescribeDBInstancesCallable(const DescribeDBInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBInstancesOutcome>>();
-    DescribeDBInstancesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBInstancesRequest&,
-        DescribeDBInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBPriceOutcome CdbClient::DescribeDBPrice(const DescribeDBPriceRequest &request)
@@ -3812,32 +3287,25 @@ CdbClient::DescribeDBPriceOutcome CdbClient::DescribeDBPrice(const DescribeDBPri
 
 void CdbClient::DescribeDBPriceAsync(const DescribeDBPriceRequest& request, const DescribeDBPriceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBPriceRequest&;
-    using Resp = DescribeDBPriceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBPrice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBPrice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBPriceOutcomeCallable CdbClient::DescribeDBPriceCallable(const DescribeDBPriceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBPriceOutcome>>();
-    DescribeDBPriceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBPriceRequest&,
-        DescribeDBPriceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBPriceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBPrice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBSecurityGroupsOutcome CdbClient::DescribeDBSecurityGroups(const DescribeDBSecurityGroupsRequest &request)
@@ -3862,32 +3330,25 @@ CdbClient::DescribeDBSecurityGroupsOutcome CdbClient::DescribeDBSecurityGroups(c
 
 void CdbClient::DescribeDBSecurityGroupsAsync(const DescribeDBSecurityGroupsRequest& request, const DescribeDBSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBSecurityGroupsRequest&;
-    using Resp = DescribeDBSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBSecurityGroupsOutcomeCallable CdbClient::DescribeDBSecurityGroupsCallable(const DescribeDBSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBSecurityGroupsOutcome>>();
-    DescribeDBSecurityGroupsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBSecurityGroupsRequest&,
-        DescribeDBSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDBSwitchRecordsOutcome CdbClient::DescribeDBSwitchRecords(const DescribeDBSwitchRecordsRequest &request)
@@ -3912,32 +3373,25 @@ CdbClient::DescribeDBSwitchRecordsOutcome CdbClient::DescribeDBSwitchRecords(con
 
 void CdbClient::DescribeDBSwitchRecordsAsync(const DescribeDBSwitchRecordsRequest& request, const DescribeDBSwitchRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBSwitchRecordsRequest&;
-    using Resp = DescribeDBSwitchRecordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBSwitchRecords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBSwitchRecords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDBSwitchRecordsOutcomeCallable CdbClient::DescribeDBSwitchRecordsCallable(const DescribeDBSwitchRecordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBSwitchRecordsOutcome>>();
-    DescribeDBSwitchRecordsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDBSwitchRecordsRequest&,
-        DescribeDBSwitchRecordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBSwitchRecordsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBSwitchRecords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDataBackupOverviewOutcome CdbClient::DescribeDataBackupOverview(const DescribeDataBackupOverviewRequest &request)
@@ -3962,32 +3416,25 @@ CdbClient::DescribeDataBackupOverviewOutcome CdbClient::DescribeDataBackupOvervi
 
 void CdbClient::DescribeDataBackupOverviewAsync(const DescribeDataBackupOverviewRequest& request, const DescribeDataBackupOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDataBackupOverviewRequest&;
-    using Resp = DescribeDataBackupOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDataBackupOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDataBackupOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDataBackupOverviewOutcomeCallable CdbClient::DescribeDataBackupOverviewCallable(const DescribeDataBackupOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDataBackupOverviewOutcome>>();
-    DescribeDataBackupOverviewAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDataBackupOverviewRequest&,
-        DescribeDataBackupOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDataBackupOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDataBackupOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDatabasesOutcome CdbClient::DescribeDatabases(const DescribeDatabasesRequest &request)
@@ -4012,32 +3459,25 @@ CdbClient::DescribeDatabasesOutcome CdbClient::DescribeDatabases(const DescribeD
 
 void CdbClient::DescribeDatabasesAsync(const DescribeDatabasesRequest& request, const DescribeDatabasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDatabasesRequest&;
-    using Resp = DescribeDatabasesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDatabases(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatabases", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDatabasesOutcomeCallable CdbClient::DescribeDatabasesCallable(const DescribeDatabasesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDatabasesOutcome>>();
-    DescribeDatabasesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDatabasesRequest&,
-        DescribeDatabasesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDatabasesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDatabases(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDefaultParamsOutcome CdbClient::DescribeDefaultParams(const DescribeDefaultParamsRequest &request)
@@ -4062,32 +3502,25 @@ CdbClient::DescribeDefaultParamsOutcome CdbClient::DescribeDefaultParams(const D
 
 void CdbClient::DescribeDefaultParamsAsync(const DescribeDefaultParamsRequest& request, const DescribeDefaultParamsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDefaultParamsRequest&;
-    using Resp = DescribeDefaultParamsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDefaultParams(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDefaultParams", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDefaultParamsOutcomeCallable CdbClient::DescribeDefaultParamsCallable(const DescribeDefaultParamsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDefaultParamsOutcome>>();
-    DescribeDefaultParamsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDefaultParamsRequest&,
-        DescribeDefaultParamsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDefaultParamsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDefaultParams(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDeployGroupListOutcome CdbClient::DescribeDeployGroupList(const DescribeDeployGroupListRequest &request)
@@ -4112,32 +3545,25 @@ CdbClient::DescribeDeployGroupListOutcome CdbClient::DescribeDeployGroupList(con
 
 void CdbClient::DescribeDeployGroupListAsync(const DescribeDeployGroupListRequest& request, const DescribeDeployGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeployGroupListRequest&;
-    using Resp = DescribeDeployGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeployGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeployGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDeployGroupListOutcomeCallable CdbClient::DescribeDeployGroupListCallable(const DescribeDeployGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeployGroupListOutcome>>();
-    DescribeDeployGroupListAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDeployGroupListRequest&,
-        DescribeDeployGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeployGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeployGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeDeviceMonitorInfoOutcome CdbClient::DescribeDeviceMonitorInfo(const DescribeDeviceMonitorInfoRequest &request)
@@ -4162,32 +3588,25 @@ CdbClient::DescribeDeviceMonitorInfoOutcome CdbClient::DescribeDeviceMonitorInfo
 
 void CdbClient::DescribeDeviceMonitorInfoAsync(const DescribeDeviceMonitorInfoRequest& request, const DescribeDeviceMonitorInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeviceMonitorInfoRequest&;
-    using Resp = DescribeDeviceMonitorInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeviceMonitorInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeviceMonitorInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeDeviceMonitorInfoOutcomeCallable CdbClient::DescribeDeviceMonitorInfoCallable(const DescribeDeviceMonitorInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeviceMonitorInfoOutcome>>();
-    DescribeDeviceMonitorInfoAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeDeviceMonitorInfoRequest&,
-        DescribeDeviceMonitorInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeviceMonitorInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeviceMonitorInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeErrorLogDataOutcome CdbClient::DescribeErrorLogData(const DescribeErrorLogDataRequest &request)
@@ -4212,32 +3631,25 @@ CdbClient::DescribeErrorLogDataOutcome CdbClient::DescribeErrorLogData(const Des
 
 void CdbClient::DescribeErrorLogDataAsync(const DescribeErrorLogDataRequest& request, const DescribeErrorLogDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeErrorLogDataRequest&;
-    using Resp = DescribeErrorLogDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeErrorLogData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeErrorLogData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeErrorLogDataOutcomeCallable CdbClient::DescribeErrorLogDataCallable(const DescribeErrorLogDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeErrorLogDataOutcome>>();
-    DescribeErrorLogDataAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeErrorLogDataRequest&,
-        DescribeErrorLogDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeErrorLogDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeErrorLogData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeInstanceAlarmEventsOutcome CdbClient::DescribeInstanceAlarmEvents(const DescribeInstanceAlarmEventsRequest &request)
@@ -4262,32 +3674,25 @@ CdbClient::DescribeInstanceAlarmEventsOutcome CdbClient::DescribeInstanceAlarmEv
 
 void CdbClient::DescribeInstanceAlarmEventsAsync(const DescribeInstanceAlarmEventsRequest& request, const DescribeInstanceAlarmEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceAlarmEventsRequest&;
-    using Resp = DescribeInstanceAlarmEventsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceAlarmEvents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceAlarmEvents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeInstanceAlarmEventsOutcomeCallable CdbClient::DescribeInstanceAlarmEventsCallable(const DescribeInstanceAlarmEventsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceAlarmEventsOutcome>>();
-    DescribeInstanceAlarmEventsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeInstanceAlarmEventsRequest&,
-        DescribeInstanceAlarmEventsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceAlarmEventsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceAlarmEvents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeInstanceParamRecordsOutcome CdbClient::DescribeInstanceParamRecords(const DescribeInstanceParamRecordsRequest &request)
@@ -4312,32 +3717,25 @@ CdbClient::DescribeInstanceParamRecordsOutcome CdbClient::DescribeInstanceParamR
 
 void CdbClient::DescribeInstanceParamRecordsAsync(const DescribeInstanceParamRecordsRequest& request, const DescribeInstanceParamRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceParamRecordsRequest&;
-    using Resp = DescribeInstanceParamRecordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceParamRecords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceParamRecords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeInstanceParamRecordsOutcomeCallable CdbClient::DescribeInstanceParamRecordsCallable(const DescribeInstanceParamRecordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceParamRecordsOutcome>>();
-    DescribeInstanceParamRecordsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeInstanceParamRecordsRequest&,
-        DescribeInstanceParamRecordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceParamRecordsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceParamRecords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeInstanceParamsOutcome CdbClient::DescribeInstanceParams(const DescribeInstanceParamsRequest &request)
@@ -4362,32 +3760,25 @@ CdbClient::DescribeInstanceParamsOutcome CdbClient::DescribeInstanceParams(const
 
 void CdbClient::DescribeInstanceParamsAsync(const DescribeInstanceParamsRequest& request, const DescribeInstanceParamsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceParamsRequest&;
-    using Resp = DescribeInstanceParamsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceParams(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceParams", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeInstanceParamsOutcomeCallable CdbClient::DescribeInstanceParamsCallable(const DescribeInstanceParamsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceParamsOutcome>>();
-    DescribeInstanceParamsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeInstanceParamsRequest&,
-        DescribeInstanceParamsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceParamsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceParams(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeInstancePasswordComplexityOutcome CdbClient::DescribeInstancePasswordComplexity(const DescribeInstancePasswordComplexityRequest &request)
@@ -4412,32 +3803,25 @@ CdbClient::DescribeInstancePasswordComplexityOutcome CdbClient::DescribeInstance
 
 void CdbClient::DescribeInstancePasswordComplexityAsync(const DescribeInstancePasswordComplexityRequest& request, const DescribeInstancePasswordComplexityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancePasswordComplexityRequest&;
-    using Resp = DescribeInstancePasswordComplexityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstancePasswordComplexity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstancePasswordComplexity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeInstancePasswordComplexityOutcomeCallable CdbClient::DescribeInstancePasswordComplexityCallable(const DescribeInstancePasswordComplexityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancePasswordComplexityOutcome>>();
-    DescribeInstancePasswordComplexityAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeInstancePasswordComplexityRequest&,
-        DescribeInstancePasswordComplexityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancePasswordComplexityOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstancePasswordComplexity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeInstanceUpgradeCheckJobOutcome CdbClient::DescribeInstanceUpgradeCheckJob(const DescribeInstanceUpgradeCheckJobRequest &request)
@@ -4462,32 +3846,25 @@ CdbClient::DescribeInstanceUpgradeCheckJobOutcome CdbClient::DescribeInstanceUpg
 
 void CdbClient::DescribeInstanceUpgradeCheckJobAsync(const DescribeInstanceUpgradeCheckJobRequest& request, const DescribeInstanceUpgradeCheckJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceUpgradeCheckJobRequest&;
-    using Resp = DescribeInstanceUpgradeCheckJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceUpgradeCheckJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceUpgradeCheckJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeInstanceUpgradeCheckJobOutcomeCallable CdbClient::DescribeInstanceUpgradeCheckJobCallable(const DescribeInstanceUpgradeCheckJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceUpgradeCheckJobOutcome>>();
-    DescribeInstanceUpgradeCheckJobAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeInstanceUpgradeCheckJobRequest&,
-        DescribeInstanceUpgradeCheckJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceUpgradeCheckJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceUpgradeCheckJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeInstanceUpgradeTypeOutcome CdbClient::DescribeInstanceUpgradeType(const DescribeInstanceUpgradeTypeRequest &request)
@@ -4512,32 +3889,25 @@ CdbClient::DescribeInstanceUpgradeTypeOutcome CdbClient::DescribeInstanceUpgrade
 
 void CdbClient::DescribeInstanceUpgradeTypeAsync(const DescribeInstanceUpgradeTypeRequest& request, const DescribeInstanceUpgradeTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceUpgradeTypeRequest&;
-    using Resp = DescribeInstanceUpgradeTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceUpgradeType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceUpgradeType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeInstanceUpgradeTypeOutcomeCallable CdbClient::DescribeInstanceUpgradeTypeCallable(const DescribeInstanceUpgradeTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceUpgradeTypeOutcome>>();
-    DescribeInstanceUpgradeTypeAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeInstanceUpgradeTypeRequest&,
-        DescribeInstanceUpgradeTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceUpgradeTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceUpgradeType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeLocalBinlogConfigOutcome CdbClient::DescribeLocalBinlogConfig(const DescribeLocalBinlogConfigRequest &request)
@@ -4562,32 +3932,25 @@ CdbClient::DescribeLocalBinlogConfigOutcome CdbClient::DescribeLocalBinlogConfig
 
 void CdbClient::DescribeLocalBinlogConfigAsync(const DescribeLocalBinlogConfigRequest& request, const DescribeLocalBinlogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLocalBinlogConfigRequest&;
-    using Resp = DescribeLocalBinlogConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLocalBinlogConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLocalBinlogConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeLocalBinlogConfigOutcomeCallable CdbClient::DescribeLocalBinlogConfigCallable(const DescribeLocalBinlogConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLocalBinlogConfigOutcome>>();
-    DescribeLocalBinlogConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeLocalBinlogConfigRequest&,
-        DescribeLocalBinlogConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLocalBinlogConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLocalBinlogConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeParamTemplateInfoOutcome CdbClient::DescribeParamTemplateInfo(const DescribeParamTemplateInfoRequest &request)
@@ -4612,32 +3975,25 @@ CdbClient::DescribeParamTemplateInfoOutcome CdbClient::DescribeParamTemplateInfo
 
 void CdbClient::DescribeParamTemplateInfoAsync(const DescribeParamTemplateInfoRequest& request, const DescribeParamTemplateInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeParamTemplateInfoRequest&;
-    using Resp = DescribeParamTemplateInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeParamTemplateInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeParamTemplateInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeParamTemplateInfoOutcomeCallable CdbClient::DescribeParamTemplateInfoCallable(const DescribeParamTemplateInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeParamTemplateInfoOutcome>>();
-    DescribeParamTemplateInfoAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeParamTemplateInfoRequest&,
-        DescribeParamTemplateInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeParamTemplateInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeParamTemplateInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeParamTemplatesOutcome CdbClient::DescribeParamTemplates(const DescribeParamTemplatesRequest &request)
@@ -4662,32 +4018,25 @@ CdbClient::DescribeParamTemplatesOutcome CdbClient::DescribeParamTemplates(const
 
 void CdbClient::DescribeParamTemplatesAsync(const DescribeParamTemplatesRequest& request, const DescribeParamTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeParamTemplatesRequest&;
-    using Resp = DescribeParamTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeParamTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeParamTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeParamTemplatesOutcomeCallable CdbClient::DescribeParamTemplatesCallable(const DescribeParamTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeParamTemplatesOutcome>>();
-    DescribeParamTemplatesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeParamTemplatesRequest&,
-        DescribeParamTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeParamTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeParamTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeProjectSecurityGroupsOutcome CdbClient::DescribeProjectSecurityGroups(const DescribeProjectSecurityGroupsRequest &request)
@@ -4712,32 +4061,25 @@ CdbClient::DescribeProjectSecurityGroupsOutcome CdbClient::DescribeProjectSecuri
 
 void CdbClient::DescribeProjectSecurityGroupsAsync(const DescribeProjectSecurityGroupsRequest& request, const DescribeProjectSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProjectSecurityGroupsRequest&;
-    using Resp = DescribeProjectSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProjectSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProjectSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeProjectSecurityGroupsOutcomeCallable CdbClient::DescribeProjectSecurityGroupsCallable(const DescribeProjectSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProjectSecurityGroupsOutcome>>();
-    DescribeProjectSecurityGroupsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeProjectSecurityGroupsRequest&,
-        DescribeProjectSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProjectSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProjectSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeProxyCustomConfOutcome CdbClient::DescribeProxyCustomConf(const DescribeProxyCustomConfRequest &request)
@@ -4762,32 +4104,25 @@ CdbClient::DescribeProxyCustomConfOutcome CdbClient::DescribeProxyCustomConf(con
 
 void CdbClient::DescribeProxyCustomConfAsync(const DescribeProxyCustomConfRequest& request, const DescribeProxyCustomConfAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxyCustomConfRequest&;
-    using Resp = DescribeProxyCustomConfResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxyCustomConf(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxyCustomConf", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeProxyCustomConfOutcomeCallable CdbClient::DescribeProxyCustomConfCallable(const DescribeProxyCustomConfRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxyCustomConfOutcome>>();
-    DescribeProxyCustomConfAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeProxyCustomConfRequest&,
-        DescribeProxyCustomConfOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxyCustomConfOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxyCustomConf(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeProxySupportParamOutcome CdbClient::DescribeProxySupportParam(const DescribeProxySupportParamRequest &request)
@@ -4812,32 +4147,25 @@ CdbClient::DescribeProxySupportParamOutcome CdbClient::DescribeProxySupportParam
 
 void CdbClient::DescribeProxySupportParamAsync(const DescribeProxySupportParamRequest& request, const DescribeProxySupportParamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxySupportParamRequest&;
-    using Resp = DescribeProxySupportParamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxySupportParam(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxySupportParam", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeProxySupportParamOutcomeCallable CdbClient::DescribeProxySupportParamCallable(const DescribeProxySupportParamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxySupportParamOutcome>>();
-    DescribeProxySupportParamAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeProxySupportParamRequest&,
-        DescribeProxySupportParamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxySupportParamOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxySupportParam(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeRemoteBackupConfigOutcome CdbClient::DescribeRemoteBackupConfig(const DescribeRemoteBackupConfigRequest &request)
@@ -4862,32 +4190,25 @@ CdbClient::DescribeRemoteBackupConfigOutcome CdbClient::DescribeRemoteBackupConf
 
 void CdbClient::DescribeRemoteBackupConfigAsync(const DescribeRemoteBackupConfigRequest& request, const DescribeRemoteBackupConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRemoteBackupConfigRequest&;
-    using Resp = DescribeRemoteBackupConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRemoteBackupConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRemoteBackupConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeRemoteBackupConfigOutcomeCallable CdbClient::DescribeRemoteBackupConfigCallable(const DescribeRemoteBackupConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRemoteBackupConfigOutcome>>();
-    DescribeRemoteBackupConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeRemoteBackupConfigRequest&,
-        DescribeRemoteBackupConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRemoteBackupConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRemoteBackupConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeRoGroupsOutcome CdbClient::DescribeRoGroups(const DescribeRoGroupsRequest &request)
@@ -4912,32 +4233,25 @@ CdbClient::DescribeRoGroupsOutcome CdbClient::DescribeRoGroups(const DescribeRoG
 
 void CdbClient::DescribeRoGroupsAsync(const DescribeRoGroupsRequest& request, const DescribeRoGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRoGroupsRequest&;
-    using Resp = DescribeRoGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeRoGroupsOutcomeCallable CdbClient::DescribeRoGroupsCallable(const DescribeRoGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRoGroupsOutcome>>();
-    DescribeRoGroupsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeRoGroupsRequest&,
-        DescribeRoGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRoGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeRoMinScaleOutcome CdbClient::DescribeRoMinScale(const DescribeRoMinScaleRequest &request)
@@ -4962,32 +4276,25 @@ CdbClient::DescribeRoMinScaleOutcome CdbClient::DescribeRoMinScale(const Describ
 
 void CdbClient::DescribeRoMinScaleAsync(const DescribeRoMinScaleRequest& request, const DescribeRoMinScaleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRoMinScaleRequest&;
-    using Resp = DescribeRoMinScaleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoMinScale(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoMinScale", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeRoMinScaleOutcomeCallable CdbClient::DescribeRoMinScaleCallable(const DescribeRoMinScaleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRoMinScaleOutcome>>();
-    DescribeRoMinScaleAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeRoMinScaleRequest&,
-        DescribeRoMinScaleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRoMinScaleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoMinScale(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeRollbackRangeTimeOutcome CdbClient::DescribeRollbackRangeTime(const DescribeRollbackRangeTimeRequest &request)
@@ -5012,32 +4319,25 @@ CdbClient::DescribeRollbackRangeTimeOutcome CdbClient::DescribeRollbackRangeTime
 
 void CdbClient::DescribeRollbackRangeTimeAsync(const DescribeRollbackRangeTimeRequest& request, const DescribeRollbackRangeTimeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRollbackRangeTimeRequest&;
-    using Resp = DescribeRollbackRangeTimeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRollbackRangeTime(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRollbackRangeTime", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeRollbackRangeTimeOutcomeCallable CdbClient::DescribeRollbackRangeTimeCallable(const DescribeRollbackRangeTimeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRollbackRangeTimeOutcome>>();
-    DescribeRollbackRangeTimeAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeRollbackRangeTimeRequest&,
-        DescribeRollbackRangeTimeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRollbackRangeTimeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRollbackRangeTime(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeRollbackTaskDetailOutcome CdbClient::DescribeRollbackTaskDetail(const DescribeRollbackTaskDetailRequest &request)
@@ -5062,32 +4362,25 @@ CdbClient::DescribeRollbackTaskDetailOutcome CdbClient::DescribeRollbackTaskDeta
 
 void CdbClient::DescribeRollbackTaskDetailAsync(const DescribeRollbackTaskDetailRequest& request, const DescribeRollbackTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRollbackTaskDetailRequest&;
-    using Resp = DescribeRollbackTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRollbackTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRollbackTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeRollbackTaskDetailOutcomeCallable CdbClient::DescribeRollbackTaskDetailCallable(const DescribeRollbackTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRollbackTaskDetailOutcome>>();
-    DescribeRollbackTaskDetailAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeRollbackTaskDetailRequest&,
-        DescribeRollbackTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRollbackTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRollbackTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeSSLStatusOutcome CdbClient::DescribeSSLStatus(const DescribeSSLStatusRequest &request)
@@ -5112,32 +4405,25 @@ CdbClient::DescribeSSLStatusOutcome CdbClient::DescribeSSLStatus(const DescribeS
 
 void CdbClient::DescribeSSLStatusAsync(const DescribeSSLStatusRequest& request, const DescribeSSLStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSSLStatusRequest&;
-    using Resp = DescribeSSLStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSSLStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSSLStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeSSLStatusOutcomeCallable CdbClient::DescribeSSLStatusCallable(const DescribeSSLStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSSLStatusOutcome>>();
-    DescribeSSLStatusAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeSSLStatusRequest&,
-        DescribeSSLStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSSLStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSSLStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeSlowLogDataOutcome CdbClient::DescribeSlowLogData(const DescribeSlowLogDataRequest &request)
@@ -5162,32 +4448,25 @@ CdbClient::DescribeSlowLogDataOutcome CdbClient::DescribeSlowLogData(const Descr
 
 void CdbClient::DescribeSlowLogDataAsync(const DescribeSlowLogDataRequest& request, const DescribeSlowLogDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSlowLogDataRequest&;
-    using Resp = DescribeSlowLogDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSlowLogData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSlowLogData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeSlowLogDataOutcomeCallable CdbClient::DescribeSlowLogDataCallable(const DescribeSlowLogDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSlowLogDataOutcome>>();
-    DescribeSlowLogDataAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeSlowLogDataRequest&,
-        DescribeSlowLogDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSlowLogDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSlowLogData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeSlowLogsOutcome CdbClient::DescribeSlowLogs(const DescribeSlowLogsRequest &request)
@@ -5212,32 +4491,25 @@ CdbClient::DescribeSlowLogsOutcome CdbClient::DescribeSlowLogs(const DescribeSlo
 
 void CdbClient::DescribeSlowLogsAsync(const DescribeSlowLogsRequest& request, const DescribeSlowLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSlowLogsRequest&;
-    using Resp = DescribeSlowLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSlowLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSlowLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeSlowLogsOutcomeCallable CdbClient::DescribeSlowLogsCallable(const DescribeSlowLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSlowLogsOutcome>>();
-    DescribeSlowLogsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeSlowLogsRequest&,
-        DescribeSlowLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSlowLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSlowLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeSupportedPrivilegesOutcome CdbClient::DescribeSupportedPrivileges(const DescribeSupportedPrivilegesRequest &request)
@@ -5262,32 +4534,25 @@ CdbClient::DescribeSupportedPrivilegesOutcome CdbClient::DescribeSupportedPrivil
 
 void CdbClient::DescribeSupportedPrivilegesAsync(const DescribeSupportedPrivilegesRequest& request, const DescribeSupportedPrivilegesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSupportedPrivilegesRequest&;
-    using Resp = DescribeSupportedPrivilegesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSupportedPrivileges(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSupportedPrivileges", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeSupportedPrivilegesOutcomeCallable CdbClient::DescribeSupportedPrivilegesCallable(const DescribeSupportedPrivilegesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSupportedPrivilegesOutcome>>();
-    DescribeSupportedPrivilegesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeSupportedPrivilegesRequest&,
-        DescribeSupportedPrivilegesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSupportedPrivilegesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSupportedPrivileges(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeTableColumnsOutcome CdbClient::DescribeTableColumns(const DescribeTableColumnsRequest &request)
@@ -5312,32 +4577,25 @@ CdbClient::DescribeTableColumnsOutcome CdbClient::DescribeTableColumns(const Des
 
 void CdbClient::DescribeTableColumnsAsync(const DescribeTableColumnsRequest& request, const DescribeTableColumnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTableColumnsRequest&;
-    using Resp = DescribeTableColumnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTableColumns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTableColumns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeTableColumnsOutcomeCallable CdbClient::DescribeTableColumnsCallable(const DescribeTableColumnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTableColumnsOutcome>>();
-    DescribeTableColumnsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeTableColumnsRequest&,
-        DescribeTableColumnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTableColumnsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTableColumns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeTablesOutcome CdbClient::DescribeTables(const DescribeTablesRequest &request)
@@ -5362,32 +4620,25 @@ CdbClient::DescribeTablesOutcome CdbClient::DescribeTables(const DescribeTablesR
 
 void CdbClient::DescribeTablesAsync(const DescribeTablesRequest& request, const DescribeTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTablesRequest&;
-    using Resp = DescribeTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeTablesOutcomeCallable CdbClient::DescribeTablesCallable(const DescribeTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTablesOutcome>>();
-    DescribeTablesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeTablesRequest&,
-        DescribeTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeTagsOfInstanceIdsOutcome CdbClient::DescribeTagsOfInstanceIds(const DescribeTagsOfInstanceIdsRequest &request)
@@ -5412,32 +4663,25 @@ CdbClient::DescribeTagsOfInstanceIdsOutcome CdbClient::DescribeTagsOfInstanceIds
 
 void CdbClient::DescribeTagsOfInstanceIdsAsync(const DescribeTagsOfInstanceIdsRequest& request, const DescribeTagsOfInstanceIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTagsOfInstanceIdsRequest&;
-    using Resp = DescribeTagsOfInstanceIdsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTagsOfInstanceIds(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTagsOfInstanceIds", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeTagsOfInstanceIdsOutcomeCallable CdbClient::DescribeTagsOfInstanceIdsCallable(const DescribeTagsOfInstanceIdsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTagsOfInstanceIdsOutcome>>();
-    DescribeTagsOfInstanceIdsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeTagsOfInstanceIdsRequest&,
-        DescribeTagsOfInstanceIdsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTagsOfInstanceIdsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTagsOfInstanceIds(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeTasksOutcome CdbClient::DescribeTasks(const DescribeTasksRequest &request)
@@ -5462,32 +4706,25 @@ CdbClient::DescribeTasksOutcome CdbClient::DescribeTasks(const DescribeTasksRequ
 
 void CdbClient::DescribeTasksAsync(const DescribeTasksRequest& request, const DescribeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTasksRequest&;
-    using Resp = DescribeTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeTasksOutcomeCallable CdbClient::DescribeTasksCallable(const DescribeTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTasksOutcome>>();
-    DescribeTasksAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeTasksRequest&,
-        DescribeTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeTimeWindowOutcome CdbClient::DescribeTimeWindow(const DescribeTimeWindowRequest &request)
@@ -5512,32 +4749,25 @@ CdbClient::DescribeTimeWindowOutcome CdbClient::DescribeTimeWindow(const Describ
 
 void CdbClient::DescribeTimeWindowAsync(const DescribeTimeWindowRequest& request, const DescribeTimeWindowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTimeWindowRequest&;
-    using Resp = DescribeTimeWindowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTimeWindow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTimeWindow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeTimeWindowOutcomeCallable CdbClient::DescribeTimeWindowCallable(const DescribeTimeWindowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTimeWindowOutcome>>();
-    DescribeTimeWindowAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeTimeWindowRequest&,
-        DescribeTimeWindowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTimeWindowOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTimeWindow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DescribeUploadedFilesOutcome CdbClient::DescribeUploadedFiles(const DescribeUploadedFilesRequest &request)
@@ -5562,32 +4792,25 @@ CdbClient::DescribeUploadedFilesOutcome CdbClient::DescribeUploadedFiles(const D
 
 void CdbClient::DescribeUploadedFilesAsync(const DescribeUploadedFilesRequest& request, const DescribeUploadedFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUploadedFilesRequest&;
-    using Resp = DescribeUploadedFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUploadedFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUploadedFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DescribeUploadedFilesOutcomeCallable CdbClient::DescribeUploadedFilesCallable(const DescribeUploadedFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUploadedFilesOutcome>>();
-    DescribeUploadedFilesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DescribeUploadedFilesRequest&,
-        DescribeUploadedFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUploadedFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUploadedFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::DisassociateSecurityGroupsOutcome CdbClient::DisassociateSecurityGroups(const DisassociateSecurityGroupsRequest &request)
@@ -5612,32 +4835,25 @@ CdbClient::DisassociateSecurityGroupsOutcome CdbClient::DisassociateSecurityGrou
 
 void CdbClient::DisassociateSecurityGroupsAsync(const DisassociateSecurityGroupsRequest& request, const DisassociateSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateSecurityGroupsRequest&;
-    using Resp = DisassociateSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::DisassociateSecurityGroupsOutcomeCallable CdbClient::DisassociateSecurityGroupsCallable(const DisassociateSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateSecurityGroupsOutcome>>();
-    DisassociateSecurityGroupsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const DisassociateSecurityGroupsRequest&,
-        DisassociateSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::InquiryPriceUpgradeInstancesOutcome CdbClient::InquiryPriceUpgradeInstances(const InquiryPriceUpgradeInstancesRequest &request)
@@ -5662,32 +4878,25 @@ CdbClient::InquiryPriceUpgradeInstancesOutcome CdbClient::InquiryPriceUpgradeIns
 
 void CdbClient::InquiryPriceUpgradeInstancesAsync(const InquiryPriceUpgradeInstancesRequest& request, const InquiryPriceUpgradeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceUpgradeInstancesRequest&;
-    using Resp = InquiryPriceUpgradeInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceUpgradeInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceUpgradeInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::InquiryPriceUpgradeInstancesOutcomeCallable CdbClient::InquiryPriceUpgradeInstancesCallable(const InquiryPriceUpgradeInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceUpgradeInstancesOutcome>>();
-    InquiryPriceUpgradeInstancesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const InquiryPriceUpgradeInstancesRequest&,
-        InquiryPriceUpgradeInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceUpgradeInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceUpgradeInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::IsolateDBInstanceOutcome CdbClient::IsolateDBInstance(const IsolateDBInstanceRequest &request)
@@ -5712,32 +4921,25 @@ CdbClient::IsolateDBInstanceOutcome CdbClient::IsolateDBInstance(const IsolateDB
 
 void CdbClient::IsolateDBInstanceAsync(const IsolateDBInstanceRequest& request, const IsolateDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const IsolateDBInstanceRequest&;
-    using Resp = IsolateDBInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->IsolateDBInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "IsolateDBInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::IsolateDBInstanceOutcomeCallable CdbClient::IsolateDBInstanceCallable(const IsolateDBInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<IsolateDBInstanceOutcome>>();
-    IsolateDBInstanceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const IsolateDBInstanceRequest&,
-        IsolateDBInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<IsolateDBInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->IsolateDBInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAccountDescriptionOutcome CdbClient::ModifyAccountDescription(const ModifyAccountDescriptionRequest &request)
@@ -5762,32 +4964,25 @@ CdbClient::ModifyAccountDescriptionOutcome CdbClient::ModifyAccountDescription(c
 
 void CdbClient::ModifyAccountDescriptionAsync(const ModifyAccountDescriptionRequest& request, const ModifyAccountDescriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAccountDescriptionRequest&;
-    using Resp = ModifyAccountDescriptionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAccountDescription(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAccountDescription", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAccountDescriptionOutcomeCallable CdbClient::ModifyAccountDescriptionCallable(const ModifyAccountDescriptionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAccountDescriptionOutcome>>();
-    ModifyAccountDescriptionAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAccountDescriptionRequest&,
-        ModifyAccountDescriptionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAccountDescriptionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAccountDescription(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAccountHostOutcome CdbClient::ModifyAccountHost(const ModifyAccountHostRequest &request)
@@ -5812,32 +5007,25 @@ CdbClient::ModifyAccountHostOutcome CdbClient::ModifyAccountHost(const ModifyAcc
 
 void CdbClient::ModifyAccountHostAsync(const ModifyAccountHostRequest& request, const ModifyAccountHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAccountHostRequest&;
-    using Resp = ModifyAccountHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAccountHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAccountHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAccountHostOutcomeCallable CdbClient::ModifyAccountHostCallable(const ModifyAccountHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAccountHostOutcome>>();
-    ModifyAccountHostAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAccountHostRequest&,
-        ModifyAccountHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAccountHostOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAccountHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAccountMaxUserConnectionsOutcome CdbClient::ModifyAccountMaxUserConnections(const ModifyAccountMaxUserConnectionsRequest &request)
@@ -5862,32 +5050,25 @@ CdbClient::ModifyAccountMaxUserConnectionsOutcome CdbClient::ModifyAccountMaxUse
 
 void CdbClient::ModifyAccountMaxUserConnectionsAsync(const ModifyAccountMaxUserConnectionsRequest& request, const ModifyAccountMaxUserConnectionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAccountMaxUserConnectionsRequest&;
-    using Resp = ModifyAccountMaxUserConnectionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAccountMaxUserConnections(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAccountMaxUserConnections", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAccountMaxUserConnectionsOutcomeCallable CdbClient::ModifyAccountMaxUserConnectionsCallable(const ModifyAccountMaxUserConnectionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAccountMaxUserConnectionsOutcome>>();
-    ModifyAccountMaxUserConnectionsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAccountMaxUserConnectionsRequest&,
-        ModifyAccountMaxUserConnectionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAccountMaxUserConnectionsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAccountMaxUserConnections(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAccountPasswordOutcome CdbClient::ModifyAccountPassword(const ModifyAccountPasswordRequest &request)
@@ -5912,32 +5093,25 @@ CdbClient::ModifyAccountPasswordOutcome CdbClient::ModifyAccountPassword(const M
 
 void CdbClient::ModifyAccountPasswordAsync(const ModifyAccountPasswordRequest& request, const ModifyAccountPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAccountPasswordRequest&;
-    using Resp = ModifyAccountPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAccountPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAccountPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAccountPasswordOutcomeCallable CdbClient::ModifyAccountPasswordCallable(const ModifyAccountPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAccountPasswordOutcome>>();
-    ModifyAccountPasswordAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAccountPasswordRequest&,
-        ModifyAccountPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAccountPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAccountPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAccountPrivilegesOutcome CdbClient::ModifyAccountPrivileges(const ModifyAccountPrivilegesRequest &request)
@@ -5962,32 +5136,25 @@ CdbClient::ModifyAccountPrivilegesOutcome CdbClient::ModifyAccountPrivileges(con
 
 void CdbClient::ModifyAccountPrivilegesAsync(const ModifyAccountPrivilegesRequest& request, const ModifyAccountPrivilegesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAccountPrivilegesRequest&;
-    using Resp = ModifyAccountPrivilegesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAccountPrivileges(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAccountPrivileges", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAccountPrivilegesOutcomeCallable CdbClient::ModifyAccountPrivilegesCallable(const ModifyAccountPrivilegesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAccountPrivilegesOutcome>>();
-    ModifyAccountPrivilegesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAccountPrivilegesRequest&,
-        ModifyAccountPrivilegesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAccountPrivilegesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAccountPrivileges(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAuditConfigOutcome CdbClient::ModifyAuditConfig(const ModifyAuditConfigRequest &request)
@@ -6012,32 +5179,25 @@ CdbClient::ModifyAuditConfigOutcome CdbClient::ModifyAuditConfig(const ModifyAud
 
 void CdbClient::ModifyAuditConfigAsync(const ModifyAuditConfigRequest& request, const ModifyAuditConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAuditConfigRequest&;
-    using Resp = ModifyAuditConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAuditConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAuditConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAuditConfigOutcomeCallable CdbClient::ModifyAuditConfigCallable(const ModifyAuditConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAuditConfigOutcome>>();
-    ModifyAuditConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAuditConfigRequest&,
-        ModifyAuditConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAuditConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAuditConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAuditRuleOutcome CdbClient::ModifyAuditRule(const ModifyAuditRuleRequest &request)
@@ -6062,32 +5222,25 @@ CdbClient::ModifyAuditRuleOutcome CdbClient::ModifyAuditRule(const ModifyAuditRu
 
 void CdbClient::ModifyAuditRuleAsync(const ModifyAuditRuleRequest& request, const ModifyAuditRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAuditRuleRequest&;
-    using Resp = ModifyAuditRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAuditRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAuditRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAuditRuleOutcomeCallable CdbClient::ModifyAuditRuleCallable(const ModifyAuditRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAuditRuleOutcome>>();
-    ModifyAuditRuleAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAuditRuleRequest&,
-        ModifyAuditRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAuditRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAuditRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAuditRuleTemplatesOutcome CdbClient::ModifyAuditRuleTemplates(const ModifyAuditRuleTemplatesRequest &request)
@@ -6112,32 +5265,25 @@ CdbClient::ModifyAuditRuleTemplatesOutcome CdbClient::ModifyAuditRuleTemplates(c
 
 void CdbClient::ModifyAuditRuleTemplatesAsync(const ModifyAuditRuleTemplatesRequest& request, const ModifyAuditRuleTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAuditRuleTemplatesRequest&;
-    using Resp = ModifyAuditRuleTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAuditRuleTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAuditRuleTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAuditRuleTemplatesOutcomeCallable CdbClient::ModifyAuditRuleTemplatesCallable(const ModifyAuditRuleTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAuditRuleTemplatesOutcome>>();
-    ModifyAuditRuleTemplatesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAuditRuleTemplatesRequest&,
-        ModifyAuditRuleTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAuditRuleTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAuditRuleTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAuditServiceOutcome CdbClient::ModifyAuditService(const ModifyAuditServiceRequest &request)
@@ -6162,32 +5308,25 @@ CdbClient::ModifyAuditServiceOutcome CdbClient::ModifyAuditService(const ModifyA
 
 void CdbClient::ModifyAuditServiceAsync(const ModifyAuditServiceRequest& request, const ModifyAuditServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAuditServiceRequest&;
-    using Resp = ModifyAuditServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAuditService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAuditService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAuditServiceOutcomeCallable CdbClient::ModifyAuditServiceCallable(const ModifyAuditServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAuditServiceOutcome>>();
-    ModifyAuditServiceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAuditServiceRequest&,
-        ModifyAuditServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAuditServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAuditService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyAutoRenewFlagOutcome CdbClient::ModifyAutoRenewFlag(const ModifyAutoRenewFlagRequest &request)
@@ -6212,32 +5351,25 @@ CdbClient::ModifyAutoRenewFlagOutcome CdbClient::ModifyAutoRenewFlag(const Modif
 
 void CdbClient::ModifyAutoRenewFlagAsync(const ModifyAutoRenewFlagRequest& request, const ModifyAutoRenewFlagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAutoRenewFlagRequest&;
-    using Resp = ModifyAutoRenewFlagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAutoRenewFlag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAutoRenewFlag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyAutoRenewFlagOutcomeCallable CdbClient::ModifyAutoRenewFlagCallable(const ModifyAutoRenewFlagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAutoRenewFlagOutcome>>();
-    ModifyAutoRenewFlagAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyAutoRenewFlagRequest&,
-        ModifyAutoRenewFlagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAutoRenewFlagOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAutoRenewFlag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyBackupConfigOutcome CdbClient::ModifyBackupConfig(const ModifyBackupConfigRequest &request)
@@ -6262,32 +5394,25 @@ CdbClient::ModifyBackupConfigOutcome CdbClient::ModifyBackupConfig(const ModifyB
 
 void CdbClient::ModifyBackupConfigAsync(const ModifyBackupConfigRequest& request, const ModifyBackupConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBackupConfigRequest&;
-    using Resp = ModifyBackupConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBackupConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBackupConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyBackupConfigOutcomeCallable CdbClient::ModifyBackupConfigCallable(const ModifyBackupConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBackupConfigOutcome>>();
-    ModifyBackupConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyBackupConfigRequest&,
-        ModifyBackupConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBackupConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBackupConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyBackupDownloadRestrictionOutcome CdbClient::ModifyBackupDownloadRestriction(const ModifyBackupDownloadRestrictionRequest &request)
@@ -6312,32 +5437,25 @@ CdbClient::ModifyBackupDownloadRestrictionOutcome CdbClient::ModifyBackupDownloa
 
 void CdbClient::ModifyBackupDownloadRestrictionAsync(const ModifyBackupDownloadRestrictionRequest& request, const ModifyBackupDownloadRestrictionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBackupDownloadRestrictionRequest&;
-    using Resp = ModifyBackupDownloadRestrictionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBackupDownloadRestriction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBackupDownloadRestriction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyBackupDownloadRestrictionOutcomeCallable CdbClient::ModifyBackupDownloadRestrictionCallable(const ModifyBackupDownloadRestrictionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBackupDownloadRestrictionOutcome>>();
-    ModifyBackupDownloadRestrictionAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyBackupDownloadRestrictionRequest&,
-        ModifyBackupDownloadRestrictionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBackupDownloadRestrictionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBackupDownloadRestriction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyBackupEncryptionStatusOutcome CdbClient::ModifyBackupEncryptionStatus(const ModifyBackupEncryptionStatusRequest &request)
@@ -6362,32 +5480,25 @@ CdbClient::ModifyBackupEncryptionStatusOutcome CdbClient::ModifyBackupEncryption
 
 void CdbClient::ModifyBackupEncryptionStatusAsync(const ModifyBackupEncryptionStatusRequest& request, const ModifyBackupEncryptionStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBackupEncryptionStatusRequest&;
-    using Resp = ModifyBackupEncryptionStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBackupEncryptionStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBackupEncryptionStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyBackupEncryptionStatusOutcomeCallable CdbClient::ModifyBackupEncryptionStatusCallable(const ModifyBackupEncryptionStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBackupEncryptionStatusOutcome>>();
-    ModifyBackupEncryptionStatusAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyBackupEncryptionStatusRequest&,
-        ModifyBackupEncryptionStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBackupEncryptionStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBackupEncryptionStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyCdbProxyAddressDescOutcome CdbClient::ModifyCdbProxyAddressDesc(const ModifyCdbProxyAddressDescRequest &request)
@@ -6412,32 +5523,25 @@ CdbClient::ModifyCdbProxyAddressDescOutcome CdbClient::ModifyCdbProxyAddressDesc
 
 void CdbClient::ModifyCdbProxyAddressDescAsync(const ModifyCdbProxyAddressDescRequest& request, const ModifyCdbProxyAddressDescAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCdbProxyAddressDescRequest&;
-    using Resp = ModifyCdbProxyAddressDescResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCdbProxyAddressDesc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCdbProxyAddressDesc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyCdbProxyAddressDescOutcomeCallable CdbClient::ModifyCdbProxyAddressDescCallable(const ModifyCdbProxyAddressDescRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCdbProxyAddressDescOutcome>>();
-    ModifyCdbProxyAddressDescAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyCdbProxyAddressDescRequest&,
-        ModifyCdbProxyAddressDescOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCdbProxyAddressDescOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCdbProxyAddressDesc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyCdbProxyAddressVipAndVPortOutcome CdbClient::ModifyCdbProxyAddressVipAndVPort(const ModifyCdbProxyAddressVipAndVPortRequest &request)
@@ -6462,32 +5566,25 @@ CdbClient::ModifyCdbProxyAddressVipAndVPortOutcome CdbClient::ModifyCdbProxyAddr
 
 void CdbClient::ModifyCdbProxyAddressVipAndVPortAsync(const ModifyCdbProxyAddressVipAndVPortRequest& request, const ModifyCdbProxyAddressVipAndVPortAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCdbProxyAddressVipAndVPortRequest&;
-    using Resp = ModifyCdbProxyAddressVipAndVPortResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCdbProxyAddressVipAndVPort(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCdbProxyAddressVipAndVPort", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyCdbProxyAddressVipAndVPortOutcomeCallable CdbClient::ModifyCdbProxyAddressVipAndVPortCallable(const ModifyCdbProxyAddressVipAndVPortRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCdbProxyAddressVipAndVPortOutcome>>();
-    ModifyCdbProxyAddressVipAndVPortAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyCdbProxyAddressVipAndVPortRequest&,
-        ModifyCdbProxyAddressVipAndVPortOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCdbProxyAddressVipAndVPortOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCdbProxyAddressVipAndVPort(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyCdbProxyParamOutcome CdbClient::ModifyCdbProxyParam(const ModifyCdbProxyParamRequest &request)
@@ -6512,32 +5609,25 @@ CdbClient::ModifyCdbProxyParamOutcome CdbClient::ModifyCdbProxyParam(const Modif
 
 void CdbClient::ModifyCdbProxyParamAsync(const ModifyCdbProxyParamRequest& request, const ModifyCdbProxyParamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCdbProxyParamRequest&;
-    using Resp = ModifyCdbProxyParamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCdbProxyParam(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCdbProxyParam", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyCdbProxyParamOutcomeCallable CdbClient::ModifyCdbProxyParamCallable(const ModifyCdbProxyParamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCdbProxyParamOutcome>>();
-    ModifyCdbProxyParamAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyCdbProxyParamRequest&,
-        ModifyCdbProxyParamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCdbProxyParamOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCdbProxyParam(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyDBInstanceLogToCLSOutcome CdbClient::ModifyDBInstanceLogToCLS(const ModifyDBInstanceLogToCLSRequest &request)
@@ -6562,32 +5652,25 @@ CdbClient::ModifyDBInstanceLogToCLSOutcome CdbClient::ModifyDBInstanceLogToCLS(c
 
 void CdbClient::ModifyDBInstanceLogToCLSAsync(const ModifyDBInstanceLogToCLSRequest& request, const ModifyDBInstanceLogToCLSAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceLogToCLSRequest&;
-    using Resp = ModifyDBInstanceLogToCLSResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceLogToCLS(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceLogToCLS", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyDBInstanceLogToCLSOutcomeCallable CdbClient::ModifyDBInstanceLogToCLSCallable(const ModifyDBInstanceLogToCLSRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceLogToCLSOutcome>>();
-    ModifyDBInstanceLogToCLSAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyDBInstanceLogToCLSRequest&,
-        ModifyDBInstanceLogToCLSOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceLogToCLSOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceLogToCLS(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyDBInstanceModesOutcome CdbClient::ModifyDBInstanceModes(const ModifyDBInstanceModesRequest &request)
@@ -6612,32 +5695,25 @@ CdbClient::ModifyDBInstanceModesOutcome CdbClient::ModifyDBInstanceModes(const M
 
 void CdbClient::ModifyDBInstanceModesAsync(const ModifyDBInstanceModesRequest& request, const ModifyDBInstanceModesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceModesRequest&;
-    using Resp = ModifyDBInstanceModesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceModes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceModes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyDBInstanceModesOutcomeCallable CdbClient::ModifyDBInstanceModesCallable(const ModifyDBInstanceModesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceModesOutcome>>();
-    ModifyDBInstanceModesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyDBInstanceModesRequest&,
-        ModifyDBInstanceModesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceModesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceModes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyDBInstanceNameOutcome CdbClient::ModifyDBInstanceName(const ModifyDBInstanceNameRequest &request)
@@ -6662,32 +5738,25 @@ CdbClient::ModifyDBInstanceNameOutcome CdbClient::ModifyDBInstanceName(const Mod
 
 void CdbClient::ModifyDBInstanceNameAsync(const ModifyDBInstanceNameRequest& request, const ModifyDBInstanceNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceNameRequest&;
-    using Resp = ModifyDBInstanceNameResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceName(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceName", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyDBInstanceNameOutcomeCallable CdbClient::ModifyDBInstanceNameCallable(const ModifyDBInstanceNameRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceNameOutcome>>();
-    ModifyDBInstanceNameAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyDBInstanceNameRequest&,
-        ModifyDBInstanceNameOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceNameOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceName(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyDBInstanceProjectOutcome CdbClient::ModifyDBInstanceProject(const ModifyDBInstanceProjectRequest &request)
@@ -6712,32 +5781,25 @@ CdbClient::ModifyDBInstanceProjectOutcome CdbClient::ModifyDBInstanceProject(con
 
 void CdbClient::ModifyDBInstanceProjectAsync(const ModifyDBInstanceProjectRequest& request, const ModifyDBInstanceProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceProjectRequest&;
-    using Resp = ModifyDBInstanceProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyDBInstanceProjectOutcomeCallable CdbClient::ModifyDBInstanceProjectCallable(const ModifyDBInstanceProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceProjectOutcome>>();
-    ModifyDBInstanceProjectAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyDBInstanceProjectRequest&,
-        ModifyDBInstanceProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyDBInstanceReadOnlyStatusOutcome CdbClient::ModifyDBInstanceReadOnlyStatus(const ModifyDBInstanceReadOnlyStatusRequest &request)
@@ -6762,32 +5824,25 @@ CdbClient::ModifyDBInstanceReadOnlyStatusOutcome CdbClient::ModifyDBInstanceRead
 
 void CdbClient::ModifyDBInstanceReadOnlyStatusAsync(const ModifyDBInstanceReadOnlyStatusRequest& request, const ModifyDBInstanceReadOnlyStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceReadOnlyStatusRequest&;
-    using Resp = ModifyDBInstanceReadOnlyStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceReadOnlyStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceReadOnlyStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyDBInstanceReadOnlyStatusOutcomeCallable CdbClient::ModifyDBInstanceReadOnlyStatusCallable(const ModifyDBInstanceReadOnlyStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceReadOnlyStatusOutcome>>();
-    ModifyDBInstanceReadOnlyStatusAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyDBInstanceReadOnlyStatusRequest&,
-        ModifyDBInstanceReadOnlyStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceReadOnlyStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceReadOnlyStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyDBInstanceSecurityGroupsOutcome CdbClient::ModifyDBInstanceSecurityGroups(const ModifyDBInstanceSecurityGroupsRequest &request)
@@ -6812,32 +5867,25 @@ CdbClient::ModifyDBInstanceSecurityGroupsOutcome CdbClient::ModifyDBInstanceSecu
 
 void CdbClient::ModifyDBInstanceSecurityGroupsAsync(const ModifyDBInstanceSecurityGroupsRequest& request, const ModifyDBInstanceSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceSecurityGroupsRequest&;
-    using Resp = ModifyDBInstanceSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyDBInstanceSecurityGroupsOutcomeCallable CdbClient::ModifyDBInstanceSecurityGroupsCallable(const ModifyDBInstanceSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceSecurityGroupsOutcome>>();
-    ModifyDBInstanceSecurityGroupsAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyDBInstanceSecurityGroupsRequest&,
-        ModifyDBInstanceSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyDBInstanceVipVportOutcome CdbClient::ModifyDBInstanceVipVport(const ModifyDBInstanceVipVportRequest &request)
@@ -6862,32 +5910,25 @@ CdbClient::ModifyDBInstanceVipVportOutcome CdbClient::ModifyDBInstanceVipVport(c
 
 void CdbClient::ModifyDBInstanceVipVportAsync(const ModifyDBInstanceVipVportRequest& request, const ModifyDBInstanceVipVportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceVipVportRequest&;
-    using Resp = ModifyDBInstanceVipVportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceVipVport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceVipVport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyDBInstanceVipVportOutcomeCallable CdbClient::ModifyDBInstanceVipVportCallable(const ModifyDBInstanceVipVportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceVipVportOutcome>>();
-    ModifyDBInstanceVipVportAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyDBInstanceVipVportRequest&,
-        ModifyDBInstanceVipVportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceVipVportOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceVipVport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyInstanceParamOutcome CdbClient::ModifyInstanceParam(const ModifyInstanceParamRequest &request)
@@ -6912,32 +5953,25 @@ CdbClient::ModifyInstanceParamOutcome CdbClient::ModifyInstanceParam(const Modif
 
 void CdbClient::ModifyInstanceParamAsync(const ModifyInstanceParamRequest& request, const ModifyInstanceParamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceParamRequest&;
-    using Resp = ModifyInstanceParamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceParam(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceParam", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyInstanceParamOutcomeCallable CdbClient::ModifyInstanceParamCallable(const ModifyInstanceParamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceParamOutcome>>();
-    ModifyInstanceParamAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyInstanceParamRequest&,
-        ModifyInstanceParamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceParamOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceParam(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyInstancePasswordComplexityOutcome CdbClient::ModifyInstancePasswordComplexity(const ModifyInstancePasswordComplexityRequest &request)
@@ -6962,32 +5996,25 @@ CdbClient::ModifyInstancePasswordComplexityOutcome CdbClient::ModifyInstancePass
 
 void CdbClient::ModifyInstancePasswordComplexityAsync(const ModifyInstancePasswordComplexityRequest& request, const ModifyInstancePasswordComplexityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstancePasswordComplexityRequest&;
-    using Resp = ModifyInstancePasswordComplexityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstancePasswordComplexity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstancePasswordComplexity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyInstancePasswordComplexityOutcomeCallable CdbClient::ModifyInstancePasswordComplexityCallable(const ModifyInstancePasswordComplexityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstancePasswordComplexityOutcome>>();
-    ModifyInstancePasswordComplexityAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyInstancePasswordComplexityRequest&,
-        ModifyInstancePasswordComplexityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstancePasswordComplexityOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstancePasswordComplexity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyInstanceTagOutcome CdbClient::ModifyInstanceTag(const ModifyInstanceTagRequest &request)
@@ -7012,32 +6039,25 @@ CdbClient::ModifyInstanceTagOutcome CdbClient::ModifyInstanceTag(const ModifyIns
 
 void CdbClient::ModifyInstanceTagAsync(const ModifyInstanceTagRequest& request, const ModifyInstanceTagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceTagRequest&;
-    using Resp = ModifyInstanceTagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceTag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceTag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyInstanceTagOutcomeCallable CdbClient::ModifyInstanceTagCallable(const ModifyInstanceTagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceTagOutcome>>();
-    ModifyInstanceTagAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyInstanceTagRequest&,
-        ModifyInstanceTagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceTagOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceTag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyLocalBinlogConfigOutcome CdbClient::ModifyLocalBinlogConfig(const ModifyLocalBinlogConfigRequest &request)
@@ -7062,32 +6082,25 @@ CdbClient::ModifyLocalBinlogConfigOutcome CdbClient::ModifyLocalBinlogConfig(con
 
 void CdbClient::ModifyLocalBinlogConfigAsync(const ModifyLocalBinlogConfigRequest& request, const ModifyLocalBinlogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLocalBinlogConfigRequest&;
-    using Resp = ModifyLocalBinlogConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLocalBinlogConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLocalBinlogConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyLocalBinlogConfigOutcomeCallable CdbClient::ModifyLocalBinlogConfigCallable(const ModifyLocalBinlogConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLocalBinlogConfigOutcome>>();
-    ModifyLocalBinlogConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyLocalBinlogConfigRequest&,
-        ModifyLocalBinlogConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLocalBinlogConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLocalBinlogConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyNameOrDescByDpIdOutcome CdbClient::ModifyNameOrDescByDpId(const ModifyNameOrDescByDpIdRequest &request)
@@ -7112,32 +6125,25 @@ CdbClient::ModifyNameOrDescByDpIdOutcome CdbClient::ModifyNameOrDescByDpId(const
 
 void CdbClient::ModifyNameOrDescByDpIdAsync(const ModifyNameOrDescByDpIdRequest& request, const ModifyNameOrDescByDpIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNameOrDescByDpIdRequest&;
-    using Resp = ModifyNameOrDescByDpIdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNameOrDescByDpId(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNameOrDescByDpId", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyNameOrDescByDpIdOutcomeCallable CdbClient::ModifyNameOrDescByDpIdCallable(const ModifyNameOrDescByDpIdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNameOrDescByDpIdOutcome>>();
-    ModifyNameOrDescByDpIdAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyNameOrDescByDpIdRequest&,
-        ModifyNameOrDescByDpIdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNameOrDescByDpIdOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNameOrDescByDpId(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyParamTemplateOutcome CdbClient::ModifyParamTemplate(const ModifyParamTemplateRequest &request)
@@ -7162,32 +6168,25 @@ CdbClient::ModifyParamTemplateOutcome CdbClient::ModifyParamTemplate(const Modif
 
 void CdbClient::ModifyParamTemplateAsync(const ModifyParamTemplateRequest& request, const ModifyParamTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyParamTemplateRequest&;
-    using Resp = ModifyParamTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyParamTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyParamTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyParamTemplateOutcomeCallable CdbClient::ModifyParamTemplateCallable(const ModifyParamTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyParamTemplateOutcome>>();
-    ModifyParamTemplateAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyParamTemplateRequest&,
-        ModifyParamTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyParamTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyParamTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyProtectModeOutcome CdbClient::ModifyProtectMode(const ModifyProtectModeRequest &request)
@@ -7212,32 +6211,25 @@ CdbClient::ModifyProtectModeOutcome CdbClient::ModifyProtectMode(const ModifyPro
 
 void CdbClient::ModifyProtectModeAsync(const ModifyProtectModeRequest& request, const ModifyProtectModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProtectModeRequest&;
-    using Resp = ModifyProtectModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProtectMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProtectMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyProtectModeOutcomeCallable CdbClient::ModifyProtectModeCallable(const ModifyProtectModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProtectModeOutcome>>();
-    ModifyProtectModeAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyProtectModeRequest&,
-        ModifyProtectModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProtectModeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProtectMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyRemoteBackupConfigOutcome CdbClient::ModifyRemoteBackupConfig(const ModifyRemoteBackupConfigRequest &request)
@@ -7262,32 +6254,25 @@ CdbClient::ModifyRemoteBackupConfigOutcome CdbClient::ModifyRemoteBackupConfig(c
 
 void CdbClient::ModifyRemoteBackupConfigAsync(const ModifyRemoteBackupConfigRequest& request, const ModifyRemoteBackupConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRemoteBackupConfigRequest&;
-    using Resp = ModifyRemoteBackupConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRemoteBackupConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRemoteBackupConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyRemoteBackupConfigOutcomeCallable CdbClient::ModifyRemoteBackupConfigCallable(const ModifyRemoteBackupConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRemoteBackupConfigOutcome>>();
-    ModifyRemoteBackupConfigAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyRemoteBackupConfigRequest&,
-        ModifyRemoteBackupConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRemoteBackupConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRemoteBackupConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyRoGroupInfoOutcome CdbClient::ModifyRoGroupInfo(const ModifyRoGroupInfoRequest &request)
@@ -7312,32 +6297,25 @@ CdbClient::ModifyRoGroupInfoOutcome CdbClient::ModifyRoGroupInfo(const ModifyRoG
 
 void CdbClient::ModifyRoGroupInfoAsync(const ModifyRoGroupInfoRequest& request, const ModifyRoGroupInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRoGroupInfoRequest&;
-    using Resp = ModifyRoGroupInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRoGroupInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRoGroupInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyRoGroupInfoOutcomeCallable CdbClient::ModifyRoGroupInfoCallable(const ModifyRoGroupInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRoGroupInfoOutcome>>();
-    ModifyRoGroupInfoAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyRoGroupInfoRequest&,
-        ModifyRoGroupInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRoGroupInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRoGroupInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyRoGroupVipVportOutcome CdbClient::ModifyRoGroupVipVport(const ModifyRoGroupVipVportRequest &request)
@@ -7362,32 +6340,25 @@ CdbClient::ModifyRoGroupVipVportOutcome CdbClient::ModifyRoGroupVipVport(const M
 
 void CdbClient::ModifyRoGroupVipVportAsync(const ModifyRoGroupVipVportRequest& request, const ModifyRoGroupVipVportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRoGroupVipVportRequest&;
-    using Resp = ModifyRoGroupVipVportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRoGroupVipVport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRoGroupVipVport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyRoGroupVipVportOutcomeCallable CdbClient::ModifyRoGroupVipVportCallable(const ModifyRoGroupVipVportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRoGroupVipVportOutcome>>();
-    ModifyRoGroupVipVportAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyRoGroupVipVportRequest&,
-        ModifyRoGroupVipVportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRoGroupVipVportOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRoGroupVipVport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ModifyTimeWindowOutcome CdbClient::ModifyTimeWindow(const ModifyTimeWindowRequest &request)
@@ -7412,32 +6383,25 @@ CdbClient::ModifyTimeWindowOutcome CdbClient::ModifyTimeWindow(const ModifyTimeW
 
 void CdbClient::ModifyTimeWindowAsync(const ModifyTimeWindowRequest& request, const ModifyTimeWindowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTimeWindowRequest&;
-    using Resp = ModifyTimeWindowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTimeWindow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTimeWindow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ModifyTimeWindowOutcomeCallable CdbClient::ModifyTimeWindowCallable(const ModifyTimeWindowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTimeWindowOutcome>>();
-    ModifyTimeWindowAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ModifyTimeWindowRequest&,
-        ModifyTimeWindowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTimeWindowOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTimeWindow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::OfflineIsolatedInstancesOutcome CdbClient::OfflineIsolatedInstances(const OfflineIsolatedInstancesRequest &request)
@@ -7462,32 +6426,25 @@ CdbClient::OfflineIsolatedInstancesOutcome CdbClient::OfflineIsolatedInstances(c
 
 void CdbClient::OfflineIsolatedInstancesAsync(const OfflineIsolatedInstancesRequest& request, const OfflineIsolatedInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OfflineIsolatedInstancesRequest&;
-    using Resp = OfflineIsolatedInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OfflineIsolatedInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OfflineIsolatedInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::OfflineIsolatedInstancesOutcomeCallable CdbClient::OfflineIsolatedInstancesCallable(const OfflineIsolatedInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OfflineIsolatedInstancesOutcome>>();
-    OfflineIsolatedInstancesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const OfflineIsolatedInstancesRequest&,
-        OfflineIsolatedInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OfflineIsolatedInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->OfflineIsolatedInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::OpenAuditServiceOutcome CdbClient::OpenAuditService(const OpenAuditServiceRequest &request)
@@ -7512,32 +6469,25 @@ CdbClient::OpenAuditServiceOutcome CdbClient::OpenAuditService(const OpenAuditSe
 
 void CdbClient::OpenAuditServiceAsync(const OpenAuditServiceRequest& request, const OpenAuditServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenAuditServiceRequest&;
-    using Resp = OpenAuditServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenAuditService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenAuditService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::OpenAuditServiceOutcomeCallable CdbClient::OpenAuditServiceCallable(const OpenAuditServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenAuditServiceOutcome>>();
-    OpenAuditServiceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const OpenAuditServiceRequest&,
-        OpenAuditServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenAuditServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenAuditService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::OpenDBInstanceEncryptionOutcome CdbClient::OpenDBInstanceEncryption(const OpenDBInstanceEncryptionRequest &request)
@@ -7562,32 +6512,25 @@ CdbClient::OpenDBInstanceEncryptionOutcome CdbClient::OpenDBInstanceEncryption(c
 
 void CdbClient::OpenDBInstanceEncryptionAsync(const OpenDBInstanceEncryptionRequest& request, const OpenDBInstanceEncryptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenDBInstanceEncryptionRequest&;
-    using Resp = OpenDBInstanceEncryptionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenDBInstanceEncryption(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenDBInstanceEncryption", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::OpenDBInstanceEncryptionOutcomeCallable CdbClient::OpenDBInstanceEncryptionCallable(const OpenDBInstanceEncryptionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenDBInstanceEncryptionOutcome>>();
-    OpenDBInstanceEncryptionAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const OpenDBInstanceEncryptionRequest&,
-        OpenDBInstanceEncryptionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenDBInstanceEncryptionOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenDBInstanceEncryption(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::OpenDBInstanceGTIDOutcome CdbClient::OpenDBInstanceGTID(const OpenDBInstanceGTIDRequest &request)
@@ -7612,32 +6555,25 @@ CdbClient::OpenDBInstanceGTIDOutcome CdbClient::OpenDBInstanceGTID(const OpenDBI
 
 void CdbClient::OpenDBInstanceGTIDAsync(const OpenDBInstanceGTIDRequest& request, const OpenDBInstanceGTIDAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenDBInstanceGTIDRequest&;
-    using Resp = OpenDBInstanceGTIDResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenDBInstanceGTID(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenDBInstanceGTID", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::OpenDBInstanceGTIDOutcomeCallable CdbClient::OpenDBInstanceGTIDCallable(const OpenDBInstanceGTIDRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenDBInstanceGTIDOutcome>>();
-    OpenDBInstanceGTIDAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const OpenDBInstanceGTIDRequest&,
-        OpenDBInstanceGTIDOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenDBInstanceGTIDOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenDBInstanceGTID(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::OpenSSLOutcome CdbClient::OpenSSL(const OpenSSLRequest &request)
@@ -7662,32 +6598,25 @@ CdbClient::OpenSSLOutcome CdbClient::OpenSSL(const OpenSSLRequest &request)
 
 void CdbClient::OpenSSLAsync(const OpenSSLRequest& request, const OpenSSLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenSSLRequest&;
-    using Resp = OpenSSLResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenSSL(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenSSL", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::OpenSSLOutcomeCallable CdbClient::OpenSSLCallable(const OpenSSLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenSSLOutcome>>();
-    OpenSSLAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const OpenSSLRequest&,
-        OpenSSLOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenSSLOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenSSL(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::OpenWanServiceOutcome CdbClient::OpenWanService(const OpenWanServiceRequest &request)
@@ -7712,32 +6641,25 @@ CdbClient::OpenWanServiceOutcome CdbClient::OpenWanService(const OpenWanServiceR
 
 void CdbClient::OpenWanServiceAsync(const OpenWanServiceRequest& request, const OpenWanServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenWanServiceRequest&;
-    using Resp = OpenWanServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenWanService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenWanService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::OpenWanServiceOutcomeCallable CdbClient::OpenWanServiceCallable(const OpenWanServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenWanServiceOutcome>>();
-    OpenWanServiceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const OpenWanServiceRequest&,
-        OpenWanServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenWanServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenWanService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ReleaseIsolatedDBInstancesOutcome CdbClient::ReleaseIsolatedDBInstances(const ReleaseIsolatedDBInstancesRequest &request)
@@ -7762,32 +6684,25 @@ CdbClient::ReleaseIsolatedDBInstancesOutcome CdbClient::ReleaseIsolatedDBInstanc
 
 void CdbClient::ReleaseIsolatedDBInstancesAsync(const ReleaseIsolatedDBInstancesRequest& request, const ReleaseIsolatedDBInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReleaseIsolatedDBInstancesRequest&;
-    using Resp = ReleaseIsolatedDBInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReleaseIsolatedDBInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReleaseIsolatedDBInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ReleaseIsolatedDBInstancesOutcomeCallable CdbClient::ReleaseIsolatedDBInstancesCallable(const ReleaseIsolatedDBInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReleaseIsolatedDBInstancesOutcome>>();
-    ReleaseIsolatedDBInstancesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ReleaseIsolatedDBInstancesRequest&,
-        ReleaseIsolatedDBInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReleaseIsolatedDBInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReleaseIsolatedDBInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ReloadBalanceProxyNodeOutcome CdbClient::ReloadBalanceProxyNode(const ReloadBalanceProxyNodeRequest &request)
@@ -7812,32 +6727,25 @@ CdbClient::ReloadBalanceProxyNodeOutcome CdbClient::ReloadBalanceProxyNode(const
 
 void CdbClient::ReloadBalanceProxyNodeAsync(const ReloadBalanceProxyNodeRequest& request, const ReloadBalanceProxyNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReloadBalanceProxyNodeRequest&;
-    using Resp = ReloadBalanceProxyNodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReloadBalanceProxyNode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReloadBalanceProxyNode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ReloadBalanceProxyNodeOutcomeCallable CdbClient::ReloadBalanceProxyNodeCallable(const ReloadBalanceProxyNodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReloadBalanceProxyNodeOutcome>>();
-    ReloadBalanceProxyNodeAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ReloadBalanceProxyNodeRequest&,
-        ReloadBalanceProxyNodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReloadBalanceProxyNodeOutcome()>>(
+        [this, request]()
+        {
+            return this->ReloadBalanceProxyNode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::RenewDBInstanceOutcome CdbClient::RenewDBInstance(const RenewDBInstanceRequest &request)
@@ -7862,32 +6770,25 @@ CdbClient::RenewDBInstanceOutcome CdbClient::RenewDBInstance(const RenewDBInstan
 
 void CdbClient::RenewDBInstanceAsync(const RenewDBInstanceRequest& request, const RenewDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewDBInstanceRequest&;
-    using Resp = RenewDBInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewDBInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewDBInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::RenewDBInstanceOutcomeCallable CdbClient::RenewDBInstanceCallable(const RenewDBInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewDBInstanceOutcome>>();
-    RenewDBInstanceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const RenewDBInstanceRequest&,
-        RenewDBInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewDBInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewDBInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ResetPasswordOutcome CdbClient::ResetPassword(const ResetPasswordRequest &request)
@@ -7912,32 +6813,25 @@ CdbClient::ResetPasswordOutcome CdbClient::ResetPassword(const ResetPasswordRequ
 
 void CdbClient::ResetPasswordAsync(const ResetPasswordRequest& request, const ResetPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetPasswordRequest&;
-    using Resp = ResetPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ResetPasswordOutcomeCallable CdbClient::ResetPasswordCallable(const ResetPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetPasswordOutcome>>();
-    ResetPasswordAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ResetPasswordRequest&,
-        ResetPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::ResetRootAccountOutcome CdbClient::ResetRootAccount(const ResetRootAccountRequest &request)
@@ -7962,32 +6856,25 @@ CdbClient::ResetRootAccountOutcome CdbClient::ResetRootAccount(const ResetRootAc
 
 void CdbClient::ResetRootAccountAsync(const ResetRootAccountRequest& request, const ResetRootAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetRootAccountRequest&;
-    using Resp = ResetRootAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetRootAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetRootAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::ResetRootAccountOutcomeCallable CdbClient::ResetRootAccountCallable(const ResetRootAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetRootAccountOutcome>>();
-    ResetRootAccountAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const ResetRootAccountRequest&,
-        ResetRootAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetRootAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetRootAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::RestartDBInstancesOutcome CdbClient::RestartDBInstances(const RestartDBInstancesRequest &request)
@@ -8012,32 +6899,25 @@ CdbClient::RestartDBInstancesOutcome CdbClient::RestartDBInstances(const Restart
 
 void CdbClient::RestartDBInstancesAsync(const RestartDBInstancesRequest& request, const RestartDBInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestartDBInstancesRequest&;
-    using Resp = RestartDBInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestartDBInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestartDBInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::RestartDBInstancesOutcomeCallable CdbClient::RestartDBInstancesCallable(const RestartDBInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestartDBInstancesOutcome>>();
-    RestartDBInstancesAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const RestartDBInstancesRequest&,
-        RestartDBInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestartDBInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->RestartDBInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::StartBatchRollbackOutcome CdbClient::StartBatchRollback(const StartBatchRollbackRequest &request)
@@ -8062,32 +6942,25 @@ CdbClient::StartBatchRollbackOutcome CdbClient::StartBatchRollback(const StartBa
 
 void CdbClient::StartBatchRollbackAsync(const StartBatchRollbackRequest& request, const StartBatchRollbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartBatchRollbackRequest&;
-    using Resp = StartBatchRollbackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartBatchRollback(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartBatchRollback", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::StartBatchRollbackOutcomeCallable CdbClient::StartBatchRollbackCallable(const StartBatchRollbackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartBatchRollbackOutcome>>();
-    StartBatchRollbackAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const StartBatchRollbackRequest&,
-        StartBatchRollbackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartBatchRollbackOutcome()>>(
+        [this, request]()
+        {
+            return this->StartBatchRollback(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::StartCpuExpandOutcome CdbClient::StartCpuExpand(const StartCpuExpandRequest &request)
@@ -8112,32 +6985,25 @@ CdbClient::StartCpuExpandOutcome CdbClient::StartCpuExpand(const StartCpuExpandR
 
 void CdbClient::StartCpuExpandAsync(const StartCpuExpandRequest& request, const StartCpuExpandAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartCpuExpandRequest&;
-    using Resp = StartCpuExpandResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartCpuExpand(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartCpuExpand", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::StartCpuExpandOutcomeCallable CdbClient::StartCpuExpandCallable(const StartCpuExpandRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartCpuExpandOutcome>>();
-    StartCpuExpandAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const StartCpuExpandRequest&,
-        StartCpuExpandOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartCpuExpandOutcome()>>(
+        [this, request]()
+        {
+            return this->StartCpuExpand(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::StartReplicationOutcome CdbClient::StartReplication(const StartReplicationRequest &request)
@@ -8162,32 +7028,25 @@ CdbClient::StartReplicationOutcome CdbClient::StartReplication(const StartReplic
 
 void CdbClient::StartReplicationAsync(const StartReplicationRequest& request, const StartReplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartReplicationRequest&;
-    using Resp = StartReplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartReplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartReplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::StartReplicationOutcomeCallable CdbClient::StartReplicationCallable(const StartReplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartReplicationOutcome>>();
-    StartReplicationAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const StartReplicationRequest&,
-        StartReplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartReplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->StartReplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::StopCpuExpandOutcome CdbClient::StopCpuExpand(const StopCpuExpandRequest &request)
@@ -8212,32 +7071,25 @@ CdbClient::StopCpuExpandOutcome CdbClient::StopCpuExpand(const StopCpuExpandRequ
 
 void CdbClient::StopCpuExpandAsync(const StopCpuExpandRequest& request, const StopCpuExpandAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopCpuExpandRequest&;
-    using Resp = StopCpuExpandResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopCpuExpand(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopCpuExpand", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::StopCpuExpandOutcomeCallable CdbClient::StopCpuExpandCallable(const StopCpuExpandRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopCpuExpandOutcome>>();
-    StopCpuExpandAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const StopCpuExpandRequest&,
-        StopCpuExpandOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopCpuExpandOutcome()>>(
+        [this, request]()
+        {
+            return this->StopCpuExpand(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::StopDBImportJobOutcome CdbClient::StopDBImportJob(const StopDBImportJobRequest &request)
@@ -8262,32 +7114,25 @@ CdbClient::StopDBImportJobOutcome CdbClient::StopDBImportJob(const StopDBImportJ
 
 void CdbClient::StopDBImportJobAsync(const StopDBImportJobRequest& request, const StopDBImportJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopDBImportJobRequest&;
-    using Resp = StopDBImportJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopDBImportJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopDBImportJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::StopDBImportJobOutcomeCallable CdbClient::StopDBImportJobCallable(const StopDBImportJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopDBImportJobOutcome>>();
-    StopDBImportJobAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const StopDBImportJobRequest&,
-        StopDBImportJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopDBImportJobOutcome()>>(
+        [this, request]()
+        {
+            return this->StopDBImportJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::StopReplicationOutcome CdbClient::StopReplication(const StopReplicationRequest &request)
@@ -8312,32 +7157,25 @@ CdbClient::StopReplicationOutcome CdbClient::StopReplication(const StopReplicati
 
 void CdbClient::StopReplicationAsync(const StopReplicationRequest& request, const StopReplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopReplicationRequest&;
-    using Resp = StopReplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopReplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopReplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::StopReplicationOutcomeCallable CdbClient::StopReplicationCallable(const StopReplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopReplicationOutcome>>();
-    StopReplicationAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const StopReplicationRequest&,
-        StopReplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopReplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->StopReplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::StopRollbackOutcome CdbClient::StopRollback(const StopRollbackRequest &request)
@@ -8362,32 +7200,25 @@ CdbClient::StopRollbackOutcome CdbClient::StopRollback(const StopRollbackRequest
 
 void CdbClient::StopRollbackAsync(const StopRollbackRequest& request, const StopRollbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopRollbackRequest&;
-    using Resp = StopRollbackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopRollback(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopRollback", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::StopRollbackOutcomeCallable CdbClient::StopRollbackCallable(const StopRollbackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopRollbackOutcome>>();
-    StopRollbackAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const StopRollbackRequest&,
-        StopRollbackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopRollbackOutcome()>>(
+        [this, request]()
+        {
+            return this->StopRollback(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::SubmitInstanceUpgradeCheckJobOutcome CdbClient::SubmitInstanceUpgradeCheckJob(const SubmitInstanceUpgradeCheckJobRequest &request)
@@ -8412,32 +7243,25 @@ CdbClient::SubmitInstanceUpgradeCheckJobOutcome CdbClient::SubmitInstanceUpgrade
 
 void CdbClient::SubmitInstanceUpgradeCheckJobAsync(const SubmitInstanceUpgradeCheckJobRequest& request, const SubmitInstanceUpgradeCheckJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitInstanceUpgradeCheckJobRequest&;
-    using Resp = SubmitInstanceUpgradeCheckJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitInstanceUpgradeCheckJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitInstanceUpgradeCheckJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::SubmitInstanceUpgradeCheckJobOutcomeCallable CdbClient::SubmitInstanceUpgradeCheckJobCallable(const SubmitInstanceUpgradeCheckJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitInstanceUpgradeCheckJobOutcome>>();
-    SubmitInstanceUpgradeCheckJobAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const SubmitInstanceUpgradeCheckJobRequest&,
-        SubmitInstanceUpgradeCheckJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitInstanceUpgradeCheckJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitInstanceUpgradeCheckJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::SwitchCDBProxyOutcome CdbClient::SwitchCDBProxy(const SwitchCDBProxyRequest &request)
@@ -8462,32 +7286,25 @@ CdbClient::SwitchCDBProxyOutcome CdbClient::SwitchCDBProxy(const SwitchCDBProxyR
 
 void CdbClient::SwitchCDBProxyAsync(const SwitchCDBProxyRequest& request, const SwitchCDBProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchCDBProxyRequest&;
-    using Resp = SwitchCDBProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchCDBProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchCDBProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::SwitchCDBProxyOutcomeCallable CdbClient::SwitchCDBProxyCallable(const SwitchCDBProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchCDBProxyOutcome>>();
-    SwitchCDBProxyAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const SwitchCDBProxyRequest&,
-        SwitchCDBProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchCDBProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchCDBProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::SwitchDBInstanceMasterSlaveOutcome CdbClient::SwitchDBInstanceMasterSlave(const SwitchDBInstanceMasterSlaveRequest &request)
@@ -8512,32 +7329,25 @@ CdbClient::SwitchDBInstanceMasterSlaveOutcome CdbClient::SwitchDBInstanceMasterS
 
 void CdbClient::SwitchDBInstanceMasterSlaveAsync(const SwitchDBInstanceMasterSlaveRequest& request, const SwitchDBInstanceMasterSlaveAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchDBInstanceMasterSlaveRequest&;
-    using Resp = SwitchDBInstanceMasterSlaveResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchDBInstanceMasterSlave(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchDBInstanceMasterSlave", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::SwitchDBInstanceMasterSlaveOutcomeCallable CdbClient::SwitchDBInstanceMasterSlaveCallable(const SwitchDBInstanceMasterSlaveRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchDBInstanceMasterSlaveOutcome>>();
-    SwitchDBInstanceMasterSlaveAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const SwitchDBInstanceMasterSlaveRequest&,
-        SwitchDBInstanceMasterSlaveOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchDBInstanceMasterSlaveOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchDBInstanceMasterSlave(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::SwitchDrInstanceToMasterOutcome CdbClient::SwitchDrInstanceToMaster(const SwitchDrInstanceToMasterRequest &request)
@@ -8562,32 +7372,25 @@ CdbClient::SwitchDrInstanceToMasterOutcome CdbClient::SwitchDrInstanceToMaster(c
 
 void CdbClient::SwitchDrInstanceToMasterAsync(const SwitchDrInstanceToMasterRequest& request, const SwitchDrInstanceToMasterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchDrInstanceToMasterRequest&;
-    using Resp = SwitchDrInstanceToMasterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchDrInstanceToMaster(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchDrInstanceToMaster", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::SwitchDrInstanceToMasterOutcomeCallable CdbClient::SwitchDrInstanceToMasterCallable(const SwitchDrInstanceToMasterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchDrInstanceToMasterOutcome>>();
-    SwitchDrInstanceToMasterAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const SwitchDrInstanceToMasterRequest&,
-        SwitchDrInstanceToMasterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchDrInstanceToMasterOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchDrInstanceToMaster(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::SwitchForUpgradeOutcome CdbClient::SwitchForUpgrade(const SwitchForUpgradeRequest &request)
@@ -8612,32 +7415,25 @@ CdbClient::SwitchForUpgradeOutcome CdbClient::SwitchForUpgrade(const SwitchForUp
 
 void CdbClient::SwitchForUpgradeAsync(const SwitchForUpgradeRequest& request, const SwitchForUpgradeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchForUpgradeRequest&;
-    using Resp = SwitchForUpgradeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchForUpgrade(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchForUpgrade", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::SwitchForUpgradeOutcomeCallable CdbClient::SwitchForUpgradeCallable(const SwitchForUpgradeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchForUpgradeOutcome>>();
-    SwitchForUpgradeAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const SwitchForUpgradeRequest&,
-        SwitchForUpgradeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchForUpgradeOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchForUpgrade(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::UpgradeCDBProxyVersionOutcome CdbClient::UpgradeCDBProxyVersion(const UpgradeCDBProxyVersionRequest &request)
@@ -8662,32 +7458,25 @@ CdbClient::UpgradeCDBProxyVersionOutcome CdbClient::UpgradeCDBProxyVersion(const
 
 void CdbClient::UpgradeCDBProxyVersionAsync(const UpgradeCDBProxyVersionRequest& request, const UpgradeCDBProxyVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeCDBProxyVersionRequest&;
-    using Resp = UpgradeCDBProxyVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeCDBProxyVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeCDBProxyVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::UpgradeCDBProxyVersionOutcomeCallable CdbClient::UpgradeCDBProxyVersionCallable(const UpgradeCDBProxyVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeCDBProxyVersionOutcome>>();
-    UpgradeCDBProxyVersionAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const UpgradeCDBProxyVersionRequest&,
-        UpgradeCDBProxyVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeCDBProxyVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeCDBProxyVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::UpgradeDBInstanceOutcome CdbClient::UpgradeDBInstance(const UpgradeDBInstanceRequest &request)
@@ -8712,32 +7501,25 @@ CdbClient::UpgradeDBInstanceOutcome CdbClient::UpgradeDBInstance(const UpgradeDB
 
 void CdbClient::UpgradeDBInstanceAsync(const UpgradeDBInstanceRequest& request, const UpgradeDBInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeDBInstanceRequest&;
-    using Resp = UpgradeDBInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeDBInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeDBInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::UpgradeDBInstanceOutcomeCallable CdbClient::UpgradeDBInstanceCallable(const UpgradeDBInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeDBInstanceOutcome>>();
-    UpgradeDBInstanceAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const UpgradeDBInstanceRequest&,
-        UpgradeDBInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeDBInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeDBInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::UpgradeDBInstanceEngineVersionOutcome CdbClient::UpgradeDBInstanceEngineVersion(const UpgradeDBInstanceEngineVersionRequest &request)
@@ -8762,32 +7544,25 @@ CdbClient::UpgradeDBInstanceEngineVersionOutcome CdbClient::UpgradeDBInstanceEng
 
 void CdbClient::UpgradeDBInstanceEngineVersionAsync(const UpgradeDBInstanceEngineVersionRequest& request, const UpgradeDBInstanceEngineVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeDBInstanceEngineVersionRequest&;
-    using Resp = UpgradeDBInstanceEngineVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeDBInstanceEngineVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeDBInstanceEngineVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::UpgradeDBInstanceEngineVersionOutcomeCallable CdbClient::UpgradeDBInstanceEngineVersionCallable(const UpgradeDBInstanceEngineVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeDBInstanceEngineVersionOutcome>>();
-    UpgradeDBInstanceEngineVersionAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const UpgradeDBInstanceEngineVersionRequest&,
-        UpgradeDBInstanceEngineVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeDBInstanceEngineVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeDBInstanceEngineVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdbClient::VerifyRootAccountOutcome CdbClient::VerifyRootAccount(const VerifyRootAccountRequest &request)
@@ -8812,31 +7587,24 @@ CdbClient::VerifyRootAccountOutcome CdbClient::VerifyRootAccount(const VerifyRoo
 
 void CdbClient::VerifyRootAccountAsync(const VerifyRootAccountRequest& request, const VerifyRootAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const VerifyRootAccountRequest&;
-    using Resp = VerifyRootAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->VerifyRootAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "VerifyRootAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdbClient::VerifyRootAccountOutcomeCallable CdbClient::VerifyRootAccountCallable(const VerifyRootAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<VerifyRootAccountOutcome>>();
-    VerifyRootAccountAsync(
-    request,
-    [prom](
-        const CdbClient*,
-        const VerifyRootAccountRequest&,
-        VerifyRootAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<VerifyRootAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->VerifyRootAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

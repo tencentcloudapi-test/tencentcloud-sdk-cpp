@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NodeSelectorRequirement;
+
                 /**
                 * Pod节点选择项集合
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     NodeSelectorTerm();
-                    ~NodeSelectorTerm() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数据库超期备份配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BackupConfig();
-                    ~BackupConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

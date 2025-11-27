@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpenBankRedirectInfo;
+
                 /**
                 * 打款验证响应结果结构体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VerifyOpenBankAccountResult();
-                    ~VerifyOpenBankAccountResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

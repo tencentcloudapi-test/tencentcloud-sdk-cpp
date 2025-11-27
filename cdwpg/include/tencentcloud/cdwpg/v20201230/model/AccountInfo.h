@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用于描述账号的实例ID、账号名
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AccountInfo();
-                    ~AccountInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

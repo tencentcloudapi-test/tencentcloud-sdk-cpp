@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlertInfo;
+                class TagCount;
+
                 /**
                 * DescribeAlertList返回参数结构体
                 */

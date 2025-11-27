@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TablePropertyScore;
+                class TableHeat;
+                class SearchColumnDocVO;
+                class TableMetaProperty;
+                class GovDatasourceInfo;
+                class CreateAndDDLSupport;
+
                 /**
                 * 表的元数据信息
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     TableMeta();
-                    ~TableMeta() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

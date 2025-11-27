@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 【云安全预警】大屏可视化数据Name Value 数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ScreenNameValue();
-                    ~ScreenNameValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

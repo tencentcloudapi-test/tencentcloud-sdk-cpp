@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 自动扩缩容的节点
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AutoscalingAdded();
-                    ~AutoscalingAdded() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

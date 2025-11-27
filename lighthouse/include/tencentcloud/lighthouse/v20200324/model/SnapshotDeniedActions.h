@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeniedAction;
+
                 /**
                 * 快照操作限制列表。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SnapshotDeniedActions();
-                    ~SnapshotDeniedActions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

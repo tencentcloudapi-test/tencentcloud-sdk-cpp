@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Charge;
+                class NodeSpec;
+                class Tag;
+                class SecondaryZoneInfo;
+
                 /**
                 * CreateInstanceNew请求参数结构体
                 */

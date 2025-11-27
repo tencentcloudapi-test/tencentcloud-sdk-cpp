@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询网关所支持的接入协议
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeGatewayProtocolData();
-                    ~DescribeGatewayProtocolData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

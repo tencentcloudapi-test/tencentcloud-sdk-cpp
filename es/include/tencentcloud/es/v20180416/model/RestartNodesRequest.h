@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EnableScheduleOperationDuration;
+
                 /**
                 * RestartNodes请求参数结构体
                 */

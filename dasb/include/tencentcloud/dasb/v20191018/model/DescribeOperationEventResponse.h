@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OperationEvent;
+
                 /**
                 * DescribeOperationEvent返回参数结构体
                 */

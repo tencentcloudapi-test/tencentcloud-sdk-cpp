@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * VPC视图子网信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VpcSubnetViewInfo();
-                    ~VpcSubnetViewInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

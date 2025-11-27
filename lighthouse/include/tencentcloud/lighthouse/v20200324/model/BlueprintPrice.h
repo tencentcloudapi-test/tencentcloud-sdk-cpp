@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * BlueprintPrice	自定义镜像的价格参数。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BlueprintPrice();
-                    ~BlueprintPrice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

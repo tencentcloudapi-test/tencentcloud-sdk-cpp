@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 构成监控数据图的曲线坐标点
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CurvePoint();
-                    ~CurvePoint() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

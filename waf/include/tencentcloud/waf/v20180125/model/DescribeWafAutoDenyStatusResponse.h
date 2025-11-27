@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AutoDenyDetail;
+
                 /**
                 * DescribeWafAutoDenyStatus返回参数结构体
                 */

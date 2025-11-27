@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Caller;
+                class Address;
+
                 /**
                 * CreateSubOrganization请求参数结构体
                 */

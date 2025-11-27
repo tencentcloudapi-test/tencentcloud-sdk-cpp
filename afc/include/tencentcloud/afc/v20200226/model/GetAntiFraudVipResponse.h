@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AntiFraudVipRecord;
+
                 /**
                 * GetAntiFraudVip返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数据监测情况结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DataCheckStat();
-                    ~DataCheckStat() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

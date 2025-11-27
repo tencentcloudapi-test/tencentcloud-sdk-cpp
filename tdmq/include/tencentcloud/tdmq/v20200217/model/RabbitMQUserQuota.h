@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * RabbitMQ 实例用户配额信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RabbitMQUserQuota();
-                    ~RabbitMQUserQuota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

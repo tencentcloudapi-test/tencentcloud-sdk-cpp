@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OperateResult;
+
                 /**
                 * RegisterLineage返回参数结构体
                 */

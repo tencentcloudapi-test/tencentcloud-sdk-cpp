@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProxySimpleInfo;
+
                 /**
                 * 可以显示统计数据的通道组和对应通道信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     GroupStatisticsInfo();
-                    ~GroupStatisticsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

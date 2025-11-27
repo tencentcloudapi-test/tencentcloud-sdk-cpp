@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 终端用户登录新增统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LoginStatistic();
-                    ~LoginStatistic() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

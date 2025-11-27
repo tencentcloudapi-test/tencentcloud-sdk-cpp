@@ -62,31 +62,24 @@ ImsClient::ImageModerationOutcome ImsClient::ImageModeration(const ImageModerati
 
 void ImsClient::ImageModerationAsync(const ImageModerationRequest& request, const ImageModerationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageModerationRequest&;
-    using Resp = ImageModerationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageModeration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageModeration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ImsClient::ImageModerationOutcomeCallable ImsClient::ImageModerationCallable(const ImageModerationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageModerationOutcome>>();
-    ImageModerationAsync(
-    request,
-    [prom](
-        const ImsClient*,
-        const ImageModerationRequest&,
-        ImageModerationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageModerationOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageModeration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

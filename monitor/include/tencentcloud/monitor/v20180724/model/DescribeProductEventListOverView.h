@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeProductEventList返回的OverView对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeProductEventListOverView();
-                    ~DescribeProductEventListOverView() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

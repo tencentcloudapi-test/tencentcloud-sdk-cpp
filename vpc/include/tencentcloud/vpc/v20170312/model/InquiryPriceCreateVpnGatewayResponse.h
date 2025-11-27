@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Price;
+
                 /**
                 * InquiryPriceCreateVpnGateway返回参数结构体
                 */

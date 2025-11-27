@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 自定义线路分组元素
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LineGroupItem();
-                    ~LineGroupItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

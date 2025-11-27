@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 管控节点概览。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ManagerNodeOverview();
-                    ~ManagerNodeOverview() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

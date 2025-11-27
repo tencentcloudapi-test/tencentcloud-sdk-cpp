@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 主机关联核心文件规则数量信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FileTamperRuleCount();
-                    ~FileTamperRuleCount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

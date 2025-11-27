@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HistoryJob;
+
                 /**
                 * DescribeCpuExpandHistory返回参数结构体
                 */

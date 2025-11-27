@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceProcessInfo;
+                class DeviceNetworkInfo;
+                class DeviceServiceInfo;
+
                 /**
                 * 业务响应数据
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeDeviceInfoRspData();
-                    ~DescribeDeviceInfoRspData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommonNamespace;
+                class CommonNamespaceNew;
+
                 /**
                 * DescribeAllNamespaces返回参数结构体
                 */

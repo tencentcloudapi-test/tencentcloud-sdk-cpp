@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FaceQualityCompleteness;
+
                 /**
                 * 人脸质量信息，包含质量分（score）、模糊分（sharpness）、光照分（brightness）、遮挡分（completeness）。只有当NeedFaceDetection设为1时才返回有效信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FaceQualityInfo();
-                    ~FaceQualityInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

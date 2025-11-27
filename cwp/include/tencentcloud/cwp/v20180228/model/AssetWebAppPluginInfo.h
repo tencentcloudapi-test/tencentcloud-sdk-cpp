@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 资产管理Web应用插件详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AssetWebAppPluginInfo();
-                    ~AssetWebAppPluginInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

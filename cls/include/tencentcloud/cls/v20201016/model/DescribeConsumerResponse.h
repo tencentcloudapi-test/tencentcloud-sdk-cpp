@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConsumerContent;
+                class Ckafka;
+
                 /**
                 * DescribeConsumer返回参数结构体
                 */

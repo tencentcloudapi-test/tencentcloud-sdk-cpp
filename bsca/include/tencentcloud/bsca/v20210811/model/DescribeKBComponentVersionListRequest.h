@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PURL;
+                class ComponentTagFilter;
+
                 /**
                 * DescribeKBComponentVersionList请求参数结构体
                 */

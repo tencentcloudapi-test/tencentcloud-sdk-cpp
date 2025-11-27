@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Filters;
+
                 /**
                 * DescribeIgnoreRuleEffectHostList请求参数结构体
                 */

@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Component;
+                class ApproverOption;
+                class ComponentLimit;
+                class RegisterInfo;
+
                 /**
                 * 合同参与者信息。
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     ApproverInfo();
-                    ~ApproverInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

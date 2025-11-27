@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ObjectDetail;
+
                 /**
                 * 实体检测结果详情：实体、广告台标、二维码
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ObjectResult();
-                    ~ObjectResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

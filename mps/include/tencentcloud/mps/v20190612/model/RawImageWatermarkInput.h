@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaInputInfo;
+
                 /**
                 * 图片水印模板输入参数
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RawImageWatermarkInput();
-                    ~RawImageWatermarkInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

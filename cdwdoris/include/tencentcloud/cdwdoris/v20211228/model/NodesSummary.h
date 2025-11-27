@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttachCBSSpec;
+
                 /**
                 * 节点角色描述信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     NodesSummary();
-                    ~NodesSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

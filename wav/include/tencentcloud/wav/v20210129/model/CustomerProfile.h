@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VehiclePurpose;
+                class PurchaseConcern;
+                class EnterpriseTag;
+                class ChannelTag;
+
                 /**
                 * 潜客客户档案信息
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     CustomerProfile();
-                    ~CustomerProfile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

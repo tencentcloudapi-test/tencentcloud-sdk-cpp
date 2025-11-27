@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunMetadata;
+
                 /**
                 * GetRunCalls返回参数结构体
                 */

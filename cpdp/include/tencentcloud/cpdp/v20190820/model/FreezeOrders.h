@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FreezeOrderResult;
+
                 /**
                 * 冻结订单列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FreezeOrders();
-                    ~FreezeOrders() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

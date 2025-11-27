@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupInfo;
+                class WordItem;
+
                 /**
                 * ExtractDocMultiPro返回参数结构体
                 */

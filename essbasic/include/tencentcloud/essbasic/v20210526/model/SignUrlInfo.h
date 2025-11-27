@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 签署链接内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SignUrlInfo();
-                    ~SignUrlInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

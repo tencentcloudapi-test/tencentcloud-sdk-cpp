@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 抽样检验时的抽样参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ConsistencyParams();
-                    ~ConsistencyParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 安全组策略统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PolicyStatistics();
-                    ~PolicyStatistics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

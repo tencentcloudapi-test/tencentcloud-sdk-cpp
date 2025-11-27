@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PackingQuotaInfo;
+
                 /**
                 * 一组相互关联的装箱配额，以实例类型的优先级排序，优先级高的在前
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PackingQuotaGroup();
-                    ~PackingQuotaGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

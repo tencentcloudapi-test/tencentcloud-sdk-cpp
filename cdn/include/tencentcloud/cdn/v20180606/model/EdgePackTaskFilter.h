@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 动态打包任务过滤器
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EdgePackTaskFilter();
-                    ~EdgePackTaskFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

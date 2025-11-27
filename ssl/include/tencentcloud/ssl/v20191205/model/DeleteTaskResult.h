@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 批量删除证书异步任务结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DeleteTaskResult();
-                    ~DeleteTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

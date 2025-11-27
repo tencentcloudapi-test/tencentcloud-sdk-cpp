@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TsfPageLicenseTag;
+
                 /**
                 * DescribeLicenses返回参数结构体
                 */

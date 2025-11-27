@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AndroidInstanceAppBlacklist;
+
                 /**
                 * DescribeAndroidInstancesAppBlacklist返回参数结构体
                 */

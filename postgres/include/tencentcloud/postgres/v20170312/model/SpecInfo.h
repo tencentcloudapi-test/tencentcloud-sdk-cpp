@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpecItemInfo;
+
                 /**
                 * 描述某个地域下某个可用区的可售卖规格详细信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SpecInfo();
-                    ~SpecInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

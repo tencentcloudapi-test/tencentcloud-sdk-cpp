@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScreenProtection;
+
                 /**
                 * DescribeScreenProtectionStat返回参数结构体
                 */

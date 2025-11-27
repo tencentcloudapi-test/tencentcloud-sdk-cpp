@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VoucherInfos;
+
                 /**
                 * DescribeVoucherInfo返回参数结构体
                 */

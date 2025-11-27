@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 需要开启/关闭API安全的 实例+域名 组合实体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TargetEntity();
-                    ~TargetEntity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网络错误日志记录配置项。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NetworkErrorLoggingParameters();
-                    ~NetworkErrorLoggingParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

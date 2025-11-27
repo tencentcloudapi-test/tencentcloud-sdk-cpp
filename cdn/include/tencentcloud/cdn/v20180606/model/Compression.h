@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompressionRule;
+
                 /**
                 * 智能压缩配置，默认对 js、html、css、xml、json、shtml、htm 后缀且大小为 256 ~ 2097152 字节的文件进行 GZIP 压缩
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Compression();
-                    ~Compression() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

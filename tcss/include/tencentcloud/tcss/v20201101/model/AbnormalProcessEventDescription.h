@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AbnormalProcessChildRuleInfo;
+
                 /**
                 * 运行时容器访问控制事件描述信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AbnormalProcessEventDescription();
-                    ~AbnormalProcessEventDescription() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

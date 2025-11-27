@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceAdvancedSettings;
+
                 /**
                 * CreateClusterInstances请求参数结构体
                 */

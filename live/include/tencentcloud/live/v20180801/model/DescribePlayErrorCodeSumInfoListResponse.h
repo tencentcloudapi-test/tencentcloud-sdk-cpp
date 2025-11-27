@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProIspPlayCodeDataInfo;
+                class PlayCodeTotalInfo;
+
                 /**
                 * DescribePlayErrorCodeSumInfoList返回参数结构体
                 */

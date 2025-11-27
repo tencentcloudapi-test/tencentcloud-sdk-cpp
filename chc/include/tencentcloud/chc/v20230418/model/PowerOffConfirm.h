@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 关电确认信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PowerOffConfirm();
-                    ~PowerOffConfirm() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 此结构体 (SmsTemplate) 用于描述短信模板。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SmsTemplate();
-                    ~SmsTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

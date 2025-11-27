@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视频即时处理配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     JITVideoProcess();
-                    ~JITVideoProcess() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

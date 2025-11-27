@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Usage;
+                class TranslationChoice;
+                class ErrorMsg;
+
                 /**
                 * ChatTranslations返回参数结构体
                 */

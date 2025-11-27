@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 步骤扩展结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StepExpand();
-                    ~StepExpand() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

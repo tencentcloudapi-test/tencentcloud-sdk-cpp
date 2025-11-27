@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * mongodb售卖规格。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpecItem();
-                    ~SpecItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

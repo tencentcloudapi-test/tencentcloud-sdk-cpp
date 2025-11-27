@@ -62,32 +62,25 @@ HaboClient::DescribeStatusOutcome HaboClient::DescribeStatus(const DescribeStatu
 
 void HaboClient::DescribeStatusAsync(const DescribeStatusRequest& request, const DescribeStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStatusRequest&;
-    using Resp = DescribeStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaboClient::DescribeStatusOutcomeCallable HaboClient::DescribeStatusCallable(const DescribeStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStatusOutcome>>();
-    DescribeStatusAsync(
-    request,
-    [prom](
-        const HaboClient*,
-        const DescribeStatusRequest&,
-        DescribeStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaboClient::StartAnalyseOutcome HaboClient::StartAnalyse(const StartAnalyseRequest &request)
@@ -112,31 +105,24 @@ HaboClient::StartAnalyseOutcome HaboClient::StartAnalyse(const StartAnalyseReque
 
 void HaboClient::StartAnalyseAsync(const StartAnalyseRequest& request, const StartAnalyseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartAnalyseRequest&;
-    using Resp = StartAnalyseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartAnalyse(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartAnalyse", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaboClient::StartAnalyseOutcomeCallable HaboClient::StartAnalyseCallable(const StartAnalyseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartAnalyseOutcome>>();
-    StartAnalyseAsync(
-    request,
-    [prom](
-        const HaboClient*,
-        const StartAnalyseRequest&,
-        StartAnalyseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartAnalyseOutcome()>>(
+        [this, request]()
+        {
+            return this->StartAnalyse(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

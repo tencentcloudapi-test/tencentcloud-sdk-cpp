@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeHLSPullSourceAddress;
+
                 /**
                 * 查询输入的HLS配置信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeInputHLSPullSettings();
-                    ~DescribeInputHLSPullSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

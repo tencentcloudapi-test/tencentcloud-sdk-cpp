@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DspaDiscoveryRDBRules;
+                class DspaDiscoveryCOSRules;
+
                 /**
                 * CreateDSPADiscoveryRule请求参数结构体
                 */

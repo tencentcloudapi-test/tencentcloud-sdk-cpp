@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FastEditMediaFileInfo;
+
                 /**
                 * FastEditMedia请求参数结构体
                 */

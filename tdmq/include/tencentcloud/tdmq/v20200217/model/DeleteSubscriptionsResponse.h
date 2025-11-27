@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscriptionTopic;
+
                 /**
                 * DeleteSubscriptions返回参数结构体
                 */

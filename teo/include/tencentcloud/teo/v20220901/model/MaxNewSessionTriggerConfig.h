@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Bot 管理中校验的触发阈值。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MaxNewSessionTriggerConfig();
-                    ~MaxNewSessionTriggerConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * egress gateway 的状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EgressGatewayStatus();
-                    ~EgressGatewayStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

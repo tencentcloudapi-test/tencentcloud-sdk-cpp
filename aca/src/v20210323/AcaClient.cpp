@@ -62,32 +62,25 @@ AcaClient::GetDrugIndicationsOutcome AcaClient::GetDrugIndications(const GetDrug
 
 void AcaClient::GetDrugIndicationsAsync(const GetDrugIndicationsRequest& request, const GetDrugIndicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetDrugIndicationsRequest&;
-    using Resp = GetDrugIndicationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetDrugIndications(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetDrugIndications", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AcaClient::GetDrugIndicationsOutcomeCallable AcaClient::GetDrugIndicationsCallable(const GetDrugIndicationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetDrugIndicationsOutcome>>();
-    GetDrugIndicationsAsync(
-    request,
-    [prom](
-        const AcaClient*,
-        const GetDrugIndicationsRequest&,
-        GetDrugIndicationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetDrugIndicationsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetDrugIndications(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AcaClient::LoginHisToolOutcome AcaClient::LoginHisTool(const LoginHisToolRequest &request)
@@ -112,32 +105,25 @@ AcaClient::LoginHisToolOutcome AcaClient::LoginHisTool(const LoginHisToolRequest
 
 void AcaClient::LoginHisToolAsync(const LoginHisToolRequest& request, const LoginHisToolAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const LoginHisToolRequest&;
-    using Resp = LoginHisToolResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->LoginHisTool(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "LoginHisTool", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AcaClient::LoginHisToolOutcomeCallable AcaClient::LoginHisToolCallable(const LoginHisToolRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<LoginHisToolOutcome>>();
-    LoginHisToolAsync(
-    request,
-    [prom](
-        const AcaClient*,
-        const LoginHisToolRequest&,
-        LoginHisToolOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<LoginHisToolOutcome()>>(
+        [this, request]()
+        {
+            return this->LoginHisTool(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AcaClient::LoginOutHisToolOutcome AcaClient::LoginOutHisTool(const LoginOutHisToolRequest &request)
@@ -162,32 +148,25 @@ AcaClient::LoginOutHisToolOutcome AcaClient::LoginOutHisTool(const LoginOutHisTo
 
 void AcaClient::LoginOutHisToolAsync(const LoginOutHisToolRequest& request, const LoginOutHisToolAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const LoginOutHisToolRequest&;
-    using Resp = LoginOutHisToolResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->LoginOutHisTool(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "LoginOutHisTool", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AcaClient::LoginOutHisToolOutcomeCallable AcaClient::LoginOutHisToolCallable(const LoginOutHisToolRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<LoginOutHisToolOutcome>>();
-    LoginOutHisToolAsync(
-    request,
-    [prom](
-        const AcaClient*,
-        const LoginOutHisToolRequest&,
-        LoginOutHisToolOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<LoginOutHisToolOutcome()>>(
+        [this, request]()
+        {
+            return this->LoginOutHisTool(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AcaClient::SmartDrugInfoOutcome AcaClient::SmartDrugInfo(const SmartDrugInfoRequest &request)
@@ -212,32 +191,25 @@ AcaClient::SmartDrugInfoOutcome AcaClient::SmartDrugInfo(const SmartDrugInfoRequ
 
 void AcaClient::SmartDrugInfoAsync(const SmartDrugInfoRequest& request, const SmartDrugInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SmartDrugInfoRequest&;
-    using Resp = SmartDrugInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SmartDrugInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SmartDrugInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AcaClient::SmartDrugInfoOutcomeCallable AcaClient::SmartDrugInfoCallable(const SmartDrugInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SmartDrugInfoOutcome>>();
-    SmartDrugInfoAsync(
-    request,
-    [prom](
-        const AcaClient*,
-        const SmartDrugInfoRequest&,
-        SmartDrugInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SmartDrugInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->SmartDrugInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AcaClient::SmartPredictOutcome AcaClient::SmartPredict(const SmartPredictRequest &request)
@@ -262,32 +234,25 @@ AcaClient::SmartPredictOutcome AcaClient::SmartPredict(const SmartPredictRequest
 
 void AcaClient::SmartPredictAsync(const SmartPredictRequest& request, const SmartPredictAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SmartPredictRequest&;
-    using Resp = SmartPredictResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SmartPredict(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SmartPredict", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AcaClient::SmartPredictOutcomeCallable AcaClient::SmartPredictCallable(const SmartPredictRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SmartPredictOutcome>>();
-    SmartPredictAsync(
-    request,
-    [prom](
-        const AcaClient*,
-        const SmartPredictRequest&,
-        SmartPredictOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SmartPredictOutcome()>>(
+        [this, request]()
+        {
+            return this->SmartPredict(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AcaClient::SyncDepartmentOutcome AcaClient::SyncDepartment(const SyncDepartmentRequest &request)
@@ -312,32 +277,25 @@ AcaClient::SyncDepartmentOutcome AcaClient::SyncDepartment(const SyncDepartmentR
 
 void AcaClient::SyncDepartmentAsync(const SyncDepartmentRequest& request, const SyncDepartmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SyncDepartmentRequest&;
-    using Resp = SyncDepartmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SyncDepartment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SyncDepartment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AcaClient::SyncDepartmentOutcomeCallable AcaClient::SyncDepartmentCallable(const SyncDepartmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SyncDepartmentOutcome>>();
-    SyncDepartmentAsync(
-    request,
-    [prom](
-        const AcaClient*,
-        const SyncDepartmentRequest&,
-        SyncDepartmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SyncDepartmentOutcome()>>(
+        [this, request]()
+        {
+            return this->SyncDepartment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AcaClient::SyncStandardDictOutcome AcaClient::SyncStandardDict(const SyncStandardDictRequest &request)
@@ -362,32 +320,25 @@ AcaClient::SyncStandardDictOutcome AcaClient::SyncStandardDict(const SyncStandar
 
 void AcaClient::SyncStandardDictAsync(const SyncStandardDictRequest& request, const SyncStandardDictAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SyncStandardDictRequest&;
-    using Resp = SyncStandardDictResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SyncStandardDict(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SyncStandardDict", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AcaClient::SyncStandardDictOutcomeCallable AcaClient::SyncStandardDictCallable(const SyncStandardDictRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SyncStandardDictOutcome>>();
-    SyncStandardDictAsync(
-    request,
-    [prom](
-        const AcaClient*,
-        const SyncStandardDictRequest&,
-        SyncStandardDictOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SyncStandardDictOutcome()>>(
+        [this, request]()
+        {
+            return this->SyncStandardDict(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AcaClient::UploadDrugsOutcome AcaClient::UploadDrugs(const UploadDrugsRequest &request)
@@ -412,31 +363,24 @@ AcaClient::UploadDrugsOutcome AcaClient::UploadDrugs(const UploadDrugsRequest &r
 
 void AcaClient::UploadDrugsAsync(const UploadDrugsRequest& request, const UploadDrugsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UploadDrugsRequest&;
-    using Resp = UploadDrugsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UploadDrugs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UploadDrugs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AcaClient::UploadDrugsOutcomeCallable AcaClient::UploadDrugsCallable(const UploadDrugsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UploadDrugsOutcome>>();
-    UploadDrugsAsync(
-    request,
-    [prom](
-        const AcaClient*,
-        const UploadDrugsRequest&,
-        UploadDrugsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UploadDrugsOutcome()>>(
+        [this, request]()
+        {
+            return this->UploadDrugs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询关联账号VPC列表出参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AccountVpcInfoOut();
-                    ~AccountVpcInfoOut() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

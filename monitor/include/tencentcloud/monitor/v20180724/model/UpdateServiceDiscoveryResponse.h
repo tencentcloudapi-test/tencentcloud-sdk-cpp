@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServiceDiscoveryItem;
+
                 /**
                 * UpdateServiceDiscovery返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Task;
+
                 /**
                 * ListMigrationTask返回参数结构体
                 */

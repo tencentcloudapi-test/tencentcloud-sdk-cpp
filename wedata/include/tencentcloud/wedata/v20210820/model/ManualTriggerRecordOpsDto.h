@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 手动工作流触发运行记录实体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ManualTriggerRecordOpsDto();
-                    ~ManualTriggerRecordOpsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

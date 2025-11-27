@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WhiteListData;
+
                 /**
                 * DescribeBPWhiteLists返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleFilters;
+
                 /**
                 * CreateAuditRuleTemplate请求参数结构体
                 */

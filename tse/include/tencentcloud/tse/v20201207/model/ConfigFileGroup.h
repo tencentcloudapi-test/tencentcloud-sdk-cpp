@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigFileGroupTag;
+
                 /**
                 * 配置文件组
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ConfigFileGroup();
-                    ~ConfigFileGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Line;
+
                 /**
                 * DescribeGeneralMetricData返回参数结构体
                 */

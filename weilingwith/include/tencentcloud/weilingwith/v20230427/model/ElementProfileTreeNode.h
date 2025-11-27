@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/weilingwith/v20230427/model/ElementProfile.h>
-#include <tencentcloud/weilingwith/v20230427/model/ElementProfileTreeNode.h>
 
 
 namespace TencentCloud
@@ -36,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ElementProfile;
+
                 /**
                 * 构件树节点信息
                 */
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ElementProfileTreeNode();
-                    ~ElementProfileTreeNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

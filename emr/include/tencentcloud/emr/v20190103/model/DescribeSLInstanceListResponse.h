@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SLInstanceInfo;
+
                 /**
                 * DescribeSLInstanceList返回参数结构体
                 */

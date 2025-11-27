@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ListAppKnowledgeDetail请求参数结构体
                 */

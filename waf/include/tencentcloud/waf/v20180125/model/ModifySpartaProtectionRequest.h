@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpartaProtectionPort;
+                class UpstreamRule;
+
                 /**
                 * ModifySpartaProtection请求参数结构体
                 */

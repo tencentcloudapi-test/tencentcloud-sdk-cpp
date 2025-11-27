@@ -62,32 +62,25 @@ VmClient::CancelTaskOutcome VmClient::CancelTask(const CancelTaskRequest &reques
 
 void VmClient::CancelTaskAsync(const CancelTaskRequest& request, const CancelTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CancelTaskRequest&;
-    using Resp = CancelTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CancelTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CancelTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::CancelTaskOutcomeCallable VmClient::CancelTaskCallable(const CancelTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CancelTaskOutcome>>();
-    CancelTaskAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const CancelTaskRequest&,
-        CancelTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CancelTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CancelTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VmClient::CreateBizConfigOutcome VmClient::CreateBizConfig(const CreateBizConfigRequest &request)
@@ -112,32 +105,25 @@ VmClient::CreateBizConfigOutcome VmClient::CreateBizConfig(const CreateBizConfig
 
 void VmClient::CreateBizConfigAsync(const CreateBizConfigRequest& request, const CreateBizConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBizConfigRequest&;
-    using Resp = CreateBizConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBizConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBizConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::CreateBizConfigOutcomeCallable VmClient::CreateBizConfigCallable(const CreateBizConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBizConfigOutcome>>();
-    CreateBizConfigAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const CreateBizConfigRequest&,
-        CreateBizConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBizConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBizConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VmClient::CreateVideoModerationTaskOutcome VmClient::CreateVideoModerationTask(const CreateVideoModerationTaskRequest &request)
@@ -162,32 +148,25 @@ VmClient::CreateVideoModerationTaskOutcome VmClient::CreateVideoModerationTask(c
 
 void VmClient::CreateVideoModerationTaskAsync(const CreateVideoModerationTaskRequest& request, const CreateVideoModerationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVideoModerationTaskRequest&;
-    using Resp = CreateVideoModerationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVideoModerationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoModerationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::CreateVideoModerationTaskOutcomeCallable VmClient::CreateVideoModerationTaskCallable(const CreateVideoModerationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVideoModerationTaskOutcome>>();
-    CreateVideoModerationTaskAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const CreateVideoModerationTaskRequest&,
-        CreateVideoModerationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVideoModerationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVideoModerationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VmClient::DescribeTaskDetailOutcome VmClient::DescribeTaskDetail(const DescribeTaskDetailRequest &request)
@@ -212,32 +191,25 @@ VmClient::DescribeTaskDetailOutcome VmClient::DescribeTaskDetail(const DescribeT
 
 void VmClient::DescribeTaskDetailAsync(const DescribeTaskDetailRequest& request, const DescribeTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskDetailRequest&;
-    using Resp = DescribeTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::DescribeTaskDetailOutcomeCallable VmClient::DescribeTaskDetailCallable(const DescribeTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskDetailOutcome>>();
-    DescribeTaskDetailAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const DescribeTaskDetailRequest&,
-        DescribeTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VmClient::DescribeVideoStatOutcome VmClient::DescribeVideoStat(const DescribeVideoStatRequest &request)
@@ -262,31 +234,24 @@ VmClient::DescribeVideoStatOutcome VmClient::DescribeVideoStat(const DescribeVid
 
 void VmClient::DescribeVideoStatAsync(const DescribeVideoStatRequest& request, const DescribeVideoStatAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoStatRequest&;
-    using Resp = DescribeVideoStatResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoStat(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoStat", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::DescribeVideoStatOutcomeCallable VmClient::DescribeVideoStatCallable(const DescribeVideoStatRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoStatOutcome>>();
-    DescribeVideoStatAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const DescribeVideoStatRequest&,
-        DescribeVideoStatOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoStatOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoStat(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 图片审核片段。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ReviewImageSegmentItem();
-                    ~ReviewImageSegmentItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

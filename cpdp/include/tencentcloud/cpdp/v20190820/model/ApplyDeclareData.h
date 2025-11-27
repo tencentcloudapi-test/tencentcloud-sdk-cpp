@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 提交申报材料结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ApplyDeclareData();
-                    ~ApplyDeclareData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

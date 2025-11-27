@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 支付中签约子订单列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ContractOrderInSubOrder();
-                    ~ContractOrderInSubOrder() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

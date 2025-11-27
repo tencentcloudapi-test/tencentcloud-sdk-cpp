@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CKafkaInstanceInfo;
+
                 /**
                 * DescribeLogDeliveryKafkaOptions返回参数结构体
                 */

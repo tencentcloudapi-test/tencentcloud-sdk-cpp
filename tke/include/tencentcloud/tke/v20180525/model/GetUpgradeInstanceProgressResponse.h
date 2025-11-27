@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceUpgradeProgressItem;
+                class InstanceUpgradeClusterStatus;
+
                 /**
                 * GetUpgradeInstanceProgress返回参数结构体
                 */

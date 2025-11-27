@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+
                 /**
                 * CreatePartnerAutoSignAuthUrl请求参数结构体
                 */

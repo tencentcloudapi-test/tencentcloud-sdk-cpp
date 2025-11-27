@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RenewPriceDetail;
+
                 /**
                 * 节点续费询价明细
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     NodeRenewPriceDetail();
-                    ~NodeRenewPriceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

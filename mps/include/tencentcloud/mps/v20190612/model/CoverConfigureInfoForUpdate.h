@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 智能封面任务控制参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CoverConfigureInfoForUpdate();
-                    ~CoverConfigureInfoForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

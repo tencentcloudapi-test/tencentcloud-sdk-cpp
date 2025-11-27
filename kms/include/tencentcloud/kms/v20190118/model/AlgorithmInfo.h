@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 算法的名称 和 标识
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AlgorithmInfo();
-                    ~AlgorithmInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

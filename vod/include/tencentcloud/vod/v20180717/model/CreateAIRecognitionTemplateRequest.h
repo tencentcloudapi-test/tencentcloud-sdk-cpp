@@ -40,6 +40,16 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HeadTailConfigureInfo;
+                class SegmentConfigureInfo;
+                class FaceConfigureInfo;
+                class OcrFullTextConfigureInfo;
+                class OcrWordsConfigureInfo;
+                class AsrFullTextConfigureInfo;
+                class AsrWordsConfigureInfo;
+                class AsrTranslateConfigureInfo;
+                class ObjectConfigureInfo;
+
                 /**
                 * CreateAIRecognitionTemplate请求参数结构体
                 */

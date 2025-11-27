@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DelayInfo;
+
                 /**
                 * DescribeLiveDelayInfoList返回参数结构体
                 */

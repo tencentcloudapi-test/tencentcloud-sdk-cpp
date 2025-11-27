@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StandaloneGatewayInfo;
+
                 /**
                 * DescribeStandaloneGateway返回参数结构体
                 */

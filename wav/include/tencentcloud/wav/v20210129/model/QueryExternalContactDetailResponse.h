@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExternalContact;
+                class FollowUser;
+
                 /**
                 * QueryExternalContactDetail返回参数结构体
                 */

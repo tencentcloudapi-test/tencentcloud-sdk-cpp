@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NewsInfo;
+
                 /**
                 * DescribeNews返回参数结构体
                 */

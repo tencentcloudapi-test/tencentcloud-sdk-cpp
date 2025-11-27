@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * DescribeAggregateDiscoveredResource返回参数结构体
                 */

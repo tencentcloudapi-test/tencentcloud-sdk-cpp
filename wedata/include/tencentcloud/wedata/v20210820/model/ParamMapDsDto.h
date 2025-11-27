@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ds参数map结构体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ParamMapDsDto();
-                    ~ParamMapDsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

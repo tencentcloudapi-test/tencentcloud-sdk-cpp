@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VisionRecognitionResult;
+
                 /**
                 * InvokeTWeSeeRecognitionTask返回参数结构体
                 */

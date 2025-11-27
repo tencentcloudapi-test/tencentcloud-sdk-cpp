@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleCodeActionParams;
+
                 /**
                 * 规则引擎带有状态码的动作
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CodeAction();
-                    ~CodeAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

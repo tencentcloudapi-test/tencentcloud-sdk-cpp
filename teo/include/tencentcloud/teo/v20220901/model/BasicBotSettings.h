@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SourceIDC;
+                class SearchEngineBots;
+                class KnownBotCategories;
+                class IPReputation;
+                class BotIntelligence;
+
                 /**
                 * Bot 管理的基础配置，对策略关联的所有域名生效。可以通过 CustomRules 进行精细化定制。
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     BasicBotSettings();
-                    ~BasicBotSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

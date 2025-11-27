@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CRDLArg;
+
                 /**
                 * IssueCredential请求参数结构体
                 */

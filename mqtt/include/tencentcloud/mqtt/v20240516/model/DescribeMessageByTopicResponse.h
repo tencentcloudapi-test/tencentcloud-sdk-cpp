@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MQTTMessage;
+
                 /**
                 * DescribeMessageByTopic返回参数结构体
                 */

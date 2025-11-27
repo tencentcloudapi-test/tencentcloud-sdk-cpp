@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 同步的ioa用户组织信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UserOrg();
-                    ~UserOrg() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

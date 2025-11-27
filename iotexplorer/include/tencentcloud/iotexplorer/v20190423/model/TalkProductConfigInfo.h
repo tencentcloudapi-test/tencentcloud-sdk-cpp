@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Talk配置信息描述。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TalkProductConfigInfo();
-                    ~TalkProductConfigInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

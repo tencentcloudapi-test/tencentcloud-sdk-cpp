@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ConfirmMultiPathGatewayOriginACL请求参数结构体
                 */

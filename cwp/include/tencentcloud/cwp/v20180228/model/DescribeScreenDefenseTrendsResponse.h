@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScreenTrendsChart;
+
                 /**
                 * DescribeScreenDefenseTrends返回参数结构体
                 */

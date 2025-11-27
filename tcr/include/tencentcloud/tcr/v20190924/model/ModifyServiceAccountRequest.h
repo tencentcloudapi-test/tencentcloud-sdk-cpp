@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Permission;
+
                 /**
                 * ModifyServiceAccount请求参数结构体
                 */

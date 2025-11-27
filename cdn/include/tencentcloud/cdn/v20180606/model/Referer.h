@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RefererRule;
+
                 /**
                 * Referer 黑白名单配置，默认为关闭状态
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Referer();
-                    ~Referer() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

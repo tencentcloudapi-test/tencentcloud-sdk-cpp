@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChainData;
+                class PhaseData;
+                class TraceItem;
+
                 /**
                 * 溯源数据
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     TraceData();
-                    ~TraceData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

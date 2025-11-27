@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 小程序音视频审核概要元信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaMiniProgramReviewElem();
-                    ~MediaMiniProgramReviewElem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

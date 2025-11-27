@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExportAccessInfo;
+
                 /**
                 * DescribeAccessExports返回参数结构体
                 */

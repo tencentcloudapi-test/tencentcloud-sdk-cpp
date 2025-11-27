@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 颁发凭证的数据参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CRDLArg();
-                    ~CRDLArg() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

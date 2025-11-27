@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComposeSubtitleStyle;
+
                 /**
                 * 视频编辑/合成任务 样式信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ComposeStyles();
-                    ~ComposeStyles() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

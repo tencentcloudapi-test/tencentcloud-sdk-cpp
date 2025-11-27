@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 自定义流程id映射关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CustomFlowIdMap();
-                    ~CustomFlowIdMap() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

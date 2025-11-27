@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 直播审核删除关键词结果详情。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AuditKeywordDeleteDetail();
-                    ~AuditKeywordDeleteDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

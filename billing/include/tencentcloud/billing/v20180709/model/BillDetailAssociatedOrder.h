@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 明细账单关联单据信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BillDetailAssociatedOrder();
-                    ~BillDetailAssociatedOrder() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosTaskResult;
+
                 /**
                 * BindDSPAResourceCosBuckets返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetKeyVal;
+
                 /**
                 * DescribeAssetProcessCount返回参数结构体
                 */

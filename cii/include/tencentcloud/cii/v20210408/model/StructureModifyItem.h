@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 结构化复核差异接口的修改的项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StructureModifyItem();
-                    ~StructureModifyItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

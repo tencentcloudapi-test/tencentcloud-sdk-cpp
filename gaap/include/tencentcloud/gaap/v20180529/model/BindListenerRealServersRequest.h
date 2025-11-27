@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RealServerBindSetReq;
+
                 /**
                 * BindListenerRealServers请求参数结构体
                 */

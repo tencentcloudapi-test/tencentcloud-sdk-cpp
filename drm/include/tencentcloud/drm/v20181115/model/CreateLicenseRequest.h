@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PlaybackPolicy;
+
                 /**
                 * CreateLicense请求参数结构体
                 */

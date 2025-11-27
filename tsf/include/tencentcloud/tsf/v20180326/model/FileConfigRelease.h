@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TsfConfigCenter;
+
                 /**
                 * 文件配置项发布信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FileConfigRelease();
-                    ~FileConfigRelease() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

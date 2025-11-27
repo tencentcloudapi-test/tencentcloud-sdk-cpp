@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DnsRecord;
+
                 /**
                 * DescribeDnsRecords返回参数结构体
                 */

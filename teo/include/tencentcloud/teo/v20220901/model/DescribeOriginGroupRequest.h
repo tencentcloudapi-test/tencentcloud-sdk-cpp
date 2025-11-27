@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AdvancedFilter;
+
                 /**
                 * DescribeOriginGroup请求参数结构体
                 */

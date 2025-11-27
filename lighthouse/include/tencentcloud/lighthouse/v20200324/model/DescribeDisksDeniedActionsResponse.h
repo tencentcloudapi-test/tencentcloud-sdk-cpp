@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiskDeniedActions;
+
                 /**
                 * DescribeDisksDeniedActions返回参数结构体
                 */

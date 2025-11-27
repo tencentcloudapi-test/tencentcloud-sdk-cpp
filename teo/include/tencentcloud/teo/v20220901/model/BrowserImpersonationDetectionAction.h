@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BotSessionValidation;
+                class ClientBehaviorDetection;
+
                 /**
                 * Bot 浏览器校验规则（原主动特征识别规则）的 Action。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     BrowserImpersonationDetectionAction();
-                    ~BrowserImpersonationDetectionAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

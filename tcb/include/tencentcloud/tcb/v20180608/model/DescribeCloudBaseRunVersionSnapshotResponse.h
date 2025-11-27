@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudRunServiceSimpleVersionSnapshot;
+
                 /**
                 * DescribeCloudBaseRunVersionSnapshot返回参数结构体
                 */

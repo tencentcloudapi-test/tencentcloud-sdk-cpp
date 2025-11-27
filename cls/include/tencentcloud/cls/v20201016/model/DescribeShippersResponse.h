@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ShipperInfo;
+
                 /**
                 * DescribeShippers返回参数结构体
                 */

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulFixStatusSnapshotInfo;
+                class VulFixStatusInfo;
+
                 /**
                 * DescribeVulFixStatus返回参数结构体
                 */

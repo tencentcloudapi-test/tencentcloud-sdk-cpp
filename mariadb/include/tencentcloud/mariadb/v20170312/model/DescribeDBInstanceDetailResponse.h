@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceTag;
+                class NodeInfo;
+                class DCNReplicaConfig;
+                class DCNReplicaStatus;
+                class ReservedNetResource;
+
                 /**
                 * DescribeDBInstanceDetail返回参数结构体
                 */

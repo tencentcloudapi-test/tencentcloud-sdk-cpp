@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HttpCodeInfo;
+
                 /**
                 * DescribePlayErrorCodeDetailInfoList返回参数结构体
                 */

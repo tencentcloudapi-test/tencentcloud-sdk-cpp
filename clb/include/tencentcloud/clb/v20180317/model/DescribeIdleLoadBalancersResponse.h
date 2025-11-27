@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IdleLoadBalancer;
+
                 /**
                 * DescribeIdleLoadBalancers返回参数结构体
                 */

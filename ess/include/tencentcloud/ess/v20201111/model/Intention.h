@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IntentionQuestion;
+                class IntentionAction;
+                class RuleIdConfig;
+
                 /**
                 * 视频核身意图配置，可指定问答模式或者点头模式的语音文本。
 
@@ -46,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     Intention();
-                    ~Intention() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

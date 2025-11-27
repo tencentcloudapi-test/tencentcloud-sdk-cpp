@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogInfo;
+                class LogItems;
+                class Column;
+
                 /**
                 * SearchLog返回参数结构体
                 */

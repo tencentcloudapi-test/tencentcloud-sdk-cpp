@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 验证码拼装Rce结果，Rce结果部分
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RceResult();
-                    ~RceResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

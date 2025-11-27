@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HostDel;
+
                 /**
                 * DeleteHost请求参数结构体
                 */

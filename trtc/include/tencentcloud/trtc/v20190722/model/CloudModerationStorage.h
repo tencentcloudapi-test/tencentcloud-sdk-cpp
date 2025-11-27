@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 腾讯云对象存储COS以及第三方云存储的账号信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudModerationStorage();
-                    ~CloudModerationStorage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

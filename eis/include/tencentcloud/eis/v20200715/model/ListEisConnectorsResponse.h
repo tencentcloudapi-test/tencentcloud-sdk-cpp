@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EisConnectorSummary;
+
                 /**
                 * ListEisConnectors返回参数结构体
                 */

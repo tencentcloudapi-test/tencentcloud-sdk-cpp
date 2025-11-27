@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询对账文件申请结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     QueryReconciliationFileApplyInfoResult();
-                    ~QueryReconciliationFileApplyInfoResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

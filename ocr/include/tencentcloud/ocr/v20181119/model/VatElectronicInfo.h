@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VatElectronicItemInfo;
+
                 /**
                 * 电子发票返回值
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VatElectronicInfo();
-                    ~VatElectronicInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

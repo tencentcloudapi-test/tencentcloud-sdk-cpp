@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 主题消费进度
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TopicConsumeStats();
-                    ~TopicConsumeStats() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

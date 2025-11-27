@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class NeedReviewApproverInfo;
+                class Agent;
+
                 /**
                 * CreateFlowGroupSignReview请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询实时任务实例当前的节点信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceNodeInfo();
-                    ~InstanceNodeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

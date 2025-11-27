@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数据库实例 URI 形式的连接串访问地址示例。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DbURL();
-                    ~DbURL() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

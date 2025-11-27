@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BotIdConfig;
+
                 /**
                 * ModifyBotIdRule请求参数结构体
                 */

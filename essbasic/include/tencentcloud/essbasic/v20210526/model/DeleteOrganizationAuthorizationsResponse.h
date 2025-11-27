@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeleteOrganizationAuthorizationInfo;
+
                 /**
                 * DeleteOrganizationAuthorizations返回参数结构体
                 */

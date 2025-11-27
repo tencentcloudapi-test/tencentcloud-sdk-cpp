@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchContent;
+
                 /**
                 * SendMessage请求参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PackSpec;
+
                 /**
                 * 溯源码
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TraceCode();
-                    ~TraceCode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UsageByDateInfoData;
+
                 /**
                 * GetUsageByDate返回参数结构体
                 */

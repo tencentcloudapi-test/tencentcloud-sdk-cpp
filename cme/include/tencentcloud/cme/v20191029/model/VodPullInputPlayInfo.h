@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 点播文件播放信息，包含当前在播地址和该地址已播时长 。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VodPullInputPlayInfo();
-                    ~VodPullInputPlayInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

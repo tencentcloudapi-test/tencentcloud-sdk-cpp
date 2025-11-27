@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceLifeDetailDto;
+                class InstanceLogInfo;
+                class TaskTypeOpsDto;
+
                 /**
                 * 实例生命周期详情
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceLifeCycleOpsDto();
-                    ~InstanceLifeCycleOpsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

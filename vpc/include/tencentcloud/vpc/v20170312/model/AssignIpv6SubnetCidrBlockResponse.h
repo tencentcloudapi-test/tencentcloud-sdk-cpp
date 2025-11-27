@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Ipv6SubnetCidrBlock;
+
                 /**
                 * AssignIpv6SubnetCidrBlock返回参数结构体
                 */

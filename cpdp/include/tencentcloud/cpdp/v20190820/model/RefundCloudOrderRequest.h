@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudSubOrderRefund;
+
                 /**
                 * RefundCloudOrder请求参数结构体
                 */

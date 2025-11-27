@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IPStrategy;
+
                 /**
                 * DescribeIPStrategy返回参数结构体
                 */

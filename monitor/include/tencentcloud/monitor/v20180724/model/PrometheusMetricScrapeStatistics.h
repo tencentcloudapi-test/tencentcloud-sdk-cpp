@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 指标抓取统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusMetricScrapeStatistics();
-                    ~PrometheusMetricScrapeStatistics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

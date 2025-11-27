@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaModerationConfig;
+
                 /**
                 * CreateBizConfig请求参数结构体
                 */

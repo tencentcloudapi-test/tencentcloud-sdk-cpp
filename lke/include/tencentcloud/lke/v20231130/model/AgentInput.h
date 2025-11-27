@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AgentInputUserInputValue;
+                class AgentInputSystemVariable;
+
                 /**
                 * Agent输入值，支持直接赋值和引用
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AgentInput();
-                    ~AgentInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

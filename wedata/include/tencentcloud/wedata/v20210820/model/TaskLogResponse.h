@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogContent;
+
                 /**
                 * TaskLog返回参数结构体
                 */

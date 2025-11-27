@@ -62,32 +62,25 @@ WafClient::AddAntiFakeUrlOutcome WafClient::AddAntiFakeUrl(const AddAntiFakeUrlR
 
 void WafClient::AddAntiFakeUrlAsync(const AddAntiFakeUrlRequest& request, const AddAntiFakeUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddAntiFakeUrlRequest&;
-    using Resp = AddAntiFakeUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddAntiFakeUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddAntiFakeUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::AddAntiFakeUrlOutcomeCallable WafClient::AddAntiFakeUrlCallable(const AddAntiFakeUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddAntiFakeUrlOutcome>>();
-    AddAntiFakeUrlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const AddAntiFakeUrlRequest&,
-        AddAntiFakeUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddAntiFakeUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->AddAntiFakeUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::AddAntiInfoLeakRulesOutcome WafClient::AddAntiInfoLeakRules(const AddAntiInfoLeakRulesRequest &request)
@@ -112,32 +105,25 @@ WafClient::AddAntiInfoLeakRulesOutcome WafClient::AddAntiInfoLeakRules(const Add
 
 void WafClient::AddAntiInfoLeakRulesAsync(const AddAntiInfoLeakRulesRequest& request, const AddAntiInfoLeakRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddAntiInfoLeakRulesRequest&;
-    using Resp = AddAntiInfoLeakRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddAntiInfoLeakRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddAntiInfoLeakRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::AddAntiInfoLeakRulesOutcomeCallable WafClient::AddAntiInfoLeakRulesCallable(const AddAntiInfoLeakRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddAntiInfoLeakRulesOutcome>>();
-    AddAntiInfoLeakRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const AddAntiInfoLeakRulesRequest&,
-        AddAntiInfoLeakRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddAntiInfoLeakRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->AddAntiInfoLeakRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::AddAreaBanAreasOutcome WafClient::AddAreaBanAreas(const AddAreaBanAreasRequest &request)
@@ -162,32 +148,25 @@ WafClient::AddAreaBanAreasOutcome WafClient::AddAreaBanAreas(const AddAreaBanAre
 
 void WafClient::AddAreaBanAreasAsync(const AddAreaBanAreasRequest& request, const AddAreaBanAreasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddAreaBanAreasRequest&;
-    using Resp = AddAreaBanAreasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddAreaBanAreas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddAreaBanAreas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::AddAreaBanAreasOutcomeCallable WafClient::AddAreaBanAreasCallable(const AddAreaBanAreasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddAreaBanAreasOutcome>>();
-    AddAreaBanAreasAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const AddAreaBanAreasRequest&,
-        AddAreaBanAreasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddAreaBanAreasOutcome()>>(
+        [this, request]()
+        {
+            return this->AddAreaBanAreas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::AddAttackWhiteRuleOutcome WafClient::AddAttackWhiteRule(const AddAttackWhiteRuleRequest &request)
@@ -212,32 +191,25 @@ WafClient::AddAttackWhiteRuleOutcome WafClient::AddAttackWhiteRule(const AddAtta
 
 void WafClient::AddAttackWhiteRuleAsync(const AddAttackWhiteRuleRequest& request, const AddAttackWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddAttackWhiteRuleRequest&;
-    using Resp = AddAttackWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddAttackWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddAttackWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::AddAttackWhiteRuleOutcomeCallable WafClient::AddAttackWhiteRuleCallable(const AddAttackWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddAttackWhiteRuleOutcome>>();
-    AddAttackWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const AddAttackWhiteRuleRequest&,
-        AddAttackWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddAttackWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->AddAttackWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::AddCustomRuleOutcome WafClient::AddCustomRule(const AddCustomRuleRequest &request)
@@ -262,32 +234,25 @@ WafClient::AddCustomRuleOutcome WafClient::AddCustomRule(const AddCustomRuleRequ
 
 void WafClient::AddCustomRuleAsync(const AddCustomRuleRequest& request, const AddCustomRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddCustomRuleRequest&;
-    using Resp = AddCustomRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddCustomRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddCustomRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::AddCustomRuleOutcomeCallable WafClient::AddCustomRuleCallable(const AddCustomRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddCustomRuleOutcome>>();
-    AddCustomRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const AddCustomRuleRequest&,
-        AddCustomRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddCustomRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->AddCustomRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::AddCustomWhiteRuleOutcome WafClient::AddCustomWhiteRule(const AddCustomWhiteRuleRequest &request)
@@ -312,32 +277,25 @@ WafClient::AddCustomWhiteRuleOutcome WafClient::AddCustomWhiteRule(const AddCust
 
 void WafClient::AddCustomWhiteRuleAsync(const AddCustomWhiteRuleRequest& request, const AddCustomWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddCustomWhiteRuleRequest&;
-    using Resp = AddCustomWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddCustomWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddCustomWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::AddCustomWhiteRuleOutcomeCallable WafClient::AddCustomWhiteRuleCallable(const AddCustomWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddCustomWhiteRuleOutcome>>();
-    AddCustomWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const AddCustomWhiteRuleRequest&,
-        AddCustomWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddCustomWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->AddCustomWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::AddDomainWhiteRuleOutcome WafClient::AddDomainWhiteRule(const AddDomainWhiteRuleRequest &request)
@@ -362,32 +320,25 @@ WafClient::AddDomainWhiteRuleOutcome WafClient::AddDomainWhiteRule(const AddDoma
 
 void WafClient::AddDomainWhiteRuleAsync(const AddDomainWhiteRuleRequest& request, const AddDomainWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddDomainWhiteRuleRequest&;
-    using Resp = AddDomainWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddDomainWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddDomainWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::AddDomainWhiteRuleOutcomeCallable WafClient::AddDomainWhiteRuleCallable(const AddDomainWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddDomainWhiteRuleOutcome>>();
-    AddDomainWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const AddDomainWhiteRuleRequest&,
-        AddDomainWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddDomainWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->AddDomainWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::AddSpartaProtectionOutcome WafClient::AddSpartaProtection(const AddSpartaProtectionRequest &request)
@@ -412,32 +363,25 @@ WafClient::AddSpartaProtectionOutcome WafClient::AddSpartaProtection(const AddSp
 
 void WafClient::AddSpartaProtectionAsync(const AddSpartaProtectionRequest& request, const AddSpartaProtectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddSpartaProtectionRequest&;
-    using Resp = AddSpartaProtectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddSpartaProtection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddSpartaProtection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::AddSpartaProtectionOutcomeCallable WafClient::AddSpartaProtectionCallable(const AddSpartaProtectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddSpartaProtectionOutcome>>();
-    AddSpartaProtectionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const AddSpartaProtectionRequest&,
-        AddSpartaProtectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddSpartaProtectionOutcome()>>(
+        [this, request]()
+        {
+            return this->AddSpartaProtection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::BatchOperateUserSignatureRulesOutcome WafClient::BatchOperateUserSignatureRules(const BatchOperateUserSignatureRulesRequest &request)
@@ -462,32 +406,25 @@ WafClient::BatchOperateUserSignatureRulesOutcome WafClient::BatchOperateUserSign
 
 void WafClient::BatchOperateUserSignatureRulesAsync(const BatchOperateUserSignatureRulesRequest& request, const BatchOperateUserSignatureRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchOperateUserSignatureRulesRequest&;
-    using Resp = BatchOperateUserSignatureRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchOperateUserSignatureRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchOperateUserSignatureRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::BatchOperateUserSignatureRulesOutcomeCallable WafClient::BatchOperateUserSignatureRulesCallable(const BatchOperateUserSignatureRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchOperateUserSignatureRulesOutcome>>();
-    BatchOperateUserSignatureRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const BatchOperateUserSignatureRulesRequest&,
-        BatchOperateUserSignatureRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchOperateUserSignatureRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchOperateUserSignatureRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateAccessExportOutcome WafClient::CreateAccessExport(const CreateAccessExportRequest &request)
@@ -512,32 +449,25 @@ WafClient::CreateAccessExportOutcome WafClient::CreateAccessExport(const CreateA
 
 void WafClient::CreateAccessExportAsync(const CreateAccessExportRequest& request, const CreateAccessExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAccessExportRequest&;
-    using Resp = CreateAccessExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAccessExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAccessExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateAccessExportOutcomeCallable WafClient::CreateAccessExportCallable(const CreateAccessExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAccessExportOutcome>>();
-    CreateAccessExportAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateAccessExportRequest&,
-        CreateAccessExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAccessExportOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAccessExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateAreaBanRuleOutcome WafClient::CreateAreaBanRule(const CreateAreaBanRuleRequest &request)
@@ -562,32 +492,25 @@ WafClient::CreateAreaBanRuleOutcome WafClient::CreateAreaBanRule(const CreateAre
 
 void WafClient::CreateAreaBanRuleAsync(const CreateAreaBanRuleRequest& request, const CreateAreaBanRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAreaBanRuleRequest&;
-    using Resp = CreateAreaBanRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAreaBanRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAreaBanRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateAreaBanRuleOutcomeCallable WafClient::CreateAreaBanRuleCallable(const CreateAreaBanRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAreaBanRuleOutcome>>();
-    CreateAreaBanRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateAreaBanRuleRequest&,
-        CreateAreaBanRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAreaBanRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAreaBanRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateBatchIpAccessControlOutcome WafClient::CreateBatchIpAccessControl(const CreateBatchIpAccessControlRequest &request)
@@ -612,32 +535,25 @@ WafClient::CreateBatchIpAccessControlOutcome WafClient::CreateBatchIpAccessContr
 
 void WafClient::CreateBatchIpAccessControlAsync(const CreateBatchIpAccessControlRequest& request, const CreateBatchIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBatchIpAccessControlRequest&;
-    using Resp = CreateBatchIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBatchIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBatchIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateBatchIpAccessControlOutcomeCallable WafClient::CreateBatchIpAccessControlCallable(const CreateBatchIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBatchIpAccessControlOutcome>>();
-    CreateBatchIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateBatchIpAccessControlRequest&,
-        CreateBatchIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBatchIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBatchIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateDealsOutcome WafClient::CreateDeals(const CreateDealsRequest &request)
@@ -662,32 +578,25 @@ WafClient::CreateDealsOutcome WafClient::CreateDeals(const CreateDealsRequest &r
 
 void WafClient::CreateDealsAsync(const CreateDealsRequest& request, const CreateDealsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDealsRequest&;
-    using Resp = CreateDealsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDeals(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDeals", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateDealsOutcomeCallable WafClient::CreateDealsCallable(const CreateDealsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDealsOutcome>>();
-    CreateDealsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateDealsRequest&,
-        CreateDealsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDealsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDeals(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateExportOutcome WafClient::CreateExport(const CreateExportRequest &request)
@@ -712,32 +621,25 @@ WafClient::CreateExportOutcome WafClient::CreateExport(const CreateExportRequest
 
 void WafClient::CreateExportAsync(const CreateExportRequest& request, const CreateExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateExportRequest&;
-    using Resp = CreateExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateExportOutcomeCallable WafClient::CreateExportCallable(const CreateExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateExportOutcome>>();
-    CreateExportAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateExportRequest&,
-        CreateExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateExportOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateHostOutcome WafClient::CreateHost(const CreateHostRequest &request)
@@ -762,32 +664,25 @@ WafClient::CreateHostOutcome WafClient::CreateHost(const CreateHostRequest &requ
 
 void WafClient::CreateHostAsync(const CreateHostRequest& request, const CreateHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHostRequest&;
-    using Resp = CreateHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateHostOutcomeCallable WafClient::CreateHostCallable(const CreateHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHostOutcome>>();
-    CreateHostAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateHostRequest&,
-        CreateHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHostOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateIpAccessControlOutcome WafClient::CreateIpAccessControl(const CreateIpAccessControlRequest &request)
@@ -812,32 +707,25 @@ WafClient::CreateIpAccessControlOutcome WafClient::CreateIpAccessControl(const C
 
 void WafClient::CreateIpAccessControlAsync(const CreateIpAccessControlRequest& request, const CreateIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateIpAccessControlRequest&;
-    using Resp = CreateIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateIpAccessControlOutcomeCallable WafClient::CreateIpAccessControlCallable(const CreateIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateIpAccessControlOutcome>>();
-    CreateIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateIpAccessControlRequest&,
-        CreateIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateOwaspWhiteRuleOutcome WafClient::CreateOwaspWhiteRule(const CreateOwaspWhiteRuleRequest &request)
@@ -862,32 +750,25 @@ WafClient::CreateOwaspWhiteRuleOutcome WafClient::CreateOwaspWhiteRule(const Cre
 
 void WafClient::CreateOwaspWhiteRuleAsync(const CreateOwaspWhiteRuleRequest& request, const CreateOwaspWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOwaspWhiteRuleRequest&;
-    using Resp = CreateOwaspWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOwaspWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOwaspWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateOwaspWhiteRuleOutcomeCallable WafClient::CreateOwaspWhiteRuleCallable(const CreateOwaspWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOwaspWhiteRuleOutcome>>();
-    CreateOwaspWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateOwaspWhiteRuleRequest&,
-        CreateOwaspWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOwaspWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOwaspWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreatePostCKafkaFlowOutcome WafClient::CreatePostCKafkaFlow(const CreatePostCKafkaFlowRequest &request)
@@ -912,32 +793,25 @@ WafClient::CreatePostCKafkaFlowOutcome WafClient::CreatePostCKafkaFlow(const Cre
 
 void WafClient::CreatePostCKafkaFlowAsync(const CreatePostCKafkaFlowRequest& request, const CreatePostCKafkaFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePostCKafkaFlowRequest&;
-    using Resp = CreatePostCKafkaFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePostCKafkaFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePostCKafkaFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreatePostCKafkaFlowOutcomeCallable WafClient::CreatePostCKafkaFlowCallable(const CreatePostCKafkaFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePostCKafkaFlowOutcome>>();
-    CreatePostCKafkaFlowAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreatePostCKafkaFlowRequest&,
-        CreatePostCKafkaFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePostCKafkaFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePostCKafkaFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreatePostCLSFlowOutcome WafClient::CreatePostCLSFlow(const CreatePostCLSFlowRequest &request)
@@ -962,32 +836,25 @@ WafClient::CreatePostCLSFlowOutcome WafClient::CreatePostCLSFlow(const CreatePos
 
 void WafClient::CreatePostCLSFlowAsync(const CreatePostCLSFlowRequest& request, const CreatePostCLSFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePostCLSFlowRequest&;
-    using Resp = CreatePostCLSFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePostCLSFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePostCLSFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreatePostCLSFlowOutcomeCallable WafClient::CreatePostCLSFlowCallable(const CreatePostCLSFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePostCLSFlowOutcome>>();
-    CreatePostCLSFlowAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const CreatePostCLSFlowRequest&,
-        CreatePostCLSFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePostCLSFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePostCLSFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::CreateRateLimitV2Outcome WafClient::CreateRateLimitV2(const CreateRateLimitV2Request &request)
@@ -1012,32 +879,25 @@ WafClient::CreateRateLimitV2Outcome WafClient::CreateRateLimitV2(const CreateRat
 
 void WafClient::CreateRateLimitV2Async(const CreateRateLimitV2Request& request, const CreateRateLimitV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRateLimitV2Request&;
-    using Resp = CreateRateLimitV2Response;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRateLimitV2(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRateLimitV2", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::CreateRateLimitV2OutcomeCallable WafClient::CreateRateLimitV2Callable(const CreateRateLimitV2Request &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRateLimitV2Outcome>>();
-    CreateRateLimitV2Async(
-    request,
-    [prom](
-        const WafClient*,
-        const CreateRateLimitV2Request&,
-        CreateRateLimitV2Outcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRateLimitV2Outcome()>>(
+        [this, request]()
+        {
+            return this->CreateRateLimitV2(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteAccessExportOutcome WafClient::DeleteAccessExport(const DeleteAccessExportRequest &request)
@@ -1062,32 +922,25 @@ WafClient::DeleteAccessExportOutcome WafClient::DeleteAccessExport(const DeleteA
 
 void WafClient::DeleteAccessExportAsync(const DeleteAccessExportRequest& request, const DeleteAccessExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAccessExportRequest&;
-    using Resp = DeleteAccessExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAccessExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAccessExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteAccessExportOutcomeCallable WafClient::DeleteAccessExportCallable(const DeleteAccessExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAccessExportOutcome>>();
-    DeleteAccessExportAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteAccessExportRequest&,
-        DeleteAccessExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAccessExportOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAccessExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteAntiFakeUrlOutcome WafClient::DeleteAntiFakeUrl(const DeleteAntiFakeUrlRequest &request)
@@ -1112,32 +965,25 @@ WafClient::DeleteAntiFakeUrlOutcome WafClient::DeleteAntiFakeUrl(const DeleteAnt
 
 void WafClient::DeleteAntiFakeUrlAsync(const DeleteAntiFakeUrlRequest& request, const DeleteAntiFakeUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAntiFakeUrlRequest&;
-    using Resp = DeleteAntiFakeUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAntiFakeUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAntiFakeUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteAntiFakeUrlOutcomeCallable WafClient::DeleteAntiFakeUrlCallable(const DeleteAntiFakeUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAntiFakeUrlOutcome>>();
-    DeleteAntiFakeUrlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteAntiFakeUrlRequest&,
-        DeleteAntiFakeUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAntiFakeUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAntiFakeUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteAntiInfoLeakRuleOutcome WafClient::DeleteAntiInfoLeakRule(const DeleteAntiInfoLeakRuleRequest &request)
@@ -1162,32 +1008,25 @@ WafClient::DeleteAntiInfoLeakRuleOutcome WafClient::DeleteAntiInfoLeakRule(const
 
 void WafClient::DeleteAntiInfoLeakRuleAsync(const DeleteAntiInfoLeakRuleRequest& request, const DeleteAntiInfoLeakRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAntiInfoLeakRuleRequest&;
-    using Resp = DeleteAntiInfoLeakRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAntiInfoLeakRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAntiInfoLeakRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteAntiInfoLeakRuleOutcomeCallable WafClient::DeleteAntiInfoLeakRuleCallable(const DeleteAntiInfoLeakRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAntiInfoLeakRuleOutcome>>();
-    DeleteAntiInfoLeakRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteAntiInfoLeakRuleRequest&,
-        DeleteAntiInfoLeakRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAntiInfoLeakRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAntiInfoLeakRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteAttackDownloadRecordOutcome WafClient::DeleteAttackDownloadRecord(const DeleteAttackDownloadRecordRequest &request)
@@ -1212,32 +1051,25 @@ WafClient::DeleteAttackDownloadRecordOutcome WafClient::DeleteAttackDownloadReco
 
 void WafClient::DeleteAttackDownloadRecordAsync(const DeleteAttackDownloadRecordRequest& request, const DeleteAttackDownloadRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAttackDownloadRecordRequest&;
-    using Resp = DeleteAttackDownloadRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAttackDownloadRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAttackDownloadRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteAttackDownloadRecordOutcomeCallable WafClient::DeleteAttackDownloadRecordCallable(const DeleteAttackDownloadRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAttackDownloadRecordOutcome>>();
-    DeleteAttackDownloadRecordAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteAttackDownloadRecordRequest&,
-        DeleteAttackDownloadRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAttackDownloadRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAttackDownloadRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteAttackWhiteRuleOutcome WafClient::DeleteAttackWhiteRule(const DeleteAttackWhiteRuleRequest &request)
@@ -1262,32 +1094,25 @@ WafClient::DeleteAttackWhiteRuleOutcome WafClient::DeleteAttackWhiteRule(const D
 
 void WafClient::DeleteAttackWhiteRuleAsync(const DeleteAttackWhiteRuleRequest& request, const DeleteAttackWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAttackWhiteRuleRequest&;
-    using Resp = DeleteAttackWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAttackWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAttackWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteAttackWhiteRuleOutcomeCallable WafClient::DeleteAttackWhiteRuleCallable(const DeleteAttackWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAttackWhiteRuleOutcome>>();
-    DeleteAttackWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteAttackWhiteRuleRequest&,
-        DeleteAttackWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAttackWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAttackWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteBatchIpAccessControlOutcome WafClient::DeleteBatchIpAccessControl(const DeleteBatchIpAccessControlRequest &request)
@@ -1312,32 +1137,25 @@ WafClient::DeleteBatchIpAccessControlOutcome WafClient::DeleteBatchIpAccessContr
 
 void WafClient::DeleteBatchIpAccessControlAsync(const DeleteBatchIpAccessControlRequest& request, const DeleteBatchIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteBatchIpAccessControlRequest&;
-    using Resp = DeleteBatchIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteBatchIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteBatchIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteBatchIpAccessControlOutcomeCallable WafClient::DeleteBatchIpAccessControlCallable(const DeleteBatchIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteBatchIpAccessControlOutcome>>();
-    DeleteBatchIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteBatchIpAccessControlRequest&,
-        DeleteBatchIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteBatchIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteBatchIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteBotSceneUCBRuleOutcome WafClient::DeleteBotSceneUCBRule(const DeleteBotSceneUCBRuleRequest &request)
@@ -1362,32 +1180,25 @@ WafClient::DeleteBotSceneUCBRuleOutcome WafClient::DeleteBotSceneUCBRule(const D
 
 void WafClient::DeleteBotSceneUCBRuleAsync(const DeleteBotSceneUCBRuleRequest& request, const DeleteBotSceneUCBRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteBotSceneUCBRuleRequest&;
-    using Resp = DeleteBotSceneUCBRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteBotSceneUCBRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteBotSceneUCBRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteBotSceneUCBRuleOutcomeCallable WafClient::DeleteBotSceneUCBRuleCallable(const DeleteBotSceneUCBRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteBotSceneUCBRuleOutcome>>();
-    DeleteBotSceneUCBRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteBotSceneUCBRuleRequest&,
-        DeleteBotSceneUCBRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteBotSceneUCBRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteBotSceneUCBRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteCCRuleOutcome WafClient::DeleteCCRule(const DeleteCCRuleRequest &request)
@@ -1412,32 +1223,25 @@ WafClient::DeleteCCRuleOutcome WafClient::DeleteCCRule(const DeleteCCRuleRequest
 
 void WafClient::DeleteCCRuleAsync(const DeleteCCRuleRequest& request, const DeleteCCRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCCRuleRequest&;
-    using Resp = DeleteCCRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCCRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCCRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteCCRuleOutcomeCallable WafClient::DeleteCCRuleCallable(const DeleteCCRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCCRuleOutcome>>();
-    DeleteCCRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteCCRuleRequest&,
-        DeleteCCRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCCRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCCRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteCustomRuleOutcome WafClient::DeleteCustomRule(const DeleteCustomRuleRequest &request)
@@ -1462,32 +1266,25 @@ WafClient::DeleteCustomRuleOutcome WafClient::DeleteCustomRule(const DeleteCusto
 
 void WafClient::DeleteCustomRuleAsync(const DeleteCustomRuleRequest& request, const DeleteCustomRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCustomRuleRequest&;
-    using Resp = DeleteCustomRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCustomRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCustomRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteCustomRuleOutcomeCallable WafClient::DeleteCustomRuleCallable(const DeleteCustomRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCustomRuleOutcome>>();
-    DeleteCustomRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteCustomRuleRequest&,
-        DeleteCustomRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCustomRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCustomRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteCustomWhiteRuleOutcome WafClient::DeleteCustomWhiteRule(const DeleteCustomWhiteRuleRequest &request)
@@ -1512,32 +1309,25 @@ WafClient::DeleteCustomWhiteRuleOutcome WafClient::DeleteCustomWhiteRule(const D
 
 void WafClient::DeleteCustomWhiteRuleAsync(const DeleteCustomWhiteRuleRequest& request, const DeleteCustomWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCustomWhiteRuleRequest&;
-    using Resp = DeleteCustomWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCustomWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCustomWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteCustomWhiteRuleOutcomeCallable WafClient::DeleteCustomWhiteRuleCallable(const DeleteCustomWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCustomWhiteRuleOutcome>>();
-    DeleteCustomWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteCustomWhiteRuleRequest&,
-        DeleteCustomWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCustomWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCustomWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteDomainWhiteRulesOutcome WafClient::DeleteDomainWhiteRules(const DeleteDomainWhiteRulesRequest &request)
@@ -1562,32 +1352,25 @@ WafClient::DeleteDomainWhiteRulesOutcome WafClient::DeleteDomainWhiteRules(const
 
 void WafClient::DeleteDomainWhiteRulesAsync(const DeleteDomainWhiteRulesRequest& request, const DeleteDomainWhiteRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDomainWhiteRulesRequest&;
-    using Resp = DeleteDomainWhiteRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDomainWhiteRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDomainWhiteRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteDomainWhiteRulesOutcomeCallable WafClient::DeleteDomainWhiteRulesCallable(const DeleteDomainWhiteRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDomainWhiteRulesOutcome>>();
-    DeleteDomainWhiteRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteDomainWhiteRulesRequest&,
-        DeleteDomainWhiteRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDomainWhiteRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDomainWhiteRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteExportOutcome WafClient::DeleteExport(const DeleteExportRequest &request)
@@ -1612,32 +1395,25 @@ WafClient::DeleteExportOutcome WafClient::DeleteExport(const DeleteExportRequest
 
 void WafClient::DeleteExportAsync(const DeleteExportRequest& request, const DeleteExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteExportRequest&;
-    using Resp = DeleteExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteExportOutcomeCallable WafClient::DeleteExportCallable(const DeleteExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteExportOutcome>>();
-    DeleteExportAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteExportRequest&,
-        DeleteExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteExportOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteHostOutcome WafClient::DeleteHost(const DeleteHostRequest &request)
@@ -1662,32 +1438,25 @@ WafClient::DeleteHostOutcome WafClient::DeleteHost(const DeleteHostRequest &requ
 
 void WafClient::DeleteHostAsync(const DeleteHostRequest& request, const DeleteHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteHostRequest&;
-    using Resp = DeleteHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteHostOutcomeCallable WafClient::DeleteHostCallable(const DeleteHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteHostOutcome>>();
-    DeleteHostAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteHostRequest&,
-        DeleteHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteHostOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteIpAccessControlOutcome WafClient::DeleteIpAccessControl(const DeleteIpAccessControlRequest &request)
@@ -1712,32 +1481,25 @@ WafClient::DeleteIpAccessControlOutcome WafClient::DeleteIpAccessControl(const D
 
 void WafClient::DeleteIpAccessControlAsync(const DeleteIpAccessControlRequest& request, const DeleteIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteIpAccessControlRequest&;
-    using Resp = DeleteIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteIpAccessControlOutcomeCallable WafClient::DeleteIpAccessControlCallable(const DeleteIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteIpAccessControlOutcome>>();
-    DeleteIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteIpAccessControlRequest&,
-        DeleteIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteIpAccessControlV2Outcome WafClient::DeleteIpAccessControlV2(const DeleteIpAccessControlV2Request &request)
@@ -1762,32 +1524,25 @@ WafClient::DeleteIpAccessControlV2Outcome WafClient::DeleteIpAccessControlV2(con
 
 void WafClient::DeleteIpAccessControlV2Async(const DeleteIpAccessControlV2Request& request, const DeleteIpAccessControlV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteIpAccessControlV2Request&;
-    using Resp = DeleteIpAccessControlV2Response;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteIpAccessControlV2(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteIpAccessControlV2", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteIpAccessControlV2OutcomeCallable WafClient::DeleteIpAccessControlV2Callable(const DeleteIpAccessControlV2Request &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteIpAccessControlV2Outcome>>();
-    DeleteIpAccessControlV2Async(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteIpAccessControlV2Request&,
-        DeleteIpAccessControlV2Outcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteIpAccessControlV2Outcome()>>(
+        [this, request]()
+        {
+            return this->DeleteIpAccessControlV2(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteOwaspRuleStatusOutcome WafClient::DeleteOwaspRuleStatus(const DeleteOwaspRuleStatusRequest &request)
@@ -1812,32 +1567,25 @@ WafClient::DeleteOwaspRuleStatusOutcome WafClient::DeleteOwaspRuleStatus(const D
 
 void WafClient::DeleteOwaspRuleStatusAsync(const DeleteOwaspRuleStatusRequest& request, const DeleteOwaspRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOwaspRuleStatusRequest&;
-    using Resp = DeleteOwaspRuleStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOwaspRuleStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOwaspRuleStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteOwaspRuleStatusOutcomeCallable WafClient::DeleteOwaspRuleStatusCallable(const DeleteOwaspRuleStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOwaspRuleStatusOutcome>>();
-    DeleteOwaspRuleStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteOwaspRuleStatusRequest&,
-        DeleteOwaspRuleStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOwaspRuleStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOwaspRuleStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteOwaspWhiteRuleOutcome WafClient::DeleteOwaspWhiteRule(const DeleteOwaspWhiteRuleRequest &request)
@@ -1862,32 +1610,25 @@ WafClient::DeleteOwaspWhiteRuleOutcome WafClient::DeleteOwaspWhiteRule(const Del
 
 void WafClient::DeleteOwaspWhiteRuleAsync(const DeleteOwaspWhiteRuleRequest& request, const DeleteOwaspWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOwaspWhiteRuleRequest&;
-    using Resp = DeleteOwaspWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOwaspWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOwaspWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteOwaspWhiteRuleOutcomeCallable WafClient::DeleteOwaspWhiteRuleCallable(const DeleteOwaspWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOwaspWhiteRuleOutcome>>();
-    DeleteOwaspWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteOwaspWhiteRuleRequest&,
-        DeleteOwaspWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOwaspWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOwaspWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteRateLimitsV2Outcome WafClient::DeleteRateLimitsV2(const DeleteRateLimitsV2Request &request)
@@ -1912,32 +1653,25 @@ WafClient::DeleteRateLimitsV2Outcome WafClient::DeleteRateLimitsV2(const DeleteR
 
 void WafClient::DeleteRateLimitsV2Async(const DeleteRateLimitsV2Request& request, const DeleteRateLimitsV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRateLimitsV2Request&;
-    using Resp = DeleteRateLimitsV2Response;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRateLimitsV2(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRateLimitsV2", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteRateLimitsV2OutcomeCallable WafClient::DeleteRateLimitsV2Callable(const DeleteRateLimitsV2Request &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRateLimitsV2Outcome>>();
-    DeleteRateLimitsV2Async(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteRateLimitsV2Request&,
-        DeleteRateLimitsV2Outcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRateLimitsV2Outcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRateLimitsV2(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteSessionOutcome WafClient::DeleteSession(const DeleteSessionRequest &request)
@@ -1962,32 +1696,25 @@ WafClient::DeleteSessionOutcome WafClient::DeleteSession(const DeleteSessionRequ
 
 void WafClient::DeleteSessionAsync(const DeleteSessionRequest& request, const DeleteSessionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSessionRequest&;
-    using Resp = DeleteSessionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSession(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSession", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteSessionOutcomeCallable WafClient::DeleteSessionCallable(const DeleteSessionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSessionOutcome>>();
-    DeleteSessionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteSessionRequest&,
-        DeleteSessionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSessionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSession(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DeleteSpartaProtectionOutcome WafClient::DeleteSpartaProtection(const DeleteSpartaProtectionRequest &request)
@@ -2012,32 +1739,25 @@ WafClient::DeleteSpartaProtectionOutcome WafClient::DeleteSpartaProtection(const
 
 void WafClient::DeleteSpartaProtectionAsync(const DeleteSpartaProtectionRequest& request, const DeleteSpartaProtectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSpartaProtectionRequest&;
-    using Resp = DeleteSpartaProtectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSpartaProtection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSpartaProtection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DeleteSpartaProtectionOutcomeCallable WafClient::DeleteSpartaProtectionCallable(const DeleteSpartaProtectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSpartaProtectionOutcome>>();
-    DeleteSpartaProtectionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DeleteSpartaProtectionRequest&,
-        DeleteSpartaProtectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSpartaProtectionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSpartaProtection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAccessExportsOutcome WafClient::DescribeAccessExports(const DescribeAccessExportsRequest &request)
@@ -2062,32 +1782,25 @@ WafClient::DescribeAccessExportsOutcome WafClient::DescribeAccessExports(const D
 
 void WafClient::DescribeAccessExportsAsync(const DescribeAccessExportsRequest& request, const DescribeAccessExportsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccessExportsRequest&;
-    using Resp = DescribeAccessExportsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccessExports(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccessExports", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAccessExportsOutcomeCallable WafClient::DescribeAccessExportsCallable(const DescribeAccessExportsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccessExportsOutcome>>();
-    DescribeAccessExportsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAccessExportsRequest&,
-        DescribeAccessExportsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccessExportsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccessExports(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAccessFastAnalysisOutcome WafClient::DescribeAccessFastAnalysis(const DescribeAccessFastAnalysisRequest &request)
@@ -2112,32 +1825,25 @@ WafClient::DescribeAccessFastAnalysisOutcome WafClient::DescribeAccessFastAnalys
 
 void WafClient::DescribeAccessFastAnalysisAsync(const DescribeAccessFastAnalysisRequest& request, const DescribeAccessFastAnalysisAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccessFastAnalysisRequest&;
-    using Resp = DescribeAccessFastAnalysisResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccessFastAnalysis(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccessFastAnalysis", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAccessFastAnalysisOutcomeCallable WafClient::DescribeAccessFastAnalysisCallable(const DescribeAccessFastAnalysisRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccessFastAnalysisOutcome>>();
-    DescribeAccessFastAnalysisAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAccessFastAnalysisRequest&,
-        DescribeAccessFastAnalysisOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccessFastAnalysisOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccessFastAnalysis(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAccessHistogramOutcome WafClient::DescribeAccessHistogram(const DescribeAccessHistogramRequest &request)
@@ -2162,32 +1868,25 @@ WafClient::DescribeAccessHistogramOutcome WafClient::DescribeAccessHistogram(con
 
 void WafClient::DescribeAccessHistogramAsync(const DescribeAccessHistogramRequest& request, const DescribeAccessHistogramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccessHistogramRequest&;
-    using Resp = DescribeAccessHistogramResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccessHistogram(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccessHistogram", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAccessHistogramOutcomeCallable WafClient::DescribeAccessHistogramCallable(const DescribeAccessHistogramRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccessHistogramOutcome>>();
-    DescribeAccessHistogramAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAccessHistogramRequest&,
-        DescribeAccessHistogramOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccessHistogramOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccessHistogram(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAccessIndexOutcome WafClient::DescribeAccessIndex(const DescribeAccessIndexRequest &request)
@@ -2212,32 +1911,25 @@ WafClient::DescribeAccessIndexOutcome WafClient::DescribeAccessIndex(const Descr
 
 void WafClient::DescribeAccessIndexAsync(const DescribeAccessIndexRequest& request, const DescribeAccessIndexAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccessIndexRequest&;
-    using Resp = DescribeAccessIndexResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccessIndex(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccessIndex", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAccessIndexOutcomeCallable WafClient::DescribeAccessIndexCallable(const DescribeAccessIndexRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccessIndexOutcome>>();
-    DescribeAccessIndexAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAccessIndexRequest&,
-        DescribeAccessIndexOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccessIndexOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccessIndex(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAntiFakeRulesOutcome WafClient::DescribeAntiFakeRules(const DescribeAntiFakeRulesRequest &request)
@@ -2262,32 +1954,25 @@ WafClient::DescribeAntiFakeRulesOutcome WafClient::DescribeAntiFakeRules(const D
 
 void WafClient::DescribeAntiFakeRulesAsync(const DescribeAntiFakeRulesRequest& request, const DescribeAntiFakeRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAntiFakeRulesRequest&;
-    using Resp = DescribeAntiFakeRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAntiFakeRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAntiFakeRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAntiFakeRulesOutcomeCallable WafClient::DescribeAntiFakeRulesCallable(const DescribeAntiFakeRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAntiFakeRulesOutcome>>();
-    DescribeAntiFakeRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAntiFakeRulesRequest&,
-        DescribeAntiFakeRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAntiFakeRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAntiFakeRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAntiInfoLeakageRulesOutcome WafClient::DescribeAntiInfoLeakageRules(const DescribeAntiInfoLeakageRulesRequest &request)
@@ -2312,32 +1997,25 @@ WafClient::DescribeAntiInfoLeakageRulesOutcome WafClient::DescribeAntiInfoLeakag
 
 void WafClient::DescribeAntiInfoLeakageRulesAsync(const DescribeAntiInfoLeakageRulesRequest& request, const DescribeAntiInfoLeakageRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAntiInfoLeakageRulesRequest&;
-    using Resp = DescribeAntiInfoLeakageRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAntiInfoLeakageRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAntiInfoLeakageRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAntiInfoLeakageRulesOutcomeCallable WafClient::DescribeAntiInfoLeakageRulesCallable(const DescribeAntiInfoLeakageRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAntiInfoLeakageRulesOutcome>>();
-    DescribeAntiInfoLeakageRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAntiInfoLeakageRulesRequest&,
-        DescribeAntiInfoLeakageRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAntiInfoLeakageRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAntiInfoLeakageRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeApiDetailOutcome WafClient::DescribeApiDetail(const DescribeApiDetailRequest &request)
@@ -2362,32 +2040,25 @@ WafClient::DescribeApiDetailOutcome WafClient::DescribeApiDetail(const DescribeA
 
 void WafClient::DescribeApiDetailAsync(const DescribeApiDetailRequest& request, const DescribeApiDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApiDetailRequest&;
-    using Resp = DescribeApiDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApiDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApiDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeApiDetailOutcomeCallable WafClient::DescribeApiDetailCallable(const DescribeApiDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApiDetailOutcome>>();
-    DescribeApiDetailAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeApiDetailRequest&,
-        DescribeApiDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApiDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApiDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeApiListVersionTwoOutcome WafClient::DescribeApiListVersionTwo(const DescribeApiListVersionTwoRequest &request)
@@ -2412,32 +2083,25 @@ WafClient::DescribeApiListVersionTwoOutcome WafClient::DescribeApiListVersionTwo
 
 void WafClient::DescribeApiListVersionTwoAsync(const DescribeApiListVersionTwoRequest& request, const DescribeApiListVersionTwoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApiListVersionTwoRequest&;
-    using Resp = DescribeApiListVersionTwoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApiListVersionTwo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApiListVersionTwo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeApiListVersionTwoOutcomeCallable WafClient::DescribeApiListVersionTwoCallable(const DescribeApiListVersionTwoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApiListVersionTwoOutcome>>();
-    DescribeApiListVersionTwoAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeApiListVersionTwoRequest&,
-        DescribeApiListVersionTwoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApiListVersionTwoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApiListVersionTwo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAreaBanAreasOutcome WafClient::DescribeAreaBanAreas(const DescribeAreaBanAreasRequest &request)
@@ -2462,32 +2126,25 @@ WafClient::DescribeAreaBanAreasOutcome WafClient::DescribeAreaBanAreas(const Des
 
 void WafClient::DescribeAreaBanAreasAsync(const DescribeAreaBanAreasRequest& request, const DescribeAreaBanAreasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAreaBanAreasRequest&;
-    using Resp = DescribeAreaBanAreasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAreaBanAreas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAreaBanAreas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAreaBanAreasOutcomeCallable WafClient::DescribeAreaBanAreasCallable(const DescribeAreaBanAreasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAreaBanAreasOutcome>>();
-    DescribeAreaBanAreasAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAreaBanAreasRequest&,
-        DescribeAreaBanAreasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAreaBanAreasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAreaBanAreas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAreaBanRuleOutcome WafClient::DescribeAreaBanRule(const DescribeAreaBanRuleRequest &request)
@@ -2512,32 +2169,25 @@ WafClient::DescribeAreaBanRuleOutcome WafClient::DescribeAreaBanRule(const Descr
 
 void WafClient::DescribeAreaBanRuleAsync(const DescribeAreaBanRuleRequest& request, const DescribeAreaBanRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAreaBanRuleRequest&;
-    using Resp = DescribeAreaBanRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAreaBanRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAreaBanRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAreaBanRuleOutcomeCallable WafClient::DescribeAreaBanRuleCallable(const DescribeAreaBanRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAreaBanRuleOutcome>>();
-    DescribeAreaBanRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAreaBanRuleRequest&,
-        DescribeAreaBanRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAreaBanRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAreaBanRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAreaBanSupportAreasOutcome WafClient::DescribeAreaBanSupportAreas(const DescribeAreaBanSupportAreasRequest &request)
@@ -2562,32 +2212,25 @@ WafClient::DescribeAreaBanSupportAreasOutcome WafClient::DescribeAreaBanSupportA
 
 void WafClient::DescribeAreaBanSupportAreasAsync(const DescribeAreaBanSupportAreasRequest& request, const DescribeAreaBanSupportAreasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAreaBanSupportAreasRequest&;
-    using Resp = DescribeAreaBanSupportAreasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAreaBanSupportAreas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAreaBanSupportAreas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAreaBanSupportAreasOutcomeCallable WafClient::DescribeAreaBanSupportAreasCallable(const DescribeAreaBanSupportAreasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAreaBanSupportAreasOutcome>>();
-    DescribeAreaBanSupportAreasAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAreaBanSupportAreasRequest&,
-        DescribeAreaBanSupportAreasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAreaBanSupportAreasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAreaBanSupportAreas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAttackOverviewOutcome WafClient::DescribeAttackOverview(const DescribeAttackOverviewRequest &request)
@@ -2612,32 +2255,25 @@ WafClient::DescribeAttackOverviewOutcome WafClient::DescribeAttackOverview(const
 
 void WafClient::DescribeAttackOverviewAsync(const DescribeAttackOverviewRequest& request, const DescribeAttackOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAttackOverviewRequest&;
-    using Resp = DescribeAttackOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAttackOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAttackOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAttackOverviewOutcomeCallable WafClient::DescribeAttackOverviewCallable(const DescribeAttackOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAttackOverviewOutcome>>();
-    DescribeAttackOverviewAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAttackOverviewRequest&,
-        DescribeAttackOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAttackOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAttackOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAttackTypeOutcome WafClient::DescribeAttackType(const DescribeAttackTypeRequest &request)
@@ -2662,32 +2298,25 @@ WafClient::DescribeAttackTypeOutcome WafClient::DescribeAttackType(const Describ
 
 void WafClient::DescribeAttackTypeAsync(const DescribeAttackTypeRequest& request, const DescribeAttackTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAttackTypeRequest&;
-    using Resp = DescribeAttackTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAttackType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAttackType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAttackTypeOutcomeCallable WafClient::DescribeAttackTypeCallable(const DescribeAttackTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAttackTypeOutcome>>();
-    DescribeAttackTypeAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAttackTypeRequest&,
-        DescribeAttackTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAttackTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAttackType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAttackWhiteRuleOutcome WafClient::DescribeAttackWhiteRule(const DescribeAttackWhiteRuleRequest &request)
@@ -2712,32 +2341,25 @@ WafClient::DescribeAttackWhiteRuleOutcome WafClient::DescribeAttackWhiteRule(con
 
 void WafClient::DescribeAttackWhiteRuleAsync(const DescribeAttackWhiteRuleRequest& request, const DescribeAttackWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAttackWhiteRuleRequest&;
-    using Resp = DescribeAttackWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAttackWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAttackWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAttackWhiteRuleOutcomeCallable WafClient::DescribeAttackWhiteRuleCallable(const DescribeAttackWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAttackWhiteRuleOutcome>>();
-    DescribeAttackWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAttackWhiteRuleRequest&,
-        DescribeAttackWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAttackWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAttackWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeAutoDenyIPOutcome WafClient::DescribeAutoDenyIP(const DescribeAutoDenyIPRequest &request)
@@ -2762,32 +2384,25 @@ WafClient::DescribeAutoDenyIPOutcome WafClient::DescribeAutoDenyIP(const Describ
 
 void WafClient::DescribeAutoDenyIPAsync(const DescribeAutoDenyIPRequest& request, const DescribeAutoDenyIPAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoDenyIPRequest&;
-    using Resp = DescribeAutoDenyIPResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoDenyIP(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoDenyIP", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeAutoDenyIPOutcomeCallable WafClient::DescribeAutoDenyIPCallable(const DescribeAutoDenyIPRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoDenyIPOutcome>>();
-    DescribeAutoDenyIPAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeAutoDenyIPRequest&,
-        DescribeAutoDenyIPOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoDenyIPOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoDenyIP(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeBatchIpAccessControlOutcome WafClient::DescribeBatchIpAccessControl(const DescribeBatchIpAccessControlRequest &request)
@@ -2812,32 +2427,25 @@ WafClient::DescribeBatchIpAccessControlOutcome WafClient::DescribeBatchIpAccessC
 
 void WafClient::DescribeBatchIpAccessControlAsync(const DescribeBatchIpAccessControlRequest& request, const DescribeBatchIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBatchIpAccessControlRequest&;
-    using Resp = DescribeBatchIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBatchIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBatchIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeBatchIpAccessControlOutcomeCallable WafClient::DescribeBatchIpAccessControlCallable(const DescribeBatchIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBatchIpAccessControlOutcome>>();
-    DescribeBatchIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeBatchIpAccessControlRequest&,
-        DescribeBatchIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBatchIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBatchIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeBotSceneListOutcome WafClient::DescribeBotSceneList(const DescribeBotSceneListRequest &request)
@@ -2862,32 +2470,25 @@ WafClient::DescribeBotSceneListOutcome WafClient::DescribeBotSceneList(const Des
 
 void WafClient::DescribeBotSceneListAsync(const DescribeBotSceneListRequest& request, const DescribeBotSceneListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBotSceneListRequest&;
-    using Resp = DescribeBotSceneListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBotSceneList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBotSceneList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeBotSceneListOutcomeCallable WafClient::DescribeBotSceneListCallable(const DescribeBotSceneListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBotSceneListOutcome>>();
-    DescribeBotSceneListAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeBotSceneListRequest&,
-        DescribeBotSceneListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBotSceneListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBotSceneList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeBotSceneOverviewOutcome WafClient::DescribeBotSceneOverview(const DescribeBotSceneOverviewRequest &request)
@@ -2912,32 +2513,25 @@ WafClient::DescribeBotSceneOverviewOutcome WafClient::DescribeBotSceneOverview(c
 
 void WafClient::DescribeBotSceneOverviewAsync(const DescribeBotSceneOverviewRequest& request, const DescribeBotSceneOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBotSceneOverviewRequest&;
-    using Resp = DescribeBotSceneOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBotSceneOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBotSceneOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeBotSceneOverviewOutcomeCallable WafClient::DescribeBotSceneOverviewCallable(const DescribeBotSceneOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBotSceneOverviewOutcome>>();
-    DescribeBotSceneOverviewAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeBotSceneOverviewRequest&,
-        DescribeBotSceneOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBotSceneOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBotSceneOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeBotSceneUCBRuleOutcome WafClient::DescribeBotSceneUCBRule(const DescribeBotSceneUCBRuleRequest &request)
@@ -2962,32 +2556,25 @@ WafClient::DescribeBotSceneUCBRuleOutcome WafClient::DescribeBotSceneUCBRule(con
 
 void WafClient::DescribeBotSceneUCBRuleAsync(const DescribeBotSceneUCBRuleRequest& request, const DescribeBotSceneUCBRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBotSceneUCBRuleRequest&;
-    using Resp = DescribeBotSceneUCBRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBotSceneUCBRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBotSceneUCBRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeBotSceneUCBRuleOutcomeCallable WafClient::DescribeBotSceneUCBRuleCallable(const DescribeBotSceneUCBRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBotSceneUCBRuleOutcome>>();
-    DescribeBotSceneUCBRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeBotSceneUCBRuleRequest&,
-        DescribeBotSceneUCBRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBotSceneUCBRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBotSceneUCBRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeCCAutoStatusOutcome WafClient::DescribeCCAutoStatus(const DescribeCCAutoStatusRequest &request)
@@ -3012,32 +2599,25 @@ WafClient::DescribeCCAutoStatusOutcome WafClient::DescribeCCAutoStatus(const Des
 
 void WafClient::DescribeCCAutoStatusAsync(const DescribeCCAutoStatusRequest& request, const DescribeCCAutoStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCCAutoStatusRequest&;
-    using Resp = DescribeCCAutoStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCCAutoStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCCAutoStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeCCAutoStatusOutcomeCallable WafClient::DescribeCCAutoStatusCallable(const DescribeCCAutoStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCCAutoStatusOutcome>>();
-    DescribeCCAutoStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeCCAutoStatusRequest&,
-        DescribeCCAutoStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCCAutoStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCCAutoStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeCCRuleOutcome WafClient::DescribeCCRule(const DescribeCCRuleRequest &request)
@@ -3062,32 +2642,25 @@ WafClient::DescribeCCRuleOutcome WafClient::DescribeCCRule(const DescribeCCRuleR
 
 void WafClient::DescribeCCRuleAsync(const DescribeCCRuleRequest& request, const DescribeCCRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCCRuleRequest&;
-    using Resp = DescribeCCRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCCRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCCRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeCCRuleOutcomeCallable WafClient::DescribeCCRuleCallable(const DescribeCCRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCCRuleOutcome>>();
-    DescribeCCRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeCCRuleRequest&,
-        DescribeCCRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCCRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCCRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeCCRuleListOutcome WafClient::DescribeCCRuleList(const DescribeCCRuleListRequest &request)
@@ -3112,32 +2685,25 @@ WafClient::DescribeCCRuleListOutcome WafClient::DescribeCCRuleList(const Describ
 
 void WafClient::DescribeCCRuleListAsync(const DescribeCCRuleListRequest& request, const DescribeCCRuleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCCRuleListRequest&;
-    using Resp = DescribeCCRuleListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCCRuleList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCCRuleList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeCCRuleListOutcomeCallable WafClient::DescribeCCRuleListCallable(const DescribeCCRuleListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCCRuleListOutcome>>();
-    DescribeCCRuleListAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeCCRuleListRequest&,
-        DescribeCCRuleListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCCRuleListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCCRuleList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeCertificateVerifyResultOutcome WafClient::DescribeCertificateVerifyResult(const DescribeCertificateVerifyResultRequest &request)
@@ -3162,32 +2728,25 @@ WafClient::DescribeCertificateVerifyResultOutcome WafClient::DescribeCertificate
 
 void WafClient::DescribeCertificateVerifyResultAsync(const DescribeCertificateVerifyResultRequest& request, const DescribeCertificateVerifyResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCertificateVerifyResultRequest&;
-    using Resp = DescribeCertificateVerifyResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCertificateVerifyResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCertificateVerifyResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeCertificateVerifyResultOutcomeCallable WafClient::DescribeCertificateVerifyResultCallable(const DescribeCertificateVerifyResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCertificateVerifyResultOutcome>>();
-    DescribeCertificateVerifyResultAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeCertificateVerifyResultRequest&,
-        DescribeCertificateVerifyResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCertificateVerifyResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCertificateVerifyResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeCiphersDetailOutcome WafClient::DescribeCiphersDetail(const DescribeCiphersDetailRequest &request)
@@ -3212,32 +2771,25 @@ WafClient::DescribeCiphersDetailOutcome WafClient::DescribeCiphersDetail(const D
 
 void WafClient::DescribeCiphersDetailAsync(const DescribeCiphersDetailRequest& request, const DescribeCiphersDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCiphersDetailRequest&;
-    using Resp = DescribeCiphersDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCiphersDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCiphersDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeCiphersDetailOutcomeCallable WafClient::DescribeCiphersDetailCallable(const DescribeCiphersDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCiphersDetailOutcome>>();
-    DescribeCiphersDetailAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeCiphersDetailRequest&,
-        DescribeCiphersDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCiphersDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCiphersDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeCustomRuleListOutcome WafClient::DescribeCustomRuleList(const DescribeCustomRuleListRequest &request)
@@ -3262,32 +2814,25 @@ WafClient::DescribeCustomRuleListOutcome WafClient::DescribeCustomRuleList(const
 
 void WafClient::DescribeCustomRuleListAsync(const DescribeCustomRuleListRequest& request, const DescribeCustomRuleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomRuleListRequest&;
-    using Resp = DescribeCustomRuleListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomRuleList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomRuleList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeCustomRuleListOutcomeCallable WafClient::DescribeCustomRuleListCallable(const DescribeCustomRuleListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomRuleListOutcome>>();
-    DescribeCustomRuleListAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeCustomRuleListRequest&,
-        DescribeCustomRuleListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomRuleListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomRuleList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeCustomWhiteRuleOutcome WafClient::DescribeCustomWhiteRule(const DescribeCustomWhiteRuleRequest &request)
@@ -3312,32 +2857,25 @@ WafClient::DescribeCustomWhiteRuleOutcome WafClient::DescribeCustomWhiteRule(con
 
 void WafClient::DescribeCustomWhiteRuleAsync(const DescribeCustomWhiteRuleRequest& request, const DescribeCustomWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomWhiteRuleRequest&;
-    using Resp = DescribeCustomWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeCustomWhiteRuleOutcomeCallable WafClient::DescribeCustomWhiteRuleCallable(const DescribeCustomWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomWhiteRuleOutcome>>();
-    DescribeCustomWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeCustomWhiteRuleRequest&,
-        DescribeCustomWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeDomainCountInfoOutcome WafClient::DescribeDomainCountInfo(const DescribeDomainCountInfoRequest &request)
@@ -3362,32 +2900,25 @@ WafClient::DescribeDomainCountInfoOutcome WafClient::DescribeDomainCountInfo(con
 
 void WafClient::DescribeDomainCountInfoAsync(const DescribeDomainCountInfoRequest& request, const DescribeDomainCountInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainCountInfoRequest&;
-    using Resp = DescribeDomainCountInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainCountInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainCountInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeDomainCountInfoOutcomeCallable WafClient::DescribeDomainCountInfoCallable(const DescribeDomainCountInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainCountInfoOutcome>>();
-    DescribeDomainCountInfoAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeDomainCountInfoRequest&,
-        DescribeDomainCountInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainCountInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainCountInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeDomainDetailsClbOutcome WafClient::DescribeDomainDetailsClb(const DescribeDomainDetailsClbRequest &request)
@@ -3412,32 +2943,25 @@ WafClient::DescribeDomainDetailsClbOutcome WafClient::DescribeDomainDetailsClb(c
 
 void WafClient::DescribeDomainDetailsClbAsync(const DescribeDomainDetailsClbRequest& request, const DescribeDomainDetailsClbAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainDetailsClbRequest&;
-    using Resp = DescribeDomainDetailsClbResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainDetailsClb(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainDetailsClb", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeDomainDetailsClbOutcomeCallable WafClient::DescribeDomainDetailsClbCallable(const DescribeDomainDetailsClbRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainDetailsClbOutcome>>();
-    DescribeDomainDetailsClbAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeDomainDetailsClbRequest&,
-        DescribeDomainDetailsClbOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainDetailsClbOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainDetailsClb(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeDomainDetailsSaasOutcome WafClient::DescribeDomainDetailsSaas(const DescribeDomainDetailsSaasRequest &request)
@@ -3462,32 +2986,25 @@ WafClient::DescribeDomainDetailsSaasOutcome WafClient::DescribeDomainDetailsSaas
 
 void WafClient::DescribeDomainDetailsSaasAsync(const DescribeDomainDetailsSaasRequest& request, const DescribeDomainDetailsSaasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainDetailsSaasRequest&;
-    using Resp = DescribeDomainDetailsSaasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainDetailsSaas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainDetailsSaas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeDomainDetailsSaasOutcomeCallable WafClient::DescribeDomainDetailsSaasCallable(const DescribeDomainDetailsSaasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainDetailsSaasOutcome>>();
-    DescribeDomainDetailsSaasAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeDomainDetailsSaasRequest&,
-        DescribeDomainDetailsSaasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainDetailsSaasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainDetailsSaas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeDomainRulesOutcome WafClient::DescribeDomainRules(const DescribeDomainRulesRequest &request)
@@ -3512,32 +3029,25 @@ WafClient::DescribeDomainRulesOutcome WafClient::DescribeDomainRules(const Descr
 
 void WafClient::DescribeDomainRulesAsync(const DescribeDomainRulesRequest& request, const DescribeDomainRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainRulesRequest&;
-    using Resp = DescribeDomainRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeDomainRulesOutcomeCallable WafClient::DescribeDomainRulesCallable(const DescribeDomainRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainRulesOutcome>>();
-    DescribeDomainRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeDomainRulesRequest&,
-        DescribeDomainRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeDomainVerifyResultOutcome WafClient::DescribeDomainVerifyResult(const DescribeDomainVerifyResultRequest &request)
@@ -3562,32 +3072,25 @@ WafClient::DescribeDomainVerifyResultOutcome WafClient::DescribeDomainVerifyResu
 
 void WafClient::DescribeDomainVerifyResultAsync(const DescribeDomainVerifyResultRequest& request, const DescribeDomainVerifyResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainVerifyResultRequest&;
-    using Resp = DescribeDomainVerifyResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainVerifyResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainVerifyResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeDomainVerifyResultOutcomeCallable WafClient::DescribeDomainVerifyResultCallable(const DescribeDomainVerifyResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainVerifyResultOutcome>>();
-    DescribeDomainVerifyResultAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeDomainVerifyResultRequest&,
-        DescribeDomainVerifyResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainVerifyResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainVerifyResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeDomainWhiteRulesOutcome WafClient::DescribeDomainWhiteRules(const DescribeDomainWhiteRulesRequest &request)
@@ -3612,32 +3115,25 @@ WafClient::DescribeDomainWhiteRulesOutcome WafClient::DescribeDomainWhiteRules(c
 
 void WafClient::DescribeDomainWhiteRulesAsync(const DescribeDomainWhiteRulesRequest& request, const DescribeDomainWhiteRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainWhiteRulesRequest&;
-    using Resp = DescribeDomainWhiteRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainWhiteRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainWhiteRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeDomainWhiteRulesOutcomeCallable WafClient::DescribeDomainWhiteRulesCallable(const DescribeDomainWhiteRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainWhiteRulesOutcome>>();
-    DescribeDomainWhiteRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeDomainWhiteRulesRequest&,
-        DescribeDomainWhiteRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainWhiteRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainWhiteRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeDomainsOutcome WafClient::DescribeDomains(const DescribeDomainsRequest &request)
@@ -3662,32 +3158,25 @@ WafClient::DescribeDomainsOutcome WafClient::DescribeDomains(const DescribeDomai
 
 void WafClient::DescribeDomainsAsync(const DescribeDomainsRequest& request, const DescribeDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainsRequest&;
-    using Resp = DescribeDomainsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomains(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomains", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeDomainsOutcomeCallable WafClient::DescribeDomainsCallable(const DescribeDomainsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainsOutcome>>();
-    DescribeDomainsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeDomainsRequest&,
-        DescribeDomainsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomains(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeExportsOutcome WafClient::DescribeExports(const DescribeExportsRequest &request)
@@ -3712,32 +3201,25 @@ WafClient::DescribeExportsOutcome WafClient::DescribeExports(const DescribeExpor
 
 void WafClient::DescribeExportsAsync(const DescribeExportsRequest& request, const DescribeExportsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExportsRequest&;
-    using Resp = DescribeExportsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExports(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExports", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeExportsOutcomeCallable WafClient::DescribeExportsCallable(const DescribeExportsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExportsOutcome>>();
-    DescribeExportsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeExportsRequest&,
-        DescribeExportsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExportsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExports(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeFindDomainListOutcome WafClient::DescribeFindDomainList(const DescribeFindDomainListRequest &request)
@@ -3762,32 +3244,25 @@ WafClient::DescribeFindDomainListOutcome WafClient::DescribeFindDomainList(const
 
 void WafClient::DescribeFindDomainListAsync(const DescribeFindDomainListRequest& request, const DescribeFindDomainListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFindDomainListRequest&;
-    using Resp = DescribeFindDomainListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFindDomainList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFindDomainList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeFindDomainListOutcomeCallable WafClient::DescribeFindDomainListCallable(const DescribeFindDomainListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFindDomainListOutcome>>();
-    DescribeFindDomainListAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeFindDomainListRequest&,
-        DescribeFindDomainListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFindDomainListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFindDomainList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeFlowTrendOutcome WafClient::DescribeFlowTrend(const DescribeFlowTrendRequest &request)
@@ -3812,32 +3287,25 @@ WafClient::DescribeFlowTrendOutcome WafClient::DescribeFlowTrend(const DescribeF
 
 void WafClient::DescribeFlowTrendAsync(const DescribeFlowTrendRequest& request, const DescribeFlowTrendAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFlowTrendRequest&;
-    using Resp = DescribeFlowTrendResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFlowTrend(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFlowTrend", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeFlowTrendOutcomeCallable WafClient::DescribeFlowTrendCallable(const DescribeFlowTrendRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFlowTrendOutcome>>();
-    DescribeFlowTrendAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeFlowTrendRequest&,
-        DescribeFlowTrendOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFlowTrendOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFlowTrend(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeHistogramOutcome WafClient::DescribeHistogram(const DescribeHistogramRequest &request)
@@ -3862,32 +3330,25 @@ WafClient::DescribeHistogramOutcome WafClient::DescribeHistogram(const DescribeH
 
 void WafClient::DescribeHistogramAsync(const DescribeHistogramRequest& request, const DescribeHistogramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHistogramRequest&;
-    using Resp = DescribeHistogramResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHistogram(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHistogram", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeHistogramOutcomeCallable WafClient::DescribeHistogramCallable(const DescribeHistogramRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHistogramOutcome>>();
-    DescribeHistogramAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeHistogramRequest&,
-        DescribeHistogramOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHistogramOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHistogram(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeHostOutcome WafClient::DescribeHost(const DescribeHostRequest &request)
@@ -3912,32 +3373,25 @@ WafClient::DescribeHostOutcome WafClient::DescribeHost(const DescribeHostRequest
 
 void WafClient::DescribeHostAsync(const DescribeHostRequest& request, const DescribeHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHostRequest&;
-    using Resp = DescribeHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeHostOutcomeCallable WafClient::DescribeHostCallable(const DescribeHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHostOutcome>>();
-    DescribeHostAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeHostRequest&,
-        DescribeHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHostOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeHostLimitOutcome WafClient::DescribeHostLimit(const DescribeHostLimitRequest &request)
@@ -3962,32 +3416,25 @@ WafClient::DescribeHostLimitOutcome WafClient::DescribeHostLimit(const DescribeH
 
 void WafClient::DescribeHostLimitAsync(const DescribeHostLimitRequest& request, const DescribeHostLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHostLimitRequest&;
-    using Resp = DescribeHostLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHostLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHostLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeHostLimitOutcomeCallable WafClient::DescribeHostLimitCallable(const DescribeHostLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHostLimitOutcome>>();
-    DescribeHostLimitAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeHostLimitRequest&,
-        DescribeHostLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHostLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHostLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeHostsOutcome WafClient::DescribeHosts(const DescribeHostsRequest &request)
@@ -4012,32 +3459,25 @@ WafClient::DescribeHostsOutcome WafClient::DescribeHosts(const DescribeHostsRequ
 
 void WafClient::DescribeHostsAsync(const DescribeHostsRequest& request, const DescribeHostsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHostsRequest&;
-    using Resp = DescribeHostsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHosts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHosts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeHostsOutcomeCallable WafClient::DescribeHostsCallable(const DescribeHostsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHostsOutcome>>();
-    DescribeHostsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeHostsRequest&,
-        DescribeHostsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHostsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHosts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeInstancesOutcome WafClient::DescribeInstances(const DescribeInstancesRequest &request)
@@ -4062,32 +3502,25 @@ WafClient::DescribeInstancesOutcome WafClient::DescribeInstances(const DescribeI
 
 void WafClient::DescribeInstancesAsync(const DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesRequest&;
-    using Resp = DescribeInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeInstancesOutcomeCallable WafClient::DescribeInstancesCallable(const DescribeInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesOutcome>>();
-    DescribeInstancesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeInstancesRequest&,
-        DescribeInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeIpAccessControlOutcome WafClient::DescribeIpAccessControl(const DescribeIpAccessControlRequest &request)
@@ -4112,32 +3545,25 @@ WafClient::DescribeIpAccessControlOutcome WafClient::DescribeIpAccessControl(con
 
 void WafClient::DescribeIpAccessControlAsync(const DescribeIpAccessControlRequest& request, const DescribeIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIpAccessControlRequest&;
-    using Resp = DescribeIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeIpAccessControlOutcomeCallable WafClient::DescribeIpAccessControlCallable(const DescribeIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIpAccessControlOutcome>>();
-    DescribeIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeIpAccessControlRequest&,
-        DescribeIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeIpHitItemsOutcome WafClient::DescribeIpHitItems(const DescribeIpHitItemsRequest &request)
@@ -4162,32 +3588,25 @@ WafClient::DescribeIpHitItemsOutcome WafClient::DescribeIpHitItems(const Describ
 
 void WafClient::DescribeIpHitItemsAsync(const DescribeIpHitItemsRequest& request, const DescribeIpHitItemsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIpHitItemsRequest&;
-    using Resp = DescribeIpHitItemsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIpHitItems(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIpHitItems", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeIpHitItemsOutcomeCallable WafClient::DescribeIpHitItemsCallable(const DescribeIpHitItemsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIpHitItemsOutcome>>();
-    DescribeIpHitItemsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeIpHitItemsRequest&,
-        DescribeIpHitItemsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIpHitItemsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIpHitItems(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeLogHistogramOutcome WafClient::DescribeLogHistogram(const DescribeLogHistogramRequest &request)
@@ -4212,32 +3631,25 @@ WafClient::DescribeLogHistogramOutcome WafClient::DescribeLogHistogram(const Des
 
 void WafClient::DescribeLogHistogramAsync(const DescribeLogHistogramRequest& request, const DescribeLogHistogramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLogHistogramRequest&;
-    using Resp = DescribeLogHistogramResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLogHistogram(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLogHistogram", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeLogHistogramOutcomeCallable WafClient::DescribeLogHistogramCallable(const DescribeLogHistogramRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLogHistogramOutcome>>();
-    DescribeLogHistogramAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeLogHistogramRequest&,
-        DescribeLogHistogramOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLogHistogramOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLogHistogram(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeModuleStatusOutcome WafClient::DescribeModuleStatus(const DescribeModuleStatusRequest &request)
@@ -4262,32 +3674,25 @@ WafClient::DescribeModuleStatusOutcome WafClient::DescribeModuleStatus(const Des
 
 void WafClient::DescribeModuleStatusAsync(const DescribeModuleStatusRequest& request, const DescribeModuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModuleStatusRequest&;
-    using Resp = DescribeModuleStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModuleStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModuleStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeModuleStatusOutcomeCallable WafClient::DescribeModuleStatusCallable(const DescribeModuleStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModuleStatusOutcome>>();
-    DescribeModuleStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeModuleStatusRequest&,
-        DescribeModuleStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModuleStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModuleStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeObjectsOutcome WafClient::DescribeObjects(const DescribeObjectsRequest &request)
@@ -4312,32 +3717,25 @@ WafClient::DescribeObjectsOutcome WafClient::DescribeObjects(const DescribeObjec
 
 void WafClient::DescribeObjectsAsync(const DescribeObjectsRequest& request, const DescribeObjectsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeObjectsRequest&;
-    using Resp = DescribeObjectsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeObjects(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeObjects", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeObjectsOutcomeCallable WafClient::DescribeObjectsCallable(const DescribeObjectsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeObjectsOutcome>>();
-    DescribeObjectsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeObjectsRequest&,
-        DescribeObjectsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeObjectsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeObjects(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeOwaspRuleTypesOutcome WafClient::DescribeOwaspRuleTypes(const DescribeOwaspRuleTypesRequest &request)
@@ -4362,32 +3760,25 @@ WafClient::DescribeOwaspRuleTypesOutcome WafClient::DescribeOwaspRuleTypes(const
 
 void WafClient::DescribeOwaspRuleTypesAsync(const DescribeOwaspRuleTypesRequest& request, const DescribeOwaspRuleTypesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOwaspRuleTypesRequest&;
-    using Resp = DescribeOwaspRuleTypesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOwaspRuleTypes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOwaspRuleTypes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeOwaspRuleTypesOutcomeCallable WafClient::DescribeOwaspRuleTypesCallable(const DescribeOwaspRuleTypesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOwaspRuleTypesOutcome>>();
-    DescribeOwaspRuleTypesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeOwaspRuleTypesRequest&,
-        DescribeOwaspRuleTypesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOwaspRuleTypesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOwaspRuleTypes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeOwaspRulesOutcome WafClient::DescribeOwaspRules(const DescribeOwaspRulesRequest &request)
@@ -4412,32 +3803,25 @@ WafClient::DescribeOwaspRulesOutcome WafClient::DescribeOwaspRules(const Describ
 
 void WafClient::DescribeOwaspRulesAsync(const DescribeOwaspRulesRequest& request, const DescribeOwaspRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOwaspRulesRequest&;
-    using Resp = DescribeOwaspRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOwaspRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOwaspRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeOwaspRulesOutcomeCallable WafClient::DescribeOwaspRulesCallable(const DescribeOwaspRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOwaspRulesOutcome>>();
-    DescribeOwaspRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeOwaspRulesRequest&,
-        DescribeOwaspRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOwaspRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOwaspRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeOwaspWhiteRulesOutcome WafClient::DescribeOwaspWhiteRules(const DescribeOwaspWhiteRulesRequest &request)
@@ -4462,32 +3846,25 @@ WafClient::DescribeOwaspWhiteRulesOutcome WafClient::DescribeOwaspWhiteRules(con
 
 void WafClient::DescribeOwaspWhiteRulesAsync(const DescribeOwaspWhiteRulesRequest& request, const DescribeOwaspWhiteRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOwaspWhiteRulesRequest&;
-    using Resp = DescribeOwaspWhiteRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOwaspWhiteRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOwaspWhiteRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeOwaspWhiteRulesOutcomeCallable WafClient::DescribeOwaspWhiteRulesCallable(const DescribeOwaspWhiteRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOwaspWhiteRulesOutcome>>();
-    DescribeOwaspWhiteRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeOwaspWhiteRulesRequest&,
-        DescribeOwaspWhiteRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOwaspWhiteRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOwaspWhiteRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribePeakPointsOutcome WafClient::DescribePeakPoints(const DescribePeakPointsRequest &request)
@@ -4512,32 +3889,25 @@ WafClient::DescribePeakPointsOutcome WafClient::DescribePeakPoints(const Describ
 
 void WafClient::DescribePeakPointsAsync(const DescribePeakPointsRequest& request, const DescribePeakPointsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePeakPointsRequest&;
-    using Resp = DescribePeakPointsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePeakPoints(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePeakPoints", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribePeakPointsOutcomeCallable WafClient::DescribePeakPointsCallable(const DescribePeakPointsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePeakPointsOutcome>>();
-    DescribePeakPointsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribePeakPointsRequest&,
-        DescribePeakPointsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePeakPointsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePeakPoints(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribePeakValueOutcome WafClient::DescribePeakValue(const DescribePeakValueRequest &request)
@@ -4562,32 +3932,25 @@ WafClient::DescribePeakValueOutcome WafClient::DescribePeakValue(const DescribeP
 
 void WafClient::DescribePeakValueAsync(const DescribePeakValueRequest& request, const DescribePeakValueAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePeakValueRequest&;
-    using Resp = DescribePeakValueResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePeakValue(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePeakValue", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribePeakValueOutcomeCallable WafClient::DescribePeakValueCallable(const DescribePeakValueRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePeakValueOutcome>>();
-    DescribePeakValueAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribePeakValueRequest&,
-        DescribePeakValueOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePeakValueOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePeakValue(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribePolicyStatusOutcome WafClient::DescribePolicyStatus(const DescribePolicyStatusRequest &request)
@@ -4612,32 +3975,25 @@ WafClient::DescribePolicyStatusOutcome WafClient::DescribePolicyStatus(const Des
 
 void WafClient::DescribePolicyStatusAsync(const DescribePolicyStatusRequest& request, const DescribePolicyStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePolicyStatusRequest&;
-    using Resp = DescribePolicyStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePolicyStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePolicyStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribePolicyStatusOutcomeCallable WafClient::DescribePolicyStatusCallable(const DescribePolicyStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePolicyStatusOutcome>>();
-    DescribePolicyStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribePolicyStatusRequest&,
-        DescribePolicyStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePolicyStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePolicyStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribePortsOutcome WafClient::DescribePorts(const DescribePortsRequest &request)
@@ -4662,32 +4018,25 @@ WafClient::DescribePortsOutcome WafClient::DescribePorts(const DescribePortsRequ
 
 void WafClient::DescribePortsAsync(const DescribePortsRequest& request, const DescribePortsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePortsRequest&;
-    using Resp = DescribePortsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePorts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePorts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribePortsOutcomeCallable WafClient::DescribePortsCallable(const DescribePortsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePortsOutcome>>();
-    DescribePortsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribePortsRequest&,
-        DescribePortsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePortsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePorts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribePostCKafkaFlowsOutcome WafClient::DescribePostCKafkaFlows(const DescribePostCKafkaFlowsRequest &request)
@@ -4712,32 +4061,25 @@ WafClient::DescribePostCKafkaFlowsOutcome WafClient::DescribePostCKafkaFlows(con
 
 void WafClient::DescribePostCKafkaFlowsAsync(const DescribePostCKafkaFlowsRequest& request, const DescribePostCKafkaFlowsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePostCKafkaFlowsRequest&;
-    using Resp = DescribePostCKafkaFlowsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePostCKafkaFlows(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePostCKafkaFlows", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribePostCKafkaFlowsOutcomeCallable WafClient::DescribePostCKafkaFlowsCallable(const DescribePostCKafkaFlowsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePostCKafkaFlowsOutcome>>();
-    DescribePostCKafkaFlowsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribePostCKafkaFlowsRequest&,
-        DescribePostCKafkaFlowsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePostCKafkaFlowsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePostCKafkaFlows(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribePostCLSFlowsOutcome WafClient::DescribePostCLSFlows(const DescribePostCLSFlowsRequest &request)
@@ -4762,32 +4104,25 @@ WafClient::DescribePostCLSFlowsOutcome WafClient::DescribePostCLSFlows(const Des
 
 void WafClient::DescribePostCLSFlowsAsync(const DescribePostCLSFlowsRequest& request, const DescribePostCLSFlowsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePostCLSFlowsRequest&;
-    using Resp = DescribePostCLSFlowsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePostCLSFlows(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePostCLSFlows", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribePostCLSFlowsOutcomeCallable WafClient::DescribePostCLSFlowsCallable(const DescribePostCLSFlowsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePostCLSFlowsOutcome>>();
-    DescribePostCLSFlowsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribePostCLSFlowsRequest&,
-        DescribePostCLSFlowsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePostCLSFlowsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePostCLSFlows(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeProtectionModesOutcome WafClient::DescribeProtectionModes(const DescribeProtectionModesRequest &request)
@@ -4812,32 +4147,25 @@ WafClient::DescribeProtectionModesOutcome WafClient::DescribeProtectionModes(con
 
 void WafClient::DescribeProtectionModesAsync(const DescribeProtectionModesRequest& request, const DescribeProtectionModesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProtectionModesRequest&;
-    using Resp = DescribeProtectionModesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProtectionModes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProtectionModes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeProtectionModesOutcomeCallable WafClient::DescribeProtectionModesCallable(const DescribeProtectionModesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProtectionModesOutcome>>();
-    DescribeProtectionModesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeProtectionModesRequest&,
-        DescribeProtectionModesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProtectionModesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProtectionModes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeRateLimitsV2Outcome WafClient::DescribeRateLimitsV2(const DescribeRateLimitsV2Request &request)
@@ -4862,32 +4190,25 @@ WafClient::DescribeRateLimitsV2Outcome WafClient::DescribeRateLimitsV2(const Des
 
 void WafClient::DescribeRateLimitsV2Async(const DescribeRateLimitsV2Request& request, const DescribeRateLimitsV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRateLimitsV2Request&;
-    using Resp = DescribeRateLimitsV2Response;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRateLimitsV2(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRateLimitsV2", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeRateLimitsV2OutcomeCallable WafClient::DescribeRateLimitsV2Callable(const DescribeRateLimitsV2Request &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRateLimitsV2Outcome>>();
-    DescribeRateLimitsV2Async(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeRateLimitsV2Request&,
-        DescribeRateLimitsV2Outcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRateLimitsV2Outcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRateLimitsV2(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeRuleLimitOutcome WafClient::DescribeRuleLimit(const DescribeRuleLimitRequest &request)
@@ -4912,32 +4233,25 @@ WafClient::DescribeRuleLimitOutcome WafClient::DescribeRuleLimit(const DescribeR
 
 void WafClient::DescribeRuleLimitAsync(const DescribeRuleLimitRequest& request, const DescribeRuleLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRuleLimitRequest&;
-    using Resp = DescribeRuleLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRuleLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRuleLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeRuleLimitOutcomeCallable WafClient::DescribeRuleLimitCallable(const DescribeRuleLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRuleLimitOutcome>>();
-    DescribeRuleLimitAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeRuleLimitRequest&,
-        DescribeRuleLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRuleLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRuleLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeScanIpOutcome WafClient::DescribeScanIp(const DescribeScanIpRequest &request)
@@ -4962,32 +4276,25 @@ WafClient::DescribeScanIpOutcome WafClient::DescribeScanIp(const DescribeScanIpR
 
 void WafClient::DescribeScanIpAsync(const DescribeScanIpRequest& request, const DescribeScanIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeScanIpRequest&;
-    using Resp = DescribeScanIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeScanIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeScanIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeScanIpOutcomeCallable WafClient::DescribeScanIpCallable(const DescribeScanIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeScanIpOutcome>>();
-    DescribeScanIpAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeScanIpRequest&,
-        DescribeScanIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeScanIpOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeScanIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeSessionOutcome WafClient::DescribeSession(const DescribeSessionRequest &request)
@@ -5012,32 +4319,25 @@ WafClient::DescribeSessionOutcome WafClient::DescribeSession(const DescribeSessi
 
 void WafClient::DescribeSessionAsync(const DescribeSessionRequest& request, const DescribeSessionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSessionRequest&;
-    using Resp = DescribeSessionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSession(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSession", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeSessionOutcomeCallable WafClient::DescribeSessionCallable(const DescribeSessionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSessionOutcome>>();
-    DescribeSessionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeSessionRequest&,
-        DescribeSessionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSessionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSession(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeSpartaProtectionInfoOutcome WafClient::DescribeSpartaProtectionInfo(const DescribeSpartaProtectionInfoRequest &request)
@@ -5062,32 +4362,25 @@ WafClient::DescribeSpartaProtectionInfoOutcome WafClient::DescribeSpartaProtecti
 
 void WafClient::DescribeSpartaProtectionInfoAsync(const DescribeSpartaProtectionInfoRequest& request, const DescribeSpartaProtectionInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSpartaProtectionInfoRequest&;
-    using Resp = DescribeSpartaProtectionInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSpartaProtectionInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSpartaProtectionInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeSpartaProtectionInfoOutcomeCallable WafClient::DescribeSpartaProtectionInfoCallable(const DescribeSpartaProtectionInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSpartaProtectionInfoOutcome>>();
-    DescribeSpartaProtectionInfoAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeSpartaProtectionInfoRequest&,
-        DescribeSpartaProtectionInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSpartaProtectionInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSpartaProtectionInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeTlsVersionOutcome WafClient::DescribeTlsVersion(const DescribeTlsVersionRequest &request)
@@ -5112,32 +4405,25 @@ WafClient::DescribeTlsVersionOutcome WafClient::DescribeTlsVersion(const Describ
 
 void WafClient::DescribeTlsVersionAsync(const DescribeTlsVersionRequest& request, const DescribeTlsVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTlsVersionRequest&;
-    using Resp = DescribeTlsVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTlsVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTlsVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeTlsVersionOutcomeCallable WafClient::DescribeTlsVersionCallable(const DescribeTlsVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTlsVersionOutcome>>();
-    DescribeTlsVersionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeTlsVersionRequest&,
-        DescribeTlsVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTlsVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTlsVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeTopAttackDomainOutcome WafClient::DescribeTopAttackDomain(const DescribeTopAttackDomainRequest &request)
@@ -5162,32 +4448,25 @@ WafClient::DescribeTopAttackDomainOutcome WafClient::DescribeTopAttackDomain(con
 
 void WafClient::DescribeTopAttackDomainAsync(const DescribeTopAttackDomainRequest& request, const DescribeTopAttackDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopAttackDomainRequest&;
-    using Resp = DescribeTopAttackDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopAttackDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopAttackDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeTopAttackDomainOutcomeCallable WafClient::DescribeTopAttackDomainCallable(const DescribeTopAttackDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopAttackDomainOutcome>>();
-    DescribeTopAttackDomainAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeTopAttackDomainRequest&,
-        DescribeTopAttackDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopAttackDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopAttackDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeTopicsOutcome WafClient::DescribeTopics(const DescribeTopicsRequest &request)
@@ -5212,32 +4491,25 @@ WafClient::DescribeTopicsOutcome WafClient::DescribeTopics(const DescribeTopicsR
 
 void WafClient::DescribeTopicsAsync(const DescribeTopicsRequest& request, const DescribeTopicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicsRequest&;
-    using Resp = DescribeTopicsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeTopicsOutcomeCallable WafClient::DescribeTopicsCallable(const DescribeTopicsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicsOutcome>>();
-    DescribeTopicsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeTopicsRequest&,
-        DescribeTopicsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeUserCdcClbWafRegionsOutcome WafClient::DescribeUserCdcClbWafRegions(const DescribeUserCdcClbWafRegionsRequest &request)
@@ -5262,32 +4534,25 @@ WafClient::DescribeUserCdcClbWafRegionsOutcome WafClient::DescribeUserCdcClbWafR
 
 void WafClient::DescribeUserCdcClbWafRegionsAsync(const DescribeUserCdcClbWafRegionsRequest& request, const DescribeUserCdcClbWafRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserCdcClbWafRegionsRequest&;
-    using Resp = DescribeUserCdcClbWafRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserCdcClbWafRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserCdcClbWafRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeUserCdcClbWafRegionsOutcomeCallable WafClient::DescribeUserCdcClbWafRegionsCallable(const DescribeUserCdcClbWafRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserCdcClbWafRegionsOutcome>>();
-    DescribeUserCdcClbWafRegionsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeUserCdcClbWafRegionsRequest&,
-        DescribeUserCdcClbWafRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserCdcClbWafRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserCdcClbWafRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeUserClbWafRegionsOutcome WafClient::DescribeUserClbWafRegions(const DescribeUserClbWafRegionsRequest &request)
@@ -5312,32 +4577,25 @@ WafClient::DescribeUserClbWafRegionsOutcome WafClient::DescribeUserClbWafRegions
 
 void WafClient::DescribeUserClbWafRegionsAsync(const DescribeUserClbWafRegionsRequest& request, const DescribeUserClbWafRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserClbWafRegionsRequest&;
-    using Resp = DescribeUserClbWafRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserClbWafRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserClbWafRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeUserClbWafRegionsOutcomeCallable WafClient::DescribeUserClbWafRegionsCallable(const DescribeUserClbWafRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserClbWafRegionsOutcome>>();
-    DescribeUserClbWafRegionsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeUserClbWafRegionsRequest&,
-        DescribeUserClbWafRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserClbWafRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserClbWafRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeUserDomainInfoOutcome WafClient::DescribeUserDomainInfo(const DescribeUserDomainInfoRequest &request)
@@ -5362,32 +4620,25 @@ WafClient::DescribeUserDomainInfoOutcome WafClient::DescribeUserDomainInfo(const
 
 void WafClient::DescribeUserDomainInfoAsync(const DescribeUserDomainInfoRequest& request, const DescribeUserDomainInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserDomainInfoRequest&;
-    using Resp = DescribeUserDomainInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserDomainInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserDomainInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeUserDomainInfoOutcomeCallable WafClient::DescribeUserDomainInfoCallable(const DescribeUserDomainInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserDomainInfoOutcome>>();
-    DescribeUserDomainInfoAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeUserDomainInfoRequest&,
-        DescribeUserDomainInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserDomainInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserDomainInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeUserLevelOutcome WafClient::DescribeUserLevel(const DescribeUserLevelRequest &request)
@@ -5412,32 +4663,25 @@ WafClient::DescribeUserLevelOutcome WafClient::DescribeUserLevel(const DescribeU
 
 void WafClient::DescribeUserLevelAsync(const DescribeUserLevelRequest& request, const DescribeUserLevelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserLevelRequest&;
-    using Resp = DescribeUserLevelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserLevel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserLevel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeUserLevelOutcomeCallable WafClient::DescribeUserLevelCallable(const DescribeUserLevelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserLevelOutcome>>();
-    DescribeUserLevelAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeUserLevelRequest&,
-        DescribeUserLevelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserLevelOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserLevel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeUserSignatureClassOutcome WafClient::DescribeUserSignatureClass(const DescribeUserSignatureClassRequest &request)
@@ -5462,32 +4706,25 @@ WafClient::DescribeUserSignatureClassOutcome WafClient::DescribeUserSignatureCla
 
 void WafClient::DescribeUserSignatureClassAsync(const DescribeUserSignatureClassRequest& request, const DescribeUserSignatureClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserSignatureClassRequest&;
-    using Resp = DescribeUserSignatureClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserSignatureClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserSignatureClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeUserSignatureClassOutcomeCallable WafClient::DescribeUserSignatureClassCallable(const DescribeUserSignatureClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserSignatureClassOutcome>>();
-    DescribeUserSignatureClassAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeUserSignatureClassRequest&,
-        DescribeUserSignatureClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserSignatureClassOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserSignatureClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeUserSignatureRuleOutcome WafClient::DescribeUserSignatureRule(const DescribeUserSignatureRuleRequest &request)
@@ -5512,32 +4749,25 @@ WafClient::DescribeUserSignatureRuleOutcome WafClient::DescribeUserSignatureRule
 
 void WafClient::DescribeUserSignatureRuleAsync(const DescribeUserSignatureRuleRequest& request, const DescribeUserSignatureRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserSignatureRuleRequest&;
-    using Resp = DescribeUserSignatureRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserSignatureRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserSignatureRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeUserSignatureRuleOutcomeCallable WafClient::DescribeUserSignatureRuleCallable(const DescribeUserSignatureRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserSignatureRuleOutcome>>();
-    DescribeUserSignatureRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeUserSignatureRuleRequest&,
-        DescribeUserSignatureRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserSignatureRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserSignatureRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeUserSignatureRuleV2Outcome WafClient::DescribeUserSignatureRuleV2(const DescribeUserSignatureRuleV2Request &request)
@@ -5562,32 +4792,25 @@ WafClient::DescribeUserSignatureRuleV2Outcome WafClient::DescribeUserSignatureRu
 
 void WafClient::DescribeUserSignatureRuleV2Async(const DescribeUserSignatureRuleV2Request& request, const DescribeUserSignatureRuleV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserSignatureRuleV2Request&;
-    using Resp = DescribeUserSignatureRuleV2Response;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserSignatureRuleV2(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserSignatureRuleV2", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeUserSignatureRuleV2OutcomeCallable WafClient::DescribeUserSignatureRuleV2Callable(const DescribeUserSignatureRuleV2Request &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserSignatureRuleV2Outcome>>();
-    DescribeUserSignatureRuleV2Async(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeUserSignatureRuleV2Request&,
-        DescribeUserSignatureRuleV2Outcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserSignatureRuleV2Outcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserSignatureRuleV2(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeVipInfoOutcome WafClient::DescribeVipInfo(const DescribeVipInfoRequest &request)
@@ -5612,32 +4835,25 @@ WafClient::DescribeVipInfoOutcome WafClient::DescribeVipInfo(const DescribeVipIn
 
 void WafClient::DescribeVipInfoAsync(const DescribeVipInfoRequest& request, const DescribeVipInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVipInfoRequest&;
-    using Resp = DescribeVipInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVipInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVipInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeVipInfoOutcomeCallable WafClient::DescribeVipInfoCallable(const DescribeVipInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVipInfoOutcome>>();
-    DescribeVipInfoAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeVipInfoRequest&,
-        DescribeVipInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVipInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVipInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeWafAutoDenyRulesOutcome WafClient::DescribeWafAutoDenyRules(const DescribeWafAutoDenyRulesRequest &request)
@@ -5662,32 +4878,25 @@ WafClient::DescribeWafAutoDenyRulesOutcome WafClient::DescribeWafAutoDenyRules(c
 
 void WafClient::DescribeWafAutoDenyRulesAsync(const DescribeWafAutoDenyRulesRequest& request, const DescribeWafAutoDenyRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWafAutoDenyRulesRequest&;
-    using Resp = DescribeWafAutoDenyRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWafAutoDenyRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWafAutoDenyRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeWafAutoDenyRulesOutcomeCallable WafClient::DescribeWafAutoDenyRulesCallable(const DescribeWafAutoDenyRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWafAutoDenyRulesOutcome>>();
-    DescribeWafAutoDenyRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeWafAutoDenyRulesRequest&,
-        DescribeWafAutoDenyRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWafAutoDenyRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWafAutoDenyRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeWafAutoDenyStatusOutcome WafClient::DescribeWafAutoDenyStatus(const DescribeWafAutoDenyStatusRequest &request)
@@ -5712,32 +4921,25 @@ WafClient::DescribeWafAutoDenyStatusOutcome WafClient::DescribeWafAutoDenyStatus
 
 void WafClient::DescribeWafAutoDenyStatusAsync(const DescribeWafAutoDenyStatusRequest& request, const DescribeWafAutoDenyStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWafAutoDenyStatusRequest&;
-    using Resp = DescribeWafAutoDenyStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWafAutoDenyStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWafAutoDenyStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeWafAutoDenyStatusOutcomeCallable WafClient::DescribeWafAutoDenyStatusCallable(const DescribeWafAutoDenyStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWafAutoDenyStatusOutcome>>();
-    DescribeWafAutoDenyStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeWafAutoDenyStatusRequest&,
-        DescribeWafAutoDenyStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWafAutoDenyStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWafAutoDenyStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeWafThreatenIntelligenceOutcome WafClient::DescribeWafThreatenIntelligence(const DescribeWafThreatenIntelligenceRequest &request)
@@ -5762,32 +4964,25 @@ WafClient::DescribeWafThreatenIntelligenceOutcome WafClient::DescribeWafThreaten
 
 void WafClient::DescribeWafThreatenIntelligenceAsync(const DescribeWafThreatenIntelligenceRequest& request, const DescribeWafThreatenIntelligenceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWafThreatenIntelligenceRequest&;
-    using Resp = DescribeWafThreatenIntelligenceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWafThreatenIntelligence(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWafThreatenIntelligence", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeWafThreatenIntelligenceOutcomeCallable WafClient::DescribeWafThreatenIntelligenceCallable(const DescribeWafThreatenIntelligenceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWafThreatenIntelligenceOutcome>>();
-    DescribeWafThreatenIntelligenceAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeWafThreatenIntelligenceRequest&,
-        DescribeWafThreatenIntelligenceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWafThreatenIntelligenceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWafThreatenIntelligence(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DescribeWebshellStatusOutcome WafClient::DescribeWebshellStatus(const DescribeWebshellStatusRequest &request)
@@ -5812,32 +5007,25 @@ WafClient::DescribeWebshellStatusOutcome WafClient::DescribeWebshellStatus(const
 
 void WafClient::DescribeWebshellStatusAsync(const DescribeWebshellStatusRequest& request, const DescribeWebshellStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWebshellStatusRequest&;
-    using Resp = DescribeWebshellStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWebshellStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWebshellStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DescribeWebshellStatusOutcomeCallable WafClient::DescribeWebshellStatusCallable(const DescribeWebshellStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWebshellStatusOutcome>>();
-    DescribeWebshellStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DescribeWebshellStatusRequest&,
-        DescribeWebshellStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWebshellStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWebshellStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DestroyPostCKafkaFlowOutcome WafClient::DestroyPostCKafkaFlow(const DestroyPostCKafkaFlowRequest &request)
@@ -5862,32 +5050,25 @@ WafClient::DestroyPostCKafkaFlowOutcome WafClient::DestroyPostCKafkaFlow(const D
 
 void WafClient::DestroyPostCKafkaFlowAsync(const DestroyPostCKafkaFlowRequest& request, const DestroyPostCKafkaFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyPostCKafkaFlowRequest&;
-    using Resp = DestroyPostCKafkaFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyPostCKafkaFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyPostCKafkaFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DestroyPostCKafkaFlowOutcomeCallable WafClient::DestroyPostCKafkaFlowCallable(const DestroyPostCKafkaFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyPostCKafkaFlowOutcome>>();
-    DestroyPostCKafkaFlowAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DestroyPostCKafkaFlowRequest&,
-        DestroyPostCKafkaFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyPostCKafkaFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyPostCKafkaFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::DestroyPostCLSFlowOutcome WafClient::DestroyPostCLSFlow(const DestroyPostCLSFlowRequest &request)
@@ -5912,32 +5093,25 @@ WafClient::DestroyPostCLSFlowOutcome WafClient::DestroyPostCLSFlow(const Destroy
 
 void WafClient::DestroyPostCLSFlowAsync(const DestroyPostCLSFlowRequest& request, const DestroyPostCLSFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyPostCLSFlowRequest&;
-    using Resp = DestroyPostCLSFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyPostCLSFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyPostCLSFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::DestroyPostCLSFlowOutcomeCallable WafClient::DestroyPostCLSFlowCallable(const DestroyPostCLSFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyPostCLSFlowOutcome>>();
-    DestroyPostCLSFlowAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const DestroyPostCLSFlowRequest&,
-        DestroyPostCLSFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyPostCLSFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyPostCLSFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::EnableRateLimitsV2Outcome WafClient::EnableRateLimitsV2(const EnableRateLimitsV2Request &request)
@@ -5962,32 +5136,25 @@ WafClient::EnableRateLimitsV2Outcome WafClient::EnableRateLimitsV2(const EnableR
 
 void WafClient::EnableRateLimitsV2Async(const EnableRateLimitsV2Request& request, const EnableRateLimitsV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableRateLimitsV2Request&;
-    using Resp = EnableRateLimitsV2Response;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableRateLimitsV2(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableRateLimitsV2", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::EnableRateLimitsV2OutcomeCallable WafClient::EnableRateLimitsV2Callable(const EnableRateLimitsV2Request &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableRateLimitsV2Outcome>>();
-    EnableRateLimitsV2Async(
-    request,
-    [prom](
-        const WafClient*,
-        const EnableRateLimitsV2Request&,
-        EnableRateLimitsV2Outcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableRateLimitsV2Outcome()>>(
+        [this, request]()
+        {
+            return this->EnableRateLimitsV2(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::FreshAntiFakeUrlOutcome WafClient::FreshAntiFakeUrl(const FreshAntiFakeUrlRequest &request)
@@ -6012,32 +5179,25 @@ WafClient::FreshAntiFakeUrlOutcome WafClient::FreshAntiFakeUrl(const FreshAntiFa
 
 void WafClient::FreshAntiFakeUrlAsync(const FreshAntiFakeUrlRequest& request, const FreshAntiFakeUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FreshAntiFakeUrlRequest&;
-    using Resp = FreshAntiFakeUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FreshAntiFakeUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FreshAntiFakeUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::FreshAntiFakeUrlOutcomeCallable WafClient::FreshAntiFakeUrlCallable(const FreshAntiFakeUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FreshAntiFakeUrlOutcome>>();
-    FreshAntiFakeUrlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const FreshAntiFakeUrlRequest&,
-        FreshAntiFakeUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FreshAntiFakeUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->FreshAntiFakeUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::GenerateDealsAndPayNewOutcome WafClient::GenerateDealsAndPayNew(const GenerateDealsAndPayNewRequest &request)
@@ -6062,32 +5222,25 @@ WafClient::GenerateDealsAndPayNewOutcome WafClient::GenerateDealsAndPayNew(const
 
 void WafClient::GenerateDealsAndPayNewAsync(const GenerateDealsAndPayNewRequest& request, const GenerateDealsAndPayNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GenerateDealsAndPayNewRequest&;
-    using Resp = GenerateDealsAndPayNewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GenerateDealsAndPayNew(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GenerateDealsAndPayNew", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::GenerateDealsAndPayNewOutcomeCallable WafClient::GenerateDealsAndPayNewCallable(const GenerateDealsAndPayNewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GenerateDealsAndPayNewOutcome>>();
-    GenerateDealsAndPayNewAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const GenerateDealsAndPayNewRequest&,
-        GenerateDealsAndPayNewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GenerateDealsAndPayNewOutcome()>>(
+        [this, request]()
+        {
+            return this->GenerateDealsAndPayNew(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::GetAttackDownloadRecordsOutcome WafClient::GetAttackDownloadRecords(const GetAttackDownloadRecordsRequest &request)
@@ -6112,32 +5265,25 @@ WafClient::GetAttackDownloadRecordsOutcome WafClient::GetAttackDownloadRecords(c
 
 void WafClient::GetAttackDownloadRecordsAsync(const GetAttackDownloadRecordsRequest& request, const GetAttackDownloadRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetAttackDownloadRecordsRequest&;
-    using Resp = GetAttackDownloadRecordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetAttackDownloadRecords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetAttackDownloadRecords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::GetAttackDownloadRecordsOutcomeCallable WafClient::GetAttackDownloadRecordsCallable(const GetAttackDownloadRecordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetAttackDownloadRecordsOutcome>>();
-    GetAttackDownloadRecordsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const GetAttackDownloadRecordsRequest&,
-        GetAttackDownloadRecordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetAttackDownloadRecordsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetAttackDownloadRecords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::GetAttackHistogramOutcome WafClient::GetAttackHistogram(const GetAttackHistogramRequest &request)
@@ -6162,32 +5308,25 @@ WafClient::GetAttackHistogramOutcome WafClient::GetAttackHistogram(const GetAtta
 
 void WafClient::GetAttackHistogramAsync(const GetAttackHistogramRequest& request, const GetAttackHistogramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetAttackHistogramRequest&;
-    using Resp = GetAttackHistogramResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetAttackHistogram(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetAttackHistogram", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::GetAttackHistogramOutcomeCallable WafClient::GetAttackHistogramCallable(const GetAttackHistogramRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetAttackHistogramOutcome>>();
-    GetAttackHistogramAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const GetAttackHistogramRequest&,
-        GetAttackHistogramOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetAttackHistogramOutcome()>>(
+        [this, request]()
+        {
+            return this->GetAttackHistogram(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::GetAttackTotalCountOutcome WafClient::GetAttackTotalCount(const GetAttackTotalCountRequest &request)
@@ -6212,32 +5351,25 @@ WafClient::GetAttackTotalCountOutcome WafClient::GetAttackTotalCount(const GetAt
 
 void WafClient::GetAttackTotalCountAsync(const GetAttackTotalCountRequest& request, const GetAttackTotalCountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetAttackTotalCountRequest&;
-    using Resp = GetAttackTotalCountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetAttackTotalCount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetAttackTotalCount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::GetAttackTotalCountOutcomeCallable WafClient::GetAttackTotalCountCallable(const GetAttackTotalCountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetAttackTotalCountOutcome>>();
-    GetAttackTotalCountAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const GetAttackTotalCountRequest&,
-        GetAttackTotalCountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetAttackTotalCountOutcome()>>(
+        [this, request]()
+        {
+            return this->GetAttackTotalCount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::GetInstanceQpsLimitOutcome WafClient::GetInstanceQpsLimit(const GetInstanceQpsLimitRequest &request)
@@ -6262,32 +5394,25 @@ WafClient::GetInstanceQpsLimitOutcome WafClient::GetInstanceQpsLimit(const GetIn
 
 void WafClient::GetInstanceQpsLimitAsync(const GetInstanceQpsLimitRequest& request, const GetInstanceQpsLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetInstanceQpsLimitRequest&;
-    using Resp = GetInstanceQpsLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetInstanceQpsLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetInstanceQpsLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::GetInstanceQpsLimitOutcomeCallable WafClient::GetInstanceQpsLimitCallable(const GetInstanceQpsLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetInstanceQpsLimitOutcome>>();
-    GetInstanceQpsLimitAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const GetInstanceQpsLimitRequest&,
-        GetInstanceQpsLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetInstanceQpsLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->GetInstanceQpsLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ImportIpAccessControlOutcome WafClient::ImportIpAccessControl(const ImportIpAccessControlRequest &request)
@@ -6312,32 +5437,25 @@ WafClient::ImportIpAccessControlOutcome WafClient::ImportIpAccessControl(const I
 
 void WafClient::ImportIpAccessControlAsync(const ImportIpAccessControlRequest& request, const ImportIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportIpAccessControlRequest&;
-    using Resp = ImportIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ImportIpAccessControlOutcomeCallable WafClient::ImportIpAccessControlCallable(const ImportIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportIpAccessControlOutcome>>();
-    ImportIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ImportIpAccessControlRequest&,
-        ImportIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyAntiFakeUrlOutcome WafClient::ModifyAntiFakeUrl(const ModifyAntiFakeUrlRequest &request)
@@ -6362,32 +5480,25 @@ WafClient::ModifyAntiFakeUrlOutcome WafClient::ModifyAntiFakeUrl(const ModifyAnt
 
 void WafClient::ModifyAntiFakeUrlAsync(const ModifyAntiFakeUrlRequest& request, const ModifyAntiFakeUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAntiFakeUrlRequest&;
-    using Resp = ModifyAntiFakeUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAntiFakeUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAntiFakeUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyAntiFakeUrlOutcomeCallable WafClient::ModifyAntiFakeUrlCallable(const ModifyAntiFakeUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAntiFakeUrlOutcome>>();
-    ModifyAntiFakeUrlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyAntiFakeUrlRequest&,
-        ModifyAntiFakeUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAntiFakeUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAntiFakeUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyAntiFakeUrlStatusOutcome WafClient::ModifyAntiFakeUrlStatus(const ModifyAntiFakeUrlStatusRequest &request)
@@ -6412,32 +5523,25 @@ WafClient::ModifyAntiFakeUrlStatusOutcome WafClient::ModifyAntiFakeUrlStatus(con
 
 void WafClient::ModifyAntiFakeUrlStatusAsync(const ModifyAntiFakeUrlStatusRequest& request, const ModifyAntiFakeUrlStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAntiFakeUrlStatusRequest&;
-    using Resp = ModifyAntiFakeUrlStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAntiFakeUrlStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAntiFakeUrlStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyAntiFakeUrlStatusOutcomeCallable WafClient::ModifyAntiFakeUrlStatusCallable(const ModifyAntiFakeUrlStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAntiFakeUrlStatusOutcome>>();
-    ModifyAntiFakeUrlStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyAntiFakeUrlStatusRequest&,
-        ModifyAntiFakeUrlStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAntiFakeUrlStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAntiFakeUrlStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyAntiInfoLeakRuleStatusOutcome WafClient::ModifyAntiInfoLeakRuleStatus(const ModifyAntiInfoLeakRuleStatusRequest &request)
@@ -6462,32 +5566,25 @@ WafClient::ModifyAntiInfoLeakRuleStatusOutcome WafClient::ModifyAntiInfoLeakRule
 
 void WafClient::ModifyAntiInfoLeakRuleStatusAsync(const ModifyAntiInfoLeakRuleStatusRequest& request, const ModifyAntiInfoLeakRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAntiInfoLeakRuleStatusRequest&;
-    using Resp = ModifyAntiInfoLeakRuleStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAntiInfoLeakRuleStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAntiInfoLeakRuleStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyAntiInfoLeakRuleStatusOutcomeCallable WafClient::ModifyAntiInfoLeakRuleStatusCallable(const ModifyAntiInfoLeakRuleStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAntiInfoLeakRuleStatusOutcome>>();
-    ModifyAntiInfoLeakRuleStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyAntiInfoLeakRuleStatusRequest&,
-        ModifyAntiInfoLeakRuleStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAntiInfoLeakRuleStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAntiInfoLeakRuleStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyAntiInfoLeakRulesOutcome WafClient::ModifyAntiInfoLeakRules(const ModifyAntiInfoLeakRulesRequest &request)
@@ -6512,32 +5609,25 @@ WafClient::ModifyAntiInfoLeakRulesOutcome WafClient::ModifyAntiInfoLeakRules(con
 
 void WafClient::ModifyAntiInfoLeakRulesAsync(const ModifyAntiInfoLeakRulesRequest& request, const ModifyAntiInfoLeakRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAntiInfoLeakRulesRequest&;
-    using Resp = ModifyAntiInfoLeakRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAntiInfoLeakRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAntiInfoLeakRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyAntiInfoLeakRulesOutcomeCallable WafClient::ModifyAntiInfoLeakRulesCallable(const ModifyAntiInfoLeakRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAntiInfoLeakRulesOutcome>>();
-    ModifyAntiInfoLeakRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyAntiInfoLeakRulesRequest&,
-        ModifyAntiInfoLeakRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAntiInfoLeakRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAntiInfoLeakRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyApiAnalyzeStatusOutcome WafClient::ModifyApiAnalyzeStatus(const ModifyApiAnalyzeStatusRequest &request)
@@ -6562,32 +5652,25 @@ WafClient::ModifyApiAnalyzeStatusOutcome WafClient::ModifyApiAnalyzeStatus(const
 
 void WafClient::ModifyApiAnalyzeStatusAsync(const ModifyApiAnalyzeStatusRequest& request, const ModifyApiAnalyzeStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyApiAnalyzeStatusRequest&;
-    using Resp = ModifyApiAnalyzeStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApiAnalyzeStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApiAnalyzeStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyApiAnalyzeStatusOutcomeCallable WafClient::ModifyApiAnalyzeStatusCallable(const ModifyApiAnalyzeStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyApiAnalyzeStatusOutcome>>();
-    ModifyApiAnalyzeStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyApiAnalyzeStatusRequest&,
-        ModifyApiAnalyzeStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyApiAnalyzeStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApiAnalyzeStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyApiSecEventChangeOutcome WafClient::ModifyApiSecEventChange(const ModifyApiSecEventChangeRequest &request)
@@ -6612,32 +5695,25 @@ WafClient::ModifyApiSecEventChangeOutcome WafClient::ModifyApiSecEventChange(con
 
 void WafClient::ModifyApiSecEventChangeAsync(const ModifyApiSecEventChangeRequest& request, const ModifyApiSecEventChangeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyApiSecEventChangeRequest&;
-    using Resp = ModifyApiSecEventChangeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApiSecEventChange(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApiSecEventChange", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyApiSecEventChangeOutcomeCallable WafClient::ModifyApiSecEventChangeCallable(const ModifyApiSecEventChangeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyApiSecEventChangeOutcome>>();
-    ModifyApiSecEventChangeAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyApiSecEventChangeRequest&,
-        ModifyApiSecEventChangeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyApiSecEventChangeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApiSecEventChange(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyApiSecSensitiveRuleOutcome WafClient::ModifyApiSecSensitiveRule(const ModifyApiSecSensitiveRuleRequest &request)
@@ -6662,32 +5738,25 @@ WafClient::ModifyApiSecSensitiveRuleOutcome WafClient::ModifyApiSecSensitiveRule
 
 void WafClient::ModifyApiSecSensitiveRuleAsync(const ModifyApiSecSensitiveRuleRequest& request, const ModifyApiSecSensitiveRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyApiSecSensitiveRuleRequest&;
-    using Resp = ModifyApiSecSensitiveRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApiSecSensitiveRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApiSecSensitiveRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyApiSecSensitiveRuleOutcomeCallable WafClient::ModifyApiSecSensitiveRuleCallable(const ModifyApiSecSensitiveRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyApiSecSensitiveRuleOutcome>>();
-    ModifyApiSecSensitiveRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyApiSecSensitiveRuleRequest&,
-        ModifyApiSecSensitiveRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyApiSecSensitiveRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApiSecSensitiveRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyAreaBanAreasOutcome WafClient::ModifyAreaBanAreas(const ModifyAreaBanAreasRequest &request)
@@ -6712,32 +5781,25 @@ WafClient::ModifyAreaBanAreasOutcome WafClient::ModifyAreaBanAreas(const ModifyA
 
 void WafClient::ModifyAreaBanAreasAsync(const ModifyAreaBanAreasRequest& request, const ModifyAreaBanAreasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAreaBanAreasRequest&;
-    using Resp = ModifyAreaBanAreasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAreaBanAreas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAreaBanAreas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyAreaBanAreasOutcomeCallable WafClient::ModifyAreaBanAreasCallable(const ModifyAreaBanAreasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAreaBanAreasOutcome>>();
-    ModifyAreaBanAreasAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyAreaBanAreasRequest&,
-        ModifyAreaBanAreasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAreaBanAreasOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAreaBanAreas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyAreaBanRuleOutcome WafClient::ModifyAreaBanRule(const ModifyAreaBanRuleRequest &request)
@@ -6762,32 +5824,25 @@ WafClient::ModifyAreaBanRuleOutcome WafClient::ModifyAreaBanRule(const ModifyAre
 
 void WafClient::ModifyAreaBanRuleAsync(const ModifyAreaBanRuleRequest& request, const ModifyAreaBanRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAreaBanRuleRequest&;
-    using Resp = ModifyAreaBanRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAreaBanRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAreaBanRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyAreaBanRuleOutcomeCallable WafClient::ModifyAreaBanRuleCallable(const ModifyAreaBanRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAreaBanRuleOutcome>>();
-    ModifyAreaBanRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyAreaBanRuleRequest&,
-        ModifyAreaBanRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAreaBanRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAreaBanRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyAreaBanStatusOutcome WafClient::ModifyAreaBanStatus(const ModifyAreaBanStatusRequest &request)
@@ -6812,32 +5867,25 @@ WafClient::ModifyAreaBanStatusOutcome WafClient::ModifyAreaBanStatus(const Modif
 
 void WafClient::ModifyAreaBanStatusAsync(const ModifyAreaBanStatusRequest& request, const ModifyAreaBanStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAreaBanStatusRequest&;
-    using Resp = ModifyAreaBanStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAreaBanStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAreaBanStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyAreaBanStatusOutcomeCallable WafClient::ModifyAreaBanStatusCallable(const ModifyAreaBanStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAreaBanStatusOutcome>>();
-    ModifyAreaBanStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyAreaBanStatusRequest&,
-        ModifyAreaBanStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAreaBanStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAreaBanStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyAttackWhiteRuleOutcome WafClient::ModifyAttackWhiteRule(const ModifyAttackWhiteRuleRequest &request)
@@ -6862,32 +5910,25 @@ WafClient::ModifyAttackWhiteRuleOutcome WafClient::ModifyAttackWhiteRule(const M
 
 void WafClient::ModifyAttackWhiteRuleAsync(const ModifyAttackWhiteRuleRequest& request, const ModifyAttackWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAttackWhiteRuleRequest&;
-    using Resp = ModifyAttackWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAttackWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAttackWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyAttackWhiteRuleOutcomeCallable WafClient::ModifyAttackWhiteRuleCallable(const ModifyAttackWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAttackWhiteRuleOutcome>>();
-    ModifyAttackWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyAttackWhiteRuleRequest&,
-        ModifyAttackWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAttackWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAttackWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyBatchIpAccessControlOutcome WafClient::ModifyBatchIpAccessControl(const ModifyBatchIpAccessControlRequest &request)
@@ -6912,32 +5953,25 @@ WafClient::ModifyBatchIpAccessControlOutcome WafClient::ModifyBatchIpAccessContr
 
 void WafClient::ModifyBatchIpAccessControlAsync(const ModifyBatchIpAccessControlRequest& request, const ModifyBatchIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBatchIpAccessControlRequest&;
-    using Resp = ModifyBatchIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBatchIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBatchIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyBatchIpAccessControlOutcomeCallable WafClient::ModifyBatchIpAccessControlCallable(const ModifyBatchIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBatchIpAccessControlOutcome>>();
-    ModifyBatchIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyBatchIpAccessControlRequest&,
-        ModifyBatchIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBatchIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBatchIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyBotIdRuleOutcome WafClient::ModifyBotIdRule(const ModifyBotIdRuleRequest &request)
@@ -6962,32 +5996,25 @@ WafClient::ModifyBotIdRuleOutcome WafClient::ModifyBotIdRule(const ModifyBotIdRu
 
 void WafClient::ModifyBotIdRuleAsync(const ModifyBotIdRuleRequest& request, const ModifyBotIdRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBotIdRuleRequest&;
-    using Resp = ModifyBotIdRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBotIdRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBotIdRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyBotIdRuleOutcomeCallable WafClient::ModifyBotIdRuleCallable(const ModifyBotIdRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBotIdRuleOutcome>>();
-    ModifyBotIdRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyBotIdRuleRequest&,
-        ModifyBotIdRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBotIdRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBotIdRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyBotSceneStatusOutcome WafClient::ModifyBotSceneStatus(const ModifyBotSceneStatusRequest &request)
@@ -7012,32 +6039,25 @@ WafClient::ModifyBotSceneStatusOutcome WafClient::ModifyBotSceneStatus(const Mod
 
 void WafClient::ModifyBotSceneStatusAsync(const ModifyBotSceneStatusRequest& request, const ModifyBotSceneStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBotSceneStatusRequest&;
-    using Resp = ModifyBotSceneStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBotSceneStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBotSceneStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyBotSceneStatusOutcomeCallable WafClient::ModifyBotSceneStatusCallable(const ModifyBotSceneStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBotSceneStatusOutcome>>();
-    ModifyBotSceneStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyBotSceneStatusRequest&,
-        ModifyBotSceneStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBotSceneStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBotSceneStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyBotSceneUCBRuleOutcome WafClient::ModifyBotSceneUCBRule(const ModifyBotSceneUCBRuleRequest &request)
@@ -7062,32 +6082,25 @@ WafClient::ModifyBotSceneUCBRuleOutcome WafClient::ModifyBotSceneUCBRule(const M
 
 void WafClient::ModifyBotSceneUCBRuleAsync(const ModifyBotSceneUCBRuleRequest& request, const ModifyBotSceneUCBRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBotSceneUCBRuleRequest&;
-    using Resp = ModifyBotSceneUCBRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBotSceneUCBRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBotSceneUCBRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyBotSceneUCBRuleOutcomeCallable WafClient::ModifyBotSceneUCBRuleCallable(const ModifyBotSceneUCBRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBotSceneUCBRuleOutcome>>();
-    ModifyBotSceneUCBRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyBotSceneUCBRuleRequest&,
-        ModifyBotSceneUCBRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBotSceneUCBRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBotSceneUCBRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyBotStatusOutcome WafClient::ModifyBotStatus(const ModifyBotStatusRequest &request)
@@ -7112,32 +6125,25 @@ WafClient::ModifyBotStatusOutcome WafClient::ModifyBotStatus(const ModifyBotStat
 
 void WafClient::ModifyBotStatusAsync(const ModifyBotStatusRequest& request, const ModifyBotStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBotStatusRequest&;
-    using Resp = ModifyBotStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBotStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBotStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyBotStatusOutcomeCallable WafClient::ModifyBotStatusCallable(const ModifyBotStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBotStatusOutcome>>();
-    ModifyBotStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyBotStatusRequest&,
-        ModifyBotStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBotStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBotStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyCustomRuleOutcome WafClient::ModifyCustomRule(const ModifyCustomRuleRequest &request)
@@ -7162,32 +6168,25 @@ WafClient::ModifyCustomRuleOutcome WafClient::ModifyCustomRule(const ModifyCusto
 
 void WafClient::ModifyCustomRuleAsync(const ModifyCustomRuleRequest& request, const ModifyCustomRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCustomRuleRequest&;
-    using Resp = ModifyCustomRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCustomRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCustomRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyCustomRuleOutcomeCallable WafClient::ModifyCustomRuleCallable(const ModifyCustomRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCustomRuleOutcome>>();
-    ModifyCustomRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyCustomRuleRequest&,
-        ModifyCustomRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCustomRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCustomRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyCustomRuleStatusOutcome WafClient::ModifyCustomRuleStatus(const ModifyCustomRuleStatusRequest &request)
@@ -7212,32 +6211,25 @@ WafClient::ModifyCustomRuleStatusOutcome WafClient::ModifyCustomRuleStatus(const
 
 void WafClient::ModifyCustomRuleStatusAsync(const ModifyCustomRuleStatusRequest& request, const ModifyCustomRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCustomRuleStatusRequest&;
-    using Resp = ModifyCustomRuleStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCustomRuleStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCustomRuleStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyCustomRuleStatusOutcomeCallable WafClient::ModifyCustomRuleStatusCallable(const ModifyCustomRuleStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCustomRuleStatusOutcome>>();
-    ModifyCustomRuleStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyCustomRuleStatusRequest&,
-        ModifyCustomRuleStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCustomRuleStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCustomRuleStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyCustomWhiteRuleOutcome WafClient::ModifyCustomWhiteRule(const ModifyCustomWhiteRuleRequest &request)
@@ -7262,32 +6254,25 @@ WafClient::ModifyCustomWhiteRuleOutcome WafClient::ModifyCustomWhiteRule(const M
 
 void WafClient::ModifyCustomWhiteRuleAsync(const ModifyCustomWhiteRuleRequest& request, const ModifyCustomWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCustomWhiteRuleRequest&;
-    using Resp = ModifyCustomWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCustomWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCustomWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyCustomWhiteRuleOutcomeCallable WafClient::ModifyCustomWhiteRuleCallable(const ModifyCustomWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCustomWhiteRuleOutcome>>();
-    ModifyCustomWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyCustomWhiteRuleRequest&,
-        ModifyCustomWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCustomWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCustomWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyCustomWhiteRuleStatusOutcome WafClient::ModifyCustomWhiteRuleStatus(const ModifyCustomWhiteRuleStatusRequest &request)
@@ -7312,32 +6297,25 @@ WafClient::ModifyCustomWhiteRuleStatusOutcome WafClient::ModifyCustomWhiteRuleSt
 
 void WafClient::ModifyCustomWhiteRuleStatusAsync(const ModifyCustomWhiteRuleStatusRequest& request, const ModifyCustomWhiteRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCustomWhiteRuleStatusRequest&;
-    using Resp = ModifyCustomWhiteRuleStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCustomWhiteRuleStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCustomWhiteRuleStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyCustomWhiteRuleStatusOutcomeCallable WafClient::ModifyCustomWhiteRuleStatusCallable(const ModifyCustomWhiteRuleStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCustomWhiteRuleStatusOutcome>>();
-    ModifyCustomWhiteRuleStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyCustomWhiteRuleStatusRequest&,
-        ModifyCustomWhiteRuleStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCustomWhiteRuleStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCustomWhiteRuleStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyDomainIpv6StatusOutcome WafClient::ModifyDomainIpv6Status(const ModifyDomainIpv6StatusRequest &request)
@@ -7362,32 +6340,25 @@ WafClient::ModifyDomainIpv6StatusOutcome WafClient::ModifyDomainIpv6Status(const
 
 void WafClient::ModifyDomainIpv6StatusAsync(const ModifyDomainIpv6StatusRequest& request, const ModifyDomainIpv6StatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDomainIpv6StatusRequest&;
-    using Resp = ModifyDomainIpv6StatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDomainIpv6Status(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDomainIpv6Status", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyDomainIpv6StatusOutcomeCallable WafClient::ModifyDomainIpv6StatusCallable(const ModifyDomainIpv6StatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDomainIpv6StatusOutcome>>();
-    ModifyDomainIpv6StatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyDomainIpv6StatusRequest&,
-        ModifyDomainIpv6StatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDomainIpv6StatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDomainIpv6Status(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyDomainPostActionOutcome WafClient::ModifyDomainPostAction(const ModifyDomainPostActionRequest &request)
@@ -7412,32 +6383,25 @@ WafClient::ModifyDomainPostActionOutcome WafClient::ModifyDomainPostAction(const
 
 void WafClient::ModifyDomainPostActionAsync(const ModifyDomainPostActionRequest& request, const ModifyDomainPostActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDomainPostActionRequest&;
-    using Resp = ModifyDomainPostActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDomainPostAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDomainPostAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyDomainPostActionOutcomeCallable WafClient::ModifyDomainPostActionCallable(const ModifyDomainPostActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDomainPostActionOutcome>>();
-    ModifyDomainPostActionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyDomainPostActionRequest&,
-        ModifyDomainPostActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDomainPostActionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDomainPostAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyDomainWhiteRuleOutcome WafClient::ModifyDomainWhiteRule(const ModifyDomainWhiteRuleRequest &request)
@@ -7462,32 +6426,25 @@ WafClient::ModifyDomainWhiteRuleOutcome WafClient::ModifyDomainWhiteRule(const M
 
 void WafClient::ModifyDomainWhiteRuleAsync(const ModifyDomainWhiteRuleRequest& request, const ModifyDomainWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDomainWhiteRuleRequest&;
-    using Resp = ModifyDomainWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDomainWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDomainWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyDomainWhiteRuleOutcomeCallable WafClient::ModifyDomainWhiteRuleCallable(const ModifyDomainWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDomainWhiteRuleOutcome>>();
-    ModifyDomainWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyDomainWhiteRuleRequest&,
-        ModifyDomainWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDomainWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDomainWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyDomainsCLSStatusOutcome WafClient::ModifyDomainsCLSStatus(const ModifyDomainsCLSStatusRequest &request)
@@ -7512,32 +6469,25 @@ WafClient::ModifyDomainsCLSStatusOutcome WafClient::ModifyDomainsCLSStatus(const
 
 void WafClient::ModifyDomainsCLSStatusAsync(const ModifyDomainsCLSStatusRequest& request, const ModifyDomainsCLSStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDomainsCLSStatusRequest&;
-    using Resp = ModifyDomainsCLSStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDomainsCLSStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDomainsCLSStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyDomainsCLSStatusOutcomeCallable WafClient::ModifyDomainsCLSStatusCallable(const ModifyDomainsCLSStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDomainsCLSStatusOutcome>>();
-    ModifyDomainsCLSStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyDomainsCLSStatusRequest&,
-        ModifyDomainsCLSStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDomainsCLSStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDomainsCLSStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyGenerateDealsOutcome WafClient::ModifyGenerateDeals(const ModifyGenerateDealsRequest &request)
@@ -7562,32 +6512,25 @@ WafClient::ModifyGenerateDealsOutcome WafClient::ModifyGenerateDeals(const Modif
 
 void WafClient::ModifyGenerateDealsAsync(const ModifyGenerateDealsRequest& request, const ModifyGenerateDealsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGenerateDealsRequest&;
-    using Resp = ModifyGenerateDealsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGenerateDeals(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGenerateDeals", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyGenerateDealsOutcomeCallable WafClient::ModifyGenerateDealsCallable(const ModifyGenerateDealsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGenerateDealsOutcome>>();
-    ModifyGenerateDealsAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyGenerateDealsRequest&,
-        ModifyGenerateDealsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGenerateDealsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGenerateDeals(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyHostOutcome WafClient::ModifyHost(const ModifyHostRequest &request)
@@ -7612,32 +6555,25 @@ WafClient::ModifyHostOutcome WafClient::ModifyHost(const ModifyHostRequest &requ
 
 void WafClient::ModifyHostAsync(const ModifyHostRequest& request, const ModifyHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHostRequest&;
-    using Resp = ModifyHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyHostOutcomeCallable WafClient::ModifyHostCallable(const ModifyHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHostOutcome>>();
-    ModifyHostAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyHostRequest&,
-        ModifyHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHostOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyHostFlowModeOutcome WafClient::ModifyHostFlowMode(const ModifyHostFlowModeRequest &request)
@@ -7662,32 +6598,25 @@ WafClient::ModifyHostFlowModeOutcome WafClient::ModifyHostFlowMode(const ModifyH
 
 void WafClient::ModifyHostFlowModeAsync(const ModifyHostFlowModeRequest& request, const ModifyHostFlowModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHostFlowModeRequest&;
-    using Resp = ModifyHostFlowModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHostFlowMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHostFlowMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyHostFlowModeOutcomeCallable WafClient::ModifyHostFlowModeCallable(const ModifyHostFlowModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHostFlowModeOutcome>>();
-    ModifyHostFlowModeAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyHostFlowModeRequest&,
-        ModifyHostFlowModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHostFlowModeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHostFlowMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyHostModeOutcome WafClient::ModifyHostMode(const ModifyHostModeRequest &request)
@@ -7712,32 +6641,25 @@ WafClient::ModifyHostModeOutcome WafClient::ModifyHostMode(const ModifyHostModeR
 
 void WafClient::ModifyHostModeAsync(const ModifyHostModeRequest& request, const ModifyHostModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHostModeRequest&;
-    using Resp = ModifyHostModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHostMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHostMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyHostModeOutcomeCallable WafClient::ModifyHostModeCallable(const ModifyHostModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHostModeOutcome>>();
-    ModifyHostModeAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyHostModeRequest&,
-        ModifyHostModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHostModeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHostMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyHostStatusOutcome WafClient::ModifyHostStatus(const ModifyHostStatusRequest &request)
@@ -7762,32 +6684,25 @@ WafClient::ModifyHostStatusOutcome WafClient::ModifyHostStatus(const ModifyHostS
 
 void WafClient::ModifyHostStatusAsync(const ModifyHostStatusRequest& request, const ModifyHostStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHostStatusRequest&;
-    using Resp = ModifyHostStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHostStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHostStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyHostStatusOutcomeCallable WafClient::ModifyHostStatusCallable(const ModifyHostStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHostStatusOutcome>>();
-    ModifyHostStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyHostStatusRequest&,
-        ModifyHostStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHostStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHostStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyInstanceAttackLogPostOutcome WafClient::ModifyInstanceAttackLogPost(const ModifyInstanceAttackLogPostRequest &request)
@@ -7812,32 +6727,25 @@ WafClient::ModifyInstanceAttackLogPostOutcome WafClient::ModifyInstanceAttackLog
 
 void WafClient::ModifyInstanceAttackLogPostAsync(const ModifyInstanceAttackLogPostRequest& request, const ModifyInstanceAttackLogPostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceAttackLogPostRequest&;
-    using Resp = ModifyInstanceAttackLogPostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceAttackLogPost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceAttackLogPost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyInstanceAttackLogPostOutcomeCallable WafClient::ModifyInstanceAttackLogPostCallable(const ModifyInstanceAttackLogPostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceAttackLogPostOutcome>>();
-    ModifyInstanceAttackLogPostAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyInstanceAttackLogPostRequest&,
-        ModifyInstanceAttackLogPostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceAttackLogPostOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceAttackLogPost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyInstanceElasticModeOutcome WafClient::ModifyInstanceElasticMode(const ModifyInstanceElasticModeRequest &request)
@@ -7862,32 +6770,25 @@ WafClient::ModifyInstanceElasticModeOutcome WafClient::ModifyInstanceElasticMode
 
 void WafClient::ModifyInstanceElasticModeAsync(const ModifyInstanceElasticModeRequest& request, const ModifyInstanceElasticModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceElasticModeRequest&;
-    using Resp = ModifyInstanceElasticModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceElasticMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceElasticMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyInstanceElasticModeOutcomeCallable WafClient::ModifyInstanceElasticModeCallable(const ModifyInstanceElasticModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceElasticModeOutcome>>();
-    ModifyInstanceElasticModeAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyInstanceElasticModeRequest&,
-        ModifyInstanceElasticModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceElasticModeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceElasticMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyInstanceNameOutcome WafClient::ModifyInstanceName(const ModifyInstanceNameRequest &request)
@@ -7912,32 +6813,25 @@ WafClient::ModifyInstanceNameOutcome WafClient::ModifyInstanceName(const ModifyI
 
 void WafClient::ModifyInstanceNameAsync(const ModifyInstanceNameRequest& request, const ModifyInstanceNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceNameRequest&;
-    using Resp = ModifyInstanceNameResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceName(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceName", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyInstanceNameOutcomeCallable WafClient::ModifyInstanceNameCallable(const ModifyInstanceNameRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceNameOutcome>>();
-    ModifyInstanceNameAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyInstanceNameRequest&,
-        ModifyInstanceNameOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceNameOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceName(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyInstanceQpsLimitOutcome WafClient::ModifyInstanceQpsLimit(const ModifyInstanceQpsLimitRequest &request)
@@ -7962,32 +6856,25 @@ WafClient::ModifyInstanceQpsLimitOutcome WafClient::ModifyInstanceQpsLimit(const
 
 void WafClient::ModifyInstanceQpsLimitAsync(const ModifyInstanceQpsLimitRequest& request, const ModifyInstanceQpsLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceQpsLimitRequest&;
-    using Resp = ModifyInstanceQpsLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceQpsLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceQpsLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyInstanceQpsLimitOutcomeCallable WafClient::ModifyInstanceQpsLimitCallable(const ModifyInstanceQpsLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceQpsLimitOutcome>>();
-    ModifyInstanceQpsLimitAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyInstanceQpsLimitRequest&,
-        ModifyInstanceQpsLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceQpsLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceQpsLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyInstanceRenewFlagOutcome WafClient::ModifyInstanceRenewFlag(const ModifyInstanceRenewFlagRequest &request)
@@ -8012,32 +6899,25 @@ WafClient::ModifyInstanceRenewFlagOutcome WafClient::ModifyInstanceRenewFlag(con
 
 void WafClient::ModifyInstanceRenewFlagAsync(const ModifyInstanceRenewFlagRequest& request, const ModifyInstanceRenewFlagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceRenewFlagRequest&;
-    using Resp = ModifyInstanceRenewFlagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceRenewFlag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceRenewFlag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyInstanceRenewFlagOutcomeCallable WafClient::ModifyInstanceRenewFlagCallable(const ModifyInstanceRenewFlagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceRenewFlagOutcome>>();
-    ModifyInstanceRenewFlagAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyInstanceRenewFlagRequest&,
-        ModifyInstanceRenewFlagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceRenewFlagOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceRenewFlag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyIpAccessControlOutcome WafClient::ModifyIpAccessControl(const ModifyIpAccessControlRequest &request)
@@ -8062,32 +6942,25 @@ WafClient::ModifyIpAccessControlOutcome WafClient::ModifyIpAccessControl(const M
 
 void WafClient::ModifyIpAccessControlAsync(const ModifyIpAccessControlRequest& request, const ModifyIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIpAccessControlRequest&;
-    using Resp = ModifyIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyIpAccessControlOutcomeCallable WafClient::ModifyIpAccessControlCallable(const ModifyIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIpAccessControlOutcome>>();
-    ModifyIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyIpAccessControlRequest&,
-        ModifyIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyModuleStatusOutcome WafClient::ModifyModuleStatus(const ModifyModuleStatusRequest &request)
@@ -8112,32 +6985,25 @@ WafClient::ModifyModuleStatusOutcome WafClient::ModifyModuleStatus(const ModifyM
 
 void WafClient::ModifyModuleStatusAsync(const ModifyModuleStatusRequest& request, const ModifyModuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyModuleStatusRequest&;
-    using Resp = ModifyModuleStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyModuleStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyModuleStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyModuleStatusOutcomeCallable WafClient::ModifyModuleStatusCallable(const ModifyModuleStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyModuleStatusOutcome>>();
-    ModifyModuleStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyModuleStatusRequest&,
-        ModifyModuleStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyModuleStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyModuleStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyObjectOutcome WafClient::ModifyObject(const ModifyObjectRequest &request)
@@ -8162,32 +7028,25 @@ WafClient::ModifyObjectOutcome WafClient::ModifyObject(const ModifyObjectRequest
 
 void WafClient::ModifyObjectAsync(const ModifyObjectRequest& request, const ModifyObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyObjectRequest&;
-    using Resp = ModifyObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyObjectOutcomeCallable WafClient::ModifyObjectCallable(const ModifyObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyObjectOutcome>>();
-    ModifyObjectAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyObjectRequest&,
-        ModifyObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyOwaspRuleStatusOutcome WafClient::ModifyOwaspRuleStatus(const ModifyOwaspRuleStatusRequest &request)
@@ -8212,32 +7071,25 @@ WafClient::ModifyOwaspRuleStatusOutcome WafClient::ModifyOwaspRuleStatus(const M
 
 void WafClient::ModifyOwaspRuleStatusAsync(const ModifyOwaspRuleStatusRequest& request, const ModifyOwaspRuleStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyOwaspRuleStatusRequest&;
-    using Resp = ModifyOwaspRuleStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyOwaspRuleStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyOwaspRuleStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyOwaspRuleStatusOutcomeCallable WafClient::ModifyOwaspRuleStatusCallable(const ModifyOwaspRuleStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyOwaspRuleStatusOutcome>>();
-    ModifyOwaspRuleStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyOwaspRuleStatusRequest&,
-        ModifyOwaspRuleStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyOwaspRuleStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyOwaspRuleStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyOwaspRuleTypeActionOutcome WafClient::ModifyOwaspRuleTypeAction(const ModifyOwaspRuleTypeActionRequest &request)
@@ -8262,32 +7114,25 @@ WafClient::ModifyOwaspRuleTypeActionOutcome WafClient::ModifyOwaspRuleTypeAction
 
 void WafClient::ModifyOwaspRuleTypeActionAsync(const ModifyOwaspRuleTypeActionRequest& request, const ModifyOwaspRuleTypeActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyOwaspRuleTypeActionRequest&;
-    using Resp = ModifyOwaspRuleTypeActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyOwaspRuleTypeAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyOwaspRuleTypeAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyOwaspRuleTypeActionOutcomeCallable WafClient::ModifyOwaspRuleTypeActionCallable(const ModifyOwaspRuleTypeActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyOwaspRuleTypeActionOutcome>>();
-    ModifyOwaspRuleTypeActionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyOwaspRuleTypeActionRequest&,
-        ModifyOwaspRuleTypeActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyOwaspRuleTypeActionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyOwaspRuleTypeAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyOwaspRuleTypeLevelOutcome WafClient::ModifyOwaspRuleTypeLevel(const ModifyOwaspRuleTypeLevelRequest &request)
@@ -8312,32 +7157,25 @@ WafClient::ModifyOwaspRuleTypeLevelOutcome WafClient::ModifyOwaspRuleTypeLevel(c
 
 void WafClient::ModifyOwaspRuleTypeLevelAsync(const ModifyOwaspRuleTypeLevelRequest& request, const ModifyOwaspRuleTypeLevelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyOwaspRuleTypeLevelRequest&;
-    using Resp = ModifyOwaspRuleTypeLevelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyOwaspRuleTypeLevel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyOwaspRuleTypeLevel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyOwaspRuleTypeLevelOutcomeCallable WafClient::ModifyOwaspRuleTypeLevelCallable(const ModifyOwaspRuleTypeLevelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyOwaspRuleTypeLevelOutcome>>();
-    ModifyOwaspRuleTypeLevelAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyOwaspRuleTypeLevelRequest&,
-        ModifyOwaspRuleTypeLevelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyOwaspRuleTypeLevelOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyOwaspRuleTypeLevel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyOwaspRuleTypeStatusOutcome WafClient::ModifyOwaspRuleTypeStatus(const ModifyOwaspRuleTypeStatusRequest &request)
@@ -8362,32 +7200,25 @@ WafClient::ModifyOwaspRuleTypeStatusOutcome WafClient::ModifyOwaspRuleTypeStatus
 
 void WafClient::ModifyOwaspRuleTypeStatusAsync(const ModifyOwaspRuleTypeStatusRequest& request, const ModifyOwaspRuleTypeStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyOwaspRuleTypeStatusRequest&;
-    using Resp = ModifyOwaspRuleTypeStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyOwaspRuleTypeStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyOwaspRuleTypeStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyOwaspRuleTypeStatusOutcomeCallable WafClient::ModifyOwaspRuleTypeStatusCallable(const ModifyOwaspRuleTypeStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyOwaspRuleTypeStatusOutcome>>();
-    ModifyOwaspRuleTypeStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyOwaspRuleTypeStatusRequest&,
-        ModifyOwaspRuleTypeStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyOwaspRuleTypeStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyOwaspRuleTypeStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyOwaspWhiteRuleOutcome WafClient::ModifyOwaspWhiteRule(const ModifyOwaspWhiteRuleRequest &request)
@@ -8412,32 +7243,25 @@ WafClient::ModifyOwaspWhiteRuleOutcome WafClient::ModifyOwaspWhiteRule(const Mod
 
 void WafClient::ModifyOwaspWhiteRuleAsync(const ModifyOwaspWhiteRuleRequest& request, const ModifyOwaspWhiteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyOwaspWhiteRuleRequest&;
-    using Resp = ModifyOwaspWhiteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyOwaspWhiteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyOwaspWhiteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyOwaspWhiteRuleOutcomeCallable WafClient::ModifyOwaspWhiteRuleCallable(const ModifyOwaspWhiteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyOwaspWhiteRuleOutcome>>();
-    ModifyOwaspWhiteRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyOwaspWhiteRuleRequest&,
-        ModifyOwaspWhiteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyOwaspWhiteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyOwaspWhiteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyProtectionLevelOutcome WafClient::ModifyProtectionLevel(const ModifyProtectionLevelRequest &request)
@@ -8462,32 +7286,25 @@ WafClient::ModifyProtectionLevelOutcome WafClient::ModifyProtectionLevel(const M
 
 void WafClient::ModifyProtectionLevelAsync(const ModifyProtectionLevelRequest& request, const ModifyProtectionLevelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProtectionLevelRequest&;
-    using Resp = ModifyProtectionLevelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProtectionLevel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProtectionLevel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyProtectionLevelOutcomeCallable WafClient::ModifyProtectionLevelCallable(const ModifyProtectionLevelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProtectionLevelOutcome>>();
-    ModifyProtectionLevelAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyProtectionLevelRequest&,
-        ModifyProtectionLevelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProtectionLevelOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProtectionLevel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyProtectionStatusOutcome WafClient::ModifyProtectionStatus(const ModifyProtectionStatusRequest &request)
@@ -8512,32 +7329,25 @@ WafClient::ModifyProtectionStatusOutcome WafClient::ModifyProtectionStatus(const
 
 void WafClient::ModifyProtectionStatusAsync(const ModifyProtectionStatusRequest& request, const ModifyProtectionStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProtectionStatusRequest&;
-    using Resp = ModifyProtectionStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProtectionStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProtectionStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyProtectionStatusOutcomeCallable WafClient::ModifyProtectionStatusCallable(const ModifyProtectionStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProtectionStatusOutcome>>();
-    ModifyProtectionStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyProtectionStatusRequest&,
-        ModifyProtectionStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProtectionStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProtectionStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifySpartaProtectionOutcome WafClient::ModifySpartaProtection(const ModifySpartaProtectionRequest &request)
@@ -8562,32 +7372,25 @@ WafClient::ModifySpartaProtectionOutcome WafClient::ModifySpartaProtection(const
 
 void WafClient::ModifySpartaProtectionAsync(const ModifySpartaProtectionRequest& request, const ModifySpartaProtectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySpartaProtectionRequest&;
-    using Resp = ModifySpartaProtectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySpartaProtection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySpartaProtection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifySpartaProtectionOutcomeCallable WafClient::ModifySpartaProtectionCallable(const ModifySpartaProtectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySpartaProtectionOutcome>>();
-    ModifySpartaProtectionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifySpartaProtectionRequest&,
-        ModifySpartaProtectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySpartaProtectionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySpartaProtection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifySpartaProtectionModeOutcome WafClient::ModifySpartaProtectionMode(const ModifySpartaProtectionModeRequest &request)
@@ -8612,32 +7415,25 @@ WafClient::ModifySpartaProtectionModeOutcome WafClient::ModifySpartaProtectionMo
 
 void WafClient::ModifySpartaProtectionModeAsync(const ModifySpartaProtectionModeRequest& request, const ModifySpartaProtectionModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySpartaProtectionModeRequest&;
-    using Resp = ModifySpartaProtectionModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySpartaProtectionMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySpartaProtectionMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifySpartaProtectionModeOutcomeCallable WafClient::ModifySpartaProtectionModeCallable(const ModifySpartaProtectionModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySpartaProtectionModeOutcome>>();
-    ModifySpartaProtectionModeAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifySpartaProtectionModeRequest&,
-        ModifySpartaProtectionModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySpartaProtectionModeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySpartaProtectionMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyUserLevelOutcome WafClient::ModifyUserLevel(const ModifyUserLevelRequest &request)
@@ -8662,32 +7458,25 @@ WafClient::ModifyUserLevelOutcome WafClient::ModifyUserLevel(const ModifyUserLev
 
 void WafClient::ModifyUserLevelAsync(const ModifyUserLevelRequest& request, const ModifyUserLevelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserLevelRequest&;
-    using Resp = ModifyUserLevelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserLevel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserLevel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyUserLevelOutcomeCallable WafClient::ModifyUserLevelCallable(const ModifyUserLevelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserLevelOutcome>>();
-    ModifyUserLevelAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyUserLevelRequest&,
-        ModifyUserLevelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserLevelOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserLevel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyUserSignatureClassOutcome WafClient::ModifyUserSignatureClass(const ModifyUserSignatureClassRequest &request)
@@ -8712,32 +7501,25 @@ WafClient::ModifyUserSignatureClassOutcome WafClient::ModifyUserSignatureClass(c
 
 void WafClient::ModifyUserSignatureClassAsync(const ModifyUserSignatureClassRequest& request, const ModifyUserSignatureClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserSignatureClassRequest&;
-    using Resp = ModifyUserSignatureClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserSignatureClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserSignatureClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyUserSignatureClassOutcomeCallable WafClient::ModifyUserSignatureClassCallable(const ModifyUserSignatureClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserSignatureClassOutcome>>();
-    ModifyUserSignatureClassAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyUserSignatureClassRequest&,
-        ModifyUserSignatureClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserSignatureClassOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserSignatureClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyUserSignatureRuleOutcome WafClient::ModifyUserSignatureRule(const ModifyUserSignatureRuleRequest &request)
@@ -8762,32 +7544,25 @@ WafClient::ModifyUserSignatureRuleOutcome WafClient::ModifyUserSignatureRule(con
 
 void WafClient::ModifyUserSignatureRuleAsync(const ModifyUserSignatureRuleRequest& request, const ModifyUserSignatureRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserSignatureRuleRequest&;
-    using Resp = ModifyUserSignatureRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserSignatureRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserSignatureRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyUserSignatureRuleOutcomeCallable WafClient::ModifyUserSignatureRuleCallable(const ModifyUserSignatureRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserSignatureRuleOutcome>>();
-    ModifyUserSignatureRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyUserSignatureRuleRequest&,
-        ModifyUserSignatureRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserSignatureRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserSignatureRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyUserSignatureRuleV2Outcome WafClient::ModifyUserSignatureRuleV2(const ModifyUserSignatureRuleV2Request &request)
@@ -8812,32 +7587,25 @@ WafClient::ModifyUserSignatureRuleV2Outcome WafClient::ModifyUserSignatureRuleV2
 
 void WafClient::ModifyUserSignatureRuleV2Async(const ModifyUserSignatureRuleV2Request& request, const ModifyUserSignatureRuleV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserSignatureRuleV2Request&;
-    using Resp = ModifyUserSignatureRuleV2Response;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserSignatureRuleV2(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserSignatureRuleV2", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyUserSignatureRuleV2OutcomeCallable WafClient::ModifyUserSignatureRuleV2Callable(const ModifyUserSignatureRuleV2Request &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserSignatureRuleV2Outcome>>();
-    ModifyUserSignatureRuleV2Async(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyUserSignatureRuleV2Request&,
-        ModifyUserSignatureRuleV2Outcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserSignatureRuleV2Outcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserSignatureRuleV2(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyWafAutoDenyRulesOutcome WafClient::ModifyWafAutoDenyRules(const ModifyWafAutoDenyRulesRequest &request)
@@ -8862,32 +7630,25 @@ WafClient::ModifyWafAutoDenyRulesOutcome WafClient::ModifyWafAutoDenyRules(const
 
 void WafClient::ModifyWafAutoDenyRulesAsync(const ModifyWafAutoDenyRulesRequest& request, const ModifyWafAutoDenyRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyWafAutoDenyRulesRequest&;
-    using Resp = ModifyWafAutoDenyRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyWafAutoDenyRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyWafAutoDenyRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyWafAutoDenyRulesOutcomeCallable WafClient::ModifyWafAutoDenyRulesCallable(const ModifyWafAutoDenyRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyWafAutoDenyRulesOutcome>>();
-    ModifyWafAutoDenyRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyWafAutoDenyRulesRequest&,
-        ModifyWafAutoDenyRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyWafAutoDenyRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyWafAutoDenyRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyWafThreatenIntelligenceOutcome WafClient::ModifyWafThreatenIntelligence(const ModifyWafThreatenIntelligenceRequest &request)
@@ -8912,32 +7673,25 @@ WafClient::ModifyWafThreatenIntelligenceOutcome WafClient::ModifyWafThreatenInte
 
 void WafClient::ModifyWafThreatenIntelligenceAsync(const ModifyWafThreatenIntelligenceRequest& request, const ModifyWafThreatenIntelligenceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyWafThreatenIntelligenceRequest&;
-    using Resp = ModifyWafThreatenIntelligenceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyWafThreatenIntelligence(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyWafThreatenIntelligence", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyWafThreatenIntelligenceOutcomeCallable WafClient::ModifyWafThreatenIntelligenceCallable(const ModifyWafThreatenIntelligenceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyWafThreatenIntelligenceOutcome>>();
-    ModifyWafThreatenIntelligenceAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyWafThreatenIntelligenceRequest&,
-        ModifyWafThreatenIntelligenceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyWafThreatenIntelligenceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyWafThreatenIntelligence(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::ModifyWebshellStatusOutcome WafClient::ModifyWebshellStatus(const ModifyWebshellStatusRequest &request)
@@ -8962,32 +7716,25 @@ WafClient::ModifyWebshellStatusOutcome WafClient::ModifyWebshellStatus(const Mod
 
 void WafClient::ModifyWebshellStatusAsync(const ModifyWebshellStatusRequest& request, const ModifyWebshellStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyWebshellStatusRequest&;
-    using Resp = ModifyWebshellStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyWebshellStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyWebshellStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::ModifyWebshellStatusOutcomeCallable WafClient::ModifyWebshellStatusCallable(const ModifyWebshellStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyWebshellStatusOutcome>>();
-    ModifyWebshellStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const ModifyWebshellStatusRequest&,
-        ModifyWebshellStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyWebshellStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyWebshellStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::PostAttackDownloadTaskOutcome WafClient::PostAttackDownloadTask(const PostAttackDownloadTaskRequest &request)
@@ -9012,32 +7759,25 @@ WafClient::PostAttackDownloadTaskOutcome WafClient::PostAttackDownloadTask(const
 
 void WafClient::PostAttackDownloadTaskAsync(const PostAttackDownloadTaskRequest& request, const PostAttackDownloadTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PostAttackDownloadTaskRequest&;
-    using Resp = PostAttackDownloadTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PostAttackDownloadTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PostAttackDownloadTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::PostAttackDownloadTaskOutcomeCallable WafClient::PostAttackDownloadTaskCallable(const PostAttackDownloadTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PostAttackDownloadTaskOutcome>>();
-    PostAttackDownloadTaskAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const PostAttackDownloadTaskRequest&,
-        PostAttackDownloadTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PostAttackDownloadTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->PostAttackDownloadTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::RefreshAccessCheckResultOutcome WafClient::RefreshAccessCheckResult(const RefreshAccessCheckResultRequest &request)
@@ -9062,32 +7802,25 @@ WafClient::RefreshAccessCheckResultOutcome WafClient::RefreshAccessCheckResult(c
 
 void WafClient::RefreshAccessCheckResultAsync(const RefreshAccessCheckResultRequest& request, const RefreshAccessCheckResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RefreshAccessCheckResultRequest&;
-    using Resp = RefreshAccessCheckResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RefreshAccessCheckResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RefreshAccessCheckResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::RefreshAccessCheckResultOutcomeCallable WafClient::RefreshAccessCheckResultCallable(const RefreshAccessCheckResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RefreshAccessCheckResultOutcome>>();
-    RefreshAccessCheckResultAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const RefreshAccessCheckResultRequest&,
-        RefreshAccessCheckResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RefreshAccessCheckResultOutcome()>>(
+        [this, request]()
+        {
+            return this->RefreshAccessCheckResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::SearchAccessLogOutcome WafClient::SearchAccessLog(const SearchAccessLogRequest &request)
@@ -9112,32 +7845,25 @@ WafClient::SearchAccessLogOutcome WafClient::SearchAccessLog(const SearchAccessL
 
 void WafClient::SearchAccessLogAsync(const SearchAccessLogRequest& request, const SearchAccessLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchAccessLogRequest&;
-    using Resp = SearchAccessLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchAccessLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchAccessLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::SearchAccessLogOutcomeCallable WafClient::SearchAccessLogCallable(const SearchAccessLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchAccessLogOutcome>>();
-    SearchAccessLogAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const SearchAccessLogRequest&,
-        SearchAccessLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchAccessLogOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchAccessLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::SearchAttackLogOutcome WafClient::SearchAttackLog(const SearchAttackLogRequest &request)
@@ -9162,32 +7888,25 @@ WafClient::SearchAttackLogOutcome WafClient::SearchAttackLog(const SearchAttackL
 
 void WafClient::SearchAttackLogAsync(const SearchAttackLogRequest& request, const SearchAttackLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchAttackLogRequest&;
-    using Resp = SearchAttackLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchAttackLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchAttackLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::SearchAttackLogOutcomeCallable WafClient::SearchAttackLogCallable(const SearchAttackLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchAttackLogOutcome>>();
-    SearchAttackLogAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const SearchAttackLogRequest&,
-        SearchAttackLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchAttackLogOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchAttackLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::SearchLogOutcome WafClient::SearchLog(const SearchLogRequest &request)
@@ -9212,32 +7931,25 @@ WafClient::SearchLogOutcome WafClient::SearchLog(const SearchLogRequest &request
 
 void WafClient::SearchLogAsync(const SearchLogRequest& request, const SearchLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchLogRequest&;
-    using Resp = SearchLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::SearchLogOutcomeCallable WafClient::SearchLogCallable(const SearchLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchLogOutcome>>();
-    SearchLogAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const SearchLogRequest&,
-        SearchLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchLogOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::SwitchDomainRulesOutcome WafClient::SwitchDomainRules(const SwitchDomainRulesRequest &request)
@@ -9262,32 +7974,25 @@ WafClient::SwitchDomainRulesOutcome WafClient::SwitchDomainRules(const SwitchDom
 
 void WafClient::SwitchDomainRulesAsync(const SwitchDomainRulesRequest& request, const SwitchDomainRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchDomainRulesRequest&;
-    using Resp = SwitchDomainRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchDomainRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchDomainRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::SwitchDomainRulesOutcomeCallable WafClient::SwitchDomainRulesCallable(const SwitchDomainRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchDomainRulesOutcome>>();
-    SwitchDomainRulesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const SwitchDomainRulesRequest&,
-        SwitchDomainRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchDomainRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchDomainRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::SwitchElasticModeOutcome WafClient::SwitchElasticMode(const SwitchElasticModeRequest &request)
@@ -9312,32 +8017,25 @@ WafClient::SwitchElasticModeOutcome WafClient::SwitchElasticMode(const SwitchEla
 
 void WafClient::SwitchElasticModeAsync(const SwitchElasticModeRequest& request, const SwitchElasticModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchElasticModeRequest&;
-    using Resp = SwitchElasticModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchElasticMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchElasticMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::SwitchElasticModeOutcomeCallable WafClient::SwitchElasticModeCallable(const SwitchElasticModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchElasticModeOutcome>>();
-    SwitchElasticModeAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const SwitchElasticModeRequest&,
-        SwitchElasticModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchElasticModeOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchElasticMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::UpdateProtectionModesOutcome WafClient::UpdateProtectionModes(const UpdateProtectionModesRequest &request)
@@ -9362,32 +8060,25 @@ WafClient::UpdateProtectionModesOutcome WafClient::UpdateProtectionModes(const U
 
 void WafClient::UpdateProtectionModesAsync(const UpdateProtectionModesRequest& request, const UpdateProtectionModesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateProtectionModesRequest&;
-    using Resp = UpdateProtectionModesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateProtectionModes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateProtectionModes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::UpdateProtectionModesOutcomeCallable WafClient::UpdateProtectionModesCallable(const UpdateProtectionModesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateProtectionModesOutcome>>();
-    UpdateProtectionModesAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const UpdateProtectionModesRequest&,
-        UpdateProtectionModesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateProtectionModesOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateProtectionModes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::UpdateRateLimitV2Outcome WafClient::UpdateRateLimitV2(const UpdateRateLimitV2Request &request)
@@ -9412,32 +8103,25 @@ WafClient::UpdateRateLimitV2Outcome WafClient::UpdateRateLimitV2(const UpdateRat
 
 void WafClient::UpdateRateLimitV2Async(const UpdateRateLimitV2Request& request, const UpdateRateLimitV2AsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateRateLimitV2Request&;
-    using Resp = UpdateRateLimitV2Response;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateRateLimitV2(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateRateLimitV2", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::UpdateRateLimitV2OutcomeCallable WafClient::UpdateRateLimitV2Callable(const UpdateRateLimitV2Request &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateRateLimitV2Outcome>>();
-    UpdateRateLimitV2Async(
-    request,
-    [prom](
-        const WafClient*,
-        const UpdateRateLimitV2Request&,
-        UpdateRateLimitV2Outcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateRateLimitV2Outcome()>>(
+        [this, request]()
+        {
+            return this->UpdateRateLimitV2(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::UpsertCCAutoStatusOutcome WafClient::UpsertCCAutoStatus(const UpsertCCAutoStatusRequest &request)
@@ -9462,32 +8146,25 @@ WafClient::UpsertCCAutoStatusOutcome WafClient::UpsertCCAutoStatus(const UpsertC
 
 void WafClient::UpsertCCAutoStatusAsync(const UpsertCCAutoStatusRequest& request, const UpsertCCAutoStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpsertCCAutoStatusRequest&;
-    using Resp = UpsertCCAutoStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpsertCCAutoStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpsertCCAutoStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::UpsertCCAutoStatusOutcomeCallable WafClient::UpsertCCAutoStatusCallable(const UpsertCCAutoStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpsertCCAutoStatusOutcome>>();
-    UpsertCCAutoStatusAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const UpsertCCAutoStatusRequest&,
-        UpsertCCAutoStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpsertCCAutoStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->UpsertCCAutoStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::UpsertCCRuleOutcome WafClient::UpsertCCRule(const UpsertCCRuleRequest &request)
@@ -9512,32 +8189,25 @@ WafClient::UpsertCCRuleOutcome WafClient::UpsertCCRule(const UpsertCCRuleRequest
 
 void WafClient::UpsertCCRuleAsync(const UpsertCCRuleRequest& request, const UpsertCCRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpsertCCRuleRequest&;
-    using Resp = UpsertCCRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpsertCCRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpsertCCRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::UpsertCCRuleOutcomeCallable WafClient::UpsertCCRuleCallable(const UpsertCCRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpsertCCRuleOutcome>>();
-    UpsertCCRuleAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const UpsertCCRuleRequest&,
-        UpsertCCRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpsertCCRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->UpsertCCRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::UpsertIpAccessControlOutcome WafClient::UpsertIpAccessControl(const UpsertIpAccessControlRequest &request)
@@ -9562,32 +8232,25 @@ WafClient::UpsertIpAccessControlOutcome WafClient::UpsertIpAccessControl(const U
 
 void WafClient::UpsertIpAccessControlAsync(const UpsertIpAccessControlRequest& request, const UpsertIpAccessControlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpsertIpAccessControlRequest&;
-    using Resp = UpsertIpAccessControlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpsertIpAccessControl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpsertIpAccessControl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::UpsertIpAccessControlOutcomeCallable WafClient::UpsertIpAccessControlCallable(const UpsertIpAccessControlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpsertIpAccessControlOutcome>>();
-    UpsertIpAccessControlAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const UpsertIpAccessControlRequest&,
-        UpsertIpAccessControlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpsertIpAccessControlOutcome()>>(
+        [this, request]()
+        {
+            return this->UpsertIpAccessControl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 WafClient::UpsertSessionOutcome WafClient::UpsertSession(const UpsertSessionRequest &request)
@@ -9612,31 +8275,24 @@ WafClient::UpsertSessionOutcome WafClient::UpsertSession(const UpsertSessionRequ
 
 void WafClient::UpsertSessionAsync(const UpsertSessionRequest& request, const UpsertSessionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpsertSessionRequest&;
-    using Resp = UpsertSessionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpsertSession(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpsertSession", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 WafClient::UpsertSessionOutcomeCallable WafClient::UpsertSessionCallable(const UpsertSessionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpsertSessionOutcome>>();
-    UpsertSessionAsync(
-    request,
-    [prom](
-        const WafClient*,
-        const UpsertSessionRequest&,
-        UpsertSessionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpsertSessionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpsertSession(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

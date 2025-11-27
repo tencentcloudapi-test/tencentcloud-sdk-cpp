@@ -62,32 +62,25 @@ MrsClient::DrugInstructionObjectOutcome MrsClient::DrugInstructionObject(const D
 
 void MrsClient::DrugInstructionObjectAsync(const DrugInstructionObjectRequest& request, const DrugInstructionObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DrugInstructionObjectRequest&;
-    using Resp = DrugInstructionObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DrugInstructionObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DrugInstructionObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::DrugInstructionObjectOutcomeCallable MrsClient::DrugInstructionObjectCallable(const DrugInstructionObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DrugInstructionObjectOutcome>>();
-    DrugInstructionObjectAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const DrugInstructionObjectRequest&,
-        DrugInstructionObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DrugInstructionObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->DrugInstructionObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::ImageMaskOutcome MrsClient::ImageMask(const ImageMaskRequest &request)
@@ -112,32 +105,25 @@ MrsClient::ImageMaskOutcome MrsClient::ImageMask(const ImageMaskRequest &request
 
 void MrsClient::ImageMaskAsync(const ImageMaskRequest& request, const ImageMaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageMaskRequest&;
-    using Resp = ImageMaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageMask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageMask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::ImageMaskOutcomeCallable MrsClient::ImageMaskCallable(const ImageMaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageMaskOutcome>>();
-    ImageMaskAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const ImageMaskRequest&,
-        ImageMaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageMaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageMask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::ImageMaskAsyncOutcome MrsClient::ImageMaskAsync(const ImageMaskAsyncRequest &request)
@@ -162,32 +148,25 @@ MrsClient::ImageMaskAsyncOutcome MrsClient::ImageMaskAsync(const ImageMaskAsyncR
 
 void MrsClient::ImageMaskAsyncAsync(const ImageMaskAsyncRequest& request, const ImageMaskAsyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageMaskAsyncRequest&;
-    using Resp = ImageMaskAsyncResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageMaskAsync(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageMaskAsync", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::ImageMaskAsyncOutcomeCallable MrsClient::ImageMaskAsyncCallable(const ImageMaskAsyncRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageMaskAsyncOutcome>>();
-    ImageMaskAsyncAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const ImageMaskAsyncRequest&,
-        ImageMaskAsyncOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageMaskAsyncOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageMaskAsync(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::ImageMaskAsyncGetResultOutcome MrsClient::ImageMaskAsyncGetResult(const ImageMaskAsyncGetResultRequest &request)
@@ -212,32 +191,25 @@ MrsClient::ImageMaskAsyncGetResultOutcome MrsClient::ImageMaskAsyncGetResult(con
 
 void MrsClient::ImageMaskAsyncGetResultAsync(const ImageMaskAsyncGetResultRequest& request, const ImageMaskAsyncGetResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageMaskAsyncGetResultRequest&;
-    using Resp = ImageMaskAsyncGetResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageMaskAsyncGetResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageMaskAsyncGetResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::ImageMaskAsyncGetResultOutcomeCallable MrsClient::ImageMaskAsyncGetResultCallable(const ImageMaskAsyncGetResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageMaskAsyncGetResultOutcome>>();
-    ImageMaskAsyncGetResultAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const ImageMaskAsyncGetResultRequest&,
-        ImageMaskAsyncGetResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageMaskAsyncGetResultOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageMaskAsyncGetResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::ImageToClassOutcome MrsClient::ImageToClass(const ImageToClassRequest &request)
@@ -262,32 +234,25 @@ MrsClient::ImageToClassOutcome MrsClient::ImageToClass(const ImageToClassRequest
 
 void MrsClient::ImageToClassAsync(const ImageToClassRequest& request, const ImageToClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageToClassRequest&;
-    using Resp = ImageToClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageToClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageToClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::ImageToClassOutcomeCallable MrsClient::ImageToClassCallable(const ImageToClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageToClassOutcome>>();
-    ImageToClassAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const ImageToClassRequest&,
-        ImageToClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageToClassOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageToClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::ImageToObjectOutcome MrsClient::ImageToObject(const ImageToObjectRequest &request)
@@ -312,32 +277,25 @@ MrsClient::ImageToObjectOutcome MrsClient::ImageToObject(const ImageToObjectRequ
 
 void MrsClient::ImageToObjectAsync(const ImageToObjectRequest& request, const ImageToObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageToObjectRequest&;
-    using Resp = ImageToObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageToObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageToObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::ImageToObjectOutcomeCallable MrsClient::ImageToObjectCallable(const ImageToObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageToObjectOutcome>>();
-    ImageToObjectAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const ImageToObjectRequest&,
-        ImageToObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageToObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageToObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::TextToClassOutcome MrsClient::TextToClass(const TextToClassRequest &request)
@@ -362,32 +320,25 @@ MrsClient::TextToClassOutcome MrsClient::TextToClass(const TextToClassRequest &r
 
 void MrsClient::TextToClassAsync(const TextToClassRequest& request, const TextToClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextToClassRequest&;
-    using Resp = TextToClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextToClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextToClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::TextToClassOutcomeCallable MrsClient::TextToClassCallable(const TextToClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextToClassOutcome>>();
-    TextToClassAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const TextToClassRequest&,
-        TextToClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextToClassOutcome()>>(
+        [this, request]()
+        {
+            return this->TextToClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::TextToObjectOutcome MrsClient::TextToObject(const TextToObjectRequest &request)
@@ -412,32 +363,25 @@ MrsClient::TextToObjectOutcome MrsClient::TextToObject(const TextToObjectRequest
 
 void MrsClient::TextToObjectAsync(const TextToObjectRequest& request, const TextToObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextToObjectRequest&;
-    using Resp = TextToObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextToObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextToObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::TextToObjectOutcomeCallable MrsClient::TextToObjectCallable(const TextToObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextToObjectOutcome>>();
-    TextToObjectAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const TextToObjectRequest&,
-        TextToObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextToObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->TextToObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::TurnPDFToObjectOutcome MrsClient::TurnPDFToObject(const TurnPDFToObjectRequest &request)
@@ -462,32 +406,25 @@ MrsClient::TurnPDFToObjectOutcome MrsClient::TurnPDFToObject(const TurnPDFToObje
 
 void MrsClient::TurnPDFToObjectAsync(const TurnPDFToObjectRequest& request, const TurnPDFToObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TurnPDFToObjectRequest&;
-    using Resp = TurnPDFToObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TurnPDFToObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TurnPDFToObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::TurnPDFToObjectOutcomeCallable MrsClient::TurnPDFToObjectCallable(const TurnPDFToObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TurnPDFToObjectOutcome>>();
-    TurnPDFToObjectAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const TurnPDFToObjectRequest&,
-        TurnPDFToObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TurnPDFToObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->TurnPDFToObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::TurnPDFToObjectAsyncOutcome MrsClient::TurnPDFToObjectAsync(const TurnPDFToObjectAsyncRequest &request)
@@ -512,32 +449,25 @@ MrsClient::TurnPDFToObjectAsyncOutcome MrsClient::TurnPDFToObjectAsync(const Tur
 
 void MrsClient::TurnPDFToObjectAsyncAsync(const TurnPDFToObjectAsyncRequest& request, const TurnPDFToObjectAsyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TurnPDFToObjectAsyncRequest&;
-    using Resp = TurnPDFToObjectAsyncResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TurnPDFToObjectAsync(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TurnPDFToObjectAsync", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::TurnPDFToObjectAsyncOutcomeCallable MrsClient::TurnPDFToObjectAsyncCallable(const TurnPDFToObjectAsyncRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TurnPDFToObjectAsyncOutcome>>();
-    TurnPDFToObjectAsyncAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const TurnPDFToObjectAsyncRequest&,
-        TurnPDFToObjectAsyncOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TurnPDFToObjectAsyncOutcome()>>(
+        [this, request]()
+        {
+            return this->TurnPDFToObjectAsync(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MrsClient::TurnPDFToObjectAsyncGetResultOutcome MrsClient::TurnPDFToObjectAsyncGetResult(const TurnPDFToObjectAsyncGetResultRequest &request)
@@ -562,31 +492,24 @@ MrsClient::TurnPDFToObjectAsyncGetResultOutcome MrsClient::TurnPDFToObjectAsyncG
 
 void MrsClient::TurnPDFToObjectAsyncGetResultAsync(const TurnPDFToObjectAsyncGetResultRequest& request, const TurnPDFToObjectAsyncGetResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TurnPDFToObjectAsyncGetResultRequest&;
-    using Resp = TurnPDFToObjectAsyncGetResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TurnPDFToObjectAsyncGetResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TurnPDFToObjectAsyncGetResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MrsClient::TurnPDFToObjectAsyncGetResultOutcomeCallable MrsClient::TurnPDFToObjectAsyncGetResultCallable(const TurnPDFToObjectAsyncGetResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TurnPDFToObjectAsyncGetResultOutcome>>();
-    TurnPDFToObjectAsyncGetResultAsync(
-    request,
-    [prom](
-        const MrsClient*,
-        const TurnPDFToObjectAsyncGetResultRequest&,
-        TurnPDFToObjectAsyncGetResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TurnPDFToObjectAsyncGetResultOutcome()>>(
+        [this, request]()
+        {
+            return this->TurnPDFToObjectAsyncGetResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

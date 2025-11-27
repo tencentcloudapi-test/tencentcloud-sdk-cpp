@@ -62,32 +62,25 @@ BmaClient::CreateBPFakeURLOutcome BmaClient::CreateBPFakeURL(const CreateBPFakeU
 
 void BmaClient::CreateBPFakeURLAsync(const CreateBPFakeURLRequest& request, const CreateBPFakeURLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBPFakeURLRequest&;
-    using Resp = CreateBPFakeURLResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBPFakeURL(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBPFakeURL", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateBPFakeURLOutcomeCallable BmaClient::CreateBPFakeURLCallable(const CreateBPFakeURLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBPFakeURLOutcome>>();
-    CreateBPFakeURLAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateBPFakeURLRequest&,
-        CreateBPFakeURLOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBPFakeURLOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBPFakeURL(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateBPFalseTicketOutcome BmaClient::CreateBPFalseTicket(const CreateBPFalseTicketRequest &request)
@@ -112,32 +105,25 @@ BmaClient::CreateBPFalseTicketOutcome BmaClient::CreateBPFalseTicket(const Creat
 
 void BmaClient::CreateBPFalseTicketAsync(const CreateBPFalseTicketRequest& request, const CreateBPFalseTicketAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBPFalseTicketRequest&;
-    using Resp = CreateBPFalseTicketResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBPFalseTicket(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBPFalseTicket", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateBPFalseTicketOutcomeCallable BmaClient::CreateBPFalseTicketCallable(const CreateBPFalseTicketRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBPFalseTicketOutcome>>();
-    CreateBPFalseTicketAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateBPFalseTicketRequest&,
-        CreateBPFalseTicketOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBPFalseTicketOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBPFalseTicket(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateBPOfflineAttachmentOutcome BmaClient::CreateBPOfflineAttachment(const CreateBPOfflineAttachmentRequest &request)
@@ -162,32 +148,25 @@ BmaClient::CreateBPOfflineAttachmentOutcome BmaClient::CreateBPOfflineAttachment
 
 void BmaClient::CreateBPOfflineAttachmentAsync(const CreateBPOfflineAttachmentRequest& request, const CreateBPOfflineAttachmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBPOfflineAttachmentRequest&;
-    using Resp = CreateBPOfflineAttachmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBPOfflineAttachment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBPOfflineAttachment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateBPOfflineAttachmentOutcomeCallable BmaClient::CreateBPOfflineAttachmentCallable(const CreateBPOfflineAttachmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBPOfflineAttachmentOutcome>>();
-    CreateBPOfflineAttachmentAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateBPOfflineAttachmentRequest&,
-        CreateBPOfflineAttachmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBPOfflineAttachmentOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBPOfflineAttachment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateBPOfflineTicketOutcome BmaClient::CreateBPOfflineTicket(const CreateBPOfflineTicketRequest &request)
@@ -212,32 +191,25 @@ BmaClient::CreateBPOfflineTicketOutcome BmaClient::CreateBPOfflineTicket(const C
 
 void BmaClient::CreateBPOfflineTicketAsync(const CreateBPOfflineTicketRequest& request, const CreateBPOfflineTicketAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBPOfflineTicketRequest&;
-    using Resp = CreateBPOfflineTicketResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBPOfflineTicket(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBPOfflineTicket", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateBPOfflineTicketOutcomeCallable BmaClient::CreateBPOfflineTicketCallable(const CreateBPOfflineTicketRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBPOfflineTicketOutcome>>();
-    CreateBPOfflineTicketAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateBPOfflineTicketRequest&,
-        CreateBPOfflineTicketOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBPOfflineTicketOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBPOfflineTicket(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateBPProtectURLsOutcome BmaClient::CreateBPProtectURLs(const CreateBPProtectURLsRequest &request)
@@ -262,32 +234,25 @@ BmaClient::CreateBPProtectURLsOutcome BmaClient::CreateBPProtectURLs(const Creat
 
 void BmaClient::CreateBPProtectURLsAsync(const CreateBPProtectURLsRequest& request, const CreateBPProtectURLsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBPProtectURLsRequest&;
-    using Resp = CreateBPProtectURLsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBPProtectURLs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBPProtectURLs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateBPProtectURLsOutcomeCallable BmaClient::CreateBPProtectURLsCallable(const CreateBPProtectURLsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBPProtectURLsOutcome>>();
-    CreateBPProtectURLsAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateBPProtectURLsRequest&,
-        CreateBPProtectURLsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBPProtectURLsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBPProtectURLs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateCRBlockOutcome BmaClient::CreateCRBlock(const CreateCRBlockRequest &request)
@@ -312,32 +277,25 @@ BmaClient::CreateCRBlockOutcome BmaClient::CreateCRBlock(const CreateCRBlockRequ
 
 void BmaClient::CreateCRBlockAsync(const CreateCRBlockRequest& request, const CreateCRBlockAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCRBlockRequest&;
-    using Resp = CreateCRBlockResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCRBlock(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCRBlock", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateCRBlockOutcomeCallable BmaClient::CreateCRBlockCallable(const CreateCRBlockRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCRBlockOutcome>>();
-    CreateCRBlockAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateCRBlockRequest&,
-        CreateCRBlockOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCRBlockOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCRBlock(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateCRCompanyVerifyOutcome BmaClient::CreateCRCompanyVerify(const CreateCRCompanyVerifyRequest &request)
@@ -362,32 +320,25 @@ BmaClient::CreateCRCompanyVerifyOutcome BmaClient::CreateCRCompanyVerify(const C
 
 void BmaClient::CreateCRCompanyVerifyAsync(const CreateCRCompanyVerifyRequest& request, const CreateCRCompanyVerifyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCRCompanyVerifyRequest&;
-    using Resp = CreateCRCompanyVerifyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCRCompanyVerify(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCRCompanyVerify", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateCRCompanyVerifyOutcomeCallable BmaClient::CreateCRCompanyVerifyCallable(const CreateCRCompanyVerifyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCRCompanyVerifyOutcome>>();
-    CreateCRCompanyVerifyAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateCRCompanyVerifyRequest&,
-        CreateCRCompanyVerifyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCRCompanyVerifyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCRCompanyVerify(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateCRDesktopCodeOutcome BmaClient::CreateCRDesktopCode(const CreateCRDesktopCodeRequest &request)
@@ -412,32 +363,25 @@ BmaClient::CreateCRDesktopCodeOutcome BmaClient::CreateCRDesktopCode(const Creat
 
 void BmaClient::CreateCRDesktopCodeAsync(const CreateCRDesktopCodeRequest& request, const CreateCRDesktopCodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCRDesktopCodeRequest&;
-    using Resp = CreateCRDesktopCodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCRDesktopCode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCRDesktopCode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateCRDesktopCodeOutcomeCallable BmaClient::CreateCRDesktopCodeCallable(const CreateCRDesktopCodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCRDesktopCodeOutcome>>();
-    CreateCRDesktopCodeAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateCRDesktopCodeRequest&,
-        CreateCRDesktopCodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCRDesktopCodeOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCRDesktopCode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateCRRightOutcome BmaClient::CreateCRRight(const CreateCRRightRequest &request)
@@ -462,32 +406,25 @@ BmaClient::CreateCRRightOutcome BmaClient::CreateCRRight(const CreateCRRightRequ
 
 void BmaClient::CreateCRRightAsync(const CreateCRRightRequest& request, const CreateCRRightAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCRRightRequest&;
-    using Resp = CreateCRRightResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCRRight(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCRRight", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateCRRightOutcomeCallable BmaClient::CreateCRRightCallable(const CreateCRRightRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCRRightOutcome>>();
-    CreateCRRightAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateCRRightRequest&,
-        CreateCRRightOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCRRightOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCRRight(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateCRRightFileOutcome BmaClient::CreateCRRightFile(const CreateCRRightFileRequest &request)
@@ -512,32 +449,25 @@ BmaClient::CreateCRRightFileOutcome BmaClient::CreateCRRightFile(const CreateCRR
 
 void BmaClient::CreateCRRightFileAsync(const CreateCRRightFileRequest& request, const CreateCRRightFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCRRightFileRequest&;
-    using Resp = CreateCRRightFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCRRightFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCRRightFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateCRRightFileOutcomeCallable BmaClient::CreateCRRightFileCallable(const CreateCRRightFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCRRightFileOutcome>>();
-    CreateCRRightFileAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateCRRightFileRequest&,
-        CreateCRRightFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCRRightFileOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCRRightFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateCRTortOutcome BmaClient::CreateCRTort(const CreateCRTortRequest &request)
@@ -562,32 +492,25 @@ BmaClient::CreateCRTortOutcome BmaClient::CreateCRTort(const CreateCRTortRequest
 
 void BmaClient::CreateCRTortAsync(const CreateCRTortRequest& request, const CreateCRTortAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCRTortRequest&;
-    using Resp = CreateCRTortResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCRTort(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCRTort", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateCRTortOutcomeCallable BmaClient::CreateCRTortCallable(const CreateCRTortRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCRTortOutcome>>();
-    CreateCRTortAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateCRTortRequest&,
-        CreateCRTortOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCRTortOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCRTort(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateCRUserVerifyOutcome BmaClient::CreateCRUserVerify(const CreateCRUserVerifyRequest &request)
@@ -612,32 +535,25 @@ BmaClient::CreateCRUserVerifyOutcome BmaClient::CreateCRUserVerify(const CreateC
 
 void BmaClient::CreateCRUserVerifyAsync(const CreateCRUserVerifyRequest& request, const CreateCRUserVerifyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCRUserVerifyRequest&;
-    using Resp = CreateCRUserVerifyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCRUserVerify(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCRUserVerify", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateCRUserVerifyOutcomeCallable BmaClient::CreateCRUserVerifyCallable(const CreateCRUserVerifyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCRUserVerifyOutcome>>();
-    CreateCRUserVerifyAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateCRUserVerifyRequest&,
-        CreateCRUserVerifyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCRUserVerifyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCRUserVerify(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::CreateCRWorkOutcome BmaClient::CreateCRWork(const CreateCRWorkRequest &request)
@@ -662,32 +578,25 @@ BmaClient::CreateCRWorkOutcome BmaClient::CreateCRWork(const CreateCRWorkRequest
 
 void BmaClient::CreateCRWorkAsync(const CreateCRWorkRequest& request, const CreateCRWorkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCRWorkRequest&;
-    using Resp = CreateCRWorkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCRWork(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCRWork", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::CreateCRWorkOutcomeCallable BmaClient::CreateCRWorkCallable(const CreateCRWorkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCRWorkOutcome>>();
-    CreateCRWorkAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const CreateCRWorkRequest&,
-        CreateCRWorkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCRWorkOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCRWork(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::DescribeBPCompanyInfoOutcome BmaClient::DescribeBPCompanyInfo(const DescribeBPCompanyInfoRequest &request)
@@ -712,32 +621,25 @@ BmaClient::DescribeBPCompanyInfoOutcome BmaClient::DescribeBPCompanyInfo(const D
 
 void BmaClient::DescribeBPCompanyInfoAsync(const DescribeBPCompanyInfoRequest& request, const DescribeBPCompanyInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBPCompanyInfoRequest&;
-    using Resp = DescribeBPCompanyInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBPCompanyInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBPCompanyInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::DescribeBPCompanyInfoOutcomeCallable BmaClient::DescribeBPCompanyInfoCallable(const DescribeBPCompanyInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBPCompanyInfoOutcome>>();
-    DescribeBPCompanyInfoAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const DescribeBPCompanyInfoRequest&,
-        DescribeBPCompanyInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBPCompanyInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBPCompanyInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::DescribeBPFakeURLsOutcome BmaClient::DescribeBPFakeURLs(const DescribeBPFakeURLsRequest &request)
@@ -762,32 +664,25 @@ BmaClient::DescribeBPFakeURLsOutcome BmaClient::DescribeBPFakeURLs(const Describ
 
 void BmaClient::DescribeBPFakeURLsAsync(const DescribeBPFakeURLsRequest& request, const DescribeBPFakeURLsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBPFakeURLsRequest&;
-    using Resp = DescribeBPFakeURLsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBPFakeURLs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBPFakeURLs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::DescribeBPFakeURLsOutcomeCallable BmaClient::DescribeBPFakeURLsCallable(const DescribeBPFakeURLsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBPFakeURLsOutcome>>();
-    DescribeBPFakeURLsAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const DescribeBPFakeURLsRequest&,
-        DescribeBPFakeURLsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBPFakeURLsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBPFakeURLs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::DescribeBPProtectURLsOutcome BmaClient::DescribeBPProtectURLs(const DescribeBPProtectURLsRequest &request)
@@ -812,32 +707,25 @@ BmaClient::DescribeBPProtectURLsOutcome BmaClient::DescribeBPProtectURLs(const D
 
 void BmaClient::DescribeBPProtectURLsAsync(const DescribeBPProtectURLsRequest& request, const DescribeBPProtectURLsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBPProtectURLsRequest&;
-    using Resp = DescribeBPProtectURLsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBPProtectURLs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBPProtectURLs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::DescribeBPProtectURLsOutcomeCallable BmaClient::DescribeBPProtectURLsCallable(const DescribeBPProtectURLsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBPProtectURLsOutcome>>();
-    DescribeBPProtectURLsAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const DescribeBPProtectURLsRequest&,
-        DescribeBPProtectURLsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBPProtectURLsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBPProtectURLs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::DescribeBPReportFakeURLsOutcome BmaClient::DescribeBPReportFakeURLs(const DescribeBPReportFakeURLsRequest &request)
@@ -862,32 +750,25 @@ BmaClient::DescribeBPReportFakeURLsOutcome BmaClient::DescribeBPReportFakeURLs(c
 
 void BmaClient::DescribeBPReportFakeURLsAsync(const DescribeBPReportFakeURLsRequest& request, const DescribeBPReportFakeURLsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBPReportFakeURLsRequest&;
-    using Resp = DescribeBPReportFakeURLsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBPReportFakeURLs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBPReportFakeURLs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::DescribeBPReportFakeURLsOutcomeCallable BmaClient::DescribeBPReportFakeURLsCallable(const DescribeBPReportFakeURLsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBPReportFakeURLsOutcome>>();
-    DescribeBPReportFakeURLsAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const DescribeBPReportFakeURLsRequest&,
-        DescribeBPReportFakeURLsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBPReportFakeURLsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBPReportFakeURLs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::DescribeCRMonitorDetailOutcome BmaClient::DescribeCRMonitorDetail(const DescribeCRMonitorDetailRequest &request)
@@ -912,32 +793,25 @@ BmaClient::DescribeCRMonitorDetailOutcome BmaClient::DescribeCRMonitorDetail(con
 
 void BmaClient::DescribeCRMonitorDetailAsync(const DescribeCRMonitorDetailRequest& request, const DescribeCRMonitorDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCRMonitorDetailRequest&;
-    using Resp = DescribeCRMonitorDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCRMonitorDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCRMonitorDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::DescribeCRMonitorDetailOutcomeCallable BmaClient::DescribeCRMonitorDetailCallable(const DescribeCRMonitorDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCRMonitorDetailOutcome>>();
-    DescribeCRMonitorDetailAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const DescribeCRMonitorDetailRequest&,
-        DescribeCRMonitorDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCRMonitorDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCRMonitorDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::DescribeCRMonitorsOutcome BmaClient::DescribeCRMonitors(const DescribeCRMonitorsRequest &request)
@@ -962,32 +836,25 @@ BmaClient::DescribeCRMonitorsOutcome BmaClient::DescribeCRMonitors(const Describ
 
 void BmaClient::DescribeCRMonitorsAsync(const DescribeCRMonitorsRequest& request, const DescribeCRMonitorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCRMonitorsRequest&;
-    using Resp = DescribeCRMonitorsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCRMonitors(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCRMonitors", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::DescribeCRMonitorsOutcomeCallable BmaClient::DescribeCRMonitorsCallable(const DescribeCRMonitorsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCRMonitorsOutcome>>();
-    DescribeCRMonitorsAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const DescribeCRMonitorsRequest&,
-        DescribeCRMonitorsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCRMonitorsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCRMonitors(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::DescribeCRObtainDetailOutcome BmaClient::DescribeCRObtainDetail(const DescribeCRObtainDetailRequest &request)
@@ -1012,32 +879,25 @@ BmaClient::DescribeCRObtainDetailOutcome BmaClient::DescribeCRObtainDetail(const
 
 void BmaClient::DescribeCRObtainDetailAsync(const DescribeCRObtainDetailRequest& request, const DescribeCRObtainDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCRObtainDetailRequest&;
-    using Resp = DescribeCRObtainDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCRObtainDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCRObtainDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::DescribeCRObtainDetailOutcomeCallable BmaClient::DescribeCRObtainDetailCallable(const DescribeCRObtainDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCRObtainDetailOutcome>>();
-    DescribeCRObtainDetailAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const DescribeCRObtainDetailRequest&,
-        DescribeCRObtainDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCRObtainDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCRObtainDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::DescribeCRWorkInfoOutcome BmaClient::DescribeCRWorkInfo(const DescribeCRWorkInfoRequest &request)
@@ -1062,32 +922,25 @@ BmaClient::DescribeCRWorkInfoOutcome BmaClient::DescribeCRWorkInfo(const Describ
 
 void BmaClient::DescribeCRWorkInfoAsync(const DescribeCRWorkInfoRequest& request, const DescribeCRWorkInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCRWorkInfoRequest&;
-    using Resp = DescribeCRWorkInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCRWorkInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCRWorkInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::DescribeCRWorkInfoOutcomeCallable BmaClient::DescribeCRWorkInfoCallable(const DescribeCRWorkInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCRWorkInfoOutcome>>();
-    DescribeCRWorkInfoAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const DescribeCRWorkInfoRequest&,
-        DescribeCRWorkInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCRWorkInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCRWorkInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::ModifyBPOfflineAttachmentOutcome BmaClient::ModifyBPOfflineAttachment(const ModifyBPOfflineAttachmentRequest &request)
@@ -1112,32 +965,25 @@ BmaClient::ModifyBPOfflineAttachmentOutcome BmaClient::ModifyBPOfflineAttachment
 
 void BmaClient::ModifyBPOfflineAttachmentAsync(const ModifyBPOfflineAttachmentRequest& request, const ModifyBPOfflineAttachmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBPOfflineAttachmentRequest&;
-    using Resp = ModifyBPOfflineAttachmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBPOfflineAttachment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBPOfflineAttachment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::ModifyBPOfflineAttachmentOutcomeCallable BmaClient::ModifyBPOfflineAttachmentCallable(const ModifyBPOfflineAttachmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBPOfflineAttachmentOutcome>>();
-    ModifyBPOfflineAttachmentAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const ModifyBPOfflineAttachmentRequest&,
-        ModifyBPOfflineAttachmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBPOfflineAttachmentOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBPOfflineAttachment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::ModifyCRBlockStatusOutcome BmaClient::ModifyCRBlockStatus(const ModifyCRBlockStatusRequest &request)
@@ -1162,32 +1008,25 @@ BmaClient::ModifyCRBlockStatusOutcome BmaClient::ModifyCRBlockStatus(const Modif
 
 void BmaClient::ModifyCRBlockStatusAsync(const ModifyCRBlockStatusRequest& request, const ModifyCRBlockStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCRBlockStatusRequest&;
-    using Resp = ModifyCRBlockStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCRBlockStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCRBlockStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::ModifyCRBlockStatusOutcomeCallable BmaClient::ModifyCRBlockStatusCallable(const ModifyCRBlockStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCRBlockStatusOutcome>>();
-    ModifyCRBlockStatusAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const ModifyCRBlockStatusRequest&,
-        ModifyCRBlockStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCRBlockStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCRBlockStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::ModifyCRMonitorOutcome BmaClient::ModifyCRMonitor(const ModifyCRMonitorRequest &request)
@@ -1212,32 +1051,25 @@ BmaClient::ModifyCRMonitorOutcome BmaClient::ModifyCRMonitor(const ModifyCRMonit
 
 void BmaClient::ModifyCRMonitorAsync(const ModifyCRMonitorRequest& request, const ModifyCRMonitorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCRMonitorRequest&;
-    using Resp = ModifyCRMonitorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCRMonitor(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCRMonitor", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::ModifyCRMonitorOutcomeCallable BmaClient::ModifyCRMonitorCallable(const ModifyCRMonitorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCRMonitorOutcome>>();
-    ModifyCRMonitorAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const ModifyCRMonitorRequest&,
-        ModifyCRMonitorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCRMonitorOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCRMonitor(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::ModifyCRObtainStatusOutcome BmaClient::ModifyCRObtainStatus(const ModifyCRObtainStatusRequest &request)
@@ -1262,32 +1094,25 @@ BmaClient::ModifyCRObtainStatusOutcome BmaClient::ModifyCRObtainStatus(const Mod
 
 void BmaClient::ModifyCRObtainStatusAsync(const ModifyCRObtainStatusRequest& request, const ModifyCRObtainStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCRObtainStatusRequest&;
-    using Resp = ModifyCRObtainStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCRObtainStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCRObtainStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::ModifyCRObtainStatusOutcomeCallable BmaClient::ModifyCRObtainStatusCallable(const ModifyCRObtainStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCRObtainStatusOutcome>>();
-    ModifyCRObtainStatusAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const ModifyCRObtainStatusRequest&,
-        ModifyCRObtainStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCRObtainStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCRObtainStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::ModifyCRRightStatusOutcome BmaClient::ModifyCRRightStatus(const ModifyCRRightStatusRequest &request)
@@ -1312,32 +1137,25 @@ BmaClient::ModifyCRRightStatusOutcome BmaClient::ModifyCRRightStatus(const Modif
 
 void BmaClient::ModifyCRRightStatusAsync(const ModifyCRRightStatusRequest& request, const ModifyCRRightStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCRRightStatusRequest&;
-    using Resp = ModifyCRRightStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCRRightStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCRRightStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::ModifyCRRightStatusOutcomeCallable BmaClient::ModifyCRRightStatusCallable(const ModifyCRRightStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCRRightStatusOutcome>>();
-    ModifyCRRightStatusAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const ModifyCRRightStatusRequest&,
-        ModifyCRRightStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCRRightStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCRRightStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::ModifyCRWhiteListOutcome BmaClient::ModifyCRWhiteList(const ModifyCRWhiteListRequest &request)
@@ -1362,32 +1180,25 @@ BmaClient::ModifyCRWhiteListOutcome BmaClient::ModifyCRWhiteList(const ModifyCRW
 
 void BmaClient::ModifyCRWhiteListAsync(const ModifyCRWhiteListRequest& request, const ModifyCRWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCRWhiteListRequest&;
-    using Resp = ModifyCRWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCRWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCRWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::ModifyCRWhiteListOutcomeCallable BmaClient::ModifyCRWhiteListCallable(const ModifyCRWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCRWhiteListOutcome>>();
-    ModifyCRWhiteListAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const ModifyCRWhiteListRequest&,
-        ModifyCRWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCRWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCRWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BmaClient::UpdateCRWorkOutcome BmaClient::UpdateCRWork(const UpdateCRWorkRequest &request)
@@ -1412,31 +1223,24 @@ BmaClient::UpdateCRWorkOutcome BmaClient::UpdateCRWork(const UpdateCRWorkRequest
 
 void BmaClient::UpdateCRWorkAsync(const UpdateCRWorkRequest& request, const UpdateCRWorkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCRWorkRequest&;
-    using Resp = UpdateCRWorkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCRWork(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCRWork", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BmaClient::UpdateCRWorkOutcomeCallable BmaClient::UpdateCRWorkCallable(const UpdateCRWorkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCRWorkOutcome>>();
-    UpdateCRWorkAsync(
-    request,
-    [prom](
-        const BmaClient*,
-        const UpdateCRWorkRequest&,
-        UpdateCRWorkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCRWorkOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCRWork(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

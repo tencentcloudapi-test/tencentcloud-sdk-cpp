@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * CreateSSHKeyPairSecret请求参数结构体
                 */

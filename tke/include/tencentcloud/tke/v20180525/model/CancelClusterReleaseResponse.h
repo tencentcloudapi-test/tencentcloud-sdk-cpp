@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PendingRelease;
+
                 /**
                 * CancelClusterRelease返回参数结构体
                 */

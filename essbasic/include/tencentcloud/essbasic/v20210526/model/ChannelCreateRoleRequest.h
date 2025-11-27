@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+                class PermissionGroup;
+
                 /**
                 * ChannelCreateRole请求参数结构体
                 */

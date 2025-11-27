@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Policy;
+
                 /**
                 * DetachWorkGroupPolicy请求参数结构体
                 */

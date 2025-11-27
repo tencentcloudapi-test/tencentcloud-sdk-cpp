@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 添加实例到集群的结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AddInstanceResult();
-                    ~AddInstanceResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

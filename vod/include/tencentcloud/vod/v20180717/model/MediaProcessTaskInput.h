@@ -41,6 +41,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TranscodeTaskInput;
+                class AnimatedGraphicTaskInput;
+                class SnapshotByTimeOffsetTaskInput;
+                class SampleSnapshotTaskInput;
+                class ImageSpriteTaskInput;
+                class CoverBySnapshotTaskInput;
+                class AdaptiveDynamicStreamingTaskInput;
+
                 /**
                 * 视频处理任务类型
                 */
@@ -48,7 +56,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaProcessTaskInput();
-                    ~MediaProcessTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

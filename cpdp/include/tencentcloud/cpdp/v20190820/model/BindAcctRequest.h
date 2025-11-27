@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AgencyClientInfo;
+
                 /**
                 * BindAcct请求参数结构体
                 */

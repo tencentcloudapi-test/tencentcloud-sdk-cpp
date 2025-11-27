@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosPathInfo;
+
                 /**
                 * 推理代码的信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InferCodeInfo();
-                    ~InferCodeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

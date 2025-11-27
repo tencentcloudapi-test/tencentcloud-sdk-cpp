@@ -43,6 +43,16 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiRecognitionTaskHeadTailResult;
+                class AiRecognitionTaskSegmentResult;
+                class AiRecognitionTaskFaceResult;
+                class AiRecognitionTaskAsrWordsResult;
+                class AiRecognitionTaskAsrFullTextResult;
+                class AiRecognitionTaskAsrTranslateResult;
+                class AiRecognitionTaskOcrWordsResult;
+                class AiRecognitionTaskOcrFullTextResult;
+                class AiRecognitionTaskObjectResult;
+
                 /**
                 * 智能识别结果。
                 */
@@ -50,7 +60,6 @@ namespace TencentCloud
                 {
                 public:
                     AiRecognitionResult();
-                    ~AiRecognitionResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OriginInfo;
+
                 /**
                 * CreateAccelerationDomain请求参数结构体
                 */

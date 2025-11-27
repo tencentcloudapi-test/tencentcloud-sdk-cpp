@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScreenNameValue;
+
                 /**
                 * DescribeScreenGeneralStat返回参数结构体
                 */

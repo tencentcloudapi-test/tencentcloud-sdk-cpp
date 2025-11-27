@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/billing/v20180709/model/AllocationOverviewNode.h>
 #include <tencentcloud/billing/v20180709/model/AllocationMonthOverviewDetail.h>
 
 
@@ -36,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AllocationMonthOverviewDetail;
+
                 /**
                 * 分账账单月概览详情
                 */
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AllocationOverviewNode();
-                    ~AllocationOverviewNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MachineGroupInfo;
+
                 /**
                 * DescribeMachineGroups返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KnowledgeDocumentSetInfo;
+                class KnowledgeSplitterPreprocess;
+
                 /**
                 * 文档信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     KnowledgeDocumentSet();
-                    ~KnowledgeDocumentSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

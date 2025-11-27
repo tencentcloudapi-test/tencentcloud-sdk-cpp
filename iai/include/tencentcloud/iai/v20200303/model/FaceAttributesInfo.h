@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FaceHairAttributesInfo;
+
                 /**
                 * 人脸属性信息，包含性别( gender )、年龄( age )、表情( expression )、 
 魅力( beauty )、眼镜( glass )、口罩（mask）、头发（hair）和姿态 (pitch，roll，yaw )。只有当 NeedFaceAttributes 设为 1 时才返回有效信息，最多返回面积最大的 5 张人脸属性信息，超过 5 张人脸（第 6 张及以后的人脸）的 FaceAttributesInfo 不具备参考意义。
@@ -43,7 +45,6 @@ namespace TencentCloud
                 {
                 public:
                     FaceAttributesInfo();
-                    ~FaceAttributesInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

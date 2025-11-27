@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Rule;
+
                 /**
                 * GetRule返回参数结构体
                 */

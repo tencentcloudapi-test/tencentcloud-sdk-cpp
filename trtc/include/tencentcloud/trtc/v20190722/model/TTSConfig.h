@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * TTS相关配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TTSConfig();
-                    ~TTSConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

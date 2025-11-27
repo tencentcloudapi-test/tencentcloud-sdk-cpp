@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 业务流量的http状态码聚合数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HttpStatusMap();
-                    ~HttpStatusMap() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

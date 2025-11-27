@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ContainerEnv;
+                class DockerContainerPublishPort;
+                class DockerContainerVolume;
+
                 /**
                 * ModifyDockerContainer请求参数结构体
                 */

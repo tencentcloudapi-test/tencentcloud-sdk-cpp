@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssociatedInstanceInfo;
+
                 /**
                 * DescribeAssociatedInstanceList返回参数结构体
                 */

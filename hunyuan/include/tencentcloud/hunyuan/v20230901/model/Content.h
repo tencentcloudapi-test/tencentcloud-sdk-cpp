@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageUrl;
+                class VideoUrl;
+                class VideoFrames;
+
                 /**
                 * 可以传入多种类型的内容，如图片、文本。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     Content();
-                    ~Content() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

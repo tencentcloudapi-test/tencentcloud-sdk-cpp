@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompareResult;
+                class RuleFieldConfig;
+
                 /**
                 * 规则执行结果
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleExecResult();
-                    ~RuleExecResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

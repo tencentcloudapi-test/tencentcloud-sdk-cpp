@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 电子文档的控件填充信息。按照控件类型进行相应的填充。
 
@@ -553,7 +554,6 @@ style String 为字体风格设置 风格支持： font : 目前支持 黑体、
                 {
                 public:
                     FormField();
-                    ~FormField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

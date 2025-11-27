@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 规则健康检查参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     L4RuleHealth();
-                    ~L4RuleHealth() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

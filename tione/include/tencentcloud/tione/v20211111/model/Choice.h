@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Message;
+
                 /**
                 * 对话结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Choice();
-                    ~Choice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Usage;
+
                 /**
                 * QueryRewrite返回参数结构体
                 */

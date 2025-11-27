@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigSubmitContext;
+
                 /**
                 * ModifyClusterConfigs请求参数结构体
                 */

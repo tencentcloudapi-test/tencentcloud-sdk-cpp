@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网络集群资产返回的结构体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NetworkClusterInfoItem();
-                    ~NetworkClusterInfoItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

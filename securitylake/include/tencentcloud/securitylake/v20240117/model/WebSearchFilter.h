@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * web搜索过滤
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WebSearchFilter();
-                    ~WebSearchFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PeakNetwork;
+
                 /**
                 * region维度的网络峰值信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PeakNetworkRegionInfo();
-                    ~PeakNetworkRegionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

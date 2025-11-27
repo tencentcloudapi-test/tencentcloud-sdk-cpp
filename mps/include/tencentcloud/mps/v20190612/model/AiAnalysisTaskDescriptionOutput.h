@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaAiAnalysisDescriptionItem;
+
                 /**
                 * 智能描述结果信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AiAnalysisTaskDescriptionOutput();
-                    ~AiAnalysisTaskDescriptionOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

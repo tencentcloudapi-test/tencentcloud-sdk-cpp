@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReservedInstance;
+
                 /**
                 * DescribeReservedInstances返回参数结构体
                 */

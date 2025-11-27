@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ShipInvoiceInfo;
+
                 /**
                 * ShipInvoiceOCR返回参数结构体
                 */

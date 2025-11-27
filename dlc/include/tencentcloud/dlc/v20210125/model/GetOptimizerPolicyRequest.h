@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SmartPolicy;
+
                 /**
                 * GetOptimizerPolicy请求参数结构体
                 */

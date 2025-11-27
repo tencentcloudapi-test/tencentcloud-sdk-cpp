@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 终端节点服务的服务白名单对象详情。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VpcEndPointServiceUser();
-                    ~VpcEndPointServiceUser() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

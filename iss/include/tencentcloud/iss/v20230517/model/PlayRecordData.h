@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 本地录像播放url数据结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PlayRecordData();
-                    ~PlayRecordData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

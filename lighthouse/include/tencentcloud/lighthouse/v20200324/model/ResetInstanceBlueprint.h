@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Blueprint;
+
                 /**
                 * 描述了镜像重置信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ResetInstanceBlueprint();
-                    ~ResetInstanceBlueprint() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

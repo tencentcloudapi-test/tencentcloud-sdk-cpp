@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FenceBindDeviceItem;
+
                 /**
                 * 围栏绑定的产品信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FenceBindProductItem();
-                    ~FenceBindProductItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

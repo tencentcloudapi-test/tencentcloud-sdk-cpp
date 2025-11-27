@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoEncodeParams;
+                class AudioEncodeParams;
+
                 /**
                 * StartStreamIngest请求参数结构体
                 */

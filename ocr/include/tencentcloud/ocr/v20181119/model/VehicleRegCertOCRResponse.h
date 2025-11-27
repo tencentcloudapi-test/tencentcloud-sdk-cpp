@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VehicleRegCertInfo;
+
                 /**
                 * VehicleRegCertOCR返回参数结构体
                 */

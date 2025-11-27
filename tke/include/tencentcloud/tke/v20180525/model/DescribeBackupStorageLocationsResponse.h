@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackupStorageLocation;
+
                 /**
                 * DescribeBackupStorageLocations返回参数结构体
                 */

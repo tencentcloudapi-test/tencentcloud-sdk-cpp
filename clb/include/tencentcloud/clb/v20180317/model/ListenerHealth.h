@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleHealth;
+
                 /**
                 * 监听器的健康检查信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ListenerHealth();
-                    ~ListenerHealth() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

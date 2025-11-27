@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CynosdbInstance;
+
                 /**
                 * DescribeIsolatedInstances返回参数结构体
                 */

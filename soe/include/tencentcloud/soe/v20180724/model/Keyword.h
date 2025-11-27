@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 评测关键词
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Keyword();
-                    ~Keyword() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

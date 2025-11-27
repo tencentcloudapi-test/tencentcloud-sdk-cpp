@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HighPriorityRoute;
+
                 /**
                 * 高优路由表信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HighPriorityRouteTable();
-                    ~HighPriorityRouteTable() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

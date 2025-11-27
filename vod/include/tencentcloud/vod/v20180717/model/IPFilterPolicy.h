@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * IP 访问限制规则，当前支持配置 IP 黑名单和白名单。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IPFilterPolicy();
-                    ~IPFilterPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

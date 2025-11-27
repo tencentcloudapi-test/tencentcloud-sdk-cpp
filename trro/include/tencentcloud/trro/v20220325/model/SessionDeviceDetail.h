@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MultiNet;
+
                 /**
                 * 会话数据详单（按设备区分）
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SessionDeviceDetail();
-                    ~SessionDeviceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

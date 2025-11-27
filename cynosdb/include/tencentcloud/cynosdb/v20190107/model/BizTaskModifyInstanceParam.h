@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyParamItem;
+
                 /**
                 * 实例参数修改任务详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BizTaskModifyInstanceParam();
-                    ~BizTaskModifyInstanceParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

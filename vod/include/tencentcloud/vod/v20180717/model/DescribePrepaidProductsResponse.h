@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProductInstance;
+
                 /**
                 * DescribePrepaidProducts返回参数结构体
                 */

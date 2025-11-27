@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MsInstance;
+
                 /**
                 * 微服务实例的分页内容
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageMsInstance();
-                    ~TsfPageMsInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

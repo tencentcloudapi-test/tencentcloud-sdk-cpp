@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AwsSQS;
+
                 /**
                 * 任务的事件通知配置。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskNotifyConfig();
-                    ~TaskNotifyConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

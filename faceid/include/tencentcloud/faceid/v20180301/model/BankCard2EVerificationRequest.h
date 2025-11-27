@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Encryption;
+
                 /**
                 * BankCard2EVerification请求参数结构体
                 */

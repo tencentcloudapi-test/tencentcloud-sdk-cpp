@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Distribution;
+
                 /**
                 * DescribeRacksDistribution返回参数结构体
                 */

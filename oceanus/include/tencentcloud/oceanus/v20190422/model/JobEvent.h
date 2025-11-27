@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述作业发生的一个事件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     JobEvent();
-                    ~JobEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

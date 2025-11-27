@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SlotNetInfo;
+
                 /**
                 * 流量监控指标
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MonitorData();
-                    ~MonitorData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

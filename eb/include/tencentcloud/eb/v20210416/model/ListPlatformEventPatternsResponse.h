@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PlatformEventSummary;
+
                 /**
                 * ListPlatformEventPatterns返回参数结构体
                 */

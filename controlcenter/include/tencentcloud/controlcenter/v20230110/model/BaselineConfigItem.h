@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 账号工厂基线配置项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BaselineConfigItem();
-                    ~BaselineConfigItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

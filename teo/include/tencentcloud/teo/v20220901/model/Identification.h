@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AscriptionInfo;
+                class FileAscriptionInfo;
+
                 /**
                 * 站点验证信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Identification();
-                    ~Identification() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

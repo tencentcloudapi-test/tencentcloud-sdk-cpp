@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SmallVideoLayoutParams;
+                class PresetLayoutConfig;
+                class WaterMarkParams;
+
                 /**
                 * MCU混流布局参数
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     LayoutParams();
-                    ~LayoutParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

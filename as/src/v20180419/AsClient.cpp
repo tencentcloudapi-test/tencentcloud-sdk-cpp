@@ -62,32 +62,25 @@ AsClient::AttachInstancesOutcome AsClient::AttachInstances(const AttachInstances
 
 void AsClient::AttachInstancesAsync(const AttachInstancesRequest& request, const AttachInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachInstancesRequest&;
-    using Resp = AttachInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::AttachInstancesOutcomeCallable AsClient::AttachInstancesCallable(const AttachInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachInstancesOutcome>>();
-    AttachInstancesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const AttachInstancesRequest&,
-        AttachInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::AttachLoadBalancersOutcome AsClient::AttachLoadBalancers(const AttachLoadBalancersRequest &request)
@@ -112,32 +105,25 @@ AsClient::AttachLoadBalancersOutcome AsClient::AttachLoadBalancers(const AttachL
 
 void AsClient::AttachLoadBalancersAsync(const AttachLoadBalancersRequest& request, const AttachLoadBalancersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachLoadBalancersRequest&;
-    using Resp = AttachLoadBalancersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachLoadBalancers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachLoadBalancers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::AttachLoadBalancersOutcomeCallable AsClient::AttachLoadBalancersCallable(const AttachLoadBalancersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachLoadBalancersOutcome>>();
-    AttachLoadBalancersAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const AttachLoadBalancersRequest&,
-        AttachLoadBalancersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachLoadBalancersOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachLoadBalancers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CancelInstanceRefreshOutcome AsClient::CancelInstanceRefresh(const CancelInstanceRefreshRequest &request)
@@ -162,32 +148,25 @@ AsClient::CancelInstanceRefreshOutcome AsClient::CancelInstanceRefresh(const Can
 
 void AsClient::CancelInstanceRefreshAsync(const CancelInstanceRefreshRequest& request, const CancelInstanceRefreshAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CancelInstanceRefreshRequest&;
-    using Resp = CancelInstanceRefreshResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CancelInstanceRefresh(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CancelInstanceRefresh", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CancelInstanceRefreshOutcomeCallable AsClient::CancelInstanceRefreshCallable(const CancelInstanceRefreshRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CancelInstanceRefreshOutcome>>();
-    CancelInstanceRefreshAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CancelInstanceRefreshRequest&,
-        CancelInstanceRefreshOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CancelInstanceRefreshOutcome()>>(
+        [this, request]()
+        {
+            return this->CancelInstanceRefresh(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ClearLaunchConfigurationAttributesOutcome AsClient::ClearLaunchConfigurationAttributes(const ClearLaunchConfigurationAttributesRequest &request)
@@ -212,32 +191,25 @@ AsClient::ClearLaunchConfigurationAttributesOutcome AsClient::ClearLaunchConfigu
 
 void AsClient::ClearLaunchConfigurationAttributesAsync(const ClearLaunchConfigurationAttributesRequest& request, const ClearLaunchConfigurationAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ClearLaunchConfigurationAttributesRequest&;
-    using Resp = ClearLaunchConfigurationAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ClearLaunchConfigurationAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ClearLaunchConfigurationAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ClearLaunchConfigurationAttributesOutcomeCallable AsClient::ClearLaunchConfigurationAttributesCallable(const ClearLaunchConfigurationAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ClearLaunchConfigurationAttributesOutcome>>();
-    ClearLaunchConfigurationAttributesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ClearLaunchConfigurationAttributesRequest&,
-        ClearLaunchConfigurationAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ClearLaunchConfigurationAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ClearLaunchConfigurationAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CompleteLifecycleActionOutcome AsClient::CompleteLifecycleAction(const CompleteLifecycleActionRequest &request)
@@ -262,32 +234,25 @@ AsClient::CompleteLifecycleActionOutcome AsClient::CompleteLifecycleAction(const
 
 void AsClient::CompleteLifecycleActionAsync(const CompleteLifecycleActionRequest& request, const CompleteLifecycleActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CompleteLifecycleActionRequest&;
-    using Resp = CompleteLifecycleActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CompleteLifecycleAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CompleteLifecycleAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CompleteLifecycleActionOutcomeCallable AsClient::CompleteLifecycleActionCallable(const CompleteLifecycleActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CompleteLifecycleActionOutcome>>();
-    CompleteLifecycleActionAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CompleteLifecycleActionRequest&,
-        CompleteLifecycleActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CompleteLifecycleActionOutcome()>>(
+        [this, request]()
+        {
+            return this->CompleteLifecycleAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CreateAutoScalingGroupOutcome AsClient::CreateAutoScalingGroup(const CreateAutoScalingGroupRequest &request)
@@ -312,32 +277,25 @@ AsClient::CreateAutoScalingGroupOutcome AsClient::CreateAutoScalingGroup(const C
 
 void AsClient::CreateAutoScalingGroupAsync(const CreateAutoScalingGroupRequest& request, const CreateAutoScalingGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAutoScalingGroupRequest&;
-    using Resp = CreateAutoScalingGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAutoScalingGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAutoScalingGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CreateAutoScalingGroupOutcomeCallable AsClient::CreateAutoScalingGroupCallable(const CreateAutoScalingGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAutoScalingGroupOutcome>>();
-    CreateAutoScalingGroupAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CreateAutoScalingGroupRequest&,
-        CreateAutoScalingGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAutoScalingGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAutoScalingGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CreateAutoScalingGroupFromInstanceOutcome AsClient::CreateAutoScalingGroupFromInstance(const CreateAutoScalingGroupFromInstanceRequest &request)
@@ -362,32 +320,25 @@ AsClient::CreateAutoScalingGroupFromInstanceOutcome AsClient::CreateAutoScalingG
 
 void AsClient::CreateAutoScalingGroupFromInstanceAsync(const CreateAutoScalingGroupFromInstanceRequest& request, const CreateAutoScalingGroupFromInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAutoScalingGroupFromInstanceRequest&;
-    using Resp = CreateAutoScalingGroupFromInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAutoScalingGroupFromInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAutoScalingGroupFromInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CreateAutoScalingGroupFromInstanceOutcomeCallable AsClient::CreateAutoScalingGroupFromInstanceCallable(const CreateAutoScalingGroupFromInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAutoScalingGroupFromInstanceOutcome>>();
-    CreateAutoScalingGroupFromInstanceAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CreateAutoScalingGroupFromInstanceRequest&,
-        CreateAutoScalingGroupFromInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAutoScalingGroupFromInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAutoScalingGroupFromInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CreateLaunchConfigurationOutcome AsClient::CreateLaunchConfiguration(const CreateLaunchConfigurationRequest &request)
@@ -412,32 +363,25 @@ AsClient::CreateLaunchConfigurationOutcome AsClient::CreateLaunchConfiguration(c
 
 void AsClient::CreateLaunchConfigurationAsync(const CreateLaunchConfigurationRequest& request, const CreateLaunchConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLaunchConfigurationRequest&;
-    using Resp = CreateLaunchConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLaunchConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLaunchConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CreateLaunchConfigurationOutcomeCallable AsClient::CreateLaunchConfigurationCallable(const CreateLaunchConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLaunchConfigurationOutcome>>();
-    CreateLaunchConfigurationAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CreateLaunchConfigurationRequest&,
-        CreateLaunchConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLaunchConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLaunchConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CreateLifecycleHookOutcome AsClient::CreateLifecycleHook(const CreateLifecycleHookRequest &request)
@@ -462,32 +406,25 @@ AsClient::CreateLifecycleHookOutcome AsClient::CreateLifecycleHook(const CreateL
 
 void AsClient::CreateLifecycleHookAsync(const CreateLifecycleHookRequest& request, const CreateLifecycleHookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLifecycleHookRequest&;
-    using Resp = CreateLifecycleHookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLifecycleHook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLifecycleHook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CreateLifecycleHookOutcomeCallable AsClient::CreateLifecycleHookCallable(const CreateLifecycleHookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLifecycleHookOutcome>>();
-    CreateLifecycleHookAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CreateLifecycleHookRequest&,
-        CreateLifecycleHookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLifecycleHookOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLifecycleHook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CreateNotificationConfigurationOutcome AsClient::CreateNotificationConfiguration(const CreateNotificationConfigurationRequest &request)
@@ -512,32 +449,25 @@ AsClient::CreateNotificationConfigurationOutcome AsClient::CreateNotificationCon
 
 void AsClient::CreateNotificationConfigurationAsync(const CreateNotificationConfigurationRequest& request, const CreateNotificationConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNotificationConfigurationRequest&;
-    using Resp = CreateNotificationConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNotificationConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNotificationConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CreateNotificationConfigurationOutcomeCallable AsClient::CreateNotificationConfigurationCallable(const CreateNotificationConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNotificationConfigurationOutcome>>();
-    CreateNotificationConfigurationAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CreateNotificationConfigurationRequest&,
-        CreateNotificationConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNotificationConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNotificationConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CreateScalingPolicyOutcome AsClient::CreateScalingPolicy(const CreateScalingPolicyRequest &request)
@@ -562,32 +492,25 @@ AsClient::CreateScalingPolicyOutcome AsClient::CreateScalingPolicy(const CreateS
 
 void AsClient::CreateScalingPolicyAsync(const CreateScalingPolicyRequest& request, const CreateScalingPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateScalingPolicyRequest&;
-    using Resp = CreateScalingPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateScalingPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateScalingPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CreateScalingPolicyOutcomeCallable AsClient::CreateScalingPolicyCallable(const CreateScalingPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateScalingPolicyOutcome>>();
-    CreateScalingPolicyAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CreateScalingPolicyRequest&,
-        CreateScalingPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateScalingPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateScalingPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::CreateScheduledActionOutcome AsClient::CreateScheduledAction(const CreateScheduledActionRequest &request)
@@ -612,32 +535,25 @@ AsClient::CreateScheduledActionOutcome AsClient::CreateScheduledAction(const Cre
 
 void AsClient::CreateScheduledActionAsync(const CreateScheduledActionRequest& request, const CreateScheduledActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateScheduledActionRequest&;
-    using Resp = CreateScheduledActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateScheduledAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateScheduledAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::CreateScheduledActionOutcomeCallable AsClient::CreateScheduledActionCallable(const CreateScheduledActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateScheduledActionOutcome>>();
-    CreateScheduledActionAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const CreateScheduledActionRequest&,
-        CreateScheduledActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateScheduledActionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateScheduledAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DeleteAutoScalingGroupOutcome AsClient::DeleteAutoScalingGroup(const DeleteAutoScalingGroupRequest &request)
@@ -662,32 +578,25 @@ AsClient::DeleteAutoScalingGroupOutcome AsClient::DeleteAutoScalingGroup(const D
 
 void AsClient::DeleteAutoScalingGroupAsync(const DeleteAutoScalingGroupRequest& request, const DeleteAutoScalingGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAutoScalingGroupRequest&;
-    using Resp = DeleteAutoScalingGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAutoScalingGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAutoScalingGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DeleteAutoScalingGroupOutcomeCallable AsClient::DeleteAutoScalingGroupCallable(const DeleteAutoScalingGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAutoScalingGroupOutcome>>();
-    DeleteAutoScalingGroupAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DeleteAutoScalingGroupRequest&,
-        DeleteAutoScalingGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAutoScalingGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAutoScalingGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DeleteLaunchConfigurationOutcome AsClient::DeleteLaunchConfiguration(const DeleteLaunchConfigurationRequest &request)
@@ -712,32 +621,25 @@ AsClient::DeleteLaunchConfigurationOutcome AsClient::DeleteLaunchConfiguration(c
 
 void AsClient::DeleteLaunchConfigurationAsync(const DeleteLaunchConfigurationRequest& request, const DeleteLaunchConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteLaunchConfigurationRequest&;
-    using Resp = DeleteLaunchConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteLaunchConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteLaunchConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DeleteLaunchConfigurationOutcomeCallable AsClient::DeleteLaunchConfigurationCallable(const DeleteLaunchConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteLaunchConfigurationOutcome>>();
-    DeleteLaunchConfigurationAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DeleteLaunchConfigurationRequest&,
-        DeleteLaunchConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteLaunchConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteLaunchConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DeleteLifecycleHookOutcome AsClient::DeleteLifecycleHook(const DeleteLifecycleHookRequest &request)
@@ -762,32 +664,25 @@ AsClient::DeleteLifecycleHookOutcome AsClient::DeleteLifecycleHook(const DeleteL
 
 void AsClient::DeleteLifecycleHookAsync(const DeleteLifecycleHookRequest& request, const DeleteLifecycleHookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteLifecycleHookRequest&;
-    using Resp = DeleteLifecycleHookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteLifecycleHook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteLifecycleHook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DeleteLifecycleHookOutcomeCallable AsClient::DeleteLifecycleHookCallable(const DeleteLifecycleHookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteLifecycleHookOutcome>>();
-    DeleteLifecycleHookAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DeleteLifecycleHookRequest&,
-        DeleteLifecycleHookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteLifecycleHookOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteLifecycleHook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DeleteNotificationConfigurationOutcome AsClient::DeleteNotificationConfiguration(const DeleteNotificationConfigurationRequest &request)
@@ -812,32 +707,25 @@ AsClient::DeleteNotificationConfigurationOutcome AsClient::DeleteNotificationCon
 
 void AsClient::DeleteNotificationConfigurationAsync(const DeleteNotificationConfigurationRequest& request, const DeleteNotificationConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNotificationConfigurationRequest&;
-    using Resp = DeleteNotificationConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNotificationConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNotificationConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DeleteNotificationConfigurationOutcomeCallable AsClient::DeleteNotificationConfigurationCallable(const DeleteNotificationConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNotificationConfigurationOutcome>>();
-    DeleteNotificationConfigurationAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DeleteNotificationConfigurationRequest&,
-        DeleteNotificationConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNotificationConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNotificationConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DeleteScalingPolicyOutcome AsClient::DeleteScalingPolicy(const DeleteScalingPolicyRequest &request)
@@ -862,32 +750,25 @@ AsClient::DeleteScalingPolicyOutcome AsClient::DeleteScalingPolicy(const DeleteS
 
 void AsClient::DeleteScalingPolicyAsync(const DeleteScalingPolicyRequest& request, const DeleteScalingPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteScalingPolicyRequest&;
-    using Resp = DeleteScalingPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteScalingPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteScalingPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DeleteScalingPolicyOutcomeCallable AsClient::DeleteScalingPolicyCallable(const DeleteScalingPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteScalingPolicyOutcome>>();
-    DeleteScalingPolicyAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DeleteScalingPolicyRequest&,
-        DeleteScalingPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteScalingPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteScalingPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DeleteScheduledActionOutcome AsClient::DeleteScheduledAction(const DeleteScheduledActionRequest &request)
@@ -912,32 +793,25 @@ AsClient::DeleteScheduledActionOutcome AsClient::DeleteScheduledAction(const Del
 
 void AsClient::DeleteScheduledActionAsync(const DeleteScheduledActionRequest& request, const DeleteScheduledActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteScheduledActionRequest&;
-    using Resp = DeleteScheduledActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteScheduledAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteScheduledAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DeleteScheduledActionOutcomeCallable AsClient::DeleteScheduledActionCallable(const DeleteScheduledActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteScheduledActionOutcome>>();
-    DeleteScheduledActionAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DeleteScheduledActionRequest&,
-        DeleteScheduledActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteScheduledActionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteScheduledAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeAccountLimitsOutcome AsClient::DescribeAccountLimits(const DescribeAccountLimitsRequest &request)
@@ -962,32 +836,25 @@ AsClient::DescribeAccountLimitsOutcome AsClient::DescribeAccountLimits(const Des
 
 void AsClient::DescribeAccountLimitsAsync(const DescribeAccountLimitsRequest& request, const DescribeAccountLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccountLimitsRequest&;
-    using Resp = DescribeAccountLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccountLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccountLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeAccountLimitsOutcomeCallable AsClient::DescribeAccountLimitsCallable(const DescribeAccountLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccountLimitsOutcome>>();
-    DescribeAccountLimitsAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeAccountLimitsRequest&,
-        DescribeAccountLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccountLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccountLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeAutoScalingActivitiesOutcome AsClient::DescribeAutoScalingActivities(const DescribeAutoScalingActivitiesRequest &request)
@@ -1012,32 +879,25 @@ AsClient::DescribeAutoScalingActivitiesOutcome AsClient::DescribeAutoScalingActi
 
 void AsClient::DescribeAutoScalingActivitiesAsync(const DescribeAutoScalingActivitiesRequest& request, const DescribeAutoScalingActivitiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoScalingActivitiesRequest&;
-    using Resp = DescribeAutoScalingActivitiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoScalingActivities(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoScalingActivities", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeAutoScalingActivitiesOutcomeCallable AsClient::DescribeAutoScalingActivitiesCallable(const DescribeAutoScalingActivitiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoScalingActivitiesOutcome>>();
-    DescribeAutoScalingActivitiesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeAutoScalingActivitiesRequest&,
-        DescribeAutoScalingActivitiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoScalingActivitiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoScalingActivities(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeAutoScalingAdvicesOutcome AsClient::DescribeAutoScalingAdvices(const DescribeAutoScalingAdvicesRequest &request)
@@ -1062,32 +922,25 @@ AsClient::DescribeAutoScalingAdvicesOutcome AsClient::DescribeAutoScalingAdvices
 
 void AsClient::DescribeAutoScalingAdvicesAsync(const DescribeAutoScalingAdvicesRequest& request, const DescribeAutoScalingAdvicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoScalingAdvicesRequest&;
-    using Resp = DescribeAutoScalingAdvicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoScalingAdvices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoScalingAdvices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeAutoScalingAdvicesOutcomeCallable AsClient::DescribeAutoScalingAdvicesCallable(const DescribeAutoScalingAdvicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoScalingAdvicesOutcome>>();
-    DescribeAutoScalingAdvicesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeAutoScalingAdvicesRequest&,
-        DescribeAutoScalingAdvicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoScalingAdvicesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoScalingAdvices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeAutoScalingGroupLastActivitiesOutcome AsClient::DescribeAutoScalingGroupLastActivities(const DescribeAutoScalingGroupLastActivitiesRequest &request)
@@ -1112,32 +965,25 @@ AsClient::DescribeAutoScalingGroupLastActivitiesOutcome AsClient::DescribeAutoSc
 
 void AsClient::DescribeAutoScalingGroupLastActivitiesAsync(const DescribeAutoScalingGroupLastActivitiesRequest& request, const DescribeAutoScalingGroupLastActivitiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoScalingGroupLastActivitiesRequest&;
-    using Resp = DescribeAutoScalingGroupLastActivitiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoScalingGroupLastActivities(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoScalingGroupLastActivities", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeAutoScalingGroupLastActivitiesOutcomeCallable AsClient::DescribeAutoScalingGroupLastActivitiesCallable(const DescribeAutoScalingGroupLastActivitiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoScalingGroupLastActivitiesOutcome>>();
-    DescribeAutoScalingGroupLastActivitiesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeAutoScalingGroupLastActivitiesRequest&,
-        DescribeAutoScalingGroupLastActivitiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoScalingGroupLastActivitiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoScalingGroupLastActivities(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeAutoScalingGroupsOutcome AsClient::DescribeAutoScalingGroups(const DescribeAutoScalingGroupsRequest &request)
@@ -1162,32 +1008,25 @@ AsClient::DescribeAutoScalingGroupsOutcome AsClient::DescribeAutoScalingGroups(c
 
 void AsClient::DescribeAutoScalingGroupsAsync(const DescribeAutoScalingGroupsRequest& request, const DescribeAutoScalingGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoScalingGroupsRequest&;
-    using Resp = DescribeAutoScalingGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoScalingGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoScalingGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeAutoScalingGroupsOutcomeCallable AsClient::DescribeAutoScalingGroupsCallable(const DescribeAutoScalingGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoScalingGroupsOutcome>>();
-    DescribeAutoScalingGroupsAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeAutoScalingGroupsRequest&,
-        DescribeAutoScalingGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoScalingGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoScalingGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeAutoScalingInstancesOutcome AsClient::DescribeAutoScalingInstances(const DescribeAutoScalingInstancesRequest &request)
@@ -1212,32 +1051,25 @@ AsClient::DescribeAutoScalingInstancesOutcome AsClient::DescribeAutoScalingInsta
 
 void AsClient::DescribeAutoScalingInstancesAsync(const DescribeAutoScalingInstancesRequest& request, const DescribeAutoScalingInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoScalingInstancesRequest&;
-    using Resp = DescribeAutoScalingInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoScalingInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoScalingInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeAutoScalingInstancesOutcomeCallable AsClient::DescribeAutoScalingInstancesCallable(const DescribeAutoScalingInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoScalingInstancesOutcome>>();
-    DescribeAutoScalingInstancesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeAutoScalingInstancesRequest&,
-        DescribeAutoScalingInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoScalingInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoScalingInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeLaunchConfigurationsOutcome AsClient::DescribeLaunchConfigurations(const DescribeLaunchConfigurationsRequest &request)
@@ -1262,32 +1094,25 @@ AsClient::DescribeLaunchConfigurationsOutcome AsClient::DescribeLaunchConfigurat
 
 void AsClient::DescribeLaunchConfigurationsAsync(const DescribeLaunchConfigurationsRequest& request, const DescribeLaunchConfigurationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLaunchConfigurationsRequest&;
-    using Resp = DescribeLaunchConfigurationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLaunchConfigurations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLaunchConfigurations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeLaunchConfigurationsOutcomeCallable AsClient::DescribeLaunchConfigurationsCallable(const DescribeLaunchConfigurationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLaunchConfigurationsOutcome>>();
-    DescribeLaunchConfigurationsAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeLaunchConfigurationsRequest&,
-        DescribeLaunchConfigurationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLaunchConfigurationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLaunchConfigurations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeLifecycleHooksOutcome AsClient::DescribeLifecycleHooks(const DescribeLifecycleHooksRequest &request)
@@ -1312,32 +1137,25 @@ AsClient::DescribeLifecycleHooksOutcome AsClient::DescribeLifecycleHooks(const D
 
 void AsClient::DescribeLifecycleHooksAsync(const DescribeLifecycleHooksRequest& request, const DescribeLifecycleHooksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLifecycleHooksRequest&;
-    using Resp = DescribeLifecycleHooksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLifecycleHooks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLifecycleHooks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeLifecycleHooksOutcomeCallable AsClient::DescribeLifecycleHooksCallable(const DescribeLifecycleHooksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLifecycleHooksOutcome>>();
-    DescribeLifecycleHooksAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeLifecycleHooksRequest&,
-        DescribeLifecycleHooksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLifecycleHooksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLifecycleHooks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeNotificationConfigurationsOutcome AsClient::DescribeNotificationConfigurations(const DescribeNotificationConfigurationsRequest &request)
@@ -1362,32 +1180,25 @@ AsClient::DescribeNotificationConfigurationsOutcome AsClient::DescribeNotificati
 
 void AsClient::DescribeNotificationConfigurationsAsync(const DescribeNotificationConfigurationsRequest& request, const DescribeNotificationConfigurationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNotificationConfigurationsRequest&;
-    using Resp = DescribeNotificationConfigurationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNotificationConfigurations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotificationConfigurations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeNotificationConfigurationsOutcomeCallable AsClient::DescribeNotificationConfigurationsCallable(const DescribeNotificationConfigurationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNotificationConfigurationsOutcome>>();
-    DescribeNotificationConfigurationsAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeNotificationConfigurationsRequest&,
-        DescribeNotificationConfigurationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNotificationConfigurationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNotificationConfigurations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeRefreshActivitiesOutcome AsClient::DescribeRefreshActivities(const DescribeRefreshActivitiesRequest &request)
@@ -1412,32 +1223,25 @@ AsClient::DescribeRefreshActivitiesOutcome AsClient::DescribeRefreshActivities(c
 
 void AsClient::DescribeRefreshActivitiesAsync(const DescribeRefreshActivitiesRequest& request, const DescribeRefreshActivitiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRefreshActivitiesRequest&;
-    using Resp = DescribeRefreshActivitiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRefreshActivities(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRefreshActivities", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeRefreshActivitiesOutcomeCallable AsClient::DescribeRefreshActivitiesCallable(const DescribeRefreshActivitiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRefreshActivitiesOutcome>>();
-    DescribeRefreshActivitiesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeRefreshActivitiesRequest&,
-        DescribeRefreshActivitiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRefreshActivitiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRefreshActivities(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeScalingPoliciesOutcome AsClient::DescribeScalingPolicies(const DescribeScalingPoliciesRequest &request)
@@ -1462,32 +1266,25 @@ AsClient::DescribeScalingPoliciesOutcome AsClient::DescribeScalingPolicies(const
 
 void AsClient::DescribeScalingPoliciesAsync(const DescribeScalingPoliciesRequest& request, const DescribeScalingPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeScalingPoliciesRequest&;
-    using Resp = DescribeScalingPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeScalingPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeScalingPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeScalingPoliciesOutcomeCallable AsClient::DescribeScalingPoliciesCallable(const DescribeScalingPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeScalingPoliciesOutcome>>();
-    DescribeScalingPoliciesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeScalingPoliciesRequest&,
-        DescribeScalingPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeScalingPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeScalingPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DescribeScheduledActionsOutcome AsClient::DescribeScheduledActions(const DescribeScheduledActionsRequest &request)
@@ -1512,32 +1309,25 @@ AsClient::DescribeScheduledActionsOutcome AsClient::DescribeScheduledActions(con
 
 void AsClient::DescribeScheduledActionsAsync(const DescribeScheduledActionsRequest& request, const DescribeScheduledActionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeScheduledActionsRequest&;
-    using Resp = DescribeScheduledActionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeScheduledActions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeScheduledActions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DescribeScheduledActionsOutcomeCallable AsClient::DescribeScheduledActionsCallable(const DescribeScheduledActionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeScheduledActionsOutcome>>();
-    DescribeScheduledActionsAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DescribeScheduledActionsRequest&,
-        DescribeScheduledActionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeScheduledActionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeScheduledActions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DetachInstancesOutcome AsClient::DetachInstances(const DetachInstancesRequest &request)
@@ -1562,32 +1352,25 @@ AsClient::DetachInstancesOutcome AsClient::DetachInstances(const DetachInstances
 
 void AsClient::DetachInstancesAsync(const DetachInstancesRequest& request, const DetachInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachInstancesRequest&;
-    using Resp = DetachInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DetachInstancesOutcomeCallable AsClient::DetachInstancesCallable(const DetachInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachInstancesOutcome>>();
-    DetachInstancesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DetachInstancesRequest&,
-        DetachInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DetachLoadBalancersOutcome AsClient::DetachLoadBalancers(const DetachLoadBalancersRequest &request)
@@ -1612,32 +1395,25 @@ AsClient::DetachLoadBalancersOutcome AsClient::DetachLoadBalancers(const DetachL
 
 void AsClient::DetachLoadBalancersAsync(const DetachLoadBalancersRequest& request, const DetachLoadBalancersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachLoadBalancersRequest&;
-    using Resp = DetachLoadBalancersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachLoadBalancers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachLoadBalancers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DetachLoadBalancersOutcomeCallable AsClient::DetachLoadBalancersCallable(const DetachLoadBalancersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachLoadBalancersOutcome>>();
-    DetachLoadBalancersAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DetachLoadBalancersRequest&,
-        DetachLoadBalancersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachLoadBalancersOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachLoadBalancers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::DisableAutoScalingGroupOutcome AsClient::DisableAutoScalingGroup(const DisableAutoScalingGroupRequest &request)
@@ -1662,32 +1438,25 @@ AsClient::DisableAutoScalingGroupOutcome AsClient::DisableAutoScalingGroup(const
 
 void AsClient::DisableAutoScalingGroupAsync(const DisableAutoScalingGroupRequest& request, const DisableAutoScalingGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableAutoScalingGroupRequest&;
-    using Resp = DisableAutoScalingGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableAutoScalingGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableAutoScalingGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::DisableAutoScalingGroupOutcomeCallable AsClient::DisableAutoScalingGroupCallable(const DisableAutoScalingGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableAutoScalingGroupOutcome>>();
-    DisableAutoScalingGroupAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const DisableAutoScalingGroupRequest&,
-        DisableAutoScalingGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableAutoScalingGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableAutoScalingGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::EnableAutoScalingGroupOutcome AsClient::EnableAutoScalingGroup(const EnableAutoScalingGroupRequest &request)
@@ -1712,32 +1481,25 @@ AsClient::EnableAutoScalingGroupOutcome AsClient::EnableAutoScalingGroup(const E
 
 void AsClient::EnableAutoScalingGroupAsync(const EnableAutoScalingGroupRequest& request, const EnableAutoScalingGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableAutoScalingGroupRequest&;
-    using Resp = EnableAutoScalingGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableAutoScalingGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableAutoScalingGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::EnableAutoScalingGroupOutcomeCallable AsClient::EnableAutoScalingGroupCallable(const EnableAutoScalingGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableAutoScalingGroupOutcome>>();
-    EnableAutoScalingGroupAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const EnableAutoScalingGroupRequest&,
-        EnableAutoScalingGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableAutoScalingGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableAutoScalingGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::EnterStandbyOutcome AsClient::EnterStandby(const EnterStandbyRequest &request)
@@ -1762,32 +1524,25 @@ AsClient::EnterStandbyOutcome AsClient::EnterStandby(const EnterStandbyRequest &
 
 void AsClient::EnterStandbyAsync(const EnterStandbyRequest& request, const EnterStandbyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnterStandbyRequest&;
-    using Resp = EnterStandbyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnterStandby(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnterStandby", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::EnterStandbyOutcomeCallable AsClient::EnterStandbyCallable(const EnterStandbyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnterStandbyOutcome>>();
-    EnterStandbyAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const EnterStandbyRequest&,
-        EnterStandbyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnterStandbyOutcome()>>(
+        [this, request]()
+        {
+            return this->EnterStandby(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ExecuteScalingPolicyOutcome AsClient::ExecuteScalingPolicy(const ExecuteScalingPolicyRequest &request)
@@ -1812,32 +1567,25 @@ AsClient::ExecuteScalingPolicyOutcome AsClient::ExecuteScalingPolicy(const Execu
 
 void AsClient::ExecuteScalingPolicyAsync(const ExecuteScalingPolicyRequest& request, const ExecuteScalingPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExecuteScalingPolicyRequest&;
-    using Resp = ExecuteScalingPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExecuteScalingPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExecuteScalingPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ExecuteScalingPolicyOutcomeCallable AsClient::ExecuteScalingPolicyCallable(const ExecuteScalingPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExecuteScalingPolicyOutcome>>();
-    ExecuteScalingPolicyAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ExecuteScalingPolicyRequest&,
-        ExecuteScalingPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExecuteScalingPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->ExecuteScalingPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ExitStandbyOutcome AsClient::ExitStandby(const ExitStandbyRequest &request)
@@ -1862,32 +1610,25 @@ AsClient::ExitStandbyOutcome AsClient::ExitStandby(const ExitStandbyRequest &req
 
 void AsClient::ExitStandbyAsync(const ExitStandbyRequest& request, const ExitStandbyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExitStandbyRequest&;
-    using Resp = ExitStandbyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExitStandby(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExitStandby", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ExitStandbyOutcomeCallable AsClient::ExitStandbyCallable(const ExitStandbyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExitStandbyOutcome>>();
-    ExitStandbyAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ExitStandbyRequest&,
-        ExitStandbyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExitStandbyOutcome()>>(
+        [this, request]()
+        {
+            return this->ExitStandby(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyAutoScalingGroupOutcome AsClient::ModifyAutoScalingGroup(const ModifyAutoScalingGroupRequest &request)
@@ -1912,32 +1653,25 @@ AsClient::ModifyAutoScalingGroupOutcome AsClient::ModifyAutoScalingGroup(const M
 
 void AsClient::ModifyAutoScalingGroupAsync(const ModifyAutoScalingGroupRequest& request, const ModifyAutoScalingGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAutoScalingGroupRequest&;
-    using Resp = ModifyAutoScalingGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAutoScalingGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAutoScalingGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyAutoScalingGroupOutcomeCallable AsClient::ModifyAutoScalingGroupCallable(const ModifyAutoScalingGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAutoScalingGroupOutcome>>();
-    ModifyAutoScalingGroupAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyAutoScalingGroupRequest&,
-        ModifyAutoScalingGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAutoScalingGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAutoScalingGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyDesiredCapacityOutcome AsClient::ModifyDesiredCapacity(const ModifyDesiredCapacityRequest &request)
@@ -1962,32 +1696,25 @@ AsClient::ModifyDesiredCapacityOutcome AsClient::ModifyDesiredCapacity(const Mod
 
 void AsClient::ModifyDesiredCapacityAsync(const ModifyDesiredCapacityRequest& request, const ModifyDesiredCapacityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDesiredCapacityRequest&;
-    using Resp = ModifyDesiredCapacityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDesiredCapacity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDesiredCapacity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyDesiredCapacityOutcomeCallable AsClient::ModifyDesiredCapacityCallable(const ModifyDesiredCapacityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDesiredCapacityOutcome>>();
-    ModifyDesiredCapacityAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyDesiredCapacityRequest&,
-        ModifyDesiredCapacityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDesiredCapacityOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDesiredCapacity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyLaunchConfigurationAttributesOutcome AsClient::ModifyLaunchConfigurationAttributes(const ModifyLaunchConfigurationAttributesRequest &request)
@@ -2012,32 +1739,25 @@ AsClient::ModifyLaunchConfigurationAttributesOutcome AsClient::ModifyLaunchConfi
 
 void AsClient::ModifyLaunchConfigurationAttributesAsync(const ModifyLaunchConfigurationAttributesRequest& request, const ModifyLaunchConfigurationAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLaunchConfigurationAttributesRequest&;
-    using Resp = ModifyLaunchConfigurationAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLaunchConfigurationAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLaunchConfigurationAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyLaunchConfigurationAttributesOutcomeCallable AsClient::ModifyLaunchConfigurationAttributesCallable(const ModifyLaunchConfigurationAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLaunchConfigurationAttributesOutcome>>();
-    ModifyLaunchConfigurationAttributesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyLaunchConfigurationAttributesRequest&,
-        ModifyLaunchConfigurationAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLaunchConfigurationAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLaunchConfigurationAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyLifecycleHookOutcome AsClient::ModifyLifecycleHook(const ModifyLifecycleHookRequest &request)
@@ -2062,32 +1782,25 @@ AsClient::ModifyLifecycleHookOutcome AsClient::ModifyLifecycleHook(const ModifyL
 
 void AsClient::ModifyLifecycleHookAsync(const ModifyLifecycleHookRequest& request, const ModifyLifecycleHookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLifecycleHookRequest&;
-    using Resp = ModifyLifecycleHookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLifecycleHook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLifecycleHook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyLifecycleHookOutcomeCallable AsClient::ModifyLifecycleHookCallable(const ModifyLifecycleHookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLifecycleHookOutcome>>();
-    ModifyLifecycleHookAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyLifecycleHookRequest&,
-        ModifyLifecycleHookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLifecycleHookOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLifecycleHook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyLoadBalancerTargetAttributesOutcome AsClient::ModifyLoadBalancerTargetAttributes(const ModifyLoadBalancerTargetAttributesRequest &request)
@@ -2112,32 +1825,25 @@ AsClient::ModifyLoadBalancerTargetAttributesOutcome AsClient::ModifyLoadBalancer
 
 void AsClient::ModifyLoadBalancerTargetAttributesAsync(const ModifyLoadBalancerTargetAttributesRequest& request, const ModifyLoadBalancerTargetAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLoadBalancerTargetAttributesRequest&;
-    using Resp = ModifyLoadBalancerTargetAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLoadBalancerTargetAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLoadBalancerTargetAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyLoadBalancerTargetAttributesOutcomeCallable AsClient::ModifyLoadBalancerTargetAttributesCallable(const ModifyLoadBalancerTargetAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLoadBalancerTargetAttributesOutcome>>();
-    ModifyLoadBalancerTargetAttributesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyLoadBalancerTargetAttributesRequest&,
-        ModifyLoadBalancerTargetAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLoadBalancerTargetAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLoadBalancerTargetAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyLoadBalancersOutcome AsClient::ModifyLoadBalancers(const ModifyLoadBalancersRequest &request)
@@ -2162,32 +1868,25 @@ AsClient::ModifyLoadBalancersOutcome AsClient::ModifyLoadBalancers(const ModifyL
 
 void AsClient::ModifyLoadBalancersAsync(const ModifyLoadBalancersRequest& request, const ModifyLoadBalancersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLoadBalancersRequest&;
-    using Resp = ModifyLoadBalancersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLoadBalancers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLoadBalancers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyLoadBalancersOutcomeCallable AsClient::ModifyLoadBalancersCallable(const ModifyLoadBalancersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLoadBalancersOutcome>>();
-    ModifyLoadBalancersAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyLoadBalancersRequest&,
-        ModifyLoadBalancersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLoadBalancersOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLoadBalancers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyNotificationConfigurationOutcome AsClient::ModifyNotificationConfiguration(const ModifyNotificationConfigurationRequest &request)
@@ -2212,32 +1911,25 @@ AsClient::ModifyNotificationConfigurationOutcome AsClient::ModifyNotificationCon
 
 void AsClient::ModifyNotificationConfigurationAsync(const ModifyNotificationConfigurationRequest& request, const ModifyNotificationConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNotificationConfigurationRequest&;
-    using Resp = ModifyNotificationConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNotificationConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNotificationConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyNotificationConfigurationOutcomeCallable AsClient::ModifyNotificationConfigurationCallable(const ModifyNotificationConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNotificationConfigurationOutcome>>();
-    ModifyNotificationConfigurationAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyNotificationConfigurationRequest&,
-        ModifyNotificationConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNotificationConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNotificationConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyScalingPolicyOutcome AsClient::ModifyScalingPolicy(const ModifyScalingPolicyRequest &request)
@@ -2262,32 +1954,25 @@ AsClient::ModifyScalingPolicyOutcome AsClient::ModifyScalingPolicy(const ModifyS
 
 void AsClient::ModifyScalingPolicyAsync(const ModifyScalingPolicyRequest& request, const ModifyScalingPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyScalingPolicyRequest&;
-    using Resp = ModifyScalingPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyScalingPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyScalingPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyScalingPolicyOutcomeCallable AsClient::ModifyScalingPolicyCallable(const ModifyScalingPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyScalingPolicyOutcome>>();
-    ModifyScalingPolicyAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyScalingPolicyRequest&,
-        ModifyScalingPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyScalingPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyScalingPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ModifyScheduledActionOutcome AsClient::ModifyScheduledAction(const ModifyScheduledActionRequest &request)
@@ -2312,32 +1997,25 @@ AsClient::ModifyScheduledActionOutcome AsClient::ModifyScheduledAction(const Mod
 
 void AsClient::ModifyScheduledActionAsync(const ModifyScheduledActionRequest& request, const ModifyScheduledActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyScheduledActionRequest&;
-    using Resp = ModifyScheduledActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyScheduledAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyScheduledAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ModifyScheduledActionOutcomeCallable AsClient::ModifyScheduledActionCallable(const ModifyScheduledActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyScheduledActionOutcome>>();
-    ModifyScheduledActionAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ModifyScheduledActionRequest&,
-        ModifyScheduledActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyScheduledActionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyScheduledAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::RemoveInstancesOutcome AsClient::RemoveInstances(const RemoveInstancesRequest &request)
@@ -2362,32 +2040,25 @@ AsClient::RemoveInstancesOutcome AsClient::RemoveInstances(const RemoveInstances
 
 void AsClient::RemoveInstancesAsync(const RemoveInstancesRequest& request, const RemoveInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveInstancesRequest&;
-    using Resp = RemoveInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::RemoveInstancesOutcomeCallable AsClient::RemoveInstancesCallable(const RemoveInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveInstancesOutcome>>();
-    RemoveInstancesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const RemoveInstancesRequest&,
-        RemoveInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ResumeInstanceRefreshOutcome AsClient::ResumeInstanceRefresh(const ResumeInstanceRefreshRequest &request)
@@ -2412,32 +2083,25 @@ AsClient::ResumeInstanceRefreshOutcome AsClient::ResumeInstanceRefresh(const Res
 
 void AsClient::ResumeInstanceRefreshAsync(const ResumeInstanceRefreshRequest& request, const ResumeInstanceRefreshAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResumeInstanceRefreshRequest&;
-    using Resp = ResumeInstanceRefreshResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResumeInstanceRefresh(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResumeInstanceRefresh", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ResumeInstanceRefreshOutcomeCallable AsClient::ResumeInstanceRefreshCallable(const ResumeInstanceRefreshRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResumeInstanceRefreshOutcome>>();
-    ResumeInstanceRefreshAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ResumeInstanceRefreshRequest&,
-        ResumeInstanceRefreshOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResumeInstanceRefreshOutcome()>>(
+        [this, request]()
+        {
+            return this->ResumeInstanceRefresh(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::RollbackInstanceRefreshOutcome AsClient::RollbackInstanceRefresh(const RollbackInstanceRefreshRequest &request)
@@ -2462,32 +2126,25 @@ AsClient::RollbackInstanceRefreshOutcome AsClient::RollbackInstanceRefresh(const
 
 void AsClient::RollbackInstanceRefreshAsync(const RollbackInstanceRefreshRequest& request, const RollbackInstanceRefreshAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RollbackInstanceRefreshRequest&;
-    using Resp = RollbackInstanceRefreshResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RollbackInstanceRefresh(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RollbackInstanceRefresh", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::RollbackInstanceRefreshOutcomeCallable AsClient::RollbackInstanceRefreshCallable(const RollbackInstanceRefreshRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RollbackInstanceRefreshOutcome>>();
-    RollbackInstanceRefreshAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const RollbackInstanceRefreshRequest&,
-        RollbackInstanceRefreshOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RollbackInstanceRefreshOutcome()>>(
+        [this, request]()
+        {
+            return this->RollbackInstanceRefresh(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ScaleInInstancesOutcome AsClient::ScaleInInstances(const ScaleInInstancesRequest &request)
@@ -2512,32 +2169,25 @@ AsClient::ScaleInInstancesOutcome AsClient::ScaleInInstances(const ScaleInInstan
 
 void AsClient::ScaleInInstancesAsync(const ScaleInInstancesRequest& request, const ScaleInInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleInInstancesRequest&;
-    using Resp = ScaleInInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleInInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleInInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ScaleInInstancesOutcomeCallable AsClient::ScaleInInstancesCallable(const ScaleInInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleInInstancesOutcome>>();
-    ScaleInInstancesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ScaleInInstancesRequest&,
-        ScaleInInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleInInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleInInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::ScaleOutInstancesOutcome AsClient::ScaleOutInstances(const ScaleOutInstancesRequest &request)
@@ -2562,32 +2212,25 @@ AsClient::ScaleOutInstancesOutcome AsClient::ScaleOutInstances(const ScaleOutIns
 
 void AsClient::ScaleOutInstancesAsync(const ScaleOutInstancesRequest& request, const ScaleOutInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleOutInstancesRequest&;
-    using Resp = ScaleOutInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleOutInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleOutInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::ScaleOutInstancesOutcomeCallable AsClient::ScaleOutInstancesCallable(const ScaleOutInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleOutInstancesOutcome>>();
-    ScaleOutInstancesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const ScaleOutInstancesRequest&,
-        ScaleOutInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleOutInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleOutInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::SetInstancesProtectionOutcome AsClient::SetInstancesProtection(const SetInstancesProtectionRequest &request)
@@ -2612,32 +2255,25 @@ AsClient::SetInstancesProtectionOutcome AsClient::SetInstancesProtection(const S
 
 void AsClient::SetInstancesProtectionAsync(const SetInstancesProtectionRequest& request, const SetInstancesProtectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetInstancesProtectionRequest&;
-    using Resp = SetInstancesProtectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetInstancesProtection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetInstancesProtection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::SetInstancesProtectionOutcomeCallable AsClient::SetInstancesProtectionCallable(const SetInstancesProtectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetInstancesProtectionOutcome>>();
-    SetInstancesProtectionAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const SetInstancesProtectionRequest&,
-        SetInstancesProtectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetInstancesProtectionOutcome()>>(
+        [this, request]()
+        {
+            return this->SetInstancesProtection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::StartAutoScalingInstancesOutcome AsClient::StartAutoScalingInstances(const StartAutoScalingInstancesRequest &request)
@@ -2662,32 +2298,25 @@ AsClient::StartAutoScalingInstancesOutcome AsClient::StartAutoScalingInstances(c
 
 void AsClient::StartAutoScalingInstancesAsync(const StartAutoScalingInstancesRequest& request, const StartAutoScalingInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartAutoScalingInstancesRequest&;
-    using Resp = StartAutoScalingInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartAutoScalingInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartAutoScalingInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::StartAutoScalingInstancesOutcomeCallable AsClient::StartAutoScalingInstancesCallable(const StartAutoScalingInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartAutoScalingInstancesOutcome>>();
-    StartAutoScalingInstancesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const StartAutoScalingInstancesRequest&,
-        StartAutoScalingInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartAutoScalingInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->StartAutoScalingInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::StartInstanceRefreshOutcome AsClient::StartInstanceRefresh(const StartInstanceRefreshRequest &request)
@@ -2712,32 +2341,25 @@ AsClient::StartInstanceRefreshOutcome AsClient::StartInstanceRefresh(const Start
 
 void AsClient::StartInstanceRefreshAsync(const StartInstanceRefreshRequest& request, const StartInstanceRefreshAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartInstanceRefreshRequest&;
-    using Resp = StartInstanceRefreshResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartInstanceRefresh(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartInstanceRefresh", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::StartInstanceRefreshOutcomeCallable AsClient::StartInstanceRefreshCallable(const StartInstanceRefreshRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartInstanceRefreshOutcome>>();
-    StartInstanceRefreshAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const StartInstanceRefreshRequest&,
-        StartInstanceRefreshOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartInstanceRefreshOutcome()>>(
+        [this, request]()
+        {
+            return this->StartInstanceRefresh(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::StopAutoScalingInstancesOutcome AsClient::StopAutoScalingInstances(const StopAutoScalingInstancesRequest &request)
@@ -2762,32 +2384,25 @@ AsClient::StopAutoScalingInstancesOutcome AsClient::StopAutoScalingInstances(con
 
 void AsClient::StopAutoScalingInstancesAsync(const StopAutoScalingInstancesRequest& request, const StopAutoScalingInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopAutoScalingInstancesRequest&;
-    using Resp = StopAutoScalingInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopAutoScalingInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopAutoScalingInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::StopAutoScalingInstancesOutcomeCallable AsClient::StopAutoScalingInstancesCallable(const StopAutoScalingInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopAutoScalingInstancesOutcome>>();
-    StopAutoScalingInstancesAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const StopAutoScalingInstancesRequest&,
-        StopAutoScalingInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopAutoScalingInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->StopAutoScalingInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::StopInstanceRefreshOutcome AsClient::StopInstanceRefresh(const StopInstanceRefreshRequest &request)
@@ -2812,32 +2427,25 @@ AsClient::StopInstanceRefreshOutcome AsClient::StopInstanceRefresh(const StopIns
 
 void AsClient::StopInstanceRefreshAsync(const StopInstanceRefreshRequest& request, const StopInstanceRefreshAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopInstanceRefreshRequest&;
-    using Resp = StopInstanceRefreshResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopInstanceRefresh(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopInstanceRefresh", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::StopInstanceRefreshOutcomeCallable AsClient::StopInstanceRefreshCallable(const StopInstanceRefreshRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopInstanceRefreshOutcome>>();
-    StopInstanceRefreshAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const StopInstanceRefreshRequest&,
-        StopInstanceRefreshOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopInstanceRefreshOutcome()>>(
+        [this, request]()
+        {
+            return this->StopInstanceRefresh(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::UpgradeLaunchConfigurationOutcome AsClient::UpgradeLaunchConfiguration(const UpgradeLaunchConfigurationRequest &request)
@@ -2862,32 +2470,25 @@ AsClient::UpgradeLaunchConfigurationOutcome AsClient::UpgradeLaunchConfiguration
 
 void AsClient::UpgradeLaunchConfigurationAsync(const UpgradeLaunchConfigurationRequest& request, const UpgradeLaunchConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeLaunchConfigurationRequest&;
-    using Resp = UpgradeLaunchConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeLaunchConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeLaunchConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::UpgradeLaunchConfigurationOutcomeCallable AsClient::UpgradeLaunchConfigurationCallable(const UpgradeLaunchConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeLaunchConfigurationOutcome>>();
-    UpgradeLaunchConfigurationAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const UpgradeLaunchConfigurationRequest&,
-        UpgradeLaunchConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeLaunchConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeLaunchConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AsClient::UpgradeLifecycleHookOutcome AsClient::UpgradeLifecycleHook(const UpgradeLifecycleHookRequest &request)
@@ -2912,31 +2513,24 @@ AsClient::UpgradeLifecycleHookOutcome AsClient::UpgradeLifecycleHook(const Upgra
 
 void AsClient::UpgradeLifecycleHookAsync(const UpgradeLifecycleHookRequest& request, const UpgradeLifecycleHookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeLifecycleHookRequest&;
-    using Resp = UpgradeLifecycleHookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeLifecycleHook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeLifecycleHook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AsClient::UpgradeLifecycleHookOutcomeCallable AsClient::UpgradeLifecycleHookCallable(const UpgradeLifecycleHookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeLifecycleHookOutcome>>();
-    UpgradeLifecycleHookAsync(
-    request,
-    [prom](
-        const AsClient*,
-        const UpgradeLifecycleHookRequest&,
-        UpgradeLifecycleHookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeLifecycleHookOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeLifecycleHook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordPlanDetail;
+
                 /**
                 * DescribeRecordingPlans返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PackageConsumeStat;
+
                 /**
                 * DescribeCloudStoragePackageConsumeStats返回参数结构体
                 */

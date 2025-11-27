@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserOrg;
+
                 /**
                 * ModifyUserDirectory请求参数结构体
                 */

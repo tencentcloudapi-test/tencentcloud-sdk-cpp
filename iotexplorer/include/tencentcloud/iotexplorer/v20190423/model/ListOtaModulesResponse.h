@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OtaModuleInfo;
+
                 /**
                 * ListOtaModules返回参数结构体
                 */

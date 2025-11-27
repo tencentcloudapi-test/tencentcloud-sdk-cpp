@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttackRiskDetail;
+                class ExtraInfo;
+
                 /**
                 * DetectAIFakeFaces返回参数结构体
                 */

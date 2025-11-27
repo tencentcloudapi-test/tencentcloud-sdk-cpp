@@ -62,31 +62,24 @@ TourismClient::DescribeDrawResourceListOutcome TourismClient::DescribeDrawResour
 
 void TourismClient::DescribeDrawResourceListAsync(const DescribeDrawResourceListRequest& request, const DescribeDrawResourceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDrawResourceListRequest&;
-    using Resp = DescribeDrawResourceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDrawResourceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDrawResourceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TourismClient::DescribeDrawResourceListOutcomeCallable TourismClient::DescribeDrawResourceListCallable(const DescribeDrawResourceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDrawResourceListOutcome>>();
-    DescribeDrawResourceListAsync(
-    request,
-    [prom](
-        const TourismClient*,
-        const DescribeDrawResourceListRequest&,
-        DescribeDrawResourceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDrawResourceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDrawResourceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

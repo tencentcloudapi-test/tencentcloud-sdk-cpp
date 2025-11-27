@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ViewResponseInfo;
+
                 /**
                 * DescribeViews返回参数结构体
                 */

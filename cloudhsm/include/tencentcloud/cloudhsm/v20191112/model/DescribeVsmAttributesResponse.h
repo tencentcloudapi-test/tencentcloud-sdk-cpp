@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UsgRuleDetail;
+                class Tag;
+
                 /**
                 * DescribeVsmAttributes返回参数结构体
                 */

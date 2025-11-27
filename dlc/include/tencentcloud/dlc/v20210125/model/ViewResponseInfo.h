@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ViewBaseInfo;
+                class Column;
+                class Property;
+
                 /**
                 * 查询视图信息对象
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     ViewResponseInfo();
-                    ~ViewResponseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

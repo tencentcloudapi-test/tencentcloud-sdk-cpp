@@ -62,32 +62,25 @@ TchdClient::DescribeEventStatisticsOutcome TchdClient::DescribeEventStatistics(c
 
 void TchdClient::DescribeEventStatisticsAsync(const DescribeEventStatisticsRequest& request, const DescribeEventStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEventStatisticsRequest&;
-    using Resp = DescribeEventStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEventStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEventStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TchdClient::DescribeEventStatisticsOutcomeCallable TchdClient::DescribeEventStatisticsCallable(const DescribeEventStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEventStatisticsOutcome>>();
-    DescribeEventStatisticsAsync(
-    request,
-    [prom](
-        const TchdClient*,
-        const DescribeEventStatisticsRequest&,
-        DescribeEventStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEventStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEventStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TchdClient::DescribeEventsOutcome TchdClient::DescribeEvents(const DescribeEventsRequest &request)
@@ -112,31 +105,24 @@ TchdClient::DescribeEventsOutcome TchdClient::DescribeEvents(const DescribeEvent
 
 void TchdClient::DescribeEventsAsync(const DescribeEventsRequest& request, const DescribeEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEventsRequest&;
-    using Resp = DescribeEventsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEvents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEvents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TchdClient::DescribeEventsOutcomeCallable TchdClient::DescribeEventsCallable(const DescribeEventsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEventsOutcome>>();
-    DescribeEventsAsync(
-    request,
-    [prom](
-        const TchdClient*,
-        const DescribeEventsRequest&,
-        DescribeEventsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEventsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEvents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

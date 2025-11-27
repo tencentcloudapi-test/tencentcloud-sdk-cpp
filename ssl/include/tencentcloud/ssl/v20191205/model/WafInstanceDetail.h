@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * waf实例详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WafInstanceDetail();
-                    ~WafInstanceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

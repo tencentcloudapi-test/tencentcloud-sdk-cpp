@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SceneInfo;
+
                 /**
                 * DescribeAllScenes返回参数结构体
                 */

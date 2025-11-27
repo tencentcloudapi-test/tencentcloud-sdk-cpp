@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IPWhitelist;
+
                 /**
                 * 最新IP白名单列表相比于当前IP白名单列表的区别
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DiffIPWhitelist();
-                    ~DiffIPWhitelist() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

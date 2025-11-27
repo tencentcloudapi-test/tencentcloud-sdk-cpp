@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 生命周期，云文件生命周期设置，管理文件冷、热存储的时间
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LifeCycleData();
-                    ~LifeCycleData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

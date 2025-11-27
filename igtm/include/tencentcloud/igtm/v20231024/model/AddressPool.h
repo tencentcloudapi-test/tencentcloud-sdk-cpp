@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceInfo;
+                class Address;
+
                 /**
                 * 地址池
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AddressPool();
-                    ~AddressPool() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

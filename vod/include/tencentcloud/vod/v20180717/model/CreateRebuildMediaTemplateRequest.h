@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RebuildVideoInfo;
+                class RebuildAudioInfo;
+                class RebuildMediaTargetVideoStream;
+                class RebuildMediaTargetAudioStream;
+
                 /**
                 * CreateRebuildMediaTemplate请求参数结构体
                 */

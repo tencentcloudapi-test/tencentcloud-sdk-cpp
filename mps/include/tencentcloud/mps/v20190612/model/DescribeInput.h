@@ -44,6 +44,17 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InputAddress;
+                class DescribeInputSRTSettings;
+                class DescribeInputRTPSettings;
+                class DescribeInputRTMPSettings;
+                class DescribeInputRTMPPullSettings;
+                class DescribeInputRTSPPullSettings;
+                class DescribeInputHLSPullSettings;
+                class ResilientStreamConf;
+                class DescribeInputRISTSettings;
+                class StreamUrlDetail;
+
                 /**
                 * 查询输入配置信息。
                 */
@@ -51,7 +62,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeInput();
-                    ~DescribeInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

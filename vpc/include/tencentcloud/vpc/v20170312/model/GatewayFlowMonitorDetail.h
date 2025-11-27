@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网关流量监控明细
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GatewayFlowMonitorDetail();
-                    ~GatewayFlowMonitorDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

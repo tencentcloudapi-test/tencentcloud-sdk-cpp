@@ -62,32 +62,25 @@ GwlbClient::AssociateTargetGroupsOutcome GwlbClient::AssociateTargetGroups(const
 
 void GwlbClient::AssociateTargetGroupsAsync(const AssociateTargetGroupsRequest& request, const AssociateTargetGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateTargetGroupsRequest&;
-    using Resp = AssociateTargetGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateTargetGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateTargetGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::AssociateTargetGroupsOutcomeCallable GwlbClient::AssociateTargetGroupsCallable(const AssociateTargetGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateTargetGroupsOutcome>>();
-    AssociateTargetGroupsAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const AssociateTargetGroupsRequest&,
-        AssociateTargetGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateTargetGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateTargetGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::CreateGatewayLoadBalancerOutcome GwlbClient::CreateGatewayLoadBalancer(const CreateGatewayLoadBalancerRequest &request)
@@ -112,32 +105,25 @@ GwlbClient::CreateGatewayLoadBalancerOutcome GwlbClient::CreateGatewayLoadBalanc
 
 void GwlbClient::CreateGatewayLoadBalancerAsync(const CreateGatewayLoadBalancerRequest& request, const CreateGatewayLoadBalancerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGatewayLoadBalancerRequest&;
-    using Resp = CreateGatewayLoadBalancerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGatewayLoadBalancer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGatewayLoadBalancer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::CreateGatewayLoadBalancerOutcomeCallable GwlbClient::CreateGatewayLoadBalancerCallable(const CreateGatewayLoadBalancerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGatewayLoadBalancerOutcome>>();
-    CreateGatewayLoadBalancerAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const CreateGatewayLoadBalancerRequest&,
-        CreateGatewayLoadBalancerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGatewayLoadBalancerOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGatewayLoadBalancer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::CreateTargetGroupOutcome GwlbClient::CreateTargetGroup(const CreateTargetGroupRequest &request)
@@ -162,32 +148,25 @@ GwlbClient::CreateTargetGroupOutcome GwlbClient::CreateTargetGroup(const CreateT
 
 void GwlbClient::CreateTargetGroupAsync(const CreateTargetGroupRequest& request, const CreateTargetGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTargetGroupRequest&;
-    using Resp = CreateTargetGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTargetGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTargetGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::CreateTargetGroupOutcomeCallable GwlbClient::CreateTargetGroupCallable(const CreateTargetGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTargetGroupOutcome>>();
-    CreateTargetGroupAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const CreateTargetGroupRequest&,
-        CreateTargetGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTargetGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTargetGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DeleteGatewayLoadBalancerOutcome GwlbClient::DeleteGatewayLoadBalancer(const DeleteGatewayLoadBalancerRequest &request)
@@ -212,32 +191,25 @@ GwlbClient::DeleteGatewayLoadBalancerOutcome GwlbClient::DeleteGatewayLoadBalanc
 
 void GwlbClient::DeleteGatewayLoadBalancerAsync(const DeleteGatewayLoadBalancerRequest& request, const DeleteGatewayLoadBalancerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGatewayLoadBalancerRequest&;
-    using Resp = DeleteGatewayLoadBalancerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGatewayLoadBalancer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGatewayLoadBalancer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DeleteGatewayLoadBalancerOutcomeCallable GwlbClient::DeleteGatewayLoadBalancerCallable(const DeleteGatewayLoadBalancerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGatewayLoadBalancerOutcome>>();
-    DeleteGatewayLoadBalancerAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DeleteGatewayLoadBalancerRequest&,
-        DeleteGatewayLoadBalancerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGatewayLoadBalancerOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGatewayLoadBalancer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DeleteTargetGroupsOutcome GwlbClient::DeleteTargetGroups(const DeleteTargetGroupsRequest &request)
@@ -262,32 +234,25 @@ GwlbClient::DeleteTargetGroupsOutcome GwlbClient::DeleteTargetGroups(const Delet
 
 void GwlbClient::DeleteTargetGroupsAsync(const DeleteTargetGroupsRequest& request, const DeleteTargetGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTargetGroupsRequest&;
-    using Resp = DeleteTargetGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTargetGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTargetGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DeleteTargetGroupsOutcomeCallable GwlbClient::DeleteTargetGroupsCallable(const DeleteTargetGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTargetGroupsOutcome>>();
-    DeleteTargetGroupsAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DeleteTargetGroupsRequest&,
-        DeleteTargetGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTargetGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTargetGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DeregisterTargetGroupInstancesOutcome GwlbClient::DeregisterTargetGroupInstances(const DeregisterTargetGroupInstancesRequest &request)
@@ -312,32 +277,25 @@ GwlbClient::DeregisterTargetGroupInstancesOutcome GwlbClient::DeregisterTargetGr
 
 void GwlbClient::DeregisterTargetGroupInstancesAsync(const DeregisterTargetGroupInstancesRequest& request, const DeregisterTargetGroupInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeregisterTargetGroupInstancesRequest&;
-    using Resp = DeregisterTargetGroupInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeregisterTargetGroupInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeregisterTargetGroupInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DeregisterTargetGroupInstancesOutcomeCallable GwlbClient::DeregisterTargetGroupInstancesCallable(const DeregisterTargetGroupInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeregisterTargetGroupInstancesOutcome>>();
-    DeregisterTargetGroupInstancesAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DeregisterTargetGroupInstancesRequest&,
-        DeregisterTargetGroupInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeregisterTargetGroupInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeregisterTargetGroupInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DescribeGatewayLoadBalancersOutcome GwlbClient::DescribeGatewayLoadBalancers(const DescribeGatewayLoadBalancersRequest &request)
@@ -362,32 +320,25 @@ GwlbClient::DescribeGatewayLoadBalancersOutcome GwlbClient::DescribeGatewayLoadB
 
 void GwlbClient::DescribeGatewayLoadBalancersAsync(const DescribeGatewayLoadBalancersRequest& request, const DescribeGatewayLoadBalancersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGatewayLoadBalancersRequest&;
-    using Resp = DescribeGatewayLoadBalancersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGatewayLoadBalancers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayLoadBalancers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DescribeGatewayLoadBalancersOutcomeCallable GwlbClient::DescribeGatewayLoadBalancersCallable(const DescribeGatewayLoadBalancersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGatewayLoadBalancersOutcome>>();
-    DescribeGatewayLoadBalancersAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DescribeGatewayLoadBalancersRequest&,
-        DescribeGatewayLoadBalancersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGatewayLoadBalancersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGatewayLoadBalancers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DescribeGatewayLoadBalancersResourcesOutcome GwlbClient::DescribeGatewayLoadBalancersResources(const DescribeGatewayLoadBalancersResourcesRequest &request)
@@ -412,32 +363,25 @@ GwlbClient::DescribeGatewayLoadBalancersResourcesOutcome GwlbClient::DescribeGat
 
 void GwlbClient::DescribeGatewayLoadBalancersResourcesAsync(const DescribeGatewayLoadBalancersResourcesRequest& request, const DescribeGatewayLoadBalancersResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGatewayLoadBalancersResourcesRequest&;
-    using Resp = DescribeGatewayLoadBalancersResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGatewayLoadBalancersResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayLoadBalancersResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DescribeGatewayLoadBalancersResourcesOutcomeCallable GwlbClient::DescribeGatewayLoadBalancersResourcesCallable(const DescribeGatewayLoadBalancersResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGatewayLoadBalancersResourcesOutcome>>();
-    DescribeGatewayLoadBalancersResourcesAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DescribeGatewayLoadBalancersResourcesRequest&,
-        DescribeGatewayLoadBalancersResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGatewayLoadBalancersResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGatewayLoadBalancersResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DescribeTargetGroupInstanceStatusOutcome GwlbClient::DescribeTargetGroupInstanceStatus(const DescribeTargetGroupInstanceStatusRequest &request)
@@ -462,32 +406,25 @@ GwlbClient::DescribeTargetGroupInstanceStatusOutcome GwlbClient::DescribeTargetG
 
 void GwlbClient::DescribeTargetGroupInstanceStatusAsync(const DescribeTargetGroupInstanceStatusRequest& request, const DescribeTargetGroupInstanceStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTargetGroupInstanceStatusRequest&;
-    using Resp = DescribeTargetGroupInstanceStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTargetGroupInstanceStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTargetGroupInstanceStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DescribeTargetGroupInstanceStatusOutcomeCallable GwlbClient::DescribeTargetGroupInstanceStatusCallable(const DescribeTargetGroupInstanceStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTargetGroupInstanceStatusOutcome>>();
-    DescribeTargetGroupInstanceStatusAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DescribeTargetGroupInstanceStatusRequest&,
-        DescribeTargetGroupInstanceStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTargetGroupInstanceStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTargetGroupInstanceStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DescribeTargetGroupInstancesOutcome GwlbClient::DescribeTargetGroupInstances(const DescribeTargetGroupInstancesRequest &request)
@@ -512,32 +449,25 @@ GwlbClient::DescribeTargetGroupInstancesOutcome GwlbClient::DescribeTargetGroupI
 
 void GwlbClient::DescribeTargetGroupInstancesAsync(const DescribeTargetGroupInstancesRequest& request, const DescribeTargetGroupInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTargetGroupInstancesRequest&;
-    using Resp = DescribeTargetGroupInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTargetGroupInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTargetGroupInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DescribeTargetGroupInstancesOutcomeCallable GwlbClient::DescribeTargetGroupInstancesCallable(const DescribeTargetGroupInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTargetGroupInstancesOutcome>>();
-    DescribeTargetGroupInstancesAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DescribeTargetGroupInstancesRequest&,
-        DescribeTargetGroupInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTargetGroupInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTargetGroupInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DescribeTargetGroupListOutcome GwlbClient::DescribeTargetGroupList(const DescribeTargetGroupListRequest &request)
@@ -562,32 +492,25 @@ GwlbClient::DescribeTargetGroupListOutcome GwlbClient::DescribeTargetGroupList(c
 
 void GwlbClient::DescribeTargetGroupListAsync(const DescribeTargetGroupListRequest& request, const DescribeTargetGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTargetGroupListRequest&;
-    using Resp = DescribeTargetGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTargetGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTargetGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DescribeTargetGroupListOutcomeCallable GwlbClient::DescribeTargetGroupListCallable(const DescribeTargetGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTargetGroupListOutcome>>();
-    DescribeTargetGroupListAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DescribeTargetGroupListRequest&,
-        DescribeTargetGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTargetGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTargetGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DescribeTargetGroupsOutcome GwlbClient::DescribeTargetGroups(const DescribeTargetGroupsRequest &request)
@@ -612,32 +535,25 @@ GwlbClient::DescribeTargetGroupsOutcome GwlbClient::DescribeTargetGroups(const D
 
 void GwlbClient::DescribeTargetGroupsAsync(const DescribeTargetGroupsRequest& request, const DescribeTargetGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTargetGroupsRequest&;
-    using Resp = DescribeTargetGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTargetGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTargetGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DescribeTargetGroupsOutcomeCallable GwlbClient::DescribeTargetGroupsCallable(const DescribeTargetGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTargetGroupsOutcome>>();
-    DescribeTargetGroupsAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DescribeTargetGroupsRequest&,
-        DescribeTargetGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTargetGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTargetGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DescribeTaskStatusOutcome GwlbClient::DescribeTaskStatus(const DescribeTaskStatusRequest &request)
@@ -662,32 +578,25 @@ GwlbClient::DescribeTaskStatusOutcome GwlbClient::DescribeTaskStatus(const Descr
 
 void GwlbClient::DescribeTaskStatusAsync(const DescribeTaskStatusRequest& request, const DescribeTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskStatusRequest&;
-    using Resp = DescribeTaskStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DescribeTaskStatusOutcomeCallable GwlbClient::DescribeTaskStatusCallable(const DescribeTaskStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskStatusOutcome>>();
-    DescribeTaskStatusAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DescribeTaskStatusRequest&,
-        DescribeTaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::DisassociateTargetGroupsOutcome GwlbClient::DisassociateTargetGroups(const DisassociateTargetGroupsRequest &request)
@@ -712,32 +621,25 @@ GwlbClient::DisassociateTargetGroupsOutcome GwlbClient::DisassociateTargetGroups
 
 void GwlbClient::DisassociateTargetGroupsAsync(const DisassociateTargetGroupsRequest& request, const DisassociateTargetGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateTargetGroupsRequest&;
-    using Resp = DisassociateTargetGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateTargetGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateTargetGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::DisassociateTargetGroupsOutcomeCallable GwlbClient::DisassociateTargetGroupsCallable(const DisassociateTargetGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateTargetGroupsOutcome>>();
-    DisassociateTargetGroupsAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const DisassociateTargetGroupsRequest&,
-        DisassociateTargetGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateTargetGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateTargetGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::InquirePriceCreateGatewayLoadBalancerOutcome GwlbClient::InquirePriceCreateGatewayLoadBalancer(const InquirePriceCreateGatewayLoadBalancerRequest &request)
@@ -762,32 +664,25 @@ GwlbClient::InquirePriceCreateGatewayLoadBalancerOutcome GwlbClient::InquirePric
 
 void GwlbClient::InquirePriceCreateGatewayLoadBalancerAsync(const InquirePriceCreateGatewayLoadBalancerRequest& request, const InquirePriceCreateGatewayLoadBalancerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquirePriceCreateGatewayLoadBalancerRequest&;
-    using Resp = InquirePriceCreateGatewayLoadBalancerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquirePriceCreateGatewayLoadBalancer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquirePriceCreateGatewayLoadBalancer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::InquirePriceCreateGatewayLoadBalancerOutcomeCallable GwlbClient::InquirePriceCreateGatewayLoadBalancerCallable(const InquirePriceCreateGatewayLoadBalancerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquirePriceCreateGatewayLoadBalancerOutcome>>();
-    InquirePriceCreateGatewayLoadBalancerAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const InquirePriceCreateGatewayLoadBalancerRequest&,
-        InquirePriceCreateGatewayLoadBalancerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquirePriceCreateGatewayLoadBalancerOutcome()>>(
+        [this, request]()
+        {
+            return this->InquirePriceCreateGatewayLoadBalancer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::ModifyGatewayLoadBalancerAttributeOutcome GwlbClient::ModifyGatewayLoadBalancerAttribute(const ModifyGatewayLoadBalancerAttributeRequest &request)
@@ -812,32 +707,25 @@ GwlbClient::ModifyGatewayLoadBalancerAttributeOutcome GwlbClient::ModifyGatewayL
 
 void GwlbClient::ModifyGatewayLoadBalancerAttributeAsync(const ModifyGatewayLoadBalancerAttributeRequest& request, const ModifyGatewayLoadBalancerAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGatewayLoadBalancerAttributeRequest&;
-    using Resp = ModifyGatewayLoadBalancerAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGatewayLoadBalancerAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGatewayLoadBalancerAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::ModifyGatewayLoadBalancerAttributeOutcomeCallable GwlbClient::ModifyGatewayLoadBalancerAttributeCallable(const ModifyGatewayLoadBalancerAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGatewayLoadBalancerAttributeOutcome>>();
-    ModifyGatewayLoadBalancerAttributeAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const ModifyGatewayLoadBalancerAttributeRequest&,
-        ModifyGatewayLoadBalancerAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGatewayLoadBalancerAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGatewayLoadBalancerAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::ModifyTargetGroupAttributeOutcome GwlbClient::ModifyTargetGroupAttribute(const ModifyTargetGroupAttributeRequest &request)
@@ -862,32 +750,25 @@ GwlbClient::ModifyTargetGroupAttributeOutcome GwlbClient::ModifyTargetGroupAttri
 
 void GwlbClient::ModifyTargetGroupAttributeAsync(const ModifyTargetGroupAttributeRequest& request, const ModifyTargetGroupAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTargetGroupAttributeRequest&;
-    using Resp = ModifyTargetGroupAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTargetGroupAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTargetGroupAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::ModifyTargetGroupAttributeOutcomeCallable GwlbClient::ModifyTargetGroupAttributeCallable(const ModifyTargetGroupAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTargetGroupAttributeOutcome>>();
-    ModifyTargetGroupAttributeAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const ModifyTargetGroupAttributeRequest&,
-        ModifyTargetGroupAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTargetGroupAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTargetGroupAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::ModifyTargetGroupInstancesWeightOutcome GwlbClient::ModifyTargetGroupInstancesWeight(const ModifyTargetGroupInstancesWeightRequest &request)
@@ -912,32 +793,25 @@ GwlbClient::ModifyTargetGroupInstancesWeightOutcome GwlbClient::ModifyTargetGrou
 
 void GwlbClient::ModifyTargetGroupInstancesWeightAsync(const ModifyTargetGroupInstancesWeightRequest& request, const ModifyTargetGroupInstancesWeightAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTargetGroupInstancesWeightRequest&;
-    using Resp = ModifyTargetGroupInstancesWeightResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTargetGroupInstancesWeight(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTargetGroupInstancesWeight", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::ModifyTargetGroupInstancesWeightOutcomeCallable GwlbClient::ModifyTargetGroupInstancesWeightCallable(const ModifyTargetGroupInstancesWeightRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTargetGroupInstancesWeightOutcome>>();
-    ModifyTargetGroupInstancesWeightAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const ModifyTargetGroupInstancesWeightRequest&,
-        ModifyTargetGroupInstancesWeightOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTargetGroupInstancesWeightOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTargetGroupInstancesWeight(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GwlbClient::RegisterTargetGroupInstancesOutcome GwlbClient::RegisterTargetGroupInstances(const RegisterTargetGroupInstancesRequest &request)
@@ -962,31 +836,24 @@ GwlbClient::RegisterTargetGroupInstancesOutcome GwlbClient::RegisterTargetGroupI
 
 void GwlbClient::RegisterTargetGroupInstancesAsync(const RegisterTargetGroupInstancesRequest& request, const RegisterTargetGroupInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RegisterTargetGroupInstancesRequest&;
-    using Resp = RegisterTargetGroupInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RegisterTargetGroupInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RegisterTargetGroupInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GwlbClient::RegisterTargetGroupInstancesOutcomeCallable GwlbClient::RegisterTargetGroupInstancesCallable(const RegisterTargetGroupInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RegisterTargetGroupInstancesOutcome>>();
-    RegisterTargetGroupInstancesAsync(
-    request,
-    [prom](
-        const GwlbClient*,
-        const RegisterTargetGroupInstancesRequest&,
-        RegisterTargetGroupInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RegisterTargetGroupInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->RegisterTargetGroupInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageMessage;
+
                 /**
                 * ImageQuestion请求参数结构体
                 */

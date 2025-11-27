@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CVMAssetVO;
+                class FilterDataObject;
+                class AssetInstanceTypeMap;
+
                 /**
                 * DescribeCVMAssets返回参数结构体
                 */

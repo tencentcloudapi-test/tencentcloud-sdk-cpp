@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompanyInfo;
+
                 /**
                 * DescribeCompanies返回参数结构体
                 */

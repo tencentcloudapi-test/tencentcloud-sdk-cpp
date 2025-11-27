@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeApisStatusResultApiIdStatusSetInfo;
+
                 /**
                 * 描述api列表状态
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeApisStatusResultInfo();
-                    ~DescribeApisStatusResultInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

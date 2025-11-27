@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 借贷反欺返回结果出参中的多模型返回结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FinanceOtherModelScores();
-                    ~FinanceOtherModelScores() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

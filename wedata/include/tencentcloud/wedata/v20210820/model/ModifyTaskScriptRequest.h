@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IntegrationNodeDetail;
+
                 /**
                 * ModifyTaskScript请求参数结构体
                 */

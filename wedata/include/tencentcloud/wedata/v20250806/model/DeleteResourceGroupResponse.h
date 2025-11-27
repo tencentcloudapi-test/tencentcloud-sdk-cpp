@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceStatus;
+
                 /**
                 * DeleteResourceGroup返回参数结构体
                 */

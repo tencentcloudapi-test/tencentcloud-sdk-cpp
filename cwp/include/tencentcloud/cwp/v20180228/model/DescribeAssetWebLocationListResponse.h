@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetWebLocationBaseInfo;
+
                 /**
                 * DescribeAssetWebLocationList返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 置放群组异步任务维护的时间段
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EnableScheduleOperationDuration();
-                    ~EnableScheduleOperationDuration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

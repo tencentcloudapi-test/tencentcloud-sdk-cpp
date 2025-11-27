@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NodeInfoBase;
+
                 /**
                 * 子节点。用于新建任务重构页面的节点选择
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     NodeLeaf();
-                    ~NodeLeaf() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

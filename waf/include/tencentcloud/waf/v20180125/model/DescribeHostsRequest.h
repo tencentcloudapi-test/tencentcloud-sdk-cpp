@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchItem;
+
                 /**
                 * DescribeHosts请求参数结构体
                 */

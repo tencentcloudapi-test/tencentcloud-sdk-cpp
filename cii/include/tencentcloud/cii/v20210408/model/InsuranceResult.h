@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MachinePredict;
+
                 /**
                 * 包含险种的各个核保结论
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InsuranceResult();
-                    ~InsuranceResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

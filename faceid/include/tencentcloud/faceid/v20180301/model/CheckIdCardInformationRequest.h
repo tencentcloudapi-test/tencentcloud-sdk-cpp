@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Encryption;
+
                 /**
                 * CheckIdCardInformation请求参数结构体
                 */

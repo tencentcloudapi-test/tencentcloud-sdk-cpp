@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 流量调度规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TrafficQosPolicySet();
-                    ~TrafficQosPolicySet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

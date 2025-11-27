@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompareTablesInfo;
+
                 /**
                 * 合服请求入参
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MergeTablesInfo();
-                    ~MergeTablesInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

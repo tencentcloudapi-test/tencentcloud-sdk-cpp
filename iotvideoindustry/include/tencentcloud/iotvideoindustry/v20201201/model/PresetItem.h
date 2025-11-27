@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 预置位结构出参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PresetItem();
-                    ~PresetItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

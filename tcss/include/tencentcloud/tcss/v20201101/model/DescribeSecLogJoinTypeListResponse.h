@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecLogJoinInfo;
+
                 /**
                 * DescribeSecLogJoinTypeList返回参数结构体
                 */

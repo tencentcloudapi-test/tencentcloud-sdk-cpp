@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/oceanus/v20190422/model/TreeResourceItem.h>
-#include <tencentcloud/oceanus/v20190422/model/DescribeTreeResourcesRsp.h>
 
 
 namespace TencentCloud
@@ -36,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TreeResourceItem;
+
                 /**
                 * 树状结构资源列表对象
                 */
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeTreeResourcesRsp();
-                    ~DescribeTreeResourcesRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

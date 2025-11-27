@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiSecCustomSensitiveRule;
+                class ApiSecExtractRule;
+                class ApiSecPrivilegeRule;
+                class ApiSecSceneRule;
+                class ApiSecCustomEventRule;
+
                 /**
                 * ModifyApiSecSensitiveRule请求参数结构体
                 */

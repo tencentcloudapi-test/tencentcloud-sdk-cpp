@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DenyActionParameters;
+                class RedirectActionParameters;
+                class AllowActionParameters;
+                class ChallengeActionParameters;
+                class BlockIPActionParameters;
+                class ReturnCustomPageActionParameters;
+
                 /**
                 * 安全的执行动作
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     SecurityAction();
-                    ~SecurityAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

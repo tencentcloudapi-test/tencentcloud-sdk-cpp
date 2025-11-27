@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 企业组织邀请
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OrgInvitation();
-                    ~OrgInvitation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

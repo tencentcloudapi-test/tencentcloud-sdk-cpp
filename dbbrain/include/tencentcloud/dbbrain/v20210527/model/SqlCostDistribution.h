@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 分段耗时 SQL 分布
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SqlCostDistribution();
-                    ~SqlCostDistribution() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

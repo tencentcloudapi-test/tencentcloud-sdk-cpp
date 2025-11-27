@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribePolicyGroupListGroup;
+
                 /**
                 * DescribePolicyGroupList返回参数结构体
                 */

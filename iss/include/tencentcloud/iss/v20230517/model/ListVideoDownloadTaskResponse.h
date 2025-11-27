@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListVideoDownloadTaskData;
+
                 /**
                 * ListVideoDownloadTask返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TkeSecretDetail;
+
                 /**
                 * tke namespace详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TkeNameSpaceDetail();
-                    ~TkeNameSpaceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

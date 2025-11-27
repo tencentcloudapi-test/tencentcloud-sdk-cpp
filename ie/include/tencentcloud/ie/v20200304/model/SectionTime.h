@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 时间区间。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SectionTime();
-                    ~SectionTime() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

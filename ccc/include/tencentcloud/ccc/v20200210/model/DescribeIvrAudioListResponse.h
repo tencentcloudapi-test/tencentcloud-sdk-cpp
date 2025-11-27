@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AudioFileInfo;
+
                 /**
                 * DescribeIvrAudioList返回参数结构体
                 */

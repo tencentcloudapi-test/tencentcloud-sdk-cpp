@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimeShiftBillData;
+
                 /**
                 * DescribeLiveTimeShiftBillInfoList返回参数结构体
                 */

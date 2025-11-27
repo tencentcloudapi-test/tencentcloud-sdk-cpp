@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 提交送检任务相应数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CreateDLPFileDetectionTaskData();
-                    ~CreateDLPFileDetectionTaskData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

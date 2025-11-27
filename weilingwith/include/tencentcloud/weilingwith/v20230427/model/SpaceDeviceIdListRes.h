@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询指定空间id列表响应
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpaceDeviceIdListRes();
-                    ~SpaceDeviceIdListRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

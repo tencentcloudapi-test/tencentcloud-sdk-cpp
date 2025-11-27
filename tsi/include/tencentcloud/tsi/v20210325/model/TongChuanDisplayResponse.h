@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DisplayInfo;
+
                 /**
                 * TongChuanDisplay返回参数结构体
                 */

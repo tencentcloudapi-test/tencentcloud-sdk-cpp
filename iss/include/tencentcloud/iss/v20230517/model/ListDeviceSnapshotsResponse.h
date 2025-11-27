@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GBDeviceSnapInfo;
+
                 /**
                 * ListDeviceSnapshots返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询设备统计返回值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DeviceMonitorValue();
-                    ~DeviceMonitorValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

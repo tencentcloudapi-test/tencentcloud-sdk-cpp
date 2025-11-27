@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 客户企业标签
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EnterpriseTag();
-                    ~EnterpriseTag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

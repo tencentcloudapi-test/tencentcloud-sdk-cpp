@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityGroupLimitSet;
+
                 /**
                 * DescribeSecurityGroupLimits返回参数结构体
                 */

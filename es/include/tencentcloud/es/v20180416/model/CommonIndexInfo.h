@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 普通索引信息列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CommonIndexInfo();
-                    ~CommonIndexInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

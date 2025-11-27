@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoomInfo;
+
                 /**
                 * BatchCreateRoom请求参数结构体
                 */

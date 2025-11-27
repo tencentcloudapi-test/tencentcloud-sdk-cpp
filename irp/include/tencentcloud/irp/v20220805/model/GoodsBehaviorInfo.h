@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StrUserIdInfo;
+                class UserPortraitInfo;
+
                 /**
                 * 电商行为
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     GoodsBehaviorInfo();
-                    ~GoodsBehaviorInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RiskCenterStatusKey;
+
                 /**
                 * ModifyRiskCenterRiskStatus请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 纵横比
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AspectRatio();
-                    ~AspectRatio() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

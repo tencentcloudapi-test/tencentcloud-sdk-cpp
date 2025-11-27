@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableMeta;
+
                 /**
                 * DescribeTableMetas返回参数结构体
                 */

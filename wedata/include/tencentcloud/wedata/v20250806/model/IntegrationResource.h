@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceGroupSpecification;
+
                 /**
                 * 集成资源组
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     IntegrationResource();
-                    ~IntegrationResource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

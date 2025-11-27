@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MigrateOption;
+                class SrcInfo;
+                class DstInfo;
+                class MigrateDetailInfo;
+                class ErrorInfo;
+                class TagItem;
+
                 /**
                 * 迁移任务详情
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     MigrateJobInfo();
-                    ~MigrateJobInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

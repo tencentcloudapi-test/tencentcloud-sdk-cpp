@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 歌曲识别结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LabelResult();
-                    ~LabelResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

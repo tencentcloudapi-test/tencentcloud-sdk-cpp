@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccessPoint;
+
                 /**
                 * DescribeAccessPoints返回参数结构体
                 */

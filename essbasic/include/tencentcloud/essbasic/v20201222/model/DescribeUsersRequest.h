@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Caller;
+
                 /**
                 * DescribeUsers请求参数结构体
                 */

@@ -62,32 +62,25 @@ ClsClient::AddMachineGroupInfoOutcome ClsClient::AddMachineGroupInfo(const AddMa
 
 void ClsClient::AddMachineGroupInfoAsync(const AddMachineGroupInfoRequest& request, const AddMachineGroupInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddMachineGroupInfoRequest&;
-    using Resp = AddMachineGroupInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddMachineGroupInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddMachineGroupInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::AddMachineGroupInfoOutcomeCallable ClsClient::AddMachineGroupInfoCallable(const AddMachineGroupInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddMachineGroupInfoOutcome>>();
-    AddMachineGroupInfoAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const AddMachineGroupInfoRequest&,
-        AddMachineGroupInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddMachineGroupInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->AddMachineGroupInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ApplyConfigToMachineGroupOutcome ClsClient::ApplyConfigToMachineGroup(const ApplyConfigToMachineGroupRequest &request)
@@ -112,32 +105,25 @@ ClsClient::ApplyConfigToMachineGroupOutcome ClsClient::ApplyConfigToMachineGroup
 
 void ClsClient::ApplyConfigToMachineGroupAsync(const ApplyConfigToMachineGroupRequest& request, const ApplyConfigToMachineGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ApplyConfigToMachineGroupRequest&;
-    using Resp = ApplyConfigToMachineGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ApplyConfigToMachineGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ApplyConfigToMachineGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ApplyConfigToMachineGroupOutcomeCallable ClsClient::ApplyConfigToMachineGroupCallable(const ApplyConfigToMachineGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ApplyConfigToMachineGroupOutcome>>();
-    ApplyConfigToMachineGroupAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ApplyConfigToMachineGroupRequest&,
-        ApplyConfigToMachineGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ApplyConfigToMachineGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ApplyConfigToMachineGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CheckFunctionOutcome ClsClient::CheckFunction(const CheckFunctionRequest &request)
@@ -162,32 +148,25 @@ ClsClient::CheckFunctionOutcome ClsClient::CheckFunction(const CheckFunctionRequ
 
 void ClsClient::CheckFunctionAsync(const CheckFunctionRequest& request, const CheckFunctionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckFunctionRequest&;
-    using Resp = CheckFunctionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckFunction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckFunction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CheckFunctionOutcomeCallable ClsClient::CheckFunctionCallable(const CheckFunctionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckFunctionOutcome>>();
-    CheckFunctionAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CheckFunctionRequest&,
-        CheckFunctionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckFunctionOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckFunction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CheckRechargeKafkaServerOutcome ClsClient::CheckRechargeKafkaServer(const CheckRechargeKafkaServerRequest &request)
@@ -212,32 +191,25 @@ ClsClient::CheckRechargeKafkaServerOutcome ClsClient::CheckRechargeKafkaServer(c
 
 void ClsClient::CheckRechargeKafkaServerAsync(const CheckRechargeKafkaServerRequest& request, const CheckRechargeKafkaServerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckRechargeKafkaServerRequest&;
-    using Resp = CheckRechargeKafkaServerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckRechargeKafkaServer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckRechargeKafkaServer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CheckRechargeKafkaServerOutcomeCallable ClsClient::CheckRechargeKafkaServerCallable(const CheckRechargeKafkaServerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckRechargeKafkaServerOutcome>>();
-    CheckRechargeKafkaServerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CheckRechargeKafkaServerRequest&,
-        CheckRechargeKafkaServerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckRechargeKafkaServerOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckRechargeKafkaServer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CloseKafkaConsumerOutcome ClsClient::CloseKafkaConsumer(const CloseKafkaConsumerRequest &request)
@@ -262,32 +234,25 @@ ClsClient::CloseKafkaConsumerOutcome ClsClient::CloseKafkaConsumer(const CloseKa
 
 void ClsClient::CloseKafkaConsumerAsync(const CloseKafkaConsumerRequest& request, const CloseKafkaConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseKafkaConsumerRequest&;
-    using Resp = CloseKafkaConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseKafkaConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseKafkaConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CloseKafkaConsumerOutcomeCallable ClsClient::CloseKafkaConsumerCallable(const CloseKafkaConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseKafkaConsumerOutcome>>();
-    CloseKafkaConsumerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CloseKafkaConsumerRequest&,
-        CloseKafkaConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseKafkaConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseKafkaConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateAlarmOutcome ClsClient::CreateAlarm(const CreateAlarmRequest &request)
@@ -312,32 +277,25 @@ ClsClient::CreateAlarmOutcome ClsClient::CreateAlarm(const CreateAlarmRequest &r
 
 void ClsClient::CreateAlarmAsync(const CreateAlarmRequest& request, const CreateAlarmAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAlarmRequest&;
-    using Resp = CreateAlarmResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAlarm(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAlarm", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateAlarmOutcomeCallable ClsClient::CreateAlarmCallable(const CreateAlarmRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAlarmOutcome>>();
-    CreateAlarmAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateAlarmRequest&,
-        CreateAlarmOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAlarmOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAlarm(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateAlarmNoticeOutcome ClsClient::CreateAlarmNotice(const CreateAlarmNoticeRequest &request)
@@ -362,32 +320,25 @@ ClsClient::CreateAlarmNoticeOutcome ClsClient::CreateAlarmNotice(const CreateAla
 
 void ClsClient::CreateAlarmNoticeAsync(const CreateAlarmNoticeRequest& request, const CreateAlarmNoticeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAlarmNoticeRequest&;
-    using Resp = CreateAlarmNoticeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAlarmNotice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAlarmNotice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateAlarmNoticeOutcomeCallable ClsClient::CreateAlarmNoticeCallable(const CreateAlarmNoticeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAlarmNoticeOutcome>>();
-    CreateAlarmNoticeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateAlarmNoticeRequest&,
-        CreateAlarmNoticeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAlarmNoticeOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAlarmNotice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateAlarmShieldOutcome ClsClient::CreateAlarmShield(const CreateAlarmShieldRequest &request)
@@ -412,32 +363,25 @@ ClsClient::CreateAlarmShieldOutcome ClsClient::CreateAlarmShield(const CreateAla
 
 void ClsClient::CreateAlarmShieldAsync(const CreateAlarmShieldRequest& request, const CreateAlarmShieldAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAlarmShieldRequest&;
-    using Resp = CreateAlarmShieldResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAlarmShield(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAlarmShield", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateAlarmShieldOutcomeCallable ClsClient::CreateAlarmShieldCallable(const CreateAlarmShieldRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAlarmShieldOutcome>>();
-    CreateAlarmShieldAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateAlarmShieldRequest&,
-        CreateAlarmShieldOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAlarmShieldOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAlarmShield(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateCloudProductLogCollectionOutcome ClsClient::CreateCloudProductLogCollection(const CreateCloudProductLogCollectionRequest &request)
@@ -462,32 +406,25 @@ ClsClient::CreateCloudProductLogCollectionOutcome ClsClient::CreateCloudProductL
 
 void ClsClient::CreateCloudProductLogCollectionAsync(const CreateCloudProductLogCollectionRequest& request, const CreateCloudProductLogCollectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudProductLogCollectionRequest&;
-    using Resp = CreateCloudProductLogCollectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudProductLogCollection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudProductLogCollection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateCloudProductLogCollectionOutcomeCallable ClsClient::CreateCloudProductLogCollectionCallable(const CreateCloudProductLogCollectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudProductLogCollectionOutcome>>();
-    CreateCloudProductLogCollectionAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateCloudProductLogCollectionRequest&,
-        CreateCloudProductLogCollectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudProductLogCollectionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudProductLogCollection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateConfigOutcome ClsClient::CreateConfig(const CreateConfigRequest &request)
@@ -512,32 +449,25 @@ ClsClient::CreateConfigOutcome ClsClient::CreateConfig(const CreateConfigRequest
 
 void ClsClient::CreateConfigAsync(const CreateConfigRequest& request, const CreateConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConfigRequest&;
-    using Resp = CreateConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateConfigOutcomeCallable ClsClient::CreateConfigCallable(const CreateConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConfigOutcome>>();
-    CreateConfigAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateConfigRequest&,
-        CreateConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateConfigExtraOutcome ClsClient::CreateConfigExtra(const CreateConfigExtraRequest &request)
@@ -562,32 +492,25 @@ ClsClient::CreateConfigExtraOutcome ClsClient::CreateConfigExtra(const CreateCon
 
 void ClsClient::CreateConfigExtraAsync(const CreateConfigExtraRequest& request, const CreateConfigExtraAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConfigExtraRequest&;
-    using Resp = CreateConfigExtraResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConfigExtra(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConfigExtra", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateConfigExtraOutcomeCallable ClsClient::CreateConfigExtraCallable(const CreateConfigExtraRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConfigExtraOutcome>>();
-    CreateConfigExtraAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateConfigExtraRequest&,
-        CreateConfigExtraOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConfigExtraOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConfigExtra(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateConsoleSharingOutcome ClsClient::CreateConsoleSharing(const CreateConsoleSharingRequest &request)
@@ -612,32 +535,25 @@ ClsClient::CreateConsoleSharingOutcome ClsClient::CreateConsoleSharing(const Cre
 
 void ClsClient::CreateConsoleSharingAsync(const CreateConsoleSharingRequest& request, const CreateConsoleSharingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConsoleSharingRequest&;
-    using Resp = CreateConsoleSharingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConsoleSharing(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConsoleSharing", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateConsoleSharingOutcomeCallable ClsClient::CreateConsoleSharingCallable(const CreateConsoleSharingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConsoleSharingOutcome>>();
-    CreateConsoleSharingAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateConsoleSharingRequest&,
-        CreateConsoleSharingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConsoleSharingOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConsoleSharing(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateConsumerOutcome ClsClient::CreateConsumer(const CreateConsumerRequest &request)
@@ -662,32 +578,25 @@ ClsClient::CreateConsumerOutcome ClsClient::CreateConsumer(const CreateConsumerR
 
 void ClsClient::CreateConsumerAsync(const CreateConsumerRequest& request, const CreateConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConsumerRequest&;
-    using Resp = CreateConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateConsumerOutcomeCallable ClsClient::CreateConsumerCallable(const CreateConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConsumerOutcome>>();
-    CreateConsumerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateConsumerRequest&,
-        CreateConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateCosRechargeOutcome ClsClient::CreateCosRecharge(const CreateCosRechargeRequest &request)
@@ -712,32 +621,25 @@ ClsClient::CreateCosRechargeOutcome ClsClient::CreateCosRecharge(const CreateCos
 
 void ClsClient::CreateCosRechargeAsync(const CreateCosRechargeRequest& request, const CreateCosRechargeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCosRechargeRequest&;
-    using Resp = CreateCosRechargeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCosRecharge(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCosRecharge", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateCosRechargeOutcomeCallable ClsClient::CreateCosRechargeCallable(const CreateCosRechargeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCosRechargeOutcome>>();
-    CreateCosRechargeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateCosRechargeRequest&,
-        CreateCosRechargeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCosRechargeOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCosRecharge(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateDashboardSubscribeOutcome ClsClient::CreateDashboardSubscribe(const CreateDashboardSubscribeRequest &request)
@@ -762,32 +664,25 @@ ClsClient::CreateDashboardSubscribeOutcome ClsClient::CreateDashboardSubscribe(c
 
 void ClsClient::CreateDashboardSubscribeAsync(const CreateDashboardSubscribeRequest& request, const CreateDashboardSubscribeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDashboardSubscribeRequest&;
-    using Resp = CreateDashboardSubscribeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDashboardSubscribe(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDashboardSubscribe", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateDashboardSubscribeOutcomeCallable ClsClient::CreateDashboardSubscribeCallable(const CreateDashboardSubscribeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDashboardSubscribeOutcome>>();
-    CreateDashboardSubscribeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateDashboardSubscribeRequest&,
-        CreateDashboardSubscribeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDashboardSubscribeOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDashboardSubscribe(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateDataTransformOutcome ClsClient::CreateDataTransform(const CreateDataTransformRequest &request)
@@ -812,32 +707,25 @@ ClsClient::CreateDataTransformOutcome ClsClient::CreateDataTransform(const Creat
 
 void ClsClient::CreateDataTransformAsync(const CreateDataTransformRequest& request, const CreateDataTransformAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDataTransformRequest&;
-    using Resp = CreateDataTransformResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDataTransform(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDataTransform", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateDataTransformOutcomeCallable ClsClient::CreateDataTransformCallable(const CreateDataTransformRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDataTransformOutcome>>();
-    CreateDataTransformAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateDataTransformRequest&,
-        CreateDataTransformOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDataTransformOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDataTransform(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateDeliverCloudFunctionOutcome ClsClient::CreateDeliverCloudFunction(const CreateDeliverCloudFunctionRequest &request)
@@ -862,32 +750,25 @@ ClsClient::CreateDeliverCloudFunctionOutcome ClsClient::CreateDeliverCloudFuncti
 
 void ClsClient::CreateDeliverCloudFunctionAsync(const CreateDeliverCloudFunctionRequest& request, const CreateDeliverCloudFunctionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDeliverCloudFunctionRequest&;
-    using Resp = CreateDeliverCloudFunctionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDeliverCloudFunction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDeliverCloudFunction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateDeliverCloudFunctionOutcomeCallable ClsClient::CreateDeliverCloudFunctionCallable(const CreateDeliverCloudFunctionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDeliverCloudFunctionOutcome>>();
-    CreateDeliverCloudFunctionAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateDeliverCloudFunctionRequest&,
-        CreateDeliverCloudFunctionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDeliverCloudFunctionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDeliverCloudFunction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateDlcDeliverOutcome ClsClient::CreateDlcDeliver(const CreateDlcDeliverRequest &request)
@@ -912,32 +793,25 @@ ClsClient::CreateDlcDeliverOutcome ClsClient::CreateDlcDeliver(const CreateDlcDe
 
 void ClsClient::CreateDlcDeliverAsync(const CreateDlcDeliverRequest& request, const CreateDlcDeliverAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDlcDeliverRequest&;
-    using Resp = CreateDlcDeliverResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDlcDeliver(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDlcDeliver", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateDlcDeliverOutcomeCallable ClsClient::CreateDlcDeliverCallable(const CreateDlcDeliverRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDlcDeliverOutcome>>();
-    CreateDlcDeliverAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateDlcDeliverRequest&,
-        CreateDlcDeliverOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDlcDeliverOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDlcDeliver(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateExportOutcome ClsClient::CreateExport(const CreateExportRequest &request)
@@ -962,32 +836,25 @@ ClsClient::CreateExportOutcome ClsClient::CreateExport(const CreateExportRequest
 
 void ClsClient::CreateExportAsync(const CreateExportRequest& request, const CreateExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateExportRequest&;
-    using Resp = CreateExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateExportOutcomeCallable ClsClient::CreateExportCallable(const CreateExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateExportOutcome>>();
-    CreateExportAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateExportRequest&,
-        CreateExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateExportOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateIndexOutcome ClsClient::CreateIndex(const CreateIndexRequest &request)
@@ -1012,32 +879,25 @@ ClsClient::CreateIndexOutcome ClsClient::CreateIndex(const CreateIndexRequest &r
 
 void ClsClient::CreateIndexAsync(const CreateIndexRequest& request, const CreateIndexAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateIndexRequest&;
-    using Resp = CreateIndexResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateIndex(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateIndex", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateIndexOutcomeCallable ClsClient::CreateIndexCallable(const CreateIndexRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateIndexOutcome>>();
-    CreateIndexAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateIndexRequest&,
-        CreateIndexOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateIndexOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateIndex(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateKafkaRechargeOutcome ClsClient::CreateKafkaRecharge(const CreateKafkaRechargeRequest &request)
@@ -1062,32 +922,25 @@ ClsClient::CreateKafkaRechargeOutcome ClsClient::CreateKafkaRecharge(const Creat
 
 void ClsClient::CreateKafkaRechargeAsync(const CreateKafkaRechargeRequest& request, const CreateKafkaRechargeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateKafkaRechargeRequest&;
-    using Resp = CreateKafkaRechargeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateKafkaRecharge(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateKafkaRecharge", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateKafkaRechargeOutcomeCallable ClsClient::CreateKafkaRechargeCallable(const CreateKafkaRechargeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateKafkaRechargeOutcome>>();
-    CreateKafkaRechargeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateKafkaRechargeRequest&,
-        CreateKafkaRechargeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateKafkaRechargeOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateKafkaRecharge(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateLogsetOutcome ClsClient::CreateLogset(const CreateLogsetRequest &request)
@@ -1112,32 +965,25 @@ ClsClient::CreateLogsetOutcome ClsClient::CreateLogset(const CreateLogsetRequest
 
 void ClsClient::CreateLogsetAsync(const CreateLogsetRequest& request, const CreateLogsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLogsetRequest&;
-    using Resp = CreateLogsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLogset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLogset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateLogsetOutcomeCallable ClsClient::CreateLogsetCallable(const CreateLogsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLogsetOutcome>>();
-    CreateLogsetAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateLogsetRequest&,
-        CreateLogsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLogsetOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLogset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateMachineGroupOutcome ClsClient::CreateMachineGroup(const CreateMachineGroupRequest &request)
@@ -1162,32 +1008,25 @@ ClsClient::CreateMachineGroupOutcome ClsClient::CreateMachineGroup(const CreateM
 
 void ClsClient::CreateMachineGroupAsync(const CreateMachineGroupRequest& request, const CreateMachineGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMachineGroupRequest&;
-    using Resp = CreateMachineGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMachineGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMachineGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateMachineGroupOutcomeCallable ClsClient::CreateMachineGroupCallable(const CreateMachineGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMachineGroupOutcome>>();
-    CreateMachineGroupAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateMachineGroupRequest&,
-        CreateMachineGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMachineGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMachineGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateNoticeContentOutcome ClsClient::CreateNoticeContent(const CreateNoticeContentRequest &request)
@@ -1212,32 +1051,25 @@ ClsClient::CreateNoticeContentOutcome ClsClient::CreateNoticeContent(const Creat
 
 void ClsClient::CreateNoticeContentAsync(const CreateNoticeContentRequest& request, const CreateNoticeContentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNoticeContentRequest&;
-    using Resp = CreateNoticeContentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNoticeContent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNoticeContent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateNoticeContentOutcomeCallable ClsClient::CreateNoticeContentCallable(const CreateNoticeContentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNoticeContentOutcome>>();
-    CreateNoticeContentAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateNoticeContentRequest&,
-        CreateNoticeContentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNoticeContentOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNoticeContent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateScheduledSqlOutcome ClsClient::CreateScheduledSql(const CreateScheduledSqlRequest &request)
@@ -1262,32 +1094,25 @@ ClsClient::CreateScheduledSqlOutcome ClsClient::CreateScheduledSql(const CreateS
 
 void ClsClient::CreateScheduledSqlAsync(const CreateScheduledSqlRequest& request, const CreateScheduledSqlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateScheduledSqlRequest&;
-    using Resp = CreateScheduledSqlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateScheduledSql(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateScheduledSql", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateScheduledSqlOutcomeCallable ClsClient::CreateScheduledSqlCallable(const CreateScheduledSqlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateScheduledSqlOutcome>>();
-    CreateScheduledSqlAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateScheduledSqlRequest&,
-        CreateScheduledSqlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateScheduledSqlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateScheduledSql(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateShipperOutcome ClsClient::CreateShipper(const CreateShipperRequest &request)
@@ -1312,32 +1137,25 @@ ClsClient::CreateShipperOutcome ClsClient::CreateShipper(const CreateShipperRequ
 
 void ClsClient::CreateShipperAsync(const CreateShipperRequest& request, const CreateShipperAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateShipperRequest&;
-    using Resp = CreateShipperResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateShipper(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateShipper", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateShipperOutcomeCallable ClsClient::CreateShipperCallable(const CreateShipperRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateShipperOutcome>>();
-    CreateShipperAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateShipperRequest&,
-        CreateShipperOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateShipperOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateShipper(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateTopicOutcome ClsClient::CreateTopic(const CreateTopicRequest &request)
@@ -1362,32 +1180,25 @@ ClsClient::CreateTopicOutcome ClsClient::CreateTopic(const CreateTopicRequest &r
 
 void ClsClient::CreateTopicAsync(const CreateTopicRequest& request, const CreateTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTopicRequest&;
-    using Resp = CreateTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateTopicOutcomeCallable ClsClient::CreateTopicCallable(const CreateTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTopicOutcome>>();
-    CreateTopicAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateTopicRequest&,
-        CreateTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::CreateWebCallbackOutcome ClsClient::CreateWebCallback(const CreateWebCallbackRequest &request)
@@ -1412,32 +1223,25 @@ ClsClient::CreateWebCallbackOutcome ClsClient::CreateWebCallback(const CreateWeb
 
 void ClsClient::CreateWebCallbackAsync(const CreateWebCallbackRequest& request, const CreateWebCallbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWebCallbackRequest&;
-    using Resp = CreateWebCallbackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWebCallback(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWebCallback", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::CreateWebCallbackOutcomeCallable ClsClient::CreateWebCallbackCallable(const CreateWebCallbackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWebCallbackOutcome>>();
-    CreateWebCallbackAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const CreateWebCallbackRequest&,
-        CreateWebCallbackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWebCallbackOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWebCallback(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteAlarmOutcome ClsClient::DeleteAlarm(const DeleteAlarmRequest &request)
@@ -1462,32 +1266,25 @@ ClsClient::DeleteAlarmOutcome ClsClient::DeleteAlarm(const DeleteAlarmRequest &r
 
 void ClsClient::DeleteAlarmAsync(const DeleteAlarmRequest& request, const DeleteAlarmAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAlarmRequest&;
-    using Resp = DeleteAlarmResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAlarm(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAlarm", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteAlarmOutcomeCallable ClsClient::DeleteAlarmCallable(const DeleteAlarmRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAlarmOutcome>>();
-    DeleteAlarmAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteAlarmRequest&,
-        DeleteAlarmOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAlarmOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAlarm(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteAlarmNoticeOutcome ClsClient::DeleteAlarmNotice(const DeleteAlarmNoticeRequest &request)
@@ -1512,32 +1309,25 @@ ClsClient::DeleteAlarmNoticeOutcome ClsClient::DeleteAlarmNotice(const DeleteAla
 
 void ClsClient::DeleteAlarmNoticeAsync(const DeleteAlarmNoticeRequest& request, const DeleteAlarmNoticeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAlarmNoticeRequest&;
-    using Resp = DeleteAlarmNoticeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAlarmNotice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAlarmNotice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteAlarmNoticeOutcomeCallable ClsClient::DeleteAlarmNoticeCallable(const DeleteAlarmNoticeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAlarmNoticeOutcome>>();
-    DeleteAlarmNoticeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteAlarmNoticeRequest&,
-        DeleteAlarmNoticeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAlarmNoticeOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAlarmNotice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteAlarmShieldOutcome ClsClient::DeleteAlarmShield(const DeleteAlarmShieldRequest &request)
@@ -1562,32 +1352,25 @@ ClsClient::DeleteAlarmShieldOutcome ClsClient::DeleteAlarmShield(const DeleteAla
 
 void ClsClient::DeleteAlarmShieldAsync(const DeleteAlarmShieldRequest& request, const DeleteAlarmShieldAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAlarmShieldRequest&;
-    using Resp = DeleteAlarmShieldResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAlarmShield(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAlarmShield", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteAlarmShieldOutcomeCallable ClsClient::DeleteAlarmShieldCallable(const DeleteAlarmShieldRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAlarmShieldOutcome>>();
-    DeleteAlarmShieldAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteAlarmShieldRequest&,
-        DeleteAlarmShieldOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAlarmShieldOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAlarmShield(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteCloudProductLogCollectionOutcome ClsClient::DeleteCloudProductLogCollection(const DeleteCloudProductLogCollectionRequest &request)
@@ -1612,32 +1395,25 @@ ClsClient::DeleteCloudProductLogCollectionOutcome ClsClient::DeleteCloudProductL
 
 void ClsClient::DeleteCloudProductLogCollectionAsync(const DeleteCloudProductLogCollectionRequest& request, const DeleteCloudProductLogCollectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudProductLogCollectionRequest&;
-    using Resp = DeleteCloudProductLogCollectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudProductLogCollection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudProductLogCollection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteCloudProductLogCollectionOutcomeCallable ClsClient::DeleteCloudProductLogCollectionCallable(const DeleteCloudProductLogCollectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudProductLogCollectionOutcome>>();
-    DeleteCloudProductLogCollectionAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteCloudProductLogCollectionRequest&,
-        DeleteCloudProductLogCollectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudProductLogCollectionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudProductLogCollection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteConfigOutcome ClsClient::DeleteConfig(const DeleteConfigRequest &request)
@@ -1662,32 +1438,25 @@ ClsClient::DeleteConfigOutcome ClsClient::DeleteConfig(const DeleteConfigRequest
 
 void ClsClient::DeleteConfigAsync(const DeleteConfigRequest& request, const DeleteConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConfigRequest&;
-    using Resp = DeleteConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteConfigOutcomeCallable ClsClient::DeleteConfigCallable(const DeleteConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConfigOutcome>>();
-    DeleteConfigAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteConfigRequest&,
-        DeleteConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteConfigExtraOutcome ClsClient::DeleteConfigExtra(const DeleteConfigExtraRequest &request)
@@ -1712,32 +1481,25 @@ ClsClient::DeleteConfigExtraOutcome ClsClient::DeleteConfigExtra(const DeleteCon
 
 void ClsClient::DeleteConfigExtraAsync(const DeleteConfigExtraRequest& request, const DeleteConfigExtraAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConfigExtraRequest&;
-    using Resp = DeleteConfigExtraResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConfigExtra(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConfigExtra", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteConfigExtraOutcomeCallable ClsClient::DeleteConfigExtraCallable(const DeleteConfigExtraRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConfigExtraOutcome>>();
-    DeleteConfigExtraAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteConfigExtraRequest&,
-        DeleteConfigExtraOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConfigExtraOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConfigExtra(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteConfigFromMachineGroupOutcome ClsClient::DeleteConfigFromMachineGroup(const DeleteConfigFromMachineGroupRequest &request)
@@ -1762,32 +1524,25 @@ ClsClient::DeleteConfigFromMachineGroupOutcome ClsClient::DeleteConfigFromMachin
 
 void ClsClient::DeleteConfigFromMachineGroupAsync(const DeleteConfigFromMachineGroupRequest& request, const DeleteConfigFromMachineGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConfigFromMachineGroupRequest&;
-    using Resp = DeleteConfigFromMachineGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConfigFromMachineGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConfigFromMachineGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteConfigFromMachineGroupOutcomeCallable ClsClient::DeleteConfigFromMachineGroupCallable(const DeleteConfigFromMachineGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConfigFromMachineGroupOutcome>>();
-    DeleteConfigFromMachineGroupAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteConfigFromMachineGroupRequest&,
-        DeleteConfigFromMachineGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConfigFromMachineGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConfigFromMachineGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteConsoleSharingOutcome ClsClient::DeleteConsoleSharing(const DeleteConsoleSharingRequest &request)
@@ -1812,32 +1567,25 @@ ClsClient::DeleteConsoleSharingOutcome ClsClient::DeleteConsoleSharing(const Del
 
 void ClsClient::DeleteConsoleSharingAsync(const DeleteConsoleSharingRequest& request, const DeleteConsoleSharingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConsoleSharingRequest&;
-    using Resp = DeleteConsoleSharingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConsoleSharing(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConsoleSharing", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteConsoleSharingOutcomeCallable ClsClient::DeleteConsoleSharingCallable(const DeleteConsoleSharingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConsoleSharingOutcome>>();
-    DeleteConsoleSharingAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteConsoleSharingRequest&,
-        DeleteConsoleSharingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConsoleSharingOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConsoleSharing(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteConsumerOutcome ClsClient::DeleteConsumer(const DeleteConsumerRequest &request)
@@ -1862,32 +1610,25 @@ ClsClient::DeleteConsumerOutcome ClsClient::DeleteConsumer(const DeleteConsumerR
 
 void ClsClient::DeleteConsumerAsync(const DeleteConsumerRequest& request, const DeleteConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConsumerRequest&;
-    using Resp = DeleteConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteConsumerOutcomeCallable ClsClient::DeleteConsumerCallable(const DeleteConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConsumerOutcome>>();
-    DeleteConsumerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteConsumerRequest&,
-        DeleteConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteCosRechargeOutcome ClsClient::DeleteCosRecharge(const DeleteCosRechargeRequest &request)
@@ -1912,32 +1653,25 @@ ClsClient::DeleteCosRechargeOutcome ClsClient::DeleteCosRecharge(const DeleteCos
 
 void ClsClient::DeleteCosRechargeAsync(const DeleteCosRechargeRequest& request, const DeleteCosRechargeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCosRechargeRequest&;
-    using Resp = DeleteCosRechargeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCosRecharge(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCosRecharge", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteCosRechargeOutcomeCallable ClsClient::DeleteCosRechargeCallable(const DeleteCosRechargeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCosRechargeOutcome>>();
-    DeleteCosRechargeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteCosRechargeRequest&,
-        DeleteCosRechargeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCosRechargeOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCosRecharge(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteDashboardSubscribeOutcome ClsClient::DeleteDashboardSubscribe(const DeleteDashboardSubscribeRequest &request)
@@ -1962,32 +1696,25 @@ ClsClient::DeleteDashboardSubscribeOutcome ClsClient::DeleteDashboardSubscribe(c
 
 void ClsClient::DeleteDashboardSubscribeAsync(const DeleteDashboardSubscribeRequest& request, const DeleteDashboardSubscribeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDashboardSubscribeRequest&;
-    using Resp = DeleteDashboardSubscribeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDashboardSubscribe(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDashboardSubscribe", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteDashboardSubscribeOutcomeCallable ClsClient::DeleteDashboardSubscribeCallable(const DeleteDashboardSubscribeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDashboardSubscribeOutcome>>();
-    DeleteDashboardSubscribeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteDashboardSubscribeRequest&,
-        DeleteDashboardSubscribeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDashboardSubscribeOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDashboardSubscribe(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteDataTransformOutcome ClsClient::DeleteDataTransform(const DeleteDataTransformRequest &request)
@@ -2012,32 +1739,25 @@ ClsClient::DeleteDataTransformOutcome ClsClient::DeleteDataTransform(const Delet
 
 void ClsClient::DeleteDataTransformAsync(const DeleteDataTransformRequest& request, const DeleteDataTransformAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDataTransformRequest&;
-    using Resp = DeleteDataTransformResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDataTransform(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDataTransform", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteDataTransformOutcomeCallable ClsClient::DeleteDataTransformCallable(const DeleteDataTransformRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDataTransformOutcome>>();
-    DeleteDataTransformAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteDataTransformRequest&,
-        DeleteDataTransformOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDataTransformOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDataTransform(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteDlcDeliverOutcome ClsClient::DeleteDlcDeliver(const DeleteDlcDeliverRequest &request)
@@ -2062,32 +1782,25 @@ ClsClient::DeleteDlcDeliverOutcome ClsClient::DeleteDlcDeliver(const DeleteDlcDe
 
 void ClsClient::DeleteDlcDeliverAsync(const DeleteDlcDeliverRequest& request, const DeleteDlcDeliverAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDlcDeliverRequest&;
-    using Resp = DeleteDlcDeliverResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDlcDeliver(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDlcDeliver", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteDlcDeliverOutcomeCallable ClsClient::DeleteDlcDeliverCallable(const DeleteDlcDeliverRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDlcDeliverOutcome>>();
-    DeleteDlcDeliverAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteDlcDeliverRequest&,
-        DeleteDlcDeliverOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDlcDeliverOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDlcDeliver(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteExportOutcome ClsClient::DeleteExport(const DeleteExportRequest &request)
@@ -2112,32 +1825,25 @@ ClsClient::DeleteExportOutcome ClsClient::DeleteExport(const DeleteExportRequest
 
 void ClsClient::DeleteExportAsync(const DeleteExportRequest& request, const DeleteExportAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteExportRequest&;
-    using Resp = DeleteExportResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteExport(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteExport", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteExportOutcomeCallable ClsClient::DeleteExportCallable(const DeleteExportRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteExportOutcome>>();
-    DeleteExportAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteExportRequest&,
-        DeleteExportOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteExportOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteExport(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteIndexOutcome ClsClient::DeleteIndex(const DeleteIndexRequest &request)
@@ -2162,32 +1868,25 @@ ClsClient::DeleteIndexOutcome ClsClient::DeleteIndex(const DeleteIndexRequest &r
 
 void ClsClient::DeleteIndexAsync(const DeleteIndexRequest& request, const DeleteIndexAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteIndexRequest&;
-    using Resp = DeleteIndexResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteIndex(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteIndex", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteIndexOutcomeCallable ClsClient::DeleteIndexCallable(const DeleteIndexRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteIndexOutcome>>();
-    DeleteIndexAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteIndexRequest&,
-        DeleteIndexOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteIndexOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteIndex(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteKafkaRechargeOutcome ClsClient::DeleteKafkaRecharge(const DeleteKafkaRechargeRequest &request)
@@ -2212,32 +1911,25 @@ ClsClient::DeleteKafkaRechargeOutcome ClsClient::DeleteKafkaRecharge(const Delet
 
 void ClsClient::DeleteKafkaRechargeAsync(const DeleteKafkaRechargeRequest& request, const DeleteKafkaRechargeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteKafkaRechargeRequest&;
-    using Resp = DeleteKafkaRechargeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteKafkaRecharge(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteKafkaRecharge", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteKafkaRechargeOutcomeCallable ClsClient::DeleteKafkaRechargeCallable(const DeleteKafkaRechargeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteKafkaRechargeOutcome>>();
-    DeleteKafkaRechargeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteKafkaRechargeRequest&,
-        DeleteKafkaRechargeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteKafkaRechargeOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteKafkaRecharge(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteLogsetOutcome ClsClient::DeleteLogset(const DeleteLogsetRequest &request)
@@ -2262,32 +1954,25 @@ ClsClient::DeleteLogsetOutcome ClsClient::DeleteLogset(const DeleteLogsetRequest
 
 void ClsClient::DeleteLogsetAsync(const DeleteLogsetRequest& request, const DeleteLogsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteLogsetRequest&;
-    using Resp = DeleteLogsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteLogset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteLogset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteLogsetOutcomeCallable ClsClient::DeleteLogsetCallable(const DeleteLogsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteLogsetOutcome>>();
-    DeleteLogsetAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteLogsetRequest&,
-        DeleteLogsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteLogsetOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteLogset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteMachineGroupOutcome ClsClient::DeleteMachineGroup(const DeleteMachineGroupRequest &request)
@@ -2312,32 +1997,25 @@ ClsClient::DeleteMachineGroupOutcome ClsClient::DeleteMachineGroup(const DeleteM
 
 void ClsClient::DeleteMachineGroupAsync(const DeleteMachineGroupRequest& request, const DeleteMachineGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteMachineGroupRequest&;
-    using Resp = DeleteMachineGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteMachineGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteMachineGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteMachineGroupOutcomeCallable ClsClient::DeleteMachineGroupCallable(const DeleteMachineGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteMachineGroupOutcome>>();
-    DeleteMachineGroupAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteMachineGroupRequest&,
-        DeleteMachineGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteMachineGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteMachineGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteMachineGroupInfoOutcome ClsClient::DeleteMachineGroupInfo(const DeleteMachineGroupInfoRequest &request)
@@ -2362,32 +2040,25 @@ ClsClient::DeleteMachineGroupInfoOutcome ClsClient::DeleteMachineGroupInfo(const
 
 void ClsClient::DeleteMachineGroupInfoAsync(const DeleteMachineGroupInfoRequest& request, const DeleteMachineGroupInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteMachineGroupInfoRequest&;
-    using Resp = DeleteMachineGroupInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteMachineGroupInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteMachineGroupInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteMachineGroupInfoOutcomeCallable ClsClient::DeleteMachineGroupInfoCallable(const DeleteMachineGroupInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteMachineGroupInfoOutcome>>();
-    DeleteMachineGroupInfoAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteMachineGroupInfoRequest&,
-        DeleteMachineGroupInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteMachineGroupInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteMachineGroupInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteNoticeContentOutcome ClsClient::DeleteNoticeContent(const DeleteNoticeContentRequest &request)
@@ -2412,32 +2083,25 @@ ClsClient::DeleteNoticeContentOutcome ClsClient::DeleteNoticeContent(const Delet
 
 void ClsClient::DeleteNoticeContentAsync(const DeleteNoticeContentRequest& request, const DeleteNoticeContentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNoticeContentRequest&;
-    using Resp = DeleteNoticeContentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNoticeContent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNoticeContent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteNoticeContentOutcomeCallable ClsClient::DeleteNoticeContentCallable(const DeleteNoticeContentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNoticeContentOutcome>>();
-    DeleteNoticeContentAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteNoticeContentRequest&,
-        DeleteNoticeContentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNoticeContentOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNoticeContent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteScheduledSqlOutcome ClsClient::DeleteScheduledSql(const DeleteScheduledSqlRequest &request)
@@ -2462,32 +2126,25 @@ ClsClient::DeleteScheduledSqlOutcome ClsClient::DeleteScheduledSql(const DeleteS
 
 void ClsClient::DeleteScheduledSqlAsync(const DeleteScheduledSqlRequest& request, const DeleteScheduledSqlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteScheduledSqlRequest&;
-    using Resp = DeleteScheduledSqlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteScheduledSql(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteScheduledSql", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteScheduledSqlOutcomeCallable ClsClient::DeleteScheduledSqlCallable(const DeleteScheduledSqlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteScheduledSqlOutcome>>();
-    DeleteScheduledSqlAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteScheduledSqlRequest&,
-        DeleteScheduledSqlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteScheduledSqlOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteScheduledSql(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteShipperOutcome ClsClient::DeleteShipper(const DeleteShipperRequest &request)
@@ -2512,32 +2169,25 @@ ClsClient::DeleteShipperOutcome ClsClient::DeleteShipper(const DeleteShipperRequ
 
 void ClsClient::DeleteShipperAsync(const DeleteShipperRequest& request, const DeleteShipperAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteShipperRequest&;
-    using Resp = DeleteShipperResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteShipper(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteShipper", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteShipperOutcomeCallable ClsClient::DeleteShipperCallable(const DeleteShipperRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteShipperOutcome>>();
-    DeleteShipperAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteShipperRequest&,
-        DeleteShipperOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteShipperOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteShipper(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteTopicOutcome ClsClient::DeleteTopic(const DeleteTopicRequest &request)
@@ -2562,32 +2212,25 @@ ClsClient::DeleteTopicOutcome ClsClient::DeleteTopic(const DeleteTopicRequest &r
 
 void ClsClient::DeleteTopicAsync(const DeleteTopicRequest& request, const DeleteTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTopicRequest&;
-    using Resp = DeleteTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteTopicOutcomeCallable ClsClient::DeleteTopicCallable(const DeleteTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTopicOutcome>>();
-    DeleteTopicAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteTopicRequest&,
-        DeleteTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DeleteWebCallbackOutcome ClsClient::DeleteWebCallback(const DeleteWebCallbackRequest &request)
@@ -2612,32 +2255,25 @@ ClsClient::DeleteWebCallbackOutcome ClsClient::DeleteWebCallback(const DeleteWeb
 
 void ClsClient::DeleteWebCallbackAsync(const DeleteWebCallbackRequest& request, const DeleteWebCallbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteWebCallbackRequest&;
-    using Resp = DeleteWebCallbackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteWebCallback(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteWebCallback", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DeleteWebCallbackOutcomeCallable ClsClient::DeleteWebCallbackCallable(const DeleteWebCallbackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteWebCallbackOutcome>>();
-    DeleteWebCallbackAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DeleteWebCallbackRequest&,
-        DeleteWebCallbackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteWebCallbackOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteWebCallback(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeAlarmNoticesOutcome ClsClient::DescribeAlarmNotices(const DescribeAlarmNoticesRequest &request)
@@ -2662,32 +2298,25 @@ ClsClient::DescribeAlarmNoticesOutcome ClsClient::DescribeAlarmNotices(const Des
 
 void ClsClient::DescribeAlarmNoticesAsync(const DescribeAlarmNoticesRequest& request, const DescribeAlarmNoticesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmNoticesRequest&;
-    using Resp = DescribeAlarmNoticesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmNotices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmNotices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeAlarmNoticesOutcomeCallable ClsClient::DescribeAlarmNoticesCallable(const DescribeAlarmNoticesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmNoticesOutcome>>();
-    DescribeAlarmNoticesAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeAlarmNoticesRequest&,
-        DescribeAlarmNoticesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmNoticesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmNotices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeAlarmShieldsOutcome ClsClient::DescribeAlarmShields(const DescribeAlarmShieldsRequest &request)
@@ -2712,32 +2341,25 @@ ClsClient::DescribeAlarmShieldsOutcome ClsClient::DescribeAlarmShields(const Des
 
 void ClsClient::DescribeAlarmShieldsAsync(const DescribeAlarmShieldsRequest& request, const DescribeAlarmShieldsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmShieldsRequest&;
-    using Resp = DescribeAlarmShieldsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmShields(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmShields", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeAlarmShieldsOutcomeCallable ClsClient::DescribeAlarmShieldsCallable(const DescribeAlarmShieldsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmShieldsOutcome>>();
-    DescribeAlarmShieldsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeAlarmShieldsRequest&,
-        DescribeAlarmShieldsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmShieldsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmShields(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeAlarmsOutcome ClsClient::DescribeAlarms(const DescribeAlarmsRequest &request)
@@ -2762,32 +2384,25 @@ ClsClient::DescribeAlarmsOutcome ClsClient::DescribeAlarms(const DescribeAlarmsR
 
 void ClsClient::DescribeAlarmsAsync(const DescribeAlarmsRequest& request, const DescribeAlarmsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmsRequest&;
-    using Resp = DescribeAlarmsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarms(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarms", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeAlarmsOutcomeCallable ClsClient::DescribeAlarmsCallable(const DescribeAlarmsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmsOutcome>>();
-    DescribeAlarmsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeAlarmsRequest&,
-        DescribeAlarmsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarms(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeAlertRecordHistoryOutcome ClsClient::DescribeAlertRecordHistory(const DescribeAlertRecordHistoryRequest &request)
@@ -2812,32 +2427,25 @@ ClsClient::DescribeAlertRecordHistoryOutcome ClsClient::DescribeAlertRecordHisto
 
 void ClsClient::DescribeAlertRecordHistoryAsync(const DescribeAlertRecordHistoryRequest& request, const DescribeAlertRecordHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlertRecordHistoryRequest&;
-    using Resp = DescribeAlertRecordHistoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlertRecordHistory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlertRecordHistory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeAlertRecordHistoryOutcomeCallable ClsClient::DescribeAlertRecordHistoryCallable(const DescribeAlertRecordHistoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlertRecordHistoryOutcome>>();
-    DescribeAlertRecordHistoryAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeAlertRecordHistoryRequest&,
-        DescribeAlertRecordHistoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlertRecordHistoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlertRecordHistory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeCloudProductLogTasksOutcome ClsClient::DescribeCloudProductLogTasks(const DescribeCloudProductLogTasksRequest &request)
@@ -2862,32 +2470,25 @@ ClsClient::DescribeCloudProductLogTasksOutcome ClsClient::DescribeCloudProductLo
 
 void ClsClient::DescribeCloudProductLogTasksAsync(const DescribeCloudProductLogTasksRequest& request, const DescribeCloudProductLogTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudProductLogTasksRequest&;
-    using Resp = DescribeCloudProductLogTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudProductLogTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudProductLogTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeCloudProductLogTasksOutcomeCallable ClsClient::DescribeCloudProductLogTasksCallable(const DescribeCloudProductLogTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudProductLogTasksOutcome>>();
-    DescribeCloudProductLogTasksAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeCloudProductLogTasksRequest&,
-        DescribeCloudProductLogTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudProductLogTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudProductLogTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeConfigExtrasOutcome ClsClient::DescribeConfigExtras(const DescribeConfigExtrasRequest &request)
@@ -2912,32 +2513,25 @@ ClsClient::DescribeConfigExtrasOutcome ClsClient::DescribeConfigExtras(const Des
 
 void ClsClient::DescribeConfigExtrasAsync(const DescribeConfigExtrasRequest& request, const DescribeConfigExtrasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigExtrasRequest&;
-    using Resp = DescribeConfigExtrasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigExtras(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigExtras", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeConfigExtrasOutcomeCallable ClsClient::DescribeConfigExtrasCallable(const DescribeConfigExtrasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigExtrasOutcome>>();
-    DescribeConfigExtrasAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeConfigExtrasRequest&,
-        DescribeConfigExtrasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigExtrasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigExtras(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeConfigMachineGroupsOutcome ClsClient::DescribeConfigMachineGroups(const DescribeConfigMachineGroupsRequest &request)
@@ -2962,32 +2556,25 @@ ClsClient::DescribeConfigMachineGroupsOutcome ClsClient::DescribeConfigMachineGr
 
 void ClsClient::DescribeConfigMachineGroupsAsync(const DescribeConfigMachineGroupsRequest& request, const DescribeConfigMachineGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigMachineGroupsRequest&;
-    using Resp = DescribeConfigMachineGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigMachineGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigMachineGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeConfigMachineGroupsOutcomeCallable ClsClient::DescribeConfigMachineGroupsCallable(const DescribeConfigMachineGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigMachineGroupsOutcome>>();
-    DescribeConfigMachineGroupsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeConfigMachineGroupsRequest&,
-        DescribeConfigMachineGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigMachineGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigMachineGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeConfigsOutcome ClsClient::DescribeConfigs(const DescribeConfigsRequest &request)
@@ -3012,32 +2599,25 @@ ClsClient::DescribeConfigsOutcome ClsClient::DescribeConfigs(const DescribeConfi
 
 void ClsClient::DescribeConfigsAsync(const DescribeConfigsRequest& request, const DescribeConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigsRequest&;
-    using Resp = DescribeConfigsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeConfigsOutcomeCallable ClsClient::DescribeConfigsCallable(const DescribeConfigsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigsOutcome>>();
-    DescribeConfigsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeConfigsRequest&,
-        DescribeConfigsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeConsoleSharingListOutcome ClsClient::DescribeConsoleSharingList(const DescribeConsoleSharingListRequest &request)
@@ -3062,32 +2642,25 @@ ClsClient::DescribeConsoleSharingListOutcome ClsClient::DescribeConsoleSharingLi
 
 void ClsClient::DescribeConsoleSharingListAsync(const DescribeConsoleSharingListRequest& request, const DescribeConsoleSharingListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConsoleSharingListRequest&;
-    using Resp = DescribeConsoleSharingListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConsoleSharingList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConsoleSharingList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeConsoleSharingListOutcomeCallable ClsClient::DescribeConsoleSharingListCallable(const DescribeConsoleSharingListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConsoleSharingListOutcome>>();
-    DescribeConsoleSharingListAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeConsoleSharingListRequest&,
-        DescribeConsoleSharingListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConsoleSharingListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConsoleSharingList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeConsumerOutcome ClsClient::DescribeConsumer(const DescribeConsumerRequest &request)
@@ -3112,32 +2685,25 @@ ClsClient::DescribeConsumerOutcome ClsClient::DescribeConsumer(const DescribeCon
 
 void ClsClient::DescribeConsumerAsync(const DescribeConsumerRequest& request, const DescribeConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConsumerRequest&;
-    using Resp = DescribeConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeConsumerOutcomeCallable ClsClient::DescribeConsumerCallable(const DescribeConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConsumerOutcome>>();
-    DescribeConsumerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeConsumerRequest&,
-        DescribeConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeCosRechargesOutcome ClsClient::DescribeCosRecharges(const DescribeCosRechargesRequest &request)
@@ -3162,32 +2728,25 @@ ClsClient::DescribeCosRechargesOutcome ClsClient::DescribeCosRecharges(const Des
 
 void ClsClient::DescribeCosRechargesAsync(const DescribeCosRechargesRequest& request, const DescribeCosRechargesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCosRechargesRequest&;
-    using Resp = DescribeCosRechargesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCosRecharges(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCosRecharges", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeCosRechargesOutcomeCallable ClsClient::DescribeCosRechargesCallable(const DescribeCosRechargesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCosRechargesOutcome>>();
-    DescribeCosRechargesAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeCosRechargesRequest&,
-        DescribeCosRechargesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCosRechargesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCosRecharges(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeDashboardSubscribesOutcome ClsClient::DescribeDashboardSubscribes(const DescribeDashboardSubscribesRequest &request)
@@ -3212,32 +2771,25 @@ ClsClient::DescribeDashboardSubscribesOutcome ClsClient::DescribeDashboardSubscr
 
 void ClsClient::DescribeDashboardSubscribesAsync(const DescribeDashboardSubscribesRequest& request, const DescribeDashboardSubscribesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDashboardSubscribesRequest&;
-    using Resp = DescribeDashboardSubscribesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDashboardSubscribes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDashboardSubscribes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeDashboardSubscribesOutcomeCallable ClsClient::DescribeDashboardSubscribesCallable(const DescribeDashboardSubscribesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDashboardSubscribesOutcome>>();
-    DescribeDashboardSubscribesAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeDashboardSubscribesRequest&,
-        DescribeDashboardSubscribesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDashboardSubscribesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDashboardSubscribes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeDashboardsOutcome ClsClient::DescribeDashboards(const DescribeDashboardsRequest &request)
@@ -3262,32 +2814,25 @@ ClsClient::DescribeDashboardsOutcome ClsClient::DescribeDashboards(const Describ
 
 void ClsClient::DescribeDashboardsAsync(const DescribeDashboardsRequest& request, const DescribeDashboardsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDashboardsRequest&;
-    using Resp = DescribeDashboardsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDashboards(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDashboards", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeDashboardsOutcomeCallable ClsClient::DescribeDashboardsCallable(const DescribeDashboardsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDashboardsOutcome>>();
-    DescribeDashboardsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeDashboardsRequest&,
-        DescribeDashboardsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDashboardsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDashboards(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeDataTransformInfoOutcome ClsClient::DescribeDataTransformInfo(const DescribeDataTransformInfoRequest &request)
@@ -3312,32 +2857,25 @@ ClsClient::DescribeDataTransformInfoOutcome ClsClient::DescribeDataTransformInfo
 
 void ClsClient::DescribeDataTransformInfoAsync(const DescribeDataTransformInfoRequest& request, const DescribeDataTransformInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDataTransformInfoRequest&;
-    using Resp = DescribeDataTransformInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDataTransformInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDataTransformInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeDataTransformInfoOutcomeCallable ClsClient::DescribeDataTransformInfoCallable(const DescribeDataTransformInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDataTransformInfoOutcome>>();
-    DescribeDataTransformInfoAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeDataTransformInfoRequest&,
-        DescribeDataTransformInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDataTransformInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDataTransformInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeDlcDeliversOutcome ClsClient::DescribeDlcDelivers(const DescribeDlcDeliversRequest &request)
@@ -3362,32 +2900,25 @@ ClsClient::DescribeDlcDeliversOutcome ClsClient::DescribeDlcDelivers(const Descr
 
 void ClsClient::DescribeDlcDeliversAsync(const DescribeDlcDeliversRequest& request, const DescribeDlcDeliversAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDlcDeliversRequest&;
-    using Resp = DescribeDlcDeliversResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDlcDelivers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDlcDelivers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeDlcDeliversOutcomeCallable ClsClient::DescribeDlcDeliversCallable(const DescribeDlcDeliversRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDlcDeliversOutcome>>();
-    DescribeDlcDeliversAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeDlcDeliversRequest&,
-        DescribeDlcDeliversOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDlcDeliversOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDlcDelivers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeExportsOutcome ClsClient::DescribeExports(const DescribeExportsRequest &request)
@@ -3412,32 +2943,25 @@ ClsClient::DescribeExportsOutcome ClsClient::DescribeExports(const DescribeExpor
 
 void ClsClient::DescribeExportsAsync(const DescribeExportsRequest& request, const DescribeExportsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExportsRequest&;
-    using Resp = DescribeExportsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExports(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExports", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeExportsOutcomeCallable ClsClient::DescribeExportsCallable(const DescribeExportsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExportsOutcome>>();
-    DescribeExportsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeExportsRequest&,
-        DescribeExportsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExportsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExports(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeIndexOutcome ClsClient::DescribeIndex(const DescribeIndexRequest &request)
@@ -3462,32 +2986,25 @@ ClsClient::DescribeIndexOutcome ClsClient::DescribeIndex(const DescribeIndexRequ
 
 void ClsClient::DescribeIndexAsync(const DescribeIndexRequest& request, const DescribeIndexAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIndexRequest&;
-    using Resp = DescribeIndexResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIndex(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIndex", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeIndexOutcomeCallable ClsClient::DescribeIndexCallable(const DescribeIndexRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIndexOutcome>>();
-    DescribeIndexAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeIndexRequest&,
-        DescribeIndexOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIndexOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIndex(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeKafkaConsumerOutcome ClsClient::DescribeKafkaConsumer(const DescribeKafkaConsumerRequest &request)
@@ -3512,32 +3029,25 @@ ClsClient::DescribeKafkaConsumerOutcome ClsClient::DescribeKafkaConsumer(const D
 
 void ClsClient::DescribeKafkaConsumerAsync(const DescribeKafkaConsumerRequest& request, const DescribeKafkaConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKafkaConsumerRequest&;
-    using Resp = DescribeKafkaConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKafkaConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKafkaConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeKafkaConsumerOutcomeCallable ClsClient::DescribeKafkaConsumerCallable(const DescribeKafkaConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKafkaConsumerOutcome>>();
-    DescribeKafkaConsumerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeKafkaConsumerRequest&,
-        DescribeKafkaConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKafkaConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKafkaConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeKafkaConsumerGroupDetailOutcome ClsClient::DescribeKafkaConsumerGroupDetail(const DescribeKafkaConsumerGroupDetailRequest &request)
@@ -3562,32 +3072,25 @@ ClsClient::DescribeKafkaConsumerGroupDetailOutcome ClsClient::DescribeKafkaConsu
 
 void ClsClient::DescribeKafkaConsumerGroupDetailAsync(const DescribeKafkaConsumerGroupDetailRequest& request, const DescribeKafkaConsumerGroupDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKafkaConsumerGroupDetailRequest&;
-    using Resp = DescribeKafkaConsumerGroupDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKafkaConsumerGroupDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKafkaConsumerGroupDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeKafkaConsumerGroupDetailOutcomeCallable ClsClient::DescribeKafkaConsumerGroupDetailCallable(const DescribeKafkaConsumerGroupDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKafkaConsumerGroupDetailOutcome>>();
-    DescribeKafkaConsumerGroupDetailAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeKafkaConsumerGroupDetailRequest&,
-        DescribeKafkaConsumerGroupDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKafkaConsumerGroupDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKafkaConsumerGroupDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeKafkaConsumerGroupListOutcome ClsClient::DescribeKafkaConsumerGroupList(const DescribeKafkaConsumerGroupListRequest &request)
@@ -3612,32 +3115,25 @@ ClsClient::DescribeKafkaConsumerGroupListOutcome ClsClient::DescribeKafkaConsume
 
 void ClsClient::DescribeKafkaConsumerGroupListAsync(const DescribeKafkaConsumerGroupListRequest& request, const DescribeKafkaConsumerGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKafkaConsumerGroupListRequest&;
-    using Resp = DescribeKafkaConsumerGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKafkaConsumerGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKafkaConsumerGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeKafkaConsumerGroupListOutcomeCallable ClsClient::DescribeKafkaConsumerGroupListCallable(const DescribeKafkaConsumerGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKafkaConsumerGroupListOutcome>>();
-    DescribeKafkaConsumerGroupListAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeKafkaConsumerGroupListRequest&,
-        DescribeKafkaConsumerGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKafkaConsumerGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKafkaConsumerGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeKafkaRechargesOutcome ClsClient::DescribeKafkaRecharges(const DescribeKafkaRechargesRequest &request)
@@ -3662,32 +3158,25 @@ ClsClient::DescribeKafkaRechargesOutcome ClsClient::DescribeKafkaRecharges(const
 
 void ClsClient::DescribeKafkaRechargesAsync(const DescribeKafkaRechargesRequest& request, const DescribeKafkaRechargesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKafkaRechargesRequest&;
-    using Resp = DescribeKafkaRechargesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKafkaRecharges(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKafkaRecharges", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeKafkaRechargesOutcomeCallable ClsClient::DescribeKafkaRechargesCallable(const DescribeKafkaRechargesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKafkaRechargesOutcome>>();
-    DescribeKafkaRechargesAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeKafkaRechargesRequest&,
-        DescribeKafkaRechargesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKafkaRechargesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKafkaRecharges(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeLogContextOutcome ClsClient::DescribeLogContext(const DescribeLogContextRequest &request)
@@ -3712,32 +3201,25 @@ ClsClient::DescribeLogContextOutcome ClsClient::DescribeLogContext(const Describ
 
 void ClsClient::DescribeLogContextAsync(const DescribeLogContextRequest& request, const DescribeLogContextAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLogContextRequest&;
-    using Resp = DescribeLogContextResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLogContext(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLogContext", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeLogContextOutcomeCallable ClsClient::DescribeLogContextCallable(const DescribeLogContextRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLogContextOutcome>>();
-    DescribeLogContextAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeLogContextRequest&,
-        DescribeLogContextOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLogContextOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLogContext(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeLogHistogramOutcome ClsClient::DescribeLogHistogram(const DescribeLogHistogramRequest &request)
@@ -3762,32 +3244,25 @@ ClsClient::DescribeLogHistogramOutcome ClsClient::DescribeLogHistogram(const Des
 
 void ClsClient::DescribeLogHistogramAsync(const DescribeLogHistogramRequest& request, const DescribeLogHistogramAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLogHistogramRequest&;
-    using Resp = DescribeLogHistogramResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLogHistogram(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLogHistogram", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeLogHistogramOutcomeCallable ClsClient::DescribeLogHistogramCallable(const DescribeLogHistogramRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLogHistogramOutcome>>();
-    DescribeLogHistogramAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeLogHistogramRequest&,
-        DescribeLogHistogramOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLogHistogramOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLogHistogram(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeLogsetsOutcome ClsClient::DescribeLogsets(const DescribeLogsetsRequest &request)
@@ -3812,32 +3287,25 @@ ClsClient::DescribeLogsetsOutcome ClsClient::DescribeLogsets(const DescribeLogse
 
 void ClsClient::DescribeLogsetsAsync(const DescribeLogsetsRequest& request, const DescribeLogsetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLogsetsRequest&;
-    using Resp = DescribeLogsetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLogsets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLogsets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeLogsetsOutcomeCallable ClsClient::DescribeLogsetsCallable(const DescribeLogsetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLogsetsOutcome>>();
-    DescribeLogsetsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeLogsetsRequest&,
-        DescribeLogsetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLogsetsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLogsets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeMachineGroupConfigsOutcome ClsClient::DescribeMachineGroupConfigs(const DescribeMachineGroupConfigsRequest &request)
@@ -3862,32 +3330,25 @@ ClsClient::DescribeMachineGroupConfigsOutcome ClsClient::DescribeMachineGroupCon
 
 void ClsClient::DescribeMachineGroupConfigsAsync(const DescribeMachineGroupConfigsRequest& request, const DescribeMachineGroupConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMachineGroupConfigsRequest&;
-    using Resp = DescribeMachineGroupConfigsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMachineGroupConfigs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMachineGroupConfigs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeMachineGroupConfigsOutcomeCallable ClsClient::DescribeMachineGroupConfigsCallable(const DescribeMachineGroupConfigsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMachineGroupConfigsOutcome>>();
-    DescribeMachineGroupConfigsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeMachineGroupConfigsRequest&,
-        DescribeMachineGroupConfigsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMachineGroupConfigsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMachineGroupConfigs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeMachineGroupsOutcome ClsClient::DescribeMachineGroups(const DescribeMachineGroupsRequest &request)
@@ -3912,32 +3373,25 @@ ClsClient::DescribeMachineGroupsOutcome ClsClient::DescribeMachineGroups(const D
 
 void ClsClient::DescribeMachineGroupsAsync(const DescribeMachineGroupsRequest& request, const DescribeMachineGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMachineGroupsRequest&;
-    using Resp = DescribeMachineGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMachineGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMachineGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeMachineGroupsOutcomeCallable ClsClient::DescribeMachineGroupsCallable(const DescribeMachineGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMachineGroupsOutcome>>();
-    DescribeMachineGroupsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeMachineGroupsRequest&,
-        DescribeMachineGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMachineGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMachineGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeMachinesOutcome ClsClient::DescribeMachines(const DescribeMachinesRequest &request)
@@ -3962,32 +3416,25 @@ ClsClient::DescribeMachinesOutcome ClsClient::DescribeMachines(const DescribeMac
 
 void ClsClient::DescribeMachinesAsync(const DescribeMachinesRequest& request, const DescribeMachinesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMachinesRequest&;
-    using Resp = DescribeMachinesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMachines(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMachines", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeMachinesOutcomeCallable ClsClient::DescribeMachinesCallable(const DescribeMachinesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMachinesOutcome>>();
-    DescribeMachinesAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeMachinesRequest&,
-        DescribeMachinesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMachinesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMachines(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeNoticeContentsOutcome ClsClient::DescribeNoticeContents(const DescribeNoticeContentsRequest &request)
@@ -4012,32 +3459,25 @@ ClsClient::DescribeNoticeContentsOutcome ClsClient::DescribeNoticeContents(const
 
 void ClsClient::DescribeNoticeContentsAsync(const DescribeNoticeContentsRequest& request, const DescribeNoticeContentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNoticeContentsRequest&;
-    using Resp = DescribeNoticeContentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNoticeContents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNoticeContents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeNoticeContentsOutcomeCallable ClsClient::DescribeNoticeContentsCallable(const DescribeNoticeContentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNoticeContentsOutcome>>();
-    DescribeNoticeContentsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeNoticeContentsRequest&,
-        DescribeNoticeContentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNoticeContentsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNoticeContents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribePartitionsOutcome ClsClient::DescribePartitions(const DescribePartitionsRequest &request)
@@ -4062,32 +3502,25 @@ ClsClient::DescribePartitionsOutcome ClsClient::DescribePartitions(const Describ
 
 void ClsClient::DescribePartitionsAsync(const DescribePartitionsRequest& request, const DescribePartitionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePartitionsRequest&;
-    using Resp = DescribePartitionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePartitions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePartitions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribePartitionsOutcomeCallable ClsClient::DescribePartitionsCallable(const DescribePartitionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePartitionsOutcome>>();
-    DescribePartitionsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribePartitionsRequest&,
-        DescribePartitionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePartitionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePartitions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeScheduledSqlInfoOutcome ClsClient::DescribeScheduledSqlInfo(const DescribeScheduledSqlInfoRequest &request)
@@ -4112,32 +3545,25 @@ ClsClient::DescribeScheduledSqlInfoOutcome ClsClient::DescribeScheduledSqlInfo(c
 
 void ClsClient::DescribeScheduledSqlInfoAsync(const DescribeScheduledSqlInfoRequest& request, const DescribeScheduledSqlInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeScheduledSqlInfoRequest&;
-    using Resp = DescribeScheduledSqlInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeScheduledSqlInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeScheduledSqlInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeScheduledSqlInfoOutcomeCallable ClsClient::DescribeScheduledSqlInfoCallable(const DescribeScheduledSqlInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeScheduledSqlInfoOutcome>>();
-    DescribeScheduledSqlInfoAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeScheduledSqlInfoRequest&,
-        DescribeScheduledSqlInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeScheduledSqlInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeScheduledSqlInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeShipperTasksOutcome ClsClient::DescribeShipperTasks(const DescribeShipperTasksRequest &request)
@@ -4162,32 +3588,25 @@ ClsClient::DescribeShipperTasksOutcome ClsClient::DescribeShipperTasks(const Des
 
 void ClsClient::DescribeShipperTasksAsync(const DescribeShipperTasksRequest& request, const DescribeShipperTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeShipperTasksRequest&;
-    using Resp = DescribeShipperTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeShipperTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeShipperTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeShipperTasksOutcomeCallable ClsClient::DescribeShipperTasksCallable(const DescribeShipperTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeShipperTasksOutcome>>();
-    DescribeShipperTasksAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeShipperTasksRequest&,
-        DescribeShipperTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeShipperTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeShipperTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeShippersOutcome ClsClient::DescribeShippers(const DescribeShippersRequest &request)
@@ -4212,32 +3631,25 @@ ClsClient::DescribeShippersOutcome ClsClient::DescribeShippers(const DescribeShi
 
 void ClsClient::DescribeShippersAsync(const DescribeShippersRequest& request, const DescribeShippersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeShippersRequest&;
-    using Resp = DescribeShippersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeShippers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeShippers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeShippersOutcomeCallable ClsClient::DescribeShippersCallable(const DescribeShippersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeShippersOutcome>>();
-    DescribeShippersAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeShippersRequest&,
-        DescribeShippersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeShippersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeShippers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeTopicsOutcome ClsClient::DescribeTopics(const DescribeTopicsRequest &request)
@@ -4262,32 +3674,25 @@ ClsClient::DescribeTopicsOutcome ClsClient::DescribeTopics(const DescribeTopicsR
 
 void ClsClient::DescribeTopicsAsync(const DescribeTopicsRequest& request, const DescribeTopicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicsRequest&;
-    using Resp = DescribeTopicsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeTopicsOutcomeCallable ClsClient::DescribeTopicsCallable(const DescribeTopicsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicsOutcome>>();
-    DescribeTopicsAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeTopicsRequest&,
-        DescribeTopicsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::DescribeWebCallbacksOutcome ClsClient::DescribeWebCallbacks(const DescribeWebCallbacksRequest &request)
@@ -4312,32 +3717,25 @@ ClsClient::DescribeWebCallbacksOutcome ClsClient::DescribeWebCallbacks(const Des
 
 void ClsClient::DescribeWebCallbacksAsync(const DescribeWebCallbacksRequest& request, const DescribeWebCallbacksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWebCallbacksRequest&;
-    using Resp = DescribeWebCallbacksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWebCallbacks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWebCallbacks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::DescribeWebCallbacksOutcomeCallable ClsClient::DescribeWebCallbacksCallable(const DescribeWebCallbacksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWebCallbacksOutcome>>();
-    DescribeWebCallbacksAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const DescribeWebCallbacksRequest&,
-        DescribeWebCallbacksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWebCallbacksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWebCallbacks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::GetAlarmLogOutcome ClsClient::GetAlarmLog(const GetAlarmLogRequest &request)
@@ -4362,32 +3760,25 @@ ClsClient::GetAlarmLogOutcome ClsClient::GetAlarmLog(const GetAlarmLogRequest &r
 
 void ClsClient::GetAlarmLogAsync(const GetAlarmLogRequest& request, const GetAlarmLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetAlarmLogRequest&;
-    using Resp = GetAlarmLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetAlarmLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetAlarmLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::GetAlarmLogOutcomeCallable ClsClient::GetAlarmLogCallable(const GetAlarmLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetAlarmLogOutcome>>();
-    GetAlarmLogAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const GetAlarmLogRequest&,
-        GetAlarmLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetAlarmLogOutcome()>>(
+        [this, request]()
+        {
+            return this->GetAlarmLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::MergePartitionOutcome ClsClient::MergePartition(const MergePartitionRequest &request)
@@ -4412,32 +3803,25 @@ ClsClient::MergePartitionOutcome ClsClient::MergePartition(const MergePartitionR
 
 void ClsClient::MergePartitionAsync(const MergePartitionRequest& request, const MergePartitionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const MergePartitionRequest&;
-    using Resp = MergePartitionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->MergePartition(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "MergePartition", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::MergePartitionOutcomeCallable ClsClient::MergePartitionCallable(const MergePartitionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<MergePartitionOutcome>>();
-    MergePartitionAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const MergePartitionRequest&,
-        MergePartitionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<MergePartitionOutcome()>>(
+        [this, request]()
+        {
+            return this->MergePartition(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyAlarmOutcome ClsClient::ModifyAlarm(const ModifyAlarmRequest &request)
@@ -4462,32 +3846,25 @@ ClsClient::ModifyAlarmOutcome ClsClient::ModifyAlarm(const ModifyAlarmRequest &r
 
 void ClsClient::ModifyAlarmAsync(const ModifyAlarmRequest& request, const ModifyAlarmAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmRequest&;
-    using Resp = ModifyAlarmResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarm(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarm", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyAlarmOutcomeCallable ClsClient::ModifyAlarmCallable(const ModifyAlarmRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmOutcome>>();
-    ModifyAlarmAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyAlarmRequest&,
-        ModifyAlarmOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarm(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyAlarmNoticeOutcome ClsClient::ModifyAlarmNotice(const ModifyAlarmNoticeRequest &request)
@@ -4512,32 +3889,25 @@ ClsClient::ModifyAlarmNoticeOutcome ClsClient::ModifyAlarmNotice(const ModifyAla
 
 void ClsClient::ModifyAlarmNoticeAsync(const ModifyAlarmNoticeRequest& request, const ModifyAlarmNoticeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmNoticeRequest&;
-    using Resp = ModifyAlarmNoticeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmNotice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmNotice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyAlarmNoticeOutcomeCallable ClsClient::ModifyAlarmNoticeCallable(const ModifyAlarmNoticeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmNoticeOutcome>>();
-    ModifyAlarmNoticeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyAlarmNoticeRequest&,
-        ModifyAlarmNoticeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmNoticeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmNotice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyAlarmShieldOutcome ClsClient::ModifyAlarmShield(const ModifyAlarmShieldRequest &request)
@@ -4562,32 +3932,25 @@ ClsClient::ModifyAlarmShieldOutcome ClsClient::ModifyAlarmShield(const ModifyAla
 
 void ClsClient::ModifyAlarmShieldAsync(const ModifyAlarmShieldRequest& request, const ModifyAlarmShieldAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmShieldRequest&;
-    using Resp = ModifyAlarmShieldResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmShield(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmShield", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyAlarmShieldOutcomeCallable ClsClient::ModifyAlarmShieldCallable(const ModifyAlarmShieldRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmShieldOutcome>>();
-    ModifyAlarmShieldAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyAlarmShieldRequest&,
-        ModifyAlarmShieldOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmShieldOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmShield(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyCloudProductLogCollectionOutcome ClsClient::ModifyCloudProductLogCollection(const ModifyCloudProductLogCollectionRequest &request)
@@ -4612,32 +3975,25 @@ ClsClient::ModifyCloudProductLogCollectionOutcome ClsClient::ModifyCloudProductL
 
 void ClsClient::ModifyCloudProductLogCollectionAsync(const ModifyCloudProductLogCollectionRequest& request, const ModifyCloudProductLogCollectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudProductLogCollectionRequest&;
-    using Resp = ModifyCloudProductLogCollectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCloudProductLogCollection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCloudProductLogCollection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyCloudProductLogCollectionOutcomeCallable ClsClient::ModifyCloudProductLogCollectionCallable(const ModifyCloudProductLogCollectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudProductLogCollectionOutcome>>();
-    ModifyCloudProductLogCollectionAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyCloudProductLogCollectionRequest&,
-        ModifyCloudProductLogCollectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCloudProductLogCollectionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCloudProductLogCollection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyConfigOutcome ClsClient::ModifyConfig(const ModifyConfigRequest &request)
@@ -4662,32 +4018,25 @@ ClsClient::ModifyConfigOutcome ClsClient::ModifyConfig(const ModifyConfigRequest
 
 void ClsClient::ModifyConfigAsync(const ModifyConfigRequest& request, const ModifyConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConfigRequest&;
-    using Resp = ModifyConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyConfigOutcomeCallable ClsClient::ModifyConfigCallable(const ModifyConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConfigOutcome>>();
-    ModifyConfigAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyConfigRequest&,
-        ModifyConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyConfigExtraOutcome ClsClient::ModifyConfigExtra(const ModifyConfigExtraRequest &request)
@@ -4712,32 +4061,25 @@ ClsClient::ModifyConfigExtraOutcome ClsClient::ModifyConfigExtra(const ModifyCon
 
 void ClsClient::ModifyConfigExtraAsync(const ModifyConfigExtraRequest& request, const ModifyConfigExtraAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConfigExtraRequest&;
-    using Resp = ModifyConfigExtraResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConfigExtra(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConfigExtra", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyConfigExtraOutcomeCallable ClsClient::ModifyConfigExtraCallable(const ModifyConfigExtraRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConfigExtraOutcome>>();
-    ModifyConfigExtraAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyConfigExtraRequest&,
-        ModifyConfigExtraOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConfigExtraOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConfigExtra(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyConsoleSharingOutcome ClsClient::ModifyConsoleSharing(const ModifyConsoleSharingRequest &request)
@@ -4762,32 +4104,25 @@ ClsClient::ModifyConsoleSharingOutcome ClsClient::ModifyConsoleSharing(const Mod
 
 void ClsClient::ModifyConsoleSharingAsync(const ModifyConsoleSharingRequest& request, const ModifyConsoleSharingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConsoleSharingRequest&;
-    using Resp = ModifyConsoleSharingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConsoleSharing(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConsoleSharing", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyConsoleSharingOutcomeCallable ClsClient::ModifyConsoleSharingCallable(const ModifyConsoleSharingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConsoleSharingOutcome>>();
-    ModifyConsoleSharingAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyConsoleSharingRequest&,
-        ModifyConsoleSharingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConsoleSharingOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConsoleSharing(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyConsumerOutcome ClsClient::ModifyConsumer(const ModifyConsumerRequest &request)
@@ -4812,32 +4147,25 @@ ClsClient::ModifyConsumerOutcome ClsClient::ModifyConsumer(const ModifyConsumerR
 
 void ClsClient::ModifyConsumerAsync(const ModifyConsumerRequest& request, const ModifyConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConsumerRequest&;
-    using Resp = ModifyConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyConsumerOutcomeCallable ClsClient::ModifyConsumerCallable(const ModifyConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConsumerOutcome>>();
-    ModifyConsumerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyConsumerRequest&,
-        ModifyConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyCosRechargeOutcome ClsClient::ModifyCosRecharge(const ModifyCosRechargeRequest &request)
@@ -4862,32 +4190,25 @@ ClsClient::ModifyCosRechargeOutcome ClsClient::ModifyCosRecharge(const ModifyCos
 
 void ClsClient::ModifyCosRechargeAsync(const ModifyCosRechargeRequest& request, const ModifyCosRechargeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCosRechargeRequest&;
-    using Resp = ModifyCosRechargeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCosRecharge(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCosRecharge", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyCosRechargeOutcomeCallable ClsClient::ModifyCosRechargeCallable(const ModifyCosRechargeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCosRechargeOutcome>>();
-    ModifyCosRechargeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyCosRechargeRequest&,
-        ModifyCosRechargeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCosRechargeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCosRecharge(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyDashboardSubscribeOutcome ClsClient::ModifyDashboardSubscribe(const ModifyDashboardSubscribeRequest &request)
@@ -4912,32 +4233,25 @@ ClsClient::ModifyDashboardSubscribeOutcome ClsClient::ModifyDashboardSubscribe(c
 
 void ClsClient::ModifyDashboardSubscribeAsync(const ModifyDashboardSubscribeRequest& request, const ModifyDashboardSubscribeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDashboardSubscribeRequest&;
-    using Resp = ModifyDashboardSubscribeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDashboardSubscribe(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDashboardSubscribe", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyDashboardSubscribeOutcomeCallable ClsClient::ModifyDashboardSubscribeCallable(const ModifyDashboardSubscribeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDashboardSubscribeOutcome>>();
-    ModifyDashboardSubscribeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyDashboardSubscribeRequest&,
-        ModifyDashboardSubscribeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDashboardSubscribeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDashboardSubscribe(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyDataTransformOutcome ClsClient::ModifyDataTransform(const ModifyDataTransformRequest &request)
@@ -4962,32 +4276,25 @@ ClsClient::ModifyDataTransformOutcome ClsClient::ModifyDataTransform(const Modif
 
 void ClsClient::ModifyDataTransformAsync(const ModifyDataTransformRequest& request, const ModifyDataTransformAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDataTransformRequest&;
-    using Resp = ModifyDataTransformResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDataTransform(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDataTransform", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyDataTransformOutcomeCallable ClsClient::ModifyDataTransformCallable(const ModifyDataTransformRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDataTransformOutcome>>();
-    ModifyDataTransformAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyDataTransformRequest&,
-        ModifyDataTransformOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDataTransformOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDataTransform(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyDlcDeliverOutcome ClsClient::ModifyDlcDeliver(const ModifyDlcDeliverRequest &request)
@@ -5012,32 +4319,25 @@ ClsClient::ModifyDlcDeliverOutcome ClsClient::ModifyDlcDeliver(const ModifyDlcDe
 
 void ClsClient::ModifyDlcDeliverAsync(const ModifyDlcDeliverRequest& request, const ModifyDlcDeliverAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDlcDeliverRequest&;
-    using Resp = ModifyDlcDeliverResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDlcDeliver(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDlcDeliver", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyDlcDeliverOutcomeCallable ClsClient::ModifyDlcDeliverCallable(const ModifyDlcDeliverRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDlcDeliverOutcome>>();
-    ModifyDlcDeliverAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyDlcDeliverRequest&,
-        ModifyDlcDeliverOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDlcDeliverOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDlcDeliver(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyIndexOutcome ClsClient::ModifyIndex(const ModifyIndexRequest &request)
@@ -5062,32 +4362,25 @@ ClsClient::ModifyIndexOutcome ClsClient::ModifyIndex(const ModifyIndexRequest &r
 
 void ClsClient::ModifyIndexAsync(const ModifyIndexRequest& request, const ModifyIndexAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIndexRequest&;
-    using Resp = ModifyIndexResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIndex(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIndex", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyIndexOutcomeCallable ClsClient::ModifyIndexCallable(const ModifyIndexRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIndexOutcome>>();
-    ModifyIndexAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyIndexRequest&,
-        ModifyIndexOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIndexOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIndex(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyKafkaConsumerOutcome ClsClient::ModifyKafkaConsumer(const ModifyKafkaConsumerRequest &request)
@@ -5112,32 +4405,25 @@ ClsClient::ModifyKafkaConsumerOutcome ClsClient::ModifyKafkaConsumer(const Modif
 
 void ClsClient::ModifyKafkaConsumerAsync(const ModifyKafkaConsumerRequest& request, const ModifyKafkaConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyKafkaConsumerRequest&;
-    using Resp = ModifyKafkaConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyKafkaConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyKafkaConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyKafkaConsumerOutcomeCallable ClsClient::ModifyKafkaConsumerCallable(const ModifyKafkaConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyKafkaConsumerOutcome>>();
-    ModifyKafkaConsumerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyKafkaConsumerRequest&,
-        ModifyKafkaConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyKafkaConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyKafkaConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyKafkaConsumerGroupOffsetOutcome ClsClient::ModifyKafkaConsumerGroupOffset(const ModifyKafkaConsumerGroupOffsetRequest &request)
@@ -5162,32 +4448,25 @@ ClsClient::ModifyKafkaConsumerGroupOffsetOutcome ClsClient::ModifyKafkaConsumerG
 
 void ClsClient::ModifyKafkaConsumerGroupOffsetAsync(const ModifyKafkaConsumerGroupOffsetRequest& request, const ModifyKafkaConsumerGroupOffsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyKafkaConsumerGroupOffsetRequest&;
-    using Resp = ModifyKafkaConsumerGroupOffsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyKafkaConsumerGroupOffset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyKafkaConsumerGroupOffset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyKafkaConsumerGroupOffsetOutcomeCallable ClsClient::ModifyKafkaConsumerGroupOffsetCallable(const ModifyKafkaConsumerGroupOffsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyKafkaConsumerGroupOffsetOutcome>>();
-    ModifyKafkaConsumerGroupOffsetAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyKafkaConsumerGroupOffsetRequest&,
-        ModifyKafkaConsumerGroupOffsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyKafkaConsumerGroupOffsetOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyKafkaConsumerGroupOffset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyKafkaRechargeOutcome ClsClient::ModifyKafkaRecharge(const ModifyKafkaRechargeRequest &request)
@@ -5212,32 +4491,25 @@ ClsClient::ModifyKafkaRechargeOutcome ClsClient::ModifyKafkaRecharge(const Modif
 
 void ClsClient::ModifyKafkaRechargeAsync(const ModifyKafkaRechargeRequest& request, const ModifyKafkaRechargeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyKafkaRechargeRequest&;
-    using Resp = ModifyKafkaRechargeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyKafkaRecharge(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyKafkaRecharge", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyKafkaRechargeOutcomeCallable ClsClient::ModifyKafkaRechargeCallable(const ModifyKafkaRechargeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyKafkaRechargeOutcome>>();
-    ModifyKafkaRechargeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyKafkaRechargeRequest&,
-        ModifyKafkaRechargeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyKafkaRechargeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyKafkaRecharge(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyLogsetOutcome ClsClient::ModifyLogset(const ModifyLogsetRequest &request)
@@ -5262,32 +4534,25 @@ ClsClient::ModifyLogsetOutcome ClsClient::ModifyLogset(const ModifyLogsetRequest
 
 void ClsClient::ModifyLogsetAsync(const ModifyLogsetRequest& request, const ModifyLogsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLogsetRequest&;
-    using Resp = ModifyLogsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLogset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLogset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyLogsetOutcomeCallable ClsClient::ModifyLogsetCallable(const ModifyLogsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLogsetOutcome>>();
-    ModifyLogsetAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyLogsetRequest&,
-        ModifyLogsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLogsetOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLogset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyMachineGroupOutcome ClsClient::ModifyMachineGroup(const ModifyMachineGroupRequest &request)
@@ -5312,32 +4577,25 @@ ClsClient::ModifyMachineGroupOutcome ClsClient::ModifyMachineGroup(const ModifyM
 
 void ClsClient::ModifyMachineGroupAsync(const ModifyMachineGroupRequest& request, const ModifyMachineGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMachineGroupRequest&;
-    using Resp = ModifyMachineGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMachineGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMachineGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyMachineGroupOutcomeCallable ClsClient::ModifyMachineGroupCallable(const ModifyMachineGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMachineGroupOutcome>>();
-    ModifyMachineGroupAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyMachineGroupRequest&,
-        ModifyMachineGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMachineGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMachineGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyNoticeContentOutcome ClsClient::ModifyNoticeContent(const ModifyNoticeContentRequest &request)
@@ -5362,32 +4620,25 @@ ClsClient::ModifyNoticeContentOutcome ClsClient::ModifyNoticeContent(const Modif
 
 void ClsClient::ModifyNoticeContentAsync(const ModifyNoticeContentRequest& request, const ModifyNoticeContentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNoticeContentRequest&;
-    using Resp = ModifyNoticeContentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNoticeContent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNoticeContent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyNoticeContentOutcomeCallable ClsClient::ModifyNoticeContentCallable(const ModifyNoticeContentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNoticeContentOutcome>>();
-    ModifyNoticeContentAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyNoticeContentRequest&,
-        ModifyNoticeContentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNoticeContentOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNoticeContent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyScheduledSqlOutcome ClsClient::ModifyScheduledSql(const ModifyScheduledSqlRequest &request)
@@ -5412,32 +4663,25 @@ ClsClient::ModifyScheduledSqlOutcome ClsClient::ModifyScheduledSql(const ModifyS
 
 void ClsClient::ModifyScheduledSqlAsync(const ModifyScheduledSqlRequest& request, const ModifyScheduledSqlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyScheduledSqlRequest&;
-    using Resp = ModifyScheduledSqlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyScheduledSql(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyScheduledSql", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyScheduledSqlOutcomeCallable ClsClient::ModifyScheduledSqlCallable(const ModifyScheduledSqlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyScheduledSqlOutcome>>();
-    ModifyScheduledSqlAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyScheduledSqlRequest&,
-        ModifyScheduledSqlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyScheduledSqlOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyScheduledSql(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyShipperOutcome ClsClient::ModifyShipper(const ModifyShipperRequest &request)
@@ -5462,32 +4706,25 @@ ClsClient::ModifyShipperOutcome ClsClient::ModifyShipper(const ModifyShipperRequ
 
 void ClsClient::ModifyShipperAsync(const ModifyShipperRequest& request, const ModifyShipperAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyShipperRequest&;
-    using Resp = ModifyShipperResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyShipper(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyShipper", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyShipperOutcomeCallable ClsClient::ModifyShipperCallable(const ModifyShipperRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyShipperOutcome>>();
-    ModifyShipperAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyShipperRequest&,
-        ModifyShipperOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyShipperOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyShipper(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyTopicOutcome ClsClient::ModifyTopic(const ModifyTopicRequest &request)
@@ -5512,32 +4749,25 @@ ClsClient::ModifyTopicOutcome ClsClient::ModifyTopic(const ModifyTopicRequest &r
 
 void ClsClient::ModifyTopicAsync(const ModifyTopicRequest& request, const ModifyTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTopicRequest&;
-    using Resp = ModifyTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyTopicOutcomeCallable ClsClient::ModifyTopicCallable(const ModifyTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTopicOutcome>>();
-    ModifyTopicAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyTopicRequest&,
-        ModifyTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::ModifyWebCallbackOutcome ClsClient::ModifyWebCallback(const ModifyWebCallbackRequest &request)
@@ -5562,32 +4792,25 @@ ClsClient::ModifyWebCallbackOutcome ClsClient::ModifyWebCallback(const ModifyWeb
 
 void ClsClient::ModifyWebCallbackAsync(const ModifyWebCallbackRequest& request, const ModifyWebCallbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyWebCallbackRequest&;
-    using Resp = ModifyWebCallbackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyWebCallback(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyWebCallback", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::ModifyWebCallbackOutcomeCallable ClsClient::ModifyWebCallbackCallable(const ModifyWebCallbackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyWebCallbackOutcome>>();
-    ModifyWebCallbackAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const ModifyWebCallbackRequest&,
-        ModifyWebCallbackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyWebCallbackOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyWebCallback(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::OpenKafkaConsumerOutcome ClsClient::OpenKafkaConsumer(const OpenKafkaConsumerRequest &request)
@@ -5612,32 +4835,25 @@ ClsClient::OpenKafkaConsumerOutcome ClsClient::OpenKafkaConsumer(const OpenKafka
 
 void ClsClient::OpenKafkaConsumerAsync(const OpenKafkaConsumerRequest& request, const OpenKafkaConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenKafkaConsumerRequest&;
-    using Resp = OpenKafkaConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenKafkaConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenKafkaConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::OpenKafkaConsumerOutcomeCallable ClsClient::OpenKafkaConsumerCallable(const OpenKafkaConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenKafkaConsumerOutcome>>();
-    OpenKafkaConsumerAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const OpenKafkaConsumerRequest&,
-        OpenKafkaConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenKafkaConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenKafkaConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::PreviewKafkaRechargeOutcome ClsClient::PreviewKafkaRecharge(const PreviewKafkaRechargeRequest &request)
@@ -5662,32 +4878,25 @@ ClsClient::PreviewKafkaRechargeOutcome ClsClient::PreviewKafkaRecharge(const Pre
 
 void ClsClient::PreviewKafkaRechargeAsync(const PreviewKafkaRechargeRequest& request, const PreviewKafkaRechargeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PreviewKafkaRechargeRequest&;
-    using Resp = PreviewKafkaRechargeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PreviewKafkaRecharge(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PreviewKafkaRecharge", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::PreviewKafkaRechargeOutcomeCallable ClsClient::PreviewKafkaRechargeCallable(const PreviewKafkaRechargeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PreviewKafkaRechargeOutcome>>();
-    PreviewKafkaRechargeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const PreviewKafkaRechargeRequest&,
-        PreviewKafkaRechargeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PreviewKafkaRechargeOutcome()>>(
+        [this, request]()
+        {
+            return this->PreviewKafkaRecharge(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::QueryMetricOutcome ClsClient::QueryMetric(const QueryMetricRequest &request)
@@ -5712,32 +4921,25 @@ ClsClient::QueryMetricOutcome ClsClient::QueryMetric(const QueryMetricRequest &r
 
 void ClsClient::QueryMetricAsync(const QueryMetricRequest& request, const QueryMetricAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryMetricRequest&;
-    using Resp = QueryMetricResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryMetric(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryMetric", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::QueryMetricOutcomeCallable ClsClient::QueryMetricCallable(const QueryMetricRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryMetricOutcome>>();
-    QueryMetricAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const QueryMetricRequest&,
-        QueryMetricOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryMetricOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryMetric(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::QueryRangeMetricOutcome ClsClient::QueryRangeMetric(const QueryRangeMetricRequest &request)
@@ -5762,32 +4964,25 @@ ClsClient::QueryRangeMetricOutcome ClsClient::QueryRangeMetric(const QueryRangeM
 
 void ClsClient::QueryRangeMetricAsync(const QueryRangeMetricRequest& request, const QueryRangeMetricAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryRangeMetricRequest&;
-    using Resp = QueryRangeMetricResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryRangeMetric(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryRangeMetric", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::QueryRangeMetricOutcomeCallable ClsClient::QueryRangeMetricCallable(const QueryRangeMetricRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryRangeMetricOutcome>>();
-    QueryRangeMetricAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const QueryRangeMetricRequest&,
-        QueryRangeMetricOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryRangeMetricOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryRangeMetric(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::RetryShipperTaskOutcome ClsClient::RetryShipperTask(const RetryShipperTaskRequest &request)
@@ -5812,32 +5007,25 @@ ClsClient::RetryShipperTaskOutcome ClsClient::RetryShipperTask(const RetryShippe
 
 void ClsClient::RetryShipperTaskAsync(const RetryShipperTaskRequest& request, const RetryShipperTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RetryShipperTaskRequest&;
-    using Resp = RetryShipperTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RetryShipperTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RetryShipperTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::RetryShipperTaskOutcomeCallable ClsClient::RetryShipperTaskCallable(const RetryShipperTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RetryShipperTaskOutcome>>();
-    RetryShipperTaskAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const RetryShipperTaskRequest&,
-        RetryShipperTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RetryShipperTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->RetryShipperTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::SearchCosRechargeInfoOutcome ClsClient::SearchCosRechargeInfo(const SearchCosRechargeInfoRequest &request)
@@ -5862,32 +5050,25 @@ ClsClient::SearchCosRechargeInfoOutcome ClsClient::SearchCosRechargeInfo(const S
 
 void ClsClient::SearchCosRechargeInfoAsync(const SearchCosRechargeInfoRequest& request, const SearchCosRechargeInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchCosRechargeInfoRequest&;
-    using Resp = SearchCosRechargeInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchCosRechargeInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchCosRechargeInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::SearchCosRechargeInfoOutcomeCallable ClsClient::SearchCosRechargeInfoCallable(const SearchCosRechargeInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchCosRechargeInfoOutcome>>();
-    SearchCosRechargeInfoAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const SearchCosRechargeInfoRequest&,
-        SearchCosRechargeInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchCosRechargeInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchCosRechargeInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::SearchDashboardSubscribeOutcome ClsClient::SearchDashboardSubscribe(const SearchDashboardSubscribeRequest &request)
@@ -5912,32 +5093,25 @@ ClsClient::SearchDashboardSubscribeOutcome ClsClient::SearchDashboardSubscribe(c
 
 void ClsClient::SearchDashboardSubscribeAsync(const SearchDashboardSubscribeRequest& request, const SearchDashboardSubscribeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchDashboardSubscribeRequest&;
-    using Resp = SearchDashboardSubscribeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchDashboardSubscribe(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchDashboardSubscribe", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::SearchDashboardSubscribeOutcomeCallable ClsClient::SearchDashboardSubscribeCallable(const SearchDashboardSubscribeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchDashboardSubscribeOutcome>>();
-    SearchDashboardSubscribeAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const SearchDashboardSubscribeRequest&,
-        SearchDashboardSubscribeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchDashboardSubscribeOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchDashboardSubscribe(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::SearchLogOutcome ClsClient::SearchLog(const SearchLogRequest &request)
@@ -5962,32 +5136,25 @@ ClsClient::SearchLogOutcome ClsClient::SearchLog(const SearchLogRequest &request
 
 void ClsClient::SearchLogAsync(const SearchLogRequest& request, const SearchLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchLogRequest&;
-    using Resp = SearchLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::SearchLogOutcomeCallable ClsClient::SearchLogCallable(const SearchLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchLogOutcome>>();
-    SearchLogAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const SearchLogRequest&,
-        SearchLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchLogOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::SplitPartitionOutcome ClsClient::SplitPartition(const SplitPartitionRequest &request)
@@ -6012,32 +5179,25 @@ ClsClient::SplitPartitionOutcome ClsClient::SplitPartition(const SplitPartitionR
 
 void ClsClient::SplitPartitionAsync(const SplitPartitionRequest& request, const SplitPartitionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SplitPartitionRequest&;
-    using Resp = SplitPartitionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SplitPartition(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SplitPartition", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::SplitPartitionOutcomeCallable ClsClient::SplitPartitionCallable(const SplitPartitionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SplitPartitionOutcome>>();
-    SplitPartitionAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const SplitPartitionRequest&,
-        SplitPartitionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SplitPartitionOutcome()>>(
+        [this, request]()
+        {
+            return this->SplitPartition(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ClsClient::UploadLogOutcome ClsClient::UploadLog(const UploadLogRequest &request)
@@ -6062,31 +5222,24 @@ ClsClient::UploadLogOutcome ClsClient::UploadLog(const UploadLogRequest &request
 
 void ClsClient::UploadLogAsync(const UploadLogRequest& request, const UploadLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UploadLogRequest&;
-    using Resp = UploadLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UploadLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UploadLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ClsClient::UploadLogOutcomeCallable ClsClient::UploadLogCallable(const UploadLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UploadLogOutcome>>();
-    UploadLogAsync(
-    request,
-    [prom](
-        const ClsClient*,
-        const UploadLogRequest&,
-        UploadLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UploadLogOutcome()>>(
+        [this, request]()
+        {
+            return this->UploadLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

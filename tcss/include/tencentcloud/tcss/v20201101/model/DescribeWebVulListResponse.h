@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulInfo;
+
                 /**
                 * DescribeWebVulList返回参数结构体
                 */

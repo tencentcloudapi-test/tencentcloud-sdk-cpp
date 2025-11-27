@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HeadTailTemplate;
+
                 /**
                 * DescribeHeadTailTemplates返回参数结构体
                 */

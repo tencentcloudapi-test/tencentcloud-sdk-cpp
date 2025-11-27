@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OperationOpsDto;
+
                 /**
                 * DeleteWorkflowById返回参数结构体
                 */

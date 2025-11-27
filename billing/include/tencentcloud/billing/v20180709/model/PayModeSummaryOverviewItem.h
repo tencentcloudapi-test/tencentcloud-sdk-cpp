@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ActionSummaryOverviewItem;
+
                 /**
                 * 按计费模式汇总消费详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PayModeSummaryOverviewItem();
-                    ~PayModeSummaryOverviewItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

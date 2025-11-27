@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SnapshotInfoNew;
+
                 /**
                 * DeleteSnapshots请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 入侵防御封禁列表、放通列表添加规则入参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IntrusionDefenseRule();
-                    ~IntrusionDefenseRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResponseCode;
+
                 /**
                 * DeleteHost返回参数结构体
                 */

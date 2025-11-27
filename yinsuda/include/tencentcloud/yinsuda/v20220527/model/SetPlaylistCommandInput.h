@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 设置播放列表指令参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SetPlaylistCommandInput();
-                    ~SetPlaylistCommandInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

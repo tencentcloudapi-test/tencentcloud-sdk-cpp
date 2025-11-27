@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 日志推送目标。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AreaCLSTargetInfo();
-                    ~AreaCLSTargetInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

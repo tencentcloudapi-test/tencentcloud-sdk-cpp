@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 冷热分层策略
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CoolDownPolicyInfo();
-                    ~CoolDownPolicyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

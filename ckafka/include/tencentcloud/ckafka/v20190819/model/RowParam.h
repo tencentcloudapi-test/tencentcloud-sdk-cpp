@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数据处理ROW输出格式配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RowParam();
-                    ~RowParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

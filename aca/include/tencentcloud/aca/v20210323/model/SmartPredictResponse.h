@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SmartPredictRespData;
+
                 /**
                 * SmartPredict返回参数结构体
                 */

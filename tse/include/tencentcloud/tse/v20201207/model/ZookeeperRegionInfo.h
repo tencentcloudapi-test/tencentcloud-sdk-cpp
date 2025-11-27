@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ZookeeperRegionMyIdInfo;
+
                 /**
                 * Zookeeper的地域额外信息记录
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ZookeeperRegionInfo();
-                    ~ZookeeperRegionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

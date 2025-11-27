@@ -42,6 +42,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AnalyseBusinessDetail;
+                class AnalyseProjectDetail;
+                class AnalyseRegionDetail;
+                class AnalysePayModeDetail;
+                class AnalyseActionTypeDetail;
+                class AnalyseZoneDetail;
+                class AnalyseOwnerUinDetail;
+                class AnalyseAmountDetail;
+
                 /**
                 * 成本分析过滤框复杂类型
                 */
@@ -49,7 +58,6 @@ namespace TencentCloud
                 {
                 public:
                     AnalyseConditionDetail();
-                    ~AnalyseConditionDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

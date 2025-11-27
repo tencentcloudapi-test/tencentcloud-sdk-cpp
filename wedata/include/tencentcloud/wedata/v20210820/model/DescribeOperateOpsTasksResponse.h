@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpsTaskInfoPage;
+
                 /**
                 * DescribeOperateOpsTasks返回参数结构体
                 */

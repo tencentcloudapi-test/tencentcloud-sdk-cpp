@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 外部联系人SaaS使用明细数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CustomerActionEventDetail();
-                    ~CustomerActionEventDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

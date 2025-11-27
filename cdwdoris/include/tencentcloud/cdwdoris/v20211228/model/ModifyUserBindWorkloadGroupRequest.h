@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BindUser;
+
                 /**
                 * ModifyUserBindWorkloadGroup请求参数结构体
                 */

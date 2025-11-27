@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 封禁放通IOC列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IocListData();
-                    ~IocListData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

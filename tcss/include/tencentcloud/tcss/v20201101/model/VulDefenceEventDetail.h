@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RaspInfo;
+
                 /**
                 * 漏洞防御事件详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VulDefenceEventDetail();
-                    ~VulDefenceEventDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmAnalysisConfig;
+
                 /**
                 * 多维分析的分析维度
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AnalysisDimensional();
-                    ~AnalysisDimensional() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

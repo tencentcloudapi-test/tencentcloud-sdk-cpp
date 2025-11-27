@@ -62,32 +62,25 @@ CloudauditClient::CreateAuditTrackOutcome CloudauditClient::CreateAuditTrack(con
 
 void CloudauditClient::CreateAuditTrackAsync(const CreateAuditTrackRequest& request, const CreateAuditTrackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAuditTrackRequest&;
-    using Resp = CreateAuditTrackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAuditTrack(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAuditTrack", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::CreateAuditTrackOutcomeCallable CloudauditClient::CreateAuditTrackCallable(const CreateAuditTrackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAuditTrackOutcome>>();
-    CreateAuditTrackAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const CreateAuditTrackRequest&,
-        CreateAuditTrackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAuditTrackOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAuditTrack(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::CreateEventsAuditTrackOutcome CloudauditClient::CreateEventsAuditTrack(const CreateEventsAuditTrackRequest &request)
@@ -112,32 +105,25 @@ CloudauditClient::CreateEventsAuditTrackOutcome CloudauditClient::CreateEventsAu
 
 void CloudauditClient::CreateEventsAuditTrackAsync(const CreateEventsAuditTrackRequest& request, const CreateEventsAuditTrackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateEventsAuditTrackRequest&;
-    using Resp = CreateEventsAuditTrackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateEventsAuditTrack(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateEventsAuditTrack", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::CreateEventsAuditTrackOutcomeCallable CloudauditClient::CreateEventsAuditTrackCallable(const CreateEventsAuditTrackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateEventsAuditTrackOutcome>>();
-    CreateEventsAuditTrackAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const CreateEventsAuditTrackRequest&,
-        CreateEventsAuditTrackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateEventsAuditTrackOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateEventsAuditTrack(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::DeleteAuditTrackOutcome CloudauditClient::DeleteAuditTrack(const DeleteAuditTrackRequest &request)
@@ -162,32 +148,25 @@ CloudauditClient::DeleteAuditTrackOutcome CloudauditClient::DeleteAuditTrack(con
 
 void CloudauditClient::DeleteAuditTrackAsync(const DeleteAuditTrackRequest& request, const DeleteAuditTrackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAuditTrackRequest&;
-    using Resp = DeleteAuditTrackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAuditTrack(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAuditTrack", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::DeleteAuditTrackOutcomeCallable CloudauditClient::DeleteAuditTrackCallable(const DeleteAuditTrackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAuditTrackOutcome>>();
-    DeleteAuditTrackAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const DeleteAuditTrackRequest&,
-        DeleteAuditTrackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAuditTrackOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAuditTrack(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::DescribeAuditOutcome CloudauditClient::DescribeAudit(const DescribeAuditRequest &request)
@@ -212,32 +191,25 @@ CloudauditClient::DescribeAuditOutcome CloudauditClient::DescribeAudit(const Des
 
 void CloudauditClient::DescribeAuditAsync(const DescribeAuditRequest& request, const DescribeAuditAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditRequest&;
-    using Resp = DescribeAuditResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAudit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAudit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::DescribeAuditOutcomeCallable CloudauditClient::DescribeAuditCallable(const DescribeAuditRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditOutcome>>();
-    DescribeAuditAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const DescribeAuditRequest&,
-        DescribeAuditOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAudit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::DescribeAuditTrackOutcome CloudauditClient::DescribeAuditTrack(const DescribeAuditTrackRequest &request)
@@ -262,32 +234,25 @@ CloudauditClient::DescribeAuditTrackOutcome CloudauditClient::DescribeAuditTrack
 
 void CloudauditClient::DescribeAuditTrackAsync(const DescribeAuditTrackRequest& request, const DescribeAuditTrackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditTrackRequest&;
-    using Resp = DescribeAuditTrackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditTrack(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditTrack", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::DescribeAuditTrackOutcomeCallable CloudauditClient::DescribeAuditTrackCallable(const DescribeAuditTrackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditTrackOutcome>>();
-    DescribeAuditTrackAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const DescribeAuditTrackRequest&,
-        DescribeAuditTrackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditTrackOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditTrack(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::DescribeAuditTracksOutcome CloudauditClient::DescribeAuditTracks(const DescribeAuditTracksRequest &request)
@@ -312,32 +277,25 @@ CloudauditClient::DescribeAuditTracksOutcome CloudauditClient::DescribeAuditTrac
 
 void CloudauditClient::DescribeAuditTracksAsync(const DescribeAuditTracksRequest& request, const DescribeAuditTracksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditTracksRequest&;
-    using Resp = DescribeAuditTracksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditTracks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditTracks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::DescribeAuditTracksOutcomeCallable CloudauditClient::DescribeAuditTracksCallable(const DescribeAuditTracksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditTracksOutcome>>();
-    DescribeAuditTracksAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const DescribeAuditTracksRequest&,
-        DescribeAuditTracksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditTracksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditTracks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::DescribeEventsOutcome CloudauditClient::DescribeEvents(const DescribeEventsRequest &request)
@@ -362,32 +320,25 @@ CloudauditClient::DescribeEventsOutcome CloudauditClient::DescribeEvents(const D
 
 void CloudauditClient::DescribeEventsAsync(const DescribeEventsRequest& request, const DescribeEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEventsRequest&;
-    using Resp = DescribeEventsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEvents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEvents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::DescribeEventsOutcomeCallable CloudauditClient::DescribeEventsCallable(const DescribeEventsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEventsOutcome>>();
-    DescribeEventsAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const DescribeEventsRequest&,
-        DescribeEventsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEventsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEvents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::GetAttributeKeyOutcome CloudauditClient::GetAttributeKey(const GetAttributeKeyRequest &request)
@@ -412,32 +363,25 @@ CloudauditClient::GetAttributeKeyOutcome CloudauditClient::GetAttributeKey(const
 
 void CloudauditClient::GetAttributeKeyAsync(const GetAttributeKeyRequest& request, const GetAttributeKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetAttributeKeyRequest&;
-    using Resp = GetAttributeKeyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetAttributeKey(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetAttributeKey", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::GetAttributeKeyOutcomeCallable CloudauditClient::GetAttributeKeyCallable(const GetAttributeKeyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetAttributeKeyOutcome>>();
-    GetAttributeKeyAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const GetAttributeKeyRequest&,
-        GetAttributeKeyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetAttributeKeyOutcome()>>(
+        [this, request]()
+        {
+            return this->GetAttributeKey(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::InquireAuditCreditOutcome CloudauditClient::InquireAuditCredit(const InquireAuditCreditRequest &request)
@@ -462,32 +406,25 @@ CloudauditClient::InquireAuditCreditOutcome CloudauditClient::InquireAuditCredit
 
 void CloudauditClient::InquireAuditCreditAsync(const InquireAuditCreditRequest& request, const InquireAuditCreditAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquireAuditCreditRequest&;
-    using Resp = InquireAuditCreditResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquireAuditCredit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquireAuditCredit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::InquireAuditCreditOutcomeCallable CloudauditClient::InquireAuditCreditCallable(const InquireAuditCreditRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquireAuditCreditOutcome>>();
-    InquireAuditCreditAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const InquireAuditCreditRequest&,
-        InquireAuditCreditOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquireAuditCreditOutcome()>>(
+        [this, request]()
+        {
+            return this->InquireAuditCredit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::ListAuditsOutcome CloudauditClient::ListAudits(const ListAuditsRequest &request)
@@ -512,32 +449,25 @@ CloudauditClient::ListAuditsOutcome CloudauditClient::ListAudits(const ListAudit
 
 void CloudauditClient::ListAuditsAsync(const ListAuditsRequest& request, const ListAuditsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListAuditsRequest&;
-    using Resp = ListAuditsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListAudits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListAudits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::ListAuditsOutcomeCallable CloudauditClient::ListAuditsCallable(const ListAuditsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListAuditsOutcome>>();
-    ListAuditsAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const ListAuditsRequest&,
-        ListAuditsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListAuditsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListAudits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::ListCmqEnableRegionOutcome CloudauditClient::ListCmqEnableRegion(const ListCmqEnableRegionRequest &request)
@@ -562,32 +492,25 @@ CloudauditClient::ListCmqEnableRegionOutcome CloudauditClient::ListCmqEnableRegi
 
 void CloudauditClient::ListCmqEnableRegionAsync(const ListCmqEnableRegionRequest& request, const ListCmqEnableRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListCmqEnableRegionRequest&;
-    using Resp = ListCmqEnableRegionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListCmqEnableRegion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListCmqEnableRegion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::ListCmqEnableRegionOutcomeCallable CloudauditClient::ListCmqEnableRegionCallable(const ListCmqEnableRegionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListCmqEnableRegionOutcome>>();
-    ListCmqEnableRegionAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const ListCmqEnableRegionRequest&,
-        ListCmqEnableRegionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListCmqEnableRegionOutcome()>>(
+        [this, request]()
+        {
+            return this->ListCmqEnableRegion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::ListCosEnableRegionOutcome CloudauditClient::ListCosEnableRegion(const ListCosEnableRegionRequest &request)
@@ -612,32 +535,25 @@ CloudauditClient::ListCosEnableRegionOutcome CloudauditClient::ListCosEnableRegi
 
 void CloudauditClient::ListCosEnableRegionAsync(const ListCosEnableRegionRequest& request, const ListCosEnableRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListCosEnableRegionRequest&;
-    using Resp = ListCosEnableRegionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListCosEnableRegion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListCosEnableRegion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::ListCosEnableRegionOutcomeCallable CloudauditClient::ListCosEnableRegionCallable(const ListCosEnableRegionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListCosEnableRegionOutcome>>();
-    ListCosEnableRegionAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const ListCosEnableRegionRequest&,
-        ListCosEnableRegionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListCosEnableRegionOutcome()>>(
+        [this, request]()
+        {
+            return this->ListCosEnableRegion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::ListKeyAliasByRegionOutcome CloudauditClient::ListKeyAliasByRegion(const ListKeyAliasByRegionRequest &request)
@@ -662,32 +578,25 @@ CloudauditClient::ListKeyAliasByRegionOutcome CloudauditClient::ListKeyAliasByRe
 
 void CloudauditClient::ListKeyAliasByRegionAsync(const ListKeyAliasByRegionRequest& request, const ListKeyAliasByRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListKeyAliasByRegionRequest&;
-    using Resp = ListKeyAliasByRegionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListKeyAliasByRegion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListKeyAliasByRegion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::ListKeyAliasByRegionOutcomeCallable CloudauditClient::ListKeyAliasByRegionCallable(const ListKeyAliasByRegionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListKeyAliasByRegionOutcome>>();
-    ListKeyAliasByRegionAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const ListKeyAliasByRegionRequest&,
-        ListKeyAliasByRegionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListKeyAliasByRegionOutcome()>>(
+        [this, request]()
+        {
+            return this->ListKeyAliasByRegion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::LookUpEventsOutcome CloudauditClient::LookUpEvents(const LookUpEventsRequest &request)
@@ -712,32 +621,25 @@ CloudauditClient::LookUpEventsOutcome CloudauditClient::LookUpEvents(const LookU
 
 void CloudauditClient::LookUpEventsAsync(const LookUpEventsRequest& request, const LookUpEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const LookUpEventsRequest&;
-    using Resp = LookUpEventsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->LookUpEvents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "LookUpEvents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::LookUpEventsOutcomeCallable CloudauditClient::LookUpEventsCallable(const LookUpEventsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<LookUpEventsOutcome>>();
-    LookUpEventsAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const LookUpEventsRequest&,
-        LookUpEventsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<LookUpEventsOutcome()>>(
+        [this, request]()
+        {
+            return this->LookUpEvents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::ModifyAuditTrackOutcome CloudauditClient::ModifyAuditTrack(const ModifyAuditTrackRequest &request)
@@ -762,32 +664,25 @@ CloudauditClient::ModifyAuditTrackOutcome CloudauditClient::ModifyAuditTrack(con
 
 void CloudauditClient::ModifyAuditTrackAsync(const ModifyAuditTrackRequest& request, const ModifyAuditTrackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAuditTrackRequest&;
-    using Resp = ModifyAuditTrackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAuditTrack(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAuditTrack", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::ModifyAuditTrackOutcomeCallable CloudauditClient::ModifyAuditTrackCallable(const ModifyAuditTrackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAuditTrackOutcome>>();
-    ModifyAuditTrackAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const ModifyAuditTrackRequest&,
-        ModifyAuditTrackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAuditTrackOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAuditTrack(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::ModifyEventsAuditTrackOutcome CloudauditClient::ModifyEventsAuditTrack(const ModifyEventsAuditTrackRequest &request)
@@ -812,32 +707,25 @@ CloudauditClient::ModifyEventsAuditTrackOutcome CloudauditClient::ModifyEventsAu
 
 void CloudauditClient::ModifyEventsAuditTrackAsync(const ModifyEventsAuditTrackRequest& request, const ModifyEventsAuditTrackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyEventsAuditTrackRequest&;
-    using Resp = ModifyEventsAuditTrackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyEventsAuditTrack(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyEventsAuditTrack", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::ModifyEventsAuditTrackOutcomeCallable CloudauditClient::ModifyEventsAuditTrackCallable(const ModifyEventsAuditTrackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyEventsAuditTrackOutcome>>();
-    ModifyEventsAuditTrackAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const ModifyEventsAuditTrackRequest&,
-        ModifyEventsAuditTrackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyEventsAuditTrackOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyEventsAuditTrack(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::StartLoggingOutcome CloudauditClient::StartLogging(const StartLoggingRequest &request)
@@ -862,32 +750,25 @@ CloudauditClient::StartLoggingOutcome CloudauditClient::StartLogging(const Start
 
 void CloudauditClient::StartLoggingAsync(const StartLoggingRequest& request, const StartLoggingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartLoggingRequest&;
-    using Resp = StartLoggingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartLogging(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartLogging", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::StartLoggingOutcomeCallable CloudauditClient::StartLoggingCallable(const StartLoggingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartLoggingOutcome>>();
-    StartLoggingAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const StartLoggingRequest&,
-        StartLoggingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartLoggingOutcome()>>(
+        [this, request]()
+        {
+            return this->StartLogging(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::StopLoggingOutcome CloudauditClient::StopLogging(const StopLoggingRequest &request)
@@ -912,32 +793,25 @@ CloudauditClient::StopLoggingOutcome CloudauditClient::StopLogging(const StopLog
 
 void CloudauditClient::StopLoggingAsync(const StopLoggingRequest& request, const StopLoggingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopLoggingRequest&;
-    using Resp = StopLoggingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopLogging(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopLogging", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::StopLoggingOutcomeCallable CloudauditClient::StopLoggingCallable(const StopLoggingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopLoggingOutcome>>();
-    StopLoggingAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const StopLoggingRequest&,
-        StopLoggingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopLoggingOutcome()>>(
+        [this, request]()
+        {
+            return this->StopLogging(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudauditClient::UpdateAuditOutcome CloudauditClient::UpdateAudit(const UpdateAuditRequest &request)
@@ -962,31 +836,24 @@ CloudauditClient::UpdateAuditOutcome CloudauditClient::UpdateAudit(const UpdateA
 
 void CloudauditClient::UpdateAuditAsync(const UpdateAuditRequest& request, const UpdateAuditAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateAuditRequest&;
-    using Resp = UpdateAuditResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateAudit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateAudit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudauditClient::UpdateAuditOutcomeCallable CloudauditClient::UpdateAuditCallable(const UpdateAuditRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateAuditOutcome>>();
-    UpdateAuditAsync(
-    request,
-    [prom](
-        const CloudauditClient*,
-        const UpdateAuditRequest&,
-        UpdateAuditOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateAuditOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateAudit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

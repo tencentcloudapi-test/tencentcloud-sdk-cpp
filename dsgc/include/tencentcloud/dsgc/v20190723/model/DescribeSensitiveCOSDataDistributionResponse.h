@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Note;
+                class RuleDistribution;
+
                 /**
                 * DescribeSensitiveCOSDataDistribution返回参数结构体
                 */

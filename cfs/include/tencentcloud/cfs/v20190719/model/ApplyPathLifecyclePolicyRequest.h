@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PathInfo;
+
                 /**
                 * ApplyPathLifecyclePolicy请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 规则与目标组的关联关系。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TargetGroupAssociation();
-                    ~TargetGroupAssociation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 上传音频文件失败信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UploadIvrAudioFailedInfo();
-                    ~UploadIvrAudioFailedInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

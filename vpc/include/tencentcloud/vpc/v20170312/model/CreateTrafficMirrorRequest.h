@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TrafficMirrorFilter;
+                class TrafficMirrorTarget;
+                class Tag;
+
                 /**
                 * CreateTrafficMirror请求参数结构体
                 */

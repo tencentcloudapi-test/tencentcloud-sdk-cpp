@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LastMenstrualPeriodBlock;
+                class MenstrualFlowBlock;
+                class MenstruationOrNotBlock;
+                class MenstrualPeriodBlock;
+
                 /**
                 * 月经史
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     MenstrualHistoryBlock();
-                    ~MenstrualHistoryBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

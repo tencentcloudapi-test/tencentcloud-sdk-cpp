@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaseItem3;
+                class BaseItem2;
+
                 /**
                 * 眼科子结构
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     EyeChildItem();
-                    ~EyeChildItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

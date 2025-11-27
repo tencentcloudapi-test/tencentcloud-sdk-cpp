@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PluginListItem;
+                class OptPluginListItem;
+
                 /**
                 * APK检测服务参数返回具体信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ResultListItem();
-                    ~ResultListItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

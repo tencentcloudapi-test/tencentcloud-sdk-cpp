@@ -62,32 +62,25 @@ MspClient::DeregisterMigrationTaskOutcome MspClient::DeregisterMigrationTask(con
 
 void MspClient::DeregisterMigrationTaskAsync(const DeregisterMigrationTaskRequest& request, const DeregisterMigrationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeregisterMigrationTaskRequest&;
-    using Resp = DeregisterMigrationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeregisterMigrationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeregisterMigrationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MspClient::DeregisterMigrationTaskOutcomeCallable MspClient::DeregisterMigrationTaskCallable(const DeregisterMigrationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeregisterMigrationTaskOutcome>>();
-    DeregisterMigrationTaskAsync(
-    request,
-    [prom](
-        const MspClient*,
-        const DeregisterMigrationTaskRequest&,
-        DeregisterMigrationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeregisterMigrationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeregisterMigrationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MspClient::DescribeMigrationTaskOutcome MspClient::DescribeMigrationTask(const DescribeMigrationTaskRequest &request)
@@ -112,32 +105,25 @@ MspClient::DescribeMigrationTaskOutcome MspClient::DescribeMigrationTask(const D
 
 void MspClient::DescribeMigrationTaskAsync(const DescribeMigrationTaskRequest& request, const DescribeMigrationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMigrationTaskRequest&;
-    using Resp = DescribeMigrationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMigrationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMigrationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MspClient::DescribeMigrationTaskOutcomeCallable MspClient::DescribeMigrationTaskCallable(const DescribeMigrationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMigrationTaskOutcome>>();
-    DescribeMigrationTaskAsync(
-    request,
-    [prom](
-        const MspClient*,
-        const DescribeMigrationTaskRequest&,
-        DescribeMigrationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMigrationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMigrationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MspClient::ListMigrationProjectOutcome MspClient::ListMigrationProject(const ListMigrationProjectRequest &request)
@@ -162,32 +148,25 @@ MspClient::ListMigrationProjectOutcome MspClient::ListMigrationProject(const Lis
 
 void MspClient::ListMigrationProjectAsync(const ListMigrationProjectRequest& request, const ListMigrationProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListMigrationProjectRequest&;
-    using Resp = ListMigrationProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListMigrationProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListMigrationProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MspClient::ListMigrationProjectOutcomeCallable MspClient::ListMigrationProjectCallable(const ListMigrationProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListMigrationProjectOutcome>>();
-    ListMigrationProjectAsync(
-    request,
-    [prom](
-        const MspClient*,
-        const ListMigrationProjectRequest&,
-        ListMigrationProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListMigrationProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ListMigrationProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MspClient::ListMigrationTaskOutcome MspClient::ListMigrationTask(const ListMigrationTaskRequest &request)
@@ -212,32 +191,25 @@ MspClient::ListMigrationTaskOutcome MspClient::ListMigrationTask(const ListMigra
 
 void MspClient::ListMigrationTaskAsync(const ListMigrationTaskRequest& request, const ListMigrationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListMigrationTaskRequest&;
-    using Resp = ListMigrationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListMigrationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListMigrationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MspClient::ListMigrationTaskOutcomeCallable MspClient::ListMigrationTaskCallable(const ListMigrationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListMigrationTaskOutcome>>();
-    ListMigrationTaskAsync(
-    request,
-    [prom](
-        const MspClient*,
-        const ListMigrationTaskRequest&,
-        ListMigrationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListMigrationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ListMigrationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MspClient::ModifyMigrationTaskBelongToProjectOutcome MspClient::ModifyMigrationTaskBelongToProject(const ModifyMigrationTaskBelongToProjectRequest &request)
@@ -262,32 +234,25 @@ MspClient::ModifyMigrationTaskBelongToProjectOutcome MspClient::ModifyMigrationT
 
 void MspClient::ModifyMigrationTaskBelongToProjectAsync(const ModifyMigrationTaskBelongToProjectRequest& request, const ModifyMigrationTaskBelongToProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMigrationTaskBelongToProjectRequest&;
-    using Resp = ModifyMigrationTaskBelongToProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMigrationTaskBelongToProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMigrationTaskBelongToProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MspClient::ModifyMigrationTaskBelongToProjectOutcomeCallable MspClient::ModifyMigrationTaskBelongToProjectCallable(const ModifyMigrationTaskBelongToProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMigrationTaskBelongToProjectOutcome>>();
-    ModifyMigrationTaskBelongToProjectAsync(
-    request,
-    [prom](
-        const MspClient*,
-        const ModifyMigrationTaskBelongToProjectRequest&,
-        ModifyMigrationTaskBelongToProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMigrationTaskBelongToProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMigrationTaskBelongToProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MspClient::ModifyMigrationTaskStatusOutcome MspClient::ModifyMigrationTaskStatus(const ModifyMigrationTaskStatusRequest &request)
@@ -312,32 +277,25 @@ MspClient::ModifyMigrationTaskStatusOutcome MspClient::ModifyMigrationTaskStatus
 
 void MspClient::ModifyMigrationTaskStatusAsync(const ModifyMigrationTaskStatusRequest& request, const ModifyMigrationTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMigrationTaskStatusRequest&;
-    using Resp = ModifyMigrationTaskStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMigrationTaskStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMigrationTaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MspClient::ModifyMigrationTaskStatusOutcomeCallable MspClient::ModifyMigrationTaskStatusCallable(const ModifyMigrationTaskStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMigrationTaskStatusOutcome>>();
-    ModifyMigrationTaskStatusAsync(
-    request,
-    [prom](
-        const MspClient*,
-        const ModifyMigrationTaskStatusRequest&,
-        ModifyMigrationTaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMigrationTaskStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMigrationTaskStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MspClient::RegisterMigrationTaskOutcome MspClient::RegisterMigrationTask(const RegisterMigrationTaskRequest &request)
@@ -362,31 +320,24 @@ MspClient::RegisterMigrationTaskOutcome MspClient::RegisterMigrationTask(const R
 
 void MspClient::RegisterMigrationTaskAsync(const RegisterMigrationTaskRequest& request, const RegisterMigrationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RegisterMigrationTaskRequest&;
-    using Resp = RegisterMigrationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RegisterMigrationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RegisterMigrationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MspClient::RegisterMigrationTaskOutcomeCallable MspClient::RegisterMigrationTaskCallable(const RegisterMigrationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RegisterMigrationTaskOutcome>>();
-    RegisterMigrationTaskAsync(
-    request,
-    [prom](
-        const MspClient*,
-        const RegisterMigrationTaskRequest&,
-        RegisterMigrationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RegisterMigrationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->RegisterMigrationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceDashboard;
+
                 /**
                 * DescribeVpcResourceDashboard返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DNSAttributes;
+
                 /**
                 * CreateEmailIdentity返回参数结构体
                 */

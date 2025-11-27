@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Content;
+
                 /**
                 * 拍照解题内容
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageMessage();
-                    ~ImageMessage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

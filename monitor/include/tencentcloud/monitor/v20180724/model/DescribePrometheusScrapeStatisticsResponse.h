@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusInstanceScrapeStatistics;
+
                 /**
                 * DescribePrometheusScrapeStatistics返回参数结构体
                 */

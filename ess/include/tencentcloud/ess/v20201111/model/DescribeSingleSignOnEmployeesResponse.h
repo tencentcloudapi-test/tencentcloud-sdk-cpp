@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SingleSignOnEmployees;
+
                 /**
                 * DescribeSingleSignOnEmployees返回参数结构体
                 */

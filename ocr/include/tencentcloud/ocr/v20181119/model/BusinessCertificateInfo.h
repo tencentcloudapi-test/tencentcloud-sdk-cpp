@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Rect;
+
                 /**
                 * 非营业执照的营业类证件识别结果，将以结构化形式呈现。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BusinessCertificateInfo();
-                    ~BusinessCertificateInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

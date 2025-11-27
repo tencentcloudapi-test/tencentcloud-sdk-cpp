@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlgDetectResult;
+
                 /**
                 * Bot主动特征识别客户端行为校验。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AlgDetectJS();
-                    ~AlgDetectJS() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * NAT防火墙Dnat规则列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DescNatDnatRule();
-                    ~DescNatDnatRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

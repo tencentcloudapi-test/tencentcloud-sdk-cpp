@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 每个选项答题人数统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AnswerStat();
-                    ~AnswerStat() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

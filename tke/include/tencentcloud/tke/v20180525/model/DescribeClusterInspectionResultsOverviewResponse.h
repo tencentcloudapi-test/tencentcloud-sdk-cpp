@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KubeJarvisStateStatistic;
+                class KubeJarvisStateDiagnosticOverview;
+                class KubeJarvisStateInspectionOverview;
+
                 /**
                 * DescribeClusterInspectionResultsOverview返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetJarDetail;
+
                 /**
                 * DescribeAssetJarInfo返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskOutputStorage;
+
                 /**
                 * 图片处理结果信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageProcessTaskOutput();
-                    ~ImageProcessTaskOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

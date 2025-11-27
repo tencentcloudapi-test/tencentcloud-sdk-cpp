@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrivateNatGatewayLimit;
+
                 /**
                 * DescribePrivateNatGatewayLimits返回参数结构体
                 */

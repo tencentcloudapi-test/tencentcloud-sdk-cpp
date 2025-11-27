@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CallBackTemplateInfo;
+
                 /**
                 * DescribeLiveCallbackTemplate返回参数结构体
                 */

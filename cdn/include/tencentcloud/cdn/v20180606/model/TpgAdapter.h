@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 图片优化-TpgAdapter配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TpgAdapter();
-                    ~TpgAdapter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 带有时间戳的详细数据。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DetailData();
-                    ~DetailData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

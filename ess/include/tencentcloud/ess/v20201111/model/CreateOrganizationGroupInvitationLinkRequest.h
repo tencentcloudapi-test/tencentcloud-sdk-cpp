@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+
                 /**
                 * CreateOrganizationGroupInvitationLink请求参数结构体
                 */

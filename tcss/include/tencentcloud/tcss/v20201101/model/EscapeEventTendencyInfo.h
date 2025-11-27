@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 待处理逃逸事件趋势
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EscapeEventTendencyInfo();
-                    ~EscapeEventTendencyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

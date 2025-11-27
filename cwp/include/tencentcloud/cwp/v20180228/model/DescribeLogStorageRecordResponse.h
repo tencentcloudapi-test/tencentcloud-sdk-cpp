@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogStorageRecord;
+
                 /**
                 * DescribeLogStorageRecord返回参数结构体
                 */

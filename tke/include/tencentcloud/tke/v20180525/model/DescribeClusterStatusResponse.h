@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClusterStatus;
+
                 /**
                 * DescribeClusterStatus返回参数结构体
                 */

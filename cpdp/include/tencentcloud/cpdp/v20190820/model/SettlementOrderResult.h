@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 结算订单结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SettlementOrderResult();
-                    ~SettlementOrderResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

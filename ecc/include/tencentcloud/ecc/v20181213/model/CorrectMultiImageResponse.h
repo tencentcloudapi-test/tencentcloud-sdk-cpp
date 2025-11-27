@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompostionContext;
+                class CompositionContext;
+
                 /**
                 * CorrectMultiImage返回参数结构体
                 */

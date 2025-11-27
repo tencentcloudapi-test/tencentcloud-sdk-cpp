@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatabasePrivilege;
+
                 /**
                 * 用于修改数据库对象的权限，其中包含了数据库对象描述的数据结构、需要修改的权限列表以及修改的类型等。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ModifyPrivilege();
-                    ~ModifyPrivilege() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

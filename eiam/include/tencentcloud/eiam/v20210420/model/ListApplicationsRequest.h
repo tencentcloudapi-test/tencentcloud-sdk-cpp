@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApplicationInfoSearchCriteria;
+                class SortCondition;
+
                 /**
                 * ListApplications请求参数结构体
                 */

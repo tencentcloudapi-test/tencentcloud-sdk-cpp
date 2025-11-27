@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UnbindClientElem;
+
                 /**
                 * DescribeUnbindClientList返回参数结构体
                 */

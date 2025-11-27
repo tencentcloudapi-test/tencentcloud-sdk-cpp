@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 删除数据开发任务结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DeleteTaskResult();
-                    ~DeleteTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

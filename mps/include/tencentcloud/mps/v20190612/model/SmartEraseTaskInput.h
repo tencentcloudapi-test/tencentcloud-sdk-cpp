@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RawSmartEraseParameter;
+                class OverrideEraseParameter;
+                class TaskOutputStorage;
+
                 /**
                 * 智能擦除任务
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     SmartEraseTaskInput();
-                    ~SmartEraseTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 导播台布局详细参数。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CasterLayoutParam();
-                    ~CasterLayoutParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

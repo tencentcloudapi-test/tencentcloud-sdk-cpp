@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 上传下载响应对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DownloadFileResult();
-                    ~DownloadFileResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

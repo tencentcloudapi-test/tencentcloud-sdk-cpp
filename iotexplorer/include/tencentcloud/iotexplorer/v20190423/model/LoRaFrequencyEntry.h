@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * LoRa自定义频点信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LoRaFrequencyEntry();
-                    ~LoRaFrequencyEntry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

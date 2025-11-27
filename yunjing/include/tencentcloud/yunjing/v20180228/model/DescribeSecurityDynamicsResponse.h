@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityDynamic;
+
                 /**
                 * DescribeSecurityDynamics返回参数结构体
                 */

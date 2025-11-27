@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HostTagInfo;
+
                 /**
                 * DescribeHostInfo返回参数结构体
                 */

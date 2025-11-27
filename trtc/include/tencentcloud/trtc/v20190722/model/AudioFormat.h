@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * TTS音频输出的格式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AudioFormat();
-                    ~AudioFormat() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

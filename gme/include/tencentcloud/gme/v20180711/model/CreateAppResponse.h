@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateAppResp;
+
                 /**
                 * CreateApp返回参数结构体
                 */

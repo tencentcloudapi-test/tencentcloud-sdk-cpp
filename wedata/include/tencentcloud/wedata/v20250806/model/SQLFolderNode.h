@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/wedata/v20250806/model/SQLFolderNode.h>
 
 
 namespace TencentCloud
@@ -35,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SQL脚本文件树节点
                 */
@@ -42,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SQLFolderNode();
-                    ~SQLFolderNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

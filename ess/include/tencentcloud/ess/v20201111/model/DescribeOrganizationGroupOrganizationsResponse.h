@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupOrganization;
+
                 /**
                 * DescribeOrganizationGroupOrganizations返回参数结构体
                 */

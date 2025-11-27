@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceStatData;
+
                 /**
                 * GetDeviceStatistics返回参数结构体
                 */

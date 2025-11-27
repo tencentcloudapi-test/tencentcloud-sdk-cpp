@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 失败资源信息。
 绑定或解绑资源标签时失败返回
@@ -42,7 +43,6 @@ namespace TencentCloud
                 {
                 public:
                     FailedResource();
-                    ~FailedResource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

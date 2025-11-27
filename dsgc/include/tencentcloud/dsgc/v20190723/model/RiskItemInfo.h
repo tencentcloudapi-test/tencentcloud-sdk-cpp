@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityProduct;
+
                 /**
                 * 最新的风险详情信息数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RiskItemInfo();
-                    ~RiskItemInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

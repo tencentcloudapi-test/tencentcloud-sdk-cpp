@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimingDataRecord;
+
                 /**
                 * DescribeTimingL4Data返回参数结构体
                 */

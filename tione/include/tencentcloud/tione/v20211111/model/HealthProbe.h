@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Probe;
+
                 /**
                 * 健康探针
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HealthProbe();
-                    ~HealthProbe() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

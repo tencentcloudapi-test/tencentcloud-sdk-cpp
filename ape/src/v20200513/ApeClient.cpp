@@ -62,32 +62,25 @@ ApeClient::BatchDescribeOrderCertificateOutcome ApeClient::BatchDescribeOrderCer
 
 void ApeClient::BatchDescribeOrderCertificateAsync(const BatchDescribeOrderCertificateRequest& request, const BatchDescribeOrderCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDescribeOrderCertificateRequest&;
-    using Resp = BatchDescribeOrderCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDescribeOrderCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDescribeOrderCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApeClient::BatchDescribeOrderCertificateOutcomeCallable ApeClient::BatchDescribeOrderCertificateCallable(const BatchDescribeOrderCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDescribeOrderCertificateOutcome>>();
-    BatchDescribeOrderCertificateAsync(
-    request,
-    [prom](
-        const ApeClient*,
-        const BatchDescribeOrderCertificateRequest&,
-        BatchDescribeOrderCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDescribeOrderCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDescribeOrderCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApeClient::BatchDescribeOrderImageOutcome ApeClient::BatchDescribeOrderImage(const BatchDescribeOrderImageRequest &request)
@@ -112,32 +105,25 @@ ApeClient::BatchDescribeOrderImageOutcome ApeClient::BatchDescribeOrderImage(con
 
 void ApeClient::BatchDescribeOrderImageAsync(const BatchDescribeOrderImageRequest& request, const BatchDescribeOrderImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDescribeOrderImageRequest&;
-    using Resp = BatchDescribeOrderImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDescribeOrderImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDescribeOrderImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApeClient::BatchDescribeOrderImageOutcomeCallable ApeClient::BatchDescribeOrderImageCallable(const BatchDescribeOrderImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDescribeOrderImageOutcome>>();
-    BatchDescribeOrderImageAsync(
-    request,
-    [prom](
-        const ApeClient*,
-        const BatchDescribeOrderImageRequest&,
-        BatchDescribeOrderImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDescribeOrderImageOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDescribeOrderImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApeClient::CreateOrderAndDownloadsOutcome ApeClient::CreateOrderAndDownloads(const CreateOrderAndDownloadsRequest &request)
@@ -162,32 +148,25 @@ ApeClient::CreateOrderAndDownloadsOutcome ApeClient::CreateOrderAndDownloads(con
 
 void ApeClient::CreateOrderAndDownloadsAsync(const CreateOrderAndDownloadsRequest& request, const CreateOrderAndDownloadsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrderAndDownloadsRequest&;
-    using Resp = CreateOrderAndDownloadsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrderAndDownloads(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrderAndDownloads", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApeClient::CreateOrderAndDownloadsOutcomeCallable ApeClient::CreateOrderAndDownloadsCallable(const CreateOrderAndDownloadsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrderAndDownloadsOutcome>>();
-    CreateOrderAndDownloadsAsync(
-    request,
-    [prom](
-        const ApeClient*,
-        const CreateOrderAndDownloadsRequest&,
-        CreateOrderAndDownloadsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrderAndDownloadsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrderAndDownloads(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApeClient::CreateOrderAndPayOutcome ApeClient::CreateOrderAndPay(const CreateOrderAndPayRequest &request)
@@ -212,32 +191,25 @@ ApeClient::CreateOrderAndPayOutcome ApeClient::CreateOrderAndPay(const CreateOrd
 
 void ApeClient::CreateOrderAndPayAsync(const CreateOrderAndPayRequest& request, const CreateOrderAndPayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrderAndPayRequest&;
-    using Resp = CreateOrderAndPayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrderAndPay(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrderAndPay", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApeClient::CreateOrderAndPayOutcomeCallable ApeClient::CreateOrderAndPayCallable(const CreateOrderAndPayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrderAndPayOutcome>>();
-    CreateOrderAndPayAsync(
-    request,
-    [prom](
-        const ApeClient*,
-        const CreateOrderAndPayRequest&,
-        CreateOrderAndPayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrderAndPayOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrderAndPay(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApeClient::DescribeAuthUsersOutcome ApeClient::DescribeAuthUsers(const DescribeAuthUsersRequest &request)
@@ -262,32 +234,25 @@ ApeClient::DescribeAuthUsersOutcome ApeClient::DescribeAuthUsers(const DescribeA
 
 void ApeClient::DescribeAuthUsersAsync(const DescribeAuthUsersRequest& request, const DescribeAuthUsersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuthUsersRequest&;
-    using Resp = DescribeAuthUsersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuthUsers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuthUsers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApeClient::DescribeAuthUsersOutcomeCallable ApeClient::DescribeAuthUsersCallable(const DescribeAuthUsersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuthUsersOutcome>>();
-    DescribeAuthUsersAsync(
-    request,
-    [prom](
-        const ApeClient*,
-        const DescribeAuthUsersRequest&,
-        DescribeAuthUsersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuthUsersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuthUsers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApeClient::DescribeDownloadInfosOutcome ApeClient::DescribeDownloadInfos(const DescribeDownloadInfosRequest &request)
@@ -312,32 +277,25 @@ ApeClient::DescribeDownloadInfosOutcome ApeClient::DescribeDownloadInfos(const D
 
 void ApeClient::DescribeDownloadInfosAsync(const DescribeDownloadInfosRequest& request, const DescribeDownloadInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDownloadInfosRequest&;
-    using Resp = DescribeDownloadInfosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDownloadInfos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDownloadInfos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApeClient::DescribeDownloadInfosOutcomeCallable ApeClient::DescribeDownloadInfosCallable(const DescribeDownloadInfosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDownloadInfosOutcome>>();
-    DescribeDownloadInfosAsync(
-    request,
-    [prom](
-        const ApeClient*,
-        const DescribeDownloadInfosRequest&,
-        DescribeDownloadInfosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDownloadInfosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDownloadInfos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApeClient::DescribeImageOutcome ApeClient::DescribeImage(const DescribeImageRequest &request)
@@ -362,32 +320,25 @@ ApeClient::DescribeImageOutcome ApeClient::DescribeImage(const DescribeImageRequ
 
 void ApeClient::DescribeImageAsync(const DescribeImageRequest& request, const DescribeImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeImageRequest&;
-    using Resp = DescribeImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApeClient::DescribeImageOutcomeCallable ApeClient::DescribeImageCallable(const DescribeImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeImageOutcome>>();
-    DescribeImageAsync(
-    request,
-    [prom](
-        const ApeClient*,
-        const DescribeImageRequest&,
-        DescribeImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeImageOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApeClient::DescribeImagesOutcome ApeClient::DescribeImages(const DescribeImagesRequest &request)
@@ -412,31 +363,24 @@ ApeClient::DescribeImagesOutcome ApeClient::DescribeImages(const DescribeImagesR
 
 void ApeClient::DescribeImagesAsync(const DescribeImagesRequest& request, const DescribeImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeImagesRequest&;
-    using Resp = DescribeImagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeImages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeImages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApeClient::DescribeImagesOutcomeCallable ApeClient::DescribeImagesCallable(const DescribeImagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeImagesOutcome>>();
-    DescribeImagesAsync(
-    request,
-    [prom](
-        const ApeClient*,
-        const DescribeImagesRequest&,
-        DescribeImagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeImagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeImages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

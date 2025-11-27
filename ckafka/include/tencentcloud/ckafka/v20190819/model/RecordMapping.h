@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * record 与数据库表的映射关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RecordMapping();
-                    ~RecordMapping() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

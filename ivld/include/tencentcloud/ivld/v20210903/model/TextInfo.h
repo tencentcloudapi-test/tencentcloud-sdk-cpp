@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 可视文本识别结果信息(OCR)
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TextInfo();
-                    ~TextInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

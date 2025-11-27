@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CdcClusterResponse;
+
                 /**
                 * CreateCdcCluster返回参数结构体
                 */

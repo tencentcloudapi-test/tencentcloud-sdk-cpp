@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 金融票据切片识别单个字段的内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FinanBillSliceInfo();
-                    ~FinanBillSliceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

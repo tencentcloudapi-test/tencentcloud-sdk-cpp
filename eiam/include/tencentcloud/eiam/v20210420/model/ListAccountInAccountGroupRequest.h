@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccountGroupSearchCriteria;
+
                 /**
                 * ListAccountInAccountGroup请求参数结构体
                 */

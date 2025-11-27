@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceFilter;
+
                 /**
                 * DescribeInstancePackageList请求参数结构体
                 */

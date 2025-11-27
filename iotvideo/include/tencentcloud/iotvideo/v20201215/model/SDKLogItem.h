@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SDK日志项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SDKLogItem();
-                    ~SDKLogItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

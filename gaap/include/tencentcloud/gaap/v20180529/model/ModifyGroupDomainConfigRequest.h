@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccessRegionDomainConf;
+
                 /**
                 * ModifyGroupDomainConfig请求参数结构体
                 */

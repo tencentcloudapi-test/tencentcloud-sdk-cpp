@@ -62,32 +62,25 @@ TtsClient::CreateTtsTaskOutcome TtsClient::CreateTtsTask(const CreateTtsTaskRequ
 
 void TtsClient::CreateTtsTaskAsync(const CreateTtsTaskRequest& request, const CreateTtsTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTtsTaskRequest&;
-    using Resp = CreateTtsTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTtsTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTtsTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TtsClient::CreateTtsTaskOutcomeCallable TtsClient::CreateTtsTaskCallable(const CreateTtsTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTtsTaskOutcome>>();
-    CreateTtsTaskAsync(
-    request,
-    [prom](
-        const TtsClient*,
-        const CreateTtsTaskRequest&,
-        CreateTtsTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTtsTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTtsTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TtsClient::DescribeTtsTaskStatusOutcome TtsClient::DescribeTtsTaskStatus(const DescribeTtsTaskStatusRequest &request)
@@ -112,32 +105,25 @@ TtsClient::DescribeTtsTaskStatusOutcome TtsClient::DescribeTtsTaskStatus(const D
 
 void TtsClient::DescribeTtsTaskStatusAsync(const DescribeTtsTaskStatusRequest& request, const DescribeTtsTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTtsTaskStatusRequest&;
-    using Resp = DescribeTtsTaskStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTtsTaskStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTtsTaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TtsClient::DescribeTtsTaskStatusOutcomeCallable TtsClient::DescribeTtsTaskStatusCallable(const DescribeTtsTaskStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTtsTaskStatusOutcome>>();
-    DescribeTtsTaskStatusAsync(
-    request,
-    [prom](
-        const TtsClient*,
-        const DescribeTtsTaskStatusRequest&,
-        DescribeTtsTaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTtsTaskStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTtsTaskStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TtsClient::TextToVoiceOutcome TtsClient::TextToVoice(const TextToVoiceRequest &request)
@@ -162,31 +148,24 @@ TtsClient::TextToVoiceOutcome TtsClient::TextToVoice(const TextToVoiceRequest &r
 
 void TtsClient::TextToVoiceAsync(const TextToVoiceRequest& request, const TextToVoiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextToVoiceRequest&;
-    using Resp = TextToVoiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextToVoice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextToVoice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TtsClient::TextToVoiceOutcomeCallable TtsClient::TextToVoiceCallable(const TextToVoiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextToVoiceOutcome>>();
-    TextToVoiceAsync(
-    request,
-    [prom](
-        const TtsClient*,
-        const TextToVoiceRequest&,
-        TextToVoiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextToVoiceOutcome()>>(
+        [this, request]()
+        {
+            return this->TextToVoice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LakeFileSystemToken;
+
                 /**
                 * DescribeLakeFsTaskResult返回参数结构体
                 */

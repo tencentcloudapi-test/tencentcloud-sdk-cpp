@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 忽略的基线检测项信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IgnoreBaselineRule();
-                    ~IgnoreBaselineRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

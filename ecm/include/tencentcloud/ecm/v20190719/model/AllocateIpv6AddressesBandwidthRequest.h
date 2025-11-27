@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * AllocateIpv6AddressesBandwidth请求参数结构体
                 */

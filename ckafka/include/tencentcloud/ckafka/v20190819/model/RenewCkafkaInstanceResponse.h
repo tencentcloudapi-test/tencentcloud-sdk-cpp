@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RenewCkafkaInstanceResp;
+
                 /**
                 * RenewCkafkaInstance返回参数结构体
                 */

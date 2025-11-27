@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * csv内容描述
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CsvInfo();
-                    ~CsvInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

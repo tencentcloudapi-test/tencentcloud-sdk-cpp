@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttributeKeyDetail;
+
                 /**
                 * GetAttributeKey返回参数结构体
                 */

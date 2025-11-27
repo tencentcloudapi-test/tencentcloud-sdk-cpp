@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CodeRepoSummary;
+
                 /**
                 * DescribeCodeRepositories返回参数结构体
                 */

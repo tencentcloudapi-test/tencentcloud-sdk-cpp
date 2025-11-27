@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageCacheEvent;
+                class ImageRegistryCredential;
+                class Tag;
+
                 /**
                 * 镜像缓存的信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageCache();
-                    ~ImageCache() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

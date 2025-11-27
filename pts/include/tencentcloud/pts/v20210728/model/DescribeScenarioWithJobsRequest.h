@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScenarioRelatedJobsParams;
+
                 /**
                 * DescribeScenarioWithJobs请求参数结构体
                 */

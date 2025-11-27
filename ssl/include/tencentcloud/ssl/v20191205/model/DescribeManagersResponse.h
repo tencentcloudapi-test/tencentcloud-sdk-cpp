@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ManagerInfo;
+
                 /**
                 * DescribeManagers返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WXIoTDeviceInfo;
+
                 /**
                 * 微信硬件设备信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     WXDeviceInfo();
-                    ~WXDeviceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

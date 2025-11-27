@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CardInfo;
+
                 /**
                 * DescribeCard返回参数结构体
                 */

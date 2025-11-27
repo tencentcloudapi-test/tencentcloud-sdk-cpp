@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HighPriorityRoute;
+
                 /**
                 * CreateHighPriorityRoutes请求参数结构体
                 */

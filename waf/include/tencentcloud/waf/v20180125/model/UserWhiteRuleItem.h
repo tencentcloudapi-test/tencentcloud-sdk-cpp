@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户规则白名单规则子项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UserWhiteRuleItem();
-                    ~UserWhiteRuleItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

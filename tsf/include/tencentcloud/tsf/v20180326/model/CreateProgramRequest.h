@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProgramItem;
+
                 /**
                 * CreateProgram请求参数结构体
                 */

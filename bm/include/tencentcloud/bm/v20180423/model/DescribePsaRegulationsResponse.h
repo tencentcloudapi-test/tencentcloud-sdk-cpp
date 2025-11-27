@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PsaRegulation;
+
                 /**
                 * DescribePsaRegulations返回参数结构体
                 */

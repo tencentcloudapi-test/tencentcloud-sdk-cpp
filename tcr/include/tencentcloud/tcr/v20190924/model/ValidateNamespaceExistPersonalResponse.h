@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NamespaceIsExistsResp;
+
                 /**
                 * ValidateNamespaceExistPersonal返回参数结构体
                 */

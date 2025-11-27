@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BuildingProfileRes;
+
                 /**
                 * DescribeBuildingProfile返回参数结构体
                 */

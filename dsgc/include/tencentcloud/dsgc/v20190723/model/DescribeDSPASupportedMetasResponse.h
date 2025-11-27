@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DSPAMetaType;
+
                 /**
                 * DescribeDSPASupportedMetas返回参数结构体
                 */

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AdhocRecord;
+                class AdhocDetail;
+
                 /**
                 * SubmitSqlTask返回参数结构体
                 */

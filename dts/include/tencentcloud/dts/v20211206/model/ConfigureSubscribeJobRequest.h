@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EndpointItem;
+                class SubscribeKafkaConfig;
+                class SubscribeObject;
+                class PipelineInfo;
+                class KeyValuePairOption;
+
                 /**
                 * ConfigureSubscribeJob请求参数结构体
                 */

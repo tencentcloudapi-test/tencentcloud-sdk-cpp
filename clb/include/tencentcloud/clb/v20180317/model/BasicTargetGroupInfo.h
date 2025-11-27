@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 监听器或者转发规则绑定的目标组基本信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BasicTargetGroupInfo();
-                    ~BasicTargetGroupInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

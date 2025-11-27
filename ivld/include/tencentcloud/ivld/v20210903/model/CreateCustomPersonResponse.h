@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PersonImageInfo;
+
                 /**
                 * CreateCustomPerson返回参数结构体
                 */

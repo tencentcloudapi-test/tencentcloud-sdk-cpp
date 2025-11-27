@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogoParam;
+
                 /**
                 * SubmitPortraitSingJob请求参数结构体
                 */

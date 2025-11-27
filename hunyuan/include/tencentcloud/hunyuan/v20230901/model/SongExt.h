@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 歌曲详情。具体含义参考  [QQ音乐SDK](https://developer.y.qq.com/)
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SongExt();
-                    ~SongExt() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

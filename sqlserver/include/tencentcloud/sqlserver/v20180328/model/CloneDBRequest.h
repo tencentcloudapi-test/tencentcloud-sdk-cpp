@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RenameRestoreDatabase;
+
                 /**
                 * CloneDB请求参数结构体
                 */

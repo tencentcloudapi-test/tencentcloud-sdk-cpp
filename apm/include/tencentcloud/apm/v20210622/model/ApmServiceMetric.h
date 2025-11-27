@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApmField;
+                class ApmTag;
+                class ServiceDetail;
+
                 /**
                 * apm应用指标信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     ApmServiceMetric();
-                    ~ApmServiceMetric() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

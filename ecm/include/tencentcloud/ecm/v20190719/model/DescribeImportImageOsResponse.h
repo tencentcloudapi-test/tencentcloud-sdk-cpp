@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageOsList;
+                class OsVersion;
+
                 /**
                 * DescribeImportImageOs返回参数结构体
                 */

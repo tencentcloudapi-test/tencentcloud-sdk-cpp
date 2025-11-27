@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InternetBandwidthConfig;
+
                 /**
                 * DescribeInstanceInternetBandwidthConfigs返回参数结构体
                 */

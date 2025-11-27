@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 企微机器人主机范围
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WebHookHostLabel();
-                    ~WebHookHostLabel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

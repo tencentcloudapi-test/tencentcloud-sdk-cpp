@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IpStatus;
+
                 /**
                 * DescribeIpStatus返回参数结构体
                 */

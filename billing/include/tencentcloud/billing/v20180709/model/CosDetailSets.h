@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * cos产品用量明细返回数据结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CosDetailSets();
-                    ~CosDetailSets() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

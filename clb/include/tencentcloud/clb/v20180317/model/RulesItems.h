@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LbRsTargets;
+
                 /**
                 * 七层规则对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RulesItems();
-                    ~RulesItems() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

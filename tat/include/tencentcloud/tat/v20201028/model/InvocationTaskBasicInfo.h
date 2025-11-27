@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 执行活动任务简介。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InvocationTaskBasicInfo();
-                    ~InvocationTaskBasicInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

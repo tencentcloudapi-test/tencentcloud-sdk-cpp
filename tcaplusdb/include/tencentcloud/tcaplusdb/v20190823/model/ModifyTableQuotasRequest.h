@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SelectedTableInfoNew;
+
                 /**
                 * ModifyTableQuotas请求参数结构体
                 */

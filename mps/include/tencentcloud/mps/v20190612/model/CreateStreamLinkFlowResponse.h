@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeFlow;
+
                 /**
                 * CreateStreamLinkFlow返回参数结构体
                 */

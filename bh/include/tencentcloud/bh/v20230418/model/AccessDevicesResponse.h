@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccessInfo;
+
                 /**
                 * AccessDevices返回参数结构体
                 */

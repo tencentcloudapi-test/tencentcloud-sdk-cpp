@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 测试启动前后的消息通知
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Notification();
-                    ~Notification() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

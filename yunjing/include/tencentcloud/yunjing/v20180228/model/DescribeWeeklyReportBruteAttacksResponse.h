@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WeeklyReportBruteAttack;
+
                 /**
                 * DescribeWeeklyReportBruteAttacks返回参数结构体
                 */

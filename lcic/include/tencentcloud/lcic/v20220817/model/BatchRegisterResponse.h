@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchUserInfo;
+
                 /**
                 * BatchRegister返回参数结构体
                 */

@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PornConfigureInfo;
+                class TerrorismConfigureInfo;
+                class PoliticalConfigureInfo;
+                class ProhibitedConfigureInfo;
+                class UserDefineConfigureInfo;
+
                 /**
                 * 内容审核模板详情
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     ContentReviewTemplateItem();
-                    ~ContentReviewTemplateItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

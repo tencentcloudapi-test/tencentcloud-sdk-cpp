@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GoodsDetail;
+
                 /**
                 * 计费下单接口出入参Goods
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Goods();
-                    ~Goods() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Feature;
+                class XMagicTrial;
+
                 /**
                 * DescribeTrialFeature返回参数结构体
                 */

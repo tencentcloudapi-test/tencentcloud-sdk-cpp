@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 热key分析返回信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TopHotKeys();
-                    ~TopHotKeys() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

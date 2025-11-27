@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpdateNetInfo;
+
                 /**
                 * UpdateDevice请求参数结构体
                 */

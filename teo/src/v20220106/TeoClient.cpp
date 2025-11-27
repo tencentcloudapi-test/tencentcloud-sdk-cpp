@@ -62,32 +62,25 @@ TeoClient::CreatePrefetchTaskOutcome TeoClient::CreatePrefetchTask(const CreateP
 
 void TeoClient::CreatePrefetchTaskAsync(const CreatePrefetchTaskRequest& request, const CreatePrefetchTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrefetchTaskRequest&;
-    using Resp = CreatePrefetchTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrefetchTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrefetchTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TeoClient::CreatePrefetchTaskOutcomeCallable TeoClient::CreatePrefetchTaskCallable(const CreatePrefetchTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrefetchTaskOutcome>>();
-    CreatePrefetchTaskAsync(
-    request,
-    [prom](
-        const TeoClient*,
-        const CreatePrefetchTaskRequest&,
-        CreatePrefetchTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrefetchTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrefetchTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TeoClient::CreatePurgeTaskOutcome TeoClient::CreatePurgeTask(const CreatePurgeTaskRequest &request)
@@ -112,32 +105,25 @@ TeoClient::CreatePurgeTaskOutcome TeoClient::CreatePurgeTask(const CreatePurgeTa
 
 void TeoClient::CreatePurgeTaskAsync(const CreatePurgeTaskRequest& request, const CreatePurgeTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePurgeTaskRequest&;
-    using Resp = CreatePurgeTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePurgeTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePurgeTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TeoClient::CreatePurgeTaskOutcomeCallable TeoClient::CreatePurgeTaskCallable(const CreatePurgeTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePurgeTaskOutcome>>();
-    CreatePurgeTaskAsync(
-    request,
-    [prom](
-        const TeoClient*,
-        const CreatePurgeTaskRequest&,
-        CreatePurgeTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePurgeTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePurgeTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TeoClient::DescribePrefetchTasksOutcome TeoClient::DescribePrefetchTasks(const DescribePrefetchTasksRequest &request)
@@ -162,32 +148,25 @@ TeoClient::DescribePrefetchTasksOutcome TeoClient::DescribePrefetchTasks(const D
 
 void TeoClient::DescribePrefetchTasksAsync(const DescribePrefetchTasksRequest& request, const DescribePrefetchTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrefetchTasksRequest&;
-    using Resp = DescribePrefetchTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrefetchTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrefetchTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TeoClient::DescribePrefetchTasksOutcomeCallable TeoClient::DescribePrefetchTasksCallable(const DescribePrefetchTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrefetchTasksOutcome>>();
-    DescribePrefetchTasksAsync(
-    request,
-    [prom](
-        const TeoClient*,
-        const DescribePrefetchTasksRequest&,
-        DescribePrefetchTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrefetchTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrefetchTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TeoClient::DescribePurgeTasksOutcome TeoClient::DescribePurgeTasks(const DescribePurgeTasksRequest &request)
@@ -212,32 +191,25 @@ TeoClient::DescribePurgeTasksOutcome TeoClient::DescribePurgeTasks(const Describ
 
 void TeoClient::DescribePurgeTasksAsync(const DescribePurgeTasksRequest& request, const DescribePurgeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePurgeTasksRequest&;
-    using Resp = DescribePurgeTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePurgeTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePurgeTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TeoClient::DescribePurgeTasksOutcomeCallable TeoClient::DescribePurgeTasksCallable(const DescribePurgeTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePurgeTasksOutcome>>();
-    DescribePurgeTasksAsync(
-    request,
-    [prom](
-        const TeoClient*,
-        const DescribePurgeTasksRequest&,
-        DescribePurgeTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePurgeTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePurgeTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TeoClient::DescribeZonesOutcome TeoClient::DescribeZones(const DescribeZonesRequest &request)
@@ -262,31 +234,24 @@ TeoClient::DescribeZonesOutcome TeoClient::DescribeZones(const DescribeZonesRequ
 
 void TeoClient::DescribeZonesAsync(const DescribeZonesRequest& request, const DescribeZonesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeZonesRequest&;
-    using Resp = DescribeZonesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeZones(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeZones", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TeoClient::DescribeZonesOutcomeCallable TeoClient::DescribeZonesCallable(const DescribeZonesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeZonesOutcome>>();
-    DescribeZonesAsync(
-    request,
-    [prom](
-        const TeoClient*,
-        const DescribeZonesRequest&,
-        DescribeZonesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeZonesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeZones(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

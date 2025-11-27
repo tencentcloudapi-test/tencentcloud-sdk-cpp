@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResultListItem;
+
                 /**
                 * DescribeApkDetectionResult返回参数结构体
                 */

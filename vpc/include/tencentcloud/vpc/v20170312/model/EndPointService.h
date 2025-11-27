@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EndPoint;
+                class Tag;
+
                 /**
                 * 终端节点服务对象。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     EndPointService();
-                    ~EndPointService() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

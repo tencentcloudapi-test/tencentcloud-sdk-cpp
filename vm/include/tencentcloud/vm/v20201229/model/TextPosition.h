@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 文本关键词命中位置信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TextPosition();
-                    ~TextPosition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

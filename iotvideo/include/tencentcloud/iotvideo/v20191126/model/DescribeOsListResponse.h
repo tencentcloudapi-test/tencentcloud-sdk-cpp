@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SystemType;
+
                 /**
                 * DescribeOsList返回参数结构体
                 */

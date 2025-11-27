@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 添加登录审计白名单的主机信息实体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HostInfo();
-                    ~HostInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

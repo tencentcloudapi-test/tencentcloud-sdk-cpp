@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InputAccount;
+
                 /**
                 * DescribeAccountAllGrantPrivileges请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PluginSummary;
+
                 /**
                 * DescribePlugins返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 工作流统一调度出参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowSchedulerConfiguration();
-                    ~WorkflowSchedulerConfiguration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

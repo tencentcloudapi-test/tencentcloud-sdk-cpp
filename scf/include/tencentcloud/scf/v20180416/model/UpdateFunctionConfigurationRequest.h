@@ -40,6 +40,16 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Environment;
+                class VpcConfig;
+                class LayerVersionSimple;
+                class DeadLetterConfig;
+                class PublicNetConfigIn;
+                class CfsConfig;
+                class ProtocolParams;
+                class InstanceConcurrencyConfig;
+                class IntranetConfigIn;
+
                 /**
                 * UpdateFunctionConfiguration请求参数结构体
                 */

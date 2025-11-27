@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FaceMorphOutput;
+
                 /**
                 * QueryFaceMorphJob返回参数结构体
                 */

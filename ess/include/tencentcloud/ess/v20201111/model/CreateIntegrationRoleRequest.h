@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class PermissionGroup;
+                class Agent;
+
                 /**
                 * CreateIntegrationRole请求参数结构体
                 */

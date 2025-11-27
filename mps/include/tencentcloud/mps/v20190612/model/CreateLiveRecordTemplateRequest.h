@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HLSConfigureInfo;
+                class MP4ConfigureInfo;
+
                 /**
                 * CreateLiveRecordTemplate请求参数结构体
                 */

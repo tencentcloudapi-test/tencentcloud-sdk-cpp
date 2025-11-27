@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DDoS高级策略的报文过滤项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DDoSPolicyPacketFilter();
-                    ~DDoSPolicyPacketFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

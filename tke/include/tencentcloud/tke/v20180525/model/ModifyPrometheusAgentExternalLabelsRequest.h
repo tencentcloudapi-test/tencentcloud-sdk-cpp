@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Label;
+
                 /**
                 * ModifyPrometheusAgentExternalLabels请求参数结构体
                 */

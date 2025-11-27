@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PlayerConfig;
+
                 /**
                 * DescribeSuperPlayerConfigs返回参数结构体
                 */

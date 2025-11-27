@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 业务逻辑个性化配置字段，默认不传
 
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Option();
-                    ~Option() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

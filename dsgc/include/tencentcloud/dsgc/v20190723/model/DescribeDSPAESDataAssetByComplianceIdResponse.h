@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ESDataAssetCountDto;
+
                 /**
                 * DescribeDSPAESDataAssetByComplianceId返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 导播台推流信息。
 当导播台主监启动后，系统将自动将主监推流到腾讯云和其他第三方平台。
@@ -42,7 +43,6 @@ namespace TencentCloud
                 {
                 public:
                     CasterOutputInfo();
-                    ~CasterOutputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

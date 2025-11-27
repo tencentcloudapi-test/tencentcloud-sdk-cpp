@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 管理端规则条件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SourceConditionForManage();
-                    ~SourceConditionForManage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeK8sApiAbnormalSummary请求参数结构体
                 */

@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Filter;
+                class FilterGroup;
+                class Sort;
+
                 /**
                 * 这是一个多接口的公共数据结构，用于接口根据条件进行过滤和分页。具体支持哪些过滤条件，参考具体使用该结构的接口字段描述
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     Condition();
-                    ~Condition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

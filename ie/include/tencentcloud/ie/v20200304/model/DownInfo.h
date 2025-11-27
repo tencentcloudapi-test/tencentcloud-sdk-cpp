@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UrlInfo;
+                class CosInfo;
+
                 /**
                 * 视频源信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DownInfo();
-                    ~DownInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

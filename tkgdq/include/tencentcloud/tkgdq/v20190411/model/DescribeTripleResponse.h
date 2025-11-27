@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TripleContent;
+
                 /**
                 * DescribeTriple返回参数结构体
                 */

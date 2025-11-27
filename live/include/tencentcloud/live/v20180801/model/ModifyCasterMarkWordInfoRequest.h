@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CasterMarkWordInfo;
+
                 /**
                 * ModifyCasterMarkWordInfo请求参数结构体
                 */

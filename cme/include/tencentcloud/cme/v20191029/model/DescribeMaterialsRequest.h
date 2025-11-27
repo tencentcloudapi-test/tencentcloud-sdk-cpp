@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SortBy;
+
                 /**
                 * DescribeMaterials请求参数结构体
                 */

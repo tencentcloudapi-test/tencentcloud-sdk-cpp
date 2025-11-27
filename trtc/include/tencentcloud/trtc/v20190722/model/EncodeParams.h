@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * MCU混流输出流编码参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EncodeParams();
-                    ~EncodeParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

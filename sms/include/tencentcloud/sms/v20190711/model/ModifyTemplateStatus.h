@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 修改模板参数响应
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ModifyTemplateStatus();
-                    ~ModifyTemplateStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConnectResourceResourceIdResp;
+
                 /**
                 * DeleteConnectResource返回参数结构体
                 */

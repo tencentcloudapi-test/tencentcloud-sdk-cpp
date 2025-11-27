@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Concurrency;
+                class RequestsPerSecond;
+                class ScriptOrigin;
+
                 /**
                 * 施压配置
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     LoadSpec();
-                    ~LoadSpec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

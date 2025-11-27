@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValueItem;
+
                 /**
                 * 体检报告-外科-脊柱
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SurgerySpinalExtremities();
-                    ~SurgerySpinalExtremities() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

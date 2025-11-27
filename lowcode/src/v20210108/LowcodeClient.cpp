@@ -62,32 +62,25 @@ LowcodeClient::CheckDeployAppOutcome LowcodeClient::CheckDeployApp(const CheckDe
 
 void LowcodeClient::CheckDeployAppAsync(const CheckDeployAppRequest& request, const CheckDeployAppAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckDeployAppRequest&;
-    using Resp = CheckDeployAppResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckDeployApp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckDeployApp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::CheckDeployAppOutcomeCallable LowcodeClient::CheckDeployAppCallable(const CheckDeployAppRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckDeployAppOutcome>>();
-    CheckDeployAppAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const CheckDeployAppRequest&,
-        CheckDeployAppOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckDeployAppOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckDeployApp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::CreateKnowledgeSetOutcome LowcodeClient::CreateKnowledgeSet(const CreateKnowledgeSetRequest &request)
@@ -112,32 +105,25 @@ LowcodeClient::CreateKnowledgeSetOutcome LowcodeClient::CreateKnowledgeSet(const
 
 void LowcodeClient::CreateKnowledgeSetAsync(const CreateKnowledgeSetRequest& request, const CreateKnowledgeSetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateKnowledgeSetRequest&;
-    using Resp = CreateKnowledgeSetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateKnowledgeSet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateKnowledgeSet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::CreateKnowledgeSetOutcomeCallable LowcodeClient::CreateKnowledgeSetCallable(const CreateKnowledgeSetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateKnowledgeSetOutcome>>();
-    CreateKnowledgeSetAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const CreateKnowledgeSetRequest&,
-        CreateKnowledgeSetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateKnowledgeSetOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateKnowledgeSet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DeleteAppBindWxAppOutcome LowcodeClient::DeleteAppBindWxApp(const DeleteAppBindWxAppRequest &request)
@@ -162,32 +148,25 @@ LowcodeClient::DeleteAppBindWxAppOutcome LowcodeClient::DeleteAppBindWxApp(const
 
 void LowcodeClient::DeleteAppBindWxAppAsync(const DeleteAppBindWxAppRequest& request, const DeleteAppBindWxAppAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAppBindWxAppRequest&;
-    using Resp = DeleteAppBindWxAppResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAppBindWxApp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAppBindWxApp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DeleteAppBindWxAppOutcomeCallable LowcodeClient::DeleteAppBindWxAppCallable(const DeleteAppBindWxAppRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAppBindWxAppOutcome>>();
-    DeleteAppBindWxAppAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DeleteAppBindWxAppRequest&,
-        DeleteAppBindWxAppOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAppBindWxAppOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAppBindWxApp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DeleteKnowledgeDocumentSetOutcome LowcodeClient::DeleteKnowledgeDocumentSet(const DeleteKnowledgeDocumentSetRequest &request)
@@ -212,32 +191,25 @@ LowcodeClient::DeleteKnowledgeDocumentSetOutcome LowcodeClient::DeleteKnowledgeD
 
 void LowcodeClient::DeleteKnowledgeDocumentSetAsync(const DeleteKnowledgeDocumentSetRequest& request, const DeleteKnowledgeDocumentSetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteKnowledgeDocumentSetRequest&;
-    using Resp = DeleteKnowledgeDocumentSetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteKnowledgeDocumentSet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteKnowledgeDocumentSet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DeleteKnowledgeDocumentSetOutcomeCallable LowcodeClient::DeleteKnowledgeDocumentSetCallable(const DeleteKnowledgeDocumentSetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteKnowledgeDocumentSetOutcome>>();
-    DeleteKnowledgeDocumentSetAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DeleteKnowledgeDocumentSetRequest&,
-        DeleteKnowledgeDocumentSetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteKnowledgeDocumentSetOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteKnowledgeDocumentSet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DeleteKnowledgeSetOutcome LowcodeClient::DeleteKnowledgeSet(const DeleteKnowledgeSetRequest &request)
@@ -262,32 +234,25 @@ LowcodeClient::DeleteKnowledgeSetOutcome LowcodeClient::DeleteKnowledgeSet(const
 
 void LowcodeClient::DeleteKnowledgeSetAsync(const DeleteKnowledgeSetRequest& request, const DeleteKnowledgeSetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteKnowledgeSetRequest&;
-    using Resp = DeleteKnowledgeSetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteKnowledgeSet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteKnowledgeSet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DeleteKnowledgeSetOutcomeCallable LowcodeClient::DeleteKnowledgeSetCallable(const DeleteKnowledgeSetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteKnowledgeSetOutcome>>();
-    DeleteKnowledgeSetAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DeleteKnowledgeSetRequest&,
-        DeleteKnowledgeSetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteKnowledgeSetOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteKnowledgeSet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DeployAppOutcome LowcodeClient::DeployApp(const DeployAppRequest &request)
@@ -312,32 +277,25 @@ LowcodeClient::DeployAppOutcome LowcodeClient::DeployApp(const DeployAppRequest 
 
 void LowcodeClient::DeployAppAsync(const DeployAppRequest& request, const DeployAppAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeployAppRequest&;
-    using Resp = DeployAppResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeployApp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeployApp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DeployAppOutcomeCallable LowcodeClient::DeployAppCallable(const DeployAppRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeployAppOutcome>>();
-    DeployAppAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DeployAppRequest&,
-        DeployAppOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeployAppOutcome()>>(
+        [this, request]()
+        {
+            return this->DeployApp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DescribeAppsOutcome LowcodeClient::DescribeApps(const DescribeAppsRequest &request)
@@ -362,32 +320,25 @@ LowcodeClient::DescribeAppsOutcome LowcodeClient::DescribeApps(const DescribeApp
 
 void LowcodeClient::DescribeAppsAsync(const DescribeAppsRequest& request, const DescribeAppsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAppsRequest&;
-    using Resp = DescribeAppsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApps(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApps", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DescribeAppsOutcomeCallable LowcodeClient::DescribeAppsCallable(const DescribeAppsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAppsOutcome>>();
-    DescribeAppsAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DescribeAppsRequest&,
-        DescribeAppsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAppsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApps(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DescribeDataSourceListOutcome LowcodeClient::DescribeDataSourceList(const DescribeDataSourceListRequest &request)
@@ -412,32 +363,25 @@ LowcodeClient::DescribeDataSourceListOutcome LowcodeClient::DescribeDataSourceLi
 
 void LowcodeClient::DescribeDataSourceListAsync(const DescribeDataSourceListRequest& request, const DescribeDataSourceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDataSourceListRequest&;
-    using Resp = DescribeDataSourceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDataSourceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDataSourceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DescribeDataSourceListOutcomeCallable LowcodeClient::DescribeDataSourceListCallable(const DescribeDataSourceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDataSourceListOutcome>>();
-    DescribeDataSourceListAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DescribeDataSourceListRequest&,
-        DescribeDataSourceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDataSourceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDataSourceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DescribeKnowledgeDocumentSetDetailOutcome LowcodeClient::DescribeKnowledgeDocumentSetDetail(const DescribeKnowledgeDocumentSetDetailRequest &request)
@@ -462,32 +406,25 @@ LowcodeClient::DescribeKnowledgeDocumentSetDetailOutcome LowcodeClient::Describe
 
 void LowcodeClient::DescribeKnowledgeDocumentSetDetailAsync(const DescribeKnowledgeDocumentSetDetailRequest& request, const DescribeKnowledgeDocumentSetDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKnowledgeDocumentSetDetailRequest&;
-    using Resp = DescribeKnowledgeDocumentSetDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKnowledgeDocumentSetDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKnowledgeDocumentSetDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DescribeKnowledgeDocumentSetDetailOutcomeCallable LowcodeClient::DescribeKnowledgeDocumentSetDetailCallable(const DescribeKnowledgeDocumentSetDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKnowledgeDocumentSetDetailOutcome>>();
-    DescribeKnowledgeDocumentSetDetailAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DescribeKnowledgeDocumentSetDetailRequest&,
-        DescribeKnowledgeDocumentSetDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKnowledgeDocumentSetDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKnowledgeDocumentSetDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DescribeKnowledgeDocumentSetListOutcome LowcodeClient::DescribeKnowledgeDocumentSetList(const DescribeKnowledgeDocumentSetListRequest &request)
@@ -512,32 +449,25 @@ LowcodeClient::DescribeKnowledgeDocumentSetListOutcome LowcodeClient::DescribeKn
 
 void LowcodeClient::DescribeKnowledgeDocumentSetListAsync(const DescribeKnowledgeDocumentSetListRequest& request, const DescribeKnowledgeDocumentSetListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKnowledgeDocumentSetListRequest&;
-    using Resp = DescribeKnowledgeDocumentSetListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKnowledgeDocumentSetList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKnowledgeDocumentSetList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DescribeKnowledgeDocumentSetListOutcomeCallable LowcodeClient::DescribeKnowledgeDocumentSetListCallable(const DescribeKnowledgeDocumentSetListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKnowledgeDocumentSetListOutcome>>();
-    DescribeKnowledgeDocumentSetListAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DescribeKnowledgeDocumentSetListRequest&,
-        DescribeKnowledgeDocumentSetListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKnowledgeDocumentSetListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKnowledgeDocumentSetList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DescribeKnowledgeSetListOutcome LowcodeClient::DescribeKnowledgeSetList(const DescribeKnowledgeSetListRequest &request)
@@ -562,32 +492,25 @@ LowcodeClient::DescribeKnowledgeSetListOutcome LowcodeClient::DescribeKnowledgeS
 
 void LowcodeClient::DescribeKnowledgeSetListAsync(const DescribeKnowledgeSetListRequest& request, const DescribeKnowledgeSetListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKnowledgeSetListRequest&;
-    using Resp = DescribeKnowledgeSetListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKnowledgeSetList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKnowledgeSetList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DescribeKnowledgeSetListOutcomeCallable LowcodeClient::DescribeKnowledgeSetListCallable(const DescribeKnowledgeSetListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKnowledgeSetListOutcome>>();
-    DescribeKnowledgeSetListAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DescribeKnowledgeSetListRequest&,
-        DescribeKnowledgeSetListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKnowledgeSetListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKnowledgeSetList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DescribeRelatedUsersOutcome LowcodeClient::DescribeRelatedUsers(const DescribeRelatedUsersRequest &request)
@@ -612,32 +535,25 @@ LowcodeClient::DescribeRelatedUsersOutcome LowcodeClient::DescribeRelatedUsers(c
 
 void LowcodeClient::DescribeRelatedUsersAsync(const DescribeRelatedUsersRequest& request, const DescribeRelatedUsersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRelatedUsersRequest&;
-    using Resp = DescribeRelatedUsersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRelatedUsers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRelatedUsers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DescribeRelatedUsersOutcomeCallable LowcodeClient::DescribeRelatedUsersCallable(const DescribeRelatedUsersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRelatedUsersOutcome>>();
-    DescribeRelatedUsersAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DescribeRelatedUsersRequest&,
-        DescribeRelatedUsersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRelatedUsersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRelatedUsers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::DescribeResourceRoleListOutcome LowcodeClient::DescribeResourceRoleList(const DescribeResourceRoleListRequest &request)
@@ -662,32 +578,25 @@ LowcodeClient::DescribeResourceRoleListOutcome LowcodeClient::DescribeResourceRo
 
 void LowcodeClient::DescribeResourceRoleListAsync(const DescribeResourceRoleListRequest& request, const DescribeResourceRoleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeResourceRoleListRequest&;
-    using Resp = DescribeResourceRoleListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeResourceRoleList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeResourceRoleList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::DescribeResourceRoleListOutcomeCallable LowcodeClient::DescribeResourceRoleListCallable(const DescribeResourceRoleListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeResourceRoleListOutcome>>();
-    DescribeResourceRoleListAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const DescribeResourceRoleListRequest&,
-        DescribeResourceRoleListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeResourceRoleListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeResourceRoleList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::PutWxAppIdToWeAppOutcome LowcodeClient::PutWxAppIdToWeApp(const PutWxAppIdToWeAppRequest &request)
@@ -712,32 +621,25 @@ LowcodeClient::PutWxAppIdToWeAppOutcome LowcodeClient::PutWxAppIdToWeApp(const P
 
 void LowcodeClient::PutWxAppIdToWeAppAsync(const PutWxAppIdToWeAppRequest& request, const PutWxAppIdToWeAppAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PutWxAppIdToWeAppRequest&;
-    using Resp = PutWxAppIdToWeAppResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PutWxAppIdToWeApp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PutWxAppIdToWeApp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::PutWxAppIdToWeAppOutcomeCallable LowcodeClient::PutWxAppIdToWeAppCallable(const PutWxAppIdToWeAppRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PutWxAppIdToWeAppOutcome>>();
-    PutWxAppIdToWeAppAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const PutWxAppIdToWeAppRequest&,
-        PutWxAppIdToWeAppOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PutWxAppIdToWeAppOutcome()>>(
+        [this, request]()
+        {
+            return this->PutWxAppIdToWeApp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::SearchDocListOutcome LowcodeClient::SearchDocList(const SearchDocListRequest &request)
@@ -762,32 +664,25 @@ LowcodeClient::SearchDocListOutcome LowcodeClient::SearchDocList(const SearchDoc
 
 void LowcodeClient::SearchDocListAsync(const SearchDocListRequest& request, const SearchDocListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchDocListRequest&;
-    using Resp = SearchDocListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchDocList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchDocList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::SearchDocListOutcomeCallable LowcodeClient::SearchDocListCallable(const SearchDocListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchDocListOutcome>>();
-    SearchDocListAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const SearchDocListRequest&,
-        SearchDocListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchDocListOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchDocList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::UpdateKnowledgeSetOutcome LowcodeClient::UpdateKnowledgeSet(const UpdateKnowledgeSetRequest &request)
@@ -812,32 +707,25 @@ LowcodeClient::UpdateKnowledgeSetOutcome LowcodeClient::UpdateKnowledgeSet(const
 
 void LowcodeClient::UpdateKnowledgeSetAsync(const UpdateKnowledgeSetRequest& request, const UpdateKnowledgeSetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateKnowledgeSetRequest&;
-    using Resp = UpdateKnowledgeSetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateKnowledgeSet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateKnowledgeSet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::UpdateKnowledgeSetOutcomeCallable LowcodeClient::UpdateKnowledgeSetCallable(const UpdateKnowledgeSetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateKnowledgeSetOutcome>>();
-    UpdateKnowledgeSetAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const UpdateKnowledgeSetRequest&,
-        UpdateKnowledgeSetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateKnowledgeSetOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateKnowledgeSet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LowcodeClient::UploadKnowledgeDocumentSetOutcome LowcodeClient::UploadKnowledgeDocumentSet(const UploadKnowledgeDocumentSetRequest &request)
@@ -862,31 +750,24 @@ LowcodeClient::UploadKnowledgeDocumentSetOutcome LowcodeClient::UploadKnowledgeD
 
 void LowcodeClient::UploadKnowledgeDocumentSetAsync(const UploadKnowledgeDocumentSetRequest& request, const UploadKnowledgeDocumentSetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UploadKnowledgeDocumentSetRequest&;
-    using Resp = UploadKnowledgeDocumentSetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UploadKnowledgeDocumentSet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UploadKnowledgeDocumentSet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LowcodeClient::UploadKnowledgeDocumentSetOutcomeCallable LowcodeClient::UploadKnowledgeDocumentSetCallable(const UploadKnowledgeDocumentSetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UploadKnowledgeDocumentSetOutcome>>();
-    UploadKnowledgeDocumentSetAsync(
-    request,
-    [prom](
-        const LowcodeClient*,
-        const UploadKnowledgeDocumentSetRequest&,
-        UploadKnowledgeDocumentSetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UploadKnowledgeDocumentSetOutcome()>>(
+        [this, request]()
+        {
+            return this->UploadKnowledgeDocumentSet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

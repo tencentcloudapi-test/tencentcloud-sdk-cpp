@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 直方图周期内统计结果详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LogHistogram();
-                    ~LogHistogram() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

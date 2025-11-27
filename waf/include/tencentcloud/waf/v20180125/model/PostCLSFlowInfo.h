@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CKafka投递流
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PostCLSFlowInfo();
-                    ~PostCLSFlowInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

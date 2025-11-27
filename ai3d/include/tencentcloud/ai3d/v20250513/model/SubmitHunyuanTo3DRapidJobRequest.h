@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SubmitHunyuanTo3DRapidJob请求参数结构体
                 */

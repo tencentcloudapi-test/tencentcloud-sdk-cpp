@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceTypeConfig;
+
                 /**
                 * 描述实例机型配置信息及状态信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceTypeConfigStatus();
-                    ~InstanceTypeConfigStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

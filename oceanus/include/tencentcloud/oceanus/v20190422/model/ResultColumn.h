@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogicalType;
+
                 /**
                 * Sql Gateway返回Column类型
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ResultColumn();
-                    ~ResultColumn() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

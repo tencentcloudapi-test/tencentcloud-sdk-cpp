@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReleaseDoc;
+
                 /**
                 * ListReleaseDocPreview返回参数结构体
                 */

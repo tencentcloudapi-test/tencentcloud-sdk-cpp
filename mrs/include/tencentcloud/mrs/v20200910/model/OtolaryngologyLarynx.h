@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValueItem;
+
                 /**
                 * 体检报告-耳鼻喉科-喉
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OtolaryngologyLarynx();
-                    ~OtolaryngologyLarynx() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

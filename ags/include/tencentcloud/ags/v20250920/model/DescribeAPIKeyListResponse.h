@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class APIKeyInfo;
+
                 /**
                 * DescribeAPIKeyList返回参数结构体
                 */

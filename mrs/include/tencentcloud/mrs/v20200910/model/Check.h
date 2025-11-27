@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Desc;
+                class Summary;
+                class BlockTitle;
+
                 /**
                 * 检查报告单
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     Check();
-                    ~Check() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

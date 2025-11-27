@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Coord;
+                class CarTagItem;
+
                 /**
                 * RecognizeCar返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Vod实例
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VodInstanceDetail();
-                    ~VodInstanceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

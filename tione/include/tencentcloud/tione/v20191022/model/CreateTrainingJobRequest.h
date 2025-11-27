@@ -38,6 +38,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlgorithmSpecification;
+                class OutputDataConfig;
+                class ResourceConfig;
+                class InputDataConfig;
+                class StoppingCondition;
+                class VpcConfig;
+                class EnvConfig;
+
                 /**
                 * CreateTrainingJob请求参数结构体
                 */

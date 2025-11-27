@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InputCreateNameListFront;
+
                 /**
                 * CreateNameList请求参数结构体
                 */

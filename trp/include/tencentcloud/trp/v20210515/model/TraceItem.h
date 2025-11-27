@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/trp/v20210515/model/TraceItem.h>
 #include <tencentcloud/trp/v20210515/model/TraceData.h>
 
 
@@ -36,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TraceData;
+
                 /**
                 * 溯源数据项 Type 的枚举值
 
@@ -53,7 +54,6 @@ text:文本类型, longtext:长文本类型, banner:单图片类型, image:多�
                 {
                 public:
                     TraceItem();
-                    ~TraceItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

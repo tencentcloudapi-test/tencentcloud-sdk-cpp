@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoleProvisioningsTask;
+
                 /**
                 * DismantleRoleConfiguration返回参数结构体
                 */

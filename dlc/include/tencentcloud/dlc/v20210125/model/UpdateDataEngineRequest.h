@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CrontabResumeSuspendStrategy;
+                class SessionResourceTemplate;
+                class ScheduleElasticityConf;
+
                 /**
                 * UpdateDataEngine请求参数结构体
                 */

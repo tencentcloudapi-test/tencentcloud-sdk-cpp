@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PodsMetricSource;
+                class ResourceMetricSource;
+
                 /**
                 * MetricSpec 描述如何通过指定指标进行自动扩缩容
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MetricSpec();
-                    ~MetricSpec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

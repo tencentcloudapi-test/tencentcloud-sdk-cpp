@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/wedata/v20210820/model/TaskTableMetricInfo.h>
 
 
 namespace TencentCloud
@@ -35,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 任务表粒度指标信息
                 */
@@ -42,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskTableMetricInfo();
-                    ~TaskTableMetricInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

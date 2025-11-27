@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudExternalChannelData;
+
                 /**
                 * QueryCloudChannelData返回参数结构体
                 */

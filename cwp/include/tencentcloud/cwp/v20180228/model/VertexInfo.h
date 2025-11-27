@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 攻击溯源节点信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VertexInfo();
-                    ~VertexInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

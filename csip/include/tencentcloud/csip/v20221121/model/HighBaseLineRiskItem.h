@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 高危基线风险内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HighBaseLineRiskItem();
-                    ~HighBaseLineRiskItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

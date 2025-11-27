@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TrafficQosPolicySet;
+
                 /**
                 * DescribeTrafficQosPolicy返回参数结构体
                 */

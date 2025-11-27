@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceRequirements;
+                class HorizontalPodAutoscalerSpec;
+
                 /**
                 * 工作负载配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkloadConfig();
-                    ~WorkloadConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

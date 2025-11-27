@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 语音翻译任务控制参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TranslateConfigureInfoForUpdate();
-                    ~TranslateConfigureInfoForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

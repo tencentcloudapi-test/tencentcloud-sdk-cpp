@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SelectedRange;
+                class CLS;
+
                 /**
                 * AccessLog 配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AccessLogConfig();
-                    ~AccessLogConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

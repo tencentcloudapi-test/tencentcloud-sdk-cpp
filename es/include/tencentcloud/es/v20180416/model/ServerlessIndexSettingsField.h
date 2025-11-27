@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 索引配置字段
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ServerlessIndexSettingsField();
-                    ~ServerlessIndexSettingsField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

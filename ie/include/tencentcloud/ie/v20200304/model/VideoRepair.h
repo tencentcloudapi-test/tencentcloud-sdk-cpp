@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 综合画质修复，包括：去噪，去毛刺，细节增强，主观画质提升。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VideoRepair();
-                    ~VideoRepair() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

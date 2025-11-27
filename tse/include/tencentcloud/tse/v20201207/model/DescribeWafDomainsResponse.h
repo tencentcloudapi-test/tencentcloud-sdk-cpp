@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeWafDomainsResult;
+
                 /**
                 * DescribeWafDomains返回参数结构体
                 */

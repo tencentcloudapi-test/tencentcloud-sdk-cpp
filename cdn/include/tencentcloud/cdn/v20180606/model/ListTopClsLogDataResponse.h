@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClsLogIpData;
+
                 /**
                 * ListTopClsLogData返回参数结构体
                 */

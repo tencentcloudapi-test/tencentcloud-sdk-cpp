@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 媒体转推事件通知消息。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaCastEvent();
-                    ~MediaCastEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

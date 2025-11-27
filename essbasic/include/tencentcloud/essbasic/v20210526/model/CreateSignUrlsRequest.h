@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+                class UserInfo;
+                class FlowGroupUrlInfo;
+
                 /**
                 * CreateSignUrls请求参数结构体
                 */

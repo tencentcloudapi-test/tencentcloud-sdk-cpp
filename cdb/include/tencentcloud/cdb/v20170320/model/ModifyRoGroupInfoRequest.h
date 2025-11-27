@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoGroupAttr;
+                class RoWeightValue;
+
                 /**
                 * ModifyRoGroupInfo请求参数结构体
                 */

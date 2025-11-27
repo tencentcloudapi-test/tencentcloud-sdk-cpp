@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuthorizationInfo;
+
                 /**
                 * DescribeResourceAuthorization返回参数结构体
                 */

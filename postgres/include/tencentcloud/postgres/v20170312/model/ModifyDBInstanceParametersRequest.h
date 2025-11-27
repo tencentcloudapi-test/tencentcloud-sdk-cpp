@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ParamEntry;
+
                 /**
                 * ModifyDBInstanceParameters请求参数结构体
                 */

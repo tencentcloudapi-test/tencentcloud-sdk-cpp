@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InternetAccessible;
+
                 /**
                 * InquiryPriceResetInstancesInternetMaxBandwidth请求参数结构体
                 */

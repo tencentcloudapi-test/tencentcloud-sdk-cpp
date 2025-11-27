@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 泳道部署组
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LaneGroup();
-                    ~LaneGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

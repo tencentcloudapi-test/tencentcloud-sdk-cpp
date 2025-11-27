@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskAlarmInfo;
+
                 /**
                 * ModifyTaskAlarmRegular请求参数结构体
                 */

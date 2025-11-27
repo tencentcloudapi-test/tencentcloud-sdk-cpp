@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigFilePublishInfo;
+
                 /**
                 * CreateOrUpdateConfigFileAndRelease请求参数结构体
                 */

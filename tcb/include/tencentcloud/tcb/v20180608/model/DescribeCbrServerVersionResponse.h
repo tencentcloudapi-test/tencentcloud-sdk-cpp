@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HpaPolicy;
+                class TkeClusterInfo;
+                class CbrPackageInfo;
+                class CbrRepoInfo;
+
                 /**
                 * DescribeCbrServerVersion返回参数结构体
                 */

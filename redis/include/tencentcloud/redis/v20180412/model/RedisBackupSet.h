@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实例的备份数组
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RedisBackupSet();
-                    ~RedisBackupSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

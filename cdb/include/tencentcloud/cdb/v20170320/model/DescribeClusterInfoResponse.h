@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AddressInfo;
+                class ClusterNodeInfo;
+
                 /**
                 * DescribeClusterInfo返回参数结构体
                 */

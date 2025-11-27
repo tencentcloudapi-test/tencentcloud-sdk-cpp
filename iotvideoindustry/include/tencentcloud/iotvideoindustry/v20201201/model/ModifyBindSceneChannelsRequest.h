@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChannelItem;
+
                 /**
                 * ModifyBindSceneChannels请求参数结构体
                 */

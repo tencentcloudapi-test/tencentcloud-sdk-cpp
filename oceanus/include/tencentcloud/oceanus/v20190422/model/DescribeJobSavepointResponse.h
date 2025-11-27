@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Savepoint;
+
                 /**
                 * DescribeJobSavepoint返回参数结构体
                 */

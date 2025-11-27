@@ -48,6 +48,21 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImmunohistochemistryBlock;
+                class ChiefComplaintBlock;
+                class AdmissionConditionBlock;
+                class BodyExaminationBlock;
+                class AdmissionDiagnosisBlock;
+                class PathologicalDiagnosisBlock;
+                class DiseasePresentBlock;
+                class SurgeryConditionBlock;
+                class DischargeDiagnosisBlock;
+                class DischargeConditionBlock;
+                class PTNMBlock;
+                class ClinicalStaging;
+                class DeathDateBlock;
+                class RelapseDateBlock;
+
                 /**
                 * 治疗记录
                 */
@@ -55,7 +70,6 @@ namespace TencentCloud
                 {
                 public:
                     TreatmentRecordBlock();
-                    ~TreatmentRecordBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

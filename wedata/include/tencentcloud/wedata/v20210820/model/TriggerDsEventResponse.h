@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchOpsDTO;
+
                 /**
                 * TriggerDsEvent返回参数结构体
                 */

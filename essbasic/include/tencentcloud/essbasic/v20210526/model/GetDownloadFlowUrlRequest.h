@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+                class DownloadFlowInfo;
+                class UserInfo;
+
                 /**
                 * GetDownloadFlowUrl请求参数结构体
                 */

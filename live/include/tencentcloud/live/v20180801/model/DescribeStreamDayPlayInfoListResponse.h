@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PlayDataInfoByStream;
+
                 /**
                 * DescribeStreamDayPlayInfoList返回参数结构体
                 */

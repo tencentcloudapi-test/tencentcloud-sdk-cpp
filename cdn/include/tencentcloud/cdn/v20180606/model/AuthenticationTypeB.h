@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 时间戳防盗链模式 B 配置（B 模式正在进行平台升级，暂不支持配置）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AuthenticationTypeB();
-                    ~AuthenticationTypeB() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

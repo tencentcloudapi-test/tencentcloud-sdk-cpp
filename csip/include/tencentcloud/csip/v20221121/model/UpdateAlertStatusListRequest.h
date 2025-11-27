@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NewAlertKey;
+
                 /**
                 * UpdateAlertStatusList请求参数结构体
                 */

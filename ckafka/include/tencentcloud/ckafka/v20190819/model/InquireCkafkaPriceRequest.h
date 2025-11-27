@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceChargeParam;
+                class InquiryDiskParam;
+                class InquiryPublicNetworkParam;
+
                 /**
                 * InquireCkafkaPrice请求参数结构体
                 */

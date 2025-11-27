@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServiceInfo;
+                class Tag;
+                class ServiceLimit;
+                class ScheduledAction;
+                class SchedulingPolicy;
+                class ResourceGroupInfo;
+
                 /**
                 * 描述在线服务
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     Service();
-                    ~Service() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProjectUserRole;
+
                 /**
                 * 项目下的用户集合
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ProjectUsersBrief();
-                    ~ProjectUsersBrief() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

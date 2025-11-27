@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcLimit;
+
                 /**
                 * DescribeVpcLimits返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EnvBaseInfo;
+
                 /**
                 * DescribeEnvBaseInfo返回参数结构体
                 */

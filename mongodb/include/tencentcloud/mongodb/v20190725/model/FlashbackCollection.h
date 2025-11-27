@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FBKeyValue;
+
                 /**
                 * 按 Key 闪回数据表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FlashbackCollection();
-                    ~FlashbackCollection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

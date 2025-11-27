@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IPStrategyApi;
+
                 /**
                 * ip策略绑定api详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     IPStrategyApiStatus();
-                    ~IPStrategyApiStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

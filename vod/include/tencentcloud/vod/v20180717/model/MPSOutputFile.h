@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用于描述 MPS 视频处理任务中的返回文件结果。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MPSOutputFile();
-                    ~MPSOutputFile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 直播推流信息，包括推流地址有效时长，多媒体创作引擎后端生成直播推流地址。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RtmpPushInputInfo();
-                    ~RtmpPushInputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

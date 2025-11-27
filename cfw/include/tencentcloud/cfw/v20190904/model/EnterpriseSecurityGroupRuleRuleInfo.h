@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EnterpriseSecurityGroupRuleBetaInfo;
+                class SgDnsParseCount;
+
                 /**
                 * 企业安全组规则列表信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     EnterpriseSecurityGroupRuleRuleInfo();
-                    ~EnterpriseSecurityGroupRuleRuleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

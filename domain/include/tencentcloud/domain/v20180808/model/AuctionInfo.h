@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用于域名预释放详情页面
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AuctionInfo();
-                    ~AuctionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

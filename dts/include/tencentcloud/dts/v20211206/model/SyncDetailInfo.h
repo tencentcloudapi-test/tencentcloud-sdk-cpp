@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StepInfo;
+                class ErrInfo;
+
                 /**
                 * 同步任务的步骤信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SyncDetailInfo();
-                    ~SyncDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

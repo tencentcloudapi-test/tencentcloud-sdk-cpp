@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AvailableRecoveryTimeRange;
+
                 /**
                 * DescribeClusterRecoveryTimeRange返回参数结构体
                 */

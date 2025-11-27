@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PublicIpDomainListKey;
+                class AssetTag;
+
                 /**
                 * DeleteDomainAndIp请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 组织学等级
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HistologyLevel();
-                    ~HistologyLevel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

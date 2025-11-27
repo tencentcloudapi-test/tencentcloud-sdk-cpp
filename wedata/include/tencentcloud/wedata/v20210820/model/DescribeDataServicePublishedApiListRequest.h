@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataServicePublishedApiListFilter;
+                class DataServiceRequestListOrder;
+
                 /**
                 * DescribeDataServicePublishedApiList请求参数结构体
                 */

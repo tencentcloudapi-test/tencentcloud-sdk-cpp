@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcFwInstance;
+                class FwCidrInfo;
+
                 /**
                 * ModifyVpcFwGroup请求参数结构体
                 */

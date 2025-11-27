@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * RevokedDeviceCertificate返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GeneralCardWarnInfo;
+
                 /**
                 * RecognizeGeneralCardWarn返回参数结构体
                 */

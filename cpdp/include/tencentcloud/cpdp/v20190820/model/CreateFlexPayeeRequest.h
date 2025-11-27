@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PayeeTaxInfo;
+
                 /**
                 * CreateFlexPayee请求参数结构体
                 */

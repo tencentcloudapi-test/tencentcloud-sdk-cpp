@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusAlertManagerConfig;
+
                 /**
                 * 告警通知渠道配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusNotificationItem();
-                    ~PrometheusNotificationItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

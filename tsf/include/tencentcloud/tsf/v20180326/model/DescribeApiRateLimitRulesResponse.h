@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiRateLimitRule;
+
                 /**
                 * DescribeApiRateLimitRules返回参数结构体
                 */

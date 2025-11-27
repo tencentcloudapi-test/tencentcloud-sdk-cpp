@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Placement;
+                class Tag;
+                class DiskChargePrepaid;
+                class AutoMountConfiguration;
+
                 /**
                 * CreateDisks请求参数结构体
                 */

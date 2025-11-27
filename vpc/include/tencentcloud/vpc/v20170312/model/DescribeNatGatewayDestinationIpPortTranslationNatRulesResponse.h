@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NatGatewayDestinationIpPortTranslationNatRule;
+
                 /**
                 * DescribeNatGatewayDestinationIpPortTranslationNatRules返回参数结构体
                 */

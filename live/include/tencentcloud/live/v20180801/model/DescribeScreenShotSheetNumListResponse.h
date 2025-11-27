@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimeValue;
+
                 /**
                 * DescribeScreenShotSheetNumList返回参数结构体
                 */

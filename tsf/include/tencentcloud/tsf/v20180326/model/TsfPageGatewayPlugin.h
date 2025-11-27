@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GatewayPlugin;
+
                 /**
                 * GatewayPlugin 翻页对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageGatewayPlugin();
-                    ~TsfPageGatewayPlugin() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

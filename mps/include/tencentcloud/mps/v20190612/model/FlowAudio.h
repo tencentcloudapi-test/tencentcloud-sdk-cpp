@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 流的音频数据。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FlowAudio();
-                    ~FlowAudio() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

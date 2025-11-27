@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RepositoryInfoResp;
+
                 /**
                 * DescribeRepositoryPersonal返回参数结构体
                 */

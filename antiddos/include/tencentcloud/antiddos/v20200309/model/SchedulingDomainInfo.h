@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IPLineInfo;
+
                 /**
                 * 调度域名信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SchedulingDomainInfo();
-                    ~SchedulingDomainInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

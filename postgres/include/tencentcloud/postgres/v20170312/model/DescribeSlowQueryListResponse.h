@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DurationAnalysis;
+                class RawSlowQuery;
+
                 /**
                 * DescribeSlowQueryList返回参数结构体
                 */

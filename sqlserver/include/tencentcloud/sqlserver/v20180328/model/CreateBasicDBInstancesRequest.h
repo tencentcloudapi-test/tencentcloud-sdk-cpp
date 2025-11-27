@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceTag;
+
                 /**
                 * CreateBasicDBInstances请求参数结构体
                 */

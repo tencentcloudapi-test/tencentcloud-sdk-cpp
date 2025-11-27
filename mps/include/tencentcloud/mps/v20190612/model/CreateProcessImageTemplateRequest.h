@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageTaskInput;
+
                 /**
                 * CreateProcessImageTemplate请求参数结构体
                 */

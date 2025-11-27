@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述了实例的公网可访问性，声明了实例的公网使用计费模式，最大带宽等
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InternetAccessible();
-                    ~InternetAccessible() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

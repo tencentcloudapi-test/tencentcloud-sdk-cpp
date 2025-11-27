@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 当前WAF威胁情报封禁模块详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WafThreatenIntelligenceDetails();
-                    ~WafThreatenIntelligenceDetails() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

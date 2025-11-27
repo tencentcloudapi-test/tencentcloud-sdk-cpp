@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ZoneInstanceCountISP;
+                class EnhancedService;
+                class TagSpecification;
+                class SystemDisk;
+                class DataDisk;
+
                 /**
                 * RunInstances请求参数结构体
                 */

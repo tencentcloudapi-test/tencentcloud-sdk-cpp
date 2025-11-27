@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实例启动模板，通过该参数可使用实例模板中的预设参数创建实例。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LaunchTemplate();
-                    ~LaunchTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

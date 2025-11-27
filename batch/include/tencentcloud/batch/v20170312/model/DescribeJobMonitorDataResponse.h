@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataPointView;
+
                 /**
                 * DescribeJobMonitorData返回参数结构体
                 */

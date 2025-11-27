@@ -42,6 +42,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SuperResolutionConfig;
+                class AdvancedSuperResolutionConfig;
+                class ImageDenoiseConfig;
+                class ImageQualityEnhanceConfig;
+                class ColorEnhanceConfig;
+                class SharpEnhanceConfig;
+                class FaceEnhanceConfig;
+                class LowLightEnhanceConfig;
+
                 /**
                 * 图片增强参数
                 */
@@ -49,7 +58,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageEnhanceConfig();
-                    ~ImageEnhanceConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

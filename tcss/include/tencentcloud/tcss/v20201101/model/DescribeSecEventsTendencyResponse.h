@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecTendencyEventInfo;
+
                 /**
                 * DescribeSecEventsTendency返回参数结构体
                 */

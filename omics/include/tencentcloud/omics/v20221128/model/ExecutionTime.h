@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 执行时间。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ExecutionTime();
-                    ~ExecutionTime() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

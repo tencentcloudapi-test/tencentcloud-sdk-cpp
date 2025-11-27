@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 音视频审核 Ocr 文字涉及令人不适宜信息的任务输入参数类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewPoliticalOcrTaskInput();
-                    ~AiReviewPoliticalOcrTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

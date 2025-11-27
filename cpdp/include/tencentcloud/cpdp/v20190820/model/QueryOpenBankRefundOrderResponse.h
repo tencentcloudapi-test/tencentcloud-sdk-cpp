@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpenBankQueryRefundOrderResult;
+
                 /**
                 * QueryOpenBankRefundOrder返回参数结构体
                 */

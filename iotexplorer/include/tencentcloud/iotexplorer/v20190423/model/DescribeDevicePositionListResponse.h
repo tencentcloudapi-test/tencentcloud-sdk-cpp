@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProductDevicesPositionItem;
+
                 /**
                 * DescribeDevicePositionList返回参数结构体
                 */

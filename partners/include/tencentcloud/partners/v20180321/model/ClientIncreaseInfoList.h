@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 客户增量激励考核信息列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClientIncreaseInfoList();
-                    ~ClientIncreaseInfoList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

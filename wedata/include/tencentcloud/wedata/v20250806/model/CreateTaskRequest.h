@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateTaskBaseAttribute;
+                class CreateTaskConfiguration;
+                class CreateTaskSchedulerConfiguration;
+
                 /**
                 * CreateTask请求参数结构体
                 */

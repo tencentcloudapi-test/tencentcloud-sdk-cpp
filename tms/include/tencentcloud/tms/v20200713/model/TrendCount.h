@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 识别量统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TrendCount();
-                    ~TrendCount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

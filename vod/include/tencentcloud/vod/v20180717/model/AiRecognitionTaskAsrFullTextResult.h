@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiRecognitionTaskAsrFullTextResultInput;
+                class AiRecognitionTaskAsrFullTextResultOutput;
+
                 /**
                 * 语音全文识别结果。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AiRecognitionTaskAsrFullTextResult();
-                    ~AiRecognitionTaskAsrFullTextResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

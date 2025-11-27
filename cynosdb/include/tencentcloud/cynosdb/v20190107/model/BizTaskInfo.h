@@ -47,6 +47,20 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyParamsData;
+                class CreateClustersData;
+                class RollbackData;
+                class ModifyInstanceData;
+                class ManualBackupData;
+                class ModifyDbVersionData;
+                class ClusterSlaveData;
+                class SwitchClusterLogBin;
+                class BizTaskModifyParamsData;
+                class TaskMaintainInfo;
+                class InstanceCLSDeliveryInfo;
+                class TaskProgressInfo;
+                class GdnTaskInfo;
+
                 /**
                 * 任务信息
                 */
@@ -54,7 +68,6 @@ namespace TencentCloud
                 {
                 public:
                     BizTaskInfo();
-                    ~BizTaskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

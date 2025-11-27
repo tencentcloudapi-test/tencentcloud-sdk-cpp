@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 设置通道禁止播流，有通道Id和使能enable字段
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SetForbidplayChannelParam();
-                    ~SetForbidplayChannelParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

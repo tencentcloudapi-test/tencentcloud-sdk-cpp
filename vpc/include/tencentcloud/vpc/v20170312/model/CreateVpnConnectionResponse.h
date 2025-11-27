@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpnConnection;
+
                 /**
                 * CreateVpnConnection返回参数结构体
                 */

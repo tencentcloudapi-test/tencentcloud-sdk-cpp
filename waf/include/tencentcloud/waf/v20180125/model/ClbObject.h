@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Clb类型防护对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClbObject();
-                    ~ClbObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

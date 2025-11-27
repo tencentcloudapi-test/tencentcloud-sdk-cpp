@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscribeObject;
+                class TagItem;
+                class SubsErr;
+
                 /**
                 * DescribeSubscribeConf返回参数结构体
                 */

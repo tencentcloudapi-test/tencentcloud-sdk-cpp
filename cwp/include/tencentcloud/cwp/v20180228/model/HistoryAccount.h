@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 账号变更历史数据。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HistoryAccount();
-                    ~HistoryAccount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

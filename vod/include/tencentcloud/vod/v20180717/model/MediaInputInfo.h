@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 要处理的源视频信息，视频名称、视频自定义 ID。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaInputInfo();
-                    ~MediaInputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

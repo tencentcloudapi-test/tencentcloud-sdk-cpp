@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EndPoint;
+
                 /**
                 * DescribeVpcEndPoint返回参数结构体
                 */

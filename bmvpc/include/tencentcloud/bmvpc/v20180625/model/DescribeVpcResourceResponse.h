@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcResource;
+
                 /**
                 * DescribeVpcResource返回参数结构体
                 */

@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class ParamItem;
+                class IntegrateInstanceInfo;
+                class ProxyConfigInfo;
+                class IntegrateCreateClusterConfig;
+
                 /**
                 * CreateIntegrateCluster请求参数结构体
                 */

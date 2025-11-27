@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ShareArea;
+
                 /**
                 * DescribeShareAreas返回参数结构体
                 */

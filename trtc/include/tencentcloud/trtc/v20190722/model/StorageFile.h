@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 云端录制查询接口，录制文件的信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StorageFile();
-                    ~StorageFile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

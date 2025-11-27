@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlowPackageInfo;
+
                 /**
                 * GetFlowPackages返回参数结构体
                 */

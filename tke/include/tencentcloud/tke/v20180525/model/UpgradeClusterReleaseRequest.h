@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReleaseValues;
+
                 /**
                 * UpgradeClusterRelease请求参数结构体
                 */

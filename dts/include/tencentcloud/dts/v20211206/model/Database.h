@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Table;
+                class View;
+
                 /**
                 * 需要同步的库表对象
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Database();
-                    ~Database() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

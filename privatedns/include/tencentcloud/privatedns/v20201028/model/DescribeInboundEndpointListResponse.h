@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InboundEndpointSet;
+
                 /**
                 * DescribeInboundEndpointList返回参数结构体
                 */

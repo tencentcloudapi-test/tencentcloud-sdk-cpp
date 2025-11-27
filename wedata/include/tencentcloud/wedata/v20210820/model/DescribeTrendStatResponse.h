@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleExecDateStat;
+
                 /**
                 * DescribeTrendStat返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchIpAccessControlData;
+
                 /**
                 * DescribeBatchIpAccessControl返回参数结构体
                 */

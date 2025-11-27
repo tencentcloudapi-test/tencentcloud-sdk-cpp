@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * AcceptOrganizationInvitation返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 药品列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DrugList();
-                    ~DrugList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

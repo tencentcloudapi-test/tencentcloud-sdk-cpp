@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 告警通知接收组
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AlertChannelRecord();
-                    ~AlertChannelRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

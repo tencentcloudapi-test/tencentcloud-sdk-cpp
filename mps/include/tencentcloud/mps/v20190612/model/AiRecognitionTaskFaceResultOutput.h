@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiRecognitionTaskFaceResultItem;
+
                 /**
                 * 智能人脸识别输出。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AiRecognitionTaskFaceResultOutput();
-                    ~AiRecognitionTaskFaceResultOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

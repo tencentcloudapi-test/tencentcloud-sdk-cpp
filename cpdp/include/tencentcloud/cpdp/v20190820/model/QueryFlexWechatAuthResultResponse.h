@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QueryWechatAuthResult;
+
                 /**
                 * QueryFlexWechatAuthResult返回参数结构体
                 */

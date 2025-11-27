@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DomainURI;
+
                 /**
                 * ModifyDomainsCLSStatus请求参数结构体
                 */

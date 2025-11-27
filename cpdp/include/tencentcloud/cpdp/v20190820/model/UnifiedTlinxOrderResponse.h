@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PayOrderResult;
+
                 /**
                 * UnifiedTlinxOrder返回参数结构体
                 */

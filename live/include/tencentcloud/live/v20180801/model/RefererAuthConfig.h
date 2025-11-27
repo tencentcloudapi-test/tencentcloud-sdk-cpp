@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 直播域名Referer黑白名单配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RefererAuthConfig();
-                    ~RefererAuthConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

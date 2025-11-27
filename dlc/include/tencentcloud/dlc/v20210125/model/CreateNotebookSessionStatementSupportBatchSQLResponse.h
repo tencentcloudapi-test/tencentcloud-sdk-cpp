@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NotebookSessionStatementBatchInformation;
+
                 /**
                 * CreateNotebookSessionStatementSupportBatchSQL返回参数结构体
                 */

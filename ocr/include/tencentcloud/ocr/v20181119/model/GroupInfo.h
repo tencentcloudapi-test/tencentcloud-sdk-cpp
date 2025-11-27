@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LineInfo;
+
                 /**
                 * 组在图中的序号
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     GroupInfo();
-                    ~GroupInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

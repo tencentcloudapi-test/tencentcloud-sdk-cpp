@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReactionTimeRange;
+
                 /**
                 * DescribeSampleLogs请求参数结构体
                 */

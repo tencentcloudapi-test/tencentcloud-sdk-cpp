@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Tcc数据目录信息集合
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TccCatalogSet();
-                    ~TccCatalogSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

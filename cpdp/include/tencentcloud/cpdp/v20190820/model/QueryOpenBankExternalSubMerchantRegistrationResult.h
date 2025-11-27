@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 第三方子商户进件结果查询返回结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     QueryOpenBankExternalSubMerchantRegistrationResult();
-                    ~QueryOpenBankExternalSubMerchantRegistrationResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

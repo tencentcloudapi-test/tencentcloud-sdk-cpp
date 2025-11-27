@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KnowledgeCapacityPieGraphDetail;
+
                 /**
                 * DescribeKnowledgeUsagePieGraph返回参数结构体
                 */

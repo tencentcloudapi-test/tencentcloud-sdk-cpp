@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 基线导出结果下载
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BaselineDownload();
-                    ~BaselineDownload() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

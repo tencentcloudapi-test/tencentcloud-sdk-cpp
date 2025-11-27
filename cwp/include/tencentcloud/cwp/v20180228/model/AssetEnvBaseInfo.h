@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MachineExtraInfo;
+
                 /**
                 * 资产管理环境变量列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AssetEnvBaseInfo();
-                    ~AssetEnvBaseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuditKeywordDeleteDetail;
+
                 /**
                 * DeleteAuditKeywords返回参数结构体
                 */

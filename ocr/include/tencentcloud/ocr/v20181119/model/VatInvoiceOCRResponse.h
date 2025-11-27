@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextVatInvoice;
+                class VatInvoiceItem;
+
                 /**
                 * VatInvoiceOCR返回参数结构体
                 */

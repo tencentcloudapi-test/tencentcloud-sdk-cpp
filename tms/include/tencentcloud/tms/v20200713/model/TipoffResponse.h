@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 举报接口响应数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TipoffResponse();
-                    ~TipoffResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

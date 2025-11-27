@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QualityControlItemConfig;
+                class QualityControlStrategy;
+
                 /**
                 * ModifyQualityControlTemplate请求参数结构体
                 */

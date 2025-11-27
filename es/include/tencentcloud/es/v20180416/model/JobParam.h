@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 智能运维诊断参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     JobParam();
-                    ~JobParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

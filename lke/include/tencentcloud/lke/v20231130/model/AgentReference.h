@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Agent中的参考来源
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AgentReference();
-                    ~AgentReference() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigValue;
+
                 /**
                 * ModifyAccountConfig请求参数结构体
                 */

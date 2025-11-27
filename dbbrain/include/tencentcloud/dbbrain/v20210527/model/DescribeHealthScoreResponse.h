@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthScoreInfo;
+
                 /**
                 * DescribeHealthScore返回参数结构体
                 */

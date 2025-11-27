@@ -62,32 +62,25 @@ CfgClient::CreateTaskFromActionOutcome CfgClient::CreateTaskFromAction(const Cre
 
 void CfgClient::CreateTaskFromActionAsync(const CreateTaskFromActionRequest& request, const CreateTaskFromActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTaskFromActionRequest&;
-    using Resp = CreateTaskFromActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTaskFromAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTaskFromAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::CreateTaskFromActionOutcomeCallable CfgClient::CreateTaskFromActionCallable(const CreateTaskFromActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTaskFromActionOutcome>>();
-    CreateTaskFromActionAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const CreateTaskFromActionRequest&,
-        CreateTaskFromActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTaskFromActionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTaskFromAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::CreateTaskFromMultiActionOutcome CfgClient::CreateTaskFromMultiAction(const CreateTaskFromMultiActionRequest &request)
@@ -112,32 +105,25 @@ CfgClient::CreateTaskFromMultiActionOutcome CfgClient::CreateTaskFromMultiAction
 
 void CfgClient::CreateTaskFromMultiActionAsync(const CreateTaskFromMultiActionRequest& request, const CreateTaskFromMultiActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTaskFromMultiActionRequest&;
-    using Resp = CreateTaskFromMultiActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTaskFromMultiAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTaskFromMultiAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::CreateTaskFromMultiActionOutcomeCallable CfgClient::CreateTaskFromMultiActionCallable(const CreateTaskFromMultiActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTaskFromMultiActionOutcome>>();
-    CreateTaskFromMultiActionAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const CreateTaskFromMultiActionRequest&,
-        CreateTaskFromMultiActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTaskFromMultiActionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTaskFromMultiAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::CreateTaskFromTemplateOutcome CfgClient::CreateTaskFromTemplate(const CreateTaskFromTemplateRequest &request)
@@ -162,32 +148,25 @@ CfgClient::CreateTaskFromTemplateOutcome CfgClient::CreateTaskFromTemplate(const
 
 void CfgClient::CreateTaskFromTemplateAsync(const CreateTaskFromTemplateRequest& request, const CreateTaskFromTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTaskFromTemplateRequest&;
-    using Resp = CreateTaskFromTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTaskFromTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTaskFromTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::CreateTaskFromTemplateOutcomeCallable CfgClient::CreateTaskFromTemplateCallable(const CreateTaskFromTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTaskFromTemplateOutcome>>();
-    CreateTaskFromTemplateAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const CreateTaskFromTemplateRequest&,
-        CreateTaskFromTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTaskFromTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTaskFromTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DeleteTaskOutcome CfgClient::DeleteTask(const DeleteTaskRequest &request)
@@ -212,32 +191,25 @@ CfgClient::DeleteTaskOutcome CfgClient::DeleteTask(const DeleteTaskRequest &requ
 
 void CfgClient::DeleteTaskAsync(const DeleteTaskRequest& request, const DeleteTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTaskRequest&;
-    using Resp = DeleteTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DeleteTaskOutcomeCallable CfgClient::DeleteTaskCallable(const DeleteTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTaskOutcome>>();
-    DeleteTaskAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DeleteTaskRequest&,
-        DeleteTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeActionFieldConfigListOutcome CfgClient::DescribeActionFieldConfigList(const DescribeActionFieldConfigListRequest &request)
@@ -262,32 +234,25 @@ CfgClient::DescribeActionFieldConfigListOutcome CfgClient::DescribeActionFieldCo
 
 void CfgClient::DescribeActionFieldConfigListAsync(const DescribeActionFieldConfigListRequest& request, const DescribeActionFieldConfigListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeActionFieldConfigListRequest&;
-    using Resp = DescribeActionFieldConfigListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeActionFieldConfigList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeActionFieldConfigList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeActionFieldConfigListOutcomeCallable CfgClient::DescribeActionFieldConfigListCallable(const DescribeActionFieldConfigListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeActionFieldConfigListOutcome>>();
-    DescribeActionFieldConfigListAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeActionFieldConfigListRequest&,
-        DescribeActionFieldConfigListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeActionFieldConfigListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeActionFieldConfigList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeActionLibraryListOutcome CfgClient::DescribeActionLibraryList(const DescribeActionLibraryListRequest &request)
@@ -312,32 +277,25 @@ CfgClient::DescribeActionLibraryListOutcome CfgClient::DescribeActionLibraryList
 
 void CfgClient::DescribeActionLibraryListAsync(const DescribeActionLibraryListRequest& request, const DescribeActionLibraryListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeActionLibraryListRequest&;
-    using Resp = DescribeActionLibraryListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeActionLibraryList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeActionLibraryList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeActionLibraryListOutcomeCallable CfgClient::DescribeActionLibraryListCallable(const DescribeActionLibraryListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeActionLibraryListOutcome>>();
-    DescribeActionLibraryListAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeActionLibraryListRequest&,
-        DescribeActionLibraryListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeActionLibraryListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeActionLibraryList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeObjectTypeListOutcome CfgClient::DescribeObjectTypeList(const DescribeObjectTypeListRequest &request)
@@ -362,32 +320,25 @@ CfgClient::DescribeObjectTypeListOutcome CfgClient::DescribeObjectTypeList(const
 
 void CfgClient::DescribeObjectTypeListAsync(const DescribeObjectTypeListRequest& request, const DescribeObjectTypeListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeObjectTypeListRequest&;
-    using Resp = DescribeObjectTypeListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeObjectTypeList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeObjectTypeList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeObjectTypeListOutcomeCallable CfgClient::DescribeObjectTypeListCallable(const DescribeObjectTypeListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeObjectTypeListOutcome>>();
-    DescribeObjectTypeListAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeObjectTypeListRequest&,
-        DescribeObjectTypeListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeObjectTypeListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeObjectTypeList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeTaskOutcome CfgClient::DescribeTask(const DescribeTaskRequest &request)
@@ -412,32 +363,25 @@ CfgClient::DescribeTaskOutcome CfgClient::DescribeTask(const DescribeTaskRequest
 
 void CfgClient::DescribeTaskAsync(const DescribeTaskRequest& request, const DescribeTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskRequest&;
-    using Resp = DescribeTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeTaskOutcomeCallable CfgClient::DescribeTaskCallable(const DescribeTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskOutcome>>();
-    DescribeTaskAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeTaskRequest&,
-        DescribeTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeTaskExecuteLogsOutcome CfgClient::DescribeTaskExecuteLogs(const DescribeTaskExecuteLogsRequest &request)
@@ -462,32 +406,25 @@ CfgClient::DescribeTaskExecuteLogsOutcome CfgClient::DescribeTaskExecuteLogs(con
 
 void CfgClient::DescribeTaskExecuteLogsAsync(const DescribeTaskExecuteLogsRequest& request, const DescribeTaskExecuteLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskExecuteLogsRequest&;
-    using Resp = DescribeTaskExecuteLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskExecuteLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskExecuteLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeTaskExecuteLogsOutcomeCallable CfgClient::DescribeTaskExecuteLogsCallable(const DescribeTaskExecuteLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskExecuteLogsOutcome>>();
-    DescribeTaskExecuteLogsAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeTaskExecuteLogsRequest&,
-        DescribeTaskExecuteLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskExecuteLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskExecuteLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeTaskListOutcome CfgClient::DescribeTaskList(const DescribeTaskListRequest &request)
@@ -512,32 +449,25 @@ CfgClient::DescribeTaskListOutcome CfgClient::DescribeTaskList(const DescribeTas
 
 void CfgClient::DescribeTaskListAsync(const DescribeTaskListRequest& request, const DescribeTaskListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskListRequest&;
-    using Resp = DescribeTaskListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeTaskListOutcomeCallable CfgClient::DescribeTaskListCallable(const DescribeTaskListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskListOutcome>>();
-    DescribeTaskListAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeTaskListRequest&,
-        DescribeTaskListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeTaskPolicyTriggerLogOutcome CfgClient::DescribeTaskPolicyTriggerLog(const DescribeTaskPolicyTriggerLogRequest &request)
@@ -562,32 +492,25 @@ CfgClient::DescribeTaskPolicyTriggerLogOutcome CfgClient::DescribeTaskPolicyTrig
 
 void CfgClient::DescribeTaskPolicyTriggerLogAsync(const DescribeTaskPolicyTriggerLogRequest& request, const DescribeTaskPolicyTriggerLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskPolicyTriggerLogRequest&;
-    using Resp = DescribeTaskPolicyTriggerLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskPolicyTriggerLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskPolicyTriggerLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeTaskPolicyTriggerLogOutcomeCallable CfgClient::DescribeTaskPolicyTriggerLogCallable(const DescribeTaskPolicyTriggerLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskPolicyTriggerLogOutcome>>();
-    DescribeTaskPolicyTriggerLogAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeTaskPolicyTriggerLogRequest&,
-        DescribeTaskPolicyTriggerLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskPolicyTriggerLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskPolicyTriggerLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeTemplateOutcome CfgClient::DescribeTemplate(const DescribeTemplateRequest &request)
@@ -612,32 +535,25 @@ CfgClient::DescribeTemplateOutcome CfgClient::DescribeTemplate(const DescribeTem
 
 void CfgClient::DescribeTemplateAsync(const DescribeTemplateRequest& request, const DescribeTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTemplateRequest&;
-    using Resp = DescribeTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeTemplateOutcomeCallable CfgClient::DescribeTemplateCallable(const DescribeTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTemplateOutcome>>();
-    DescribeTemplateAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeTemplateRequest&,
-        DescribeTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::DescribeTemplateListOutcome CfgClient::DescribeTemplateList(const DescribeTemplateListRequest &request)
@@ -662,32 +578,25 @@ CfgClient::DescribeTemplateListOutcome CfgClient::DescribeTemplateList(const Des
 
 void CfgClient::DescribeTemplateListAsync(const DescribeTemplateListRequest& request, const DescribeTemplateListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTemplateListRequest&;
-    using Resp = DescribeTemplateListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTemplateList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTemplateList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::DescribeTemplateListOutcomeCallable CfgClient::DescribeTemplateListCallable(const DescribeTemplateListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTemplateListOutcome>>();
-    DescribeTemplateListAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const DescribeTemplateListRequest&,
-        DescribeTemplateListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTemplateListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTemplateList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::ExecuteTaskOutcome CfgClient::ExecuteTask(const ExecuteTaskRequest &request)
@@ -712,32 +621,25 @@ CfgClient::ExecuteTaskOutcome CfgClient::ExecuteTask(const ExecuteTaskRequest &r
 
 void CfgClient::ExecuteTaskAsync(const ExecuteTaskRequest& request, const ExecuteTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExecuteTaskRequest&;
-    using Resp = ExecuteTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExecuteTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExecuteTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::ExecuteTaskOutcomeCallable CfgClient::ExecuteTaskCallable(const ExecuteTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExecuteTaskOutcome>>();
-    ExecuteTaskAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const ExecuteTaskRequest&,
-        ExecuteTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExecuteTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ExecuteTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::ExecuteTaskInstanceOutcome CfgClient::ExecuteTaskInstance(const ExecuteTaskInstanceRequest &request)
@@ -762,32 +664,25 @@ CfgClient::ExecuteTaskInstanceOutcome CfgClient::ExecuteTaskInstance(const Execu
 
 void CfgClient::ExecuteTaskInstanceAsync(const ExecuteTaskInstanceRequest& request, const ExecuteTaskInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExecuteTaskInstanceRequest&;
-    using Resp = ExecuteTaskInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExecuteTaskInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExecuteTaskInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::ExecuteTaskInstanceOutcomeCallable CfgClient::ExecuteTaskInstanceCallable(const ExecuteTaskInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExecuteTaskInstanceOutcome>>();
-    ExecuteTaskInstanceAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const ExecuteTaskInstanceRequest&,
-        ExecuteTaskInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExecuteTaskInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ExecuteTaskInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::ModifyTaskRunStatusOutcome CfgClient::ModifyTaskRunStatus(const ModifyTaskRunStatusRequest &request)
@@ -812,32 +707,25 @@ CfgClient::ModifyTaskRunStatusOutcome CfgClient::ModifyTaskRunStatus(const Modif
 
 void CfgClient::ModifyTaskRunStatusAsync(const ModifyTaskRunStatusRequest& request, const ModifyTaskRunStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTaskRunStatusRequest&;
-    using Resp = ModifyTaskRunStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTaskRunStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTaskRunStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::ModifyTaskRunStatusOutcomeCallable CfgClient::ModifyTaskRunStatusCallable(const ModifyTaskRunStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTaskRunStatusOutcome>>();
-    ModifyTaskRunStatusAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const ModifyTaskRunStatusRequest&,
-        ModifyTaskRunStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTaskRunStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTaskRunStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CfgClient::TriggerPolicyOutcome CfgClient::TriggerPolicy(const TriggerPolicyRequest &request)
@@ -862,31 +750,24 @@ CfgClient::TriggerPolicyOutcome CfgClient::TriggerPolicy(const TriggerPolicyRequ
 
 void CfgClient::TriggerPolicyAsync(const TriggerPolicyRequest& request, const TriggerPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TriggerPolicyRequest&;
-    using Resp = TriggerPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TriggerPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TriggerPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CfgClient::TriggerPolicyOutcomeCallable CfgClient::TriggerPolicyCallable(const TriggerPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TriggerPolicyOutcome>>();
-    TriggerPolicyAsync(
-    request,
-    [prom](
-        const CfgClient*,
-        const TriggerPolicyRequest&,
-        TriggerPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TriggerPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->TriggerPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

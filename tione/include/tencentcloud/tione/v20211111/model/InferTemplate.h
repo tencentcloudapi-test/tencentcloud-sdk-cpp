@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 推理镜像详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InferTemplate();
-                    ~InferTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

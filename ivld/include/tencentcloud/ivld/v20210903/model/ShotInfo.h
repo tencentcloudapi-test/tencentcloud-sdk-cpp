@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 输入的镜头信息的描述
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ShotInfo();
-                    ~ShotInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

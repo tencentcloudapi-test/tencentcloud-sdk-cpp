@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WebHookEventKv;
+                class WebHookHostLabel;
+                class WebHookReceiver;
+                class WebHookCustomField;
+
                 /**
                 * 策略
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     WebHookPolicy();
-                    ~WebHookPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

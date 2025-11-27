@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AvailableApiInfo;
+
                 /**
                 * 插件相关的API列表信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ApiInfoSummary();
-                    ~ApiInfoSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

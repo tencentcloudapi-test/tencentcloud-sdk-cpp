@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class K8sApiAbnormalRuleScopeInfo;
+
                 /**
                 * k8sapi异常事件列表Item
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     K8sApiAbnormalEventListItem();
-                    ~K8sApiAbnormalEventListItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

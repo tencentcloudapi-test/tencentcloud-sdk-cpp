@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 地址所属地域
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AddressLocation();
-                    ~AddressLocation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

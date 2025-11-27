@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClusterPodInfo;
+
                 /**
                 * DescribeUserPodList返回参数结构体
                 */

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInformation;
+                class QualityData;
+
                 /**
                 * DescribeCallDetailInfo返回参数结构体
                 */

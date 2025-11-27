@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 转码总量数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TranscodeTotalInfo();
-                    ~TranscodeTotalInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

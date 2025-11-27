@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 指定订阅流白名单或者黑名单。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SubscribeRecordUserIds();
-                    ~SubscribeRecordUserIds() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

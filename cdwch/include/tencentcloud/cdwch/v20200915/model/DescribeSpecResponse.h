@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceSpec;
+                class DiskSpec;
+
                 /**
                 * DescribeSpec返回参数结构体
                 */

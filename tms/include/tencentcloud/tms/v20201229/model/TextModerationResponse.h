@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DetailResults;
+                class RiskDetails;
+                class SentimentAnalysis;
+
                 /**
                 * TextModeration返回参数结构体
                 */

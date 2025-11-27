@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BGPInstance;
+
                 /**
                 * DescribeListBGPInstances返回参数结构体
                 */

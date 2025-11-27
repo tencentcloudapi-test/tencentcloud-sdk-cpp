@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskResult;
+
                 /**
                 * SuspendProbeTask返回参数结构体
                 */

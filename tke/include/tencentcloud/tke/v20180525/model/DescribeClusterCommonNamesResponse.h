@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommonName;
+
                 /**
                 * DescribeClusterCommonNames返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MQTTAuthenticatorItem;
+
                 /**
                 * DescribeAuthenticator返回参数结构体
                 */

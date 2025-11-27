@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户自定义人物审核任务控制参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UserDefineFaceReviewTemplateInfo();
-                    ~UserDefineFaceReviewTemplateInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

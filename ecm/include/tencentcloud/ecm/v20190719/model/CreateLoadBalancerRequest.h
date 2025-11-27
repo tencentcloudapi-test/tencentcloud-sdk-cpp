@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoadBalancerInternetAccessible;
+                class TagInfo;
+
                 /**
                 * CreateLoadBalancer请求参数结构体
                 */

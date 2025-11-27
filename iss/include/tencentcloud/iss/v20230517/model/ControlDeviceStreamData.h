@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 获取开流地址返回数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ControlDeviceStreamData();
-                    ~ControlDeviceStreamData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

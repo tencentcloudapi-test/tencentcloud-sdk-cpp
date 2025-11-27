@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DriverVersion;
+                class CUDNN;
+                class CustomDriver;
+
                 /**
                 * GPU相关的参数，包括驱动版本，CUDA版本，cuDNN版本以及是否开启MIG
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     GPUArgs();
-                    ~GPUArgs() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

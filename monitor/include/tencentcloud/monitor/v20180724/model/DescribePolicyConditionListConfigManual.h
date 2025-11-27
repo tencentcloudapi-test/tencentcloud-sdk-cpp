@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribePolicyConditionListConfigManualCalcType;
+                class DescribePolicyConditionListConfigManualCalcValue;
+                class DescribePolicyConditionListConfigManualContinueTime;
+                class DescribePolicyConditionListConfigManualPeriod;
+                class DescribePolicyConditionListConfigManualPeriodNum;
+                class DescribePolicyConditionListConfigManualStatType;
+
                 /**
                 * DescribePolicyConditionList.ConfigManual
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribePolicyConditionListConfigManual();
-                    ~DescribePolicyConditionListConfigManual() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

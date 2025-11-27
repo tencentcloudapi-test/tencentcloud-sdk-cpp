@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskTypeOpsDto;
+
                 /**
                 * 调度运行实例实体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceVO();
-                    ~InstanceVO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

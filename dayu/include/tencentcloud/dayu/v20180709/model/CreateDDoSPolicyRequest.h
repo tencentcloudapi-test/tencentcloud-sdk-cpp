@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DDoSPolicyDropOption;
+                class DDoSPolicyPortLimit;
+                class IpBlackWhite;
+                class DDoSPolicyPacketFilter;
+                class WaterPrintPolicy;
+
                 /**
                 * CreateDDoSPolicy请求参数结构体
                 */

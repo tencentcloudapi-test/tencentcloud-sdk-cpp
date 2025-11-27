@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IntegrationTaskInfo;
+                class AgentStatus;
+                class TaskVersionInstance;
+
                 /**
                 * DescribeIntegrationTask返回参数结构体
                 */

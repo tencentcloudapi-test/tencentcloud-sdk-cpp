@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 删除员工的成功数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SuccessDeleteStaffData();
-                    ~SuccessDeleteStaffData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

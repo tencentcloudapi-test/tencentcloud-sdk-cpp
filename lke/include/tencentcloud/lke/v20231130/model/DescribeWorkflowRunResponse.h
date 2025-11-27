@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowRunDetail;
+                class NodeRunBase;
+
                 /**
                 * DescribeWorkflowRun返回参数结构体
                 */

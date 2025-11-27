@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceCounterData;
+
                 /**
                 * GetAppSummary返回参数结构体
                 */

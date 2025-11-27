@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceItem;
+
                 /**
                 * 录制计划详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RecordPlanItem();
-                    ~RecordPlanItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

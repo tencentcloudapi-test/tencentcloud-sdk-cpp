@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageInfo;
+                class ObjectInfo;
+
                 /**
                 * SearchImage返回参数结构体
                 */

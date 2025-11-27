@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 座席绑定技能组列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StaffSkillGroupList();
-                    ~StaffSkillGroupList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

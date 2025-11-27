@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeAggrSoftCategorySoftListData;
+
                 /**
                 * DescribeAggrSoftCategorySoftList返回参数结构体
                 */

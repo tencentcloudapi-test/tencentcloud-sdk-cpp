@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MachineClearHistory;
+
                 /**
                 * DescribeMachineClearHistory返回参数结构体
                 */

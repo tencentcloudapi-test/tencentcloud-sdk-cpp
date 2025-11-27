@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleFilter;
+                class KeyValue;
+                class QpsThreshold;
+                class AccurateQpsThreshold;
+
                 /**
                 * 参数限流的规则
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     LimitRule();
-                    ~LimitRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

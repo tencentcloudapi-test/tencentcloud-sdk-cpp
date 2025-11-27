@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 文档切片异步任务
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ChunkConfigAsync();
-                    ~ChunkConfigAsync() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

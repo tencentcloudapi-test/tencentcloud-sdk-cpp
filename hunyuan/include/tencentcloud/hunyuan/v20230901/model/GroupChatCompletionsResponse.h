@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Usage;
+                class Choice;
+                class ErrorMsg;
+                class SearchInfo;
+                class Replace;
+
                 /**
                 * GroupChatCompletions返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeniedAction;
+
                 /**
                 * 云硬盘备份点操作限制列表。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DiskBackupDeniedActions();
-                    ~DiskBackupDeniedActions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

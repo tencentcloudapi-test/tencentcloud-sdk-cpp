@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppearInfo;
+                class Rectf;
+
                 /**
                 * 人物信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     PersonInfo();
-                    ~PersonInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

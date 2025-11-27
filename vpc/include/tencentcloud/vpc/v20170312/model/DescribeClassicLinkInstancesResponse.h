@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClassicLinkInstance;
+
                 /**
                 * DescribeClassicLinkInstances返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 只读实例与权重对应关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ReadOnlyInstanceWeightPair();
-                    ~ReadOnlyInstanceWeightPair() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

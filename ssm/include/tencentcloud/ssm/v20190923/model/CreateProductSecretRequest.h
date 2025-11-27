@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProductPrivilegeUnit;
+                class Tag;
+
                 /**
                 * CreateProductSecret请求参数结构体
                 */

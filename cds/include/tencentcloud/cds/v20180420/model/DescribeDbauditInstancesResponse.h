@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CdsAuditInstance;
+
                 /**
                 * DescribeDbauditInstances返回参数结构体
                 */

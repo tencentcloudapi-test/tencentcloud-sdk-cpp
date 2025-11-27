@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmHistory;
+
                 /**
                 * DescribeAlarmHistories返回参数结构体
                 */

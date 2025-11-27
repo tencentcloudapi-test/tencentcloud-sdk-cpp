@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LocationInfo;
+
                 /**
                 * Iceberg表分区信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     IcebergTablePartition();
-                    ~IcebergTablePartition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

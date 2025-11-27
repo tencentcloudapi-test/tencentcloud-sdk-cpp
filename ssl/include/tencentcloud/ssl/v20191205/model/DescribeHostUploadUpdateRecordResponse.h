@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UploadUpdateRecordInfo;
+
                 /**
                 * DescribeHostUploadUpdateRecord返回参数结构体
                 */

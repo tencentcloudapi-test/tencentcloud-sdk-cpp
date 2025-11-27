@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateAutoClassifyStructureTaskInfo;
+
                 /**
                 * CreateAutoClassifyStructureTask请求参数结构体
                 */

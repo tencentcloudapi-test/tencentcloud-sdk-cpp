@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * 用于使用计划列表展示
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     UsagePlanStatusInfo();
-                    ~UsagePlanStatusInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述某一网格在特定命名空间下的自动注入状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AutoInjectionNamespaceState();
-                    ~AutoInjectionNamespaceState() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

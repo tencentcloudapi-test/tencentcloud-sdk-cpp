@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValueItem;
+                class ValueUnitItem;
+
                 /**
                 * 体检报告-内科-心脏
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     InternalMedicineHeart();
-                    ~InternalMedicineHeart() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

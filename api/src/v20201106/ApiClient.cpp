@@ -62,32 +62,25 @@ ApiClient::DescribeProductsOutcome ApiClient::DescribeProducts(const DescribePro
 
 void ApiClient::DescribeProductsAsync(const DescribeProductsRequest& request, const DescribeProductsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProductsRequest&;
-    using Resp = DescribeProductsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProducts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProducts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApiClient::DescribeProductsOutcomeCallable ApiClient::DescribeProductsCallable(const DescribeProductsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProductsOutcome>>();
-    DescribeProductsAsync(
-    request,
-    [prom](
-        const ApiClient*,
-        const DescribeProductsRequest&,
-        DescribeProductsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProductsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProducts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApiClient::DescribeRegionsOutcome ApiClient::DescribeRegions(const DescribeRegionsRequest &request)
@@ -112,32 +105,25 @@ ApiClient::DescribeRegionsOutcome ApiClient::DescribeRegions(const DescribeRegio
 
 void ApiClient::DescribeRegionsAsync(const DescribeRegionsRequest& request, const DescribeRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRegionsRequest&;
-    using Resp = DescribeRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApiClient::DescribeRegionsOutcomeCallable ApiClient::DescribeRegionsCallable(const DescribeRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRegionsOutcome>>();
-    DescribeRegionsAsync(
-    request,
-    [prom](
-        const ApiClient*,
-        const DescribeRegionsRequest&,
-        DescribeRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ApiClient::DescribeZonesOutcome ApiClient::DescribeZones(const DescribeZonesRequest &request)
@@ -162,31 +148,24 @@ ApiClient::DescribeZonesOutcome ApiClient::DescribeZones(const DescribeZonesRequ
 
 void ApiClient::DescribeZonesAsync(const DescribeZonesRequest& request, const DescribeZonesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeZonesRequest&;
-    using Resp = DescribeZonesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeZones(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeZones", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ApiClient::DescribeZonesOutcomeCallable ApiClient::DescribeZonesCallable(const DescribeZonesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeZonesOutcome>>();
-    DescribeZonesAsync(
-    request,
-    [prom](
-        const ApiClient*,
-        const DescribeZonesRequest&,
-        DescribeZonesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeZonesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeZones(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

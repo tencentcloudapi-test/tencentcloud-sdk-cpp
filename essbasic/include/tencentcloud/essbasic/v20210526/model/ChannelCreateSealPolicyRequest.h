@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+                class UserInfo;
+                class OrganizationInfo;
+                class Option;
+
                 /**
                 * ChannelCreateSealPolicy请求参数结构体
                 */

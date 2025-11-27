@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RedisBackupSet;
+
                 /**
                 * DescribeInstanceBackups返回参数结构体
                 */

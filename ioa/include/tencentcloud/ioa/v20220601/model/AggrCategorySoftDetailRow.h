@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 按版本聚合后的软件列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AggrCategorySoftDetailRow();
-                    ~AggrCategorySoftDetailRow() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 媒体处理结果，包含智能语音识别、智能文字识别结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MPSResult();
-                    ~MPSResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

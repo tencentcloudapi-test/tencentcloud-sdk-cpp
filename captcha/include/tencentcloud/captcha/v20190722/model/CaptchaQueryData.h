@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 该类型为DescribeCaptchaData 方法返回数据类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CaptchaQueryData();
-                    ~CaptchaQueryData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

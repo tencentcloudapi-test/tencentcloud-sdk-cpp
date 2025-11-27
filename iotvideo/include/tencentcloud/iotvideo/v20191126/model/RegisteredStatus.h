@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 终端用户注册状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RegisteredStatus();
-                    ~RegisteredStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

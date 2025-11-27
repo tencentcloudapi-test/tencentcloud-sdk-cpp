@@ -62,32 +62,25 @@ TmsClient::AccountTipoffAccessOutcome TmsClient::AccountTipoffAccess(const Accou
 
 void TmsClient::AccountTipoffAccessAsync(const AccountTipoffAccessRequest& request, const AccountTipoffAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AccountTipoffAccessRequest&;
-    using Resp = AccountTipoffAccessResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AccountTipoffAccess(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AccountTipoffAccess", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TmsClient::AccountTipoffAccessOutcomeCallable TmsClient::AccountTipoffAccessCallable(const AccountTipoffAccessRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AccountTipoffAccessOutcome>>();
-    AccountTipoffAccessAsync(
-    request,
-    [prom](
-        const TmsClient*,
-        const AccountTipoffAccessRequest&,
-        AccountTipoffAccessOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AccountTipoffAccessOutcome()>>(
+        [this, request]()
+        {
+            return this->AccountTipoffAccess(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TmsClient::DescribeTextLibOutcome TmsClient::DescribeTextLib(const DescribeTextLibRequest &request)
@@ -112,32 +105,25 @@ TmsClient::DescribeTextLibOutcome TmsClient::DescribeTextLib(const DescribeTextL
 
 void TmsClient::DescribeTextLibAsync(const DescribeTextLibRequest& request, const DescribeTextLibAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTextLibRequest&;
-    using Resp = DescribeTextLibResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTextLib(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTextLib", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TmsClient::DescribeTextLibOutcomeCallable TmsClient::DescribeTextLibCallable(const DescribeTextLibRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTextLibOutcome>>();
-    DescribeTextLibAsync(
-    request,
-    [prom](
-        const TmsClient*,
-        const DescribeTextLibRequest&,
-        DescribeTextLibOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTextLibOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTextLib(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TmsClient::DescribeTextStatOutcome TmsClient::DescribeTextStat(const DescribeTextStatRequest &request)
@@ -162,32 +148,25 @@ TmsClient::DescribeTextStatOutcome TmsClient::DescribeTextStat(const DescribeTex
 
 void TmsClient::DescribeTextStatAsync(const DescribeTextStatRequest& request, const DescribeTextStatAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTextStatRequest&;
-    using Resp = DescribeTextStatResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTextStat(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTextStat", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TmsClient::DescribeTextStatOutcomeCallable TmsClient::DescribeTextStatCallable(const DescribeTextStatRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTextStatOutcome>>();
-    DescribeTextStatAsync(
-    request,
-    [prom](
-        const TmsClient*,
-        const DescribeTextStatRequest&,
-        DescribeTextStatOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTextStatOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTextStat(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TmsClient::TextModerationOutcome TmsClient::TextModeration(const TextModerationRequest &request)
@@ -212,31 +191,24 @@ TmsClient::TextModerationOutcome TmsClient::TextModeration(const TextModerationR
 
 void TmsClient::TextModerationAsync(const TextModerationRequest& request, const TextModerationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextModerationRequest&;
-    using Resp = TextModerationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextModeration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextModeration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TmsClient::TextModerationOutcomeCallable TmsClient::TextModerationCallable(const TextModerationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextModerationOutcome>>();
-    TextModerationAsync(
-    request,
-    [prom](
-        const TmsClient*,
-        const TextModerationRequest&,
-        TextModerationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextModerationOutcome()>>(
+        [this, request]()
+        {
+            return this->TextModeration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

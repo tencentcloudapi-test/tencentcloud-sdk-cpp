@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DimensionNew;
+
                 /**
                 * 策略类型信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CommonNamespaceNew();
-                    ~CommonNamespaceNew() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

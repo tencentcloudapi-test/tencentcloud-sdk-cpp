@@ -62,32 +62,25 @@ TseClient::BindAutoScalerResourceStrategyToGroupsOutcome TseClient::BindAutoScal
 
 void TseClient::BindAutoScalerResourceStrategyToGroupsAsync(const BindAutoScalerResourceStrategyToGroupsRequest& request, const BindAutoScalerResourceStrategyToGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindAutoScalerResourceStrategyToGroupsRequest&;
-    using Resp = BindAutoScalerResourceStrategyToGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindAutoScalerResourceStrategyToGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindAutoScalerResourceStrategyToGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::BindAutoScalerResourceStrategyToGroupsOutcomeCallable TseClient::BindAutoScalerResourceStrategyToGroupsCallable(const BindAutoScalerResourceStrategyToGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindAutoScalerResourceStrategyToGroupsOutcome>>();
-    BindAutoScalerResourceStrategyToGroupsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const BindAutoScalerResourceStrategyToGroupsRequest&,
-        BindAutoScalerResourceStrategyToGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindAutoScalerResourceStrategyToGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->BindAutoScalerResourceStrategyToGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CloseWafProtectionOutcome TseClient::CloseWafProtection(const CloseWafProtectionRequest &request)
@@ -112,32 +105,25 @@ TseClient::CloseWafProtectionOutcome TseClient::CloseWafProtection(const CloseWa
 
 void TseClient::CloseWafProtectionAsync(const CloseWafProtectionRequest& request, const CloseWafProtectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseWafProtectionRequest&;
-    using Resp = CloseWafProtectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseWafProtection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseWafProtection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CloseWafProtectionOutcomeCallable TseClient::CloseWafProtectionCallable(const CloseWafProtectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseWafProtectionOutcome>>();
-    CloseWafProtectionAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CloseWafProtectionRequest&,
-        CloseWafProtectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseWafProtectionOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseWafProtection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateAutoScalerResourceStrategyOutcome TseClient::CreateAutoScalerResourceStrategy(const CreateAutoScalerResourceStrategyRequest &request)
@@ -162,32 +148,25 @@ TseClient::CreateAutoScalerResourceStrategyOutcome TseClient::CreateAutoScalerRe
 
 void TseClient::CreateAutoScalerResourceStrategyAsync(const CreateAutoScalerResourceStrategyRequest& request, const CreateAutoScalerResourceStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAutoScalerResourceStrategyRequest&;
-    using Resp = CreateAutoScalerResourceStrategyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAutoScalerResourceStrategy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAutoScalerResourceStrategy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateAutoScalerResourceStrategyOutcomeCallable TseClient::CreateAutoScalerResourceStrategyCallable(const CreateAutoScalerResourceStrategyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAutoScalerResourceStrategyOutcome>>();
-    CreateAutoScalerResourceStrategyAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateAutoScalerResourceStrategyRequest&,
-        CreateAutoScalerResourceStrategyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAutoScalerResourceStrategyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAutoScalerResourceStrategy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateCloudNativeAPIGatewayOutcome TseClient::CreateCloudNativeAPIGateway(const CreateCloudNativeAPIGatewayRequest &request)
@@ -212,32 +191,25 @@ TseClient::CreateCloudNativeAPIGatewayOutcome TseClient::CreateCloudNativeAPIGat
 
 void TseClient::CreateCloudNativeAPIGatewayAsync(const CreateCloudNativeAPIGatewayRequest& request, const CreateCloudNativeAPIGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudNativeAPIGatewayRequest&;
-    using Resp = CreateCloudNativeAPIGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudNativeAPIGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudNativeAPIGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateCloudNativeAPIGatewayOutcomeCallable TseClient::CreateCloudNativeAPIGatewayCallable(const CreateCloudNativeAPIGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudNativeAPIGatewayOutcome>>();
-    CreateCloudNativeAPIGatewayAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateCloudNativeAPIGatewayRequest&,
-        CreateCloudNativeAPIGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudNativeAPIGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudNativeAPIGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateCloudNativeAPIGatewayCanaryRuleOutcome TseClient::CreateCloudNativeAPIGatewayCanaryRule(const CreateCloudNativeAPIGatewayCanaryRuleRequest &request)
@@ -262,32 +234,25 @@ TseClient::CreateCloudNativeAPIGatewayCanaryRuleOutcome TseClient::CreateCloudNa
 
 void TseClient::CreateCloudNativeAPIGatewayCanaryRuleAsync(const CreateCloudNativeAPIGatewayCanaryRuleRequest& request, const CreateCloudNativeAPIGatewayCanaryRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudNativeAPIGatewayCanaryRuleRequest&;
-    using Resp = CreateCloudNativeAPIGatewayCanaryRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudNativeAPIGatewayCanaryRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudNativeAPIGatewayCanaryRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateCloudNativeAPIGatewayCanaryRuleOutcomeCallable TseClient::CreateCloudNativeAPIGatewayCanaryRuleCallable(const CreateCloudNativeAPIGatewayCanaryRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudNativeAPIGatewayCanaryRuleOutcome>>();
-    CreateCloudNativeAPIGatewayCanaryRuleAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateCloudNativeAPIGatewayCanaryRuleRequest&,
-        CreateCloudNativeAPIGatewayCanaryRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudNativeAPIGatewayCanaryRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudNativeAPIGatewayCanaryRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateCloudNativeAPIGatewayCertificateOutcome TseClient::CreateCloudNativeAPIGatewayCertificate(const CreateCloudNativeAPIGatewayCertificateRequest &request)
@@ -312,32 +277,25 @@ TseClient::CreateCloudNativeAPIGatewayCertificateOutcome TseClient::CreateCloudN
 
 void TseClient::CreateCloudNativeAPIGatewayCertificateAsync(const CreateCloudNativeAPIGatewayCertificateRequest& request, const CreateCloudNativeAPIGatewayCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudNativeAPIGatewayCertificateRequest&;
-    using Resp = CreateCloudNativeAPIGatewayCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudNativeAPIGatewayCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudNativeAPIGatewayCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateCloudNativeAPIGatewayCertificateOutcomeCallable TseClient::CreateCloudNativeAPIGatewayCertificateCallable(const CreateCloudNativeAPIGatewayCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudNativeAPIGatewayCertificateOutcome>>();
-    CreateCloudNativeAPIGatewayCertificateAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateCloudNativeAPIGatewayCertificateRequest&,
-        CreateCloudNativeAPIGatewayCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudNativeAPIGatewayCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudNativeAPIGatewayCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateCloudNativeAPIGatewayPublicNetworkOutcome TseClient::CreateCloudNativeAPIGatewayPublicNetwork(const CreateCloudNativeAPIGatewayPublicNetworkRequest &request)
@@ -362,32 +320,25 @@ TseClient::CreateCloudNativeAPIGatewayPublicNetworkOutcome TseClient::CreateClou
 
 void TseClient::CreateCloudNativeAPIGatewayPublicNetworkAsync(const CreateCloudNativeAPIGatewayPublicNetworkRequest& request, const CreateCloudNativeAPIGatewayPublicNetworkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudNativeAPIGatewayPublicNetworkRequest&;
-    using Resp = CreateCloudNativeAPIGatewayPublicNetworkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudNativeAPIGatewayPublicNetwork(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudNativeAPIGatewayPublicNetwork", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateCloudNativeAPIGatewayPublicNetworkOutcomeCallable TseClient::CreateCloudNativeAPIGatewayPublicNetworkCallable(const CreateCloudNativeAPIGatewayPublicNetworkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudNativeAPIGatewayPublicNetworkOutcome>>();
-    CreateCloudNativeAPIGatewayPublicNetworkAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateCloudNativeAPIGatewayPublicNetworkRequest&,
-        CreateCloudNativeAPIGatewayPublicNetworkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudNativeAPIGatewayPublicNetworkOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudNativeAPIGatewayPublicNetwork(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateCloudNativeAPIGatewayRouteOutcome TseClient::CreateCloudNativeAPIGatewayRoute(const CreateCloudNativeAPIGatewayRouteRequest &request)
@@ -412,32 +363,25 @@ TseClient::CreateCloudNativeAPIGatewayRouteOutcome TseClient::CreateCloudNativeA
 
 void TseClient::CreateCloudNativeAPIGatewayRouteAsync(const CreateCloudNativeAPIGatewayRouteRequest& request, const CreateCloudNativeAPIGatewayRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudNativeAPIGatewayRouteRequest&;
-    using Resp = CreateCloudNativeAPIGatewayRouteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudNativeAPIGatewayRoute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudNativeAPIGatewayRoute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateCloudNativeAPIGatewayRouteOutcomeCallable TseClient::CreateCloudNativeAPIGatewayRouteCallable(const CreateCloudNativeAPIGatewayRouteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudNativeAPIGatewayRouteOutcome>>();
-    CreateCloudNativeAPIGatewayRouteAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateCloudNativeAPIGatewayRouteRequest&,
-        CreateCloudNativeAPIGatewayRouteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudNativeAPIGatewayRouteOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudNativeAPIGatewayRoute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateCloudNativeAPIGatewayRouteRateLimitOutcome TseClient::CreateCloudNativeAPIGatewayRouteRateLimit(const CreateCloudNativeAPIGatewayRouteRateLimitRequest &request)
@@ -462,32 +406,25 @@ TseClient::CreateCloudNativeAPIGatewayRouteRateLimitOutcome TseClient::CreateClo
 
 void TseClient::CreateCloudNativeAPIGatewayRouteRateLimitAsync(const CreateCloudNativeAPIGatewayRouteRateLimitRequest& request, const CreateCloudNativeAPIGatewayRouteRateLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudNativeAPIGatewayRouteRateLimitRequest&;
-    using Resp = CreateCloudNativeAPIGatewayRouteRateLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudNativeAPIGatewayRouteRateLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudNativeAPIGatewayRouteRateLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateCloudNativeAPIGatewayRouteRateLimitOutcomeCallable TseClient::CreateCloudNativeAPIGatewayRouteRateLimitCallable(const CreateCloudNativeAPIGatewayRouteRateLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudNativeAPIGatewayRouteRateLimitOutcome>>();
-    CreateCloudNativeAPIGatewayRouteRateLimitAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateCloudNativeAPIGatewayRouteRateLimitRequest&,
-        CreateCloudNativeAPIGatewayRouteRateLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudNativeAPIGatewayRouteRateLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudNativeAPIGatewayRouteRateLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateCloudNativeAPIGatewayServiceOutcome TseClient::CreateCloudNativeAPIGatewayService(const CreateCloudNativeAPIGatewayServiceRequest &request)
@@ -512,32 +449,25 @@ TseClient::CreateCloudNativeAPIGatewayServiceOutcome TseClient::CreateCloudNativ
 
 void TseClient::CreateCloudNativeAPIGatewayServiceAsync(const CreateCloudNativeAPIGatewayServiceRequest& request, const CreateCloudNativeAPIGatewayServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudNativeAPIGatewayServiceRequest&;
-    using Resp = CreateCloudNativeAPIGatewayServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudNativeAPIGatewayService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudNativeAPIGatewayService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateCloudNativeAPIGatewayServiceOutcomeCallable TseClient::CreateCloudNativeAPIGatewayServiceCallable(const CreateCloudNativeAPIGatewayServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudNativeAPIGatewayServiceOutcome>>();
-    CreateCloudNativeAPIGatewayServiceAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateCloudNativeAPIGatewayServiceRequest&,
-        CreateCloudNativeAPIGatewayServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudNativeAPIGatewayServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudNativeAPIGatewayService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateCloudNativeAPIGatewayServiceRateLimitOutcome TseClient::CreateCloudNativeAPIGatewayServiceRateLimit(const CreateCloudNativeAPIGatewayServiceRateLimitRequest &request)
@@ -562,32 +492,25 @@ TseClient::CreateCloudNativeAPIGatewayServiceRateLimitOutcome TseClient::CreateC
 
 void TseClient::CreateCloudNativeAPIGatewayServiceRateLimitAsync(const CreateCloudNativeAPIGatewayServiceRateLimitRequest& request, const CreateCloudNativeAPIGatewayServiceRateLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCloudNativeAPIGatewayServiceRateLimitRequest&;
-    using Resp = CreateCloudNativeAPIGatewayServiceRateLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCloudNativeAPIGatewayServiceRateLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCloudNativeAPIGatewayServiceRateLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateCloudNativeAPIGatewayServiceRateLimitOutcomeCallable TseClient::CreateCloudNativeAPIGatewayServiceRateLimitCallable(const CreateCloudNativeAPIGatewayServiceRateLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCloudNativeAPIGatewayServiceRateLimitOutcome>>();
-    CreateCloudNativeAPIGatewayServiceRateLimitAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateCloudNativeAPIGatewayServiceRateLimitRequest&,
-        CreateCloudNativeAPIGatewayServiceRateLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCloudNativeAPIGatewayServiceRateLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCloudNativeAPIGatewayServiceRateLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateConfigFileOutcome TseClient::CreateConfigFile(const CreateConfigFileRequest &request)
@@ -612,32 +535,25 @@ TseClient::CreateConfigFileOutcome TseClient::CreateConfigFile(const CreateConfi
 
 void TseClient::CreateConfigFileAsync(const CreateConfigFileRequest& request, const CreateConfigFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConfigFileRequest&;
-    using Resp = CreateConfigFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConfigFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConfigFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateConfigFileOutcomeCallable TseClient::CreateConfigFileCallable(const CreateConfigFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConfigFileOutcome>>();
-    CreateConfigFileAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateConfigFileRequest&,
-        CreateConfigFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConfigFileOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConfigFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateConfigFileGroupOutcome TseClient::CreateConfigFileGroup(const CreateConfigFileGroupRequest &request)
@@ -662,32 +578,25 @@ TseClient::CreateConfigFileGroupOutcome TseClient::CreateConfigFileGroup(const C
 
 void TseClient::CreateConfigFileGroupAsync(const CreateConfigFileGroupRequest& request, const CreateConfigFileGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConfigFileGroupRequest&;
-    using Resp = CreateConfigFileGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConfigFileGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConfigFileGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateConfigFileGroupOutcomeCallable TseClient::CreateConfigFileGroupCallable(const CreateConfigFileGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConfigFileGroupOutcome>>();
-    CreateConfigFileGroupAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateConfigFileGroupRequest&,
-        CreateConfigFileGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConfigFileGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConfigFileGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateEngineOutcome TseClient::CreateEngine(const CreateEngineRequest &request)
@@ -712,32 +621,25 @@ TseClient::CreateEngineOutcome TseClient::CreateEngine(const CreateEngineRequest
 
 void TseClient::CreateEngineAsync(const CreateEngineRequest& request, const CreateEngineAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateEngineRequest&;
-    using Resp = CreateEngineResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateEngine(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateEngine", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateEngineOutcomeCallable TseClient::CreateEngineCallable(const CreateEngineRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateEngineOutcome>>();
-    CreateEngineAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateEngineRequest&,
-        CreateEngineOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateEngineOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateEngine(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateGovernanceAliasOutcome TseClient::CreateGovernanceAlias(const CreateGovernanceAliasRequest &request)
@@ -762,32 +664,25 @@ TseClient::CreateGovernanceAliasOutcome TseClient::CreateGovernanceAlias(const C
 
 void TseClient::CreateGovernanceAliasAsync(const CreateGovernanceAliasRequest& request, const CreateGovernanceAliasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGovernanceAliasRequest&;
-    using Resp = CreateGovernanceAliasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGovernanceAlias(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGovernanceAlias", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateGovernanceAliasOutcomeCallable TseClient::CreateGovernanceAliasCallable(const CreateGovernanceAliasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGovernanceAliasOutcome>>();
-    CreateGovernanceAliasAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateGovernanceAliasRequest&,
-        CreateGovernanceAliasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGovernanceAliasOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGovernanceAlias(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateGovernanceInstancesOutcome TseClient::CreateGovernanceInstances(const CreateGovernanceInstancesRequest &request)
@@ -812,32 +707,25 @@ TseClient::CreateGovernanceInstancesOutcome TseClient::CreateGovernanceInstances
 
 void TseClient::CreateGovernanceInstancesAsync(const CreateGovernanceInstancesRequest& request, const CreateGovernanceInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGovernanceInstancesRequest&;
-    using Resp = CreateGovernanceInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGovernanceInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGovernanceInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateGovernanceInstancesOutcomeCallable TseClient::CreateGovernanceInstancesCallable(const CreateGovernanceInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGovernanceInstancesOutcome>>();
-    CreateGovernanceInstancesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateGovernanceInstancesRequest&,
-        CreateGovernanceInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGovernanceInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGovernanceInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateGovernanceNamespacesOutcome TseClient::CreateGovernanceNamespaces(const CreateGovernanceNamespacesRequest &request)
@@ -862,32 +750,25 @@ TseClient::CreateGovernanceNamespacesOutcome TseClient::CreateGovernanceNamespac
 
 void TseClient::CreateGovernanceNamespacesAsync(const CreateGovernanceNamespacesRequest& request, const CreateGovernanceNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGovernanceNamespacesRequest&;
-    using Resp = CreateGovernanceNamespacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGovernanceNamespaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGovernanceNamespaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateGovernanceNamespacesOutcomeCallable TseClient::CreateGovernanceNamespacesCallable(const CreateGovernanceNamespacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGovernanceNamespacesOutcome>>();
-    CreateGovernanceNamespacesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateGovernanceNamespacesRequest&,
-        CreateGovernanceNamespacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGovernanceNamespacesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGovernanceNamespaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateGovernanceServicesOutcome TseClient::CreateGovernanceServices(const CreateGovernanceServicesRequest &request)
@@ -912,32 +793,25 @@ TseClient::CreateGovernanceServicesOutcome TseClient::CreateGovernanceServices(c
 
 void TseClient::CreateGovernanceServicesAsync(const CreateGovernanceServicesRequest& request, const CreateGovernanceServicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGovernanceServicesRequest&;
-    using Resp = CreateGovernanceServicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGovernanceServices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGovernanceServices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateGovernanceServicesOutcomeCallable TseClient::CreateGovernanceServicesCallable(const CreateGovernanceServicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGovernanceServicesOutcome>>();
-    CreateGovernanceServicesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateGovernanceServicesRequest&,
-        CreateGovernanceServicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGovernanceServicesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGovernanceServices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateNativeGatewayServerGroupOutcome TseClient::CreateNativeGatewayServerGroup(const CreateNativeGatewayServerGroupRequest &request)
@@ -962,32 +836,25 @@ TseClient::CreateNativeGatewayServerGroupOutcome TseClient::CreateNativeGatewayS
 
 void TseClient::CreateNativeGatewayServerGroupAsync(const CreateNativeGatewayServerGroupRequest& request, const CreateNativeGatewayServerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNativeGatewayServerGroupRequest&;
-    using Resp = CreateNativeGatewayServerGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNativeGatewayServerGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNativeGatewayServerGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateNativeGatewayServerGroupOutcomeCallable TseClient::CreateNativeGatewayServerGroupCallable(const CreateNativeGatewayServerGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNativeGatewayServerGroupOutcome>>();
-    CreateNativeGatewayServerGroupAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateNativeGatewayServerGroupRequest&,
-        CreateNativeGatewayServerGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNativeGatewayServerGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNativeGatewayServerGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateNativeGatewayServiceSourceOutcome TseClient::CreateNativeGatewayServiceSource(const CreateNativeGatewayServiceSourceRequest &request)
@@ -1012,32 +879,25 @@ TseClient::CreateNativeGatewayServiceSourceOutcome TseClient::CreateNativeGatewa
 
 void TseClient::CreateNativeGatewayServiceSourceAsync(const CreateNativeGatewayServiceSourceRequest& request, const CreateNativeGatewayServiceSourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNativeGatewayServiceSourceRequest&;
-    using Resp = CreateNativeGatewayServiceSourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNativeGatewayServiceSource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNativeGatewayServiceSource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateNativeGatewayServiceSourceOutcomeCallable TseClient::CreateNativeGatewayServiceSourceCallable(const CreateNativeGatewayServiceSourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNativeGatewayServiceSourceOutcome>>();
-    CreateNativeGatewayServiceSourceAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateNativeGatewayServiceSourceRequest&,
-        CreateNativeGatewayServiceSourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNativeGatewayServiceSourceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNativeGatewayServiceSource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateOrModifyCloudNativeAPIGatewayIPRestrictionOutcome TseClient::CreateOrModifyCloudNativeAPIGatewayIPRestriction(const CreateOrModifyCloudNativeAPIGatewayIPRestrictionRequest &request)
@@ -1062,32 +922,25 @@ TseClient::CreateOrModifyCloudNativeAPIGatewayIPRestrictionOutcome TseClient::Cr
 
 void TseClient::CreateOrModifyCloudNativeAPIGatewayIPRestrictionAsync(const CreateOrModifyCloudNativeAPIGatewayIPRestrictionRequest& request, const CreateOrModifyCloudNativeAPIGatewayIPRestrictionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrModifyCloudNativeAPIGatewayIPRestrictionRequest&;
-    using Resp = CreateOrModifyCloudNativeAPIGatewayIPRestrictionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrModifyCloudNativeAPIGatewayIPRestriction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrModifyCloudNativeAPIGatewayIPRestriction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateOrModifyCloudNativeAPIGatewayIPRestrictionOutcomeCallable TseClient::CreateOrModifyCloudNativeAPIGatewayIPRestrictionCallable(const CreateOrModifyCloudNativeAPIGatewayIPRestrictionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrModifyCloudNativeAPIGatewayIPRestrictionOutcome>>();
-    CreateOrModifyCloudNativeAPIGatewayIPRestrictionAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateOrModifyCloudNativeAPIGatewayIPRestrictionRequest&,
-        CreateOrModifyCloudNativeAPIGatewayIPRestrictionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrModifyCloudNativeAPIGatewayIPRestrictionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrModifyCloudNativeAPIGatewayIPRestriction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateOrUpdateConfigFileAndReleaseOutcome TseClient::CreateOrUpdateConfigFileAndRelease(const CreateOrUpdateConfigFileAndReleaseRequest &request)
@@ -1112,32 +965,25 @@ TseClient::CreateOrUpdateConfigFileAndReleaseOutcome TseClient::CreateOrUpdateCo
 
 void TseClient::CreateOrUpdateConfigFileAndReleaseAsync(const CreateOrUpdateConfigFileAndReleaseRequest& request, const CreateOrUpdateConfigFileAndReleaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrUpdateConfigFileAndReleaseRequest&;
-    using Resp = CreateOrUpdateConfigFileAndReleaseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrUpdateConfigFileAndRelease(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrUpdateConfigFileAndRelease", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateOrUpdateConfigFileAndReleaseOutcomeCallable TseClient::CreateOrUpdateConfigFileAndReleaseCallable(const CreateOrUpdateConfigFileAndReleaseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrUpdateConfigFileAndReleaseOutcome>>();
-    CreateOrUpdateConfigFileAndReleaseAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateOrUpdateConfigFileAndReleaseRequest&,
-        CreateOrUpdateConfigFileAndReleaseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrUpdateConfigFileAndReleaseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrUpdateConfigFileAndRelease(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::CreateWafDomainsOutcome TseClient::CreateWafDomains(const CreateWafDomainsRequest &request)
@@ -1162,32 +1008,25 @@ TseClient::CreateWafDomainsOutcome TseClient::CreateWafDomains(const CreateWafDo
 
 void TseClient::CreateWafDomainsAsync(const CreateWafDomainsRequest& request, const CreateWafDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWafDomainsRequest&;
-    using Resp = CreateWafDomainsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWafDomains(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWafDomains", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::CreateWafDomainsOutcomeCallable TseClient::CreateWafDomainsCallable(const CreateWafDomainsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWafDomainsOutcome>>();
-    CreateWafDomainsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const CreateWafDomainsRequest&,
-        CreateWafDomainsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWafDomainsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWafDomains(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteAutoScalerResourceStrategyOutcome TseClient::DeleteAutoScalerResourceStrategy(const DeleteAutoScalerResourceStrategyRequest &request)
@@ -1212,32 +1051,25 @@ TseClient::DeleteAutoScalerResourceStrategyOutcome TseClient::DeleteAutoScalerRe
 
 void TseClient::DeleteAutoScalerResourceStrategyAsync(const DeleteAutoScalerResourceStrategyRequest& request, const DeleteAutoScalerResourceStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAutoScalerResourceStrategyRequest&;
-    using Resp = DeleteAutoScalerResourceStrategyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAutoScalerResourceStrategy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAutoScalerResourceStrategy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteAutoScalerResourceStrategyOutcomeCallable TseClient::DeleteAutoScalerResourceStrategyCallable(const DeleteAutoScalerResourceStrategyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAutoScalerResourceStrategyOutcome>>();
-    DeleteAutoScalerResourceStrategyAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteAutoScalerResourceStrategyRequest&,
-        DeleteAutoScalerResourceStrategyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAutoScalerResourceStrategyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAutoScalerResourceStrategy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayOutcome TseClient::DeleteCloudNativeAPIGateway(const DeleteCloudNativeAPIGatewayRequest &request)
@@ -1262,32 +1094,25 @@ TseClient::DeleteCloudNativeAPIGatewayOutcome TseClient::DeleteCloudNativeAPIGat
 
 void TseClient::DeleteCloudNativeAPIGatewayAsync(const DeleteCloudNativeAPIGatewayRequest& request, const DeleteCloudNativeAPIGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayCallable(const DeleteCloudNativeAPIGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayOutcome>>();
-    DeleteCloudNativeAPIGatewayAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayRequest&,
-        DeleteCloudNativeAPIGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayCanaryRuleOutcome TseClient::DeleteCloudNativeAPIGatewayCanaryRule(const DeleteCloudNativeAPIGatewayCanaryRuleRequest &request)
@@ -1312,32 +1137,25 @@ TseClient::DeleteCloudNativeAPIGatewayCanaryRuleOutcome TseClient::DeleteCloudNa
 
 void TseClient::DeleteCloudNativeAPIGatewayCanaryRuleAsync(const DeleteCloudNativeAPIGatewayCanaryRuleRequest& request, const DeleteCloudNativeAPIGatewayCanaryRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayCanaryRuleRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayCanaryRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGatewayCanaryRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGatewayCanaryRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayCanaryRuleOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayCanaryRuleCallable(const DeleteCloudNativeAPIGatewayCanaryRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayCanaryRuleOutcome>>();
-    DeleteCloudNativeAPIGatewayCanaryRuleAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayCanaryRuleRequest&,
-        DeleteCloudNativeAPIGatewayCanaryRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayCanaryRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGatewayCanaryRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayCertificateOutcome TseClient::DeleteCloudNativeAPIGatewayCertificate(const DeleteCloudNativeAPIGatewayCertificateRequest &request)
@@ -1362,32 +1180,25 @@ TseClient::DeleteCloudNativeAPIGatewayCertificateOutcome TseClient::DeleteCloudN
 
 void TseClient::DeleteCloudNativeAPIGatewayCertificateAsync(const DeleteCloudNativeAPIGatewayCertificateRequest& request, const DeleteCloudNativeAPIGatewayCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayCertificateRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGatewayCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGatewayCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayCertificateOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayCertificateCallable(const DeleteCloudNativeAPIGatewayCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayCertificateOutcome>>();
-    DeleteCloudNativeAPIGatewayCertificateAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayCertificateRequest&,
-        DeleteCloudNativeAPIGatewayCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGatewayCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayIPRestrictionOutcome TseClient::DeleteCloudNativeAPIGatewayIPRestriction(const DeleteCloudNativeAPIGatewayIPRestrictionRequest &request)
@@ -1412,32 +1223,25 @@ TseClient::DeleteCloudNativeAPIGatewayIPRestrictionOutcome TseClient::DeleteClou
 
 void TseClient::DeleteCloudNativeAPIGatewayIPRestrictionAsync(const DeleteCloudNativeAPIGatewayIPRestrictionRequest& request, const DeleteCloudNativeAPIGatewayIPRestrictionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayIPRestrictionRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayIPRestrictionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGatewayIPRestriction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGatewayIPRestriction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayIPRestrictionOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayIPRestrictionCallable(const DeleteCloudNativeAPIGatewayIPRestrictionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayIPRestrictionOutcome>>();
-    DeleteCloudNativeAPIGatewayIPRestrictionAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayIPRestrictionRequest&,
-        DeleteCloudNativeAPIGatewayIPRestrictionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayIPRestrictionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGatewayIPRestriction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayPublicNetworkOutcome TseClient::DeleteCloudNativeAPIGatewayPublicNetwork(const DeleteCloudNativeAPIGatewayPublicNetworkRequest &request)
@@ -1462,32 +1266,25 @@ TseClient::DeleteCloudNativeAPIGatewayPublicNetworkOutcome TseClient::DeleteClou
 
 void TseClient::DeleteCloudNativeAPIGatewayPublicNetworkAsync(const DeleteCloudNativeAPIGatewayPublicNetworkRequest& request, const DeleteCloudNativeAPIGatewayPublicNetworkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayPublicNetworkRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayPublicNetworkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGatewayPublicNetwork(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGatewayPublicNetwork", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayPublicNetworkOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayPublicNetworkCallable(const DeleteCloudNativeAPIGatewayPublicNetworkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayPublicNetworkOutcome>>();
-    DeleteCloudNativeAPIGatewayPublicNetworkAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayPublicNetworkRequest&,
-        DeleteCloudNativeAPIGatewayPublicNetworkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayPublicNetworkOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGatewayPublicNetwork(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayRouteOutcome TseClient::DeleteCloudNativeAPIGatewayRoute(const DeleteCloudNativeAPIGatewayRouteRequest &request)
@@ -1512,32 +1309,25 @@ TseClient::DeleteCloudNativeAPIGatewayRouteOutcome TseClient::DeleteCloudNativeA
 
 void TseClient::DeleteCloudNativeAPIGatewayRouteAsync(const DeleteCloudNativeAPIGatewayRouteRequest& request, const DeleteCloudNativeAPIGatewayRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayRouteRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayRouteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGatewayRoute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGatewayRoute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayRouteOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayRouteCallable(const DeleteCloudNativeAPIGatewayRouteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayRouteOutcome>>();
-    DeleteCloudNativeAPIGatewayRouteAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayRouteRequest&,
-        DeleteCloudNativeAPIGatewayRouteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayRouteOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGatewayRoute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayRouteRateLimitOutcome TseClient::DeleteCloudNativeAPIGatewayRouteRateLimit(const DeleteCloudNativeAPIGatewayRouteRateLimitRequest &request)
@@ -1562,32 +1352,25 @@ TseClient::DeleteCloudNativeAPIGatewayRouteRateLimitOutcome TseClient::DeleteClo
 
 void TseClient::DeleteCloudNativeAPIGatewayRouteRateLimitAsync(const DeleteCloudNativeAPIGatewayRouteRateLimitRequest& request, const DeleteCloudNativeAPIGatewayRouteRateLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayRouteRateLimitRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayRouteRateLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGatewayRouteRateLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGatewayRouteRateLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayRouteRateLimitOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayRouteRateLimitCallable(const DeleteCloudNativeAPIGatewayRouteRateLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayRouteRateLimitOutcome>>();
-    DeleteCloudNativeAPIGatewayRouteRateLimitAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayRouteRateLimitRequest&,
-        DeleteCloudNativeAPIGatewayRouteRateLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayRouteRateLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGatewayRouteRateLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayServiceOutcome TseClient::DeleteCloudNativeAPIGatewayService(const DeleteCloudNativeAPIGatewayServiceRequest &request)
@@ -1612,32 +1395,25 @@ TseClient::DeleteCloudNativeAPIGatewayServiceOutcome TseClient::DeleteCloudNativ
 
 void TseClient::DeleteCloudNativeAPIGatewayServiceAsync(const DeleteCloudNativeAPIGatewayServiceRequest& request, const DeleteCloudNativeAPIGatewayServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayServiceRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGatewayService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGatewayService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayServiceOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayServiceCallable(const DeleteCloudNativeAPIGatewayServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayServiceOutcome>>();
-    DeleteCloudNativeAPIGatewayServiceAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayServiceRequest&,
-        DeleteCloudNativeAPIGatewayServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGatewayService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteCloudNativeAPIGatewayServiceRateLimitOutcome TseClient::DeleteCloudNativeAPIGatewayServiceRateLimit(const DeleteCloudNativeAPIGatewayServiceRateLimitRequest &request)
@@ -1662,32 +1438,25 @@ TseClient::DeleteCloudNativeAPIGatewayServiceRateLimitOutcome TseClient::DeleteC
 
 void TseClient::DeleteCloudNativeAPIGatewayServiceRateLimitAsync(const DeleteCloudNativeAPIGatewayServiceRateLimitRequest& request, const DeleteCloudNativeAPIGatewayServiceRateLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCloudNativeAPIGatewayServiceRateLimitRequest&;
-    using Resp = DeleteCloudNativeAPIGatewayServiceRateLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCloudNativeAPIGatewayServiceRateLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCloudNativeAPIGatewayServiceRateLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteCloudNativeAPIGatewayServiceRateLimitOutcomeCallable TseClient::DeleteCloudNativeAPIGatewayServiceRateLimitCallable(const DeleteCloudNativeAPIGatewayServiceRateLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCloudNativeAPIGatewayServiceRateLimitOutcome>>();
-    DeleteCloudNativeAPIGatewayServiceRateLimitAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteCloudNativeAPIGatewayServiceRateLimitRequest&,
-        DeleteCloudNativeAPIGatewayServiceRateLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCloudNativeAPIGatewayServiceRateLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCloudNativeAPIGatewayServiceRateLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteConfigFileGroupOutcome TseClient::DeleteConfigFileGroup(const DeleteConfigFileGroupRequest &request)
@@ -1712,32 +1481,25 @@ TseClient::DeleteConfigFileGroupOutcome TseClient::DeleteConfigFileGroup(const D
 
 void TseClient::DeleteConfigFileGroupAsync(const DeleteConfigFileGroupRequest& request, const DeleteConfigFileGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConfigFileGroupRequest&;
-    using Resp = DeleteConfigFileGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConfigFileGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConfigFileGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteConfigFileGroupOutcomeCallable TseClient::DeleteConfigFileGroupCallable(const DeleteConfigFileGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConfigFileGroupOutcome>>();
-    DeleteConfigFileGroupAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteConfigFileGroupRequest&,
-        DeleteConfigFileGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConfigFileGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConfigFileGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteConfigFileReleasesOutcome TseClient::DeleteConfigFileReleases(const DeleteConfigFileReleasesRequest &request)
@@ -1762,32 +1524,25 @@ TseClient::DeleteConfigFileReleasesOutcome TseClient::DeleteConfigFileReleases(c
 
 void TseClient::DeleteConfigFileReleasesAsync(const DeleteConfigFileReleasesRequest& request, const DeleteConfigFileReleasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConfigFileReleasesRequest&;
-    using Resp = DeleteConfigFileReleasesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConfigFileReleases(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConfigFileReleases", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteConfigFileReleasesOutcomeCallable TseClient::DeleteConfigFileReleasesCallable(const DeleteConfigFileReleasesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConfigFileReleasesOutcome>>();
-    DeleteConfigFileReleasesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteConfigFileReleasesRequest&,
-        DeleteConfigFileReleasesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConfigFileReleasesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConfigFileReleases(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteConfigFilesOutcome TseClient::DeleteConfigFiles(const DeleteConfigFilesRequest &request)
@@ -1812,32 +1567,25 @@ TseClient::DeleteConfigFilesOutcome TseClient::DeleteConfigFiles(const DeleteCon
 
 void TseClient::DeleteConfigFilesAsync(const DeleteConfigFilesRequest& request, const DeleteConfigFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConfigFilesRequest&;
-    using Resp = DeleteConfigFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConfigFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConfigFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteConfigFilesOutcomeCallable TseClient::DeleteConfigFilesCallable(const DeleteConfigFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConfigFilesOutcome>>();
-    DeleteConfigFilesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteConfigFilesRequest&,
-        DeleteConfigFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConfigFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConfigFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteEngineOutcome TseClient::DeleteEngine(const DeleteEngineRequest &request)
@@ -1862,32 +1610,25 @@ TseClient::DeleteEngineOutcome TseClient::DeleteEngine(const DeleteEngineRequest
 
 void TseClient::DeleteEngineAsync(const DeleteEngineRequest& request, const DeleteEngineAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteEngineRequest&;
-    using Resp = DeleteEngineResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteEngine(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteEngine", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteEngineOutcomeCallable TseClient::DeleteEngineCallable(const DeleteEngineRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteEngineOutcome>>();
-    DeleteEngineAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteEngineRequest&,
-        DeleteEngineOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteEngineOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteEngine(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteGovernanceAliasesOutcome TseClient::DeleteGovernanceAliases(const DeleteGovernanceAliasesRequest &request)
@@ -1912,32 +1653,25 @@ TseClient::DeleteGovernanceAliasesOutcome TseClient::DeleteGovernanceAliases(con
 
 void TseClient::DeleteGovernanceAliasesAsync(const DeleteGovernanceAliasesRequest& request, const DeleteGovernanceAliasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGovernanceAliasesRequest&;
-    using Resp = DeleteGovernanceAliasesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGovernanceAliases(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGovernanceAliases", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteGovernanceAliasesOutcomeCallable TseClient::DeleteGovernanceAliasesCallable(const DeleteGovernanceAliasesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGovernanceAliasesOutcome>>();
-    DeleteGovernanceAliasesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteGovernanceAliasesRequest&,
-        DeleteGovernanceAliasesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGovernanceAliasesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGovernanceAliases(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteGovernanceInstancesOutcome TseClient::DeleteGovernanceInstances(const DeleteGovernanceInstancesRequest &request)
@@ -1962,32 +1696,25 @@ TseClient::DeleteGovernanceInstancesOutcome TseClient::DeleteGovernanceInstances
 
 void TseClient::DeleteGovernanceInstancesAsync(const DeleteGovernanceInstancesRequest& request, const DeleteGovernanceInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGovernanceInstancesRequest&;
-    using Resp = DeleteGovernanceInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGovernanceInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGovernanceInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteGovernanceInstancesOutcomeCallable TseClient::DeleteGovernanceInstancesCallable(const DeleteGovernanceInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGovernanceInstancesOutcome>>();
-    DeleteGovernanceInstancesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteGovernanceInstancesRequest&,
-        DeleteGovernanceInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGovernanceInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGovernanceInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteGovernanceInstancesByHostOutcome TseClient::DeleteGovernanceInstancesByHost(const DeleteGovernanceInstancesByHostRequest &request)
@@ -2012,32 +1739,25 @@ TseClient::DeleteGovernanceInstancesByHostOutcome TseClient::DeleteGovernanceIns
 
 void TseClient::DeleteGovernanceInstancesByHostAsync(const DeleteGovernanceInstancesByHostRequest& request, const DeleteGovernanceInstancesByHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGovernanceInstancesByHostRequest&;
-    using Resp = DeleteGovernanceInstancesByHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGovernanceInstancesByHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGovernanceInstancesByHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteGovernanceInstancesByHostOutcomeCallable TseClient::DeleteGovernanceInstancesByHostCallable(const DeleteGovernanceInstancesByHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGovernanceInstancesByHostOutcome>>();
-    DeleteGovernanceInstancesByHostAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteGovernanceInstancesByHostRequest&,
-        DeleteGovernanceInstancesByHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGovernanceInstancesByHostOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGovernanceInstancesByHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteGovernanceNamespacesOutcome TseClient::DeleteGovernanceNamespaces(const DeleteGovernanceNamespacesRequest &request)
@@ -2062,32 +1782,25 @@ TseClient::DeleteGovernanceNamespacesOutcome TseClient::DeleteGovernanceNamespac
 
 void TseClient::DeleteGovernanceNamespacesAsync(const DeleteGovernanceNamespacesRequest& request, const DeleteGovernanceNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGovernanceNamespacesRequest&;
-    using Resp = DeleteGovernanceNamespacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGovernanceNamespaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGovernanceNamespaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteGovernanceNamespacesOutcomeCallable TseClient::DeleteGovernanceNamespacesCallable(const DeleteGovernanceNamespacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGovernanceNamespacesOutcome>>();
-    DeleteGovernanceNamespacesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteGovernanceNamespacesRequest&,
-        DeleteGovernanceNamespacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGovernanceNamespacesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGovernanceNamespaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteGovernanceServicesOutcome TseClient::DeleteGovernanceServices(const DeleteGovernanceServicesRequest &request)
@@ -2112,32 +1825,25 @@ TseClient::DeleteGovernanceServicesOutcome TseClient::DeleteGovernanceServices(c
 
 void TseClient::DeleteGovernanceServicesAsync(const DeleteGovernanceServicesRequest& request, const DeleteGovernanceServicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGovernanceServicesRequest&;
-    using Resp = DeleteGovernanceServicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGovernanceServices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGovernanceServices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteGovernanceServicesOutcomeCallable TseClient::DeleteGovernanceServicesCallable(const DeleteGovernanceServicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGovernanceServicesOutcome>>();
-    DeleteGovernanceServicesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteGovernanceServicesRequest&,
-        DeleteGovernanceServicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGovernanceServicesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGovernanceServices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteNativeGatewayServerGroupOutcome TseClient::DeleteNativeGatewayServerGroup(const DeleteNativeGatewayServerGroupRequest &request)
@@ -2162,32 +1868,25 @@ TseClient::DeleteNativeGatewayServerGroupOutcome TseClient::DeleteNativeGatewayS
 
 void TseClient::DeleteNativeGatewayServerGroupAsync(const DeleteNativeGatewayServerGroupRequest& request, const DeleteNativeGatewayServerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNativeGatewayServerGroupRequest&;
-    using Resp = DeleteNativeGatewayServerGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNativeGatewayServerGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNativeGatewayServerGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteNativeGatewayServerGroupOutcomeCallable TseClient::DeleteNativeGatewayServerGroupCallable(const DeleteNativeGatewayServerGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNativeGatewayServerGroupOutcome>>();
-    DeleteNativeGatewayServerGroupAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteNativeGatewayServerGroupRequest&,
-        DeleteNativeGatewayServerGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNativeGatewayServerGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNativeGatewayServerGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteNativeGatewayServiceSourceOutcome TseClient::DeleteNativeGatewayServiceSource(const DeleteNativeGatewayServiceSourceRequest &request)
@@ -2212,32 +1911,25 @@ TseClient::DeleteNativeGatewayServiceSourceOutcome TseClient::DeleteNativeGatewa
 
 void TseClient::DeleteNativeGatewayServiceSourceAsync(const DeleteNativeGatewayServiceSourceRequest& request, const DeleteNativeGatewayServiceSourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNativeGatewayServiceSourceRequest&;
-    using Resp = DeleteNativeGatewayServiceSourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNativeGatewayServiceSource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNativeGatewayServiceSource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteNativeGatewayServiceSourceOutcomeCallable TseClient::DeleteNativeGatewayServiceSourceCallable(const DeleteNativeGatewayServiceSourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNativeGatewayServiceSourceOutcome>>();
-    DeleteNativeGatewayServiceSourceAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteNativeGatewayServiceSourceRequest&,
-        DeleteNativeGatewayServiceSourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNativeGatewayServiceSourceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNativeGatewayServiceSource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DeleteWafDomainsOutcome TseClient::DeleteWafDomains(const DeleteWafDomainsRequest &request)
@@ -2262,32 +1954,25 @@ TseClient::DeleteWafDomainsOutcome TseClient::DeleteWafDomains(const DeleteWafDo
 
 void TseClient::DeleteWafDomainsAsync(const DeleteWafDomainsRequest& request, const DeleteWafDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteWafDomainsRequest&;
-    using Resp = DeleteWafDomainsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteWafDomains(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteWafDomains", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DeleteWafDomainsOutcomeCallable TseClient::DeleteWafDomainsCallable(const DeleteWafDomainsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteWafDomainsOutcome>>();
-    DeleteWafDomainsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DeleteWafDomainsRequest&,
-        DeleteWafDomainsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteWafDomainsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteWafDomains(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeAllConfigFileTemplatesOutcome TseClient::DescribeAllConfigFileTemplates(const DescribeAllConfigFileTemplatesRequest &request)
@@ -2312,32 +1997,25 @@ TseClient::DescribeAllConfigFileTemplatesOutcome TseClient::DescribeAllConfigFil
 
 void TseClient::DescribeAllConfigFileTemplatesAsync(const DescribeAllConfigFileTemplatesRequest& request, const DescribeAllConfigFileTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAllConfigFileTemplatesRequest&;
-    using Resp = DescribeAllConfigFileTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAllConfigFileTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAllConfigFileTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeAllConfigFileTemplatesOutcomeCallable TseClient::DescribeAllConfigFileTemplatesCallable(const DescribeAllConfigFileTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAllConfigFileTemplatesOutcome>>();
-    DescribeAllConfigFileTemplatesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeAllConfigFileTemplatesRequest&,
-        DescribeAllConfigFileTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAllConfigFileTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAllConfigFileTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeAutoScalerResourceStrategiesOutcome TseClient::DescribeAutoScalerResourceStrategies(const DescribeAutoScalerResourceStrategiesRequest &request)
@@ -2362,32 +2040,25 @@ TseClient::DescribeAutoScalerResourceStrategiesOutcome TseClient::DescribeAutoSc
 
 void TseClient::DescribeAutoScalerResourceStrategiesAsync(const DescribeAutoScalerResourceStrategiesRequest& request, const DescribeAutoScalerResourceStrategiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoScalerResourceStrategiesRequest&;
-    using Resp = DescribeAutoScalerResourceStrategiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoScalerResourceStrategies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoScalerResourceStrategies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeAutoScalerResourceStrategiesOutcomeCallable TseClient::DescribeAutoScalerResourceStrategiesCallable(const DescribeAutoScalerResourceStrategiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoScalerResourceStrategiesOutcome>>();
-    DescribeAutoScalerResourceStrategiesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeAutoScalerResourceStrategiesRequest&,
-        DescribeAutoScalerResourceStrategiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoScalerResourceStrategiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoScalerResourceStrategies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeAutoScalerResourceStrategyBindingGroupsOutcome TseClient::DescribeAutoScalerResourceStrategyBindingGroups(const DescribeAutoScalerResourceStrategyBindingGroupsRequest &request)
@@ -2412,32 +2083,25 @@ TseClient::DescribeAutoScalerResourceStrategyBindingGroupsOutcome TseClient::Des
 
 void TseClient::DescribeAutoScalerResourceStrategyBindingGroupsAsync(const DescribeAutoScalerResourceStrategyBindingGroupsRequest& request, const DescribeAutoScalerResourceStrategyBindingGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoScalerResourceStrategyBindingGroupsRequest&;
-    using Resp = DescribeAutoScalerResourceStrategyBindingGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoScalerResourceStrategyBindingGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoScalerResourceStrategyBindingGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeAutoScalerResourceStrategyBindingGroupsOutcomeCallable TseClient::DescribeAutoScalerResourceStrategyBindingGroupsCallable(const DescribeAutoScalerResourceStrategyBindingGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoScalerResourceStrategyBindingGroupsOutcome>>();
-    DescribeAutoScalerResourceStrategyBindingGroupsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeAutoScalerResourceStrategyBindingGroupsRequest&,
-        DescribeAutoScalerResourceStrategyBindingGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoScalerResourceStrategyBindingGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoScalerResourceStrategyBindingGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayOutcome TseClient::DescribeCloudNativeAPIGateway(const DescribeCloudNativeAPIGatewayRequest &request)
@@ -2462,32 +2126,25 @@ TseClient::DescribeCloudNativeAPIGatewayOutcome TseClient::DescribeCloudNativeAP
 
 void TseClient::DescribeCloudNativeAPIGatewayAsync(const DescribeCloudNativeAPIGatewayRequest& request, const DescribeCloudNativeAPIGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayCallable(const DescribeCloudNativeAPIGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayOutcome>>();
-    DescribeCloudNativeAPIGatewayAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayRequest&,
-        DescribeCloudNativeAPIGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayCanaryRulesOutcome TseClient::DescribeCloudNativeAPIGatewayCanaryRules(const DescribeCloudNativeAPIGatewayCanaryRulesRequest &request)
@@ -2512,32 +2169,25 @@ TseClient::DescribeCloudNativeAPIGatewayCanaryRulesOutcome TseClient::DescribeCl
 
 void TseClient::DescribeCloudNativeAPIGatewayCanaryRulesAsync(const DescribeCloudNativeAPIGatewayCanaryRulesRequest& request, const DescribeCloudNativeAPIGatewayCanaryRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayCanaryRulesRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayCanaryRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayCanaryRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayCanaryRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayCanaryRulesOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayCanaryRulesCallable(const DescribeCloudNativeAPIGatewayCanaryRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayCanaryRulesOutcome>>();
-    DescribeCloudNativeAPIGatewayCanaryRulesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayCanaryRulesRequest&,
-        DescribeCloudNativeAPIGatewayCanaryRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayCanaryRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayCanaryRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayCertificateDetailsOutcome TseClient::DescribeCloudNativeAPIGatewayCertificateDetails(const DescribeCloudNativeAPIGatewayCertificateDetailsRequest &request)
@@ -2562,32 +2212,25 @@ TseClient::DescribeCloudNativeAPIGatewayCertificateDetailsOutcome TseClient::Des
 
 void TseClient::DescribeCloudNativeAPIGatewayCertificateDetailsAsync(const DescribeCloudNativeAPIGatewayCertificateDetailsRequest& request, const DescribeCloudNativeAPIGatewayCertificateDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayCertificateDetailsRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayCertificateDetailsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayCertificateDetails(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayCertificateDetails", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayCertificateDetailsOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayCertificateDetailsCallable(const DescribeCloudNativeAPIGatewayCertificateDetailsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayCertificateDetailsOutcome>>();
-    DescribeCloudNativeAPIGatewayCertificateDetailsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayCertificateDetailsRequest&,
-        DescribeCloudNativeAPIGatewayCertificateDetailsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayCertificateDetailsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayCertificateDetails(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayCertificatesOutcome TseClient::DescribeCloudNativeAPIGatewayCertificates(const DescribeCloudNativeAPIGatewayCertificatesRequest &request)
@@ -2612,32 +2255,25 @@ TseClient::DescribeCloudNativeAPIGatewayCertificatesOutcome TseClient::DescribeC
 
 void TseClient::DescribeCloudNativeAPIGatewayCertificatesAsync(const DescribeCloudNativeAPIGatewayCertificatesRequest& request, const DescribeCloudNativeAPIGatewayCertificatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayCertificatesRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayCertificatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayCertificates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayCertificates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayCertificatesOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayCertificatesCallable(const DescribeCloudNativeAPIGatewayCertificatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayCertificatesOutcome>>();
-    DescribeCloudNativeAPIGatewayCertificatesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayCertificatesRequest&,
-        DescribeCloudNativeAPIGatewayCertificatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayCertificatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayCertificates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayConfigOutcome TseClient::DescribeCloudNativeAPIGatewayConfig(const DescribeCloudNativeAPIGatewayConfigRequest &request)
@@ -2662,32 +2298,25 @@ TseClient::DescribeCloudNativeAPIGatewayConfigOutcome TseClient::DescribeCloudNa
 
 void TseClient::DescribeCloudNativeAPIGatewayConfigAsync(const DescribeCloudNativeAPIGatewayConfigRequest& request, const DescribeCloudNativeAPIGatewayConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayConfigRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayConfigOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayConfigCallable(const DescribeCloudNativeAPIGatewayConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayConfigOutcome>>();
-    DescribeCloudNativeAPIGatewayConfigAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayConfigRequest&,
-        DescribeCloudNativeAPIGatewayConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayIPRestrictionOutcome TseClient::DescribeCloudNativeAPIGatewayIPRestriction(const DescribeCloudNativeAPIGatewayIPRestrictionRequest &request)
@@ -2712,32 +2341,25 @@ TseClient::DescribeCloudNativeAPIGatewayIPRestrictionOutcome TseClient::Describe
 
 void TseClient::DescribeCloudNativeAPIGatewayIPRestrictionAsync(const DescribeCloudNativeAPIGatewayIPRestrictionRequest& request, const DescribeCloudNativeAPIGatewayIPRestrictionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayIPRestrictionRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayIPRestrictionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayIPRestriction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayIPRestriction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayIPRestrictionOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayIPRestrictionCallable(const DescribeCloudNativeAPIGatewayIPRestrictionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayIPRestrictionOutcome>>();
-    DescribeCloudNativeAPIGatewayIPRestrictionAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayIPRestrictionRequest&,
-        DescribeCloudNativeAPIGatewayIPRestrictionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayIPRestrictionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayIPRestriction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayInfoByIpOutcome TseClient::DescribeCloudNativeAPIGatewayInfoByIp(const DescribeCloudNativeAPIGatewayInfoByIpRequest &request)
@@ -2762,32 +2384,25 @@ TseClient::DescribeCloudNativeAPIGatewayInfoByIpOutcome TseClient::DescribeCloud
 
 void TseClient::DescribeCloudNativeAPIGatewayInfoByIpAsync(const DescribeCloudNativeAPIGatewayInfoByIpRequest& request, const DescribeCloudNativeAPIGatewayInfoByIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayInfoByIpRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayInfoByIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayInfoByIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayInfoByIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayInfoByIpOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayInfoByIpCallable(const DescribeCloudNativeAPIGatewayInfoByIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayInfoByIpOutcome>>();
-    DescribeCloudNativeAPIGatewayInfoByIpAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayInfoByIpRequest&,
-        DescribeCloudNativeAPIGatewayInfoByIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayInfoByIpOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayInfoByIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayNodesOutcome TseClient::DescribeCloudNativeAPIGatewayNodes(const DescribeCloudNativeAPIGatewayNodesRequest &request)
@@ -2812,32 +2427,25 @@ TseClient::DescribeCloudNativeAPIGatewayNodesOutcome TseClient::DescribeCloudNat
 
 void TseClient::DescribeCloudNativeAPIGatewayNodesAsync(const DescribeCloudNativeAPIGatewayNodesRequest& request, const DescribeCloudNativeAPIGatewayNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayNodesRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayNodesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayNodes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayNodes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayNodesOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayNodesCallable(const DescribeCloudNativeAPIGatewayNodesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayNodesOutcome>>();
-    DescribeCloudNativeAPIGatewayNodesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayNodesRequest&,
-        DescribeCloudNativeAPIGatewayNodesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayNodesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayNodes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayPortsOutcome TseClient::DescribeCloudNativeAPIGatewayPorts(const DescribeCloudNativeAPIGatewayPortsRequest &request)
@@ -2862,32 +2470,25 @@ TseClient::DescribeCloudNativeAPIGatewayPortsOutcome TseClient::DescribeCloudNat
 
 void TseClient::DescribeCloudNativeAPIGatewayPortsAsync(const DescribeCloudNativeAPIGatewayPortsRequest& request, const DescribeCloudNativeAPIGatewayPortsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayPortsRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayPortsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayPorts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayPorts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayPortsOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayPortsCallable(const DescribeCloudNativeAPIGatewayPortsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayPortsOutcome>>();
-    DescribeCloudNativeAPIGatewayPortsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayPortsRequest&,
-        DescribeCloudNativeAPIGatewayPortsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayPortsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayPorts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayRouteRateLimitOutcome TseClient::DescribeCloudNativeAPIGatewayRouteRateLimit(const DescribeCloudNativeAPIGatewayRouteRateLimitRequest &request)
@@ -2912,32 +2513,25 @@ TseClient::DescribeCloudNativeAPIGatewayRouteRateLimitOutcome TseClient::Describ
 
 void TseClient::DescribeCloudNativeAPIGatewayRouteRateLimitAsync(const DescribeCloudNativeAPIGatewayRouteRateLimitRequest& request, const DescribeCloudNativeAPIGatewayRouteRateLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayRouteRateLimitRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayRouteRateLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayRouteRateLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayRouteRateLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayRouteRateLimitOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayRouteRateLimitCallable(const DescribeCloudNativeAPIGatewayRouteRateLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayRouteRateLimitOutcome>>();
-    DescribeCloudNativeAPIGatewayRouteRateLimitAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayRouteRateLimitRequest&,
-        DescribeCloudNativeAPIGatewayRouteRateLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayRouteRateLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayRouteRateLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayRoutesOutcome TseClient::DescribeCloudNativeAPIGatewayRoutes(const DescribeCloudNativeAPIGatewayRoutesRequest &request)
@@ -2962,32 +2556,25 @@ TseClient::DescribeCloudNativeAPIGatewayRoutesOutcome TseClient::DescribeCloudNa
 
 void TseClient::DescribeCloudNativeAPIGatewayRoutesAsync(const DescribeCloudNativeAPIGatewayRoutesRequest& request, const DescribeCloudNativeAPIGatewayRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayRoutesRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayRoutesOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayRoutesCallable(const DescribeCloudNativeAPIGatewayRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayRoutesOutcome>>();
-    DescribeCloudNativeAPIGatewayRoutesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayRoutesRequest&,
-        DescribeCloudNativeAPIGatewayRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayServiceRateLimitOutcome TseClient::DescribeCloudNativeAPIGatewayServiceRateLimit(const DescribeCloudNativeAPIGatewayServiceRateLimitRequest &request)
@@ -3012,32 +2599,25 @@ TseClient::DescribeCloudNativeAPIGatewayServiceRateLimitOutcome TseClient::Descr
 
 void TseClient::DescribeCloudNativeAPIGatewayServiceRateLimitAsync(const DescribeCloudNativeAPIGatewayServiceRateLimitRequest& request, const DescribeCloudNativeAPIGatewayServiceRateLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayServiceRateLimitRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayServiceRateLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayServiceRateLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayServiceRateLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayServiceRateLimitOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayServiceRateLimitCallable(const DescribeCloudNativeAPIGatewayServiceRateLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayServiceRateLimitOutcome>>();
-    DescribeCloudNativeAPIGatewayServiceRateLimitAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayServiceRateLimitRequest&,
-        DescribeCloudNativeAPIGatewayServiceRateLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayServiceRateLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayServiceRateLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayServicesOutcome TseClient::DescribeCloudNativeAPIGatewayServices(const DescribeCloudNativeAPIGatewayServicesRequest &request)
@@ -3062,32 +2642,25 @@ TseClient::DescribeCloudNativeAPIGatewayServicesOutcome TseClient::DescribeCloud
 
 void TseClient::DescribeCloudNativeAPIGatewayServicesAsync(const DescribeCloudNativeAPIGatewayServicesRequest& request, const DescribeCloudNativeAPIGatewayServicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayServicesRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayServicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayServices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayServices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayServicesOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayServicesCallable(const DescribeCloudNativeAPIGatewayServicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayServicesOutcome>>();
-    DescribeCloudNativeAPIGatewayServicesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayServicesRequest&,
-        DescribeCloudNativeAPIGatewayServicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayServicesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayServices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayServicesLightOutcome TseClient::DescribeCloudNativeAPIGatewayServicesLight(const DescribeCloudNativeAPIGatewayServicesLightRequest &request)
@@ -3112,32 +2685,25 @@ TseClient::DescribeCloudNativeAPIGatewayServicesLightOutcome TseClient::Describe
 
 void TseClient::DescribeCloudNativeAPIGatewayServicesLightAsync(const DescribeCloudNativeAPIGatewayServicesLightRequest& request, const DescribeCloudNativeAPIGatewayServicesLightAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayServicesLightRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayServicesLightResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayServicesLight(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayServicesLight", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayServicesLightOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayServicesLightCallable(const DescribeCloudNativeAPIGatewayServicesLightRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayServicesLightOutcome>>();
-    DescribeCloudNativeAPIGatewayServicesLightAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayServicesLightRequest&,
-        DescribeCloudNativeAPIGatewayServicesLightOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayServicesLightOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayServicesLight(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewayUpstreamOutcome TseClient::DescribeCloudNativeAPIGatewayUpstream(const DescribeCloudNativeAPIGatewayUpstreamRequest &request)
@@ -3162,32 +2728,25 @@ TseClient::DescribeCloudNativeAPIGatewayUpstreamOutcome TseClient::DescribeCloud
 
 void TseClient::DescribeCloudNativeAPIGatewayUpstreamAsync(const DescribeCloudNativeAPIGatewayUpstreamRequest& request, const DescribeCloudNativeAPIGatewayUpstreamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewayUpstreamRequest&;
-    using Resp = DescribeCloudNativeAPIGatewayUpstreamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGatewayUpstream(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGatewayUpstream", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewayUpstreamOutcomeCallable TseClient::DescribeCloudNativeAPIGatewayUpstreamCallable(const DescribeCloudNativeAPIGatewayUpstreamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewayUpstreamOutcome>>();
-    DescribeCloudNativeAPIGatewayUpstreamAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewayUpstreamRequest&,
-        DescribeCloudNativeAPIGatewayUpstreamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewayUpstreamOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGatewayUpstream(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeCloudNativeAPIGatewaysOutcome TseClient::DescribeCloudNativeAPIGateways(const DescribeCloudNativeAPIGatewaysRequest &request)
@@ -3212,32 +2771,25 @@ TseClient::DescribeCloudNativeAPIGatewaysOutcome TseClient::DescribeCloudNativeA
 
 void TseClient::DescribeCloudNativeAPIGatewaysAsync(const DescribeCloudNativeAPIGatewaysRequest& request, const DescribeCloudNativeAPIGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudNativeAPIGatewaysRequest&;
-    using Resp = DescribeCloudNativeAPIGatewaysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudNativeAPIGateways(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudNativeAPIGateways", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeCloudNativeAPIGatewaysOutcomeCallable TseClient::DescribeCloudNativeAPIGatewaysCallable(const DescribeCloudNativeAPIGatewaysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudNativeAPIGatewaysOutcome>>();
-    DescribeCloudNativeAPIGatewaysAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeCloudNativeAPIGatewaysRequest&,
-        DescribeCloudNativeAPIGatewaysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudNativeAPIGatewaysOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudNativeAPIGateways(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeConfigFileOutcome TseClient::DescribeConfigFile(const DescribeConfigFileRequest &request)
@@ -3262,32 +2814,25 @@ TseClient::DescribeConfigFileOutcome TseClient::DescribeConfigFile(const Describ
 
 void TseClient::DescribeConfigFileAsync(const DescribeConfigFileRequest& request, const DescribeConfigFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigFileRequest&;
-    using Resp = DescribeConfigFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeConfigFileOutcomeCallable TseClient::DescribeConfigFileCallable(const DescribeConfigFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigFileOutcome>>();
-    DescribeConfigFileAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeConfigFileRequest&,
-        DescribeConfigFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigFileOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeConfigFileGroupsOutcome TseClient::DescribeConfigFileGroups(const DescribeConfigFileGroupsRequest &request)
@@ -3312,32 +2857,25 @@ TseClient::DescribeConfigFileGroupsOutcome TseClient::DescribeConfigFileGroups(c
 
 void TseClient::DescribeConfigFileGroupsAsync(const DescribeConfigFileGroupsRequest& request, const DescribeConfigFileGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigFileGroupsRequest&;
-    using Resp = DescribeConfigFileGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigFileGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigFileGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeConfigFileGroupsOutcomeCallable TseClient::DescribeConfigFileGroupsCallable(const DescribeConfigFileGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigFileGroupsOutcome>>();
-    DescribeConfigFileGroupsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeConfigFileGroupsRequest&,
-        DescribeConfigFileGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigFileGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigFileGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeConfigFileReleaseOutcome TseClient::DescribeConfigFileRelease(const DescribeConfigFileReleaseRequest &request)
@@ -3362,32 +2900,25 @@ TseClient::DescribeConfigFileReleaseOutcome TseClient::DescribeConfigFileRelease
 
 void TseClient::DescribeConfigFileReleaseAsync(const DescribeConfigFileReleaseRequest& request, const DescribeConfigFileReleaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigFileReleaseRequest&;
-    using Resp = DescribeConfigFileReleaseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigFileRelease(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigFileRelease", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeConfigFileReleaseOutcomeCallable TseClient::DescribeConfigFileReleaseCallable(const DescribeConfigFileReleaseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigFileReleaseOutcome>>();
-    DescribeConfigFileReleaseAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeConfigFileReleaseRequest&,
-        DescribeConfigFileReleaseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigFileReleaseOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigFileRelease(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeConfigFileReleaseHistoriesOutcome TseClient::DescribeConfigFileReleaseHistories(const DescribeConfigFileReleaseHistoriesRequest &request)
@@ -3412,32 +2943,25 @@ TseClient::DescribeConfigFileReleaseHistoriesOutcome TseClient::DescribeConfigFi
 
 void TseClient::DescribeConfigFileReleaseHistoriesAsync(const DescribeConfigFileReleaseHistoriesRequest& request, const DescribeConfigFileReleaseHistoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigFileReleaseHistoriesRequest&;
-    using Resp = DescribeConfigFileReleaseHistoriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigFileReleaseHistories(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigFileReleaseHistories", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeConfigFileReleaseHistoriesOutcomeCallable TseClient::DescribeConfigFileReleaseHistoriesCallable(const DescribeConfigFileReleaseHistoriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigFileReleaseHistoriesOutcome>>();
-    DescribeConfigFileReleaseHistoriesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeConfigFileReleaseHistoriesRequest&,
-        DescribeConfigFileReleaseHistoriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigFileReleaseHistoriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigFileReleaseHistories(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeConfigFileReleaseVersionsOutcome TseClient::DescribeConfigFileReleaseVersions(const DescribeConfigFileReleaseVersionsRequest &request)
@@ -3462,32 +2986,25 @@ TseClient::DescribeConfigFileReleaseVersionsOutcome TseClient::DescribeConfigFil
 
 void TseClient::DescribeConfigFileReleaseVersionsAsync(const DescribeConfigFileReleaseVersionsRequest& request, const DescribeConfigFileReleaseVersionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigFileReleaseVersionsRequest&;
-    using Resp = DescribeConfigFileReleaseVersionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigFileReleaseVersions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigFileReleaseVersions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeConfigFileReleaseVersionsOutcomeCallable TseClient::DescribeConfigFileReleaseVersionsCallable(const DescribeConfigFileReleaseVersionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigFileReleaseVersionsOutcome>>();
-    DescribeConfigFileReleaseVersionsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeConfigFileReleaseVersionsRequest&,
-        DescribeConfigFileReleaseVersionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigFileReleaseVersionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigFileReleaseVersions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeConfigFileReleasesOutcome TseClient::DescribeConfigFileReleases(const DescribeConfigFileReleasesRequest &request)
@@ -3512,32 +3029,25 @@ TseClient::DescribeConfigFileReleasesOutcome TseClient::DescribeConfigFileReleas
 
 void TseClient::DescribeConfigFileReleasesAsync(const DescribeConfigFileReleasesRequest& request, const DescribeConfigFileReleasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigFileReleasesRequest&;
-    using Resp = DescribeConfigFileReleasesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigFileReleases(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigFileReleases", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeConfigFileReleasesOutcomeCallable TseClient::DescribeConfigFileReleasesCallable(const DescribeConfigFileReleasesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigFileReleasesOutcome>>();
-    DescribeConfigFileReleasesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeConfigFileReleasesRequest&,
-        DescribeConfigFileReleasesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigFileReleasesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigFileReleases(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeConfigFilesOutcome TseClient::DescribeConfigFiles(const DescribeConfigFilesRequest &request)
@@ -3562,32 +3072,25 @@ TseClient::DescribeConfigFilesOutcome TseClient::DescribeConfigFiles(const Descr
 
 void TseClient::DescribeConfigFilesAsync(const DescribeConfigFilesRequest& request, const DescribeConfigFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigFilesRequest&;
-    using Resp = DescribeConfigFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeConfigFilesOutcomeCallable TseClient::DescribeConfigFilesCallable(const DescribeConfigFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigFilesOutcome>>();
-    DescribeConfigFilesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeConfigFilesRequest&,
-        DescribeConfigFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeConfigFilesByGroupOutcome TseClient::DescribeConfigFilesByGroup(const DescribeConfigFilesByGroupRequest &request)
@@ -3612,32 +3115,25 @@ TseClient::DescribeConfigFilesByGroupOutcome TseClient::DescribeConfigFilesByGro
 
 void TseClient::DescribeConfigFilesByGroupAsync(const DescribeConfigFilesByGroupRequest& request, const DescribeConfigFilesByGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigFilesByGroupRequest&;
-    using Resp = DescribeConfigFilesByGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigFilesByGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigFilesByGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeConfigFilesByGroupOutcomeCallable TseClient::DescribeConfigFilesByGroupCallable(const DescribeConfigFilesByGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigFilesByGroupOutcome>>();
-    DescribeConfigFilesByGroupAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeConfigFilesByGroupRequest&,
-        DescribeConfigFilesByGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigFilesByGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigFilesByGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeGovernanceAliasesOutcome TseClient::DescribeGovernanceAliases(const DescribeGovernanceAliasesRequest &request)
@@ -3662,32 +3158,25 @@ TseClient::DescribeGovernanceAliasesOutcome TseClient::DescribeGovernanceAliases
 
 void TseClient::DescribeGovernanceAliasesAsync(const DescribeGovernanceAliasesRequest& request, const DescribeGovernanceAliasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGovernanceAliasesRequest&;
-    using Resp = DescribeGovernanceAliasesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGovernanceAliases(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGovernanceAliases", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeGovernanceAliasesOutcomeCallable TseClient::DescribeGovernanceAliasesCallable(const DescribeGovernanceAliasesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGovernanceAliasesOutcome>>();
-    DescribeGovernanceAliasesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeGovernanceAliasesRequest&,
-        DescribeGovernanceAliasesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGovernanceAliasesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGovernanceAliases(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeGovernanceInstancesOutcome TseClient::DescribeGovernanceInstances(const DescribeGovernanceInstancesRequest &request)
@@ -3712,32 +3201,25 @@ TseClient::DescribeGovernanceInstancesOutcome TseClient::DescribeGovernanceInsta
 
 void TseClient::DescribeGovernanceInstancesAsync(const DescribeGovernanceInstancesRequest& request, const DescribeGovernanceInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGovernanceInstancesRequest&;
-    using Resp = DescribeGovernanceInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGovernanceInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGovernanceInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeGovernanceInstancesOutcomeCallable TseClient::DescribeGovernanceInstancesCallable(const DescribeGovernanceInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGovernanceInstancesOutcome>>();
-    DescribeGovernanceInstancesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeGovernanceInstancesRequest&,
-        DescribeGovernanceInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGovernanceInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGovernanceInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeGovernanceNamespacesOutcome TseClient::DescribeGovernanceNamespaces(const DescribeGovernanceNamespacesRequest &request)
@@ -3762,32 +3244,25 @@ TseClient::DescribeGovernanceNamespacesOutcome TseClient::DescribeGovernanceName
 
 void TseClient::DescribeGovernanceNamespacesAsync(const DescribeGovernanceNamespacesRequest& request, const DescribeGovernanceNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGovernanceNamespacesRequest&;
-    using Resp = DescribeGovernanceNamespacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGovernanceNamespaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGovernanceNamespaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeGovernanceNamespacesOutcomeCallable TseClient::DescribeGovernanceNamespacesCallable(const DescribeGovernanceNamespacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGovernanceNamespacesOutcome>>();
-    DescribeGovernanceNamespacesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeGovernanceNamespacesRequest&,
-        DescribeGovernanceNamespacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGovernanceNamespacesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGovernanceNamespaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeGovernanceServiceContractVersionsOutcome TseClient::DescribeGovernanceServiceContractVersions(const DescribeGovernanceServiceContractVersionsRequest &request)
@@ -3812,32 +3287,25 @@ TseClient::DescribeGovernanceServiceContractVersionsOutcome TseClient::DescribeG
 
 void TseClient::DescribeGovernanceServiceContractVersionsAsync(const DescribeGovernanceServiceContractVersionsRequest& request, const DescribeGovernanceServiceContractVersionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGovernanceServiceContractVersionsRequest&;
-    using Resp = DescribeGovernanceServiceContractVersionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGovernanceServiceContractVersions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGovernanceServiceContractVersions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeGovernanceServiceContractVersionsOutcomeCallable TseClient::DescribeGovernanceServiceContractVersionsCallable(const DescribeGovernanceServiceContractVersionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGovernanceServiceContractVersionsOutcome>>();
-    DescribeGovernanceServiceContractVersionsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeGovernanceServiceContractVersionsRequest&,
-        DescribeGovernanceServiceContractVersionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGovernanceServiceContractVersionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGovernanceServiceContractVersions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeGovernanceServiceContractsOutcome TseClient::DescribeGovernanceServiceContracts(const DescribeGovernanceServiceContractsRequest &request)
@@ -3862,32 +3330,25 @@ TseClient::DescribeGovernanceServiceContractsOutcome TseClient::DescribeGovernan
 
 void TseClient::DescribeGovernanceServiceContractsAsync(const DescribeGovernanceServiceContractsRequest& request, const DescribeGovernanceServiceContractsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGovernanceServiceContractsRequest&;
-    using Resp = DescribeGovernanceServiceContractsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGovernanceServiceContracts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGovernanceServiceContracts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeGovernanceServiceContractsOutcomeCallable TseClient::DescribeGovernanceServiceContractsCallable(const DescribeGovernanceServiceContractsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGovernanceServiceContractsOutcome>>();
-    DescribeGovernanceServiceContractsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeGovernanceServiceContractsRequest&,
-        DescribeGovernanceServiceContractsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGovernanceServiceContractsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGovernanceServiceContracts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeGovernanceServicesOutcome TseClient::DescribeGovernanceServices(const DescribeGovernanceServicesRequest &request)
@@ -3912,32 +3373,25 @@ TseClient::DescribeGovernanceServicesOutcome TseClient::DescribeGovernanceServic
 
 void TseClient::DescribeGovernanceServicesAsync(const DescribeGovernanceServicesRequest& request, const DescribeGovernanceServicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGovernanceServicesRequest&;
-    using Resp = DescribeGovernanceServicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGovernanceServices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGovernanceServices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeGovernanceServicesOutcomeCallable TseClient::DescribeGovernanceServicesCallable(const DescribeGovernanceServicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGovernanceServicesOutcome>>();
-    DescribeGovernanceServicesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeGovernanceServicesRequest&,
-        DescribeGovernanceServicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGovernanceServicesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGovernanceServices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeInstanceTagInfosOutcome TseClient::DescribeInstanceTagInfos(const DescribeInstanceTagInfosRequest &request)
@@ -3962,32 +3416,25 @@ TseClient::DescribeInstanceTagInfosOutcome TseClient::DescribeInstanceTagInfos(c
 
 void TseClient::DescribeInstanceTagInfosAsync(const DescribeInstanceTagInfosRequest& request, const DescribeInstanceTagInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceTagInfosRequest&;
-    using Resp = DescribeInstanceTagInfosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceTagInfos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceTagInfos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeInstanceTagInfosOutcomeCallable TseClient::DescribeInstanceTagInfosCallable(const DescribeInstanceTagInfosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceTagInfosOutcome>>();
-    DescribeInstanceTagInfosAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeInstanceTagInfosRequest&,
-        DescribeInstanceTagInfosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceTagInfosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceTagInfos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeNacosReplicasOutcome TseClient::DescribeNacosReplicas(const DescribeNacosReplicasRequest &request)
@@ -4012,32 +3459,25 @@ TseClient::DescribeNacosReplicasOutcome TseClient::DescribeNacosReplicas(const D
 
 void TseClient::DescribeNacosReplicasAsync(const DescribeNacosReplicasRequest& request, const DescribeNacosReplicasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNacosReplicasRequest&;
-    using Resp = DescribeNacosReplicasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNacosReplicas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNacosReplicas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeNacosReplicasOutcomeCallable TseClient::DescribeNacosReplicasCallable(const DescribeNacosReplicasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNacosReplicasOutcome>>();
-    DescribeNacosReplicasAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeNacosReplicasRequest&,
-        DescribeNacosReplicasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNacosReplicasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNacosReplicas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeNacosServerInterfacesOutcome TseClient::DescribeNacosServerInterfaces(const DescribeNacosServerInterfacesRequest &request)
@@ -4062,32 +3502,25 @@ TseClient::DescribeNacosServerInterfacesOutcome TseClient::DescribeNacosServerIn
 
 void TseClient::DescribeNacosServerInterfacesAsync(const DescribeNacosServerInterfacesRequest& request, const DescribeNacosServerInterfacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNacosServerInterfacesRequest&;
-    using Resp = DescribeNacosServerInterfacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNacosServerInterfaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNacosServerInterfaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeNacosServerInterfacesOutcomeCallable TseClient::DescribeNacosServerInterfacesCallable(const DescribeNacosServerInterfacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNacosServerInterfacesOutcome>>();
-    DescribeNacosServerInterfacesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeNacosServerInterfacesRequest&,
-        DescribeNacosServerInterfacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNacosServerInterfacesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNacosServerInterfaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeNativeGatewayServerGroupsOutcome TseClient::DescribeNativeGatewayServerGroups(const DescribeNativeGatewayServerGroupsRequest &request)
@@ -4112,32 +3545,25 @@ TseClient::DescribeNativeGatewayServerGroupsOutcome TseClient::DescribeNativeGat
 
 void TseClient::DescribeNativeGatewayServerGroupsAsync(const DescribeNativeGatewayServerGroupsRequest& request, const DescribeNativeGatewayServerGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNativeGatewayServerGroupsRequest&;
-    using Resp = DescribeNativeGatewayServerGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNativeGatewayServerGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNativeGatewayServerGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeNativeGatewayServerGroupsOutcomeCallable TseClient::DescribeNativeGatewayServerGroupsCallable(const DescribeNativeGatewayServerGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNativeGatewayServerGroupsOutcome>>();
-    DescribeNativeGatewayServerGroupsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeNativeGatewayServerGroupsRequest&,
-        DescribeNativeGatewayServerGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNativeGatewayServerGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNativeGatewayServerGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeNativeGatewayServiceSourcesOutcome TseClient::DescribeNativeGatewayServiceSources(const DescribeNativeGatewayServiceSourcesRequest &request)
@@ -4162,32 +3588,25 @@ TseClient::DescribeNativeGatewayServiceSourcesOutcome TseClient::DescribeNativeG
 
 void TseClient::DescribeNativeGatewayServiceSourcesAsync(const DescribeNativeGatewayServiceSourcesRequest& request, const DescribeNativeGatewayServiceSourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNativeGatewayServiceSourcesRequest&;
-    using Resp = DescribeNativeGatewayServiceSourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNativeGatewayServiceSources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNativeGatewayServiceSources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeNativeGatewayServiceSourcesOutcomeCallable TseClient::DescribeNativeGatewayServiceSourcesCallable(const DescribeNativeGatewayServiceSourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNativeGatewayServiceSourcesOutcome>>();
-    DescribeNativeGatewayServiceSourcesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeNativeGatewayServiceSourcesRequest&,
-        DescribeNativeGatewayServiceSourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNativeGatewayServiceSourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNativeGatewayServiceSources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeOneCloudNativeAPIGatewayServiceOutcome TseClient::DescribeOneCloudNativeAPIGatewayService(const DescribeOneCloudNativeAPIGatewayServiceRequest &request)
@@ -4212,32 +3631,25 @@ TseClient::DescribeOneCloudNativeAPIGatewayServiceOutcome TseClient::DescribeOne
 
 void TseClient::DescribeOneCloudNativeAPIGatewayServiceAsync(const DescribeOneCloudNativeAPIGatewayServiceRequest& request, const DescribeOneCloudNativeAPIGatewayServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOneCloudNativeAPIGatewayServiceRequest&;
-    using Resp = DescribeOneCloudNativeAPIGatewayServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOneCloudNativeAPIGatewayService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOneCloudNativeAPIGatewayService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeOneCloudNativeAPIGatewayServiceOutcomeCallable TseClient::DescribeOneCloudNativeAPIGatewayServiceCallable(const DescribeOneCloudNativeAPIGatewayServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOneCloudNativeAPIGatewayServiceOutcome>>();
-    DescribeOneCloudNativeAPIGatewayServiceAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeOneCloudNativeAPIGatewayServiceRequest&,
-        DescribeOneCloudNativeAPIGatewayServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOneCloudNativeAPIGatewayServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOneCloudNativeAPIGatewayService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribePublicAddressConfigOutcome TseClient::DescribePublicAddressConfig(const DescribePublicAddressConfigRequest &request)
@@ -4262,32 +3674,25 @@ TseClient::DescribePublicAddressConfigOutcome TseClient::DescribePublicAddressCo
 
 void TseClient::DescribePublicAddressConfigAsync(const DescribePublicAddressConfigRequest& request, const DescribePublicAddressConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePublicAddressConfigRequest&;
-    using Resp = DescribePublicAddressConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePublicAddressConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePublicAddressConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribePublicAddressConfigOutcomeCallable TseClient::DescribePublicAddressConfigCallable(const DescribePublicAddressConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePublicAddressConfigOutcome>>();
-    DescribePublicAddressConfigAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribePublicAddressConfigRequest&,
-        DescribePublicAddressConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePublicAddressConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePublicAddressConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribePublicNetworkOutcome TseClient::DescribePublicNetwork(const DescribePublicNetworkRequest &request)
@@ -4312,32 +3717,25 @@ TseClient::DescribePublicNetworkOutcome TseClient::DescribePublicNetwork(const D
 
 void TseClient::DescribePublicNetworkAsync(const DescribePublicNetworkRequest& request, const DescribePublicNetworkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePublicNetworkRequest&;
-    using Resp = DescribePublicNetworkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePublicNetwork(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePublicNetwork", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribePublicNetworkOutcomeCallable TseClient::DescribePublicNetworkCallable(const DescribePublicNetworkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePublicNetworkOutcome>>();
-    DescribePublicNetworkAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribePublicNetworkRequest&,
-        DescribePublicNetworkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePublicNetworkOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePublicNetwork(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeSREInstanceAccessAddressOutcome TseClient::DescribeSREInstanceAccessAddress(const DescribeSREInstanceAccessAddressRequest &request)
@@ -4362,32 +3760,25 @@ TseClient::DescribeSREInstanceAccessAddressOutcome TseClient::DescribeSREInstanc
 
 void TseClient::DescribeSREInstanceAccessAddressAsync(const DescribeSREInstanceAccessAddressRequest& request, const DescribeSREInstanceAccessAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSREInstanceAccessAddressRequest&;
-    using Resp = DescribeSREInstanceAccessAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSREInstanceAccessAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSREInstanceAccessAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeSREInstanceAccessAddressOutcomeCallable TseClient::DescribeSREInstanceAccessAddressCallable(const DescribeSREInstanceAccessAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSREInstanceAccessAddressOutcome>>();
-    DescribeSREInstanceAccessAddressAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeSREInstanceAccessAddressRequest&,
-        DescribeSREInstanceAccessAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSREInstanceAccessAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSREInstanceAccessAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeSREInstancesOutcome TseClient::DescribeSREInstances(const DescribeSREInstancesRequest &request)
@@ -4412,32 +3803,25 @@ TseClient::DescribeSREInstancesOutcome TseClient::DescribeSREInstances(const Des
 
 void TseClient::DescribeSREInstancesAsync(const DescribeSREInstancesRequest& request, const DescribeSREInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSREInstancesRequest&;
-    using Resp = DescribeSREInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSREInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSREInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeSREInstancesOutcomeCallable TseClient::DescribeSREInstancesCallable(const DescribeSREInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSREInstancesOutcome>>();
-    DescribeSREInstancesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeSREInstancesRequest&,
-        DescribeSREInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSREInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSREInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeUpstreamHealthCheckConfigOutcome TseClient::DescribeUpstreamHealthCheckConfig(const DescribeUpstreamHealthCheckConfigRequest &request)
@@ -4462,32 +3846,25 @@ TseClient::DescribeUpstreamHealthCheckConfigOutcome TseClient::DescribeUpstreamH
 
 void TseClient::DescribeUpstreamHealthCheckConfigAsync(const DescribeUpstreamHealthCheckConfigRequest& request, const DescribeUpstreamHealthCheckConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUpstreamHealthCheckConfigRequest&;
-    using Resp = DescribeUpstreamHealthCheckConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUpstreamHealthCheckConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUpstreamHealthCheckConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeUpstreamHealthCheckConfigOutcomeCallable TseClient::DescribeUpstreamHealthCheckConfigCallable(const DescribeUpstreamHealthCheckConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUpstreamHealthCheckConfigOutcome>>();
-    DescribeUpstreamHealthCheckConfigAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeUpstreamHealthCheckConfigRequest&,
-        DescribeUpstreamHealthCheckConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUpstreamHealthCheckConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUpstreamHealthCheckConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeWafDomainsOutcome TseClient::DescribeWafDomains(const DescribeWafDomainsRequest &request)
@@ -4512,32 +3889,25 @@ TseClient::DescribeWafDomainsOutcome TseClient::DescribeWafDomains(const Describ
 
 void TseClient::DescribeWafDomainsAsync(const DescribeWafDomainsRequest& request, const DescribeWafDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWafDomainsRequest&;
-    using Resp = DescribeWafDomainsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWafDomains(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWafDomains", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeWafDomainsOutcomeCallable TseClient::DescribeWafDomainsCallable(const DescribeWafDomainsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWafDomainsOutcome>>();
-    DescribeWafDomainsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeWafDomainsRequest&,
-        DescribeWafDomainsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWafDomainsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWafDomains(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeWafProtectionOutcome TseClient::DescribeWafProtection(const DescribeWafProtectionRequest &request)
@@ -4562,32 +3932,25 @@ TseClient::DescribeWafProtectionOutcome TseClient::DescribeWafProtection(const D
 
 void TseClient::DescribeWafProtectionAsync(const DescribeWafProtectionRequest& request, const DescribeWafProtectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWafProtectionRequest&;
-    using Resp = DescribeWafProtectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWafProtection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWafProtection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeWafProtectionOutcomeCallable TseClient::DescribeWafProtectionCallable(const DescribeWafProtectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWafProtectionOutcome>>();
-    DescribeWafProtectionAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeWafProtectionRequest&,
-        DescribeWafProtectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWafProtectionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWafProtection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeZookeeperReplicasOutcome TseClient::DescribeZookeeperReplicas(const DescribeZookeeperReplicasRequest &request)
@@ -4612,32 +3975,25 @@ TseClient::DescribeZookeeperReplicasOutcome TseClient::DescribeZookeeperReplicas
 
 void TseClient::DescribeZookeeperReplicasAsync(const DescribeZookeeperReplicasRequest& request, const DescribeZookeeperReplicasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeZookeeperReplicasRequest&;
-    using Resp = DescribeZookeeperReplicasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeZookeeperReplicas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeZookeeperReplicas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeZookeeperReplicasOutcomeCallable TseClient::DescribeZookeeperReplicasCallable(const DescribeZookeeperReplicasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeZookeeperReplicasOutcome>>();
-    DescribeZookeeperReplicasAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeZookeeperReplicasRequest&,
-        DescribeZookeeperReplicasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeZookeeperReplicasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeZookeeperReplicas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::DescribeZookeeperServerInterfacesOutcome TseClient::DescribeZookeeperServerInterfaces(const DescribeZookeeperServerInterfacesRequest &request)
@@ -4662,32 +4018,25 @@ TseClient::DescribeZookeeperServerInterfacesOutcome TseClient::DescribeZookeeper
 
 void TseClient::DescribeZookeeperServerInterfacesAsync(const DescribeZookeeperServerInterfacesRequest& request, const DescribeZookeeperServerInterfacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeZookeeperServerInterfacesRequest&;
-    using Resp = DescribeZookeeperServerInterfacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeZookeeperServerInterfaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeZookeeperServerInterfaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::DescribeZookeeperServerInterfacesOutcomeCallable TseClient::DescribeZookeeperServerInterfacesCallable(const DescribeZookeeperServerInterfacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeZookeeperServerInterfacesOutcome>>();
-    DescribeZookeeperServerInterfacesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const DescribeZookeeperServerInterfacesRequest&,
-        DescribeZookeeperServerInterfacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeZookeeperServerInterfacesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeZookeeperServerInterfaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyAutoScalerResourceStrategyOutcome TseClient::ModifyAutoScalerResourceStrategy(const ModifyAutoScalerResourceStrategyRequest &request)
@@ -4712,32 +4061,25 @@ TseClient::ModifyAutoScalerResourceStrategyOutcome TseClient::ModifyAutoScalerRe
 
 void TseClient::ModifyAutoScalerResourceStrategyAsync(const ModifyAutoScalerResourceStrategyRequest& request, const ModifyAutoScalerResourceStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAutoScalerResourceStrategyRequest&;
-    using Resp = ModifyAutoScalerResourceStrategyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAutoScalerResourceStrategy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAutoScalerResourceStrategy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyAutoScalerResourceStrategyOutcomeCallable TseClient::ModifyAutoScalerResourceStrategyCallable(const ModifyAutoScalerResourceStrategyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAutoScalerResourceStrategyOutcome>>();
-    ModifyAutoScalerResourceStrategyAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyAutoScalerResourceStrategyRequest&,
-        ModifyAutoScalerResourceStrategyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAutoScalerResourceStrategyOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAutoScalerResourceStrategy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyCloudNativeAPIGatewayOutcome TseClient::ModifyCloudNativeAPIGateway(const ModifyCloudNativeAPIGatewayRequest &request)
@@ -4762,32 +4104,25 @@ TseClient::ModifyCloudNativeAPIGatewayOutcome TseClient::ModifyCloudNativeAPIGat
 
 void TseClient::ModifyCloudNativeAPIGatewayAsync(const ModifyCloudNativeAPIGatewayRequest& request, const ModifyCloudNativeAPIGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudNativeAPIGatewayRequest&;
-    using Resp = ModifyCloudNativeAPIGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCloudNativeAPIGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCloudNativeAPIGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyCloudNativeAPIGatewayOutcomeCallable TseClient::ModifyCloudNativeAPIGatewayCallable(const ModifyCloudNativeAPIGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudNativeAPIGatewayOutcome>>();
-    ModifyCloudNativeAPIGatewayAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyCloudNativeAPIGatewayRequest&,
-        ModifyCloudNativeAPIGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCloudNativeAPIGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCloudNativeAPIGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyCloudNativeAPIGatewayCanaryRuleOutcome TseClient::ModifyCloudNativeAPIGatewayCanaryRule(const ModifyCloudNativeAPIGatewayCanaryRuleRequest &request)
@@ -4812,32 +4147,25 @@ TseClient::ModifyCloudNativeAPIGatewayCanaryRuleOutcome TseClient::ModifyCloudNa
 
 void TseClient::ModifyCloudNativeAPIGatewayCanaryRuleAsync(const ModifyCloudNativeAPIGatewayCanaryRuleRequest& request, const ModifyCloudNativeAPIGatewayCanaryRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudNativeAPIGatewayCanaryRuleRequest&;
-    using Resp = ModifyCloudNativeAPIGatewayCanaryRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCloudNativeAPIGatewayCanaryRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCloudNativeAPIGatewayCanaryRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyCloudNativeAPIGatewayCanaryRuleOutcomeCallable TseClient::ModifyCloudNativeAPIGatewayCanaryRuleCallable(const ModifyCloudNativeAPIGatewayCanaryRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudNativeAPIGatewayCanaryRuleOutcome>>();
-    ModifyCloudNativeAPIGatewayCanaryRuleAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyCloudNativeAPIGatewayCanaryRuleRequest&,
-        ModifyCloudNativeAPIGatewayCanaryRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCloudNativeAPIGatewayCanaryRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCloudNativeAPIGatewayCanaryRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyCloudNativeAPIGatewayCertificateOutcome TseClient::ModifyCloudNativeAPIGatewayCertificate(const ModifyCloudNativeAPIGatewayCertificateRequest &request)
@@ -4862,32 +4190,25 @@ TseClient::ModifyCloudNativeAPIGatewayCertificateOutcome TseClient::ModifyCloudN
 
 void TseClient::ModifyCloudNativeAPIGatewayCertificateAsync(const ModifyCloudNativeAPIGatewayCertificateRequest& request, const ModifyCloudNativeAPIGatewayCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudNativeAPIGatewayCertificateRequest&;
-    using Resp = ModifyCloudNativeAPIGatewayCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCloudNativeAPIGatewayCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCloudNativeAPIGatewayCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyCloudNativeAPIGatewayCertificateOutcomeCallable TseClient::ModifyCloudNativeAPIGatewayCertificateCallable(const ModifyCloudNativeAPIGatewayCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudNativeAPIGatewayCertificateOutcome>>();
-    ModifyCloudNativeAPIGatewayCertificateAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyCloudNativeAPIGatewayCertificateRequest&,
-        ModifyCloudNativeAPIGatewayCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCloudNativeAPIGatewayCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCloudNativeAPIGatewayCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyCloudNativeAPIGatewayRouteOutcome TseClient::ModifyCloudNativeAPIGatewayRoute(const ModifyCloudNativeAPIGatewayRouteRequest &request)
@@ -4912,32 +4233,25 @@ TseClient::ModifyCloudNativeAPIGatewayRouteOutcome TseClient::ModifyCloudNativeA
 
 void TseClient::ModifyCloudNativeAPIGatewayRouteAsync(const ModifyCloudNativeAPIGatewayRouteRequest& request, const ModifyCloudNativeAPIGatewayRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudNativeAPIGatewayRouteRequest&;
-    using Resp = ModifyCloudNativeAPIGatewayRouteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCloudNativeAPIGatewayRoute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCloudNativeAPIGatewayRoute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyCloudNativeAPIGatewayRouteOutcomeCallable TseClient::ModifyCloudNativeAPIGatewayRouteCallable(const ModifyCloudNativeAPIGatewayRouteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudNativeAPIGatewayRouteOutcome>>();
-    ModifyCloudNativeAPIGatewayRouteAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyCloudNativeAPIGatewayRouteRequest&,
-        ModifyCloudNativeAPIGatewayRouteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCloudNativeAPIGatewayRouteOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCloudNativeAPIGatewayRoute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyCloudNativeAPIGatewayRouteRateLimitOutcome TseClient::ModifyCloudNativeAPIGatewayRouteRateLimit(const ModifyCloudNativeAPIGatewayRouteRateLimitRequest &request)
@@ -4962,32 +4276,25 @@ TseClient::ModifyCloudNativeAPIGatewayRouteRateLimitOutcome TseClient::ModifyClo
 
 void TseClient::ModifyCloudNativeAPIGatewayRouteRateLimitAsync(const ModifyCloudNativeAPIGatewayRouteRateLimitRequest& request, const ModifyCloudNativeAPIGatewayRouteRateLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudNativeAPIGatewayRouteRateLimitRequest&;
-    using Resp = ModifyCloudNativeAPIGatewayRouteRateLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCloudNativeAPIGatewayRouteRateLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCloudNativeAPIGatewayRouteRateLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyCloudNativeAPIGatewayRouteRateLimitOutcomeCallable TseClient::ModifyCloudNativeAPIGatewayRouteRateLimitCallable(const ModifyCloudNativeAPIGatewayRouteRateLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudNativeAPIGatewayRouteRateLimitOutcome>>();
-    ModifyCloudNativeAPIGatewayRouteRateLimitAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyCloudNativeAPIGatewayRouteRateLimitRequest&,
-        ModifyCloudNativeAPIGatewayRouteRateLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCloudNativeAPIGatewayRouteRateLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCloudNativeAPIGatewayRouteRateLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyCloudNativeAPIGatewayServiceOutcome TseClient::ModifyCloudNativeAPIGatewayService(const ModifyCloudNativeAPIGatewayServiceRequest &request)
@@ -5012,32 +4319,25 @@ TseClient::ModifyCloudNativeAPIGatewayServiceOutcome TseClient::ModifyCloudNativ
 
 void TseClient::ModifyCloudNativeAPIGatewayServiceAsync(const ModifyCloudNativeAPIGatewayServiceRequest& request, const ModifyCloudNativeAPIGatewayServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudNativeAPIGatewayServiceRequest&;
-    using Resp = ModifyCloudNativeAPIGatewayServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCloudNativeAPIGatewayService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCloudNativeAPIGatewayService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyCloudNativeAPIGatewayServiceOutcomeCallable TseClient::ModifyCloudNativeAPIGatewayServiceCallable(const ModifyCloudNativeAPIGatewayServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudNativeAPIGatewayServiceOutcome>>();
-    ModifyCloudNativeAPIGatewayServiceAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyCloudNativeAPIGatewayServiceRequest&,
-        ModifyCloudNativeAPIGatewayServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCloudNativeAPIGatewayServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCloudNativeAPIGatewayService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyCloudNativeAPIGatewayServiceRateLimitOutcome TseClient::ModifyCloudNativeAPIGatewayServiceRateLimit(const ModifyCloudNativeAPIGatewayServiceRateLimitRequest &request)
@@ -5062,32 +4362,25 @@ TseClient::ModifyCloudNativeAPIGatewayServiceRateLimitOutcome TseClient::ModifyC
 
 void TseClient::ModifyCloudNativeAPIGatewayServiceRateLimitAsync(const ModifyCloudNativeAPIGatewayServiceRateLimitRequest& request, const ModifyCloudNativeAPIGatewayServiceRateLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCloudNativeAPIGatewayServiceRateLimitRequest&;
-    using Resp = ModifyCloudNativeAPIGatewayServiceRateLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCloudNativeAPIGatewayServiceRateLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCloudNativeAPIGatewayServiceRateLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyCloudNativeAPIGatewayServiceRateLimitOutcomeCallable TseClient::ModifyCloudNativeAPIGatewayServiceRateLimitCallable(const ModifyCloudNativeAPIGatewayServiceRateLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCloudNativeAPIGatewayServiceRateLimitOutcome>>();
-    ModifyCloudNativeAPIGatewayServiceRateLimitAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyCloudNativeAPIGatewayServiceRateLimitRequest&,
-        ModifyCloudNativeAPIGatewayServiceRateLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCloudNativeAPIGatewayServiceRateLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCloudNativeAPIGatewayServiceRateLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyConfigFileGroupOutcome TseClient::ModifyConfigFileGroup(const ModifyConfigFileGroupRequest &request)
@@ -5112,32 +4405,25 @@ TseClient::ModifyConfigFileGroupOutcome TseClient::ModifyConfigFileGroup(const M
 
 void TseClient::ModifyConfigFileGroupAsync(const ModifyConfigFileGroupRequest& request, const ModifyConfigFileGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConfigFileGroupRequest&;
-    using Resp = ModifyConfigFileGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConfigFileGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConfigFileGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyConfigFileGroupOutcomeCallable TseClient::ModifyConfigFileGroupCallable(const ModifyConfigFileGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConfigFileGroupOutcome>>();
-    ModifyConfigFileGroupAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyConfigFileGroupRequest&,
-        ModifyConfigFileGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConfigFileGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConfigFileGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyConfigFilesOutcome TseClient::ModifyConfigFiles(const ModifyConfigFilesRequest &request)
@@ -5162,32 +4448,25 @@ TseClient::ModifyConfigFilesOutcome TseClient::ModifyConfigFiles(const ModifyCon
 
 void TseClient::ModifyConfigFilesAsync(const ModifyConfigFilesRequest& request, const ModifyConfigFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConfigFilesRequest&;
-    using Resp = ModifyConfigFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConfigFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConfigFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyConfigFilesOutcomeCallable TseClient::ModifyConfigFilesCallable(const ModifyConfigFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConfigFilesOutcome>>();
-    ModifyConfigFilesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyConfigFilesRequest&,
-        ModifyConfigFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConfigFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConfigFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyConsoleNetworkOutcome TseClient::ModifyConsoleNetwork(const ModifyConsoleNetworkRequest &request)
@@ -5212,32 +4491,25 @@ TseClient::ModifyConsoleNetworkOutcome TseClient::ModifyConsoleNetwork(const Mod
 
 void TseClient::ModifyConsoleNetworkAsync(const ModifyConsoleNetworkRequest& request, const ModifyConsoleNetworkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConsoleNetworkRequest&;
-    using Resp = ModifyConsoleNetworkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConsoleNetwork(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConsoleNetwork", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyConsoleNetworkOutcomeCallable TseClient::ModifyConsoleNetworkCallable(const ModifyConsoleNetworkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConsoleNetworkOutcome>>();
-    ModifyConsoleNetworkAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyConsoleNetworkRequest&,
-        ModifyConsoleNetworkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConsoleNetworkOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConsoleNetwork(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyGovernanceAliasOutcome TseClient::ModifyGovernanceAlias(const ModifyGovernanceAliasRequest &request)
@@ -5262,32 +4534,25 @@ TseClient::ModifyGovernanceAliasOutcome TseClient::ModifyGovernanceAlias(const M
 
 void TseClient::ModifyGovernanceAliasAsync(const ModifyGovernanceAliasRequest& request, const ModifyGovernanceAliasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGovernanceAliasRequest&;
-    using Resp = ModifyGovernanceAliasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGovernanceAlias(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGovernanceAlias", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyGovernanceAliasOutcomeCallable TseClient::ModifyGovernanceAliasCallable(const ModifyGovernanceAliasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGovernanceAliasOutcome>>();
-    ModifyGovernanceAliasAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyGovernanceAliasRequest&,
-        ModifyGovernanceAliasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGovernanceAliasOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGovernanceAlias(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyGovernanceInstancesOutcome TseClient::ModifyGovernanceInstances(const ModifyGovernanceInstancesRequest &request)
@@ -5312,32 +4577,25 @@ TseClient::ModifyGovernanceInstancesOutcome TseClient::ModifyGovernanceInstances
 
 void TseClient::ModifyGovernanceInstancesAsync(const ModifyGovernanceInstancesRequest& request, const ModifyGovernanceInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGovernanceInstancesRequest&;
-    using Resp = ModifyGovernanceInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGovernanceInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGovernanceInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyGovernanceInstancesOutcomeCallable TseClient::ModifyGovernanceInstancesCallable(const ModifyGovernanceInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGovernanceInstancesOutcome>>();
-    ModifyGovernanceInstancesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyGovernanceInstancesRequest&,
-        ModifyGovernanceInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGovernanceInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGovernanceInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyGovernanceNamespacesOutcome TseClient::ModifyGovernanceNamespaces(const ModifyGovernanceNamespacesRequest &request)
@@ -5362,32 +4620,25 @@ TseClient::ModifyGovernanceNamespacesOutcome TseClient::ModifyGovernanceNamespac
 
 void TseClient::ModifyGovernanceNamespacesAsync(const ModifyGovernanceNamespacesRequest& request, const ModifyGovernanceNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGovernanceNamespacesRequest&;
-    using Resp = ModifyGovernanceNamespacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGovernanceNamespaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGovernanceNamespaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyGovernanceNamespacesOutcomeCallable TseClient::ModifyGovernanceNamespacesCallable(const ModifyGovernanceNamespacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGovernanceNamespacesOutcome>>();
-    ModifyGovernanceNamespacesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyGovernanceNamespacesRequest&,
-        ModifyGovernanceNamespacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGovernanceNamespacesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGovernanceNamespaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyGovernanceServicesOutcome TseClient::ModifyGovernanceServices(const ModifyGovernanceServicesRequest &request)
@@ -5412,32 +4663,25 @@ TseClient::ModifyGovernanceServicesOutcome TseClient::ModifyGovernanceServices(c
 
 void TseClient::ModifyGovernanceServicesAsync(const ModifyGovernanceServicesRequest& request, const ModifyGovernanceServicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGovernanceServicesRequest&;
-    using Resp = ModifyGovernanceServicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGovernanceServices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGovernanceServices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyGovernanceServicesOutcomeCallable TseClient::ModifyGovernanceServicesCallable(const ModifyGovernanceServicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGovernanceServicesOutcome>>();
-    ModifyGovernanceServicesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyGovernanceServicesRequest&,
-        ModifyGovernanceServicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGovernanceServicesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGovernanceServices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyNativeGatewayServerGroupOutcome TseClient::ModifyNativeGatewayServerGroup(const ModifyNativeGatewayServerGroupRequest &request)
@@ -5462,32 +4706,25 @@ TseClient::ModifyNativeGatewayServerGroupOutcome TseClient::ModifyNativeGatewayS
 
 void TseClient::ModifyNativeGatewayServerGroupAsync(const ModifyNativeGatewayServerGroupRequest& request, const ModifyNativeGatewayServerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNativeGatewayServerGroupRequest&;
-    using Resp = ModifyNativeGatewayServerGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNativeGatewayServerGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNativeGatewayServerGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyNativeGatewayServerGroupOutcomeCallable TseClient::ModifyNativeGatewayServerGroupCallable(const ModifyNativeGatewayServerGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNativeGatewayServerGroupOutcome>>();
-    ModifyNativeGatewayServerGroupAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyNativeGatewayServerGroupRequest&,
-        ModifyNativeGatewayServerGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNativeGatewayServerGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNativeGatewayServerGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyNativeGatewayServiceSourceOutcome TseClient::ModifyNativeGatewayServiceSource(const ModifyNativeGatewayServiceSourceRequest &request)
@@ -5512,32 +4749,25 @@ TseClient::ModifyNativeGatewayServiceSourceOutcome TseClient::ModifyNativeGatewa
 
 void TseClient::ModifyNativeGatewayServiceSourceAsync(const ModifyNativeGatewayServiceSourceRequest& request, const ModifyNativeGatewayServiceSourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNativeGatewayServiceSourceRequest&;
-    using Resp = ModifyNativeGatewayServiceSourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNativeGatewayServiceSource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNativeGatewayServiceSource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyNativeGatewayServiceSourceOutcomeCallable TseClient::ModifyNativeGatewayServiceSourceCallable(const ModifyNativeGatewayServiceSourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNativeGatewayServiceSourceOutcome>>();
-    ModifyNativeGatewayServiceSourceAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyNativeGatewayServiceSourceRequest&,
-        ModifyNativeGatewayServiceSourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNativeGatewayServiceSourceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNativeGatewayServiceSource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyNetworkAccessStrategyOutcome TseClient::ModifyNetworkAccessStrategy(const ModifyNetworkAccessStrategyRequest &request)
@@ -5562,32 +4792,25 @@ TseClient::ModifyNetworkAccessStrategyOutcome TseClient::ModifyNetworkAccessStra
 
 void TseClient::ModifyNetworkAccessStrategyAsync(const ModifyNetworkAccessStrategyRequest& request, const ModifyNetworkAccessStrategyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetworkAccessStrategyRequest&;
-    using Resp = ModifyNetworkAccessStrategyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetworkAccessStrategy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetworkAccessStrategy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyNetworkAccessStrategyOutcomeCallable TseClient::ModifyNetworkAccessStrategyCallable(const ModifyNetworkAccessStrategyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetworkAccessStrategyOutcome>>();
-    ModifyNetworkAccessStrategyAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyNetworkAccessStrategyRequest&,
-        ModifyNetworkAccessStrategyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetworkAccessStrategyOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetworkAccessStrategy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyNetworkBasicInfoOutcome TseClient::ModifyNetworkBasicInfo(const ModifyNetworkBasicInfoRequest &request)
@@ -5612,32 +4835,25 @@ TseClient::ModifyNetworkBasicInfoOutcome TseClient::ModifyNetworkBasicInfo(const
 
 void TseClient::ModifyNetworkBasicInfoAsync(const ModifyNetworkBasicInfoRequest& request, const ModifyNetworkBasicInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetworkBasicInfoRequest&;
-    using Resp = ModifyNetworkBasicInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetworkBasicInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetworkBasicInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyNetworkBasicInfoOutcomeCallable TseClient::ModifyNetworkBasicInfoCallable(const ModifyNetworkBasicInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetworkBasicInfoOutcome>>();
-    ModifyNetworkBasicInfoAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyNetworkBasicInfoRequest&,
-        ModifyNetworkBasicInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetworkBasicInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetworkBasicInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::ModifyUpstreamNodeStatusOutcome TseClient::ModifyUpstreamNodeStatus(const ModifyUpstreamNodeStatusRequest &request)
@@ -5662,32 +4878,25 @@ TseClient::ModifyUpstreamNodeStatusOutcome TseClient::ModifyUpstreamNodeStatus(c
 
 void TseClient::ModifyUpstreamNodeStatusAsync(const ModifyUpstreamNodeStatusRequest& request, const ModifyUpstreamNodeStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUpstreamNodeStatusRequest&;
-    using Resp = ModifyUpstreamNodeStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUpstreamNodeStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUpstreamNodeStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::ModifyUpstreamNodeStatusOutcomeCallable TseClient::ModifyUpstreamNodeStatusCallable(const ModifyUpstreamNodeStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUpstreamNodeStatusOutcome>>();
-    ModifyUpstreamNodeStatusAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const ModifyUpstreamNodeStatusRequest&,
-        ModifyUpstreamNodeStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUpstreamNodeStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUpstreamNodeStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::OpenWafProtectionOutcome TseClient::OpenWafProtection(const OpenWafProtectionRequest &request)
@@ -5712,32 +4921,25 @@ TseClient::OpenWafProtectionOutcome TseClient::OpenWafProtection(const OpenWafPr
 
 void TseClient::OpenWafProtectionAsync(const OpenWafProtectionRequest& request, const OpenWafProtectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenWafProtectionRequest&;
-    using Resp = OpenWafProtectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenWafProtection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenWafProtection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::OpenWafProtectionOutcomeCallable TseClient::OpenWafProtectionCallable(const OpenWafProtectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenWafProtectionOutcome>>();
-    OpenWafProtectionAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const OpenWafProtectionRequest&,
-        OpenWafProtectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenWafProtectionOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenWafProtection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::PublishConfigFilesOutcome TseClient::PublishConfigFiles(const PublishConfigFilesRequest &request)
@@ -5762,32 +4964,25 @@ TseClient::PublishConfigFilesOutcome TseClient::PublishConfigFiles(const Publish
 
 void TseClient::PublishConfigFilesAsync(const PublishConfigFilesRequest& request, const PublishConfigFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PublishConfigFilesRequest&;
-    using Resp = PublishConfigFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PublishConfigFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PublishConfigFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::PublishConfigFilesOutcomeCallable TseClient::PublishConfigFilesCallable(const PublishConfigFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PublishConfigFilesOutcome>>();
-    PublishConfigFilesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const PublishConfigFilesRequest&,
-        PublishConfigFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PublishConfigFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->PublishConfigFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::RestartSREInstanceOutcome TseClient::RestartSREInstance(const RestartSREInstanceRequest &request)
@@ -5812,32 +5007,25 @@ TseClient::RestartSREInstanceOutcome TseClient::RestartSREInstance(const Restart
 
 void TseClient::RestartSREInstanceAsync(const RestartSREInstanceRequest& request, const RestartSREInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestartSREInstanceRequest&;
-    using Resp = RestartSREInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestartSREInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestartSREInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::RestartSREInstanceOutcomeCallable TseClient::RestartSREInstanceCallable(const RestartSREInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestartSREInstanceOutcome>>();
-    RestartSREInstanceAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const RestartSREInstanceRequest&,
-        RestartSREInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestartSREInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RestartSREInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::RollbackConfigFileReleasesOutcome TseClient::RollbackConfigFileReleases(const RollbackConfigFileReleasesRequest &request)
@@ -5862,32 +5050,25 @@ TseClient::RollbackConfigFileReleasesOutcome TseClient::RollbackConfigFileReleas
 
 void TseClient::RollbackConfigFileReleasesAsync(const RollbackConfigFileReleasesRequest& request, const RollbackConfigFileReleasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RollbackConfigFileReleasesRequest&;
-    using Resp = RollbackConfigFileReleasesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RollbackConfigFileReleases(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RollbackConfigFileReleases", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::RollbackConfigFileReleasesOutcomeCallable TseClient::RollbackConfigFileReleasesCallable(const RollbackConfigFileReleasesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RollbackConfigFileReleasesOutcome>>();
-    RollbackConfigFileReleasesAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const RollbackConfigFileReleasesRequest&,
-        RollbackConfigFileReleasesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RollbackConfigFileReleasesOutcome()>>(
+        [this, request]()
+        {
+            return this->RollbackConfigFileReleases(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::UnbindAutoScalerResourceStrategyFromGroupsOutcome TseClient::UnbindAutoScalerResourceStrategyFromGroups(const UnbindAutoScalerResourceStrategyFromGroupsRequest &request)
@@ -5912,32 +5093,25 @@ TseClient::UnbindAutoScalerResourceStrategyFromGroupsOutcome TseClient::UnbindAu
 
 void TseClient::UnbindAutoScalerResourceStrategyFromGroupsAsync(const UnbindAutoScalerResourceStrategyFromGroupsRequest& request, const UnbindAutoScalerResourceStrategyFromGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnbindAutoScalerResourceStrategyFromGroupsRequest&;
-    using Resp = UnbindAutoScalerResourceStrategyFromGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnbindAutoScalerResourceStrategyFromGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnbindAutoScalerResourceStrategyFromGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::UnbindAutoScalerResourceStrategyFromGroupsOutcomeCallable TseClient::UnbindAutoScalerResourceStrategyFromGroupsCallable(const UnbindAutoScalerResourceStrategyFromGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnbindAutoScalerResourceStrategyFromGroupsOutcome>>();
-    UnbindAutoScalerResourceStrategyFromGroupsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const UnbindAutoScalerResourceStrategyFromGroupsRequest&,
-        UnbindAutoScalerResourceStrategyFromGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnbindAutoScalerResourceStrategyFromGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->UnbindAutoScalerResourceStrategyFromGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::UpdateCloudNativeAPIGatewayCertificateInfoOutcome TseClient::UpdateCloudNativeAPIGatewayCertificateInfo(const UpdateCloudNativeAPIGatewayCertificateInfoRequest &request)
@@ -5962,32 +5136,25 @@ TseClient::UpdateCloudNativeAPIGatewayCertificateInfoOutcome TseClient::UpdateCl
 
 void TseClient::UpdateCloudNativeAPIGatewayCertificateInfoAsync(const UpdateCloudNativeAPIGatewayCertificateInfoRequest& request, const UpdateCloudNativeAPIGatewayCertificateInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCloudNativeAPIGatewayCertificateInfoRequest&;
-    using Resp = UpdateCloudNativeAPIGatewayCertificateInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCloudNativeAPIGatewayCertificateInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCloudNativeAPIGatewayCertificateInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::UpdateCloudNativeAPIGatewayCertificateInfoOutcomeCallable TseClient::UpdateCloudNativeAPIGatewayCertificateInfoCallable(const UpdateCloudNativeAPIGatewayCertificateInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCloudNativeAPIGatewayCertificateInfoOutcome>>();
-    UpdateCloudNativeAPIGatewayCertificateInfoAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const UpdateCloudNativeAPIGatewayCertificateInfoRequest&,
-        UpdateCloudNativeAPIGatewayCertificateInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCloudNativeAPIGatewayCertificateInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCloudNativeAPIGatewayCertificateInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::UpdateCloudNativeAPIGatewaySpecOutcome TseClient::UpdateCloudNativeAPIGatewaySpec(const UpdateCloudNativeAPIGatewaySpecRequest &request)
@@ -6012,32 +5179,25 @@ TseClient::UpdateCloudNativeAPIGatewaySpecOutcome TseClient::UpdateCloudNativeAP
 
 void TseClient::UpdateCloudNativeAPIGatewaySpecAsync(const UpdateCloudNativeAPIGatewaySpecRequest& request, const UpdateCloudNativeAPIGatewaySpecAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCloudNativeAPIGatewaySpecRequest&;
-    using Resp = UpdateCloudNativeAPIGatewaySpecResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCloudNativeAPIGatewaySpec(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCloudNativeAPIGatewaySpec", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::UpdateCloudNativeAPIGatewaySpecOutcomeCallable TseClient::UpdateCloudNativeAPIGatewaySpecCallable(const UpdateCloudNativeAPIGatewaySpecRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCloudNativeAPIGatewaySpecOutcome>>();
-    UpdateCloudNativeAPIGatewaySpecAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const UpdateCloudNativeAPIGatewaySpecRequest&,
-        UpdateCloudNativeAPIGatewaySpecOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCloudNativeAPIGatewaySpecOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCloudNativeAPIGatewaySpec(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::UpdateEngineInternetAccessOutcome TseClient::UpdateEngineInternetAccess(const UpdateEngineInternetAccessRequest &request)
@@ -6062,32 +5222,25 @@ TseClient::UpdateEngineInternetAccessOutcome TseClient::UpdateEngineInternetAcce
 
 void TseClient::UpdateEngineInternetAccessAsync(const UpdateEngineInternetAccessRequest& request, const UpdateEngineInternetAccessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateEngineInternetAccessRequest&;
-    using Resp = UpdateEngineInternetAccessResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateEngineInternetAccess(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateEngineInternetAccess", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::UpdateEngineInternetAccessOutcomeCallable TseClient::UpdateEngineInternetAccessCallable(const UpdateEngineInternetAccessRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateEngineInternetAccessOutcome>>();
-    UpdateEngineInternetAccessAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const UpdateEngineInternetAccessRequest&,
-        UpdateEngineInternetAccessOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateEngineInternetAccessOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateEngineInternetAccess(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::UpdateUpstreamHealthCheckConfigOutcome TseClient::UpdateUpstreamHealthCheckConfig(const UpdateUpstreamHealthCheckConfigRequest &request)
@@ -6112,32 +5265,25 @@ TseClient::UpdateUpstreamHealthCheckConfigOutcome TseClient::UpdateUpstreamHealt
 
 void TseClient::UpdateUpstreamHealthCheckConfigAsync(const UpdateUpstreamHealthCheckConfigRequest& request, const UpdateUpstreamHealthCheckConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateUpstreamHealthCheckConfigRequest&;
-    using Resp = UpdateUpstreamHealthCheckConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateUpstreamHealthCheckConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateUpstreamHealthCheckConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::UpdateUpstreamHealthCheckConfigOutcomeCallable TseClient::UpdateUpstreamHealthCheckConfigCallable(const UpdateUpstreamHealthCheckConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateUpstreamHealthCheckConfigOutcome>>();
-    UpdateUpstreamHealthCheckConfigAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const UpdateUpstreamHealthCheckConfigRequest&,
-        UpdateUpstreamHealthCheckConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateUpstreamHealthCheckConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateUpstreamHealthCheckConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TseClient::UpdateUpstreamTargetsOutcome TseClient::UpdateUpstreamTargets(const UpdateUpstreamTargetsRequest &request)
@@ -6162,31 +5308,24 @@ TseClient::UpdateUpstreamTargetsOutcome TseClient::UpdateUpstreamTargets(const U
 
 void TseClient::UpdateUpstreamTargetsAsync(const UpdateUpstreamTargetsRequest& request, const UpdateUpstreamTargetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateUpstreamTargetsRequest&;
-    using Resp = UpdateUpstreamTargetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateUpstreamTargets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateUpstreamTargets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TseClient::UpdateUpstreamTargetsOutcomeCallable TseClient::UpdateUpstreamTargetsCallable(const UpdateUpstreamTargetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateUpstreamTargetsOutcome>>();
-    UpdateUpstreamTargetsAsync(
-    request,
-    [prom](
-        const TseClient*,
-        const UpdateUpstreamTargetsRequest&,
-        UpdateUpstreamTargetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateUpstreamTargetsOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateUpstreamTargets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

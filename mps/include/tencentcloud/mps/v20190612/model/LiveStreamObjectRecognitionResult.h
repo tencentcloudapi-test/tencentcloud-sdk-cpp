@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 直播 AI 物体识别结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LiveStreamObjectRecognitionResult();
-                    ~LiveStreamObjectRecognitionResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

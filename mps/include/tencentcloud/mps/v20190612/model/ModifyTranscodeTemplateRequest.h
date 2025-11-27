@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoTemplateInfoForUpdate;
+                class AudioTemplateInfoForUpdate;
+                class TEHDConfigForUpdate;
+                class EnhanceConfig;
+
                 /**
                 * ModifyTranscodeTemplate请求参数结构体
                 */

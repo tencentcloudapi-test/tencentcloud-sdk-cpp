@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MidQueryCondition;
+
                 /**
                 * DescribeStatisticData请求参数结构体
                 */

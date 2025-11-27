@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TrainingText;
+
                 /**
                 * 训练文本列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TrainingTexts();
-                    ~TrainingTexts() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

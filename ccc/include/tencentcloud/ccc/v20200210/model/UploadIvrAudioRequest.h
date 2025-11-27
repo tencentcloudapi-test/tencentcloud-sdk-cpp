@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UploadAudioInfo;
+
                 /**
                 * UploadIvrAudio请求参数结构体
                 */

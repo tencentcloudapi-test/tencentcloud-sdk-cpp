@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OwnershipVerification;
+                class OriginDetail;
+                class AccelerationDomainCertificate;
+
                 /**
                 * 加速域名
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     AccelerationDomain();
-                    ~AccelerationDomain() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Env;
+                class LifeCycle;
+
                 /**
                 * ModifyWorkspace请求参数结构体
                 */

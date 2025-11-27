@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Autoscaler;
+
                 /**
                 * DescribeApplicationAutoscalerList返回参数结构体
                 */

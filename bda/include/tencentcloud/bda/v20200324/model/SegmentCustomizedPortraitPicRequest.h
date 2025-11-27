@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SegmentationOptions;
+
                 /**
                 * SegmentCustomizedPortraitPic请求参数结构体
                 */

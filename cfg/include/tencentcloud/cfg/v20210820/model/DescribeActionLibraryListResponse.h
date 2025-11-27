@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ActionLibraryListResult;
+
                 /**
                 * DescribeActionLibraryList返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 临床试验
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ChemicalProductInfoClinicalTrial();
-                    ~ChemicalProductInfoClinicalTrial() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

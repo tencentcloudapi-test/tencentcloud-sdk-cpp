@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProjectSummaryOverviewItem;
+
                 /**
                 * DescribeBillSummaryByProject返回参数结构体
                 */

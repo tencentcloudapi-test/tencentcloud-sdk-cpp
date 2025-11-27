@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Service;
+                class Tag;
+                class AuthToken;
+
                 /**
                 * 在线服务一个服务组的信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     ServiceGroup();
-                    ~ServiceGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

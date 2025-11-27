@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Placement;
+                class Image;
+
                 /**
                 * 描述了快照的详细信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Snapshot();
-                    ~Snapshot() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

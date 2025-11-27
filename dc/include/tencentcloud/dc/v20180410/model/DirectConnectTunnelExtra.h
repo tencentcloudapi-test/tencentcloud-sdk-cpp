@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BgpPeer;
+                class RouteFilterPrefix;
+                class BFDInfo;
+                class NQAInfo;
+                class BGPStatus;
+
                 /**
                 * 专用通道扩展信息
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     DirectConnectTunnelExtra();
-                    ~DirectConnectTunnelExtra() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

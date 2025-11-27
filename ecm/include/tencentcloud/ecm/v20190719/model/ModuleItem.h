@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NodeInstanceNum;
+                class Module;
+
                 /**
                 * 模块列表Item信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ModuleItem();
-                    ~ModuleItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Element;
+                class Polygon;
+
                 /**
                 * 结果列表
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ResultList();
-                    ~ResultList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 渠道合作加固sdk加固结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SDKResult();
-                    ~SDKResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

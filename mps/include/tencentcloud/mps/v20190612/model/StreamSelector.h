@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PidSelector;
+                class TrackSelector;
+
                 /**
                 * 选择指定的音轨或者视频输出
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     StreamSelector();
-                    ~StreamSelector() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

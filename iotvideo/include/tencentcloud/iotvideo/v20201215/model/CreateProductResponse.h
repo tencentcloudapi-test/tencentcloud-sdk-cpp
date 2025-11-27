@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoProduct;
+
                 /**
                 * CreateProduct返回参数结构体
                 */

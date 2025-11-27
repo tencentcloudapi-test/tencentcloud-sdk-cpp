@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class RegionInfo;
+                class MachineTag;
+
                 /**
                 * 防勒索主机列表
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     RansomDefenseStrategyMachineDetail();
-                    ~RansomDefenseStrategyMachineDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

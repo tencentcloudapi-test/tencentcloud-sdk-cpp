@@ -62,32 +62,25 @@ AiartClient::ChangeClothesOutcome AiartClient::ChangeClothes(const ChangeClothes
 
 void AiartClient::ChangeClothesAsync(const ChangeClothesRequest& request, const ChangeClothesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChangeClothesRequest&;
-    using Resp = ChangeClothesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChangeClothes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChangeClothes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::ChangeClothesOutcomeCallable AiartClient::ChangeClothesCallable(const ChangeClothesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChangeClothesOutcome>>();
-    ChangeClothesAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const ChangeClothesRequest&,
-        ChangeClothesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChangeClothesOutcome()>>(
+        [this, request]()
+        {
+            return this->ChangeClothes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::GenerateAvatarOutcome AiartClient::GenerateAvatar(const GenerateAvatarRequest &request)
@@ -112,32 +105,25 @@ AiartClient::GenerateAvatarOutcome AiartClient::GenerateAvatar(const GenerateAva
 
 void AiartClient::GenerateAvatarAsync(const GenerateAvatarRequest& request, const GenerateAvatarAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GenerateAvatarRequest&;
-    using Resp = GenerateAvatarResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GenerateAvatar(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GenerateAvatar", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::GenerateAvatarOutcomeCallable AiartClient::GenerateAvatarCallable(const GenerateAvatarRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GenerateAvatarOutcome>>();
-    GenerateAvatarAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const GenerateAvatarRequest&,
-        GenerateAvatarOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GenerateAvatarOutcome()>>(
+        [this, request]()
+        {
+            return this->GenerateAvatar(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::ImageInpaintingRemovalOutcome AiartClient::ImageInpaintingRemoval(const ImageInpaintingRemovalRequest &request)
@@ -162,32 +148,25 @@ AiartClient::ImageInpaintingRemovalOutcome AiartClient::ImageInpaintingRemoval(c
 
 void AiartClient::ImageInpaintingRemovalAsync(const ImageInpaintingRemovalRequest& request, const ImageInpaintingRemovalAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageInpaintingRemovalRequest&;
-    using Resp = ImageInpaintingRemovalResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageInpaintingRemoval(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageInpaintingRemoval", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::ImageInpaintingRemovalOutcomeCallable AiartClient::ImageInpaintingRemovalCallable(const ImageInpaintingRemovalRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageInpaintingRemovalOutcome>>();
-    ImageInpaintingRemovalAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const ImageInpaintingRemovalRequest&,
-        ImageInpaintingRemovalOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageInpaintingRemovalOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageInpaintingRemoval(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::ImageOutpaintingOutcome AiartClient::ImageOutpainting(const ImageOutpaintingRequest &request)
@@ -212,32 +191,25 @@ AiartClient::ImageOutpaintingOutcome AiartClient::ImageOutpainting(const ImageOu
 
 void AiartClient::ImageOutpaintingAsync(const ImageOutpaintingRequest& request, const ImageOutpaintingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageOutpaintingRequest&;
-    using Resp = ImageOutpaintingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageOutpainting(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageOutpainting", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::ImageOutpaintingOutcomeCallable AiartClient::ImageOutpaintingCallable(const ImageOutpaintingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageOutpaintingOutcome>>();
-    ImageOutpaintingAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const ImageOutpaintingRequest&,
-        ImageOutpaintingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageOutpaintingOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageOutpainting(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::ImageToImageOutcome AiartClient::ImageToImage(const ImageToImageRequest &request)
@@ -262,32 +234,25 @@ AiartClient::ImageToImageOutcome AiartClient::ImageToImage(const ImageToImageReq
 
 void AiartClient::ImageToImageAsync(const ImageToImageRequest& request, const ImageToImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImageToImageRequest&;
-    using Resp = ImageToImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImageToImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImageToImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::ImageToImageOutcomeCallable AiartClient::ImageToImageCallable(const ImageToImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImageToImageOutcome>>();
-    ImageToImageAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const ImageToImageRequest&,
-        ImageToImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImageToImageOutcome()>>(
+        [this, request]()
+        {
+            return this->ImageToImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::QueryDrawPortraitJobOutcome AiartClient::QueryDrawPortraitJob(const QueryDrawPortraitJobRequest &request)
@@ -312,32 +277,25 @@ AiartClient::QueryDrawPortraitJobOutcome AiartClient::QueryDrawPortraitJob(const
 
 void AiartClient::QueryDrawPortraitJobAsync(const QueryDrawPortraitJobRequest& request, const QueryDrawPortraitJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryDrawPortraitJobRequest&;
-    using Resp = QueryDrawPortraitJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryDrawPortraitJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryDrawPortraitJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::QueryDrawPortraitJobOutcomeCallable AiartClient::QueryDrawPortraitJobCallable(const QueryDrawPortraitJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryDrawPortraitJobOutcome>>();
-    QueryDrawPortraitJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const QueryDrawPortraitJobRequest&,
-        QueryDrawPortraitJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryDrawPortraitJobOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryDrawPortraitJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::QueryGlamPicJobOutcome AiartClient::QueryGlamPicJob(const QueryGlamPicJobRequest &request)
@@ -362,32 +320,25 @@ AiartClient::QueryGlamPicJobOutcome AiartClient::QueryGlamPicJob(const QueryGlam
 
 void AiartClient::QueryGlamPicJobAsync(const QueryGlamPicJobRequest& request, const QueryGlamPicJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryGlamPicJobRequest&;
-    using Resp = QueryGlamPicJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryGlamPicJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryGlamPicJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::QueryGlamPicJobOutcomeCallable AiartClient::QueryGlamPicJobCallable(const QueryGlamPicJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryGlamPicJobOutcome>>();
-    QueryGlamPicJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const QueryGlamPicJobRequest&,
-        QueryGlamPicJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryGlamPicJobOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryGlamPicJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::QueryMemeJobOutcome AiartClient::QueryMemeJob(const QueryMemeJobRequest &request)
@@ -412,32 +363,25 @@ AiartClient::QueryMemeJobOutcome AiartClient::QueryMemeJob(const QueryMemeJobReq
 
 void AiartClient::QueryMemeJobAsync(const QueryMemeJobRequest& request, const QueryMemeJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryMemeJobRequest&;
-    using Resp = QueryMemeJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryMemeJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryMemeJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::QueryMemeJobOutcomeCallable AiartClient::QueryMemeJobCallable(const QueryMemeJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryMemeJobOutcome>>();
-    QueryMemeJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const QueryMemeJobRequest&,
-        QueryMemeJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryMemeJobOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryMemeJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::QueryTextToImageJobOutcome AiartClient::QueryTextToImageJob(const QueryTextToImageJobRequest &request)
@@ -462,32 +406,25 @@ AiartClient::QueryTextToImageJobOutcome AiartClient::QueryTextToImageJob(const Q
 
 void AiartClient::QueryTextToImageJobAsync(const QueryTextToImageJobRequest& request, const QueryTextToImageJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryTextToImageJobRequest&;
-    using Resp = QueryTextToImageJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryTextToImageJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryTextToImageJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::QueryTextToImageJobOutcomeCallable AiartClient::QueryTextToImageJobCallable(const QueryTextToImageJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryTextToImageJobOutcome>>();
-    QueryTextToImageJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const QueryTextToImageJobRequest&,
-        QueryTextToImageJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryTextToImageJobOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryTextToImageJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::QueryTextToImageProJobOutcome AiartClient::QueryTextToImageProJob(const QueryTextToImageProJobRequest &request)
@@ -512,32 +449,25 @@ AiartClient::QueryTextToImageProJobOutcome AiartClient::QueryTextToImageProJob(c
 
 void AiartClient::QueryTextToImageProJobAsync(const QueryTextToImageProJobRequest& request, const QueryTextToImageProJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryTextToImageProJobRequest&;
-    using Resp = QueryTextToImageProJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryTextToImageProJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryTextToImageProJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::QueryTextToImageProJobOutcomeCallable AiartClient::QueryTextToImageProJobCallable(const QueryTextToImageProJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryTextToImageProJobOutcome>>();
-    QueryTextToImageProJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const QueryTextToImageProJobRequest&,
-        QueryTextToImageProJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryTextToImageProJobOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryTextToImageProJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::QueryTrainPortraitModelJobOutcome AiartClient::QueryTrainPortraitModelJob(const QueryTrainPortraitModelJobRequest &request)
@@ -562,32 +492,25 @@ AiartClient::QueryTrainPortraitModelJobOutcome AiartClient::QueryTrainPortraitMo
 
 void AiartClient::QueryTrainPortraitModelJobAsync(const QueryTrainPortraitModelJobRequest& request, const QueryTrainPortraitModelJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryTrainPortraitModelJobRequest&;
-    using Resp = QueryTrainPortraitModelJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryTrainPortraitModelJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryTrainPortraitModelJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::QueryTrainPortraitModelJobOutcomeCallable AiartClient::QueryTrainPortraitModelJobCallable(const QueryTrainPortraitModelJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryTrainPortraitModelJobOutcome>>();
-    QueryTrainPortraitModelJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const QueryTrainPortraitModelJobRequest&,
-        QueryTrainPortraitModelJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryTrainPortraitModelJobOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryTrainPortraitModelJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::RefineImageOutcome AiartClient::RefineImage(const RefineImageRequest &request)
@@ -612,32 +535,25 @@ AiartClient::RefineImageOutcome AiartClient::RefineImage(const RefineImageReques
 
 void AiartClient::RefineImageAsync(const RefineImageRequest& request, const RefineImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RefineImageRequest&;
-    using Resp = RefineImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RefineImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RefineImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::RefineImageOutcomeCallable AiartClient::RefineImageCallable(const RefineImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RefineImageOutcome>>();
-    RefineImageAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const RefineImageRequest&,
-        RefineImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RefineImageOutcome()>>(
+        [this, request]()
+        {
+            return this->RefineImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::ReplaceBackgroundOutcome AiartClient::ReplaceBackground(const ReplaceBackgroundRequest &request)
@@ -662,32 +578,25 @@ AiartClient::ReplaceBackgroundOutcome AiartClient::ReplaceBackground(const Repla
 
 void AiartClient::ReplaceBackgroundAsync(const ReplaceBackgroundRequest& request, const ReplaceBackgroundAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceBackgroundRequest&;
-    using Resp = ReplaceBackgroundResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceBackground(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceBackground", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::ReplaceBackgroundOutcomeCallable AiartClient::ReplaceBackgroundCallable(const ReplaceBackgroundRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceBackgroundOutcome>>();
-    ReplaceBackgroundAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const ReplaceBackgroundRequest&,
-        ReplaceBackgroundOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceBackgroundOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceBackground(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::SketchToImageOutcome AiartClient::SketchToImage(const SketchToImageRequest &request)
@@ -712,32 +621,25 @@ AiartClient::SketchToImageOutcome AiartClient::SketchToImage(const SketchToImage
 
 void AiartClient::SketchToImageAsync(const SketchToImageRequest& request, const SketchToImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SketchToImageRequest&;
-    using Resp = SketchToImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SketchToImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SketchToImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::SketchToImageOutcomeCallable AiartClient::SketchToImageCallable(const SketchToImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SketchToImageOutcome>>();
-    SketchToImageAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const SketchToImageRequest&,
-        SketchToImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SketchToImageOutcome()>>(
+        [this, request]()
+        {
+            return this->SketchToImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::SubmitDrawPortraitJobOutcome AiartClient::SubmitDrawPortraitJob(const SubmitDrawPortraitJobRequest &request)
@@ -762,32 +664,25 @@ AiartClient::SubmitDrawPortraitJobOutcome AiartClient::SubmitDrawPortraitJob(con
 
 void AiartClient::SubmitDrawPortraitJobAsync(const SubmitDrawPortraitJobRequest& request, const SubmitDrawPortraitJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitDrawPortraitJobRequest&;
-    using Resp = SubmitDrawPortraitJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitDrawPortraitJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitDrawPortraitJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::SubmitDrawPortraitJobOutcomeCallable AiartClient::SubmitDrawPortraitJobCallable(const SubmitDrawPortraitJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitDrawPortraitJobOutcome>>();
-    SubmitDrawPortraitJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const SubmitDrawPortraitJobRequest&,
-        SubmitDrawPortraitJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitDrawPortraitJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitDrawPortraitJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::SubmitGlamPicJobOutcome AiartClient::SubmitGlamPicJob(const SubmitGlamPicJobRequest &request)
@@ -812,32 +707,25 @@ AiartClient::SubmitGlamPicJobOutcome AiartClient::SubmitGlamPicJob(const SubmitG
 
 void AiartClient::SubmitGlamPicJobAsync(const SubmitGlamPicJobRequest& request, const SubmitGlamPicJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitGlamPicJobRequest&;
-    using Resp = SubmitGlamPicJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitGlamPicJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitGlamPicJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::SubmitGlamPicJobOutcomeCallable AiartClient::SubmitGlamPicJobCallable(const SubmitGlamPicJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitGlamPicJobOutcome>>();
-    SubmitGlamPicJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const SubmitGlamPicJobRequest&,
-        SubmitGlamPicJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitGlamPicJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitGlamPicJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::SubmitMemeJobOutcome AiartClient::SubmitMemeJob(const SubmitMemeJobRequest &request)
@@ -862,32 +750,25 @@ AiartClient::SubmitMemeJobOutcome AiartClient::SubmitMemeJob(const SubmitMemeJob
 
 void AiartClient::SubmitMemeJobAsync(const SubmitMemeJobRequest& request, const SubmitMemeJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitMemeJobRequest&;
-    using Resp = SubmitMemeJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitMemeJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitMemeJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::SubmitMemeJobOutcomeCallable AiartClient::SubmitMemeJobCallable(const SubmitMemeJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitMemeJobOutcome>>();
-    SubmitMemeJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const SubmitMemeJobRequest&,
-        SubmitMemeJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitMemeJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitMemeJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::SubmitTextToImageJobOutcome AiartClient::SubmitTextToImageJob(const SubmitTextToImageJobRequest &request)
@@ -912,32 +793,25 @@ AiartClient::SubmitTextToImageJobOutcome AiartClient::SubmitTextToImageJob(const
 
 void AiartClient::SubmitTextToImageJobAsync(const SubmitTextToImageJobRequest& request, const SubmitTextToImageJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitTextToImageJobRequest&;
-    using Resp = SubmitTextToImageJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitTextToImageJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitTextToImageJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::SubmitTextToImageJobOutcomeCallable AiartClient::SubmitTextToImageJobCallable(const SubmitTextToImageJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitTextToImageJobOutcome>>();
-    SubmitTextToImageJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const SubmitTextToImageJobRequest&,
-        SubmitTextToImageJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitTextToImageJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitTextToImageJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::SubmitTextToImageProJobOutcome AiartClient::SubmitTextToImageProJob(const SubmitTextToImageProJobRequest &request)
@@ -962,32 +836,25 @@ AiartClient::SubmitTextToImageProJobOutcome AiartClient::SubmitTextToImageProJob
 
 void AiartClient::SubmitTextToImageProJobAsync(const SubmitTextToImageProJobRequest& request, const SubmitTextToImageProJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitTextToImageProJobRequest&;
-    using Resp = SubmitTextToImageProJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitTextToImageProJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitTextToImageProJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::SubmitTextToImageProJobOutcomeCallable AiartClient::SubmitTextToImageProJobCallable(const SubmitTextToImageProJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitTextToImageProJobOutcome>>();
-    SubmitTextToImageProJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const SubmitTextToImageProJobRequest&,
-        SubmitTextToImageProJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitTextToImageProJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitTextToImageProJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::SubmitTrainPortraitModelJobOutcome AiartClient::SubmitTrainPortraitModelJob(const SubmitTrainPortraitModelJobRequest &request)
@@ -1012,32 +879,25 @@ AiartClient::SubmitTrainPortraitModelJobOutcome AiartClient::SubmitTrainPortrait
 
 void AiartClient::SubmitTrainPortraitModelJobAsync(const SubmitTrainPortraitModelJobRequest& request, const SubmitTrainPortraitModelJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitTrainPortraitModelJobRequest&;
-    using Resp = SubmitTrainPortraitModelJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitTrainPortraitModelJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitTrainPortraitModelJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::SubmitTrainPortraitModelJobOutcomeCallable AiartClient::SubmitTrainPortraitModelJobCallable(const SubmitTrainPortraitModelJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitTrainPortraitModelJobOutcome>>();
-    SubmitTrainPortraitModelJobAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const SubmitTrainPortraitModelJobRequest&,
-        SubmitTrainPortraitModelJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitTrainPortraitModelJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitTrainPortraitModelJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::TextToImageLiteOutcome AiartClient::TextToImageLite(const TextToImageLiteRequest &request)
@@ -1062,32 +922,25 @@ AiartClient::TextToImageLiteOutcome AiartClient::TextToImageLite(const TextToIma
 
 void AiartClient::TextToImageLiteAsync(const TextToImageLiteRequest& request, const TextToImageLiteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextToImageLiteRequest&;
-    using Resp = TextToImageLiteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextToImageLite(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextToImageLite", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::TextToImageLiteOutcomeCallable AiartClient::TextToImageLiteCallable(const TextToImageLiteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextToImageLiteOutcome>>();
-    TextToImageLiteAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const TextToImageLiteRequest&,
-        TextToImageLiteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextToImageLiteOutcome()>>(
+        [this, request]()
+        {
+            return this->TextToImageLite(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::TextToImageRapidOutcome AiartClient::TextToImageRapid(const TextToImageRapidRequest &request)
@@ -1112,32 +965,25 @@ AiartClient::TextToImageRapidOutcome AiartClient::TextToImageRapid(const TextToI
 
 void AiartClient::TextToImageRapidAsync(const TextToImageRapidRequest& request, const TextToImageRapidAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextToImageRapidRequest&;
-    using Resp = TextToImageRapidResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextToImageRapid(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextToImageRapid", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::TextToImageRapidOutcomeCallable AiartClient::TextToImageRapidCallable(const TextToImageRapidRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextToImageRapidOutcome>>();
-    TextToImageRapidAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const TextToImageRapidRequest&,
-        TextToImageRapidOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextToImageRapidOutcome()>>(
+        [this, request]()
+        {
+            return this->TextToImageRapid(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AiartClient::UploadTrainPortraitImagesOutcome AiartClient::UploadTrainPortraitImages(const UploadTrainPortraitImagesRequest &request)
@@ -1162,31 +1008,24 @@ AiartClient::UploadTrainPortraitImagesOutcome AiartClient::UploadTrainPortraitIm
 
 void AiartClient::UploadTrainPortraitImagesAsync(const UploadTrainPortraitImagesRequest& request, const UploadTrainPortraitImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UploadTrainPortraitImagesRequest&;
-    using Resp = UploadTrainPortraitImagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UploadTrainPortraitImages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UploadTrainPortraitImages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AiartClient::UploadTrainPortraitImagesOutcomeCallable AiartClient::UploadTrainPortraitImagesCallable(const UploadTrainPortraitImagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UploadTrainPortraitImagesOutcome>>();
-    UploadTrainPortraitImagesAsync(
-    request,
-    [prom](
-        const AiartClient*,
-        const UploadTrainPortraitImagesRequest&,
-        UploadTrainPortraitImagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UploadTrainPortraitImagesOutcome()>>(
+        [this, request]()
+        {
+            return this->UploadTrainPortraitImages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BlueprintPrice;
+
                 /**
                 * InquirePriceCreateBlueprint返回参数结构体
                 */

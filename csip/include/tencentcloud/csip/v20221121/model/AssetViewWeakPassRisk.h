@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 资产视角的弱口令风险
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AssetViewWeakPassRisk();
-                    ~AssetViewWeakPassRisk() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 更新设备网络状态信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UpdateNetInfo();
-                    ~UpdateNetInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

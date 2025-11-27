@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReflectDetailInfo;
+
                 /**
                 * IDCardOCR返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 批量导出子域名解析量查询条件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SubDomainsAnalyticsParamsItem();
-                    ~SubDomainsAnalyticsParamsItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

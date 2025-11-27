@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Permission;
+
                 /**
                 * 服务级账号
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ServiceAccount();
-                    ~ServiceAccount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

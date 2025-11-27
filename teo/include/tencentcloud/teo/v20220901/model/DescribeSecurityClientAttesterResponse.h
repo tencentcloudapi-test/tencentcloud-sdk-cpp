@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClientAttester;
+
                 /**
                 * DescribeSecurityClientAttester返回参数结构体
                 */

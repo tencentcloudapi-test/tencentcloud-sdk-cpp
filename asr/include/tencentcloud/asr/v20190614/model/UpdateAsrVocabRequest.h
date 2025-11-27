@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HotWord;
+
                 /**
                 * UpdateAsrVocab请求参数结构体
                 */

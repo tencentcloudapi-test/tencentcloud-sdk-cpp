@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModelInfo;
+
                 /**
                 * GetModelList返回参数结构体
                 */

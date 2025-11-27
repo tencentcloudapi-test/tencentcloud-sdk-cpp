@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StepDetail;
+
                 /**
                 * QueryMigrationCheckProcess返回参数结构体
                 */

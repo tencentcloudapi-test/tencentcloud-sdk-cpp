@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 旁路kafka配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Kafka();
-                    ~Kafka() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

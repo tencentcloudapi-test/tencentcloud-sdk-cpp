@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BlindWatermarkTemplate;
+
                 /**
                 * DescribeBlindWatermarkTemplates返回参数结构体
                 */

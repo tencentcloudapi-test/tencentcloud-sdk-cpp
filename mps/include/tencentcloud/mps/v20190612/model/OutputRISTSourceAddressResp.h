@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * RIST输出的监听地址。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OutputRISTSourceAddressResp();
-                    ~OutputRISTSourceAddressResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProtectNetInfo;
+
                 /**
                 * DescribeProtectNetList返回参数结构体
                 */

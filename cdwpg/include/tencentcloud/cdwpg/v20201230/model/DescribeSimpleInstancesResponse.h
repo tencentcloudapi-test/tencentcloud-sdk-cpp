@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceSimpleInfoNew;
+
                 /**
                 * DescribeSimpleInstances返回参数结构体
                 */

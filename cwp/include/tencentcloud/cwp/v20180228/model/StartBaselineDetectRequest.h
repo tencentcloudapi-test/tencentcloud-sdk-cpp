@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaselineDetectParam;
+
                 /**
                 * StartBaselineDetect请求参数结构体
                 */

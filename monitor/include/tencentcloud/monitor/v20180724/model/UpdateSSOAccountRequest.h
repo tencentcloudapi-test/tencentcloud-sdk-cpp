@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GrafanaAccountRole;
+
                 /**
                 * UpdateSSOAccount请求参数结构体
                 */

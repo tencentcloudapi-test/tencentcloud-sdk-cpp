@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagInfo;
+                class OperationDuration;
+                class ZoneDetail;
+
                 /**
                 * CreateLogstashInstance请求参数结构体
                 */

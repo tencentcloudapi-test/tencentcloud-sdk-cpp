@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EipInfo;
+
                 /**
                 * DescribeEips返回参数结构体
                 */

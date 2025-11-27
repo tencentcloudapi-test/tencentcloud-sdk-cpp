@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoDBEntryTaskResult;
+
                 /**
                 * DescribeVideoDatabaseEntryTaskDetail返回参数结构体
                 */

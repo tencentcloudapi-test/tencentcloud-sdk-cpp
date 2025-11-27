@@ -62,32 +62,25 @@ SsmClient::CreateProductSecretOutcome SsmClient::CreateProductSecret(const Creat
 
 void SsmClient::CreateProductSecretAsync(const CreateProductSecretRequest& request, const CreateProductSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateProductSecretRequest&;
-    using Resp = CreateProductSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateProductSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateProductSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::CreateProductSecretOutcomeCallable SsmClient::CreateProductSecretCallable(const CreateProductSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateProductSecretOutcome>>();
-    CreateProductSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const CreateProductSecretRequest&,
-        CreateProductSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateProductSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateProductSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::CreateSSHKeyPairSecretOutcome SsmClient::CreateSSHKeyPairSecret(const CreateSSHKeyPairSecretRequest &request)
@@ -112,32 +105,25 @@ SsmClient::CreateSSHKeyPairSecretOutcome SsmClient::CreateSSHKeyPairSecret(const
 
 void SsmClient::CreateSSHKeyPairSecretAsync(const CreateSSHKeyPairSecretRequest& request, const CreateSSHKeyPairSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSSHKeyPairSecretRequest&;
-    using Resp = CreateSSHKeyPairSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSSHKeyPairSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSSHKeyPairSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::CreateSSHKeyPairSecretOutcomeCallable SsmClient::CreateSSHKeyPairSecretCallable(const CreateSSHKeyPairSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSSHKeyPairSecretOutcome>>();
-    CreateSSHKeyPairSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const CreateSSHKeyPairSecretRequest&,
-        CreateSSHKeyPairSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSSHKeyPairSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSSHKeyPairSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::CreateSecretOutcome SsmClient::CreateSecret(const CreateSecretRequest &request)
@@ -162,32 +148,25 @@ SsmClient::CreateSecretOutcome SsmClient::CreateSecret(const CreateSecretRequest
 
 void SsmClient::CreateSecretAsync(const CreateSecretRequest& request, const CreateSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSecretRequest&;
-    using Resp = CreateSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::CreateSecretOutcomeCallable SsmClient::CreateSecretCallable(const CreateSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSecretOutcome>>();
-    CreateSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const CreateSecretRequest&,
-        CreateSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::DeleteSecretOutcome SsmClient::DeleteSecret(const DeleteSecretRequest &request)
@@ -212,32 +191,25 @@ SsmClient::DeleteSecretOutcome SsmClient::DeleteSecret(const DeleteSecretRequest
 
 void SsmClient::DeleteSecretAsync(const DeleteSecretRequest& request, const DeleteSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSecretRequest&;
-    using Resp = DeleteSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::DeleteSecretOutcomeCallable SsmClient::DeleteSecretCallable(const DeleteSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSecretOutcome>>();
-    DeleteSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const DeleteSecretRequest&,
-        DeleteSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::DeleteSecretVersionOutcome SsmClient::DeleteSecretVersion(const DeleteSecretVersionRequest &request)
@@ -262,32 +234,25 @@ SsmClient::DeleteSecretVersionOutcome SsmClient::DeleteSecretVersion(const Delet
 
 void SsmClient::DeleteSecretVersionAsync(const DeleteSecretVersionRequest& request, const DeleteSecretVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSecretVersionRequest&;
-    using Resp = DeleteSecretVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSecretVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSecretVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::DeleteSecretVersionOutcomeCallable SsmClient::DeleteSecretVersionCallable(const DeleteSecretVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSecretVersionOutcome>>();
-    DeleteSecretVersionAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const DeleteSecretVersionRequest&,
-        DeleteSecretVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSecretVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSecretVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::DescribeAsyncRequestInfoOutcome SsmClient::DescribeAsyncRequestInfo(const DescribeAsyncRequestInfoRequest &request)
@@ -312,32 +277,25 @@ SsmClient::DescribeAsyncRequestInfoOutcome SsmClient::DescribeAsyncRequestInfo(c
 
 void SsmClient::DescribeAsyncRequestInfoAsync(const DescribeAsyncRequestInfoRequest& request, const DescribeAsyncRequestInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAsyncRequestInfoRequest&;
-    using Resp = DescribeAsyncRequestInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAsyncRequestInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAsyncRequestInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::DescribeAsyncRequestInfoOutcomeCallable SsmClient::DescribeAsyncRequestInfoCallable(const DescribeAsyncRequestInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAsyncRequestInfoOutcome>>();
-    DescribeAsyncRequestInfoAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const DescribeAsyncRequestInfoRequest&,
-        DescribeAsyncRequestInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAsyncRequestInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAsyncRequestInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::DescribeRotationDetailOutcome SsmClient::DescribeRotationDetail(const DescribeRotationDetailRequest &request)
@@ -362,32 +320,25 @@ SsmClient::DescribeRotationDetailOutcome SsmClient::DescribeRotationDetail(const
 
 void SsmClient::DescribeRotationDetailAsync(const DescribeRotationDetailRequest& request, const DescribeRotationDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRotationDetailRequest&;
-    using Resp = DescribeRotationDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRotationDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRotationDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::DescribeRotationDetailOutcomeCallable SsmClient::DescribeRotationDetailCallable(const DescribeRotationDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRotationDetailOutcome>>();
-    DescribeRotationDetailAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const DescribeRotationDetailRequest&,
-        DescribeRotationDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRotationDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRotationDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::DescribeRotationHistoryOutcome SsmClient::DescribeRotationHistory(const DescribeRotationHistoryRequest &request)
@@ -412,32 +363,25 @@ SsmClient::DescribeRotationHistoryOutcome SsmClient::DescribeRotationHistory(con
 
 void SsmClient::DescribeRotationHistoryAsync(const DescribeRotationHistoryRequest& request, const DescribeRotationHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRotationHistoryRequest&;
-    using Resp = DescribeRotationHistoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRotationHistory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRotationHistory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::DescribeRotationHistoryOutcomeCallable SsmClient::DescribeRotationHistoryCallable(const DescribeRotationHistoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRotationHistoryOutcome>>();
-    DescribeRotationHistoryAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const DescribeRotationHistoryRequest&,
-        DescribeRotationHistoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRotationHistoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRotationHistory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::DescribeSecretOutcome SsmClient::DescribeSecret(const DescribeSecretRequest &request)
@@ -462,32 +406,25 @@ SsmClient::DescribeSecretOutcome SsmClient::DescribeSecret(const DescribeSecretR
 
 void SsmClient::DescribeSecretAsync(const DescribeSecretRequest& request, const DescribeSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecretRequest&;
-    using Resp = DescribeSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::DescribeSecretOutcomeCallable SsmClient::DescribeSecretCallable(const DescribeSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecretOutcome>>();
-    DescribeSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const DescribeSecretRequest&,
-        DescribeSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::DescribeSupportedProductsOutcome SsmClient::DescribeSupportedProducts(const DescribeSupportedProductsRequest &request)
@@ -512,32 +449,25 @@ SsmClient::DescribeSupportedProductsOutcome SsmClient::DescribeSupportedProducts
 
 void SsmClient::DescribeSupportedProductsAsync(const DescribeSupportedProductsRequest& request, const DescribeSupportedProductsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSupportedProductsRequest&;
-    using Resp = DescribeSupportedProductsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSupportedProducts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSupportedProducts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::DescribeSupportedProductsOutcomeCallable SsmClient::DescribeSupportedProductsCallable(const DescribeSupportedProductsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSupportedProductsOutcome>>();
-    DescribeSupportedProductsAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const DescribeSupportedProductsRequest&,
-        DescribeSupportedProductsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSupportedProductsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSupportedProducts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::DisableSecretOutcome SsmClient::DisableSecret(const DisableSecretRequest &request)
@@ -562,32 +492,25 @@ SsmClient::DisableSecretOutcome SsmClient::DisableSecret(const DisableSecretRequ
 
 void SsmClient::DisableSecretAsync(const DisableSecretRequest& request, const DisableSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableSecretRequest&;
-    using Resp = DisableSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::DisableSecretOutcomeCallable SsmClient::DisableSecretCallable(const DisableSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableSecretOutcome>>();
-    DisableSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const DisableSecretRequest&,
-        DisableSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::EnableSecretOutcome SsmClient::EnableSecret(const EnableSecretRequest &request)
@@ -612,32 +535,25 @@ SsmClient::EnableSecretOutcome SsmClient::EnableSecret(const EnableSecretRequest
 
 void SsmClient::EnableSecretAsync(const EnableSecretRequest& request, const EnableSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableSecretRequest&;
-    using Resp = EnableSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::EnableSecretOutcomeCallable SsmClient::EnableSecretCallable(const EnableSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableSecretOutcome>>();
-    EnableSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const EnableSecretRequest&,
-        EnableSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::GetRegionsOutcome SsmClient::GetRegions(const GetRegionsRequest &request)
@@ -662,32 +578,25 @@ SsmClient::GetRegionsOutcome SsmClient::GetRegions(const GetRegionsRequest &requ
 
 void SsmClient::GetRegionsAsync(const GetRegionsRequest& request, const GetRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRegionsRequest&;
-    using Resp = GetRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::GetRegionsOutcomeCallable SsmClient::GetRegionsCallable(const GetRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRegionsOutcome>>();
-    GetRegionsAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const GetRegionsRequest&,
-        GetRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::GetSSHKeyPairValueOutcome SsmClient::GetSSHKeyPairValue(const GetSSHKeyPairValueRequest &request)
@@ -712,32 +621,25 @@ SsmClient::GetSSHKeyPairValueOutcome SsmClient::GetSSHKeyPairValue(const GetSSHK
 
 void SsmClient::GetSSHKeyPairValueAsync(const GetSSHKeyPairValueRequest& request, const GetSSHKeyPairValueAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetSSHKeyPairValueRequest&;
-    using Resp = GetSSHKeyPairValueResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetSSHKeyPairValue(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetSSHKeyPairValue", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::GetSSHKeyPairValueOutcomeCallable SsmClient::GetSSHKeyPairValueCallable(const GetSSHKeyPairValueRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetSSHKeyPairValueOutcome>>();
-    GetSSHKeyPairValueAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const GetSSHKeyPairValueRequest&,
-        GetSSHKeyPairValueOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetSSHKeyPairValueOutcome()>>(
+        [this, request]()
+        {
+            return this->GetSSHKeyPairValue(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::GetSecretValueOutcome SsmClient::GetSecretValue(const GetSecretValueRequest &request)
@@ -762,32 +664,25 @@ SsmClient::GetSecretValueOutcome SsmClient::GetSecretValue(const GetSecretValueR
 
 void SsmClient::GetSecretValueAsync(const GetSecretValueRequest& request, const GetSecretValueAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetSecretValueRequest&;
-    using Resp = GetSecretValueResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetSecretValue(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetSecretValue", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::GetSecretValueOutcomeCallable SsmClient::GetSecretValueCallable(const GetSecretValueRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetSecretValueOutcome>>();
-    GetSecretValueAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const GetSecretValueRequest&,
-        GetSecretValueOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetSecretValueOutcome()>>(
+        [this, request]()
+        {
+            return this->GetSecretValue(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::GetServiceStatusOutcome SsmClient::GetServiceStatus(const GetServiceStatusRequest &request)
@@ -812,32 +707,25 @@ SsmClient::GetServiceStatusOutcome SsmClient::GetServiceStatus(const GetServiceS
 
 void SsmClient::GetServiceStatusAsync(const GetServiceStatusRequest& request, const GetServiceStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetServiceStatusRequest&;
-    using Resp = GetServiceStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetServiceStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetServiceStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::GetServiceStatusOutcomeCallable SsmClient::GetServiceStatusCallable(const GetServiceStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetServiceStatusOutcome>>();
-    GetServiceStatusAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const GetServiceStatusRequest&,
-        GetServiceStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetServiceStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->GetServiceStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::ListSecretVersionIdsOutcome SsmClient::ListSecretVersionIds(const ListSecretVersionIdsRequest &request)
@@ -862,32 +750,25 @@ SsmClient::ListSecretVersionIdsOutcome SsmClient::ListSecretVersionIds(const Lis
 
 void SsmClient::ListSecretVersionIdsAsync(const ListSecretVersionIdsRequest& request, const ListSecretVersionIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListSecretVersionIdsRequest&;
-    using Resp = ListSecretVersionIdsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListSecretVersionIds(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListSecretVersionIds", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::ListSecretVersionIdsOutcomeCallable SsmClient::ListSecretVersionIdsCallable(const ListSecretVersionIdsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListSecretVersionIdsOutcome>>();
-    ListSecretVersionIdsAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const ListSecretVersionIdsRequest&,
-        ListSecretVersionIdsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListSecretVersionIdsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListSecretVersionIds(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::ListSecretsOutcome SsmClient::ListSecrets(const ListSecretsRequest &request)
@@ -912,32 +793,25 @@ SsmClient::ListSecretsOutcome SsmClient::ListSecrets(const ListSecretsRequest &r
 
 void SsmClient::ListSecretsAsync(const ListSecretsRequest& request, const ListSecretsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListSecretsRequest&;
-    using Resp = ListSecretsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListSecrets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListSecrets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::ListSecretsOutcomeCallable SsmClient::ListSecretsCallable(const ListSecretsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListSecretsOutcome>>();
-    ListSecretsAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const ListSecretsRequest&,
-        ListSecretsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListSecretsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListSecrets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::PutSecretValueOutcome SsmClient::PutSecretValue(const PutSecretValueRequest &request)
@@ -962,32 +836,25 @@ SsmClient::PutSecretValueOutcome SsmClient::PutSecretValue(const PutSecretValueR
 
 void SsmClient::PutSecretValueAsync(const PutSecretValueRequest& request, const PutSecretValueAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PutSecretValueRequest&;
-    using Resp = PutSecretValueResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PutSecretValue(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PutSecretValue", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::PutSecretValueOutcomeCallable SsmClient::PutSecretValueCallable(const PutSecretValueRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PutSecretValueOutcome>>();
-    PutSecretValueAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const PutSecretValueRequest&,
-        PutSecretValueOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PutSecretValueOutcome()>>(
+        [this, request]()
+        {
+            return this->PutSecretValue(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::RestoreSecretOutcome SsmClient::RestoreSecret(const RestoreSecretRequest &request)
@@ -1012,32 +879,25 @@ SsmClient::RestoreSecretOutcome SsmClient::RestoreSecret(const RestoreSecretRequ
 
 void SsmClient::RestoreSecretAsync(const RestoreSecretRequest& request, const RestoreSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestoreSecretRequest&;
-    using Resp = RestoreSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestoreSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestoreSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::RestoreSecretOutcomeCallable SsmClient::RestoreSecretCallable(const RestoreSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestoreSecretOutcome>>();
-    RestoreSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const RestoreSecretRequest&,
-        RestoreSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestoreSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->RestoreSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::RotateProductSecretOutcome SsmClient::RotateProductSecret(const RotateProductSecretRequest &request)
@@ -1062,32 +922,25 @@ SsmClient::RotateProductSecretOutcome SsmClient::RotateProductSecret(const Rotat
 
 void SsmClient::RotateProductSecretAsync(const RotateProductSecretRequest& request, const RotateProductSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RotateProductSecretRequest&;
-    using Resp = RotateProductSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RotateProductSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RotateProductSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::RotateProductSecretOutcomeCallable SsmClient::RotateProductSecretCallable(const RotateProductSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RotateProductSecretOutcome>>();
-    RotateProductSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const RotateProductSecretRequest&,
-        RotateProductSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RotateProductSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->RotateProductSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::UpdateDescriptionOutcome SsmClient::UpdateDescription(const UpdateDescriptionRequest &request)
@@ -1112,32 +965,25 @@ SsmClient::UpdateDescriptionOutcome SsmClient::UpdateDescription(const UpdateDes
 
 void SsmClient::UpdateDescriptionAsync(const UpdateDescriptionRequest& request, const UpdateDescriptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateDescriptionRequest&;
-    using Resp = UpdateDescriptionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateDescription(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateDescription", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::UpdateDescriptionOutcomeCallable SsmClient::UpdateDescriptionCallable(const UpdateDescriptionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateDescriptionOutcome>>();
-    UpdateDescriptionAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const UpdateDescriptionRequest&,
-        UpdateDescriptionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateDescriptionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateDescription(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::UpdateRotationStatusOutcome SsmClient::UpdateRotationStatus(const UpdateRotationStatusRequest &request)
@@ -1162,32 +1008,25 @@ SsmClient::UpdateRotationStatusOutcome SsmClient::UpdateRotationStatus(const Upd
 
 void SsmClient::UpdateRotationStatusAsync(const UpdateRotationStatusRequest& request, const UpdateRotationStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateRotationStatusRequest&;
-    using Resp = UpdateRotationStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateRotationStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateRotationStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::UpdateRotationStatusOutcomeCallable SsmClient::UpdateRotationStatusCallable(const UpdateRotationStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateRotationStatusOutcome>>();
-    UpdateRotationStatusAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const UpdateRotationStatusRequest&,
-        UpdateRotationStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateRotationStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateRotationStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 SsmClient::UpdateSecretOutcome SsmClient::UpdateSecret(const UpdateSecretRequest &request)
@@ -1212,31 +1051,24 @@ SsmClient::UpdateSecretOutcome SsmClient::UpdateSecret(const UpdateSecretRequest
 
 void SsmClient::UpdateSecretAsync(const UpdateSecretRequest& request, const UpdateSecretAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateSecretRequest&;
-    using Resp = UpdateSecretResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateSecret(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateSecret", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 SsmClient::UpdateSecretOutcomeCallable SsmClient::UpdateSecretCallable(const UpdateSecretRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateSecretOutcome>>();
-    UpdateSecretAsync(
-    request,
-    [prom](
-        const SsmClient*,
-        const UpdateSecretRequest&,
-        UpdateSecretOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateSecretOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateSecret(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

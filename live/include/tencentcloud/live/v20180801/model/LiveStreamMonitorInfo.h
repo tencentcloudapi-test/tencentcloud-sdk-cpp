@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LiveStreamMonitorOutputInfo;
+                class LiveStreamMonitorInputInfo;
+                class LiveStreamMonitorNotifyPolicy;
+
                 /**
                 * 直播监播任务信息。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     LiveStreamMonitorInfo();
-                    ~LiveStreamMonitorInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityGroupAlertInfo;
+
                 /**
                 * 告警列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SecurityAlarmTable();
-                    ~SecurityAlarmTable() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

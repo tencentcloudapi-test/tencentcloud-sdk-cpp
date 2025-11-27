@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataEngineImageVersion;
+
                 /**
                 * DescribeDataEngineImageVersions返回参数结构体
                 */

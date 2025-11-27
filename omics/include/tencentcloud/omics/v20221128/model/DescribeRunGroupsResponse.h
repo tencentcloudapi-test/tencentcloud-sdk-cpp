@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunGroup;
+
                 /**
                 * DescribeRunGroups返回参数结构体
                 */

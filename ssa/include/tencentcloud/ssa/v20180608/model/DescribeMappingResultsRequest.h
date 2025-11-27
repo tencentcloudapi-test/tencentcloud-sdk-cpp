@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetQueryFilter;
+                class QuerySort;
+
                 /**
                 * DescribeMappingResults请求参数结构体
                 */

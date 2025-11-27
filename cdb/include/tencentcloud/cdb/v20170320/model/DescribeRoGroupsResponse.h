@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoGroup;
+
                 /**
                 * DescribeRoGroups返回参数结构体
                 */

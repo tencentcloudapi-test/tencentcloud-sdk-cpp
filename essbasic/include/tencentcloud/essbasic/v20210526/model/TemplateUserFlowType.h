@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 模板对应的合同类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TemplateUserFlowType();
-                    ~TemplateUserFlowType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

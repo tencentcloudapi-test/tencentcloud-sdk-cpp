@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Scf;
+
                 /**
                 * 审批人
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ApproveUser();
-                    ~ApproveUser() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

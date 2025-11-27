@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PlanInfo;
+
                 /**
                 * CreateShieldPlanInstance请求参数结构体
                 */

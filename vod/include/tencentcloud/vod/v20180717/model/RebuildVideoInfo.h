@@ -45,6 +45,18 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RepairInfo;
+                class VideoFrameInterpolationInfo;
+                class SuperResolutionInfo;
+                class HDRInfo;
+                class VideoDenoiseInfo;
+                class ColorEnhanceInfo;
+                class SharpEnhanceInfo;
+                class FaceEnhanceInfo;
+                class LowLightEnhanceInfo;
+                class ScratchRepairInfo;
+                class ArtifactRepairInfo;
+
                 /**
                 * 音画质重生视频控制控制信息。
                 */
@@ -52,7 +64,6 @@ namespace TencentCloud
                 {
                 public:
                     RebuildVideoInfo();
-                    ~RebuildVideoInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QpsThreshold;
+                class ExternalRedis;
+                class RateLimitResponse;
+                class LimitRule;
+
                 /**
                 * 云原生网关Tse 限流插件配置
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudNativeAPIGatewayRateLimitDetail();
-                    ~CloudNativeAPIGatewayRateLimitDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

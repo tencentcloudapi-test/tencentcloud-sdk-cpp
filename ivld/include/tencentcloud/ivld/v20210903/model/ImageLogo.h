@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Rectf;
+
                 /**
                 * 图片中出现的Logo信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageLogo();
-                    ~ImageLogo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

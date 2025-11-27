@@ -37,6 +37,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FaceConfigureInfoForUpdate;
+                class OcrFullTextConfigureInfoForUpdate;
+                class OcrWordsConfigureInfoForUpdate;
+                class AsrFullTextConfigureInfoForUpdate;
+                class AsrWordsConfigureInfoForUpdate;
+                class TranslateConfigureInfoForUpdate;
+
                 /**
                 * ModifyAIRecognitionTemplate请求参数结构体
                 */

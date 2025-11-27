@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 发布文件列表(SOURCEMAP)
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ReleaseFile();
-                    ~ReleaseFile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

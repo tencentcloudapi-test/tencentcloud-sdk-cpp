@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LineGroupDetail;
+
                 /**
                 * CreateLineGroup返回参数结构体
                 */

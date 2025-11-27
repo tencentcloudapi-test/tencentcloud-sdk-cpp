@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 独享版集群
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ExclusiveHSM();
-                    ~ExclusiveHSM() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

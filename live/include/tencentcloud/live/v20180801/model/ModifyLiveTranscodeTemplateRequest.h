@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChildTemplateInfo;
+
                 /**
                 * ModifyLiveTranscodeTemplate请求参数结构体
                 */

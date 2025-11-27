@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用于描述DNS记录的域名、记录类型、期望得到的值、目前配置的值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DNSAttributes();
-                    ~DNSAttributes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

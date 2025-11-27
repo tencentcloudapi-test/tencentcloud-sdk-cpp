@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CcnRouteTable;
+
                 /**
                 * CreateCcnRouteTables返回参数结构体
                 */

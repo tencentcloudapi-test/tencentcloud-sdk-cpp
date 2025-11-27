@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagPair;
+
                 /**
                 * CreateProxy请求参数结构体
                 */

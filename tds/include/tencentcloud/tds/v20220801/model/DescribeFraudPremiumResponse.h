@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RiskInfo;
+
                 /**
                 * DescribeFraudPremium返回参数结构体
                 */

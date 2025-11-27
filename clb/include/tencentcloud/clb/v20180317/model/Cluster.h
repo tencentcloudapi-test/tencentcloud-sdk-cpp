@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClustersZone;
+                class TagInfo;
+
                 /**
                 * 集群的详细信息，如集群ID，名称，类型，可用区，标签等
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Cluster();
-                    ~Cluster() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

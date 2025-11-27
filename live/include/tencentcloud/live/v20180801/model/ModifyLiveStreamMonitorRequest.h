@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LiveStreamMonitorOutputInfo;
+                class LiveStreamMonitorInputInfo;
+                class LiveStreamMonitorNotifyPolicy;
+
                 /**
                 * ModifyLiveStreamMonitor请求参数结构体
                 */

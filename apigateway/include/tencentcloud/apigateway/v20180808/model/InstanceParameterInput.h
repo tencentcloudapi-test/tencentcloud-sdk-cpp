@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 独享实例参数信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceParameterInput();
-                    ~InstanceParameterInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

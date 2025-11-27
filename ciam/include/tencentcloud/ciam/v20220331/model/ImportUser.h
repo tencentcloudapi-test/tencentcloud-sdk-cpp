@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MemberMap;
+                class Salt;
+
                 /**
                 * 导入用户信息
 1、UserName，PhoneNumber ，Email ，WechatOpenId ，WechatUnionId ，AlipayUserId ，QqOpenId ，QqUnionId ，WeComUserId 九个属性中，导入时必须包含其中一个属性并遵守初始化自定义属性的正则表达式规则。UserName，PhoneNumber，Email的正则表达式在控制台的自定义属性中可以查询到。
@@ -49,7 +52,6 @@ IdentityVerificationMethod 为nameIdCardAndPhone，Name,PhoneNumber,ResidentIden
                 {
                 public:
                     ImportUser();
-                    ~ImportUser() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

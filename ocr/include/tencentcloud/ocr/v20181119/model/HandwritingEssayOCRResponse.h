@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WordItem;
+
                 /**
                 * HandwritingEssayOCR返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExceptUserRule;
+
                 /**
                 * 例外规则，用于配置需要跳过特定场景的规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ExceptConfig();
-                    ~ExceptConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

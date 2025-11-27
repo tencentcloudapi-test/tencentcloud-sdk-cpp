@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PeakPointsItem;
+
                 /**
                 * DescribePeakPoints返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomerProfile;
+
                 /**
                 * QueryCustomerProfileList返回参数结构体
                 */

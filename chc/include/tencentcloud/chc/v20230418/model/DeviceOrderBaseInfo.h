@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExpressDelivery;
+                class SelfOperation;
+                class PowerOffConfirm;
+                class CustomerReceipt;
+                class LogisticsReceipt;
+
                 /**
                 * 设备类工单的基础历史入参信息
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     DeviceOrderBaseInfo();
-                    ~DeviceOrderBaseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

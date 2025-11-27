@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubEks;
+
                 /**
                 * 工作空间集群组信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ClusterGroupSetItem();
-                    ~ClusterGroupSetItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -62,32 +62,25 @@ OmicsClient::CreateEnvironmentOutcome OmicsClient::CreateEnvironment(const Creat
 
 void OmicsClient::CreateEnvironmentAsync(const CreateEnvironmentRequest& request, const CreateEnvironmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateEnvironmentRequest&;
-    using Resp = CreateEnvironmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateEnvironment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateEnvironment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::CreateEnvironmentOutcomeCallable OmicsClient::CreateEnvironmentCallable(const CreateEnvironmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateEnvironmentOutcome>>();
-    CreateEnvironmentAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const CreateEnvironmentRequest&,
-        CreateEnvironmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateEnvironmentOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateEnvironment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::CreateVolumeOutcome OmicsClient::CreateVolume(const CreateVolumeRequest &request)
@@ -112,32 +105,25 @@ OmicsClient::CreateVolumeOutcome OmicsClient::CreateVolume(const CreateVolumeReq
 
 void OmicsClient::CreateVolumeAsync(const CreateVolumeRequest& request, const CreateVolumeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVolumeRequest&;
-    using Resp = CreateVolumeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVolume(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVolume", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::CreateVolumeOutcomeCallable OmicsClient::CreateVolumeCallable(const CreateVolumeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVolumeOutcome>>();
-    CreateVolumeAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const CreateVolumeRequest&,
-        CreateVolumeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVolumeOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVolume(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DeleteEnvironmentOutcome OmicsClient::DeleteEnvironment(const DeleteEnvironmentRequest &request)
@@ -162,32 +148,25 @@ OmicsClient::DeleteEnvironmentOutcome OmicsClient::DeleteEnvironment(const Delet
 
 void OmicsClient::DeleteEnvironmentAsync(const DeleteEnvironmentRequest& request, const DeleteEnvironmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteEnvironmentRequest&;
-    using Resp = DeleteEnvironmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteEnvironment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteEnvironment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DeleteEnvironmentOutcomeCallable OmicsClient::DeleteEnvironmentCallable(const DeleteEnvironmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteEnvironmentOutcome>>();
-    DeleteEnvironmentAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DeleteEnvironmentRequest&,
-        DeleteEnvironmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteEnvironmentOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteEnvironment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DeleteVolumeOutcome OmicsClient::DeleteVolume(const DeleteVolumeRequest &request)
@@ -212,32 +191,25 @@ OmicsClient::DeleteVolumeOutcome OmicsClient::DeleteVolume(const DeleteVolumeReq
 
 void OmicsClient::DeleteVolumeAsync(const DeleteVolumeRequest& request, const DeleteVolumeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVolumeRequest&;
-    using Resp = DeleteVolumeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVolume(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVolume", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DeleteVolumeOutcomeCallable OmicsClient::DeleteVolumeCallable(const DeleteVolumeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVolumeOutcome>>();
-    DeleteVolumeAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DeleteVolumeRequest&,
-        DeleteVolumeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVolumeOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVolume(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DeleteVolumeDataOutcome OmicsClient::DeleteVolumeData(const DeleteVolumeDataRequest &request)
@@ -262,32 +234,25 @@ OmicsClient::DeleteVolumeDataOutcome OmicsClient::DeleteVolumeData(const DeleteV
 
 void OmicsClient::DeleteVolumeDataAsync(const DeleteVolumeDataRequest& request, const DeleteVolumeDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVolumeDataRequest&;
-    using Resp = DeleteVolumeDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVolumeData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVolumeData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DeleteVolumeDataOutcomeCallable OmicsClient::DeleteVolumeDataCallable(const DeleteVolumeDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVolumeDataOutcome>>();
-    DeleteVolumeDataAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DeleteVolumeDataRequest&,
-        DeleteVolumeDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVolumeDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVolumeData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DescribeEnvironmentsOutcome OmicsClient::DescribeEnvironments(const DescribeEnvironmentsRequest &request)
@@ -312,32 +277,25 @@ OmicsClient::DescribeEnvironmentsOutcome OmicsClient::DescribeEnvironments(const
 
 void OmicsClient::DescribeEnvironmentsAsync(const DescribeEnvironmentsRequest& request, const DescribeEnvironmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEnvironmentsRequest&;
-    using Resp = DescribeEnvironmentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEnvironments(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEnvironments", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DescribeEnvironmentsOutcomeCallable OmicsClient::DescribeEnvironmentsCallable(const DescribeEnvironmentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEnvironmentsOutcome>>();
-    DescribeEnvironmentsAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DescribeEnvironmentsRequest&,
-        DescribeEnvironmentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEnvironmentsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEnvironments(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DescribeRunGroupsOutcome OmicsClient::DescribeRunGroups(const DescribeRunGroupsRequest &request)
@@ -362,32 +320,25 @@ OmicsClient::DescribeRunGroupsOutcome OmicsClient::DescribeRunGroups(const Descr
 
 void OmicsClient::DescribeRunGroupsAsync(const DescribeRunGroupsRequest& request, const DescribeRunGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRunGroupsRequest&;
-    using Resp = DescribeRunGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRunGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRunGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DescribeRunGroupsOutcomeCallable OmicsClient::DescribeRunGroupsCallable(const DescribeRunGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRunGroupsOutcome>>();
-    DescribeRunGroupsAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DescribeRunGroupsRequest&,
-        DescribeRunGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRunGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRunGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DescribeRunsOutcome OmicsClient::DescribeRuns(const DescribeRunsRequest &request)
@@ -412,32 +363,25 @@ OmicsClient::DescribeRunsOutcome OmicsClient::DescribeRuns(const DescribeRunsReq
 
 void OmicsClient::DescribeRunsAsync(const DescribeRunsRequest& request, const DescribeRunsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRunsRequest&;
-    using Resp = DescribeRunsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRuns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRuns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DescribeRunsOutcomeCallable OmicsClient::DescribeRunsCallable(const DescribeRunsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRunsOutcome>>();
-    DescribeRunsAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DescribeRunsRequest&,
-        DescribeRunsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRunsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRuns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DescribeTablesOutcome OmicsClient::DescribeTables(const DescribeTablesRequest &request)
@@ -462,32 +406,25 @@ OmicsClient::DescribeTablesOutcome OmicsClient::DescribeTables(const DescribeTab
 
 void OmicsClient::DescribeTablesAsync(const DescribeTablesRequest& request, const DescribeTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTablesRequest&;
-    using Resp = DescribeTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DescribeTablesOutcomeCallable OmicsClient::DescribeTablesCallable(const DescribeTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTablesOutcome>>();
-    DescribeTablesAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DescribeTablesRequest&,
-        DescribeTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DescribeTablesRowsOutcome OmicsClient::DescribeTablesRows(const DescribeTablesRowsRequest &request)
@@ -512,32 +449,25 @@ OmicsClient::DescribeTablesRowsOutcome OmicsClient::DescribeTablesRows(const Des
 
 void OmicsClient::DescribeTablesRowsAsync(const DescribeTablesRowsRequest& request, const DescribeTablesRowsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTablesRowsRequest&;
-    using Resp = DescribeTablesRowsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTablesRows(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTablesRows", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DescribeTablesRowsOutcomeCallable OmicsClient::DescribeTablesRowsCallable(const DescribeTablesRowsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTablesRowsOutcome>>();
-    DescribeTablesRowsAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DescribeTablesRowsRequest&,
-        DescribeTablesRowsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTablesRowsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTablesRows(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::DescribeVolumesOutcome OmicsClient::DescribeVolumes(const DescribeVolumesRequest &request)
@@ -562,32 +492,25 @@ OmicsClient::DescribeVolumesOutcome OmicsClient::DescribeVolumes(const DescribeV
 
 void OmicsClient::DescribeVolumesAsync(const DescribeVolumesRequest& request, const DescribeVolumesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVolumesRequest&;
-    using Resp = DescribeVolumesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVolumes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVolumes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::DescribeVolumesOutcomeCallable OmicsClient::DescribeVolumesCallable(const DescribeVolumesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVolumesOutcome>>();
-    DescribeVolumesAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const DescribeVolumesRequest&,
-        DescribeVolumesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVolumesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVolumes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::GetRunCallsOutcome OmicsClient::GetRunCalls(const GetRunCallsRequest &request)
@@ -612,32 +535,25 @@ OmicsClient::GetRunCallsOutcome OmicsClient::GetRunCalls(const GetRunCallsReques
 
 void OmicsClient::GetRunCallsAsync(const GetRunCallsRequest& request, const GetRunCallsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRunCallsRequest&;
-    using Resp = GetRunCallsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRunCalls(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRunCalls", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::GetRunCallsOutcomeCallable OmicsClient::GetRunCallsCallable(const GetRunCallsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRunCallsOutcome>>();
-    GetRunCallsAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const GetRunCallsRequest&,
-        GetRunCallsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRunCallsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRunCalls(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::GetRunMetadataFileOutcome OmicsClient::GetRunMetadataFile(const GetRunMetadataFileRequest &request)
@@ -662,32 +578,25 @@ OmicsClient::GetRunMetadataFileOutcome OmicsClient::GetRunMetadataFile(const Get
 
 void OmicsClient::GetRunMetadataFileAsync(const GetRunMetadataFileRequest& request, const GetRunMetadataFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRunMetadataFileRequest&;
-    using Resp = GetRunMetadataFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRunMetadataFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRunMetadataFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::GetRunMetadataFileOutcomeCallable OmicsClient::GetRunMetadataFileCallable(const GetRunMetadataFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRunMetadataFileOutcome>>();
-    GetRunMetadataFileAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const GetRunMetadataFileRequest&,
-        GetRunMetadataFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRunMetadataFileOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRunMetadataFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::GetRunStatusOutcome OmicsClient::GetRunStatus(const GetRunStatusRequest &request)
@@ -712,32 +621,25 @@ OmicsClient::GetRunStatusOutcome OmicsClient::GetRunStatus(const GetRunStatusReq
 
 void OmicsClient::GetRunStatusAsync(const GetRunStatusRequest& request, const GetRunStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRunStatusRequest&;
-    using Resp = GetRunStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRunStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRunStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::GetRunStatusOutcomeCallable OmicsClient::GetRunStatusCallable(const GetRunStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRunStatusOutcome>>();
-    GetRunStatusAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const GetRunStatusRequest&,
-        GetRunStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRunStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRunStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::ImportTableFileOutcome OmicsClient::ImportTableFile(const ImportTableFileRequest &request)
@@ -762,32 +664,25 @@ OmicsClient::ImportTableFileOutcome OmicsClient::ImportTableFile(const ImportTab
 
 void OmicsClient::ImportTableFileAsync(const ImportTableFileRequest& request, const ImportTableFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportTableFileRequest&;
-    using Resp = ImportTableFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportTableFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportTableFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::ImportTableFileOutcomeCallable OmicsClient::ImportTableFileCallable(const ImportTableFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportTableFileOutcome>>();
-    ImportTableFileAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const ImportTableFileRequest&,
-        ImportTableFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportTableFileOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportTableFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::ModifyVolumeOutcome OmicsClient::ModifyVolume(const ModifyVolumeRequest &request)
@@ -812,32 +707,25 @@ OmicsClient::ModifyVolumeOutcome OmicsClient::ModifyVolume(const ModifyVolumeReq
 
 void OmicsClient::ModifyVolumeAsync(const ModifyVolumeRequest& request, const ModifyVolumeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVolumeRequest&;
-    using Resp = ModifyVolumeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVolume(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVolume", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::ModifyVolumeOutcomeCallable OmicsClient::ModifyVolumeCallable(const ModifyVolumeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVolumeOutcome>>();
-    ModifyVolumeAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const ModifyVolumeRequest&,
-        ModifyVolumeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVolumeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVolume(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::RetryRunsOutcome OmicsClient::RetryRuns(const RetryRunsRequest &request)
@@ -862,32 +750,25 @@ OmicsClient::RetryRunsOutcome OmicsClient::RetryRuns(const RetryRunsRequest &req
 
 void OmicsClient::RetryRunsAsync(const RetryRunsRequest& request, const RetryRunsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RetryRunsRequest&;
-    using Resp = RetryRunsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RetryRuns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RetryRuns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::RetryRunsOutcomeCallable OmicsClient::RetryRunsCallable(const RetryRunsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RetryRunsOutcome>>();
-    RetryRunsAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const RetryRunsRequest&,
-        RetryRunsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RetryRunsOutcome()>>(
+        [this, request]()
+        {
+            return this->RetryRuns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::RunApplicationOutcome OmicsClient::RunApplication(const RunApplicationRequest &request)
@@ -912,32 +793,25 @@ OmicsClient::RunApplicationOutcome OmicsClient::RunApplication(const RunApplicat
 
 void OmicsClient::RunApplicationAsync(const RunApplicationRequest& request, const RunApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunApplicationRequest&;
-    using Resp = RunApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::RunApplicationOutcomeCallable OmicsClient::RunApplicationCallable(const RunApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunApplicationOutcome>>();
-    RunApplicationAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const RunApplicationRequest&,
-        RunApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->RunApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::RunWorkflowOutcome OmicsClient::RunWorkflow(const RunWorkflowRequest &request)
@@ -962,32 +836,25 @@ OmicsClient::RunWorkflowOutcome OmicsClient::RunWorkflow(const RunWorkflowReques
 
 void OmicsClient::RunWorkflowAsync(const RunWorkflowRequest& request, const RunWorkflowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunWorkflowRequest&;
-    using Resp = RunWorkflowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunWorkflow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunWorkflow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::RunWorkflowOutcomeCallable OmicsClient::RunWorkflowCallable(const RunWorkflowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunWorkflowOutcome>>();
-    RunWorkflowAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const RunWorkflowRequest&,
-        RunWorkflowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunWorkflowOutcome()>>(
+        [this, request]()
+        {
+            return this->RunWorkflow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OmicsClient::TerminateRunGroupOutcome OmicsClient::TerminateRunGroup(const TerminateRunGroupRequest &request)
@@ -1012,31 +879,24 @@ OmicsClient::TerminateRunGroupOutcome OmicsClient::TerminateRunGroup(const Termi
 
 void OmicsClient::TerminateRunGroupAsync(const TerminateRunGroupRequest& request, const TerminateRunGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminateRunGroupRequest&;
-    using Resp = TerminateRunGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminateRunGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminateRunGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OmicsClient::TerminateRunGroupOutcomeCallable OmicsClient::TerminateRunGroupCallable(const TerminateRunGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminateRunGroupOutcome>>();
-    TerminateRunGroupAsync(
-    request,
-    [prom](
-        const OmicsClient*,
-        const TerminateRunGroupRequest&,
-        TerminateRunGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminateRunGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminateRunGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

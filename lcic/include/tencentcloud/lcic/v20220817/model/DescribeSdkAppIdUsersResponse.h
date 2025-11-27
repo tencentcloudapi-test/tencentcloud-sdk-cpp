@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+
                 /**
                 * DescribeSdkAppIdUsers返回参数结构体
                 */

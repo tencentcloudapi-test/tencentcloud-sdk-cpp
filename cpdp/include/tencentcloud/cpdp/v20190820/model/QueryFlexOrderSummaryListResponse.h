@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrderSummaries;
+
                 /**
                 * QueryFlexOrderSummaryList返回参数结构体
                 */

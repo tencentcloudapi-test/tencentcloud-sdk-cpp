@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 过去七天（不算当天）表的热度值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TableHeat();
-                    ~TableHeat() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

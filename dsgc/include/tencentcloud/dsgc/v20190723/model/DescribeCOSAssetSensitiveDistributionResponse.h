@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosAsset;
+                class TopAsset;
+                class AssetCosDetail;
+
                 /**
                 * DescribeCOSAssetSensitiveDistribution返回参数结构体
                 */

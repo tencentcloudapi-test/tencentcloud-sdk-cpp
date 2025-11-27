@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackupDownloadTask;
+
                 /**
                 * DescribeBackupDownloadTask返回参数结构体
                 */

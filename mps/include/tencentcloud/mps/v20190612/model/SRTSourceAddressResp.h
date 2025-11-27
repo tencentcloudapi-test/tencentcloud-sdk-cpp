@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SRT输入源地址。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SRTSourceAddressResp();
-                    ~SRTSourceAddressResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TriggerAction;
+
                 /**
                 * PutProvisionedConcurrencyConfig请求参数结构体
                 */

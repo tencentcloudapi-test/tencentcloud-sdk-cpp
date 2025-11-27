@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserMediaStream;
+
                 /**
                 * 单流旁路转推的用户上行信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SingleSubscribeParams();
-                    ~SingleSubscribeParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

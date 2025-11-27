@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagList;
+
                 /**
                 * ListEmailIdentities请求参数结构体
                 */

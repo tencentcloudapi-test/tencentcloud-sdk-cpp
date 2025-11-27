@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Chain;
+
                 /**
                 * CreateChainBatch请求参数结构体
                 */

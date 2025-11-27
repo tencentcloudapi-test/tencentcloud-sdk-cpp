@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 截图任务
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ScreenshotTask();
-                    ~ScreenshotTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

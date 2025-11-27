@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChainMakerTransactionResult;
+
                 /**
                 * QueryChainMakerTransaction返回参数结构体
                 */

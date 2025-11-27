@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Task;
+
                 /**
                 * CreateAsyncRecognitionTask返回参数结构体
                 */

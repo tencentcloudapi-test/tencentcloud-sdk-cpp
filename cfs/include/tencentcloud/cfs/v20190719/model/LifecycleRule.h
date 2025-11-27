@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 生命周期管理策略关联的管理规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LifecycleRule();
-                    ~LifecycleRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

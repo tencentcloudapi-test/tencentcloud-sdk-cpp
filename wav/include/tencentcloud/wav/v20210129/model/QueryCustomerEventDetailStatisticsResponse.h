@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomerActionEventDetail;
+
                 /**
                 * QueryCustomerEventDetailStatistics返回参数结构体
                 */

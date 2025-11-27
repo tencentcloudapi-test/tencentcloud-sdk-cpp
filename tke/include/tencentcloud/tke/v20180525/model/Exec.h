@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 探针在容器内执行检测命令参数类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Exec();
-                    ~Exec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Credentials;
+
                 /**
                 * CreateStorageCredentials返回参数结构体
                 */

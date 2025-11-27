@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * PPT错误元素
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PPTErr();
-                    ~PPTErr() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

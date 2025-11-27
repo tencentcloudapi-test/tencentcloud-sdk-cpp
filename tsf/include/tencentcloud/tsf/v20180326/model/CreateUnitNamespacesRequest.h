@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UnitNamespace;
+
                 /**
                 * CreateUnitNamespaces请求参数结构体
                 */

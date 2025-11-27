@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * IP黑白名单分路径配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IpFilterPathRule();
-                    ~IpFilterPathRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

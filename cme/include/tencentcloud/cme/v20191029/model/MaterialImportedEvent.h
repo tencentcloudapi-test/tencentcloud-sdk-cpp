@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImportMediaInfo;
+                class Entity;
+
                 /**
                 * 媒体导入事件
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MaterialImportedEvent();
-                    ~MaterialImportedEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

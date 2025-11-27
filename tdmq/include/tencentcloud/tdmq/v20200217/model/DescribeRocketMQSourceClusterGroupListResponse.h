@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RocketMQGroupConfigOutput;
+
                 /**
                 * DescribeRocketMQSourceClusterGroupList返回参数结构体
                 */

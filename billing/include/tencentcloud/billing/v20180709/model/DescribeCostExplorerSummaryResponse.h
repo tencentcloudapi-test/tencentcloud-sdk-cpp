@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AnalyseHeaderDetail;
+                class AnalyseDetail;
+                class AnalyseConditionDetail;
+
                 /**
                 * DescribeCostExplorerSummary返回参数结构体
                 */

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoadAutoScaleStrategy;
+                class TimeAutoScaleStrategy;
+
                 /**
                 * ModifyAutoScaleStrategy请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 三元组查询返回的元记录
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TripleContent();
-                    ~TripleContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

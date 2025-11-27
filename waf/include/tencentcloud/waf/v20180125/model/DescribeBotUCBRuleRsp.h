@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InOutputBotUCBRule;
+
                 /**
                 * 获取自定义规则列表时的出参
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeBotUCBRuleRsp();
-                    ~DescribeBotUCBRuleRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 意愿核身点头确认模式结果详细数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IntentionActionResultDetail();
-                    ~IntentionActionResultDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

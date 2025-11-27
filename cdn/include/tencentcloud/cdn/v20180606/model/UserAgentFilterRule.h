@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * UserAgent黑白名单规则配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UserAgentFilterRule();
-                    ~UserAgentFilterRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

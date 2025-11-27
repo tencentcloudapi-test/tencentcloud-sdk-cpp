@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询迁移实例列表的实例对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MigrateDBItem();
-                    ~MigrateDBItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

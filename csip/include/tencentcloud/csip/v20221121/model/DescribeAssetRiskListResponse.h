@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetRiskItem;
+
                 /**
                 * DescribeAssetRiskList返回参数结构体
                 */

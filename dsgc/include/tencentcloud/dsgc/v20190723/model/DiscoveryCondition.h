@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RDBInstance;
+                class COSInstance;
+                class NOSQLInstance;
+                class ESInstance;
+
                 /**
                 * DSPA敏感数据扫描数据源条件
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     DiscoveryCondition();
-                    ~DiscoveryCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

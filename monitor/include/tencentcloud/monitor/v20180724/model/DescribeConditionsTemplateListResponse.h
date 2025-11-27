@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TemplateGroup;
+
                 /**
                 * DescribeConditionsTemplateList返回参数结构体
                 */

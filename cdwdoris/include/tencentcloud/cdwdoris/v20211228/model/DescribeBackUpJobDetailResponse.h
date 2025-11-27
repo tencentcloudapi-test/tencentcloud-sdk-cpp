@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackupTableContent;
+
                 /**
                 * DescribeBackUpJobDetail返回参数结构体
                 */

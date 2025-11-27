@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Policy;
+
                 /**
                 * UpdateRowFilter请求参数结构体
                 */

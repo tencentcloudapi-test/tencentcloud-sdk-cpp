@@ -62,32 +62,25 @@ CccClient::AbortAgentCruiseDialingCampaignOutcome CccClient::AbortAgentCruiseDia
 
 void CccClient::AbortAgentCruiseDialingCampaignAsync(const AbortAgentCruiseDialingCampaignRequest& request, const AbortAgentCruiseDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AbortAgentCruiseDialingCampaignRequest&;
-    using Resp = AbortAgentCruiseDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AbortAgentCruiseDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AbortAgentCruiseDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::AbortAgentCruiseDialingCampaignOutcomeCallable CccClient::AbortAgentCruiseDialingCampaignCallable(const AbortAgentCruiseDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AbortAgentCruiseDialingCampaignOutcome>>();
-    AbortAgentCruiseDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const AbortAgentCruiseDialingCampaignRequest&,
-        AbortAgentCruiseDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AbortAgentCruiseDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->AbortAgentCruiseDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::AbortPredictiveDialingCampaignOutcome CccClient::AbortPredictiveDialingCampaign(const AbortPredictiveDialingCampaignRequest &request)
@@ -112,32 +105,25 @@ CccClient::AbortPredictiveDialingCampaignOutcome CccClient::AbortPredictiveDiali
 
 void CccClient::AbortPredictiveDialingCampaignAsync(const AbortPredictiveDialingCampaignRequest& request, const AbortPredictiveDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AbortPredictiveDialingCampaignRequest&;
-    using Resp = AbortPredictiveDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AbortPredictiveDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AbortPredictiveDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::AbortPredictiveDialingCampaignOutcomeCallable CccClient::AbortPredictiveDialingCampaignCallable(const AbortPredictiveDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AbortPredictiveDialingCampaignOutcome>>();
-    AbortPredictiveDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const AbortPredictiveDialingCampaignRequest&,
-        AbortPredictiveDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AbortPredictiveDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->AbortPredictiveDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::BindNumberCallInInterfaceOutcome CccClient::BindNumberCallInInterface(const BindNumberCallInInterfaceRequest &request)
@@ -162,32 +148,25 @@ CccClient::BindNumberCallInInterfaceOutcome CccClient::BindNumberCallInInterface
 
 void CccClient::BindNumberCallInInterfaceAsync(const BindNumberCallInInterfaceRequest& request, const BindNumberCallInInterfaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindNumberCallInInterfaceRequest&;
-    using Resp = BindNumberCallInInterfaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindNumberCallInInterface(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindNumberCallInInterface", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::BindNumberCallInInterfaceOutcomeCallable CccClient::BindNumberCallInInterfaceCallable(const BindNumberCallInInterfaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindNumberCallInInterfaceOutcome>>();
-    BindNumberCallInInterfaceAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const BindNumberCallInInterfaceRequest&,
-        BindNumberCallInInterfaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindNumberCallInInterfaceOutcome()>>(
+        [this, request]()
+        {
+            return this->BindNumberCallInInterface(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::BindNumberCallOutSkillGroupOutcome CccClient::BindNumberCallOutSkillGroup(const BindNumberCallOutSkillGroupRequest &request)
@@ -212,32 +191,25 @@ CccClient::BindNumberCallOutSkillGroupOutcome CccClient::BindNumberCallOutSkillG
 
 void CccClient::BindNumberCallOutSkillGroupAsync(const BindNumberCallOutSkillGroupRequest& request, const BindNumberCallOutSkillGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindNumberCallOutSkillGroupRequest&;
-    using Resp = BindNumberCallOutSkillGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindNumberCallOutSkillGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindNumberCallOutSkillGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::BindNumberCallOutSkillGroupOutcomeCallable CccClient::BindNumberCallOutSkillGroupCallable(const BindNumberCallOutSkillGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindNumberCallOutSkillGroupOutcome>>();
-    BindNumberCallOutSkillGroupAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const BindNumberCallOutSkillGroupRequest&,
-        BindNumberCallOutSkillGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindNumberCallOutSkillGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->BindNumberCallOutSkillGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::BindStaffSkillGroupListOutcome CccClient::BindStaffSkillGroupList(const BindStaffSkillGroupListRequest &request)
@@ -262,32 +234,25 @@ CccClient::BindStaffSkillGroupListOutcome CccClient::BindStaffSkillGroupList(con
 
 void CccClient::BindStaffSkillGroupListAsync(const BindStaffSkillGroupListRequest& request, const BindStaffSkillGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindStaffSkillGroupListRequest&;
-    using Resp = BindStaffSkillGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindStaffSkillGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindStaffSkillGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::BindStaffSkillGroupListOutcomeCallable CccClient::BindStaffSkillGroupListCallable(const BindStaffSkillGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindStaffSkillGroupListOutcome>>();
-    BindStaffSkillGroupListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const BindStaffSkillGroupListRequest&,
-        BindStaffSkillGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindStaffSkillGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->BindStaffSkillGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ControlAIConversationOutcome CccClient::ControlAIConversation(const ControlAIConversationRequest &request)
@@ -312,32 +277,25 @@ CccClient::ControlAIConversationOutcome CccClient::ControlAIConversation(const C
 
 void CccClient::ControlAIConversationAsync(const ControlAIConversationRequest& request, const ControlAIConversationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ControlAIConversationRequest&;
-    using Resp = ControlAIConversationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ControlAIConversation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ControlAIConversation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ControlAIConversationOutcomeCallable CccClient::ControlAIConversationCallable(const ControlAIConversationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ControlAIConversationOutcome>>();
-    ControlAIConversationAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ControlAIConversationRequest&,
-        ControlAIConversationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ControlAIConversationOutcome()>>(
+        [this, request]()
+        {
+            return this->ControlAIConversation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateAIAgentCallOutcome CccClient::CreateAIAgentCall(const CreateAIAgentCallRequest &request)
@@ -362,32 +320,25 @@ CccClient::CreateAIAgentCallOutcome CccClient::CreateAIAgentCall(const CreateAIA
 
 void CccClient::CreateAIAgentCallAsync(const CreateAIAgentCallRequest& request, const CreateAIAgentCallAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAIAgentCallRequest&;
-    using Resp = CreateAIAgentCallResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAIAgentCall(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAIAgentCall", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateAIAgentCallOutcomeCallable CccClient::CreateAIAgentCallCallable(const CreateAIAgentCallRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAIAgentCallOutcome>>();
-    CreateAIAgentCallAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateAIAgentCallRequest&,
-        CreateAIAgentCallOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAIAgentCallOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAIAgentCall(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateAICallOutcome CccClient::CreateAICall(const CreateAICallRequest &request)
@@ -412,32 +363,25 @@ CccClient::CreateAICallOutcome CccClient::CreateAICall(const CreateAICallRequest
 
 void CccClient::CreateAICallAsync(const CreateAICallRequest& request, const CreateAICallAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAICallRequest&;
-    using Resp = CreateAICallResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAICall(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAICall", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateAICallOutcomeCallable CccClient::CreateAICallCallable(const CreateAICallRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAICallOutcome>>();
-    CreateAICallAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateAICallRequest&,
-        CreateAICallOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAICallOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAICall(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateAdminURLOutcome CccClient::CreateAdminURL(const CreateAdminURLRequest &request)
@@ -462,32 +406,25 @@ CccClient::CreateAdminURLOutcome CccClient::CreateAdminURL(const CreateAdminURLR
 
 void CccClient::CreateAdminURLAsync(const CreateAdminURLRequest& request, const CreateAdminURLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAdminURLRequest&;
-    using Resp = CreateAdminURLResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAdminURL(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAdminURL", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateAdminURLOutcomeCallable CccClient::CreateAdminURLCallable(const CreateAdminURLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAdminURLOutcome>>();
-    CreateAdminURLAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateAdminURLRequest&,
-        CreateAdminURLOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAdminURLOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAdminURL(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateAgentCruiseDialingCampaignOutcome CccClient::CreateAgentCruiseDialingCampaign(const CreateAgentCruiseDialingCampaignRequest &request)
@@ -512,32 +449,25 @@ CccClient::CreateAgentCruiseDialingCampaignOutcome CccClient::CreateAgentCruiseD
 
 void CccClient::CreateAgentCruiseDialingCampaignAsync(const CreateAgentCruiseDialingCampaignRequest& request, const CreateAgentCruiseDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAgentCruiseDialingCampaignRequest&;
-    using Resp = CreateAgentCruiseDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAgentCruiseDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAgentCruiseDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateAgentCruiseDialingCampaignOutcomeCallable CccClient::CreateAgentCruiseDialingCampaignCallable(const CreateAgentCruiseDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAgentCruiseDialingCampaignOutcome>>();
-    CreateAgentCruiseDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateAgentCruiseDialingCampaignRequest&,
-        CreateAgentCruiseDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAgentCruiseDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAgentCruiseDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateAutoCalloutTaskOutcome CccClient::CreateAutoCalloutTask(const CreateAutoCalloutTaskRequest &request)
@@ -562,32 +492,25 @@ CccClient::CreateAutoCalloutTaskOutcome CccClient::CreateAutoCalloutTask(const C
 
 void CccClient::CreateAutoCalloutTaskAsync(const CreateAutoCalloutTaskRequest& request, const CreateAutoCalloutTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAutoCalloutTaskRequest&;
-    using Resp = CreateAutoCalloutTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAutoCalloutTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAutoCalloutTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateAutoCalloutTaskOutcomeCallable CccClient::CreateAutoCalloutTaskCallable(const CreateAutoCalloutTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAutoCalloutTaskOutcome>>();
-    CreateAutoCalloutTaskAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateAutoCalloutTaskRequest&,
-        CreateAutoCalloutTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAutoCalloutTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAutoCalloutTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateCCCSkillGroupOutcome CccClient::CreateCCCSkillGroup(const CreateCCCSkillGroupRequest &request)
@@ -612,32 +535,25 @@ CccClient::CreateCCCSkillGroupOutcome CccClient::CreateCCCSkillGroup(const Creat
 
 void CccClient::CreateCCCSkillGroupAsync(const CreateCCCSkillGroupRequest& request, const CreateCCCSkillGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCCCSkillGroupRequest&;
-    using Resp = CreateCCCSkillGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCCCSkillGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCCCSkillGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateCCCSkillGroupOutcomeCallable CccClient::CreateCCCSkillGroupCallable(const CreateCCCSkillGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCCCSkillGroupOutcome>>();
-    CreateCCCSkillGroupAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateCCCSkillGroupRequest&,
-        CreateCCCSkillGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCCCSkillGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCCCSkillGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateCallOutSessionOutcome CccClient::CreateCallOutSession(const CreateCallOutSessionRequest &request)
@@ -662,32 +578,25 @@ CccClient::CreateCallOutSessionOutcome CccClient::CreateCallOutSession(const Cre
 
 void CccClient::CreateCallOutSessionAsync(const CreateCallOutSessionRequest& request, const CreateCallOutSessionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCallOutSessionRequest&;
-    using Resp = CreateCallOutSessionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCallOutSession(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCallOutSession", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateCallOutSessionOutcomeCallable CccClient::CreateCallOutSessionCallable(const CreateCallOutSessionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCallOutSessionOutcome>>();
-    CreateCallOutSessionAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateCallOutSessionRequest&,
-        CreateCallOutSessionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCallOutSessionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCallOutSession(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateCarrierPrivilegeNumberApplicantOutcome CccClient::CreateCarrierPrivilegeNumberApplicant(const CreateCarrierPrivilegeNumberApplicantRequest &request)
@@ -712,32 +621,25 @@ CccClient::CreateCarrierPrivilegeNumberApplicantOutcome CccClient::CreateCarrier
 
 void CccClient::CreateCarrierPrivilegeNumberApplicantAsync(const CreateCarrierPrivilegeNumberApplicantRequest& request, const CreateCarrierPrivilegeNumberApplicantAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCarrierPrivilegeNumberApplicantRequest&;
-    using Resp = CreateCarrierPrivilegeNumberApplicantResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCarrierPrivilegeNumberApplicant(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCarrierPrivilegeNumberApplicant", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateCarrierPrivilegeNumberApplicantOutcomeCallable CccClient::CreateCarrierPrivilegeNumberApplicantCallable(const CreateCarrierPrivilegeNumberApplicantRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCarrierPrivilegeNumberApplicantOutcome>>();
-    CreateCarrierPrivilegeNumberApplicantAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateCarrierPrivilegeNumberApplicantRequest&,
-        CreateCarrierPrivilegeNumberApplicantOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCarrierPrivilegeNumberApplicantOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCarrierPrivilegeNumberApplicant(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateCompanyApplyOutcome CccClient::CreateCompanyApply(const CreateCompanyApplyRequest &request)
@@ -762,32 +664,25 @@ CccClient::CreateCompanyApplyOutcome CccClient::CreateCompanyApply(const CreateC
 
 void CccClient::CreateCompanyApplyAsync(const CreateCompanyApplyRequest& request, const CreateCompanyApplyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCompanyApplyRequest&;
-    using Resp = CreateCompanyApplyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCompanyApply(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCompanyApply", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateCompanyApplyOutcomeCallable CccClient::CreateCompanyApplyCallable(const CreateCompanyApplyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCompanyApplyOutcome>>();
-    CreateCompanyApplyAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateCompanyApplyRequest&,
-        CreateCompanyApplyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCompanyApplyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCompanyApply(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateExtensionOutcome CccClient::CreateExtension(const CreateExtensionRequest &request)
@@ -812,32 +707,25 @@ CccClient::CreateExtensionOutcome CccClient::CreateExtension(const CreateExtensi
 
 void CccClient::CreateExtensionAsync(const CreateExtensionRequest& request, const CreateExtensionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateExtensionRequest&;
-    using Resp = CreateExtensionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateExtension(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateExtension", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateExtensionOutcomeCallable CccClient::CreateExtensionCallable(const CreateExtensionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateExtensionOutcome>>();
-    CreateExtensionAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateExtensionRequest&,
-        CreateExtensionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateExtensionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateExtension(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateIVRSessionOutcome CccClient::CreateIVRSession(const CreateIVRSessionRequest &request)
@@ -862,32 +750,25 @@ CccClient::CreateIVRSessionOutcome CccClient::CreateIVRSession(const CreateIVRSe
 
 void CccClient::CreateIVRSessionAsync(const CreateIVRSessionRequest& request, const CreateIVRSessionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateIVRSessionRequest&;
-    using Resp = CreateIVRSessionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateIVRSession(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateIVRSession", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateIVRSessionOutcomeCallable CccClient::CreateIVRSessionCallable(const CreateIVRSessionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateIVRSessionOutcome>>();
-    CreateIVRSessionAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateIVRSessionRequest&,
-        CreateIVRSessionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateIVRSessionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateIVRSession(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateOwnNumberApplyOutcome CccClient::CreateOwnNumberApply(const CreateOwnNumberApplyRequest &request)
@@ -912,32 +793,25 @@ CccClient::CreateOwnNumberApplyOutcome CccClient::CreateOwnNumberApply(const Cre
 
 void CccClient::CreateOwnNumberApplyAsync(const CreateOwnNumberApplyRequest& request, const CreateOwnNumberApplyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOwnNumberApplyRequest&;
-    using Resp = CreateOwnNumberApplyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOwnNumberApply(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOwnNumberApply", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateOwnNumberApplyOutcomeCallable CccClient::CreateOwnNumberApplyCallable(const CreateOwnNumberApplyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOwnNumberApplyOutcome>>();
-    CreateOwnNumberApplyAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateOwnNumberApplyRequest&,
-        CreateOwnNumberApplyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOwnNumberApplyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOwnNumberApply(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreatePredictiveDialingCampaignOutcome CccClient::CreatePredictiveDialingCampaign(const CreatePredictiveDialingCampaignRequest &request)
@@ -962,32 +836,25 @@ CccClient::CreatePredictiveDialingCampaignOutcome CccClient::CreatePredictiveDia
 
 void CccClient::CreatePredictiveDialingCampaignAsync(const CreatePredictiveDialingCampaignRequest& request, const CreatePredictiveDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePredictiveDialingCampaignRequest&;
-    using Resp = CreatePredictiveDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePredictiveDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePredictiveDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreatePredictiveDialingCampaignOutcomeCallable CccClient::CreatePredictiveDialingCampaignCallable(const CreatePredictiveDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePredictiveDialingCampaignOutcome>>();
-    CreatePredictiveDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreatePredictiveDialingCampaignRequest&,
-        CreatePredictiveDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePredictiveDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePredictiveDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateSDKLoginTokenOutcome CccClient::CreateSDKLoginToken(const CreateSDKLoginTokenRequest &request)
@@ -1012,32 +879,25 @@ CccClient::CreateSDKLoginTokenOutcome CccClient::CreateSDKLoginToken(const Creat
 
 void CccClient::CreateSDKLoginTokenAsync(const CreateSDKLoginTokenRequest& request, const CreateSDKLoginTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSDKLoginTokenRequest&;
-    using Resp = CreateSDKLoginTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSDKLoginToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSDKLoginToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateSDKLoginTokenOutcomeCallable CccClient::CreateSDKLoginTokenCallable(const CreateSDKLoginTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSDKLoginTokenOutcome>>();
-    CreateSDKLoginTokenAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateSDKLoginTokenRequest&,
-        CreateSDKLoginTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSDKLoginTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSDKLoginToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateStaffOutcome CccClient::CreateStaff(const CreateStaffRequest &request)
@@ -1062,32 +922,25 @@ CccClient::CreateStaffOutcome CccClient::CreateStaff(const CreateStaffRequest &r
 
 void CccClient::CreateStaffAsync(const CreateStaffRequest& request, const CreateStaffAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateStaffRequest&;
-    using Resp = CreateStaffResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateStaff(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateStaff", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateStaffOutcomeCallable CccClient::CreateStaffCallable(const CreateStaffRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateStaffOutcome>>();
-    CreateStaffAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateStaffRequest&,
-        CreateStaffOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateStaffOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateStaff(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::CreateUserSigOutcome CccClient::CreateUserSig(const CreateUserSigRequest &request)
@@ -1112,32 +965,25 @@ CccClient::CreateUserSigOutcome CccClient::CreateUserSig(const CreateUserSigRequ
 
 void CccClient::CreateUserSigAsync(const CreateUserSigRequest& request, const CreateUserSigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserSigRequest&;
-    using Resp = CreateUserSigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUserSig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUserSig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::CreateUserSigOutcomeCallable CccClient::CreateUserSigCallable(const CreateUserSigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserSigOutcome>>();
-    CreateUserSigAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const CreateUserSigRequest&,
-        CreateUserSigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserSigOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUserSig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DeleteCCCSkillGroupOutcome CccClient::DeleteCCCSkillGroup(const DeleteCCCSkillGroupRequest &request)
@@ -1162,32 +1008,25 @@ CccClient::DeleteCCCSkillGroupOutcome CccClient::DeleteCCCSkillGroup(const Delet
 
 void CccClient::DeleteCCCSkillGroupAsync(const DeleteCCCSkillGroupRequest& request, const DeleteCCCSkillGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCCCSkillGroupRequest&;
-    using Resp = DeleteCCCSkillGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCCCSkillGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCCCSkillGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DeleteCCCSkillGroupOutcomeCallable CccClient::DeleteCCCSkillGroupCallable(const DeleteCCCSkillGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCCCSkillGroupOutcome>>();
-    DeleteCCCSkillGroupAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DeleteCCCSkillGroupRequest&,
-        DeleteCCCSkillGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCCCSkillGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCCCSkillGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DeleteExtensionOutcome CccClient::DeleteExtension(const DeleteExtensionRequest &request)
@@ -1212,32 +1051,25 @@ CccClient::DeleteExtensionOutcome CccClient::DeleteExtension(const DeleteExtensi
 
 void CccClient::DeleteExtensionAsync(const DeleteExtensionRequest& request, const DeleteExtensionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteExtensionRequest&;
-    using Resp = DeleteExtensionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteExtension(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteExtension", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DeleteExtensionOutcomeCallable CccClient::DeleteExtensionCallable(const DeleteExtensionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteExtensionOutcome>>();
-    DeleteExtensionAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DeleteExtensionRequest&,
-        DeleteExtensionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteExtensionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteExtension(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DeletePredictiveDialingCampaignOutcome CccClient::DeletePredictiveDialingCampaign(const DeletePredictiveDialingCampaignRequest &request)
@@ -1262,32 +1094,25 @@ CccClient::DeletePredictiveDialingCampaignOutcome CccClient::DeletePredictiveDia
 
 void CccClient::DeletePredictiveDialingCampaignAsync(const DeletePredictiveDialingCampaignRequest& request, const DeletePredictiveDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePredictiveDialingCampaignRequest&;
-    using Resp = DeletePredictiveDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePredictiveDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePredictiveDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DeletePredictiveDialingCampaignOutcomeCallable CccClient::DeletePredictiveDialingCampaignCallable(const DeletePredictiveDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePredictiveDialingCampaignOutcome>>();
-    DeletePredictiveDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DeletePredictiveDialingCampaignRequest&,
-        DeletePredictiveDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePredictiveDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePredictiveDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DeleteStaffOutcome CccClient::DeleteStaff(const DeleteStaffRequest &request)
@@ -1312,32 +1137,25 @@ CccClient::DeleteStaffOutcome CccClient::DeleteStaff(const DeleteStaffRequest &r
 
 void CccClient::DeleteStaffAsync(const DeleteStaffRequest& request, const DeleteStaffAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteStaffRequest&;
-    using Resp = DeleteStaffResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteStaff(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteStaff", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DeleteStaffOutcomeCallable CccClient::DeleteStaffCallable(const DeleteStaffRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteStaffOutcome>>();
-    DeleteStaffAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DeleteStaffRequest&,
-        DeleteStaffOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteStaffOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteStaff(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeAIAgentInfoListOutcome CccClient::DescribeAIAgentInfoList(const DescribeAIAgentInfoListRequest &request)
@@ -1362,32 +1180,25 @@ CccClient::DescribeAIAgentInfoListOutcome CccClient::DescribeAIAgentInfoList(con
 
 void CccClient::DescribeAIAgentInfoListAsync(const DescribeAIAgentInfoListRequest& request, const DescribeAIAgentInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAIAgentInfoListRequest&;
-    using Resp = DescribeAIAgentInfoListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAIAgentInfoList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAIAgentInfoList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeAIAgentInfoListOutcomeCallable CccClient::DescribeAIAgentInfoListCallable(const DescribeAIAgentInfoListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAIAgentInfoListOutcome>>();
-    DescribeAIAgentInfoListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeAIAgentInfoListRequest&,
-        DescribeAIAgentInfoListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAIAgentInfoListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAIAgentInfoList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeAIAnalysisResultOutcome CccClient::DescribeAIAnalysisResult(const DescribeAIAnalysisResultRequest &request)
@@ -1412,32 +1223,25 @@ CccClient::DescribeAIAnalysisResultOutcome CccClient::DescribeAIAnalysisResult(c
 
 void CccClient::DescribeAIAnalysisResultAsync(const DescribeAIAnalysisResultRequest& request, const DescribeAIAnalysisResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAIAnalysisResultRequest&;
-    using Resp = DescribeAIAnalysisResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAIAnalysisResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAIAnalysisResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeAIAnalysisResultOutcomeCallable CccClient::DescribeAIAnalysisResultCallable(const DescribeAIAnalysisResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAIAnalysisResultOutcome>>();
-    DescribeAIAnalysisResultAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeAIAnalysisResultRequest&,
-        DescribeAIAnalysisResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAIAnalysisResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAIAnalysisResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeAICallExtractResultOutcome CccClient::DescribeAICallExtractResult(const DescribeAICallExtractResultRequest &request)
@@ -1462,32 +1266,25 @@ CccClient::DescribeAICallExtractResultOutcome CccClient::DescribeAICallExtractRe
 
 void CccClient::DescribeAICallExtractResultAsync(const DescribeAICallExtractResultRequest& request, const DescribeAICallExtractResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAICallExtractResultRequest&;
-    using Resp = DescribeAICallExtractResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAICallExtractResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAICallExtractResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeAICallExtractResultOutcomeCallable CccClient::DescribeAICallExtractResultCallable(const DescribeAICallExtractResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAICallExtractResultOutcome>>();
-    DescribeAICallExtractResultAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeAICallExtractResultRequest&,
-        DescribeAICallExtractResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAICallExtractResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAICallExtractResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeAILatencyOutcome CccClient::DescribeAILatency(const DescribeAILatencyRequest &request)
@@ -1512,32 +1309,25 @@ CccClient::DescribeAILatencyOutcome CccClient::DescribeAILatency(const DescribeA
 
 void CccClient::DescribeAILatencyAsync(const DescribeAILatencyRequest& request, const DescribeAILatencyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAILatencyRequest&;
-    using Resp = DescribeAILatencyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAILatency(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAILatency", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeAILatencyOutcomeCallable CccClient::DescribeAILatencyCallable(const DescribeAILatencyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAILatencyOutcome>>();
-    DescribeAILatencyAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeAILatencyRequest&,
-        DescribeAILatencyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAILatencyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAILatency(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeActiveCarrierPrivilegeNumberOutcome CccClient::DescribeActiveCarrierPrivilegeNumber(const DescribeActiveCarrierPrivilegeNumberRequest &request)
@@ -1562,32 +1352,25 @@ CccClient::DescribeActiveCarrierPrivilegeNumberOutcome CccClient::DescribeActive
 
 void CccClient::DescribeActiveCarrierPrivilegeNumberAsync(const DescribeActiveCarrierPrivilegeNumberRequest& request, const DescribeActiveCarrierPrivilegeNumberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeActiveCarrierPrivilegeNumberRequest&;
-    using Resp = DescribeActiveCarrierPrivilegeNumberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeActiveCarrierPrivilegeNumber(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeActiveCarrierPrivilegeNumber", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeActiveCarrierPrivilegeNumberOutcomeCallable CccClient::DescribeActiveCarrierPrivilegeNumberCallable(const DescribeActiveCarrierPrivilegeNumberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeActiveCarrierPrivilegeNumberOutcome>>();
-    DescribeActiveCarrierPrivilegeNumberAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeActiveCarrierPrivilegeNumberRequest&,
-        DescribeActiveCarrierPrivilegeNumberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeActiveCarrierPrivilegeNumberOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeActiveCarrierPrivilegeNumber(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeAgentCruiseDialingCampaignOutcome CccClient::DescribeAgentCruiseDialingCampaign(const DescribeAgentCruiseDialingCampaignRequest &request)
@@ -1612,32 +1395,25 @@ CccClient::DescribeAgentCruiseDialingCampaignOutcome CccClient::DescribeAgentCru
 
 void CccClient::DescribeAgentCruiseDialingCampaignAsync(const DescribeAgentCruiseDialingCampaignRequest& request, const DescribeAgentCruiseDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAgentCruiseDialingCampaignRequest&;
-    using Resp = DescribeAgentCruiseDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAgentCruiseDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAgentCruiseDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeAgentCruiseDialingCampaignOutcomeCallable CccClient::DescribeAgentCruiseDialingCampaignCallable(const DescribeAgentCruiseDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAgentCruiseDialingCampaignOutcome>>();
-    DescribeAgentCruiseDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeAgentCruiseDialingCampaignRequest&,
-        DescribeAgentCruiseDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAgentCruiseDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAgentCruiseDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeAutoCalloutTaskOutcome CccClient::DescribeAutoCalloutTask(const DescribeAutoCalloutTaskRequest &request)
@@ -1662,32 +1438,25 @@ CccClient::DescribeAutoCalloutTaskOutcome CccClient::DescribeAutoCalloutTask(con
 
 void CccClient::DescribeAutoCalloutTaskAsync(const DescribeAutoCalloutTaskRequest& request, const DescribeAutoCalloutTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoCalloutTaskRequest&;
-    using Resp = DescribeAutoCalloutTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoCalloutTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoCalloutTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeAutoCalloutTaskOutcomeCallable CccClient::DescribeAutoCalloutTaskCallable(const DescribeAutoCalloutTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoCalloutTaskOutcome>>();
-    DescribeAutoCalloutTaskAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeAutoCalloutTaskRequest&,
-        DescribeAutoCalloutTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoCalloutTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoCalloutTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeAutoCalloutTasksOutcome CccClient::DescribeAutoCalloutTasks(const DescribeAutoCalloutTasksRequest &request)
@@ -1712,32 +1481,25 @@ CccClient::DescribeAutoCalloutTasksOutcome CccClient::DescribeAutoCalloutTasks(c
 
 void CccClient::DescribeAutoCalloutTasksAsync(const DescribeAutoCalloutTasksRequest& request, const DescribeAutoCalloutTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoCalloutTasksRequest&;
-    using Resp = DescribeAutoCalloutTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoCalloutTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoCalloutTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeAutoCalloutTasksOutcomeCallable CccClient::DescribeAutoCalloutTasksCallable(const DescribeAutoCalloutTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoCalloutTasksOutcome>>();
-    DescribeAutoCalloutTasksAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeAutoCalloutTasksRequest&,
-        DescribeAutoCalloutTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoCalloutTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoCalloutTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeCCCBuyInfoListOutcome CccClient::DescribeCCCBuyInfoList(const DescribeCCCBuyInfoListRequest &request)
@@ -1762,32 +1524,25 @@ CccClient::DescribeCCCBuyInfoListOutcome CccClient::DescribeCCCBuyInfoList(const
 
 void CccClient::DescribeCCCBuyInfoListAsync(const DescribeCCCBuyInfoListRequest& request, const DescribeCCCBuyInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCCCBuyInfoListRequest&;
-    using Resp = DescribeCCCBuyInfoListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCCCBuyInfoList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCCCBuyInfoList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeCCCBuyInfoListOutcomeCallable CccClient::DescribeCCCBuyInfoListCallable(const DescribeCCCBuyInfoListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCCCBuyInfoListOutcome>>();
-    DescribeCCCBuyInfoListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeCCCBuyInfoListRequest&,
-        DescribeCCCBuyInfoListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCCCBuyInfoListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCCCBuyInfoList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeCallInMetricsOutcome CccClient::DescribeCallInMetrics(const DescribeCallInMetricsRequest &request)
@@ -1812,32 +1567,25 @@ CccClient::DescribeCallInMetricsOutcome CccClient::DescribeCallInMetrics(const D
 
 void CccClient::DescribeCallInMetricsAsync(const DescribeCallInMetricsRequest& request, const DescribeCallInMetricsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCallInMetricsRequest&;
-    using Resp = DescribeCallInMetricsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCallInMetrics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCallInMetrics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeCallInMetricsOutcomeCallable CccClient::DescribeCallInMetricsCallable(const DescribeCallInMetricsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCallInMetricsOutcome>>();
-    DescribeCallInMetricsAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeCallInMetricsRequest&,
-        DescribeCallInMetricsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCallInMetricsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCallInMetrics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeCarrierPrivilegeNumberApplicantsOutcome CccClient::DescribeCarrierPrivilegeNumberApplicants(const DescribeCarrierPrivilegeNumberApplicantsRequest &request)
@@ -1862,32 +1610,25 @@ CccClient::DescribeCarrierPrivilegeNumberApplicantsOutcome CccClient::DescribeCa
 
 void CccClient::DescribeCarrierPrivilegeNumberApplicantsAsync(const DescribeCarrierPrivilegeNumberApplicantsRequest& request, const DescribeCarrierPrivilegeNumberApplicantsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCarrierPrivilegeNumberApplicantsRequest&;
-    using Resp = DescribeCarrierPrivilegeNumberApplicantsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCarrierPrivilegeNumberApplicants(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCarrierPrivilegeNumberApplicants", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeCarrierPrivilegeNumberApplicantsOutcomeCallable CccClient::DescribeCarrierPrivilegeNumberApplicantsCallable(const DescribeCarrierPrivilegeNumberApplicantsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCarrierPrivilegeNumberApplicantsOutcome>>();
-    DescribeCarrierPrivilegeNumberApplicantsAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeCarrierPrivilegeNumberApplicantsRequest&,
-        DescribeCarrierPrivilegeNumberApplicantsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCarrierPrivilegeNumberApplicantsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCarrierPrivilegeNumberApplicants(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeChatMessagesOutcome CccClient::DescribeChatMessages(const DescribeChatMessagesRequest &request)
@@ -1912,32 +1653,25 @@ CccClient::DescribeChatMessagesOutcome CccClient::DescribeChatMessages(const Des
 
 void CccClient::DescribeChatMessagesAsync(const DescribeChatMessagesRequest& request, const DescribeChatMessagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeChatMessagesRequest&;
-    using Resp = DescribeChatMessagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeChatMessages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeChatMessages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeChatMessagesOutcomeCallable CccClient::DescribeChatMessagesCallable(const DescribeChatMessagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeChatMessagesOutcome>>();
-    DescribeChatMessagesAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeChatMessagesRequest&,
-        DescribeChatMessagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeChatMessagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeChatMessages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeCompanyListOutcome CccClient::DescribeCompanyList(const DescribeCompanyListRequest &request)
@@ -1962,32 +1696,25 @@ CccClient::DescribeCompanyListOutcome CccClient::DescribeCompanyList(const Descr
 
 void CccClient::DescribeCompanyListAsync(const DescribeCompanyListRequest& request, const DescribeCompanyListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCompanyListRequest&;
-    using Resp = DescribeCompanyListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCompanyList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCompanyList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeCompanyListOutcomeCallable CccClient::DescribeCompanyListCallable(const DescribeCompanyListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCompanyListOutcome>>();
-    DescribeCompanyListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeCompanyListRequest&,
-        DescribeCompanyListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCompanyListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCompanyList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeExtensionOutcome CccClient::DescribeExtension(const DescribeExtensionRequest &request)
@@ -2012,32 +1739,25 @@ CccClient::DescribeExtensionOutcome CccClient::DescribeExtension(const DescribeE
 
 void CccClient::DescribeExtensionAsync(const DescribeExtensionRequest& request, const DescribeExtensionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExtensionRequest&;
-    using Resp = DescribeExtensionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExtension(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExtension", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeExtensionOutcomeCallable CccClient::DescribeExtensionCallable(const DescribeExtensionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExtensionOutcome>>();
-    DescribeExtensionAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeExtensionRequest&,
-        DescribeExtensionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExtensionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExtension(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeExtensionsOutcome CccClient::DescribeExtensions(const DescribeExtensionsRequest &request)
@@ -2062,32 +1782,25 @@ CccClient::DescribeExtensionsOutcome CccClient::DescribeExtensions(const Describ
 
 void CccClient::DescribeExtensionsAsync(const DescribeExtensionsRequest& request, const DescribeExtensionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExtensionsRequest&;
-    using Resp = DescribeExtensionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExtensions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExtensions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeExtensionsOutcomeCallable CccClient::DescribeExtensionsCallable(const DescribeExtensionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExtensionsOutcome>>();
-    DescribeExtensionsAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeExtensionsRequest&,
-        DescribeExtensionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExtensionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExtensions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeIMCdrListOutcome CccClient::DescribeIMCdrList(const DescribeIMCdrListRequest &request)
@@ -2112,32 +1825,25 @@ CccClient::DescribeIMCdrListOutcome CccClient::DescribeIMCdrList(const DescribeI
 
 void CccClient::DescribeIMCdrListAsync(const DescribeIMCdrListRequest& request, const DescribeIMCdrListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIMCdrListRequest&;
-    using Resp = DescribeIMCdrListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIMCdrList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIMCdrList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeIMCdrListOutcomeCallable CccClient::DescribeIMCdrListCallable(const DescribeIMCdrListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIMCdrListOutcome>>();
-    DescribeIMCdrListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeIMCdrListRequest&,
-        DescribeIMCdrListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIMCdrListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIMCdrList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeIMCdrsOutcome CccClient::DescribeIMCdrs(const DescribeIMCdrsRequest &request)
@@ -2162,32 +1868,25 @@ CccClient::DescribeIMCdrsOutcome CccClient::DescribeIMCdrs(const DescribeIMCdrsR
 
 void CccClient::DescribeIMCdrsAsync(const DescribeIMCdrsRequest& request, const DescribeIMCdrsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIMCdrsRequest&;
-    using Resp = DescribeIMCdrsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIMCdrs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIMCdrs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeIMCdrsOutcomeCallable CccClient::DescribeIMCdrsCallable(const DescribeIMCdrsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIMCdrsOutcome>>();
-    DescribeIMCdrsAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeIMCdrsRequest&,
-        DescribeIMCdrsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIMCdrsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIMCdrs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeIvrAudioListOutcome CccClient::DescribeIvrAudioList(const DescribeIvrAudioListRequest &request)
@@ -2212,32 +1911,25 @@ CccClient::DescribeIvrAudioListOutcome CccClient::DescribeIvrAudioList(const Des
 
 void CccClient::DescribeIvrAudioListAsync(const DescribeIvrAudioListRequest& request, const DescribeIvrAudioListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIvrAudioListRequest&;
-    using Resp = DescribeIvrAudioListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIvrAudioList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIvrAudioList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeIvrAudioListOutcomeCallable CccClient::DescribeIvrAudioListCallable(const DescribeIvrAudioListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIvrAudioListOutcome>>();
-    DescribeIvrAudioListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeIvrAudioListRequest&,
-        DescribeIvrAudioListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIvrAudioListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIvrAudioList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeNumbersOutcome CccClient::DescribeNumbers(const DescribeNumbersRequest &request)
@@ -2262,32 +1954,25 @@ CccClient::DescribeNumbersOutcome CccClient::DescribeNumbers(const DescribeNumbe
 
 void CccClient::DescribeNumbersAsync(const DescribeNumbersRequest& request, const DescribeNumbersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNumbersRequest&;
-    using Resp = DescribeNumbersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNumbers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNumbers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeNumbersOutcomeCallable CccClient::DescribeNumbersCallable(const DescribeNumbersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNumbersOutcome>>();
-    DescribeNumbersAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeNumbersRequest&,
-        DescribeNumbersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNumbersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNumbers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribePSTNActiveSessionListOutcome CccClient::DescribePSTNActiveSessionList(const DescribePSTNActiveSessionListRequest &request)
@@ -2312,32 +1997,25 @@ CccClient::DescribePSTNActiveSessionListOutcome CccClient::DescribePSTNActiveSes
 
 void CccClient::DescribePSTNActiveSessionListAsync(const DescribePSTNActiveSessionListRequest& request, const DescribePSTNActiveSessionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePSTNActiveSessionListRequest&;
-    using Resp = DescribePSTNActiveSessionListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePSTNActiveSessionList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePSTNActiveSessionList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribePSTNActiveSessionListOutcomeCallable CccClient::DescribePSTNActiveSessionListCallable(const DescribePSTNActiveSessionListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePSTNActiveSessionListOutcome>>();
-    DescribePSTNActiveSessionListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribePSTNActiveSessionListRequest&,
-        DescribePSTNActiveSessionListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePSTNActiveSessionListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePSTNActiveSessionList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribePredictiveDialingCampaignOutcome CccClient::DescribePredictiveDialingCampaign(const DescribePredictiveDialingCampaignRequest &request)
@@ -2362,32 +2040,25 @@ CccClient::DescribePredictiveDialingCampaignOutcome CccClient::DescribePredictiv
 
 void CccClient::DescribePredictiveDialingCampaignAsync(const DescribePredictiveDialingCampaignRequest& request, const DescribePredictiveDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePredictiveDialingCampaignRequest&;
-    using Resp = DescribePredictiveDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePredictiveDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePredictiveDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribePredictiveDialingCampaignOutcomeCallable CccClient::DescribePredictiveDialingCampaignCallable(const DescribePredictiveDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePredictiveDialingCampaignOutcome>>();
-    DescribePredictiveDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribePredictiveDialingCampaignRequest&,
-        DescribePredictiveDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePredictiveDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePredictiveDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribePredictiveDialingCampaignsOutcome CccClient::DescribePredictiveDialingCampaigns(const DescribePredictiveDialingCampaignsRequest &request)
@@ -2412,32 +2083,25 @@ CccClient::DescribePredictiveDialingCampaignsOutcome CccClient::DescribePredicti
 
 void CccClient::DescribePredictiveDialingCampaignsAsync(const DescribePredictiveDialingCampaignsRequest& request, const DescribePredictiveDialingCampaignsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePredictiveDialingCampaignsRequest&;
-    using Resp = DescribePredictiveDialingCampaignsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePredictiveDialingCampaigns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePredictiveDialingCampaigns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribePredictiveDialingCampaignsOutcomeCallable CccClient::DescribePredictiveDialingCampaignsCallable(const DescribePredictiveDialingCampaignsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePredictiveDialingCampaignsOutcome>>();
-    DescribePredictiveDialingCampaignsAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribePredictiveDialingCampaignsRequest&,
-        DescribePredictiveDialingCampaignsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePredictiveDialingCampaignsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePredictiveDialingCampaigns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribePredictiveDialingSessionsOutcome CccClient::DescribePredictiveDialingSessions(const DescribePredictiveDialingSessionsRequest &request)
@@ -2462,32 +2126,25 @@ CccClient::DescribePredictiveDialingSessionsOutcome CccClient::DescribePredictiv
 
 void CccClient::DescribePredictiveDialingSessionsAsync(const DescribePredictiveDialingSessionsRequest& request, const DescribePredictiveDialingSessionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePredictiveDialingSessionsRequest&;
-    using Resp = DescribePredictiveDialingSessionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePredictiveDialingSessions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePredictiveDialingSessions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribePredictiveDialingSessionsOutcomeCallable CccClient::DescribePredictiveDialingSessionsCallable(const DescribePredictiveDialingSessionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePredictiveDialingSessionsOutcome>>();
-    DescribePredictiveDialingSessionsAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribePredictiveDialingSessionsRequest&,
-        DescribePredictiveDialingSessionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePredictiveDialingSessionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePredictiveDialingSessions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeProtectedTelCdrOutcome CccClient::DescribeProtectedTelCdr(const DescribeProtectedTelCdrRequest &request)
@@ -2512,32 +2169,25 @@ CccClient::DescribeProtectedTelCdrOutcome CccClient::DescribeProtectedTelCdr(con
 
 void CccClient::DescribeProtectedTelCdrAsync(const DescribeProtectedTelCdrRequest& request, const DescribeProtectedTelCdrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProtectedTelCdrRequest&;
-    using Resp = DescribeProtectedTelCdrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProtectedTelCdr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProtectedTelCdr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeProtectedTelCdrOutcomeCallable CccClient::DescribeProtectedTelCdrCallable(const DescribeProtectedTelCdrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProtectedTelCdrOutcome>>();
-    DescribeProtectedTelCdrAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeProtectedTelCdrRequest&,
-        DescribeProtectedTelCdrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProtectedTelCdrOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProtectedTelCdr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeSessionDetailOutcome CccClient::DescribeSessionDetail(const DescribeSessionDetailRequest &request)
@@ -2562,32 +2212,25 @@ CccClient::DescribeSessionDetailOutcome CccClient::DescribeSessionDetail(const D
 
 void CccClient::DescribeSessionDetailAsync(const DescribeSessionDetailRequest& request, const DescribeSessionDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSessionDetailRequest&;
-    using Resp = DescribeSessionDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSessionDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSessionDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeSessionDetailOutcomeCallable CccClient::DescribeSessionDetailCallable(const DescribeSessionDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSessionDetailOutcome>>();
-    DescribeSessionDetailAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeSessionDetailRequest&,
-        DescribeSessionDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSessionDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSessionDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeSkillGroupInfoListOutcome CccClient::DescribeSkillGroupInfoList(const DescribeSkillGroupInfoListRequest &request)
@@ -2612,32 +2255,25 @@ CccClient::DescribeSkillGroupInfoListOutcome CccClient::DescribeSkillGroupInfoLi
 
 void CccClient::DescribeSkillGroupInfoListAsync(const DescribeSkillGroupInfoListRequest& request, const DescribeSkillGroupInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSkillGroupInfoListRequest&;
-    using Resp = DescribeSkillGroupInfoListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSkillGroupInfoList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSkillGroupInfoList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeSkillGroupInfoListOutcomeCallable CccClient::DescribeSkillGroupInfoListCallable(const DescribeSkillGroupInfoListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSkillGroupInfoListOutcome>>();
-    DescribeSkillGroupInfoListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeSkillGroupInfoListRequest&,
-        DescribeSkillGroupInfoListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSkillGroupInfoListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSkillGroupInfoList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeStaffInfoListOutcome CccClient::DescribeStaffInfoList(const DescribeStaffInfoListRequest &request)
@@ -2662,32 +2298,25 @@ CccClient::DescribeStaffInfoListOutcome CccClient::DescribeStaffInfoList(const D
 
 void CccClient::DescribeStaffInfoListAsync(const DescribeStaffInfoListRequest& request, const DescribeStaffInfoListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStaffInfoListRequest&;
-    using Resp = DescribeStaffInfoListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStaffInfoList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStaffInfoList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeStaffInfoListOutcomeCallable CccClient::DescribeStaffInfoListCallable(const DescribeStaffInfoListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStaffInfoListOutcome>>();
-    DescribeStaffInfoListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeStaffInfoListRequest&,
-        DescribeStaffInfoListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStaffInfoListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStaffInfoList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeStaffStatusHistoryOutcome CccClient::DescribeStaffStatusHistory(const DescribeStaffStatusHistoryRequest &request)
@@ -2712,32 +2341,25 @@ CccClient::DescribeStaffStatusHistoryOutcome CccClient::DescribeStaffStatusHisto
 
 void CccClient::DescribeStaffStatusHistoryAsync(const DescribeStaffStatusHistoryRequest& request, const DescribeStaffStatusHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStaffStatusHistoryRequest&;
-    using Resp = DescribeStaffStatusHistoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStaffStatusHistory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStaffStatusHistory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeStaffStatusHistoryOutcomeCallable CccClient::DescribeStaffStatusHistoryCallable(const DescribeStaffStatusHistoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStaffStatusHistoryOutcome>>();
-    DescribeStaffStatusHistoryAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeStaffStatusHistoryRequest&,
-        DescribeStaffStatusHistoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStaffStatusHistoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStaffStatusHistory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeStaffStatusMetricsOutcome CccClient::DescribeStaffStatusMetrics(const DescribeStaffStatusMetricsRequest &request)
@@ -2762,32 +2384,25 @@ CccClient::DescribeStaffStatusMetricsOutcome CccClient::DescribeStaffStatusMetri
 
 void CccClient::DescribeStaffStatusMetricsAsync(const DescribeStaffStatusMetricsRequest& request, const DescribeStaffStatusMetricsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStaffStatusMetricsRequest&;
-    using Resp = DescribeStaffStatusMetricsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStaffStatusMetrics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStaffStatusMetrics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeStaffStatusMetricsOutcomeCallable CccClient::DescribeStaffStatusMetricsCallable(const DescribeStaffStatusMetricsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStaffStatusMetricsOutcome>>();
-    DescribeStaffStatusMetricsAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeStaffStatusMetricsRequest&,
-        DescribeStaffStatusMetricsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStaffStatusMetricsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStaffStatusMetrics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeTelCallInfoOutcome CccClient::DescribeTelCallInfo(const DescribeTelCallInfoRequest &request)
@@ -2812,32 +2427,25 @@ CccClient::DescribeTelCallInfoOutcome CccClient::DescribeTelCallInfo(const Descr
 
 void CccClient::DescribeTelCallInfoAsync(const DescribeTelCallInfoRequest& request, const DescribeTelCallInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTelCallInfoRequest&;
-    using Resp = DescribeTelCallInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTelCallInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTelCallInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeTelCallInfoOutcomeCallable CccClient::DescribeTelCallInfoCallable(const DescribeTelCallInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTelCallInfoOutcome>>();
-    DescribeTelCallInfoAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeTelCallInfoRequest&,
-        DescribeTelCallInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTelCallInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTelCallInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeTelCdrOutcome CccClient::DescribeTelCdr(const DescribeTelCdrRequest &request)
@@ -2862,32 +2470,25 @@ CccClient::DescribeTelCdrOutcome CccClient::DescribeTelCdr(const DescribeTelCdrR
 
 void CccClient::DescribeTelCdrAsync(const DescribeTelCdrRequest& request, const DescribeTelCdrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTelCdrRequest&;
-    using Resp = DescribeTelCdrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTelCdr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTelCdr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeTelCdrOutcomeCallable CccClient::DescribeTelCdrCallable(const DescribeTelCdrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTelCdrOutcome>>();
-    DescribeTelCdrAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeTelCdrRequest&,
-        DescribeTelCdrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTelCdrOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTelCdr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeTelRecordAsrOutcome CccClient::DescribeTelRecordAsr(const DescribeTelRecordAsrRequest &request)
@@ -2912,32 +2513,25 @@ CccClient::DescribeTelRecordAsrOutcome CccClient::DescribeTelRecordAsr(const Des
 
 void CccClient::DescribeTelRecordAsrAsync(const DescribeTelRecordAsrRequest& request, const DescribeTelRecordAsrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTelRecordAsrRequest&;
-    using Resp = DescribeTelRecordAsrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTelRecordAsr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTelRecordAsr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeTelRecordAsrOutcomeCallable CccClient::DescribeTelRecordAsrCallable(const DescribeTelRecordAsrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTelRecordAsrOutcome>>();
-    DescribeTelRecordAsrAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeTelRecordAsrRequest&,
-        DescribeTelRecordAsrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTelRecordAsrOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTelRecordAsr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DescribeTelSessionOutcome CccClient::DescribeTelSession(const DescribeTelSessionRequest &request)
@@ -2962,32 +2556,25 @@ CccClient::DescribeTelSessionOutcome CccClient::DescribeTelSession(const Describ
 
 void CccClient::DescribeTelSessionAsync(const DescribeTelSessionRequest& request, const DescribeTelSessionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTelSessionRequest&;
-    using Resp = DescribeTelSessionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTelSession(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTelSession", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DescribeTelSessionOutcomeCallable CccClient::DescribeTelSessionCallable(const DescribeTelSessionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTelSessionOutcome>>();
-    DescribeTelSessionAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DescribeTelSessionRequest&,
-        DescribeTelSessionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTelSessionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTelSession(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::DisableCCCPhoneNumberOutcome CccClient::DisableCCCPhoneNumber(const DisableCCCPhoneNumberRequest &request)
@@ -3012,32 +2599,25 @@ CccClient::DisableCCCPhoneNumberOutcome CccClient::DisableCCCPhoneNumber(const D
 
 void CccClient::DisableCCCPhoneNumberAsync(const DisableCCCPhoneNumberRequest& request, const DisableCCCPhoneNumberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableCCCPhoneNumberRequest&;
-    using Resp = DisableCCCPhoneNumberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableCCCPhoneNumber(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableCCCPhoneNumber", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::DisableCCCPhoneNumberOutcomeCallable CccClient::DisableCCCPhoneNumberCallable(const DisableCCCPhoneNumberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableCCCPhoneNumberOutcome>>();
-    DisableCCCPhoneNumberAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const DisableCCCPhoneNumberRequest&,
-        DisableCCCPhoneNumberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableCCCPhoneNumberOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableCCCPhoneNumber(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ForceMemberOfflineOutcome CccClient::ForceMemberOffline(const ForceMemberOfflineRequest &request)
@@ -3062,32 +2642,25 @@ CccClient::ForceMemberOfflineOutcome CccClient::ForceMemberOffline(const ForceMe
 
 void CccClient::ForceMemberOfflineAsync(const ForceMemberOfflineRequest& request, const ForceMemberOfflineAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ForceMemberOfflineRequest&;
-    using Resp = ForceMemberOfflineResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ForceMemberOffline(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ForceMemberOffline", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ForceMemberOfflineOutcomeCallable CccClient::ForceMemberOfflineCallable(const ForceMemberOfflineRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ForceMemberOfflineOutcome>>();
-    ForceMemberOfflineAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ForceMemberOfflineRequest&,
-        ForceMemberOfflineOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ForceMemberOfflineOutcome()>>(
+        [this, request]()
+        {
+            return this->ForceMemberOffline(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::HangUpCallOutcome CccClient::HangUpCall(const HangUpCallRequest &request)
@@ -3112,32 +2685,25 @@ CccClient::HangUpCallOutcome CccClient::HangUpCall(const HangUpCallRequest &requ
 
 void CccClient::HangUpCallAsync(const HangUpCallRequest& request, const HangUpCallAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const HangUpCallRequest&;
-    using Resp = HangUpCallResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->HangUpCall(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "HangUpCall", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::HangUpCallOutcomeCallable CccClient::HangUpCallCallable(const HangUpCallRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<HangUpCallOutcome>>();
-    HangUpCallAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const HangUpCallRequest&,
-        HangUpCallOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<HangUpCallOutcome()>>(
+        [this, request]()
+        {
+            return this->HangUpCall(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ModifyCompanyApplyOutcome CccClient::ModifyCompanyApply(const ModifyCompanyApplyRequest &request)
@@ -3162,32 +2728,25 @@ CccClient::ModifyCompanyApplyOutcome CccClient::ModifyCompanyApply(const ModifyC
 
 void CccClient::ModifyCompanyApplyAsync(const ModifyCompanyApplyRequest& request, const ModifyCompanyApplyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCompanyApplyRequest&;
-    using Resp = ModifyCompanyApplyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCompanyApply(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCompanyApply", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ModifyCompanyApplyOutcomeCallable CccClient::ModifyCompanyApplyCallable(const ModifyCompanyApplyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCompanyApplyOutcome>>();
-    ModifyCompanyApplyAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ModifyCompanyApplyRequest&,
-        ModifyCompanyApplyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCompanyApplyOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCompanyApply(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ModifyExtensionOutcome CccClient::ModifyExtension(const ModifyExtensionRequest &request)
@@ -3212,32 +2771,25 @@ CccClient::ModifyExtensionOutcome CccClient::ModifyExtension(const ModifyExtensi
 
 void CccClient::ModifyExtensionAsync(const ModifyExtensionRequest& request, const ModifyExtensionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyExtensionRequest&;
-    using Resp = ModifyExtensionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyExtension(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyExtension", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ModifyExtensionOutcomeCallable CccClient::ModifyExtensionCallable(const ModifyExtensionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyExtensionOutcome>>();
-    ModifyExtensionAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ModifyExtensionRequest&,
-        ModifyExtensionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyExtensionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyExtension(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ModifyOwnNumberApplyOutcome CccClient::ModifyOwnNumberApply(const ModifyOwnNumberApplyRequest &request)
@@ -3262,32 +2814,25 @@ CccClient::ModifyOwnNumberApplyOutcome CccClient::ModifyOwnNumberApply(const Mod
 
 void CccClient::ModifyOwnNumberApplyAsync(const ModifyOwnNumberApplyRequest& request, const ModifyOwnNumberApplyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyOwnNumberApplyRequest&;
-    using Resp = ModifyOwnNumberApplyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyOwnNumberApply(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyOwnNumberApply", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ModifyOwnNumberApplyOutcomeCallable CccClient::ModifyOwnNumberApplyCallable(const ModifyOwnNumberApplyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyOwnNumberApplyOutcome>>();
-    ModifyOwnNumberApplyAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ModifyOwnNumberApplyRequest&,
-        ModifyOwnNumberApplyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyOwnNumberApplyOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyOwnNumberApply(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ModifyStaffOutcome CccClient::ModifyStaff(const ModifyStaffRequest &request)
@@ -3312,32 +2857,25 @@ CccClient::ModifyStaffOutcome CccClient::ModifyStaff(const ModifyStaffRequest &r
 
 void CccClient::ModifyStaffAsync(const ModifyStaffRequest& request, const ModifyStaffAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyStaffRequest&;
-    using Resp = ModifyStaffResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyStaff(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyStaff", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ModifyStaffOutcomeCallable CccClient::ModifyStaffCallable(const ModifyStaffRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyStaffOutcome>>();
-    ModifyStaffAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ModifyStaffRequest&,
-        ModifyStaffOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyStaffOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyStaff(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ModifyStaffPasswordOutcome CccClient::ModifyStaffPassword(const ModifyStaffPasswordRequest &request)
@@ -3362,32 +2900,25 @@ CccClient::ModifyStaffPasswordOutcome CccClient::ModifyStaffPassword(const Modif
 
 void CccClient::ModifyStaffPasswordAsync(const ModifyStaffPasswordRequest& request, const ModifyStaffPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyStaffPasswordRequest&;
-    using Resp = ModifyStaffPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyStaffPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyStaffPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ModifyStaffPasswordOutcomeCallable CccClient::ModifyStaffPasswordCallable(const ModifyStaffPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyStaffPasswordOutcome>>();
-    ModifyStaffPasswordAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ModifyStaffPasswordRequest&,
-        ModifyStaffPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyStaffPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyStaffPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::PauseAutoCalloutTaskOutcome CccClient::PauseAutoCalloutTask(const PauseAutoCalloutTaskRequest &request)
@@ -3412,32 +2943,25 @@ CccClient::PauseAutoCalloutTaskOutcome CccClient::PauseAutoCalloutTask(const Pau
 
 void CccClient::PauseAutoCalloutTaskAsync(const PauseAutoCalloutTaskRequest& request, const PauseAutoCalloutTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PauseAutoCalloutTaskRequest&;
-    using Resp = PauseAutoCalloutTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PauseAutoCalloutTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PauseAutoCalloutTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::PauseAutoCalloutTaskOutcomeCallable CccClient::PauseAutoCalloutTaskCallable(const PauseAutoCalloutTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PauseAutoCalloutTaskOutcome>>();
-    PauseAutoCalloutTaskAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const PauseAutoCalloutTaskRequest&,
-        PauseAutoCalloutTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PauseAutoCalloutTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->PauseAutoCalloutTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::PausePredictiveDialingCampaignOutcome CccClient::PausePredictiveDialingCampaign(const PausePredictiveDialingCampaignRequest &request)
@@ -3462,32 +2986,25 @@ CccClient::PausePredictiveDialingCampaignOutcome CccClient::PausePredictiveDiali
 
 void CccClient::PausePredictiveDialingCampaignAsync(const PausePredictiveDialingCampaignRequest& request, const PausePredictiveDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PausePredictiveDialingCampaignRequest&;
-    using Resp = PausePredictiveDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PausePredictiveDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PausePredictiveDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::PausePredictiveDialingCampaignOutcomeCallable CccClient::PausePredictiveDialingCampaignCallable(const PausePredictiveDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PausePredictiveDialingCampaignOutcome>>();
-    PausePredictiveDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const PausePredictiveDialingCampaignRequest&,
-        PausePredictiveDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PausePredictiveDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->PausePredictiveDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ResetExtensionPasswordOutcome CccClient::ResetExtensionPassword(const ResetExtensionPasswordRequest &request)
@@ -3512,32 +3029,25 @@ CccClient::ResetExtensionPasswordOutcome CccClient::ResetExtensionPassword(const
 
 void CccClient::ResetExtensionPasswordAsync(const ResetExtensionPasswordRequest& request, const ResetExtensionPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetExtensionPasswordRequest&;
-    using Resp = ResetExtensionPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetExtensionPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetExtensionPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ResetExtensionPasswordOutcomeCallable CccClient::ResetExtensionPasswordCallable(const ResetExtensionPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetExtensionPasswordOutcome>>();
-    ResetExtensionPasswordAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ResetExtensionPasswordRequest&,
-        ResetExtensionPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetExtensionPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetExtensionPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::RestoreMemberOnlineOutcome CccClient::RestoreMemberOnline(const RestoreMemberOnlineRequest &request)
@@ -3562,32 +3072,25 @@ CccClient::RestoreMemberOnlineOutcome CccClient::RestoreMemberOnline(const Resto
 
 void CccClient::RestoreMemberOnlineAsync(const RestoreMemberOnlineRequest& request, const RestoreMemberOnlineAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestoreMemberOnlineRequest&;
-    using Resp = RestoreMemberOnlineResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestoreMemberOnline(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestoreMemberOnline", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::RestoreMemberOnlineOutcomeCallable CccClient::RestoreMemberOnlineCallable(const RestoreMemberOnlineRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestoreMemberOnlineOutcome>>();
-    RestoreMemberOnlineAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const RestoreMemberOnlineRequest&,
-        RestoreMemberOnlineOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestoreMemberOnlineOutcome()>>(
+        [this, request]()
+        {
+            return this->RestoreMemberOnline(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ResumeAutoCalloutTaskOutcome CccClient::ResumeAutoCalloutTask(const ResumeAutoCalloutTaskRequest &request)
@@ -3612,32 +3115,25 @@ CccClient::ResumeAutoCalloutTaskOutcome CccClient::ResumeAutoCalloutTask(const R
 
 void CccClient::ResumeAutoCalloutTaskAsync(const ResumeAutoCalloutTaskRequest& request, const ResumeAutoCalloutTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResumeAutoCalloutTaskRequest&;
-    using Resp = ResumeAutoCalloutTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResumeAutoCalloutTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResumeAutoCalloutTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ResumeAutoCalloutTaskOutcomeCallable CccClient::ResumeAutoCalloutTaskCallable(const ResumeAutoCalloutTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResumeAutoCalloutTaskOutcome>>();
-    ResumeAutoCalloutTaskAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ResumeAutoCalloutTaskRequest&,
-        ResumeAutoCalloutTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResumeAutoCalloutTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ResumeAutoCalloutTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::ResumePredictiveDialingCampaignOutcome CccClient::ResumePredictiveDialingCampaign(const ResumePredictiveDialingCampaignRequest &request)
@@ -3662,32 +3158,25 @@ CccClient::ResumePredictiveDialingCampaignOutcome CccClient::ResumePredictiveDia
 
 void CccClient::ResumePredictiveDialingCampaignAsync(const ResumePredictiveDialingCampaignRequest& request, const ResumePredictiveDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResumePredictiveDialingCampaignRequest&;
-    using Resp = ResumePredictiveDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResumePredictiveDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResumePredictiveDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::ResumePredictiveDialingCampaignOutcomeCallable CccClient::ResumePredictiveDialingCampaignCallable(const ResumePredictiveDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResumePredictiveDialingCampaignOutcome>>();
-    ResumePredictiveDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const ResumePredictiveDialingCampaignRequest&,
-        ResumePredictiveDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResumePredictiveDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->ResumePredictiveDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::SetStaffStatusOutcome CccClient::SetStaffStatus(const SetStaffStatusRequest &request)
@@ -3712,32 +3201,25 @@ CccClient::SetStaffStatusOutcome CccClient::SetStaffStatus(const SetStaffStatusR
 
 void CccClient::SetStaffStatusAsync(const SetStaffStatusRequest& request, const SetStaffStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetStaffStatusRequest&;
-    using Resp = SetStaffStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetStaffStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetStaffStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::SetStaffStatusOutcomeCallable CccClient::SetStaffStatusCallable(const SetStaffStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetStaffStatusOutcome>>();
-    SetStaffStatusAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const SetStaffStatusRequest&,
-        SetStaffStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetStaffStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->SetStaffStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::StopAutoCalloutTaskOutcome CccClient::StopAutoCalloutTask(const StopAutoCalloutTaskRequest &request)
@@ -3762,32 +3244,25 @@ CccClient::StopAutoCalloutTaskOutcome CccClient::StopAutoCalloutTask(const StopA
 
 void CccClient::StopAutoCalloutTaskAsync(const StopAutoCalloutTaskRequest& request, const StopAutoCalloutTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopAutoCalloutTaskRequest&;
-    using Resp = StopAutoCalloutTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopAutoCalloutTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopAutoCalloutTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::StopAutoCalloutTaskOutcomeCallable CccClient::StopAutoCalloutTaskCallable(const StopAutoCalloutTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopAutoCalloutTaskOutcome>>();
-    StopAutoCalloutTaskAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const StopAutoCalloutTaskRequest&,
-        StopAutoCalloutTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopAutoCalloutTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->StopAutoCalloutTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::TransferToManualOutcome CccClient::TransferToManual(const TransferToManualRequest &request)
@@ -3812,32 +3287,25 @@ CccClient::TransferToManualOutcome CccClient::TransferToManual(const TransferToM
 
 void CccClient::TransferToManualAsync(const TransferToManualRequest& request, const TransferToManualAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TransferToManualRequest&;
-    using Resp = TransferToManualResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TransferToManual(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TransferToManual", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::TransferToManualOutcomeCallable CccClient::TransferToManualCallable(const TransferToManualRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TransferToManualOutcome>>();
-    TransferToManualAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const TransferToManualRequest&,
-        TransferToManualOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TransferToManualOutcome()>>(
+        [this, request]()
+        {
+            return this->TransferToManual(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::UnbindNumberCallOutSkillGroupOutcome CccClient::UnbindNumberCallOutSkillGroup(const UnbindNumberCallOutSkillGroupRequest &request)
@@ -3862,32 +3330,25 @@ CccClient::UnbindNumberCallOutSkillGroupOutcome CccClient::UnbindNumberCallOutSk
 
 void CccClient::UnbindNumberCallOutSkillGroupAsync(const UnbindNumberCallOutSkillGroupRequest& request, const UnbindNumberCallOutSkillGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnbindNumberCallOutSkillGroupRequest&;
-    using Resp = UnbindNumberCallOutSkillGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnbindNumberCallOutSkillGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnbindNumberCallOutSkillGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::UnbindNumberCallOutSkillGroupOutcomeCallable CccClient::UnbindNumberCallOutSkillGroupCallable(const UnbindNumberCallOutSkillGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnbindNumberCallOutSkillGroupOutcome>>();
-    UnbindNumberCallOutSkillGroupAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const UnbindNumberCallOutSkillGroupRequest&,
-        UnbindNumberCallOutSkillGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnbindNumberCallOutSkillGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->UnbindNumberCallOutSkillGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::UnbindStaffSkillGroupListOutcome CccClient::UnbindStaffSkillGroupList(const UnbindStaffSkillGroupListRequest &request)
@@ -3912,32 +3373,25 @@ CccClient::UnbindStaffSkillGroupListOutcome CccClient::UnbindStaffSkillGroupList
 
 void CccClient::UnbindStaffSkillGroupListAsync(const UnbindStaffSkillGroupListRequest& request, const UnbindStaffSkillGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnbindStaffSkillGroupListRequest&;
-    using Resp = UnbindStaffSkillGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnbindStaffSkillGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnbindStaffSkillGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::UnbindStaffSkillGroupListOutcomeCallable CccClient::UnbindStaffSkillGroupListCallable(const UnbindStaffSkillGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnbindStaffSkillGroupListOutcome>>();
-    UnbindStaffSkillGroupListAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const UnbindStaffSkillGroupListRequest&,
-        UnbindStaffSkillGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnbindStaffSkillGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->UnbindStaffSkillGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::UpdateCCCSkillGroupOutcome CccClient::UpdateCCCSkillGroup(const UpdateCCCSkillGroupRequest &request)
@@ -3962,32 +3416,25 @@ CccClient::UpdateCCCSkillGroupOutcome CccClient::UpdateCCCSkillGroup(const Updat
 
 void CccClient::UpdateCCCSkillGroupAsync(const UpdateCCCSkillGroupRequest& request, const UpdateCCCSkillGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCCCSkillGroupRequest&;
-    using Resp = UpdateCCCSkillGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCCCSkillGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCCCSkillGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::UpdateCCCSkillGroupOutcomeCallable CccClient::UpdateCCCSkillGroupCallable(const UpdateCCCSkillGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCCCSkillGroupOutcome>>();
-    UpdateCCCSkillGroupAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const UpdateCCCSkillGroupRequest&,
-        UpdateCCCSkillGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCCCSkillGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCCCSkillGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::UpdatePredictiveDialingCampaignOutcome CccClient::UpdatePredictiveDialingCampaign(const UpdatePredictiveDialingCampaignRequest &request)
@@ -4012,32 +3459,25 @@ CccClient::UpdatePredictiveDialingCampaignOutcome CccClient::UpdatePredictiveDia
 
 void CccClient::UpdatePredictiveDialingCampaignAsync(const UpdatePredictiveDialingCampaignRequest& request, const UpdatePredictiveDialingCampaignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdatePredictiveDialingCampaignRequest&;
-    using Resp = UpdatePredictiveDialingCampaignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdatePredictiveDialingCampaign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdatePredictiveDialingCampaign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::UpdatePredictiveDialingCampaignOutcomeCallable CccClient::UpdatePredictiveDialingCampaignCallable(const UpdatePredictiveDialingCampaignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdatePredictiveDialingCampaignOutcome>>();
-    UpdatePredictiveDialingCampaignAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const UpdatePredictiveDialingCampaignRequest&,
-        UpdatePredictiveDialingCampaignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdatePredictiveDialingCampaignOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdatePredictiveDialingCampaign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CccClient::UploadIvrAudioOutcome CccClient::UploadIvrAudio(const UploadIvrAudioRequest &request)
@@ -4062,31 +3502,24 @@ CccClient::UploadIvrAudioOutcome CccClient::UploadIvrAudio(const UploadIvrAudioR
 
 void CccClient::UploadIvrAudioAsync(const UploadIvrAudioRequest& request, const UploadIvrAudioAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UploadIvrAudioRequest&;
-    using Resp = UploadIvrAudioResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UploadIvrAudio(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UploadIvrAudio", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CccClient::UploadIvrAudioOutcomeCallable CccClient::UploadIvrAudioCallable(const UploadIvrAudioRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UploadIvrAudioOutcome>>();
-    UploadIvrAudioAsync(
-    request,
-    [prom](
-        const CccClient*,
-        const UploadIvrAudioRequest&,
-        UploadIvrAudioOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UploadIvrAudioOutcome()>>(
+        [this, request]()
+        {
+            return this->UploadIvrAudio(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

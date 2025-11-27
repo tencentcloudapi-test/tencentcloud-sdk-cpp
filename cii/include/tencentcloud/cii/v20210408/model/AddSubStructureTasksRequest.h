@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateStructureTaskInfo;
+
                 /**
                 * AddSubStructureTasks请求参数结构体
                 */

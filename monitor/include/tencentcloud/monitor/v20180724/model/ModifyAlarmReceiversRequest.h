@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReceiverInfo;
+
                 /**
                 * ModifyAlarmReceivers请求参数结构体
                 */

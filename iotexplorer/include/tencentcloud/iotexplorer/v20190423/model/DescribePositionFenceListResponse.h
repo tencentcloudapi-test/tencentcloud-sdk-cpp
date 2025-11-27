@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PositionFenceInfo;
+
                 /**
                 * DescribePositionFenceList返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetWork;
+
                 /**
                 * Tcc数据目录连接配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TccConnection();
-                    ~TccConnection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

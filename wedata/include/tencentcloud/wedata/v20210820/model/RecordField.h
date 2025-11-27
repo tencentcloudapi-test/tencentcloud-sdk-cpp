@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 通用记录字段，与服务端约定传入合法的键值对
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RecordField();
-                    ~RecordField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

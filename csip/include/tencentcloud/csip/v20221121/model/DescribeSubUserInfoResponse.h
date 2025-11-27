@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubUserInfo;
+                class FilterDataObject;
+
                 /**
                 * DescribeSubUserInfo返回参数结构体
                 */

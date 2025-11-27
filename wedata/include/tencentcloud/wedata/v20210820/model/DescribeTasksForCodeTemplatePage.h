@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskSimpleVo;
+
                 /**
                 * 批量操作任务列表分页
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeTasksForCodeTemplatePage();
-                    ~DescribeTasksForCodeTemplatePage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

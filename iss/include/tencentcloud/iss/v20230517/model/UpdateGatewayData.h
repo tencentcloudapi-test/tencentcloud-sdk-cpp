@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 修改网关信息返回结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UpdateGatewayData();
-                    ~UpdateGatewayData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

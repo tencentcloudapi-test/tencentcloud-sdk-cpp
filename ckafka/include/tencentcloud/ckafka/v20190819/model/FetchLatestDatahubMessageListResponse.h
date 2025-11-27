@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConsumerRecord;
+
                 /**
                 * FetchLatestDatahubMessageList返回参数结构体
                 */

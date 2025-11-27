@@ -39,6 +39,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthCheckSettings;
+                class Env;
+                class ServiceSetting;
+                class SchedulingStrategy;
+                class VolumeInfo;
+                class VolumeMountInfo;
+                class AgentProfile;
+                class WarmupSetting;
+
                 /**
                 * DeployContainerGroup请求参数结构体
                 */

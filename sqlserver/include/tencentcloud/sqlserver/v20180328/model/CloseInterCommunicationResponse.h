@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InterInstanceFlow;
+
                 /**
                 * CloseInterCommunication返回参数结构体
                 */

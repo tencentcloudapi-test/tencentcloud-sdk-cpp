@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogstashBindedES;
+                class LogstashExtendedFile;
+                class OperationDurationUpdated;
+                class ZoneDetail;
+
                 /**
                 * UpdateLogstashInstance请求参数结构体
                 */

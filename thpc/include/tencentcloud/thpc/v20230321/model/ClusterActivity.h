@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NodeActivity;
+
                 /**
                 * 符合条件的集群活动信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ClusterActivity();
-                    ~ClusterActivity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

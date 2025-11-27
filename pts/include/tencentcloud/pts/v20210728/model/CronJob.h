@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 定时任务
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CronJob();
-                    ~CronJob() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

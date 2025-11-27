@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * http get 行为
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HTTPGetAction();
-                    ~HTTPGetAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

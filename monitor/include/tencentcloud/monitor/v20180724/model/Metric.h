@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MetricConfig;
+                class Operator;
+
                 /**
                 * 指标，可用于设置告警、查询数据
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Metric();
-                    ~Metric() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

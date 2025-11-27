@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TargetGroupInstance;
+                class TargetGroupHealthCheck;
+                class TagInfo;
+
                 /**
                 * CreateTargetGroup请求参数结构体
                 */

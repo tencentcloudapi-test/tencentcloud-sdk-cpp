@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeDatahubTaskRes;
+
                 /**
                 * DescribeDatahubTask返回参数结构体
                 */

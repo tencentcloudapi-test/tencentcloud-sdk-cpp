@@ -62,32 +62,25 @@ CloudstudioClient::CreateWorkspaceOutcome CloudstudioClient::CreateWorkspace(con
 
 void CloudstudioClient::CreateWorkspaceAsync(const CreateWorkspaceRequest& request, const CreateWorkspaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWorkspaceRequest&;
-    using Resp = CreateWorkspaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWorkspace(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWorkspace", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::CreateWorkspaceOutcomeCallable CloudstudioClient::CreateWorkspaceCallable(const CreateWorkspaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWorkspaceOutcome>>();
-    CreateWorkspaceAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const CreateWorkspaceRequest&,
-        CreateWorkspaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWorkspaceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWorkspace(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudstudioClient::CreateWorkspaceTokenOutcome CloudstudioClient::CreateWorkspaceToken(const CreateWorkspaceTokenRequest &request)
@@ -112,32 +105,25 @@ CloudstudioClient::CreateWorkspaceTokenOutcome CloudstudioClient::CreateWorkspac
 
 void CloudstudioClient::CreateWorkspaceTokenAsync(const CreateWorkspaceTokenRequest& request, const CreateWorkspaceTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWorkspaceTokenRequest&;
-    using Resp = CreateWorkspaceTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWorkspaceToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWorkspaceToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::CreateWorkspaceTokenOutcomeCallable CloudstudioClient::CreateWorkspaceTokenCallable(const CreateWorkspaceTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWorkspaceTokenOutcome>>();
-    CreateWorkspaceTokenAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const CreateWorkspaceTokenRequest&,
-        CreateWorkspaceTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWorkspaceTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWorkspaceToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudstudioClient::DescribeConfigOutcome CloudstudioClient::DescribeConfig(const DescribeConfigRequest &request)
@@ -162,32 +148,25 @@ CloudstudioClient::DescribeConfigOutcome CloudstudioClient::DescribeConfig(const
 
 void CloudstudioClient::DescribeConfigAsync(const DescribeConfigRequest& request, const DescribeConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigRequest&;
-    using Resp = DescribeConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::DescribeConfigOutcomeCallable CloudstudioClient::DescribeConfigCallable(const DescribeConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigOutcome>>();
-    DescribeConfigAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const DescribeConfigRequest&,
-        DescribeConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudstudioClient::DescribeImagesOutcome CloudstudioClient::DescribeImages(const DescribeImagesRequest &request)
@@ -212,32 +191,25 @@ CloudstudioClient::DescribeImagesOutcome CloudstudioClient::DescribeImages(const
 
 void CloudstudioClient::DescribeImagesAsync(const DescribeImagesRequest& request, const DescribeImagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeImagesRequest&;
-    using Resp = DescribeImagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeImages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeImages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::DescribeImagesOutcomeCallable CloudstudioClient::DescribeImagesCallable(const DescribeImagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeImagesOutcome>>();
-    DescribeImagesAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const DescribeImagesRequest&,
-        DescribeImagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeImagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeImages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudstudioClient::DescribeWorkspacesOutcome CloudstudioClient::DescribeWorkspaces(const DescribeWorkspacesRequest &request)
@@ -262,32 +234,25 @@ CloudstudioClient::DescribeWorkspacesOutcome CloudstudioClient::DescribeWorkspac
 
 void CloudstudioClient::DescribeWorkspacesAsync(const DescribeWorkspacesRequest& request, const DescribeWorkspacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWorkspacesRequest&;
-    using Resp = DescribeWorkspacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWorkspaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWorkspaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::DescribeWorkspacesOutcomeCallable CloudstudioClient::DescribeWorkspacesCallable(const DescribeWorkspacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWorkspacesOutcome>>();
-    DescribeWorkspacesAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const DescribeWorkspacesRequest&,
-        DescribeWorkspacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWorkspacesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWorkspaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudstudioClient::ModifyWorkspaceOutcome CloudstudioClient::ModifyWorkspace(const ModifyWorkspaceRequest &request)
@@ -312,32 +277,25 @@ CloudstudioClient::ModifyWorkspaceOutcome CloudstudioClient::ModifyWorkspace(con
 
 void CloudstudioClient::ModifyWorkspaceAsync(const ModifyWorkspaceRequest& request, const ModifyWorkspaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyWorkspaceRequest&;
-    using Resp = ModifyWorkspaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyWorkspace(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyWorkspace", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::ModifyWorkspaceOutcomeCallable CloudstudioClient::ModifyWorkspaceCallable(const ModifyWorkspaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyWorkspaceOutcome>>();
-    ModifyWorkspaceAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const ModifyWorkspaceRequest&,
-        ModifyWorkspaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyWorkspaceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyWorkspace(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudstudioClient::RemoveWorkspaceOutcome CloudstudioClient::RemoveWorkspace(const RemoveWorkspaceRequest &request)
@@ -362,32 +320,25 @@ CloudstudioClient::RemoveWorkspaceOutcome CloudstudioClient::RemoveWorkspace(con
 
 void CloudstudioClient::RemoveWorkspaceAsync(const RemoveWorkspaceRequest& request, const RemoveWorkspaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveWorkspaceRequest&;
-    using Resp = RemoveWorkspaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveWorkspace(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveWorkspace", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::RemoveWorkspaceOutcomeCallable CloudstudioClient::RemoveWorkspaceCallable(const RemoveWorkspaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveWorkspaceOutcome>>();
-    RemoveWorkspaceAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const RemoveWorkspaceRequest&,
-        RemoveWorkspaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveWorkspaceOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveWorkspace(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudstudioClient::RunWorkspaceOutcome CloudstudioClient::RunWorkspace(const RunWorkspaceRequest &request)
@@ -412,32 +363,25 @@ CloudstudioClient::RunWorkspaceOutcome CloudstudioClient::RunWorkspace(const Run
 
 void CloudstudioClient::RunWorkspaceAsync(const RunWorkspaceRequest& request, const RunWorkspaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunWorkspaceRequest&;
-    using Resp = RunWorkspaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunWorkspace(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunWorkspace", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::RunWorkspaceOutcomeCallable CloudstudioClient::RunWorkspaceCallable(const RunWorkspaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunWorkspaceOutcome>>();
-    RunWorkspaceAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const RunWorkspaceRequest&,
-        RunWorkspaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunWorkspaceOutcome()>>(
+        [this, request]()
+        {
+            return this->RunWorkspace(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CloudstudioClient::StopWorkspaceOutcome CloudstudioClient::StopWorkspace(const StopWorkspaceRequest &request)
@@ -462,31 +406,24 @@ CloudstudioClient::StopWorkspaceOutcome CloudstudioClient::StopWorkspace(const S
 
 void CloudstudioClient::StopWorkspaceAsync(const StopWorkspaceRequest& request, const StopWorkspaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopWorkspaceRequest&;
-    using Resp = StopWorkspaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopWorkspace(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopWorkspace", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CloudstudioClient::StopWorkspaceOutcomeCallable CloudstudioClient::StopWorkspaceCallable(const StopWorkspaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopWorkspaceOutcome>>();
-    StopWorkspaceAsync(
-    request,
-    [prom](
-        const CloudstudioClient*,
-        const StopWorkspaceRequest&,
-        StopWorkspaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopWorkspaceOutcome()>>(
+        [this, request]()
+        {
+            return this->StopWorkspace(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

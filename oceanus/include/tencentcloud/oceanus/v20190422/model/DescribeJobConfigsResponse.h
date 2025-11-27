@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JobConfig;
+
                 /**
                 * DescribeJobConfigs返回参数结构体
                 */

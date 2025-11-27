@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 转推参数，一个任务最多支持10个推流URL。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PublishParams();
-                    ~PublishParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

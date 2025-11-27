@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Area;
+                class JobDateTime;
+
                 /**
                 * ModifyAreaBanRule请求参数结构体
                 */

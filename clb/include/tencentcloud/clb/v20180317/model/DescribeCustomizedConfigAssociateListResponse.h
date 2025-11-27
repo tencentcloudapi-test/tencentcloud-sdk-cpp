@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BindDetailItem;
+
                 /**
                 * DescribeCustomizedConfigAssociateList返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实时任务日志内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LogContent();
-                    ~LogContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

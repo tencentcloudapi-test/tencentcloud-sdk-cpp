@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PreAuctionInfo;
+
                 /**
                 * DescribePreAuctionList返回参数结构体
                 */

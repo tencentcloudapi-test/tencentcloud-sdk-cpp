@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SyncDepartmentRespData;
+
                 /**
                 * SyncDepartment返回参数结构体
                 */

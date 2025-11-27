@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OperateResponseData;
+
                 /**
                 * Prometheus 监控返回
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusResult();
-                    ~PrometheusResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

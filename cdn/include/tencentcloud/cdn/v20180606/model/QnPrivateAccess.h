@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 七牛元对象存储回源鉴权配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     QnPrivateAccess();
-                    ~QnPrivateAccess() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

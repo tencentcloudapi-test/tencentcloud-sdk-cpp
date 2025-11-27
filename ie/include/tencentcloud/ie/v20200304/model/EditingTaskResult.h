@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagTaskResult;
+                class ClassificationTaskResult;
+                class StripTaskResult;
+                class HighlightsTaskResult;
+                class CoverTaskResult;
+                class OpeningEndingTaskResult;
+
                 /**
                 * 智能识别任务结果信息
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     EditingTaskResult();
-                    ~EditingTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

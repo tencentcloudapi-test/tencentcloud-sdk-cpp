@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiAnalysisTaskVideoComprehensionInput;
+                class AiAnalysisTaskVideoComprehensionOutput;
+
                 /**
                 * 视频（音频）理解结果
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AiAnalysisTaskVideoComprehensionResult();
-                    ~AiAnalysisTaskVideoComprehensionResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

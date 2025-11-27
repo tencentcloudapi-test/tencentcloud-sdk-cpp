@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 指定限流path和对应的method
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PathItem();
-                    ~PathItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BlindWatermarkEmbedInfo;
+
                 /**
                 * 增加盲水印配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AddBlindWatermarkConfig();
-                    ~AddBlindWatermarkConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

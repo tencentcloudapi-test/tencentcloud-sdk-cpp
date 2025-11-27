@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Location;
+
                 /**
                 * OCR文本结果详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OcrTextDetail();
-                    ~OcrTextDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

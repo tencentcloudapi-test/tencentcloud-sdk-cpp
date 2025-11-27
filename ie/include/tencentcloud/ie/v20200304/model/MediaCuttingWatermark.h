@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaCuttingWatermarkImage;
+                class MediaCuttingWatermarkText;
+
                 /**
                 * 媒体剪切水印信息。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaCuttingWatermark();
-                    ~MediaCuttingWatermark() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

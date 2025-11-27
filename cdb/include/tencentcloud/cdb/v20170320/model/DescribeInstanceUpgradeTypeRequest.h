@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NodeDistribution;
+                class ClusterTopology;
+
                 /**
                 * DescribeInstanceUpgradeType请求参数结构体
                 */

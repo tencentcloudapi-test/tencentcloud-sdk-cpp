@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleRewriteActionParams;
+
                 /**
                 * 规则引擎HTTP请求头/响应头类型的动作
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RewriteAction();
-                    ~RewriteAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

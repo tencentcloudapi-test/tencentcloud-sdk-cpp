@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValue;
+
                 /**
                 * 风险实例字段描述
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RiskFieldsDesc();
-                    ~RiskFieldsDesc() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

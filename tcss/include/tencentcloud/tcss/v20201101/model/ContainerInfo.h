@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 容器列表集合
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ContainerInfo();
-                    ~ContainerInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

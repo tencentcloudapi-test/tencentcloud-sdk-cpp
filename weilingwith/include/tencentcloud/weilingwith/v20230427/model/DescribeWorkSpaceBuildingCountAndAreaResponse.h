@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpaceDataListStatsRes;
+
                 /**
                 * DescribeWorkSpaceBuildingCountAndArea返回参数结构体
                 */

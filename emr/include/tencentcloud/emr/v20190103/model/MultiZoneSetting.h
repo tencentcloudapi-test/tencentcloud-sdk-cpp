@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VPCSettings;
+                class Placement;
+                class NewResourceSpec;
+
                 /**
                 * 各个可用区的参数信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     MultiZoneSetting();
-                    ~MultiZoneSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

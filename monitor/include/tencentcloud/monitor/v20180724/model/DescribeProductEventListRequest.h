@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeProductEventListDimensions;
+
                 /**
                 * DescribeProductEventList请求参数结构体
                 */

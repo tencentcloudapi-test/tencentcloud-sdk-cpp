@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 工作空间数据盘配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpaceDataDisk();
-                    ~SpaceDataDisk() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

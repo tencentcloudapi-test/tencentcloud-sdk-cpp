@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InternetAddressStatistics;
+
                 /**
                 * DescribeInternetAddressStatistics返回参数结构体
                 */

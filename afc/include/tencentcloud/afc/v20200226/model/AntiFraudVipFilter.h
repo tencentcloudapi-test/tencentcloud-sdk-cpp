@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * AntiFraudVipFilter– 业务入参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AntiFraudVipFilter();
-                    ~AntiFraudVipFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

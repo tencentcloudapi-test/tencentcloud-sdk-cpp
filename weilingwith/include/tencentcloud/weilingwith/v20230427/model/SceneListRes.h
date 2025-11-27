@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SceneInfo;
+
                 /**
                 * 场景列表响应体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SceneListRes();
-                    ~SceneListRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

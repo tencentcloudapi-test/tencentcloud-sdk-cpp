@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListTargetsForPolicyNode;
+
                 /**
                 * ListTargetsForPolicy返回参数结构体
                 */

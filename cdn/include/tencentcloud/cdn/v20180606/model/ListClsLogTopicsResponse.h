@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogSetInfo;
+                class TopicInfo;
+                class ExtraLogset;
+
                 /**
                 * ListClsLogTopics返回参数结构体
                 */

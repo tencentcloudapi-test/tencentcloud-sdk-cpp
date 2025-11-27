@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述了单台实例操作次数限制
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OperationCountLimit();
-                    ~OperationCountLimit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

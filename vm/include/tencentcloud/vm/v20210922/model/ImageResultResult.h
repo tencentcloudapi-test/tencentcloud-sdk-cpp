@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageResultsResultDetail;
+
                 /**
                 * 图片输出结果的子结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageResultResult();
-                    ~ImageResultResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

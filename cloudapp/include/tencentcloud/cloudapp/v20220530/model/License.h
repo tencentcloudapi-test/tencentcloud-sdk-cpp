@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SaleParam;
+
                 /**
                 * 表示应用实例的软件授权，包含颁发信息、激活信息等内容。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     License();
-                    ~License() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

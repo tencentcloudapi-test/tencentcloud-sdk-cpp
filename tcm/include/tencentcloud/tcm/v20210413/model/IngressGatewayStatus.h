@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoadBalancerStatus;
+
                 /**
                 * IngressGateway状态
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     IngressGatewayStatus();
-                    ~IngressGatewayStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

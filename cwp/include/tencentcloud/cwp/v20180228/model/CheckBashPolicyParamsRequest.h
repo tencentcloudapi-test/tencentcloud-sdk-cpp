@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PolicyRules;
+
                 /**
                 * CheckBashPolicyParams请求参数结构体
                 */

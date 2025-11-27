@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IpRule;
+
                 /**
                 * ModifyInstanceEndpoint请求参数结构体
                 */

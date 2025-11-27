@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MaxAgeRule;
+                class MaxAgeCodeRule;
+
                 /**
                 * 浏览器缓存规则配置，用于设置 MaxAge 默认值，默认为关闭状态
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MaxAge();
-                    ~MaxAge() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

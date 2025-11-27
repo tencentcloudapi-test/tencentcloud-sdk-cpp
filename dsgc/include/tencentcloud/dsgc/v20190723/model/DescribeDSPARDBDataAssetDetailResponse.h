@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DspaRDBDataAssetDetail;
+
                 /**
                 * DescribeDSPARDBDataAssetDetail返回参数结构体
                 */

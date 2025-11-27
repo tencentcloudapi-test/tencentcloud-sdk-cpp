@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ZookeeperServerInterface;
+
                 /**
                 * DescribeZookeeperServerInterfaces返回参数结构体
                 */

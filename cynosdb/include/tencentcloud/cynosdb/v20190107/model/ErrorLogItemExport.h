@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 错误日志导出格式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ErrorLogItemExport();
-                    ~ErrorLogItemExport() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateTopicResp;
+
                 /**
                 * CreateTopic返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AbnormalProcessChildRuleInfo;
+                class AbnormalProcessSystemChildRuleInfo;
+
                 /**
                 * 运行时安全，异常进程检测策略
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AbnormalProcessRuleInfo();
-                    ~AbnormalProcessRuleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

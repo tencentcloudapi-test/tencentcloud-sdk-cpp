@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AndroidInstanceHostTask;
+
                 /**
                 * DistributeAndroidInstanceImageToHosts返回参数结构体
                 */

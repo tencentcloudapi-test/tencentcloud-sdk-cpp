@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IpAssetListVO;
+                class FilterDataObject;
+
                 /**
                 * DescribePublicIpAssets返回参数结构体
                 */

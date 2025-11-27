@@ -62,32 +62,25 @@ CmeClient::AddTeamMemberOutcome CmeClient::AddTeamMember(const AddTeamMemberRequ
 
 void CmeClient::AddTeamMemberAsync(const AddTeamMemberRequest& request, const AddTeamMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddTeamMemberRequest&;
-    using Resp = AddTeamMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddTeamMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddTeamMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::AddTeamMemberOutcomeCallable CmeClient::AddTeamMemberCallable(const AddTeamMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddTeamMemberOutcome>>();
-    AddTeamMemberAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const AddTeamMemberRequest&,
-        AddTeamMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddTeamMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->AddTeamMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::CopyProjectOutcome CmeClient::CopyProject(const CopyProjectRequest &request)
@@ -112,32 +105,25 @@ CmeClient::CopyProjectOutcome CmeClient::CopyProject(const CopyProjectRequest &r
 
 void CmeClient::CopyProjectAsync(const CopyProjectRequest& request, const CopyProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CopyProjectRequest&;
-    using Resp = CopyProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CopyProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CopyProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::CopyProjectOutcomeCallable CmeClient::CopyProjectCallable(const CopyProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CopyProjectOutcome>>();
-    CopyProjectAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const CopyProjectRequest&,
-        CopyProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CopyProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->CopyProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::CreateClassOutcome CmeClient::CreateClass(const CreateClassRequest &request)
@@ -162,32 +148,25 @@ CmeClient::CreateClassOutcome CmeClient::CreateClass(const CreateClassRequest &r
 
 void CmeClient::CreateClassAsync(const CreateClassRequest& request, const CreateClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateClassRequest&;
-    using Resp = CreateClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::CreateClassOutcomeCallable CmeClient::CreateClassCallable(const CreateClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateClassOutcome>>();
-    CreateClassAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const CreateClassRequest&,
-        CreateClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateClassOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::CreateLinkOutcome CmeClient::CreateLink(const CreateLinkRequest &request)
@@ -212,32 +191,25 @@ CmeClient::CreateLinkOutcome CmeClient::CreateLink(const CreateLinkRequest &requ
 
 void CmeClient::CreateLinkAsync(const CreateLinkRequest& request, const CreateLinkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLinkRequest&;
-    using Resp = CreateLinkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLink(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLink", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::CreateLinkOutcomeCallable CmeClient::CreateLinkCallable(const CreateLinkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLinkOutcome>>();
-    CreateLinkAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const CreateLinkRequest&,
-        CreateLinkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLinkOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLink(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::CreateProjectOutcome CmeClient::CreateProject(const CreateProjectRequest &request)
@@ -262,32 +234,25 @@ CmeClient::CreateProjectOutcome CmeClient::CreateProject(const CreateProjectRequ
 
 void CmeClient::CreateProjectAsync(const CreateProjectRequest& request, const CreateProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateProjectRequest&;
-    using Resp = CreateProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::CreateProjectOutcomeCallable CmeClient::CreateProjectCallable(const CreateProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateProjectOutcome>>();
-    CreateProjectAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const CreateProjectRequest&,
-        CreateProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::CreateTeamOutcome CmeClient::CreateTeam(const CreateTeamRequest &request)
@@ -312,32 +277,25 @@ CmeClient::CreateTeamOutcome CmeClient::CreateTeam(const CreateTeamRequest &requ
 
 void CmeClient::CreateTeamAsync(const CreateTeamRequest& request, const CreateTeamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTeamRequest&;
-    using Resp = CreateTeamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTeam(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTeam", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::CreateTeamOutcomeCallable CmeClient::CreateTeamCallable(const CreateTeamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTeamOutcome>>();
-    CreateTeamAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const CreateTeamRequest&,
-        CreateTeamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTeamOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTeam(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::CreateVideoEncodingPresetOutcome CmeClient::CreateVideoEncodingPreset(const CreateVideoEncodingPresetRequest &request)
@@ -362,32 +320,25 @@ CmeClient::CreateVideoEncodingPresetOutcome CmeClient::CreateVideoEncodingPreset
 
 void CmeClient::CreateVideoEncodingPresetAsync(const CreateVideoEncodingPresetRequest& request, const CreateVideoEncodingPresetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVideoEncodingPresetRequest&;
-    using Resp = CreateVideoEncodingPresetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVideoEncodingPreset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoEncodingPreset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::CreateVideoEncodingPresetOutcomeCallable CmeClient::CreateVideoEncodingPresetCallable(const CreateVideoEncodingPresetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVideoEncodingPresetOutcome>>();
-    CreateVideoEncodingPresetAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const CreateVideoEncodingPresetRequest&,
-        CreateVideoEncodingPresetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVideoEncodingPresetOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVideoEncodingPreset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DeleteClassOutcome CmeClient::DeleteClass(const DeleteClassRequest &request)
@@ -412,32 +363,25 @@ CmeClient::DeleteClassOutcome CmeClient::DeleteClass(const DeleteClassRequest &r
 
 void CmeClient::DeleteClassAsync(const DeleteClassRequest& request, const DeleteClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteClassRequest&;
-    using Resp = DeleteClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DeleteClassOutcomeCallable CmeClient::DeleteClassCallable(const DeleteClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteClassOutcome>>();
-    DeleteClassAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DeleteClassRequest&,
-        DeleteClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteClassOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DeleteLoginStatusOutcome CmeClient::DeleteLoginStatus(const DeleteLoginStatusRequest &request)
@@ -462,32 +406,25 @@ CmeClient::DeleteLoginStatusOutcome CmeClient::DeleteLoginStatus(const DeleteLog
 
 void CmeClient::DeleteLoginStatusAsync(const DeleteLoginStatusRequest& request, const DeleteLoginStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteLoginStatusRequest&;
-    using Resp = DeleteLoginStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteLoginStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteLoginStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DeleteLoginStatusOutcomeCallable CmeClient::DeleteLoginStatusCallable(const DeleteLoginStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteLoginStatusOutcome>>();
-    DeleteLoginStatusAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DeleteLoginStatusRequest&,
-        DeleteLoginStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteLoginStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteLoginStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DeleteMaterialOutcome CmeClient::DeleteMaterial(const DeleteMaterialRequest &request)
@@ -512,32 +449,25 @@ CmeClient::DeleteMaterialOutcome CmeClient::DeleteMaterial(const DeleteMaterialR
 
 void CmeClient::DeleteMaterialAsync(const DeleteMaterialRequest& request, const DeleteMaterialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteMaterialRequest&;
-    using Resp = DeleteMaterialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteMaterial(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteMaterial", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DeleteMaterialOutcomeCallable CmeClient::DeleteMaterialCallable(const DeleteMaterialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteMaterialOutcome>>();
-    DeleteMaterialAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DeleteMaterialRequest&,
-        DeleteMaterialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteMaterialOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteMaterial(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DeleteProjectOutcome CmeClient::DeleteProject(const DeleteProjectRequest &request)
@@ -562,32 +492,25 @@ CmeClient::DeleteProjectOutcome CmeClient::DeleteProject(const DeleteProjectRequ
 
 void CmeClient::DeleteProjectAsync(const DeleteProjectRequest& request, const DeleteProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteProjectRequest&;
-    using Resp = DeleteProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DeleteProjectOutcomeCallable CmeClient::DeleteProjectCallable(const DeleteProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteProjectOutcome>>();
-    DeleteProjectAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DeleteProjectRequest&,
-        DeleteProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DeleteTeamOutcome CmeClient::DeleteTeam(const DeleteTeamRequest &request)
@@ -612,32 +535,25 @@ CmeClient::DeleteTeamOutcome CmeClient::DeleteTeam(const DeleteTeamRequest &requ
 
 void CmeClient::DeleteTeamAsync(const DeleteTeamRequest& request, const DeleteTeamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTeamRequest&;
-    using Resp = DeleteTeamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTeam(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTeam", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DeleteTeamOutcomeCallable CmeClient::DeleteTeamCallable(const DeleteTeamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTeamOutcome>>();
-    DeleteTeamAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DeleteTeamRequest&,
-        DeleteTeamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTeamOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTeam(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DeleteTeamMembersOutcome CmeClient::DeleteTeamMembers(const DeleteTeamMembersRequest &request)
@@ -662,32 +578,25 @@ CmeClient::DeleteTeamMembersOutcome CmeClient::DeleteTeamMembers(const DeleteTea
 
 void CmeClient::DeleteTeamMembersAsync(const DeleteTeamMembersRequest& request, const DeleteTeamMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTeamMembersRequest&;
-    using Resp = DeleteTeamMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTeamMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTeamMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DeleteTeamMembersOutcomeCallable CmeClient::DeleteTeamMembersCallable(const DeleteTeamMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTeamMembersOutcome>>();
-    DeleteTeamMembersAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DeleteTeamMembersRequest&,
-        DeleteTeamMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTeamMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTeamMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DeleteVideoEncodingPresetOutcome CmeClient::DeleteVideoEncodingPreset(const DeleteVideoEncodingPresetRequest &request)
@@ -712,32 +621,25 @@ CmeClient::DeleteVideoEncodingPresetOutcome CmeClient::DeleteVideoEncodingPreset
 
 void CmeClient::DeleteVideoEncodingPresetAsync(const DeleteVideoEncodingPresetRequest& request, const DeleteVideoEncodingPresetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVideoEncodingPresetRequest&;
-    using Resp = DeleteVideoEncodingPresetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVideoEncodingPreset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVideoEncodingPreset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DeleteVideoEncodingPresetOutcomeCallable CmeClient::DeleteVideoEncodingPresetCallable(const DeleteVideoEncodingPresetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVideoEncodingPresetOutcome>>();
-    DeleteVideoEncodingPresetAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DeleteVideoEncodingPresetRequest&,
-        DeleteVideoEncodingPresetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVideoEncodingPresetOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVideoEncodingPreset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeAccountsOutcome CmeClient::DescribeAccounts(const DescribeAccountsRequest &request)
@@ -762,32 +664,25 @@ CmeClient::DescribeAccountsOutcome CmeClient::DescribeAccounts(const DescribeAcc
 
 void CmeClient::DescribeAccountsAsync(const DescribeAccountsRequest& request, const DescribeAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccountsRequest&;
-    using Resp = DescribeAccountsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccounts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccounts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeAccountsOutcomeCallable CmeClient::DescribeAccountsCallable(const DescribeAccountsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccountsOutcome>>();
-    DescribeAccountsAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeAccountsRequest&,
-        DescribeAccountsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccountsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccounts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeClassOutcome CmeClient::DescribeClass(const DescribeClassRequest &request)
@@ -812,32 +707,25 @@ CmeClient::DescribeClassOutcome CmeClient::DescribeClass(const DescribeClassRequ
 
 void CmeClient::DescribeClassAsync(const DescribeClassRequest& request, const DescribeClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeClassRequest&;
-    using Resp = DescribeClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeClassOutcomeCallable CmeClient::DescribeClassCallable(const DescribeClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeClassOutcome>>();
-    DescribeClassAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeClassRequest&,
-        DescribeClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeClassOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeJoinTeamsOutcome CmeClient::DescribeJoinTeams(const DescribeJoinTeamsRequest &request)
@@ -862,32 +750,25 @@ CmeClient::DescribeJoinTeamsOutcome CmeClient::DescribeJoinTeams(const DescribeJ
 
 void CmeClient::DescribeJoinTeamsAsync(const DescribeJoinTeamsRequest& request, const DescribeJoinTeamsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeJoinTeamsRequest&;
-    using Resp = DescribeJoinTeamsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeJoinTeams(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeJoinTeams", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeJoinTeamsOutcomeCallable CmeClient::DescribeJoinTeamsCallable(const DescribeJoinTeamsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeJoinTeamsOutcome>>();
-    DescribeJoinTeamsAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeJoinTeamsRequest&,
-        DescribeJoinTeamsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeJoinTeamsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeJoinTeams(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeLoginStatusOutcome CmeClient::DescribeLoginStatus(const DescribeLoginStatusRequest &request)
@@ -912,32 +793,25 @@ CmeClient::DescribeLoginStatusOutcome CmeClient::DescribeLoginStatus(const Descr
 
 void CmeClient::DescribeLoginStatusAsync(const DescribeLoginStatusRequest& request, const DescribeLoginStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLoginStatusRequest&;
-    using Resp = DescribeLoginStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLoginStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLoginStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeLoginStatusOutcomeCallable CmeClient::DescribeLoginStatusCallable(const DescribeLoginStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLoginStatusOutcome>>();
-    DescribeLoginStatusAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeLoginStatusRequest&,
-        DescribeLoginStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLoginStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLoginStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeMaterialsOutcome CmeClient::DescribeMaterials(const DescribeMaterialsRequest &request)
@@ -962,32 +836,25 @@ CmeClient::DescribeMaterialsOutcome CmeClient::DescribeMaterials(const DescribeM
 
 void CmeClient::DescribeMaterialsAsync(const DescribeMaterialsRequest& request, const DescribeMaterialsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMaterialsRequest&;
-    using Resp = DescribeMaterialsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMaterials(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMaterials", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeMaterialsOutcomeCallable CmeClient::DescribeMaterialsCallable(const DescribeMaterialsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMaterialsOutcome>>();
-    DescribeMaterialsAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeMaterialsRequest&,
-        DescribeMaterialsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMaterialsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMaterials(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribePlatformsOutcome CmeClient::DescribePlatforms(const DescribePlatformsRequest &request)
@@ -1012,32 +879,25 @@ CmeClient::DescribePlatformsOutcome CmeClient::DescribePlatforms(const DescribeP
 
 void CmeClient::DescribePlatformsAsync(const DescribePlatformsRequest& request, const DescribePlatformsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePlatformsRequest&;
-    using Resp = DescribePlatformsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePlatforms(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePlatforms", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribePlatformsOutcomeCallable CmeClient::DescribePlatformsCallable(const DescribePlatformsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePlatformsOutcome>>();
-    DescribePlatformsAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribePlatformsRequest&,
-        DescribePlatformsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePlatformsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePlatforms(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeProjectsOutcome CmeClient::DescribeProjects(const DescribeProjectsRequest &request)
@@ -1062,32 +922,25 @@ CmeClient::DescribeProjectsOutcome CmeClient::DescribeProjects(const DescribePro
 
 void CmeClient::DescribeProjectsAsync(const DescribeProjectsRequest& request, const DescribeProjectsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProjectsRequest&;
-    using Resp = DescribeProjectsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProjects(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProjects", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeProjectsOutcomeCallable CmeClient::DescribeProjectsCallable(const DescribeProjectsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProjectsOutcome>>();
-    DescribeProjectsAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeProjectsRequest&,
-        DescribeProjectsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProjectsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProjects(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeResourceAuthorizationOutcome CmeClient::DescribeResourceAuthorization(const DescribeResourceAuthorizationRequest &request)
@@ -1112,32 +965,25 @@ CmeClient::DescribeResourceAuthorizationOutcome CmeClient::DescribeResourceAutho
 
 void CmeClient::DescribeResourceAuthorizationAsync(const DescribeResourceAuthorizationRequest& request, const DescribeResourceAuthorizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeResourceAuthorizationRequest&;
-    using Resp = DescribeResourceAuthorizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeResourceAuthorization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeResourceAuthorization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeResourceAuthorizationOutcomeCallable CmeClient::DescribeResourceAuthorizationCallable(const DescribeResourceAuthorizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeResourceAuthorizationOutcome>>();
-    DescribeResourceAuthorizationAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeResourceAuthorizationRequest&,
-        DescribeResourceAuthorizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeResourceAuthorizationOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeResourceAuthorization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeSharedSpaceOutcome CmeClient::DescribeSharedSpace(const DescribeSharedSpaceRequest &request)
@@ -1162,32 +1008,25 @@ CmeClient::DescribeSharedSpaceOutcome CmeClient::DescribeSharedSpace(const Descr
 
 void CmeClient::DescribeSharedSpaceAsync(const DescribeSharedSpaceRequest& request, const DescribeSharedSpaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSharedSpaceRequest&;
-    using Resp = DescribeSharedSpaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSharedSpace(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSharedSpace", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeSharedSpaceOutcomeCallable CmeClient::DescribeSharedSpaceCallable(const DescribeSharedSpaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSharedSpaceOutcome>>();
-    DescribeSharedSpaceAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeSharedSpaceRequest&,
-        DescribeSharedSpaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSharedSpaceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSharedSpace(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeTaskDetailOutcome CmeClient::DescribeTaskDetail(const DescribeTaskDetailRequest &request)
@@ -1212,32 +1051,25 @@ CmeClient::DescribeTaskDetailOutcome CmeClient::DescribeTaskDetail(const Describ
 
 void CmeClient::DescribeTaskDetailAsync(const DescribeTaskDetailRequest& request, const DescribeTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskDetailRequest&;
-    using Resp = DescribeTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeTaskDetailOutcomeCallable CmeClient::DescribeTaskDetailCallable(const DescribeTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskDetailOutcome>>();
-    DescribeTaskDetailAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeTaskDetailRequest&,
-        DescribeTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeTasksOutcome CmeClient::DescribeTasks(const DescribeTasksRequest &request)
@@ -1262,32 +1094,25 @@ CmeClient::DescribeTasksOutcome CmeClient::DescribeTasks(const DescribeTasksRequ
 
 void CmeClient::DescribeTasksAsync(const DescribeTasksRequest& request, const DescribeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTasksRequest&;
-    using Resp = DescribeTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeTasksOutcomeCallable CmeClient::DescribeTasksCallable(const DescribeTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTasksOutcome>>();
-    DescribeTasksAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeTasksRequest&,
-        DescribeTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeTeamMembersOutcome CmeClient::DescribeTeamMembers(const DescribeTeamMembersRequest &request)
@@ -1312,32 +1137,25 @@ CmeClient::DescribeTeamMembersOutcome CmeClient::DescribeTeamMembers(const Descr
 
 void CmeClient::DescribeTeamMembersAsync(const DescribeTeamMembersRequest& request, const DescribeTeamMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTeamMembersRequest&;
-    using Resp = DescribeTeamMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTeamMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTeamMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeTeamMembersOutcomeCallable CmeClient::DescribeTeamMembersCallable(const DescribeTeamMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTeamMembersOutcome>>();
-    DescribeTeamMembersAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeTeamMembersRequest&,
-        DescribeTeamMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTeamMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTeamMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeTeamsOutcome CmeClient::DescribeTeams(const DescribeTeamsRequest &request)
@@ -1362,32 +1180,25 @@ CmeClient::DescribeTeamsOutcome CmeClient::DescribeTeams(const DescribeTeamsRequ
 
 void CmeClient::DescribeTeamsAsync(const DescribeTeamsRequest& request, const DescribeTeamsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTeamsRequest&;
-    using Resp = DescribeTeamsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTeams(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTeams", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeTeamsOutcomeCallable CmeClient::DescribeTeamsCallable(const DescribeTeamsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTeamsOutcome>>();
-    DescribeTeamsAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeTeamsRequest&,
-        DescribeTeamsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTeamsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTeams(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::DescribeVideoEncodingPresetsOutcome CmeClient::DescribeVideoEncodingPresets(const DescribeVideoEncodingPresetsRequest &request)
@@ -1412,32 +1223,25 @@ CmeClient::DescribeVideoEncodingPresetsOutcome CmeClient::DescribeVideoEncodingP
 
 void CmeClient::DescribeVideoEncodingPresetsAsync(const DescribeVideoEncodingPresetsRequest& request, const DescribeVideoEncodingPresetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoEncodingPresetsRequest&;
-    using Resp = DescribeVideoEncodingPresetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoEncodingPresets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoEncodingPresets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::DescribeVideoEncodingPresetsOutcomeCallable CmeClient::DescribeVideoEncodingPresetsCallable(const DescribeVideoEncodingPresetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoEncodingPresetsOutcome>>();
-    DescribeVideoEncodingPresetsAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const DescribeVideoEncodingPresetsRequest&,
-        DescribeVideoEncodingPresetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoEncodingPresetsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoEncodingPresets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ExportVideoByEditorTrackDataOutcome CmeClient::ExportVideoByEditorTrackData(const ExportVideoByEditorTrackDataRequest &request)
@@ -1462,32 +1266,25 @@ CmeClient::ExportVideoByEditorTrackDataOutcome CmeClient::ExportVideoByEditorTra
 
 void CmeClient::ExportVideoByEditorTrackDataAsync(const ExportVideoByEditorTrackDataRequest& request, const ExportVideoByEditorTrackDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExportVideoByEditorTrackDataRequest&;
-    using Resp = ExportVideoByEditorTrackDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExportVideoByEditorTrackData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExportVideoByEditorTrackData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ExportVideoByEditorTrackDataOutcomeCallable CmeClient::ExportVideoByEditorTrackDataCallable(const ExportVideoByEditorTrackDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExportVideoByEditorTrackDataOutcome>>();
-    ExportVideoByEditorTrackDataAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ExportVideoByEditorTrackDataRequest&,
-        ExportVideoByEditorTrackDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExportVideoByEditorTrackDataOutcome()>>(
+        [this, request]()
+        {
+            return this->ExportVideoByEditorTrackData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ExportVideoByTemplateOutcome CmeClient::ExportVideoByTemplate(const ExportVideoByTemplateRequest &request)
@@ -1512,32 +1309,25 @@ CmeClient::ExportVideoByTemplateOutcome CmeClient::ExportVideoByTemplate(const E
 
 void CmeClient::ExportVideoByTemplateAsync(const ExportVideoByTemplateRequest& request, const ExportVideoByTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExportVideoByTemplateRequest&;
-    using Resp = ExportVideoByTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExportVideoByTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExportVideoByTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ExportVideoByTemplateOutcomeCallable CmeClient::ExportVideoByTemplateCallable(const ExportVideoByTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExportVideoByTemplateOutcome>>();
-    ExportVideoByTemplateAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ExportVideoByTemplateRequest&,
-        ExportVideoByTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExportVideoByTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ExportVideoByTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ExportVideoByVideoSegmentationDataOutcome CmeClient::ExportVideoByVideoSegmentationData(const ExportVideoByVideoSegmentationDataRequest &request)
@@ -1562,32 +1352,25 @@ CmeClient::ExportVideoByVideoSegmentationDataOutcome CmeClient::ExportVideoByVid
 
 void CmeClient::ExportVideoByVideoSegmentationDataAsync(const ExportVideoByVideoSegmentationDataRequest& request, const ExportVideoByVideoSegmentationDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExportVideoByVideoSegmentationDataRequest&;
-    using Resp = ExportVideoByVideoSegmentationDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExportVideoByVideoSegmentationData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExportVideoByVideoSegmentationData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ExportVideoByVideoSegmentationDataOutcomeCallable CmeClient::ExportVideoByVideoSegmentationDataCallable(const ExportVideoByVideoSegmentationDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExportVideoByVideoSegmentationDataOutcome>>();
-    ExportVideoByVideoSegmentationDataAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ExportVideoByVideoSegmentationDataRequest&,
-        ExportVideoByVideoSegmentationDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExportVideoByVideoSegmentationDataOutcome()>>(
+        [this, request]()
+        {
+            return this->ExportVideoByVideoSegmentationData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ExportVideoEditProjectOutcome CmeClient::ExportVideoEditProject(const ExportVideoEditProjectRequest &request)
@@ -1612,32 +1395,25 @@ CmeClient::ExportVideoEditProjectOutcome CmeClient::ExportVideoEditProject(const
 
 void CmeClient::ExportVideoEditProjectAsync(const ExportVideoEditProjectRequest& request, const ExportVideoEditProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExportVideoEditProjectRequest&;
-    using Resp = ExportVideoEditProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExportVideoEditProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExportVideoEditProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ExportVideoEditProjectOutcomeCallable CmeClient::ExportVideoEditProjectCallable(const ExportVideoEditProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExportVideoEditProjectOutcome>>();
-    ExportVideoEditProjectAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ExportVideoEditProjectRequest&,
-        ExportVideoEditProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExportVideoEditProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ExportVideoEditProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::FlattenListMediaOutcome CmeClient::FlattenListMedia(const FlattenListMediaRequest &request)
@@ -1662,32 +1438,25 @@ CmeClient::FlattenListMediaOutcome CmeClient::FlattenListMedia(const FlattenList
 
 void CmeClient::FlattenListMediaAsync(const FlattenListMediaRequest& request, const FlattenListMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FlattenListMediaRequest&;
-    using Resp = FlattenListMediaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FlattenListMedia(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FlattenListMedia", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::FlattenListMediaOutcomeCallable CmeClient::FlattenListMediaCallable(const FlattenListMediaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FlattenListMediaOutcome>>();
-    FlattenListMediaAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const FlattenListMediaRequest&,
-        FlattenListMediaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FlattenListMediaOutcome()>>(
+        [this, request]()
+        {
+            return this->FlattenListMedia(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::GenerateVideoSegmentationSchemeByAiOutcome CmeClient::GenerateVideoSegmentationSchemeByAi(const GenerateVideoSegmentationSchemeByAiRequest &request)
@@ -1712,32 +1481,25 @@ CmeClient::GenerateVideoSegmentationSchemeByAiOutcome CmeClient::GenerateVideoSe
 
 void CmeClient::GenerateVideoSegmentationSchemeByAiAsync(const GenerateVideoSegmentationSchemeByAiRequest& request, const GenerateVideoSegmentationSchemeByAiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GenerateVideoSegmentationSchemeByAiRequest&;
-    using Resp = GenerateVideoSegmentationSchemeByAiResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GenerateVideoSegmentationSchemeByAi(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GenerateVideoSegmentationSchemeByAi", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::GenerateVideoSegmentationSchemeByAiOutcomeCallable CmeClient::GenerateVideoSegmentationSchemeByAiCallable(const GenerateVideoSegmentationSchemeByAiRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GenerateVideoSegmentationSchemeByAiOutcome>>();
-    GenerateVideoSegmentationSchemeByAiAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const GenerateVideoSegmentationSchemeByAiRequest&,
-        GenerateVideoSegmentationSchemeByAiOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GenerateVideoSegmentationSchemeByAiOutcome()>>(
+        [this, request]()
+        {
+            return this->GenerateVideoSegmentationSchemeByAi(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::GrantResourceAuthorizationOutcome CmeClient::GrantResourceAuthorization(const GrantResourceAuthorizationRequest &request)
@@ -1762,32 +1524,25 @@ CmeClient::GrantResourceAuthorizationOutcome CmeClient::GrantResourceAuthorizati
 
 void CmeClient::GrantResourceAuthorizationAsync(const GrantResourceAuthorizationRequest& request, const GrantResourceAuthorizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GrantResourceAuthorizationRequest&;
-    using Resp = GrantResourceAuthorizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GrantResourceAuthorization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GrantResourceAuthorization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::GrantResourceAuthorizationOutcomeCallable CmeClient::GrantResourceAuthorizationCallable(const GrantResourceAuthorizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GrantResourceAuthorizationOutcome>>();
-    GrantResourceAuthorizationAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const GrantResourceAuthorizationRequest&,
-        GrantResourceAuthorizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GrantResourceAuthorizationOutcome()>>(
+        [this, request]()
+        {
+            return this->GrantResourceAuthorization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::HandleMediaCastProjectOutcome CmeClient::HandleMediaCastProject(const HandleMediaCastProjectRequest &request)
@@ -1812,32 +1567,25 @@ CmeClient::HandleMediaCastProjectOutcome CmeClient::HandleMediaCastProject(const
 
 void CmeClient::HandleMediaCastProjectAsync(const HandleMediaCastProjectRequest& request, const HandleMediaCastProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const HandleMediaCastProjectRequest&;
-    using Resp = HandleMediaCastProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->HandleMediaCastProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "HandleMediaCastProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::HandleMediaCastProjectOutcomeCallable CmeClient::HandleMediaCastProjectCallable(const HandleMediaCastProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<HandleMediaCastProjectOutcome>>();
-    HandleMediaCastProjectAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const HandleMediaCastProjectRequest&,
-        HandleMediaCastProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<HandleMediaCastProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->HandleMediaCastProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::HandleStreamConnectProjectOutcome CmeClient::HandleStreamConnectProject(const HandleStreamConnectProjectRequest &request)
@@ -1862,32 +1610,25 @@ CmeClient::HandleStreamConnectProjectOutcome CmeClient::HandleStreamConnectProje
 
 void CmeClient::HandleStreamConnectProjectAsync(const HandleStreamConnectProjectRequest& request, const HandleStreamConnectProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const HandleStreamConnectProjectRequest&;
-    using Resp = HandleStreamConnectProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->HandleStreamConnectProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "HandleStreamConnectProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::HandleStreamConnectProjectOutcomeCallable CmeClient::HandleStreamConnectProjectCallable(const HandleStreamConnectProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<HandleStreamConnectProjectOutcome>>();
-    HandleStreamConnectProjectAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const HandleStreamConnectProjectRequest&,
-        HandleStreamConnectProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<HandleStreamConnectProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->HandleStreamConnectProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ImportMaterialOutcome CmeClient::ImportMaterial(const ImportMaterialRequest &request)
@@ -1912,32 +1653,25 @@ CmeClient::ImportMaterialOutcome CmeClient::ImportMaterial(const ImportMaterialR
 
 void CmeClient::ImportMaterialAsync(const ImportMaterialRequest& request, const ImportMaterialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportMaterialRequest&;
-    using Resp = ImportMaterialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportMaterial(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportMaterial", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ImportMaterialOutcomeCallable CmeClient::ImportMaterialCallable(const ImportMaterialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportMaterialOutcome>>();
-    ImportMaterialAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ImportMaterialRequest&,
-        ImportMaterialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportMaterialOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportMaterial(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ImportMediaToProjectOutcome CmeClient::ImportMediaToProject(const ImportMediaToProjectRequest &request)
@@ -1962,32 +1696,25 @@ CmeClient::ImportMediaToProjectOutcome CmeClient::ImportMediaToProject(const Imp
 
 void CmeClient::ImportMediaToProjectAsync(const ImportMediaToProjectRequest& request, const ImportMediaToProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportMediaToProjectRequest&;
-    using Resp = ImportMediaToProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportMediaToProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportMediaToProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ImportMediaToProjectOutcomeCallable CmeClient::ImportMediaToProjectCallable(const ImportMediaToProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportMediaToProjectOutcome>>();
-    ImportMediaToProjectAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ImportMediaToProjectRequest&,
-        ImportMediaToProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportMediaToProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportMediaToProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ListMediaOutcome CmeClient::ListMedia(const ListMediaRequest &request)
@@ -2012,32 +1739,25 @@ CmeClient::ListMediaOutcome CmeClient::ListMedia(const ListMediaRequest &request
 
 void CmeClient::ListMediaAsync(const ListMediaRequest& request, const ListMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListMediaRequest&;
-    using Resp = ListMediaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListMedia(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListMedia", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ListMediaOutcomeCallable CmeClient::ListMediaCallable(const ListMediaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListMediaOutcome>>();
-    ListMediaAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ListMediaRequest&,
-        ListMediaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListMediaOutcome()>>(
+        [this, request]()
+        {
+            return this->ListMedia(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ModifyMaterialOutcome CmeClient::ModifyMaterial(const ModifyMaterialRequest &request)
@@ -2062,32 +1782,25 @@ CmeClient::ModifyMaterialOutcome CmeClient::ModifyMaterial(const ModifyMaterialR
 
 void CmeClient::ModifyMaterialAsync(const ModifyMaterialRequest& request, const ModifyMaterialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMaterialRequest&;
-    using Resp = ModifyMaterialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMaterial(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMaterial", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ModifyMaterialOutcomeCallable CmeClient::ModifyMaterialCallable(const ModifyMaterialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMaterialOutcome>>();
-    ModifyMaterialAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ModifyMaterialRequest&,
-        ModifyMaterialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMaterialOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMaterial(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ModifyProjectOutcome CmeClient::ModifyProject(const ModifyProjectRequest &request)
@@ -2112,32 +1825,25 @@ CmeClient::ModifyProjectOutcome CmeClient::ModifyProject(const ModifyProjectRequ
 
 void CmeClient::ModifyProjectAsync(const ModifyProjectRequest& request, const ModifyProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProjectRequest&;
-    using Resp = ModifyProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ModifyProjectOutcomeCallable CmeClient::ModifyProjectCallable(const ModifyProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProjectOutcome>>();
-    ModifyProjectAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ModifyProjectRequest&,
-        ModifyProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ModifyTeamOutcome CmeClient::ModifyTeam(const ModifyTeamRequest &request)
@@ -2162,32 +1868,25 @@ CmeClient::ModifyTeamOutcome CmeClient::ModifyTeam(const ModifyTeamRequest &requ
 
 void CmeClient::ModifyTeamAsync(const ModifyTeamRequest& request, const ModifyTeamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTeamRequest&;
-    using Resp = ModifyTeamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTeam(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTeam", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ModifyTeamOutcomeCallable CmeClient::ModifyTeamCallable(const ModifyTeamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTeamOutcome>>();
-    ModifyTeamAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ModifyTeamRequest&,
-        ModifyTeamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTeamOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTeam(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ModifyTeamMemberOutcome CmeClient::ModifyTeamMember(const ModifyTeamMemberRequest &request)
@@ -2212,32 +1911,25 @@ CmeClient::ModifyTeamMemberOutcome CmeClient::ModifyTeamMember(const ModifyTeamM
 
 void CmeClient::ModifyTeamMemberAsync(const ModifyTeamMemberRequest& request, const ModifyTeamMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTeamMemberRequest&;
-    using Resp = ModifyTeamMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTeamMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTeamMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ModifyTeamMemberOutcomeCallable CmeClient::ModifyTeamMemberCallable(const ModifyTeamMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTeamMemberOutcome>>();
-    ModifyTeamMemberAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ModifyTeamMemberRequest&,
-        ModifyTeamMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTeamMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTeamMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ModifyVideoEncodingPresetOutcome CmeClient::ModifyVideoEncodingPreset(const ModifyVideoEncodingPresetRequest &request)
@@ -2262,32 +1954,25 @@ CmeClient::ModifyVideoEncodingPresetOutcome CmeClient::ModifyVideoEncodingPreset
 
 void CmeClient::ModifyVideoEncodingPresetAsync(const ModifyVideoEncodingPresetRequest& request, const ModifyVideoEncodingPresetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVideoEncodingPresetRequest&;
-    using Resp = ModifyVideoEncodingPresetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVideoEncodingPreset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVideoEncodingPreset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ModifyVideoEncodingPresetOutcomeCallable CmeClient::ModifyVideoEncodingPresetCallable(const ModifyVideoEncodingPresetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVideoEncodingPresetOutcome>>();
-    ModifyVideoEncodingPresetAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ModifyVideoEncodingPresetRequest&,
-        ModifyVideoEncodingPresetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVideoEncodingPresetOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVideoEncodingPreset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::MoveClassOutcome CmeClient::MoveClass(const MoveClassRequest &request)
@@ -2312,32 +1997,25 @@ CmeClient::MoveClassOutcome CmeClient::MoveClass(const MoveClassRequest &request
 
 void CmeClient::MoveClassAsync(const MoveClassRequest& request, const MoveClassAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const MoveClassRequest&;
-    using Resp = MoveClassResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->MoveClass(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "MoveClass", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::MoveClassOutcomeCallable CmeClient::MoveClassCallable(const MoveClassRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<MoveClassOutcome>>();
-    MoveClassAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const MoveClassRequest&,
-        MoveClassOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<MoveClassOutcome()>>(
+        [this, request]()
+        {
+            return this->MoveClass(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::MoveResourceOutcome CmeClient::MoveResource(const MoveResourceRequest &request)
@@ -2362,32 +2040,25 @@ CmeClient::MoveResourceOutcome CmeClient::MoveResource(const MoveResourceRequest
 
 void CmeClient::MoveResourceAsync(const MoveResourceRequest& request, const MoveResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const MoveResourceRequest&;
-    using Resp = MoveResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->MoveResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "MoveResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::MoveResourceOutcomeCallable CmeClient::MoveResourceCallable(const MoveResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<MoveResourceOutcome>>();
-    MoveResourceAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const MoveResourceRequest&,
-        MoveResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<MoveResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->MoveResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::ParseEventOutcome CmeClient::ParseEvent(const ParseEventRequest &request)
@@ -2412,32 +2083,25 @@ CmeClient::ParseEventOutcome CmeClient::ParseEvent(const ParseEventRequest &requ
 
 void CmeClient::ParseEventAsync(const ParseEventRequest& request, const ParseEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ParseEventRequest&;
-    using Resp = ParseEventResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ParseEvent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ParseEvent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::ParseEventOutcomeCallable CmeClient::ParseEventCallable(const ParseEventRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ParseEventOutcome>>();
-    ParseEventAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const ParseEventRequest&,
-        ParseEventOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ParseEventOutcome()>>(
+        [this, request]()
+        {
+            return this->ParseEvent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::RevokeResourceAuthorizationOutcome CmeClient::RevokeResourceAuthorization(const RevokeResourceAuthorizationRequest &request)
@@ -2462,32 +2126,25 @@ CmeClient::RevokeResourceAuthorizationOutcome CmeClient::RevokeResourceAuthoriza
 
 void CmeClient::RevokeResourceAuthorizationAsync(const RevokeResourceAuthorizationRequest& request, const RevokeResourceAuthorizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RevokeResourceAuthorizationRequest&;
-    using Resp = RevokeResourceAuthorizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RevokeResourceAuthorization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RevokeResourceAuthorization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::RevokeResourceAuthorizationOutcomeCallable CmeClient::RevokeResourceAuthorizationCallable(const RevokeResourceAuthorizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RevokeResourceAuthorizationOutcome>>();
-    RevokeResourceAuthorizationAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const RevokeResourceAuthorizationRequest&,
-        RevokeResourceAuthorizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RevokeResourceAuthorizationOutcome()>>(
+        [this, request]()
+        {
+            return this->RevokeResourceAuthorization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmeClient::SearchMaterialOutcome CmeClient::SearchMaterial(const SearchMaterialRequest &request)
@@ -2512,31 +2169,24 @@ CmeClient::SearchMaterialOutcome CmeClient::SearchMaterial(const SearchMaterialR
 
 void CmeClient::SearchMaterialAsync(const SearchMaterialRequest& request, const SearchMaterialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchMaterialRequest&;
-    using Resp = SearchMaterialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchMaterial(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchMaterial", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmeClient::SearchMaterialOutcomeCallable CmeClient::SearchMaterialCallable(const SearchMaterialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchMaterialOutcome>>();
-    SearchMaterialAsync(
-    request,
-    [prom](
-        const CmeClient*,
-        const SearchMaterialRequest&,
-        SearchMaterialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchMaterialOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchMaterial(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

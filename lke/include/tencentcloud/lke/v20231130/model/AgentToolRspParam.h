@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/lke/v20231130/model/AgentToolRspParam.h>
 
 
 namespace TencentCloud
@@ -35,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Agent工具的响应参数定义
                 */
@@ -42,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AgentToolRspParam();
-                    ~AgentToolRspParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

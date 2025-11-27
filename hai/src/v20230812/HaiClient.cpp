@@ -62,32 +62,25 @@ HaiClient::CreateApplicationOutcome HaiClient::CreateApplication(const CreateApp
 
 void HaiClient::CreateApplicationAsync(const CreateApplicationRequest& request, const CreateApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateApplicationRequest&;
-    using Resp = CreateApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::CreateApplicationOutcomeCallable HaiClient::CreateApplicationCallable(const CreateApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateApplicationOutcome>>();
-    CreateApplicationAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const CreateApplicationRequest&,
-        CreateApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::CreateMuskPromptOutcome HaiClient::CreateMuskPrompt(const CreateMuskPromptRequest &request)
@@ -112,32 +105,25 @@ HaiClient::CreateMuskPromptOutcome HaiClient::CreateMuskPrompt(const CreateMuskP
 
 void HaiClient::CreateMuskPromptAsync(const CreateMuskPromptRequest& request, const CreateMuskPromptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMuskPromptRequest&;
-    using Resp = CreateMuskPromptResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMuskPrompt(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMuskPrompt", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::CreateMuskPromptOutcomeCallable HaiClient::CreateMuskPromptCallable(const CreateMuskPromptRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMuskPromptOutcome>>();
-    CreateMuskPromptAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const CreateMuskPromptRequest&,
-        CreateMuskPromptOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMuskPromptOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMuskPrompt(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::DescribeApplicationsOutcome HaiClient::DescribeApplications(const DescribeApplicationsRequest &request)
@@ -162,32 +148,25 @@ HaiClient::DescribeApplicationsOutcome HaiClient::DescribeApplications(const Des
 
 void HaiClient::DescribeApplicationsAsync(const DescribeApplicationsRequest& request, const DescribeApplicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApplicationsRequest&;
-    using Resp = DescribeApplicationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApplications(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApplications", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::DescribeApplicationsOutcomeCallable HaiClient::DescribeApplicationsCallable(const DescribeApplicationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApplicationsOutcome>>();
-    DescribeApplicationsAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const DescribeApplicationsRequest&,
-        DescribeApplicationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApplicationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApplications(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::DescribeInstanceNetworkStatusOutcome HaiClient::DescribeInstanceNetworkStatus(const DescribeInstanceNetworkStatusRequest &request)
@@ -212,32 +191,25 @@ HaiClient::DescribeInstanceNetworkStatusOutcome HaiClient::DescribeInstanceNetwo
 
 void HaiClient::DescribeInstanceNetworkStatusAsync(const DescribeInstanceNetworkStatusRequest& request, const DescribeInstanceNetworkStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceNetworkStatusRequest&;
-    using Resp = DescribeInstanceNetworkStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceNetworkStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceNetworkStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::DescribeInstanceNetworkStatusOutcomeCallable HaiClient::DescribeInstanceNetworkStatusCallable(const DescribeInstanceNetworkStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceNetworkStatusOutcome>>();
-    DescribeInstanceNetworkStatusAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const DescribeInstanceNetworkStatusRequest&,
-        DescribeInstanceNetworkStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceNetworkStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceNetworkStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::DescribeInstancesOutcome HaiClient::DescribeInstances(const DescribeInstancesRequest &request)
@@ -262,32 +234,25 @@ HaiClient::DescribeInstancesOutcome HaiClient::DescribeInstances(const DescribeI
 
 void HaiClient::DescribeInstancesAsync(const DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesRequest&;
-    using Resp = DescribeInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::DescribeInstancesOutcomeCallable HaiClient::DescribeInstancesCallable(const DescribeInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesOutcome>>();
-    DescribeInstancesAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const DescribeInstancesRequest&,
-        DescribeInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::DescribeMuskPromptsOutcome HaiClient::DescribeMuskPrompts(const DescribeMuskPromptsRequest &request)
@@ -312,32 +277,25 @@ HaiClient::DescribeMuskPromptsOutcome HaiClient::DescribeMuskPrompts(const Descr
 
 void HaiClient::DescribeMuskPromptsAsync(const DescribeMuskPromptsRequest& request, const DescribeMuskPromptsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMuskPromptsRequest&;
-    using Resp = DescribeMuskPromptsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMuskPrompts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMuskPrompts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::DescribeMuskPromptsOutcomeCallable HaiClient::DescribeMuskPromptsCallable(const DescribeMuskPromptsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMuskPromptsOutcome>>();
-    DescribeMuskPromptsAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const DescribeMuskPromptsRequest&,
-        DescribeMuskPromptsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMuskPromptsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMuskPrompts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::DescribeRegionsOutcome HaiClient::DescribeRegions(const DescribeRegionsRequest &request)
@@ -362,32 +320,25 @@ HaiClient::DescribeRegionsOutcome HaiClient::DescribeRegions(const DescribeRegio
 
 void HaiClient::DescribeRegionsAsync(const DescribeRegionsRequest& request, const DescribeRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRegionsRequest&;
-    using Resp = DescribeRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::DescribeRegionsOutcomeCallable HaiClient::DescribeRegionsCallable(const DescribeRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRegionsOutcome>>();
-    DescribeRegionsAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const DescribeRegionsRequest&,
-        DescribeRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::DescribeScenesOutcome HaiClient::DescribeScenes(const DescribeScenesRequest &request)
@@ -412,32 +363,25 @@ HaiClient::DescribeScenesOutcome HaiClient::DescribeScenes(const DescribeScenesR
 
 void HaiClient::DescribeScenesAsync(const DescribeScenesRequest& request, const DescribeScenesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeScenesRequest&;
-    using Resp = DescribeScenesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeScenes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeScenes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::DescribeScenesOutcomeCallable HaiClient::DescribeScenesCallable(const DescribeScenesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeScenesOutcome>>();
-    DescribeScenesAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const DescribeScenesRequest&,
-        DescribeScenesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeScenesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeScenes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::DescribeServiceLoginSettingsOutcome HaiClient::DescribeServiceLoginSettings(const DescribeServiceLoginSettingsRequest &request)
@@ -462,32 +406,25 @@ HaiClient::DescribeServiceLoginSettingsOutcome HaiClient::DescribeServiceLoginSe
 
 void HaiClient::DescribeServiceLoginSettingsAsync(const DescribeServiceLoginSettingsRequest& request, const DescribeServiceLoginSettingsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeServiceLoginSettingsRequest&;
-    using Resp = DescribeServiceLoginSettingsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeServiceLoginSettings(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeServiceLoginSettings", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::DescribeServiceLoginSettingsOutcomeCallable HaiClient::DescribeServiceLoginSettingsCallable(const DescribeServiceLoginSettingsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeServiceLoginSettingsOutcome>>();
-    DescribeServiceLoginSettingsAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const DescribeServiceLoginSettingsRequest&,
-        DescribeServiceLoginSettingsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeServiceLoginSettingsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeServiceLoginSettings(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::InquirePriceRunInstancesOutcome HaiClient::InquirePriceRunInstances(const InquirePriceRunInstancesRequest &request)
@@ -512,32 +449,25 @@ HaiClient::InquirePriceRunInstancesOutcome HaiClient::InquirePriceRunInstances(c
 
 void HaiClient::InquirePriceRunInstancesAsync(const InquirePriceRunInstancesRequest& request, const InquirePriceRunInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquirePriceRunInstancesRequest&;
-    using Resp = InquirePriceRunInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquirePriceRunInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquirePriceRunInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::InquirePriceRunInstancesOutcomeCallable HaiClient::InquirePriceRunInstancesCallable(const InquirePriceRunInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquirePriceRunInstancesOutcome>>();
-    InquirePriceRunInstancesAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const InquirePriceRunInstancesRequest&,
-        InquirePriceRunInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquirePriceRunInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->InquirePriceRunInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::ResetInstancesPasswordOutcome HaiClient::ResetInstancesPassword(const ResetInstancesPasswordRequest &request)
@@ -562,32 +492,25 @@ HaiClient::ResetInstancesPasswordOutcome HaiClient::ResetInstancesPassword(const
 
 void HaiClient::ResetInstancesPasswordAsync(const ResetInstancesPasswordRequest& request, const ResetInstancesPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetInstancesPasswordRequest&;
-    using Resp = ResetInstancesPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetInstancesPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetInstancesPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::ResetInstancesPasswordOutcomeCallable HaiClient::ResetInstancesPasswordCallable(const ResetInstancesPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetInstancesPasswordOutcome>>();
-    ResetInstancesPasswordAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const ResetInstancesPasswordRequest&,
-        ResetInstancesPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetInstancesPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetInstancesPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::ResizeInstanceDiskOutcome HaiClient::ResizeInstanceDisk(const ResizeInstanceDiskRequest &request)
@@ -612,32 +535,25 @@ HaiClient::ResizeInstanceDiskOutcome HaiClient::ResizeInstanceDisk(const ResizeI
 
 void HaiClient::ResizeInstanceDiskAsync(const ResizeInstanceDiskRequest& request, const ResizeInstanceDiskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResizeInstanceDiskRequest&;
-    using Resp = ResizeInstanceDiskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResizeInstanceDisk(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResizeInstanceDisk", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::ResizeInstanceDiskOutcomeCallable HaiClient::ResizeInstanceDiskCallable(const ResizeInstanceDiskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResizeInstanceDiskOutcome>>();
-    ResizeInstanceDiskAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const ResizeInstanceDiskRequest&,
-        ResizeInstanceDiskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResizeInstanceDiskOutcome()>>(
+        [this, request]()
+        {
+            return this->ResizeInstanceDisk(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::RunInstancesOutcome HaiClient::RunInstances(const RunInstancesRequest &request)
@@ -662,32 +578,25 @@ HaiClient::RunInstancesOutcome HaiClient::RunInstances(const RunInstancesRequest
 
 void HaiClient::RunInstancesAsync(const RunInstancesRequest& request, const RunInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunInstancesRequest&;
-    using Resp = RunInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::RunInstancesOutcomeCallable HaiClient::RunInstancesCallable(const RunInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunInstancesOutcome>>();
-    RunInstancesAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const RunInstancesRequest&,
-        RunInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->RunInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::StartInstanceOutcome HaiClient::StartInstance(const StartInstanceRequest &request)
@@ -712,32 +621,25 @@ HaiClient::StartInstanceOutcome HaiClient::StartInstance(const StartInstanceRequ
 
 void HaiClient::StartInstanceAsync(const StartInstanceRequest& request, const StartInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartInstanceRequest&;
-    using Resp = StartInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::StartInstanceOutcomeCallable HaiClient::StartInstanceCallable(const StartInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartInstanceOutcome>>();
-    StartInstanceAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const StartInstanceRequest&,
-        StartInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->StartInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::StopInstanceOutcome HaiClient::StopInstance(const StopInstanceRequest &request)
@@ -762,32 +664,25 @@ HaiClient::StopInstanceOutcome HaiClient::StopInstance(const StopInstanceRequest
 
 void HaiClient::StopInstanceAsync(const StopInstanceRequest& request, const StopInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopInstanceRequest&;
-    using Resp = StopInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::StopInstanceOutcomeCallable HaiClient::StopInstanceCallable(const StopInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopInstanceOutcome>>();
-    StopInstanceAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const StopInstanceRequest&,
-        StopInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->StopInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 HaiClient::TerminateInstancesOutcome HaiClient::TerminateInstances(const TerminateInstancesRequest &request)
@@ -812,31 +707,24 @@ HaiClient::TerminateInstancesOutcome HaiClient::TerminateInstances(const Termina
 
 void HaiClient::TerminateInstancesAsync(const TerminateInstancesRequest& request, const TerminateInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminateInstancesRequest&;
-    using Resp = TerminateInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminateInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminateInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 HaiClient::TerminateInstancesOutcomeCallable HaiClient::TerminateInstancesCallable(const TerminateInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminateInstancesOutcome>>();
-    TerminateInstancesAsync(
-    request,
-    [prom](
-        const HaiClient*,
-        const TerminateInstancesRequest&,
-        TerminateInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminateInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminateInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

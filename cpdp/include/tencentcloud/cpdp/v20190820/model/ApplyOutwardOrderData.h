@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 汇出指令申请数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ApplyOutwardOrderData();
-                    ~ApplyOutwardOrderData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RestoreTask;
+
                 /**
                 * CreateRestoreTasks请求参数结构体
                 */

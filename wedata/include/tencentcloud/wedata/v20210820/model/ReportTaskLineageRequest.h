@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LineageTask;
+                class TableLineagePair;
+                class ColumnLineagePair;
+
                 /**
                 * ReportTaskLineage请求参数结构体
                 */

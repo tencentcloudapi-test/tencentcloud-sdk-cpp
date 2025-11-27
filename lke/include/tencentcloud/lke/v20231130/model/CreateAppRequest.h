@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaseConfig;
+
                 /**
                 * CreateApp请求参数结构体
                 */

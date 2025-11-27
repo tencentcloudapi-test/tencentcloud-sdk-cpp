@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RefreshSettings;
+
                 /**
                 * StartInstanceRefresh请求参数结构体
                 */

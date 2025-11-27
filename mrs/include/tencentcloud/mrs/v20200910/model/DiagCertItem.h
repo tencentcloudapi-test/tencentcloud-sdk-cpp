@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 诊断证明项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DiagCertItem();
-                    ~DiagCertItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

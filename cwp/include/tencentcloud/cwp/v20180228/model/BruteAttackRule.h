@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 标准阻断模式规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BruteAttackRule();
-                    ~BruteAttackRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

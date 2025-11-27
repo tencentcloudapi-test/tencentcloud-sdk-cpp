@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 专用集群子订单
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DedicatedClusterOrderItem();
-                    ~DedicatedClusterOrderItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

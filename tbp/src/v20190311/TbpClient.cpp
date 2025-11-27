@@ -62,32 +62,25 @@ TbpClient::CreateBotOutcome TbpClient::CreateBot(const CreateBotRequest &request
 
 void TbpClient::CreateBotAsync(const CreateBotRequest& request, const CreateBotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBotRequest&;
-    using Resp = CreateBotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TbpClient::CreateBotOutcomeCallable TbpClient::CreateBotCallable(const CreateBotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBotOutcome>>();
-    CreateBotAsync(
-    request,
-    [prom](
-        const TbpClient*,
-        const CreateBotRequest&,
-        CreateBotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBotOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TbpClient::ResetOutcome TbpClient::Reset(const ResetRequest &request)
@@ -112,32 +105,25 @@ TbpClient::ResetOutcome TbpClient::Reset(const ResetRequest &request)
 
 void TbpClient::ResetAsync(const ResetRequest& request, const ResetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetRequest&;
-    using Resp = ResetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->Reset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "Reset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TbpClient::ResetOutcomeCallable TbpClient::ResetCallable(const ResetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetOutcome>>();
-    ResetAsync(
-    request,
-    [prom](
-        const TbpClient*,
-        const ResetRequest&,
-        ResetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetOutcome()>>(
+        [this, request]()
+        {
+            return this->Reset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TbpClient::TextProcessOutcome TbpClient::TextProcess(const TextProcessRequest &request)
@@ -162,32 +148,25 @@ TbpClient::TextProcessOutcome TbpClient::TextProcess(const TextProcessRequest &r
 
 void TbpClient::TextProcessAsync(const TextProcessRequest& request, const TextProcessAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextProcessRequest&;
-    using Resp = TextProcessResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextProcess(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextProcess", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TbpClient::TextProcessOutcomeCallable TbpClient::TextProcessCallable(const TextProcessRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextProcessOutcome>>();
-    TextProcessAsync(
-    request,
-    [prom](
-        const TbpClient*,
-        const TextProcessRequest&,
-        TextProcessOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextProcessOutcome()>>(
+        [this, request]()
+        {
+            return this->TextProcess(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TbpClient::TextResetOutcome TbpClient::TextReset(const TextResetRequest &request)
@@ -212,31 +191,24 @@ TbpClient::TextResetOutcome TbpClient::TextReset(const TextResetRequest &request
 
 void TbpClient::TextResetAsync(const TextResetRequest& request, const TextResetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextResetRequest&;
-    using Resp = TextResetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextReset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextReset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TbpClient::TextResetOutcomeCallable TbpClient::TextResetCallable(const TextResetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextResetOutcome>>();
-    TextResetAsync(
-    request,
-    [prom](
-        const TbpClient*,
-        const TextResetRequest&,
-        TextResetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextResetOutcome()>>(
+        [this, request]()
+        {
+            return this->TextReset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

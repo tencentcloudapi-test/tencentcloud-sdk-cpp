@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImagesVul;
+
                 /**
                 * DescribeAssetImageVulList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecLogDeliveryClsSettingInfo;
+
                 /**
                 * ModifySecLogDeliveryClsSetting请求参数结构体
                 */

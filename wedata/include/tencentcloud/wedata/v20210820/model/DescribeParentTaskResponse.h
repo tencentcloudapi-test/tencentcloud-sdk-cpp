@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DependencyConfigDsDTO;
+
                 /**
                 * DescribeParentTask返回参数结构体
                 */

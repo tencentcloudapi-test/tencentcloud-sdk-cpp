@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableBaseInfo;
+                class DataFormat;
+                class Column;
+                class Partition;
+
                 /**
                 * 返回数据表的相关信息。
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     TableInfo();
-                    ~TableInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MigrateSource;
+                class MigrateTarget;
+                class MigrateDB;
+
                 /**
                 * DescribeMigrationDetail返回参数结构体
                 */

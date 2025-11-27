@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudBaseEsInfo;
+                class CloudBaseRunVpcInfo;
+
                 /**
                 * EstablishCloudBaseRunServer请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScreenNameValue;
+
                 /**
                 * DescribeScreenRiskAssetsTop返回参数结构体
                 */

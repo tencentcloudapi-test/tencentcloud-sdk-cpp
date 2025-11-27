@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 治疗方案
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TreatmentGuide();
-                    ~TreatmentGuide() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

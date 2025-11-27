@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 病理详细
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PathologicalDiagnosisDetailBlock();
-                    ~PathologicalDiagnosisDetailBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

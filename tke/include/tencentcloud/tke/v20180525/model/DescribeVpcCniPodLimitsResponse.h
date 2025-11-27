@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PodLimitsInstance;
+
                 /**
                 * DescribeVpcCniPodLimits返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatabaseTuple;
+
                 /**
                 * DeletePublishSubscribe请求参数结构体
                 */

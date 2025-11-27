@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaSubtitleItem;
+
                 /**
                 * ModifyMediaInfo返回参数结构体
                 */

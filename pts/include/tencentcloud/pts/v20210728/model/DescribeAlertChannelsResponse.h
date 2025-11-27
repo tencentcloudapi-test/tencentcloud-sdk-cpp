@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlertChannelRecord;
+
                 /**
                 * DescribeAlertChannels返回参数结构体
                 */

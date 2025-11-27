@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InvocationTask;
+
                 /**
                 * DescribeInvocationTasks返回参数结构体
                 */

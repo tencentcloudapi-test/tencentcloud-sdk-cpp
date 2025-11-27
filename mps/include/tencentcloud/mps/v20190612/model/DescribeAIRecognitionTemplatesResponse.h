@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AIRecognitionTemplateItem;
+
                 /**
                 * DescribeAIRecognitionTemplates返回参数结构体
                 */

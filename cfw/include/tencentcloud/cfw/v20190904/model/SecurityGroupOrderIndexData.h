@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 企业安全组规则执行顺序修改对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SecurityGroupOrderIndexData();
-                    ~SecurityGroupOrderIndexData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

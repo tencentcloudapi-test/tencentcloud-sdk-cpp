@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CodePosition;
+
                 /**
                 * 从图片中检测到的二维码，可能为多个
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CodeDetail();
-                    ~CodeDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribePolicyConditionListEventMetric;
+                class DescribePolicyConditionListMetric;
+                class DescribePolicyConditionListResponseDeprecatingInfo;
+
                 /**
                 * DescribePolicyConditionList策略条件
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribePolicyConditionListCondition();
-                    ~DescribePolicyConditionListCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

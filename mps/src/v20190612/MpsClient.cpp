@@ -62,32 +62,25 @@ MpsClient::BatchDeleteStreamLinkFlowOutcome MpsClient::BatchDeleteStreamLinkFlow
 
 void MpsClient::BatchDeleteStreamLinkFlowAsync(const BatchDeleteStreamLinkFlowRequest& request, const BatchDeleteStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDeleteStreamLinkFlowRequest&;
-    using Resp = BatchDeleteStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDeleteStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDeleteStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::BatchDeleteStreamLinkFlowOutcomeCallable MpsClient::BatchDeleteStreamLinkFlowCallable(const BatchDeleteStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDeleteStreamLinkFlowOutcome>>();
-    BatchDeleteStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const BatchDeleteStreamLinkFlowRequest&,
-        BatchDeleteStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDeleteStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDeleteStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::BatchProcessMediaOutcome MpsClient::BatchProcessMedia(const BatchProcessMediaRequest &request)
@@ -112,32 +105,25 @@ MpsClient::BatchProcessMediaOutcome MpsClient::BatchProcessMedia(const BatchProc
 
 void MpsClient::BatchProcessMediaAsync(const BatchProcessMediaRequest& request, const BatchProcessMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchProcessMediaRequest&;
-    using Resp = BatchProcessMediaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchProcessMedia(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchProcessMedia", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::BatchProcessMediaOutcomeCallable MpsClient::BatchProcessMediaCallable(const BatchProcessMediaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchProcessMediaOutcome>>();
-    BatchProcessMediaAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const BatchProcessMediaRequest&,
-        BatchProcessMediaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchProcessMediaOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchProcessMedia(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::BatchStartStreamLinkFlowOutcome MpsClient::BatchStartStreamLinkFlow(const BatchStartStreamLinkFlowRequest &request)
@@ -162,32 +148,25 @@ MpsClient::BatchStartStreamLinkFlowOutcome MpsClient::BatchStartStreamLinkFlow(c
 
 void MpsClient::BatchStartStreamLinkFlowAsync(const BatchStartStreamLinkFlowRequest& request, const BatchStartStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchStartStreamLinkFlowRequest&;
-    using Resp = BatchStartStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchStartStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchStartStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::BatchStartStreamLinkFlowOutcomeCallable MpsClient::BatchStartStreamLinkFlowCallable(const BatchStartStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchStartStreamLinkFlowOutcome>>();
-    BatchStartStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const BatchStartStreamLinkFlowRequest&,
-        BatchStartStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchStartStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchStartStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::BatchStopStreamLinkFlowOutcome MpsClient::BatchStopStreamLinkFlow(const BatchStopStreamLinkFlowRequest &request)
@@ -212,32 +191,25 @@ MpsClient::BatchStopStreamLinkFlowOutcome MpsClient::BatchStopStreamLinkFlow(con
 
 void MpsClient::BatchStopStreamLinkFlowAsync(const BatchStopStreamLinkFlowRequest& request, const BatchStopStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchStopStreamLinkFlowRequest&;
-    using Resp = BatchStopStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchStopStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchStopStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::BatchStopStreamLinkFlowOutcomeCallable MpsClient::BatchStopStreamLinkFlowCallable(const BatchStopStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchStopStreamLinkFlowOutcome>>();
-    BatchStopStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const BatchStopStreamLinkFlowRequest&,
-        BatchStopStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchStopStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchStopStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateAIAnalysisTemplateOutcome MpsClient::CreateAIAnalysisTemplate(const CreateAIAnalysisTemplateRequest &request)
@@ -262,32 +234,25 @@ MpsClient::CreateAIAnalysisTemplateOutcome MpsClient::CreateAIAnalysisTemplate(c
 
 void MpsClient::CreateAIAnalysisTemplateAsync(const CreateAIAnalysisTemplateRequest& request, const CreateAIAnalysisTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAIAnalysisTemplateRequest&;
-    using Resp = CreateAIAnalysisTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAIAnalysisTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAIAnalysisTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateAIAnalysisTemplateOutcomeCallable MpsClient::CreateAIAnalysisTemplateCallable(const CreateAIAnalysisTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAIAnalysisTemplateOutcome>>();
-    CreateAIAnalysisTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateAIAnalysisTemplateRequest&,
-        CreateAIAnalysisTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAIAnalysisTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAIAnalysisTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateAIRecognitionTemplateOutcome MpsClient::CreateAIRecognitionTemplate(const CreateAIRecognitionTemplateRequest &request)
@@ -312,32 +277,25 @@ MpsClient::CreateAIRecognitionTemplateOutcome MpsClient::CreateAIRecognitionTemp
 
 void MpsClient::CreateAIRecognitionTemplateAsync(const CreateAIRecognitionTemplateRequest& request, const CreateAIRecognitionTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAIRecognitionTemplateRequest&;
-    using Resp = CreateAIRecognitionTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAIRecognitionTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAIRecognitionTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateAIRecognitionTemplateOutcomeCallable MpsClient::CreateAIRecognitionTemplateCallable(const CreateAIRecognitionTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAIRecognitionTemplateOutcome>>();
-    CreateAIRecognitionTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateAIRecognitionTemplateRequest&,
-        CreateAIRecognitionTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAIRecognitionTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAIRecognitionTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateAdaptiveDynamicStreamingTemplateOutcome MpsClient::CreateAdaptiveDynamicStreamingTemplate(const CreateAdaptiveDynamicStreamingTemplateRequest &request)
@@ -362,32 +320,25 @@ MpsClient::CreateAdaptiveDynamicStreamingTemplateOutcome MpsClient::CreateAdapti
 
 void MpsClient::CreateAdaptiveDynamicStreamingTemplateAsync(const CreateAdaptiveDynamicStreamingTemplateRequest& request, const CreateAdaptiveDynamicStreamingTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAdaptiveDynamicStreamingTemplateRequest&;
-    using Resp = CreateAdaptiveDynamicStreamingTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAdaptiveDynamicStreamingTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAdaptiveDynamicStreamingTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateAdaptiveDynamicStreamingTemplateOutcomeCallable MpsClient::CreateAdaptiveDynamicStreamingTemplateCallable(const CreateAdaptiveDynamicStreamingTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAdaptiveDynamicStreamingTemplateOutcome>>();
-    CreateAdaptiveDynamicStreamingTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateAdaptiveDynamicStreamingTemplateRequest&,
-        CreateAdaptiveDynamicStreamingTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAdaptiveDynamicStreamingTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAdaptiveDynamicStreamingTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateAnimatedGraphicsTemplateOutcome MpsClient::CreateAnimatedGraphicsTemplate(const CreateAnimatedGraphicsTemplateRequest &request)
@@ -412,32 +363,25 @@ MpsClient::CreateAnimatedGraphicsTemplateOutcome MpsClient::CreateAnimatedGraphi
 
 void MpsClient::CreateAnimatedGraphicsTemplateAsync(const CreateAnimatedGraphicsTemplateRequest& request, const CreateAnimatedGraphicsTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAnimatedGraphicsTemplateRequest&;
-    using Resp = CreateAnimatedGraphicsTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAnimatedGraphicsTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAnimatedGraphicsTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateAnimatedGraphicsTemplateOutcomeCallable MpsClient::CreateAnimatedGraphicsTemplateCallable(const CreateAnimatedGraphicsTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAnimatedGraphicsTemplateOutcome>>();
-    CreateAnimatedGraphicsTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateAnimatedGraphicsTemplateRequest&,
-        CreateAnimatedGraphicsTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAnimatedGraphicsTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAnimatedGraphicsTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateAsrHotwordsOutcome MpsClient::CreateAsrHotwords(const CreateAsrHotwordsRequest &request)
@@ -462,32 +406,25 @@ MpsClient::CreateAsrHotwordsOutcome MpsClient::CreateAsrHotwords(const CreateAsr
 
 void MpsClient::CreateAsrHotwordsAsync(const CreateAsrHotwordsRequest& request, const CreateAsrHotwordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAsrHotwordsRequest&;
-    using Resp = CreateAsrHotwordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAsrHotwords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAsrHotwords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateAsrHotwordsOutcomeCallable MpsClient::CreateAsrHotwordsCallable(const CreateAsrHotwordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAsrHotwordsOutcome>>();
-    CreateAsrHotwordsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateAsrHotwordsRequest&,
-        CreateAsrHotwordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAsrHotwordsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAsrHotwords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateBlindWatermarkTemplateOutcome MpsClient::CreateBlindWatermarkTemplate(const CreateBlindWatermarkTemplateRequest &request)
@@ -512,32 +449,25 @@ MpsClient::CreateBlindWatermarkTemplateOutcome MpsClient::CreateBlindWatermarkTe
 
 void MpsClient::CreateBlindWatermarkTemplateAsync(const CreateBlindWatermarkTemplateRequest& request, const CreateBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBlindWatermarkTemplateRequest&;
-    using Resp = CreateBlindWatermarkTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBlindWatermarkTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBlindWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateBlindWatermarkTemplateOutcomeCallable MpsClient::CreateBlindWatermarkTemplateCallable(const CreateBlindWatermarkTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBlindWatermarkTemplateOutcome>>();
-    CreateBlindWatermarkTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateBlindWatermarkTemplateRequest&,
-        CreateBlindWatermarkTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBlindWatermarkTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBlindWatermarkTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateContentReviewTemplateOutcome MpsClient::CreateContentReviewTemplate(const CreateContentReviewTemplateRequest &request)
@@ -562,32 +492,25 @@ MpsClient::CreateContentReviewTemplateOutcome MpsClient::CreateContentReviewTemp
 
 void MpsClient::CreateContentReviewTemplateAsync(const CreateContentReviewTemplateRequest& request, const CreateContentReviewTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateContentReviewTemplateRequest&;
-    using Resp = CreateContentReviewTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateContentReviewTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateContentReviewTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateContentReviewTemplateOutcomeCallable MpsClient::CreateContentReviewTemplateCallable(const CreateContentReviewTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateContentReviewTemplateOutcome>>();
-    CreateContentReviewTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateContentReviewTemplateRequest&,
-        CreateContentReviewTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateContentReviewTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateContentReviewTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateImageSpriteTemplateOutcome MpsClient::CreateImageSpriteTemplate(const CreateImageSpriteTemplateRequest &request)
@@ -612,32 +535,25 @@ MpsClient::CreateImageSpriteTemplateOutcome MpsClient::CreateImageSpriteTemplate
 
 void MpsClient::CreateImageSpriteTemplateAsync(const CreateImageSpriteTemplateRequest& request, const CreateImageSpriteTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateImageSpriteTemplateRequest&;
-    using Resp = CreateImageSpriteTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateImageSpriteTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateImageSpriteTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateImageSpriteTemplateOutcomeCallable MpsClient::CreateImageSpriteTemplateCallable(const CreateImageSpriteTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateImageSpriteTemplateOutcome>>();
-    CreateImageSpriteTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateImageSpriteTemplateRequest&,
-        CreateImageSpriteTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateImageSpriteTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateImageSpriteTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateLiveRecordTemplateOutcome MpsClient::CreateLiveRecordTemplate(const CreateLiveRecordTemplateRequest &request)
@@ -662,32 +578,25 @@ MpsClient::CreateLiveRecordTemplateOutcome MpsClient::CreateLiveRecordTemplate(c
 
 void MpsClient::CreateLiveRecordTemplateAsync(const CreateLiveRecordTemplateRequest& request, const CreateLiveRecordTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLiveRecordTemplateRequest&;
-    using Resp = CreateLiveRecordTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLiveRecordTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLiveRecordTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateLiveRecordTemplateOutcomeCallable MpsClient::CreateLiveRecordTemplateCallable(const CreateLiveRecordTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLiveRecordTemplateOutcome>>();
-    CreateLiveRecordTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateLiveRecordTemplateRequest&,
-        CreateLiveRecordTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLiveRecordTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLiveRecordTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateMediaEvaluationOutcome MpsClient::CreateMediaEvaluation(const CreateMediaEvaluationRequest &request)
@@ -712,32 +621,25 @@ MpsClient::CreateMediaEvaluationOutcome MpsClient::CreateMediaEvaluation(const C
 
 void MpsClient::CreateMediaEvaluationAsync(const CreateMediaEvaluationRequest& request, const CreateMediaEvaluationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMediaEvaluationRequest&;
-    using Resp = CreateMediaEvaluationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMediaEvaluation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMediaEvaluation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateMediaEvaluationOutcomeCallable MpsClient::CreateMediaEvaluationCallable(const CreateMediaEvaluationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMediaEvaluationOutcome>>();
-    CreateMediaEvaluationAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateMediaEvaluationRequest&,
-        CreateMediaEvaluationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMediaEvaluationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMediaEvaluation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreatePersonSampleOutcome MpsClient::CreatePersonSample(const CreatePersonSampleRequest &request)
@@ -762,32 +664,25 @@ MpsClient::CreatePersonSampleOutcome MpsClient::CreatePersonSample(const CreateP
 
 void MpsClient::CreatePersonSampleAsync(const CreatePersonSampleRequest& request, const CreatePersonSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePersonSampleRequest&;
-    using Resp = CreatePersonSampleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePersonSample(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePersonSample", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreatePersonSampleOutcomeCallable MpsClient::CreatePersonSampleCallable(const CreatePersonSampleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePersonSampleOutcome>>();
-    CreatePersonSampleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreatePersonSampleRequest&,
-        CreatePersonSampleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePersonSampleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePersonSample(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateProcessImageTemplateOutcome MpsClient::CreateProcessImageTemplate(const CreateProcessImageTemplateRequest &request)
@@ -812,32 +707,25 @@ MpsClient::CreateProcessImageTemplateOutcome MpsClient::CreateProcessImageTempla
 
 void MpsClient::CreateProcessImageTemplateAsync(const CreateProcessImageTemplateRequest& request, const CreateProcessImageTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateProcessImageTemplateRequest&;
-    using Resp = CreateProcessImageTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateProcessImageTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateProcessImageTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateProcessImageTemplateOutcomeCallable MpsClient::CreateProcessImageTemplateCallable(const CreateProcessImageTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateProcessImageTemplateOutcome>>();
-    CreateProcessImageTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateProcessImageTemplateRequest&,
-        CreateProcessImageTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateProcessImageTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateProcessImageTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateQualityControlTemplateOutcome MpsClient::CreateQualityControlTemplate(const CreateQualityControlTemplateRequest &request)
@@ -862,32 +750,25 @@ MpsClient::CreateQualityControlTemplateOutcome MpsClient::CreateQualityControlTe
 
 void MpsClient::CreateQualityControlTemplateAsync(const CreateQualityControlTemplateRequest& request, const CreateQualityControlTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateQualityControlTemplateRequest&;
-    using Resp = CreateQualityControlTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateQualityControlTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateQualityControlTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateQualityControlTemplateOutcomeCallable MpsClient::CreateQualityControlTemplateCallable(const CreateQualityControlTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateQualityControlTemplateOutcome>>();
-    CreateQualityControlTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateQualityControlTemplateRequest&,
-        CreateQualityControlTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateQualityControlTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateQualityControlTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateSampleSnapshotTemplateOutcome MpsClient::CreateSampleSnapshotTemplate(const CreateSampleSnapshotTemplateRequest &request)
@@ -912,32 +793,25 @@ MpsClient::CreateSampleSnapshotTemplateOutcome MpsClient::CreateSampleSnapshotTe
 
 void MpsClient::CreateSampleSnapshotTemplateAsync(const CreateSampleSnapshotTemplateRequest& request, const CreateSampleSnapshotTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSampleSnapshotTemplateRequest&;
-    using Resp = CreateSampleSnapshotTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSampleSnapshotTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSampleSnapshotTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateSampleSnapshotTemplateOutcomeCallable MpsClient::CreateSampleSnapshotTemplateCallable(const CreateSampleSnapshotTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSampleSnapshotTemplateOutcome>>();
-    CreateSampleSnapshotTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateSampleSnapshotTemplateRequest&,
-        CreateSampleSnapshotTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSampleSnapshotTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSampleSnapshotTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateScheduleOutcome MpsClient::CreateSchedule(const CreateScheduleRequest &request)
@@ -962,32 +836,25 @@ MpsClient::CreateScheduleOutcome MpsClient::CreateSchedule(const CreateScheduleR
 
 void MpsClient::CreateScheduleAsync(const CreateScheduleRequest& request, const CreateScheduleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateScheduleRequest&;
-    using Resp = CreateScheduleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSchedule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSchedule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateScheduleOutcomeCallable MpsClient::CreateScheduleCallable(const CreateScheduleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateScheduleOutcome>>();
-    CreateScheduleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateScheduleRequest&,
-        CreateScheduleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateScheduleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSchedule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateSmartEraseTemplateOutcome MpsClient::CreateSmartEraseTemplate(const CreateSmartEraseTemplateRequest &request)
@@ -1012,32 +879,25 @@ MpsClient::CreateSmartEraseTemplateOutcome MpsClient::CreateSmartEraseTemplate(c
 
 void MpsClient::CreateSmartEraseTemplateAsync(const CreateSmartEraseTemplateRequest& request, const CreateSmartEraseTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSmartEraseTemplateRequest&;
-    using Resp = CreateSmartEraseTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSmartEraseTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSmartEraseTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateSmartEraseTemplateOutcomeCallable MpsClient::CreateSmartEraseTemplateCallable(const CreateSmartEraseTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSmartEraseTemplateOutcome>>();
-    CreateSmartEraseTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateSmartEraseTemplateRequest&,
-        CreateSmartEraseTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSmartEraseTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSmartEraseTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateSmartSubtitleTemplateOutcome MpsClient::CreateSmartSubtitleTemplate(const CreateSmartSubtitleTemplateRequest &request)
@@ -1062,32 +922,25 @@ MpsClient::CreateSmartSubtitleTemplateOutcome MpsClient::CreateSmartSubtitleTemp
 
 void MpsClient::CreateSmartSubtitleTemplateAsync(const CreateSmartSubtitleTemplateRequest& request, const CreateSmartSubtitleTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSmartSubtitleTemplateRequest&;
-    using Resp = CreateSmartSubtitleTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSmartSubtitleTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSmartSubtitleTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateSmartSubtitleTemplateOutcomeCallable MpsClient::CreateSmartSubtitleTemplateCallable(const CreateSmartSubtitleTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSmartSubtitleTemplateOutcome>>();
-    CreateSmartSubtitleTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateSmartSubtitleTemplateRequest&,
-        CreateSmartSubtitleTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSmartSubtitleTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSmartSubtitleTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateSnapshotByTimeOffsetTemplateOutcome MpsClient::CreateSnapshotByTimeOffsetTemplate(const CreateSnapshotByTimeOffsetTemplateRequest &request)
@@ -1112,32 +965,25 @@ MpsClient::CreateSnapshotByTimeOffsetTemplateOutcome MpsClient::CreateSnapshotBy
 
 void MpsClient::CreateSnapshotByTimeOffsetTemplateAsync(const CreateSnapshotByTimeOffsetTemplateRequest& request, const CreateSnapshotByTimeOffsetTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSnapshotByTimeOffsetTemplateRequest&;
-    using Resp = CreateSnapshotByTimeOffsetTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSnapshotByTimeOffsetTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSnapshotByTimeOffsetTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateSnapshotByTimeOffsetTemplateOutcomeCallable MpsClient::CreateSnapshotByTimeOffsetTemplateCallable(const CreateSnapshotByTimeOffsetTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSnapshotByTimeOffsetTemplateOutcome>>();
-    CreateSnapshotByTimeOffsetTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateSnapshotByTimeOffsetTemplateRequest&,
-        CreateSnapshotByTimeOffsetTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSnapshotByTimeOffsetTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSnapshotByTimeOffsetTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateStreamLinkEventOutcome MpsClient::CreateStreamLinkEvent(const CreateStreamLinkEventRequest &request)
@@ -1162,32 +1008,25 @@ MpsClient::CreateStreamLinkEventOutcome MpsClient::CreateStreamLinkEvent(const C
 
 void MpsClient::CreateStreamLinkEventAsync(const CreateStreamLinkEventRequest& request, const CreateStreamLinkEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateStreamLinkEventRequest&;
-    using Resp = CreateStreamLinkEventResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateStreamLinkEvent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateStreamLinkEvent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateStreamLinkEventOutcomeCallable MpsClient::CreateStreamLinkEventCallable(const CreateStreamLinkEventRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateStreamLinkEventOutcome>>();
-    CreateStreamLinkEventAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateStreamLinkEventRequest&,
-        CreateStreamLinkEventOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateStreamLinkEventOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateStreamLinkEvent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateStreamLinkFlowOutcome MpsClient::CreateStreamLinkFlow(const CreateStreamLinkFlowRequest &request)
@@ -1212,32 +1051,25 @@ MpsClient::CreateStreamLinkFlowOutcome MpsClient::CreateStreamLinkFlow(const Cre
 
 void MpsClient::CreateStreamLinkFlowAsync(const CreateStreamLinkFlowRequest& request, const CreateStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateStreamLinkFlowRequest&;
-    using Resp = CreateStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateStreamLinkFlowOutcomeCallable MpsClient::CreateStreamLinkFlowCallable(const CreateStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateStreamLinkFlowOutcome>>();
-    CreateStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateStreamLinkFlowRequest&,
-        CreateStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateStreamLinkInputOutcome MpsClient::CreateStreamLinkInput(const CreateStreamLinkInputRequest &request)
@@ -1262,32 +1094,25 @@ MpsClient::CreateStreamLinkInputOutcome MpsClient::CreateStreamLinkInput(const C
 
 void MpsClient::CreateStreamLinkInputAsync(const CreateStreamLinkInputRequest& request, const CreateStreamLinkInputAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateStreamLinkInputRequest&;
-    using Resp = CreateStreamLinkInputResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateStreamLinkInput(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateStreamLinkInput", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateStreamLinkInputOutcomeCallable MpsClient::CreateStreamLinkInputCallable(const CreateStreamLinkInputRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateStreamLinkInputOutcome>>();
-    CreateStreamLinkInputAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateStreamLinkInputRequest&,
-        CreateStreamLinkInputOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateStreamLinkInputOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateStreamLinkInput(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateStreamLinkOutputInfoOutcome MpsClient::CreateStreamLinkOutputInfo(const CreateStreamLinkOutputInfoRequest &request)
@@ -1312,32 +1137,25 @@ MpsClient::CreateStreamLinkOutputInfoOutcome MpsClient::CreateStreamLinkOutputIn
 
 void MpsClient::CreateStreamLinkOutputInfoAsync(const CreateStreamLinkOutputInfoRequest& request, const CreateStreamLinkOutputInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateStreamLinkOutputInfoRequest&;
-    using Resp = CreateStreamLinkOutputInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateStreamLinkOutputInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateStreamLinkOutputInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateStreamLinkOutputInfoOutcomeCallable MpsClient::CreateStreamLinkOutputInfoCallable(const CreateStreamLinkOutputInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateStreamLinkOutputInfoOutcome>>();
-    CreateStreamLinkOutputInfoAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateStreamLinkOutputInfoRequest&,
-        CreateStreamLinkOutputInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateStreamLinkOutputInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateStreamLinkOutputInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateStreamLinkSecurityGroupOutcome MpsClient::CreateStreamLinkSecurityGroup(const CreateStreamLinkSecurityGroupRequest &request)
@@ -1362,32 +1180,25 @@ MpsClient::CreateStreamLinkSecurityGroupOutcome MpsClient::CreateStreamLinkSecur
 
 void MpsClient::CreateStreamLinkSecurityGroupAsync(const CreateStreamLinkSecurityGroupRequest& request, const CreateStreamLinkSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateStreamLinkSecurityGroupRequest&;
-    using Resp = CreateStreamLinkSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateStreamLinkSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateStreamLinkSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateStreamLinkSecurityGroupOutcomeCallable MpsClient::CreateStreamLinkSecurityGroupCallable(const CreateStreamLinkSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateStreamLinkSecurityGroupOutcome>>();
-    CreateStreamLinkSecurityGroupAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateStreamLinkSecurityGroupRequest&,
-        CreateStreamLinkSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateStreamLinkSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateStreamLinkSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateTranscodeTemplateOutcome MpsClient::CreateTranscodeTemplate(const CreateTranscodeTemplateRequest &request)
@@ -1412,32 +1223,25 @@ MpsClient::CreateTranscodeTemplateOutcome MpsClient::CreateTranscodeTemplate(con
 
 void MpsClient::CreateTranscodeTemplateAsync(const CreateTranscodeTemplateRequest& request, const CreateTranscodeTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTranscodeTemplateRequest&;
-    using Resp = CreateTranscodeTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTranscodeTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTranscodeTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateTranscodeTemplateOutcomeCallable MpsClient::CreateTranscodeTemplateCallable(const CreateTranscodeTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTranscodeTemplateOutcome>>();
-    CreateTranscodeTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateTranscodeTemplateRequest&,
-        CreateTranscodeTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTranscodeTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTranscodeTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateVideoDatabaseEntryTaskOutcome MpsClient::CreateVideoDatabaseEntryTask(const CreateVideoDatabaseEntryTaskRequest &request)
@@ -1462,32 +1266,25 @@ MpsClient::CreateVideoDatabaseEntryTaskOutcome MpsClient::CreateVideoDatabaseEnt
 
 void MpsClient::CreateVideoDatabaseEntryTaskAsync(const CreateVideoDatabaseEntryTaskRequest& request, const CreateVideoDatabaseEntryTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVideoDatabaseEntryTaskRequest&;
-    using Resp = CreateVideoDatabaseEntryTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVideoDatabaseEntryTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoDatabaseEntryTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateVideoDatabaseEntryTaskOutcomeCallable MpsClient::CreateVideoDatabaseEntryTaskCallable(const CreateVideoDatabaseEntryTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVideoDatabaseEntryTaskOutcome>>();
-    CreateVideoDatabaseEntryTaskAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateVideoDatabaseEntryTaskRequest&,
-        CreateVideoDatabaseEntryTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVideoDatabaseEntryTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVideoDatabaseEntryTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateVideoSearchTaskOutcome MpsClient::CreateVideoSearchTask(const CreateVideoSearchTaskRequest &request)
@@ -1512,32 +1309,25 @@ MpsClient::CreateVideoSearchTaskOutcome MpsClient::CreateVideoSearchTask(const C
 
 void MpsClient::CreateVideoSearchTaskAsync(const CreateVideoSearchTaskRequest& request, const CreateVideoSearchTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVideoSearchTaskRequest&;
-    using Resp = CreateVideoSearchTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVideoSearchTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoSearchTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateVideoSearchTaskOutcomeCallable MpsClient::CreateVideoSearchTaskCallable(const CreateVideoSearchTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVideoSearchTaskOutcome>>();
-    CreateVideoSearchTaskAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateVideoSearchTaskRequest&,
-        CreateVideoSearchTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVideoSearchTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVideoSearchTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateWatermarkTemplateOutcome MpsClient::CreateWatermarkTemplate(const CreateWatermarkTemplateRequest &request)
@@ -1562,32 +1352,25 @@ MpsClient::CreateWatermarkTemplateOutcome MpsClient::CreateWatermarkTemplate(con
 
 void MpsClient::CreateWatermarkTemplateAsync(const CreateWatermarkTemplateRequest& request, const CreateWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWatermarkTemplateRequest&;
-    using Resp = CreateWatermarkTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWatermarkTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateWatermarkTemplateOutcomeCallable MpsClient::CreateWatermarkTemplateCallable(const CreateWatermarkTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWatermarkTemplateOutcome>>();
-    CreateWatermarkTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateWatermarkTemplateRequest&,
-        CreateWatermarkTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWatermarkTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWatermarkTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateWordSamplesOutcome MpsClient::CreateWordSamples(const CreateWordSamplesRequest &request)
@@ -1612,32 +1395,25 @@ MpsClient::CreateWordSamplesOutcome MpsClient::CreateWordSamples(const CreateWor
 
 void MpsClient::CreateWordSamplesAsync(const CreateWordSamplesRequest& request, const CreateWordSamplesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWordSamplesRequest&;
-    using Resp = CreateWordSamplesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWordSamples(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWordSamples", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateWordSamplesOutcomeCallable MpsClient::CreateWordSamplesCallable(const CreateWordSamplesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWordSamplesOutcome>>();
-    CreateWordSamplesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateWordSamplesRequest&,
-        CreateWordSamplesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWordSamplesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWordSamples(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::CreateWorkflowOutcome MpsClient::CreateWorkflow(const CreateWorkflowRequest &request)
@@ -1662,32 +1438,25 @@ MpsClient::CreateWorkflowOutcome MpsClient::CreateWorkflow(const CreateWorkflowR
 
 void MpsClient::CreateWorkflowAsync(const CreateWorkflowRequest& request, const CreateWorkflowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWorkflowRequest&;
-    using Resp = CreateWorkflowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWorkflow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWorkflow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::CreateWorkflowOutcomeCallable MpsClient::CreateWorkflowCallable(const CreateWorkflowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWorkflowOutcome>>();
-    CreateWorkflowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const CreateWorkflowRequest&,
-        CreateWorkflowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWorkflowOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWorkflow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteAIAnalysisTemplateOutcome MpsClient::DeleteAIAnalysisTemplate(const DeleteAIAnalysisTemplateRequest &request)
@@ -1712,32 +1481,25 @@ MpsClient::DeleteAIAnalysisTemplateOutcome MpsClient::DeleteAIAnalysisTemplate(c
 
 void MpsClient::DeleteAIAnalysisTemplateAsync(const DeleteAIAnalysisTemplateRequest& request, const DeleteAIAnalysisTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAIAnalysisTemplateRequest&;
-    using Resp = DeleteAIAnalysisTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAIAnalysisTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAIAnalysisTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteAIAnalysisTemplateOutcomeCallable MpsClient::DeleteAIAnalysisTemplateCallable(const DeleteAIAnalysisTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAIAnalysisTemplateOutcome>>();
-    DeleteAIAnalysisTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteAIAnalysisTemplateRequest&,
-        DeleteAIAnalysisTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAIAnalysisTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAIAnalysisTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteAIRecognitionTemplateOutcome MpsClient::DeleteAIRecognitionTemplate(const DeleteAIRecognitionTemplateRequest &request)
@@ -1762,32 +1524,25 @@ MpsClient::DeleteAIRecognitionTemplateOutcome MpsClient::DeleteAIRecognitionTemp
 
 void MpsClient::DeleteAIRecognitionTemplateAsync(const DeleteAIRecognitionTemplateRequest& request, const DeleteAIRecognitionTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAIRecognitionTemplateRequest&;
-    using Resp = DeleteAIRecognitionTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAIRecognitionTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAIRecognitionTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteAIRecognitionTemplateOutcomeCallable MpsClient::DeleteAIRecognitionTemplateCallable(const DeleteAIRecognitionTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAIRecognitionTemplateOutcome>>();
-    DeleteAIRecognitionTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteAIRecognitionTemplateRequest&,
-        DeleteAIRecognitionTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAIRecognitionTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAIRecognitionTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteAdaptiveDynamicStreamingTemplateOutcome MpsClient::DeleteAdaptiveDynamicStreamingTemplate(const DeleteAdaptiveDynamicStreamingTemplateRequest &request)
@@ -1812,32 +1567,25 @@ MpsClient::DeleteAdaptiveDynamicStreamingTemplateOutcome MpsClient::DeleteAdapti
 
 void MpsClient::DeleteAdaptiveDynamicStreamingTemplateAsync(const DeleteAdaptiveDynamicStreamingTemplateRequest& request, const DeleteAdaptiveDynamicStreamingTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAdaptiveDynamicStreamingTemplateRequest&;
-    using Resp = DeleteAdaptiveDynamicStreamingTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAdaptiveDynamicStreamingTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAdaptiveDynamicStreamingTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteAdaptiveDynamicStreamingTemplateOutcomeCallable MpsClient::DeleteAdaptiveDynamicStreamingTemplateCallable(const DeleteAdaptiveDynamicStreamingTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAdaptiveDynamicStreamingTemplateOutcome>>();
-    DeleteAdaptiveDynamicStreamingTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteAdaptiveDynamicStreamingTemplateRequest&,
-        DeleteAdaptiveDynamicStreamingTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAdaptiveDynamicStreamingTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAdaptiveDynamicStreamingTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteAnimatedGraphicsTemplateOutcome MpsClient::DeleteAnimatedGraphicsTemplate(const DeleteAnimatedGraphicsTemplateRequest &request)
@@ -1862,32 +1610,25 @@ MpsClient::DeleteAnimatedGraphicsTemplateOutcome MpsClient::DeleteAnimatedGraphi
 
 void MpsClient::DeleteAnimatedGraphicsTemplateAsync(const DeleteAnimatedGraphicsTemplateRequest& request, const DeleteAnimatedGraphicsTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAnimatedGraphicsTemplateRequest&;
-    using Resp = DeleteAnimatedGraphicsTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAnimatedGraphicsTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAnimatedGraphicsTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteAnimatedGraphicsTemplateOutcomeCallable MpsClient::DeleteAnimatedGraphicsTemplateCallable(const DeleteAnimatedGraphicsTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAnimatedGraphicsTemplateOutcome>>();
-    DeleteAnimatedGraphicsTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteAnimatedGraphicsTemplateRequest&,
-        DeleteAnimatedGraphicsTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAnimatedGraphicsTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAnimatedGraphicsTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteAsrHotwordsOutcome MpsClient::DeleteAsrHotwords(const DeleteAsrHotwordsRequest &request)
@@ -1912,32 +1653,25 @@ MpsClient::DeleteAsrHotwordsOutcome MpsClient::DeleteAsrHotwords(const DeleteAsr
 
 void MpsClient::DeleteAsrHotwordsAsync(const DeleteAsrHotwordsRequest& request, const DeleteAsrHotwordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAsrHotwordsRequest&;
-    using Resp = DeleteAsrHotwordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAsrHotwords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAsrHotwords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteAsrHotwordsOutcomeCallable MpsClient::DeleteAsrHotwordsCallable(const DeleteAsrHotwordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAsrHotwordsOutcome>>();
-    DeleteAsrHotwordsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteAsrHotwordsRequest&,
-        DeleteAsrHotwordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAsrHotwordsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAsrHotwords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteBlindWatermarkTemplateOutcome MpsClient::DeleteBlindWatermarkTemplate(const DeleteBlindWatermarkTemplateRequest &request)
@@ -1962,32 +1696,25 @@ MpsClient::DeleteBlindWatermarkTemplateOutcome MpsClient::DeleteBlindWatermarkTe
 
 void MpsClient::DeleteBlindWatermarkTemplateAsync(const DeleteBlindWatermarkTemplateRequest& request, const DeleteBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteBlindWatermarkTemplateRequest&;
-    using Resp = DeleteBlindWatermarkTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteBlindWatermarkTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteBlindWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteBlindWatermarkTemplateOutcomeCallable MpsClient::DeleteBlindWatermarkTemplateCallable(const DeleteBlindWatermarkTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteBlindWatermarkTemplateOutcome>>();
-    DeleteBlindWatermarkTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteBlindWatermarkTemplateRequest&,
-        DeleteBlindWatermarkTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteBlindWatermarkTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteBlindWatermarkTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteContentReviewTemplateOutcome MpsClient::DeleteContentReviewTemplate(const DeleteContentReviewTemplateRequest &request)
@@ -2012,32 +1739,25 @@ MpsClient::DeleteContentReviewTemplateOutcome MpsClient::DeleteContentReviewTemp
 
 void MpsClient::DeleteContentReviewTemplateAsync(const DeleteContentReviewTemplateRequest& request, const DeleteContentReviewTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteContentReviewTemplateRequest&;
-    using Resp = DeleteContentReviewTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteContentReviewTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteContentReviewTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteContentReviewTemplateOutcomeCallable MpsClient::DeleteContentReviewTemplateCallable(const DeleteContentReviewTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteContentReviewTemplateOutcome>>();
-    DeleteContentReviewTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteContentReviewTemplateRequest&,
-        DeleteContentReviewTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteContentReviewTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteContentReviewTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteImageSpriteTemplateOutcome MpsClient::DeleteImageSpriteTemplate(const DeleteImageSpriteTemplateRequest &request)
@@ -2062,32 +1782,25 @@ MpsClient::DeleteImageSpriteTemplateOutcome MpsClient::DeleteImageSpriteTemplate
 
 void MpsClient::DeleteImageSpriteTemplateAsync(const DeleteImageSpriteTemplateRequest& request, const DeleteImageSpriteTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteImageSpriteTemplateRequest&;
-    using Resp = DeleteImageSpriteTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteImageSpriteTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteImageSpriteTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteImageSpriteTemplateOutcomeCallable MpsClient::DeleteImageSpriteTemplateCallable(const DeleteImageSpriteTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteImageSpriteTemplateOutcome>>();
-    DeleteImageSpriteTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteImageSpriteTemplateRequest&,
-        DeleteImageSpriteTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteImageSpriteTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteImageSpriteTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteLiveRecordTemplateOutcome MpsClient::DeleteLiveRecordTemplate(const DeleteLiveRecordTemplateRequest &request)
@@ -2112,32 +1825,25 @@ MpsClient::DeleteLiveRecordTemplateOutcome MpsClient::DeleteLiveRecordTemplate(c
 
 void MpsClient::DeleteLiveRecordTemplateAsync(const DeleteLiveRecordTemplateRequest& request, const DeleteLiveRecordTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteLiveRecordTemplateRequest&;
-    using Resp = DeleteLiveRecordTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteLiveRecordTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteLiveRecordTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteLiveRecordTemplateOutcomeCallable MpsClient::DeleteLiveRecordTemplateCallable(const DeleteLiveRecordTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteLiveRecordTemplateOutcome>>();
-    DeleteLiveRecordTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteLiveRecordTemplateRequest&,
-        DeleteLiveRecordTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteLiveRecordTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteLiveRecordTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeletePersonSampleOutcome MpsClient::DeletePersonSample(const DeletePersonSampleRequest &request)
@@ -2162,32 +1868,25 @@ MpsClient::DeletePersonSampleOutcome MpsClient::DeletePersonSample(const DeleteP
 
 void MpsClient::DeletePersonSampleAsync(const DeletePersonSampleRequest& request, const DeletePersonSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePersonSampleRequest&;
-    using Resp = DeletePersonSampleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePersonSample(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePersonSample", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeletePersonSampleOutcomeCallable MpsClient::DeletePersonSampleCallable(const DeletePersonSampleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePersonSampleOutcome>>();
-    DeletePersonSampleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeletePersonSampleRequest&,
-        DeletePersonSampleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePersonSampleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePersonSample(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteProcessImageTemplateOutcome MpsClient::DeleteProcessImageTemplate(const DeleteProcessImageTemplateRequest &request)
@@ -2212,32 +1911,25 @@ MpsClient::DeleteProcessImageTemplateOutcome MpsClient::DeleteProcessImageTempla
 
 void MpsClient::DeleteProcessImageTemplateAsync(const DeleteProcessImageTemplateRequest& request, const DeleteProcessImageTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteProcessImageTemplateRequest&;
-    using Resp = DeleteProcessImageTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteProcessImageTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteProcessImageTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteProcessImageTemplateOutcomeCallable MpsClient::DeleteProcessImageTemplateCallable(const DeleteProcessImageTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteProcessImageTemplateOutcome>>();
-    DeleteProcessImageTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteProcessImageTemplateRequest&,
-        DeleteProcessImageTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteProcessImageTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteProcessImageTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteQualityControlTemplateOutcome MpsClient::DeleteQualityControlTemplate(const DeleteQualityControlTemplateRequest &request)
@@ -2262,32 +1954,25 @@ MpsClient::DeleteQualityControlTemplateOutcome MpsClient::DeleteQualityControlTe
 
 void MpsClient::DeleteQualityControlTemplateAsync(const DeleteQualityControlTemplateRequest& request, const DeleteQualityControlTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteQualityControlTemplateRequest&;
-    using Resp = DeleteQualityControlTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteQualityControlTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteQualityControlTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteQualityControlTemplateOutcomeCallable MpsClient::DeleteQualityControlTemplateCallable(const DeleteQualityControlTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteQualityControlTemplateOutcome>>();
-    DeleteQualityControlTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteQualityControlTemplateRequest&,
-        DeleteQualityControlTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteQualityControlTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteQualityControlTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteSampleSnapshotTemplateOutcome MpsClient::DeleteSampleSnapshotTemplate(const DeleteSampleSnapshotTemplateRequest &request)
@@ -2312,32 +1997,25 @@ MpsClient::DeleteSampleSnapshotTemplateOutcome MpsClient::DeleteSampleSnapshotTe
 
 void MpsClient::DeleteSampleSnapshotTemplateAsync(const DeleteSampleSnapshotTemplateRequest& request, const DeleteSampleSnapshotTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSampleSnapshotTemplateRequest&;
-    using Resp = DeleteSampleSnapshotTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSampleSnapshotTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSampleSnapshotTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteSampleSnapshotTemplateOutcomeCallable MpsClient::DeleteSampleSnapshotTemplateCallable(const DeleteSampleSnapshotTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSampleSnapshotTemplateOutcome>>();
-    DeleteSampleSnapshotTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteSampleSnapshotTemplateRequest&,
-        DeleteSampleSnapshotTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSampleSnapshotTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSampleSnapshotTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteScheduleOutcome MpsClient::DeleteSchedule(const DeleteScheduleRequest &request)
@@ -2362,32 +2040,25 @@ MpsClient::DeleteScheduleOutcome MpsClient::DeleteSchedule(const DeleteScheduleR
 
 void MpsClient::DeleteScheduleAsync(const DeleteScheduleRequest& request, const DeleteScheduleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteScheduleRequest&;
-    using Resp = DeleteScheduleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSchedule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSchedule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteScheduleOutcomeCallable MpsClient::DeleteScheduleCallable(const DeleteScheduleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteScheduleOutcome>>();
-    DeleteScheduleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteScheduleRequest&,
-        DeleteScheduleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteScheduleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSchedule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteSmartEraseTemplateOutcome MpsClient::DeleteSmartEraseTemplate(const DeleteSmartEraseTemplateRequest &request)
@@ -2412,32 +2083,25 @@ MpsClient::DeleteSmartEraseTemplateOutcome MpsClient::DeleteSmartEraseTemplate(c
 
 void MpsClient::DeleteSmartEraseTemplateAsync(const DeleteSmartEraseTemplateRequest& request, const DeleteSmartEraseTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSmartEraseTemplateRequest&;
-    using Resp = DeleteSmartEraseTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSmartEraseTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSmartEraseTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteSmartEraseTemplateOutcomeCallable MpsClient::DeleteSmartEraseTemplateCallable(const DeleteSmartEraseTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSmartEraseTemplateOutcome>>();
-    DeleteSmartEraseTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteSmartEraseTemplateRequest&,
-        DeleteSmartEraseTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSmartEraseTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSmartEraseTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteSmartSubtitleTemplateOutcome MpsClient::DeleteSmartSubtitleTemplate(const DeleteSmartSubtitleTemplateRequest &request)
@@ -2462,32 +2126,25 @@ MpsClient::DeleteSmartSubtitleTemplateOutcome MpsClient::DeleteSmartSubtitleTemp
 
 void MpsClient::DeleteSmartSubtitleTemplateAsync(const DeleteSmartSubtitleTemplateRequest& request, const DeleteSmartSubtitleTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSmartSubtitleTemplateRequest&;
-    using Resp = DeleteSmartSubtitleTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSmartSubtitleTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSmartSubtitleTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteSmartSubtitleTemplateOutcomeCallable MpsClient::DeleteSmartSubtitleTemplateCallable(const DeleteSmartSubtitleTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSmartSubtitleTemplateOutcome>>();
-    DeleteSmartSubtitleTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteSmartSubtitleTemplateRequest&,
-        DeleteSmartSubtitleTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSmartSubtitleTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSmartSubtitleTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteSnapshotByTimeOffsetTemplateOutcome MpsClient::DeleteSnapshotByTimeOffsetTemplate(const DeleteSnapshotByTimeOffsetTemplateRequest &request)
@@ -2512,32 +2169,25 @@ MpsClient::DeleteSnapshotByTimeOffsetTemplateOutcome MpsClient::DeleteSnapshotBy
 
 void MpsClient::DeleteSnapshotByTimeOffsetTemplateAsync(const DeleteSnapshotByTimeOffsetTemplateRequest& request, const DeleteSnapshotByTimeOffsetTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSnapshotByTimeOffsetTemplateRequest&;
-    using Resp = DeleteSnapshotByTimeOffsetTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSnapshotByTimeOffsetTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSnapshotByTimeOffsetTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteSnapshotByTimeOffsetTemplateOutcomeCallable MpsClient::DeleteSnapshotByTimeOffsetTemplateCallable(const DeleteSnapshotByTimeOffsetTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSnapshotByTimeOffsetTemplateOutcome>>();
-    DeleteSnapshotByTimeOffsetTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteSnapshotByTimeOffsetTemplateRequest&,
-        DeleteSnapshotByTimeOffsetTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSnapshotByTimeOffsetTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSnapshotByTimeOffsetTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteStreamLinkEventOutcome MpsClient::DeleteStreamLinkEvent(const DeleteStreamLinkEventRequest &request)
@@ -2562,32 +2212,25 @@ MpsClient::DeleteStreamLinkEventOutcome MpsClient::DeleteStreamLinkEvent(const D
 
 void MpsClient::DeleteStreamLinkEventAsync(const DeleteStreamLinkEventRequest& request, const DeleteStreamLinkEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteStreamLinkEventRequest&;
-    using Resp = DeleteStreamLinkEventResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteStreamLinkEvent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteStreamLinkEvent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteStreamLinkEventOutcomeCallable MpsClient::DeleteStreamLinkEventCallable(const DeleteStreamLinkEventRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteStreamLinkEventOutcome>>();
-    DeleteStreamLinkEventAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteStreamLinkEventRequest&,
-        DeleteStreamLinkEventOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteStreamLinkEventOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteStreamLinkEvent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteStreamLinkFlowOutcome MpsClient::DeleteStreamLinkFlow(const DeleteStreamLinkFlowRequest &request)
@@ -2612,32 +2255,25 @@ MpsClient::DeleteStreamLinkFlowOutcome MpsClient::DeleteStreamLinkFlow(const Del
 
 void MpsClient::DeleteStreamLinkFlowAsync(const DeleteStreamLinkFlowRequest& request, const DeleteStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteStreamLinkFlowRequest&;
-    using Resp = DeleteStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteStreamLinkFlowOutcomeCallable MpsClient::DeleteStreamLinkFlowCallable(const DeleteStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteStreamLinkFlowOutcome>>();
-    DeleteStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteStreamLinkFlowRequest&,
-        DeleteStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteStreamLinkOutputOutcome MpsClient::DeleteStreamLinkOutput(const DeleteStreamLinkOutputRequest &request)
@@ -2662,32 +2298,25 @@ MpsClient::DeleteStreamLinkOutputOutcome MpsClient::DeleteStreamLinkOutput(const
 
 void MpsClient::DeleteStreamLinkOutputAsync(const DeleteStreamLinkOutputRequest& request, const DeleteStreamLinkOutputAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteStreamLinkOutputRequest&;
-    using Resp = DeleteStreamLinkOutputResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteStreamLinkOutput(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteStreamLinkOutput", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteStreamLinkOutputOutcomeCallable MpsClient::DeleteStreamLinkOutputCallable(const DeleteStreamLinkOutputRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteStreamLinkOutputOutcome>>();
-    DeleteStreamLinkOutputAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteStreamLinkOutputRequest&,
-        DeleteStreamLinkOutputOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteStreamLinkOutputOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteStreamLinkOutput(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteStreamLinkSecurityGroupOutcome MpsClient::DeleteStreamLinkSecurityGroup(const DeleteStreamLinkSecurityGroupRequest &request)
@@ -2712,32 +2341,25 @@ MpsClient::DeleteStreamLinkSecurityGroupOutcome MpsClient::DeleteStreamLinkSecur
 
 void MpsClient::DeleteStreamLinkSecurityGroupAsync(const DeleteStreamLinkSecurityGroupRequest& request, const DeleteStreamLinkSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteStreamLinkSecurityGroupRequest&;
-    using Resp = DeleteStreamLinkSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteStreamLinkSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteStreamLinkSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteStreamLinkSecurityGroupOutcomeCallable MpsClient::DeleteStreamLinkSecurityGroupCallable(const DeleteStreamLinkSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteStreamLinkSecurityGroupOutcome>>();
-    DeleteStreamLinkSecurityGroupAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteStreamLinkSecurityGroupRequest&,
-        DeleteStreamLinkSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteStreamLinkSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteStreamLinkSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteTranscodeTemplateOutcome MpsClient::DeleteTranscodeTemplate(const DeleteTranscodeTemplateRequest &request)
@@ -2762,32 +2384,25 @@ MpsClient::DeleteTranscodeTemplateOutcome MpsClient::DeleteTranscodeTemplate(con
 
 void MpsClient::DeleteTranscodeTemplateAsync(const DeleteTranscodeTemplateRequest& request, const DeleteTranscodeTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTranscodeTemplateRequest&;
-    using Resp = DeleteTranscodeTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTranscodeTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTranscodeTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteTranscodeTemplateOutcomeCallable MpsClient::DeleteTranscodeTemplateCallable(const DeleteTranscodeTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTranscodeTemplateOutcome>>();
-    DeleteTranscodeTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteTranscodeTemplateRequest&,
-        DeleteTranscodeTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTranscodeTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTranscodeTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteWatermarkTemplateOutcome MpsClient::DeleteWatermarkTemplate(const DeleteWatermarkTemplateRequest &request)
@@ -2812,32 +2427,25 @@ MpsClient::DeleteWatermarkTemplateOutcome MpsClient::DeleteWatermarkTemplate(con
 
 void MpsClient::DeleteWatermarkTemplateAsync(const DeleteWatermarkTemplateRequest& request, const DeleteWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteWatermarkTemplateRequest&;
-    using Resp = DeleteWatermarkTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteWatermarkTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteWatermarkTemplateOutcomeCallable MpsClient::DeleteWatermarkTemplateCallable(const DeleteWatermarkTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteWatermarkTemplateOutcome>>();
-    DeleteWatermarkTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteWatermarkTemplateRequest&,
-        DeleteWatermarkTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteWatermarkTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteWatermarkTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteWordSamplesOutcome MpsClient::DeleteWordSamples(const DeleteWordSamplesRequest &request)
@@ -2862,32 +2470,25 @@ MpsClient::DeleteWordSamplesOutcome MpsClient::DeleteWordSamples(const DeleteWor
 
 void MpsClient::DeleteWordSamplesAsync(const DeleteWordSamplesRequest& request, const DeleteWordSamplesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteWordSamplesRequest&;
-    using Resp = DeleteWordSamplesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteWordSamples(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteWordSamples", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteWordSamplesOutcomeCallable MpsClient::DeleteWordSamplesCallable(const DeleteWordSamplesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteWordSamplesOutcome>>();
-    DeleteWordSamplesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteWordSamplesRequest&,
-        DeleteWordSamplesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteWordSamplesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteWordSamples(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DeleteWorkflowOutcome MpsClient::DeleteWorkflow(const DeleteWorkflowRequest &request)
@@ -2912,32 +2513,25 @@ MpsClient::DeleteWorkflowOutcome MpsClient::DeleteWorkflow(const DeleteWorkflowR
 
 void MpsClient::DeleteWorkflowAsync(const DeleteWorkflowRequest& request, const DeleteWorkflowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteWorkflowRequest&;
-    using Resp = DeleteWorkflowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteWorkflow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteWorkflow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DeleteWorkflowOutcomeCallable MpsClient::DeleteWorkflowCallable(const DeleteWorkflowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteWorkflowOutcome>>();
-    DeleteWorkflowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DeleteWorkflowRequest&,
-        DeleteWorkflowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteWorkflowOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteWorkflow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeAIAnalysisTemplatesOutcome MpsClient::DescribeAIAnalysisTemplates(const DescribeAIAnalysisTemplatesRequest &request)
@@ -2962,32 +2556,25 @@ MpsClient::DescribeAIAnalysisTemplatesOutcome MpsClient::DescribeAIAnalysisTempl
 
 void MpsClient::DescribeAIAnalysisTemplatesAsync(const DescribeAIAnalysisTemplatesRequest& request, const DescribeAIAnalysisTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAIAnalysisTemplatesRequest&;
-    using Resp = DescribeAIAnalysisTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAIAnalysisTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAIAnalysisTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeAIAnalysisTemplatesOutcomeCallable MpsClient::DescribeAIAnalysisTemplatesCallable(const DescribeAIAnalysisTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAIAnalysisTemplatesOutcome>>();
-    DescribeAIAnalysisTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeAIAnalysisTemplatesRequest&,
-        DescribeAIAnalysisTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAIAnalysisTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAIAnalysisTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeAIRecognitionTemplatesOutcome MpsClient::DescribeAIRecognitionTemplates(const DescribeAIRecognitionTemplatesRequest &request)
@@ -3012,32 +2599,25 @@ MpsClient::DescribeAIRecognitionTemplatesOutcome MpsClient::DescribeAIRecognitio
 
 void MpsClient::DescribeAIRecognitionTemplatesAsync(const DescribeAIRecognitionTemplatesRequest& request, const DescribeAIRecognitionTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAIRecognitionTemplatesRequest&;
-    using Resp = DescribeAIRecognitionTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAIRecognitionTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAIRecognitionTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeAIRecognitionTemplatesOutcomeCallable MpsClient::DescribeAIRecognitionTemplatesCallable(const DescribeAIRecognitionTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAIRecognitionTemplatesOutcome>>();
-    DescribeAIRecognitionTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeAIRecognitionTemplatesRequest&,
-        DescribeAIRecognitionTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAIRecognitionTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAIRecognitionTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeAdaptiveDynamicStreamingTemplatesOutcome MpsClient::DescribeAdaptiveDynamicStreamingTemplates(const DescribeAdaptiveDynamicStreamingTemplatesRequest &request)
@@ -3062,32 +2642,25 @@ MpsClient::DescribeAdaptiveDynamicStreamingTemplatesOutcome MpsClient::DescribeA
 
 void MpsClient::DescribeAdaptiveDynamicStreamingTemplatesAsync(const DescribeAdaptiveDynamicStreamingTemplatesRequest& request, const DescribeAdaptiveDynamicStreamingTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAdaptiveDynamicStreamingTemplatesRequest&;
-    using Resp = DescribeAdaptiveDynamicStreamingTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAdaptiveDynamicStreamingTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAdaptiveDynamicStreamingTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeAdaptiveDynamicStreamingTemplatesOutcomeCallable MpsClient::DescribeAdaptiveDynamicStreamingTemplatesCallable(const DescribeAdaptiveDynamicStreamingTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAdaptiveDynamicStreamingTemplatesOutcome>>();
-    DescribeAdaptiveDynamicStreamingTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeAdaptiveDynamicStreamingTemplatesRequest&,
-        DescribeAdaptiveDynamicStreamingTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAdaptiveDynamicStreamingTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAdaptiveDynamicStreamingTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeAnimatedGraphicsTemplatesOutcome MpsClient::DescribeAnimatedGraphicsTemplates(const DescribeAnimatedGraphicsTemplatesRequest &request)
@@ -3112,32 +2685,25 @@ MpsClient::DescribeAnimatedGraphicsTemplatesOutcome MpsClient::DescribeAnimatedG
 
 void MpsClient::DescribeAnimatedGraphicsTemplatesAsync(const DescribeAnimatedGraphicsTemplatesRequest& request, const DescribeAnimatedGraphicsTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAnimatedGraphicsTemplatesRequest&;
-    using Resp = DescribeAnimatedGraphicsTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAnimatedGraphicsTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAnimatedGraphicsTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeAnimatedGraphicsTemplatesOutcomeCallable MpsClient::DescribeAnimatedGraphicsTemplatesCallable(const DescribeAnimatedGraphicsTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAnimatedGraphicsTemplatesOutcome>>();
-    DescribeAnimatedGraphicsTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeAnimatedGraphicsTemplatesRequest&,
-        DescribeAnimatedGraphicsTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAnimatedGraphicsTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAnimatedGraphicsTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeAsrHotwordsOutcome MpsClient::DescribeAsrHotwords(const DescribeAsrHotwordsRequest &request)
@@ -3162,32 +2728,25 @@ MpsClient::DescribeAsrHotwordsOutcome MpsClient::DescribeAsrHotwords(const Descr
 
 void MpsClient::DescribeAsrHotwordsAsync(const DescribeAsrHotwordsRequest& request, const DescribeAsrHotwordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAsrHotwordsRequest&;
-    using Resp = DescribeAsrHotwordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAsrHotwords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAsrHotwords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeAsrHotwordsOutcomeCallable MpsClient::DescribeAsrHotwordsCallable(const DescribeAsrHotwordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAsrHotwordsOutcome>>();
-    DescribeAsrHotwordsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeAsrHotwordsRequest&,
-        DescribeAsrHotwordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAsrHotwordsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAsrHotwords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeAsrHotwordsListOutcome MpsClient::DescribeAsrHotwordsList(const DescribeAsrHotwordsListRequest &request)
@@ -3212,32 +2771,25 @@ MpsClient::DescribeAsrHotwordsListOutcome MpsClient::DescribeAsrHotwordsList(con
 
 void MpsClient::DescribeAsrHotwordsListAsync(const DescribeAsrHotwordsListRequest& request, const DescribeAsrHotwordsListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAsrHotwordsListRequest&;
-    using Resp = DescribeAsrHotwordsListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAsrHotwordsList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAsrHotwordsList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeAsrHotwordsListOutcomeCallable MpsClient::DescribeAsrHotwordsListCallable(const DescribeAsrHotwordsListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAsrHotwordsListOutcome>>();
-    DescribeAsrHotwordsListAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeAsrHotwordsListRequest&,
-        DescribeAsrHotwordsListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAsrHotwordsListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAsrHotwordsList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeBatchTaskDetailOutcome MpsClient::DescribeBatchTaskDetail(const DescribeBatchTaskDetailRequest &request)
@@ -3262,32 +2814,25 @@ MpsClient::DescribeBatchTaskDetailOutcome MpsClient::DescribeBatchTaskDetail(con
 
 void MpsClient::DescribeBatchTaskDetailAsync(const DescribeBatchTaskDetailRequest& request, const DescribeBatchTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBatchTaskDetailRequest&;
-    using Resp = DescribeBatchTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBatchTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBatchTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeBatchTaskDetailOutcomeCallable MpsClient::DescribeBatchTaskDetailCallable(const DescribeBatchTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBatchTaskDetailOutcome>>();
-    DescribeBatchTaskDetailAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeBatchTaskDetailRequest&,
-        DescribeBatchTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBatchTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBatchTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeBlindWatermarkTemplatesOutcome MpsClient::DescribeBlindWatermarkTemplates(const DescribeBlindWatermarkTemplatesRequest &request)
@@ -3312,32 +2857,25 @@ MpsClient::DescribeBlindWatermarkTemplatesOutcome MpsClient::DescribeBlindWaterm
 
 void MpsClient::DescribeBlindWatermarkTemplatesAsync(const DescribeBlindWatermarkTemplatesRequest& request, const DescribeBlindWatermarkTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBlindWatermarkTemplatesRequest&;
-    using Resp = DescribeBlindWatermarkTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBlindWatermarkTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBlindWatermarkTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeBlindWatermarkTemplatesOutcomeCallable MpsClient::DescribeBlindWatermarkTemplatesCallable(const DescribeBlindWatermarkTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBlindWatermarkTemplatesOutcome>>();
-    DescribeBlindWatermarkTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeBlindWatermarkTemplatesRequest&,
-        DescribeBlindWatermarkTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBlindWatermarkTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBlindWatermarkTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeContentReviewTemplatesOutcome MpsClient::DescribeContentReviewTemplates(const DescribeContentReviewTemplatesRequest &request)
@@ -3362,32 +2900,25 @@ MpsClient::DescribeContentReviewTemplatesOutcome MpsClient::DescribeContentRevie
 
 void MpsClient::DescribeContentReviewTemplatesAsync(const DescribeContentReviewTemplatesRequest& request, const DescribeContentReviewTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeContentReviewTemplatesRequest&;
-    using Resp = DescribeContentReviewTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeContentReviewTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeContentReviewTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeContentReviewTemplatesOutcomeCallable MpsClient::DescribeContentReviewTemplatesCallable(const DescribeContentReviewTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeContentReviewTemplatesOutcome>>();
-    DescribeContentReviewTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeContentReviewTemplatesRequest&,
-        DescribeContentReviewTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeContentReviewTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeContentReviewTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeGroupAttachFlowsByIdOutcome MpsClient::DescribeGroupAttachFlowsById(const DescribeGroupAttachFlowsByIdRequest &request)
@@ -3412,32 +2943,25 @@ MpsClient::DescribeGroupAttachFlowsByIdOutcome MpsClient::DescribeGroupAttachFlo
 
 void MpsClient::DescribeGroupAttachFlowsByIdAsync(const DescribeGroupAttachFlowsByIdRequest& request, const DescribeGroupAttachFlowsByIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupAttachFlowsByIdRequest&;
-    using Resp = DescribeGroupAttachFlowsByIdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroupAttachFlowsById(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroupAttachFlowsById", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeGroupAttachFlowsByIdOutcomeCallable MpsClient::DescribeGroupAttachFlowsByIdCallable(const DescribeGroupAttachFlowsByIdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupAttachFlowsByIdOutcome>>();
-    DescribeGroupAttachFlowsByIdAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeGroupAttachFlowsByIdRequest&,
-        DescribeGroupAttachFlowsByIdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupAttachFlowsByIdOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroupAttachFlowsById(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeImageSpriteTemplatesOutcome MpsClient::DescribeImageSpriteTemplates(const DescribeImageSpriteTemplatesRequest &request)
@@ -3462,32 +2986,25 @@ MpsClient::DescribeImageSpriteTemplatesOutcome MpsClient::DescribeImageSpriteTem
 
 void MpsClient::DescribeImageSpriteTemplatesAsync(const DescribeImageSpriteTemplatesRequest& request, const DescribeImageSpriteTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeImageSpriteTemplatesRequest&;
-    using Resp = DescribeImageSpriteTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeImageSpriteTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeImageSpriteTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeImageSpriteTemplatesOutcomeCallable MpsClient::DescribeImageSpriteTemplatesCallable(const DescribeImageSpriteTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeImageSpriteTemplatesOutcome>>();
-    DescribeImageSpriteTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeImageSpriteTemplatesRequest&,
-        DescribeImageSpriteTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeImageSpriteTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeImageSpriteTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeImageTaskDetailOutcome MpsClient::DescribeImageTaskDetail(const DescribeImageTaskDetailRequest &request)
@@ -3512,32 +3029,25 @@ MpsClient::DescribeImageTaskDetailOutcome MpsClient::DescribeImageTaskDetail(con
 
 void MpsClient::DescribeImageTaskDetailAsync(const DescribeImageTaskDetailRequest& request, const DescribeImageTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeImageTaskDetailRequest&;
-    using Resp = DescribeImageTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeImageTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeImageTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeImageTaskDetailOutcomeCallable MpsClient::DescribeImageTaskDetailCallable(const DescribeImageTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeImageTaskDetailOutcome>>();
-    DescribeImageTaskDetailAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeImageTaskDetailRequest&,
-        DescribeImageTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeImageTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeImageTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeLiveRecordTemplatesOutcome MpsClient::DescribeLiveRecordTemplates(const DescribeLiveRecordTemplatesRequest &request)
@@ -3562,32 +3072,25 @@ MpsClient::DescribeLiveRecordTemplatesOutcome MpsClient::DescribeLiveRecordTempl
 
 void MpsClient::DescribeLiveRecordTemplatesAsync(const DescribeLiveRecordTemplatesRequest& request, const DescribeLiveRecordTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLiveRecordTemplatesRequest&;
-    using Resp = DescribeLiveRecordTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLiveRecordTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveRecordTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeLiveRecordTemplatesOutcomeCallable MpsClient::DescribeLiveRecordTemplatesCallable(const DescribeLiveRecordTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLiveRecordTemplatesOutcome>>();
-    DescribeLiveRecordTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeLiveRecordTemplatesRequest&,
-        DescribeLiveRecordTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLiveRecordTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLiveRecordTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeMediaMetaDataOutcome MpsClient::DescribeMediaMetaData(const DescribeMediaMetaDataRequest &request)
@@ -3612,32 +3115,25 @@ MpsClient::DescribeMediaMetaDataOutcome MpsClient::DescribeMediaMetaData(const D
 
 void MpsClient::DescribeMediaMetaDataAsync(const DescribeMediaMetaDataRequest& request, const DescribeMediaMetaDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMediaMetaDataRequest&;
-    using Resp = DescribeMediaMetaDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMediaMetaData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMediaMetaData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeMediaMetaDataOutcomeCallable MpsClient::DescribeMediaMetaDataCallable(const DescribeMediaMetaDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMediaMetaDataOutcome>>();
-    DescribeMediaMetaDataAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeMediaMetaDataRequest&,
-        DescribeMediaMetaDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMediaMetaDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMediaMetaData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribePersonSamplesOutcome MpsClient::DescribePersonSamples(const DescribePersonSamplesRequest &request)
@@ -3662,32 +3158,25 @@ MpsClient::DescribePersonSamplesOutcome MpsClient::DescribePersonSamples(const D
 
 void MpsClient::DescribePersonSamplesAsync(const DescribePersonSamplesRequest& request, const DescribePersonSamplesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePersonSamplesRequest&;
-    using Resp = DescribePersonSamplesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePersonSamples(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePersonSamples", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribePersonSamplesOutcomeCallable MpsClient::DescribePersonSamplesCallable(const DescribePersonSamplesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePersonSamplesOutcome>>();
-    DescribePersonSamplesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribePersonSamplesRequest&,
-        DescribePersonSamplesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePersonSamplesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePersonSamples(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeProcessImageTemplatesOutcome MpsClient::DescribeProcessImageTemplates(const DescribeProcessImageTemplatesRequest &request)
@@ -3712,32 +3201,25 @@ MpsClient::DescribeProcessImageTemplatesOutcome MpsClient::DescribeProcessImageT
 
 void MpsClient::DescribeProcessImageTemplatesAsync(const DescribeProcessImageTemplatesRequest& request, const DescribeProcessImageTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProcessImageTemplatesRequest&;
-    using Resp = DescribeProcessImageTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProcessImageTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProcessImageTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeProcessImageTemplatesOutcomeCallable MpsClient::DescribeProcessImageTemplatesCallable(const DescribeProcessImageTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProcessImageTemplatesOutcome>>();
-    DescribeProcessImageTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeProcessImageTemplatesRequest&,
-        DescribeProcessImageTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProcessImageTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProcessImageTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeQualityControlTemplatesOutcome MpsClient::DescribeQualityControlTemplates(const DescribeQualityControlTemplatesRequest &request)
@@ -3762,32 +3244,25 @@ MpsClient::DescribeQualityControlTemplatesOutcome MpsClient::DescribeQualityCont
 
 void MpsClient::DescribeQualityControlTemplatesAsync(const DescribeQualityControlTemplatesRequest& request, const DescribeQualityControlTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeQualityControlTemplatesRequest&;
-    using Resp = DescribeQualityControlTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeQualityControlTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeQualityControlTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeQualityControlTemplatesOutcomeCallable MpsClient::DescribeQualityControlTemplatesCallable(const DescribeQualityControlTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeQualityControlTemplatesOutcome>>();
-    DescribeQualityControlTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeQualityControlTemplatesRequest&,
-        DescribeQualityControlTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeQualityControlTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeQualityControlTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeSampleSnapshotTemplatesOutcome MpsClient::DescribeSampleSnapshotTemplates(const DescribeSampleSnapshotTemplatesRequest &request)
@@ -3812,32 +3287,25 @@ MpsClient::DescribeSampleSnapshotTemplatesOutcome MpsClient::DescribeSampleSnaps
 
 void MpsClient::DescribeSampleSnapshotTemplatesAsync(const DescribeSampleSnapshotTemplatesRequest& request, const DescribeSampleSnapshotTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSampleSnapshotTemplatesRequest&;
-    using Resp = DescribeSampleSnapshotTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSampleSnapshotTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSampleSnapshotTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeSampleSnapshotTemplatesOutcomeCallable MpsClient::DescribeSampleSnapshotTemplatesCallable(const DescribeSampleSnapshotTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSampleSnapshotTemplatesOutcome>>();
-    DescribeSampleSnapshotTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeSampleSnapshotTemplatesRequest&,
-        DescribeSampleSnapshotTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSampleSnapshotTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSampleSnapshotTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeSchedulesOutcome MpsClient::DescribeSchedules(const DescribeSchedulesRequest &request)
@@ -3862,32 +3330,25 @@ MpsClient::DescribeSchedulesOutcome MpsClient::DescribeSchedules(const DescribeS
 
 void MpsClient::DescribeSchedulesAsync(const DescribeSchedulesRequest& request, const DescribeSchedulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSchedulesRequest&;
-    using Resp = DescribeSchedulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSchedules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSchedules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeSchedulesOutcomeCallable MpsClient::DescribeSchedulesCallable(const DescribeSchedulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSchedulesOutcome>>();
-    DescribeSchedulesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeSchedulesRequest&,
-        DescribeSchedulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSchedulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSchedules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeSmartEraseTemplatesOutcome MpsClient::DescribeSmartEraseTemplates(const DescribeSmartEraseTemplatesRequest &request)
@@ -3912,32 +3373,25 @@ MpsClient::DescribeSmartEraseTemplatesOutcome MpsClient::DescribeSmartEraseTempl
 
 void MpsClient::DescribeSmartEraseTemplatesAsync(const DescribeSmartEraseTemplatesRequest& request, const DescribeSmartEraseTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSmartEraseTemplatesRequest&;
-    using Resp = DescribeSmartEraseTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSmartEraseTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSmartEraseTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeSmartEraseTemplatesOutcomeCallable MpsClient::DescribeSmartEraseTemplatesCallable(const DescribeSmartEraseTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSmartEraseTemplatesOutcome>>();
-    DescribeSmartEraseTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeSmartEraseTemplatesRequest&,
-        DescribeSmartEraseTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSmartEraseTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSmartEraseTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeSmartSubtitleTemplatesOutcome MpsClient::DescribeSmartSubtitleTemplates(const DescribeSmartSubtitleTemplatesRequest &request)
@@ -3962,32 +3416,25 @@ MpsClient::DescribeSmartSubtitleTemplatesOutcome MpsClient::DescribeSmartSubtitl
 
 void MpsClient::DescribeSmartSubtitleTemplatesAsync(const DescribeSmartSubtitleTemplatesRequest& request, const DescribeSmartSubtitleTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSmartSubtitleTemplatesRequest&;
-    using Resp = DescribeSmartSubtitleTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSmartSubtitleTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSmartSubtitleTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeSmartSubtitleTemplatesOutcomeCallable MpsClient::DescribeSmartSubtitleTemplatesCallable(const DescribeSmartSubtitleTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSmartSubtitleTemplatesOutcome>>();
-    DescribeSmartSubtitleTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeSmartSubtitleTemplatesRequest&,
-        DescribeSmartSubtitleTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSmartSubtitleTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSmartSubtitleTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeSnapshotByTimeOffsetTemplatesOutcome MpsClient::DescribeSnapshotByTimeOffsetTemplates(const DescribeSnapshotByTimeOffsetTemplatesRequest &request)
@@ -4012,32 +3459,25 @@ MpsClient::DescribeSnapshotByTimeOffsetTemplatesOutcome MpsClient::DescribeSnaps
 
 void MpsClient::DescribeSnapshotByTimeOffsetTemplatesAsync(const DescribeSnapshotByTimeOffsetTemplatesRequest& request, const DescribeSnapshotByTimeOffsetTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotByTimeOffsetTemplatesRequest&;
-    using Resp = DescribeSnapshotByTimeOffsetTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshotByTimeOffsetTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshotByTimeOffsetTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeSnapshotByTimeOffsetTemplatesOutcomeCallable MpsClient::DescribeSnapshotByTimeOffsetTemplatesCallable(const DescribeSnapshotByTimeOffsetTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotByTimeOffsetTemplatesOutcome>>();
-    DescribeSnapshotByTimeOffsetTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeSnapshotByTimeOffsetTemplatesRequest&,
-        DescribeSnapshotByTimeOffsetTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotByTimeOffsetTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshotByTimeOffsetTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkActivateStateOutcome MpsClient::DescribeStreamLinkActivateState(const DescribeStreamLinkActivateStateRequest &request)
@@ -4062,32 +3502,25 @@ MpsClient::DescribeStreamLinkActivateStateOutcome MpsClient::DescribeStreamLinkA
 
 void MpsClient::DescribeStreamLinkActivateStateAsync(const DescribeStreamLinkActivateStateRequest& request, const DescribeStreamLinkActivateStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkActivateStateRequest&;
-    using Resp = DescribeStreamLinkActivateStateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkActivateState(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkActivateState", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkActivateStateOutcomeCallable MpsClient::DescribeStreamLinkActivateStateCallable(const DescribeStreamLinkActivateStateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkActivateStateOutcome>>();
-    DescribeStreamLinkActivateStateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkActivateStateRequest&,
-        DescribeStreamLinkActivateStateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkActivateStateOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkActivateState(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkEventOutcome MpsClient::DescribeStreamLinkEvent(const DescribeStreamLinkEventRequest &request)
@@ -4112,32 +3545,25 @@ MpsClient::DescribeStreamLinkEventOutcome MpsClient::DescribeStreamLinkEvent(con
 
 void MpsClient::DescribeStreamLinkEventAsync(const DescribeStreamLinkEventRequest& request, const DescribeStreamLinkEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkEventRequest&;
-    using Resp = DescribeStreamLinkEventResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkEvent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkEvent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkEventOutcomeCallable MpsClient::DescribeStreamLinkEventCallable(const DescribeStreamLinkEventRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkEventOutcome>>();
-    DescribeStreamLinkEventAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkEventRequest&,
-        DescribeStreamLinkEventOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkEventOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkEvent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkEventAttachedFlowsOutcome MpsClient::DescribeStreamLinkEventAttachedFlows(const DescribeStreamLinkEventAttachedFlowsRequest &request)
@@ -4162,32 +3588,25 @@ MpsClient::DescribeStreamLinkEventAttachedFlowsOutcome MpsClient::DescribeStream
 
 void MpsClient::DescribeStreamLinkEventAttachedFlowsAsync(const DescribeStreamLinkEventAttachedFlowsRequest& request, const DescribeStreamLinkEventAttachedFlowsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkEventAttachedFlowsRequest&;
-    using Resp = DescribeStreamLinkEventAttachedFlowsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkEventAttachedFlows(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkEventAttachedFlows", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkEventAttachedFlowsOutcomeCallable MpsClient::DescribeStreamLinkEventAttachedFlowsCallable(const DescribeStreamLinkEventAttachedFlowsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkEventAttachedFlowsOutcome>>();
-    DescribeStreamLinkEventAttachedFlowsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkEventAttachedFlowsRequest&,
-        DescribeStreamLinkEventAttachedFlowsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkEventAttachedFlowsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkEventAttachedFlows(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkEventsOutcome MpsClient::DescribeStreamLinkEvents(const DescribeStreamLinkEventsRequest &request)
@@ -4212,32 +3631,25 @@ MpsClient::DescribeStreamLinkEventsOutcome MpsClient::DescribeStreamLinkEvents(c
 
 void MpsClient::DescribeStreamLinkEventsAsync(const DescribeStreamLinkEventsRequest& request, const DescribeStreamLinkEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkEventsRequest&;
-    using Resp = DescribeStreamLinkEventsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkEvents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkEvents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkEventsOutcomeCallable MpsClient::DescribeStreamLinkEventsCallable(const DescribeStreamLinkEventsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkEventsOutcome>>();
-    DescribeStreamLinkEventsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkEventsRequest&,
-        DescribeStreamLinkEventsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkEventsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkEvents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkFlowOutcome MpsClient::DescribeStreamLinkFlow(const DescribeStreamLinkFlowRequest &request)
@@ -4262,32 +3674,25 @@ MpsClient::DescribeStreamLinkFlowOutcome MpsClient::DescribeStreamLinkFlow(const
 
 void MpsClient::DescribeStreamLinkFlowAsync(const DescribeStreamLinkFlowRequest& request, const DescribeStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkFlowRequest&;
-    using Resp = DescribeStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkFlowOutcomeCallable MpsClient::DescribeStreamLinkFlowCallable(const DescribeStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkFlowOutcome>>();
-    DescribeStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkFlowRequest&,
-        DescribeStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkFlowLogsOutcome MpsClient::DescribeStreamLinkFlowLogs(const DescribeStreamLinkFlowLogsRequest &request)
@@ -4312,32 +3717,25 @@ MpsClient::DescribeStreamLinkFlowLogsOutcome MpsClient::DescribeStreamLinkFlowLo
 
 void MpsClient::DescribeStreamLinkFlowLogsAsync(const DescribeStreamLinkFlowLogsRequest& request, const DescribeStreamLinkFlowLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkFlowLogsRequest&;
-    using Resp = DescribeStreamLinkFlowLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkFlowLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkFlowLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkFlowLogsOutcomeCallable MpsClient::DescribeStreamLinkFlowLogsCallable(const DescribeStreamLinkFlowLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkFlowLogsOutcome>>();
-    DescribeStreamLinkFlowLogsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkFlowLogsRequest&,
-        DescribeStreamLinkFlowLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkFlowLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkFlowLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkFlowMediaStatisticsOutcome MpsClient::DescribeStreamLinkFlowMediaStatistics(const DescribeStreamLinkFlowMediaStatisticsRequest &request)
@@ -4362,32 +3760,25 @@ MpsClient::DescribeStreamLinkFlowMediaStatisticsOutcome MpsClient::DescribeStrea
 
 void MpsClient::DescribeStreamLinkFlowMediaStatisticsAsync(const DescribeStreamLinkFlowMediaStatisticsRequest& request, const DescribeStreamLinkFlowMediaStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkFlowMediaStatisticsRequest&;
-    using Resp = DescribeStreamLinkFlowMediaStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkFlowMediaStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkFlowMediaStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkFlowMediaStatisticsOutcomeCallable MpsClient::DescribeStreamLinkFlowMediaStatisticsCallable(const DescribeStreamLinkFlowMediaStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkFlowMediaStatisticsOutcome>>();
-    DescribeStreamLinkFlowMediaStatisticsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkFlowMediaStatisticsRequest&,
-        DescribeStreamLinkFlowMediaStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkFlowMediaStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkFlowMediaStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkFlowRealtimeStatusOutcome MpsClient::DescribeStreamLinkFlowRealtimeStatus(const DescribeStreamLinkFlowRealtimeStatusRequest &request)
@@ -4412,32 +3803,25 @@ MpsClient::DescribeStreamLinkFlowRealtimeStatusOutcome MpsClient::DescribeStream
 
 void MpsClient::DescribeStreamLinkFlowRealtimeStatusAsync(const DescribeStreamLinkFlowRealtimeStatusRequest& request, const DescribeStreamLinkFlowRealtimeStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkFlowRealtimeStatusRequest&;
-    using Resp = DescribeStreamLinkFlowRealtimeStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkFlowRealtimeStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkFlowRealtimeStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkFlowRealtimeStatusOutcomeCallable MpsClient::DescribeStreamLinkFlowRealtimeStatusCallable(const DescribeStreamLinkFlowRealtimeStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkFlowRealtimeStatusOutcome>>();
-    DescribeStreamLinkFlowRealtimeStatusAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkFlowRealtimeStatusRequest&,
-        DescribeStreamLinkFlowRealtimeStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkFlowRealtimeStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkFlowRealtimeStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkFlowSRTStatisticsOutcome MpsClient::DescribeStreamLinkFlowSRTStatistics(const DescribeStreamLinkFlowSRTStatisticsRequest &request)
@@ -4462,32 +3846,25 @@ MpsClient::DescribeStreamLinkFlowSRTStatisticsOutcome MpsClient::DescribeStreamL
 
 void MpsClient::DescribeStreamLinkFlowSRTStatisticsAsync(const DescribeStreamLinkFlowSRTStatisticsRequest& request, const DescribeStreamLinkFlowSRTStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkFlowSRTStatisticsRequest&;
-    using Resp = DescribeStreamLinkFlowSRTStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkFlowSRTStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkFlowSRTStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkFlowSRTStatisticsOutcomeCallable MpsClient::DescribeStreamLinkFlowSRTStatisticsCallable(const DescribeStreamLinkFlowSRTStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkFlowSRTStatisticsOutcome>>();
-    DescribeStreamLinkFlowSRTStatisticsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkFlowSRTStatisticsRequest&,
-        DescribeStreamLinkFlowSRTStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkFlowSRTStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkFlowSRTStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkFlowStatisticsOutcome MpsClient::DescribeStreamLinkFlowStatistics(const DescribeStreamLinkFlowStatisticsRequest &request)
@@ -4512,32 +3889,25 @@ MpsClient::DescribeStreamLinkFlowStatisticsOutcome MpsClient::DescribeStreamLink
 
 void MpsClient::DescribeStreamLinkFlowStatisticsAsync(const DescribeStreamLinkFlowStatisticsRequest& request, const DescribeStreamLinkFlowStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkFlowStatisticsRequest&;
-    using Resp = DescribeStreamLinkFlowStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkFlowStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkFlowStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkFlowStatisticsOutcomeCallable MpsClient::DescribeStreamLinkFlowStatisticsCallable(const DescribeStreamLinkFlowStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkFlowStatisticsOutcome>>();
-    DescribeStreamLinkFlowStatisticsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkFlowStatisticsRequest&,
-        DescribeStreamLinkFlowStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkFlowStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkFlowStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkFlowsOutcome MpsClient::DescribeStreamLinkFlows(const DescribeStreamLinkFlowsRequest &request)
@@ -4562,32 +3932,25 @@ MpsClient::DescribeStreamLinkFlowsOutcome MpsClient::DescribeStreamLinkFlows(con
 
 void MpsClient::DescribeStreamLinkFlowsAsync(const DescribeStreamLinkFlowsRequest& request, const DescribeStreamLinkFlowsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkFlowsRequest&;
-    using Resp = DescribeStreamLinkFlowsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkFlows(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkFlows", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkFlowsOutcomeCallable MpsClient::DescribeStreamLinkFlowsCallable(const DescribeStreamLinkFlowsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkFlowsOutcome>>();
-    DescribeStreamLinkFlowsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkFlowsRequest&,
-        DescribeStreamLinkFlowsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkFlowsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkFlows(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkRegionsOutcome MpsClient::DescribeStreamLinkRegions(const DescribeStreamLinkRegionsRequest &request)
@@ -4612,32 +3975,25 @@ MpsClient::DescribeStreamLinkRegionsOutcome MpsClient::DescribeStreamLinkRegions
 
 void MpsClient::DescribeStreamLinkRegionsAsync(const DescribeStreamLinkRegionsRequest& request, const DescribeStreamLinkRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkRegionsRequest&;
-    using Resp = DescribeStreamLinkRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkRegionsOutcomeCallable MpsClient::DescribeStreamLinkRegionsCallable(const DescribeStreamLinkRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkRegionsOutcome>>();
-    DescribeStreamLinkRegionsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkRegionsRequest&,
-        DescribeStreamLinkRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeStreamLinkSecurityGroupsOutcome MpsClient::DescribeStreamLinkSecurityGroups(const DescribeStreamLinkSecurityGroupsRequest &request)
@@ -4662,32 +4018,25 @@ MpsClient::DescribeStreamLinkSecurityGroupsOutcome MpsClient::DescribeStreamLink
 
 void MpsClient::DescribeStreamLinkSecurityGroupsAsync(const DescribeStreamLinkSecurityGroupsRequest& request, const DescribeStreamLinkSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamLinkSecurityGroupsRequest&;
-    using Resp = DescribeStreamLinkSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamLinkSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamLinkSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeStreamLinkSecurityGroupsOutcomeCallable MpsClient::DescribeStreamLinkSecurityGroupsCallable(const DescribeStreamLinkSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamLinkSecurityGroupsOutcome>>();
-    DescribeStreamLinkSecurityGroupsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeStreamLinkSecurityGroupsRequest&,
-        DescribeStreamLinkSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamLinkSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamLinkSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeTaskDetailOutcome MpsClient::DescribeTaskDetail(const DescribeTaskDetailRequest &request)
@@ -4712,32 +4061,25 @@ MpsClient::DescribeTaskDetailOutcome MpsClient::DescribeTaskDetail(const Describ
 
 void MpsClient::DescribeTaskDetailAsync(const DescribeTaskDetailRequest& request, const DescribeTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskDetailRequest&;
-    using Resp = DescribeTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeTaskDetailOutcomeCallable MpsClient::DescribeTaskDetailCallable(const DescribeTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskDetailOutcome>>();
-    DescribeTaskDetailAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeTaskDetailRequest&,
-        DescribeTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeTasksOutcome MpsClient::DescribeTasks(const DescribeTasksRequest &request)
@@ -4762,32 +4104,25 @@ MpsClient::DescribeTasksOutcome MpsClient::DescribeTasks(const DescribeTasksRequ
 
 void MpsClient::DescribeTasksAsync(const DescribeTasksRequest& request, const DescribeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTasksRequest&;
-    using Resp = DescribeTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeTasksOutcomeCallable MpsClient::DescribeTasksCallable(const DescribeTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTasksOutcome>>();
-    DescribeTasksAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeTasksRequest&,
-        DescribeTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeTranscodeTemplatesOutcome MpsClient::DescribeTranscodeTemplates(const DescribeTranscodeTemplatesRequest &request)
@@ -4812,32 +4147,25 @@ MpsClient::DescribeTranscodeTemplatesOutcome MpsClient::DescribeTranscodeTemplat
 
 void MpsClient::DescribeTranscodeTemplatesAsync(const DescribeTranscodeTemplatesRequest& request, const DescribeTranscodeTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTranscodeTemplatesRequest&;
-    using Resp = DescribeTranscodeTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTranscodeTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTranscodeTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeTranscodeTemplatesOutcomeCallable MpsClient::DescribeTranscodeTemplatesCallable(const DescribeTranscodeTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTranscodeTemplatesOutcome>>();
-    DescribeTranscodeTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeTranscodeTemplatesRequest&,
-        DescribeTranscodeTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTranscodeTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTranscodeTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeUsageDataOutcome MpsClient::DescribeUsageData(const DescribeUsageDataRequest &request)
@@ -4862,32 +4190,25 @@ MpsClient::DescribeUsageDataOutcome MpsClient::DescribeUsageData(const DescribeU
 
 void MpsClient::DescribeUsageDataAsync(const DescribeUsageDataRequest& request, const DescribeUsageDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUsageDataRequest&;
-    using Resp = DescribeUsageDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUsageData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUsageData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeUsageDataOutcomeCallable MpsClient::DescribeUsageDataCallable(const DescribeUsageDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUsageDataOutcome>>();
-    DescribeUsageDataAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeUsageDataRequest&,
-        DescribeUsageDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUsageDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUsageData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeVideoDatabaseEntryTaskDetailOutcome MpsClient::DescribeVideoDatabaseEntryTaskDetail(const DescribeVideoDatabaseEntryTaskDetailRequest &request)
@@ -4912,32 +4233,25 @@ MpsClient::DescribeVideoDatabaseEntryTaskDetailOutcome MpsClient::DescribeVideoD
 
 void MpsClient::DescribeVideoDatabaseEntryTaskDetailAsync(const DescribeVideoDatabaseEntryTaskDetailRequest& request, const DescribeVideoDatabaseEntryTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoDatabaseEntryTaskDetailRequest&;
-    using Resp = DescribeVideoDatabaseEntryTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoDatabaseEntryTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoDatabaseEntryTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeVideoDatabaseEntryTaskDetailOutcomeCallable MpsClient::DescribeVideoDatabaseEntryTaskDetailCallable(const DescribeVideoDatabaseEntryTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoDatabaseEntryTaskDetailOutcome>>();
-    DescribeVideoDatabaseEntryTaskDetailAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeVideoDatabaseEntryTaskDetailRequest&,
-        DescribeVideoDatabaseEntryTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoDatabaseEntryTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoDatabaseEntryTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeVideoSearchTaskDetailOutcome MpsClient::DescribeVideoSearchTaskDetail(const DescribeVideoSearchTaskDetailRequest &request)
@@ -4962,32 +4276,25 @@ MpsClient::DescribeVideoSearchTaskDetailOutcome MpsClient::DescribeVideoSearchTa
 
 void MpsClient::DescribeVideoSearchTaskDetailAsync(const DescribeVideoSearchTaskDetailRequest& request, const DescribeVideoSearchTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoSearchTaskDetailRequest&;
-    using Resp = DescribeVideoSearchTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoSearchTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoSearchTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeVideoSearchTaskDetailOutcomeCallable MpsClient::DescribeVideoSearchTaskDetailCallable(const DescribeVideoSearchTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoSearchTaskDetailOutcome>>();
-    DescribeVideoSearchTaskDetailAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeVideoSearchTaskDetailRequest&,
-        DescribeVideoSearchTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoSearchTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoSearchTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeWatermarkTemplatesOutcome MpsClient::DescribeWatermarkTemplates(const DescribeWatermarkTemplatesRequest &request)
@@ -5012,32 +4319,25 @@ MpsClient::DescribeWatermarkTemplatesOutcome MpsClient::DescribeWatermarkTemplat
 
 void MpsClient::DescribeWatermarkTemplatesAsync(const DescribeWatermarkTemplatesRequest& request, const DescribeWatermarkTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWatermarkTemplatesRequest&;
-    using Resp = DescribeWatermarkTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWatermarkTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWatermarkTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeWatermarkTemplatesOutcomeCallable MpsClient::DescribeWatermarkTemplatesCallable(const DescribeWatermarkTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWatermarkTemplatesOutcome>>();
-    DescribeWatermarkTemplatesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeWatermarkTemplatesRequest&,
-        DescribeWatermarkTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWatermarkTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWatermarkTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeWordSamplesOutcome MpsClient::DescribeWordSamples(const DescribeWordSamplesRequest &request)
@@ -5062,32 +4362,25 @@ MpsClient::DescribeWordSamplesOutcome MpsClient::DescribeWordSamples(const Descr
 
 void MpsClient::DescribeWordSamplesAsync(const DescribeWordSamplesRequest& request, const DescribeWordSamplesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWordSamplesRequest&;
-    using Resp = DescribeWordSamplesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWordSamples(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWordSamples", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeWordSamplesOutcomeCallable MpsClient::DescribeWordSamplesCallable(const DescribeWordSamplesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWordSamplesOutcome>>();
-    DescribeWordSamplesAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeWordSamplesRequest&,
-        DescribeWordSamplesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWordSamplesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWordSamples(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DescribeWorkflowsOutcome MpsClient::DescribeWorkflows(const DescribeWorkflowsRequest &request)
@@ -5112,32 +4405,25 @@ MpsClient::DescribeWorkflowsOutcome MpsClient::DescribeWorkflows(const DescribeW
 
 void MpsClient::DescribeWorkflowsAsync(const DescribeWorkflowsRequest& request, const DescribeWorkflowsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeWorkflowsRequest&;
-    using Resp = DescribeWorkflowsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeWorkflows(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeWorkflows", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DescribeWorkflowsOutcomeCallable MpsClient::DescribeWorkflowsCallable(const DescribeWorkflowsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeWorkflowsOutcome>>();
-    DescribeWorkflowsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DescribeWorkflowsRequest&,
-        DescribeWorkflowsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeWorkflowsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeWorkflows(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DisableScheduleOutcome MpsClient::DisableSchedule(const DisableScheduleRequest &request)
@@ -5162,32 +4448,25 @@ MpsClient::DisableScheduleOutcome MpsClient::DisableSchedule(const DisableSchedu
 
 void MpsClient::DisableScheduleAsync(const DisableScheduleRequest& request, const DisableScheduleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableScheduleRequest&;
-    using Resp = DisableScheduleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableSchedule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableSchedule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DisableScheduleOutcomeCallable MpsClient::DisableScheduleCallable(const DisableScheduleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableScheduleOutcome>>();
-    DisableScheduleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DisableScheduleRequest&,
-        DisableScheduleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableScheduleOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableSchedule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DisableWorkflowOutcome MpsClient::DisableWorkflow(const DisableWorkflowRequest &request)
@@ -5212,32 +4491,25 @@ MpsClient::DisableWorkflowOutcome MpsClient::DisableWorkflow(const DisableWorkfl
 
 void MpsClient::DisableWorkflowAsync(const DisableWorkflowRequest& request, const DisableWorkflowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableWorkflowRequest&;
-    using Resp = DisableWorkflowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableWorkflow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableWorkflow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DisableWorkflowOutcomeCallable MpsClient::DisableWorkflowCallable(const DisableWorkflowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableWorkflowOutcome>>();
-    DisableWorkflowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DisableWorkflowRequest&,
-        DisableWorkflowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableWorkflowOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableWorkflow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::DisassociateSecurityGroupOutcome MpsClient::DisassociateSecurityGroup(const DisassociateSecurityGroupRequest &request)
@@ -5262,32 +4534,25 @@ MpsClient::DisassociateSecurityGroupOutcome MpsClient::DisassociateSecurityGroup
 
 void MpsClient::DisassociateSecurityGroupAsync(const DisassociateSecurityGroupRequest& request, const DisassociateSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateSecurityGroupRequest&;
-    using Resp = DisassociateSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::DisassociateSecurityGroupOutcomeCallable MpsClient::DisassociateSecurityGroupCallable(const DisassociateSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateSecurityGroupOutcome>>();
-    DisassociateSecurityGroupAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const DisassociateSecurityGroupRequest&,
-        DisassociateSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::EditMediaOutcome MpsClient::EditMedia(const EditMediaRequest &request)
@@ -5312,32 +4577,25 @@ MpsClient::EditMediaOutcome MpsClient::EditMedia(const EditMediaRequest &request
 
 void MpsClient::EditMediaAsync(const EditMediaRequest& request, const EditMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EditMediaRequest&;
-    using Resp = EditMediaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EditMedia(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EditMedia", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::EditMediaOutcomeCallable MpsClient::EditMediaCallable(const EditMediaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EditMediaOutcome>>();
-    EditMediaAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const EditMediaRequest&,
-        EditMediaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EditMediaOutcome()>>(
+        [this, request]()
+        {
+            return this->EditMedia(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::EnableScheduleOutcome MpsClient::EnableSchedule(const EnableScheduleRequest &request)
@@ -5362,32 +4620,25 @@ MpsClient::EnableScheduleOutcome MpsClient::EnableSchedule(const EnableScheduleR
 
 void MpsClient::EnableScheduleAsync(const EnableScheduleRequest& request, const EnableScheduleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableScheduleRequest&;
-    using Resp = EnableScheduleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableSchedule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableSchedule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::EnableScheduleOutcomeCallable MpsClient::EnableScheduleCallable(const EnableScheduleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableScheduleOutcome>>();
-    EnableScheduleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const EnableScheduleRequest&,
-        EnableScheduleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableScheduleOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableSchedule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::EnableWorkflowOutcome MpsClient::EnableWorkflow(const EnableWorkflowRequest &request)
@@ -5412,32 +4663,25 @@ MpsClient::EnableWorkflowOutcome MpsClient::EnableWorkflow(const EnableWorkflowR
 
 void MpsClient::EnableWorkflowAsync(const EnableWorkflowRequest& request, const EnableWorkflowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableWorkflowRequest&;
-    using Resp = EnableWorkflowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableWorkflow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableWorkflow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::EnableWorkflowOutcomeCallable MpsClient::EnableWorkflowCallable(const EnableWorkflowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableWorkflowOutcome>>();
-    EnableWorkflowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const EnableWorkflowRequest&,
-        EnableWorkflowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableWorkflowOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableWorkflow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ExecuteFunctionOutcome MpsClient::ExecuteFunction(const ExecuteFunctionRequest &request)
@@ -5462,32 +4706,25 @@ MpsClient::ExecuteFunctionOutcome MpsClient::ExecuteFunction(const ExecuteFuncti
 
 void MpsClient::ExecuteFunctionAsync(const ExecuteFunctionRequest& request, const ExecuteFunctionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExecuteFunctionRequest&;
-    using Resp = ExecuteFunctionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExecuteFunction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExecuteFunction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ExecuteFunctionOutcomeCallable MpsClient::ExecuteFunctionCallable(const ExecuteFunctionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExecuteFunctionOutcome>>();
-    ExecuteFunctionAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ExecuteFunctionRequest&,
-        ExecuteFunctionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExecuteFunctionOutcome()>>(
+        [this, request]()
+        {
+            return this->ExecuteFunction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ExtractBlindWatermarkOutcome MpsClient::ExtractBlindWatermark(const ExtractBlindWatermarkRequest &request)
@@ -5512,32 +4749,25 @@ MpsClient::ExtractBlindWatermarkOutcome MpsClient::ExtractBlindWatermark(const E
 
 void MpsClient::ExtractBlindWatermarkAsync(const ExtractBlindWatermarkRequest& request, const ExtractBlindWatermarkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExtractBlindWatermarkRequest&;
-    using Resp = ExtractBlindWatermarkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExtractBlindWatermark(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExtractBlindWatermark", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ExtractBlindWatermarkOutcomeCallable MpsClient::ExtractBlindWatermarkCallable(const ExtractBlindWatermarkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExtractBlindWatermarkOutcome>>();
-    ExtractBlindWatermarkAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ExtractBlindWatermarkRequest&,
-        ExtractBlindWatermarkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExtractBlindWatermarkOutcome()>>(
+        [this, request]()
+        {
+            return this->ExtractBlindWatermark(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ManageTaskOutcome MpsClient::ManageTask(const ManageTaskRequest &request)
@@ -5562,32 +4792,25 @@ MpsClient::ManageTaskOutcome MpsClient::ManageTask(const ManageTaskRequest &requ
 
 void MpsClient::ManageTaskAsync(const ManageTaskRequest& request, const ManageTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ManageTaskRequest&;
-    using Resp = ManageTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ManageTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ManageTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ManageTaskOutcomeCallable MpsClient::ManageTaskCallable(const ManageTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ManageTaskOutcome>>();
-    ManageTaskAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ManageTaskRequest&,
-        ManageTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ManageTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ManageTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyAIAnalysisTemplateOutcome MpsClient::ModifyAIAnalysisTemplate(const ModifyAIAnalysisTemplateRequest &request)
@@ -5612,32 +4835,25 @@ MpsClient::ModifyAIAnalysisTemplateOutcome MpsClient::ModifyAIAnalysisTemplate(c
 
 void MpsClient::ModifyAIAnalysisTemplateAsync(const ModifyAIAnalysisTemplateRequest& request, const ModifyAIAnalysisTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAIAnalysisTemplateRequest&;
-    using Resp = ModifyAIAnalysisTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAIAnalysisTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAIAnalysisTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyAIAnalysisTemplateOutcomeCallable MpsClient::ModifyAIAnalysisTemplateCallable(const ModifyAIAnalysisTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAIAnalysisTemplateOutcome>>();
-    ModifyAIAnalysisTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyAIAnalysisTemplateRequest&,
-        ModifyAIAnalysisTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAIAnalysisTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAIAnalysisTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyAIRecognitionTemplateOutcome MpsClient::ModifyAIRecognitionTemplate(const ModifyAIRecognitionTemplateRequest &request)
@@ -5662,32 +4878,25 @@ MpsClient::ModifyAIRecognitionTemplateOutcome MpsClient::ModifyAIRecognitionTemp
 
 void MpsClient::ModifyAIRecognitionTemplateAsync(const ModifyAIRecognitionTemplateRequest& request, const ModifyAIRecognitionTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAIRecognitionTemplateRequest&;
-    using Resp = ModifyAIRecognitionTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAIRecognitionTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAIRecognitionTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyAIRecognitionTemplateOutcomeCallable MpsClient::ModifyAIRecognitionTemplateCallable(const ModifyAIRecognitionTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAIRecognitionTemplateOutcome>>();
-    ModifyAIRecognitionTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyAIRecognitionTemplateRequest&,
-        ModifyAIRecognitionTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAIRecognitionTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAIRecognitionTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyAdaptiveDynamicStreamingTemplateOutcome MpsClient::ModifyAdaptiveDynamicStreamingTemplate(const ModifyAdaptiveDynamicStreamingTemplateRequest &request)
@@ -5712,32 +4921,25 @@ MpsClient::ModifyAdaptiveDynamicStreamingTemplateOutcome MpsClient::ModifyAdapti
 
 void MpsClient::ModifyAdaptiveDynamicStreamingTemplateAsync(const ModifyAdaptiveDynamicStreamingTemplateRequest& request, const ModifyAdaptiveDynamicStreamingTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAdaptiveDynamicStreamingTemplateRequest&;
-    using Resp = ModifyAdaptiveDynamicStreamingTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAdaptiveDynamicStreamingTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAdaptiveDynamicStreamingTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyAdaptiveDynamicStreamingTemplateOutcomeCallable MpsClient::ModifyAdaptiveDynamicStreamingTemplateCallable(const ModifyAdaptiveDynamicStreamingTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAdaptiveDynamicStreamingTemplateOutcome>>();
-    ModifyAdaptiveDynamicStreamingTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyAdaptiveDynamicStreamingTemplateRequest&,
-        ModifyAdaptiveDynamicStreamingTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAdaptiveDynamicStreamingTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAdaptiveDynamicStreamingTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyAnimatedGraphicsTemplateOutcome MpsClient::ModifyAnimatedGraphicsTemplate(const ModifyAnimatedGraphicsTemplateRequest &request)
@@ -5762,32 +4964,25 @@ MpsClient::ModifyAnimatedGraphicsTemplateOutcome MpsClient::ModifyAnimatedGraphi
 
 void MpsClient::ModifyAnimatedGraphicsTemplateAsync(const ModifyAnimatedGraphicsTemplateRequest& request, const ModifyAnimatedGraphicsTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAnimatedGraphicsTemplateRequest&;
-    using Resp = ModifyAnimatedGraphicsTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAnimatedGraphicsTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAnimatedGraphicsTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyAnimatedGraphicsTemplateOutcomeCallable MpsClient::ModifyAnimatedGraphicsTemplateCallable(const ModifyAnimatedGraphicsTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAnimatedGraphicsTemplateOutcome>>();
-    ModifyAnimatedGraphicsTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyAnimatedGraphicsTemplateRequest&,
-        ModifyAnimatedGraphicsTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAnimatedGraphicsTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAnimatedGraphicsTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyAsrHotwordsOutcome MpsClient::ModifyAsrHotwords(const ModifyAsrHotwordsRequest &request)
@@ -5812,32 +5007,25 @@ MpsClient::ModifyAsrHotwordsOutcome MpsClient::ModifyAsrHotwords(const ModifyAsr
 
 void MpsClient::ModifyAsrHotwordsAsync(const ModifyAsrHotwordsRequest& request, const ModifyAsrHotwordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAsrHotwordsRequest&;
-    using Resp = ModifyAsrHotwordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAsrHotwords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAsrHotwords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyAsrHotwordsOutcomeCallable MpsClient::ModifyAsrHotwordsCallable(const ModifyAsrHotwordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAsrHotwordsOutcome>>();
-    ModifyAsrHotwordsAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyAsrHotwordsRequest&,
-        ModifyAsrHotwordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAsrHotwordsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAsrHotwords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyBlindWatermarkTemplateOutcome MpsClient::ModifyBlindWatermarkTemplate(const ModifyBlindWatermarkTemplateRequest &request)
@@ -5862,32 +5050,25 @@ MpsClient::ModifyBlindWatermarkTemplateOutcome MpsClient::ModifyBlindWatermarkTe
 
 void MpsClient::ModifyBlindWatermarkTemplateAsync(const ModifyBlindWatermarkTemplateRequest& request, const ModifyBlindWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBlindWatermarkTemplateRequest&;
-    using Resp = ModifyBlindWatermarkTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBlindWatermarkTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBlindWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyBlindWatermarkTemplateOutcomeCallable MpsClient::ModifyBlindWatermarkTemplateCallable(const ModifyBlindWatermarkTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBlindWatermarkTemplateOutcome>>();
-    ModifyBlindWatermarkTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyBlindWatermarkTemplateRequest&,
-        ModifyBlindWatermarkTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBlindWatermarkTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBlindWatermarkTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyContentReviewTemplateOutcome MpsClient::ModifyContentReviewTemplate(const ModifyContentReviewTemplateRequest &request)
@@ -5912,32 +5093,25 @@ MpsClient::ModifyContentReviewTemplateOutcome MpsClient::ModifyContentReviewTemp
 
 void MpsClient::ModifyContentReviewTemplateAsync(const ModifyContentReviewTemplateRequest& request, const ModifyContentReviewTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyContentReviewTemplateRequest&;
-    using Resp = ModifyContentReviewTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyContentReviewTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyContentReviewTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyContentReviewTemplateOutcomeCallable MpsClient::ModifyContentReviewTemplateCallable(const ModifyContentReviewTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyContentReviewTemplateOutcome>>();
-    ModifyContentReviewTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyContentReviewTemplateRequest&,
-        ModifyContentReviewTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyContentReviewTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyContentReviewTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyImageSpriteTemplateOutcome MpsClient::ModifyImageSpriteTemplate(const ModifyImageSpriteTemplateRequest &request)
@@ -5962,32 +5136,25 @@ MpsClient::ModifyImageSpriteTemplateOutcome MpsClient::ModifyImageSpriteTemplate
 
 void MpsClient::ModifyImageSpriteTemplateAsync(const ModifyImageSpriteTemplateRequest& request, const ModifyImageSpriteTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyImageSpriteTemplateRequest&;
-    using Resp = ModifyImageSpriteTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyImageSpriteTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyImageSpriteTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyImageSpriteTemplateOutcomeCallable MpsClient::ModifyImageSpriteTemplateCallable(const ModifyImageSpriteTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyImageSpriteTemplateOutcome>>();
-    ModifyImageSpriteTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyImageSpriteTemplateRequest&,
-        ModifyImageSpriteTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyImageSpriteTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyImageSpriteTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyLiveRecordTemplateOutcome MpsClient::ModifyLiveRecordTemplate(const ModifyLiveRecordTemplateRequest &request)
@@ -6012,32 +5179,25 @@ MpsClient::ModifyLiveRecordTemplateOutcome MpsClient::ModifyLiveRecordTemplate(c
 
 void MpsClient::ModifyLiveRecordTemplateAsync(const ModifyLiveRecordTemplateRequest& request, const ModifyLiveRecordTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLiveRecordTemplateRequest&;
-    using Resp = ModifyLiveRecordTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLiveRecordTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLiveRecordTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyLiveRecordTemplateOutcomeCallable MpsClient::ModifyLiveRecordTemplateCallable(const ModifyLiveRecordTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLiveRecordTemplateOutcome>>();
-    ModifyLiveRecordTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyLiveRecordTemplateRequest&,
-        ModifyLiveRecordTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLiveRecordTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLiveRecordTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyPersonSampleOutcome MpsClient::ModifyPersonSample(const ModifyPersonSampleRequest &request)
@@ -6062,32 +5222,25 @@ MpsClient::ModifyPersonSampleOutcome MpsClient::ModifyPersonSample(const ModifyP
 
 void MpsClient::ModifyPersonSampleAsync(const ModifyPersonSampleRequest& request, const ModifyPersonSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPersonSampleRequest&;
-    using Resp = ModifyPersonSampleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPersonSample(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPersonSample", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyPersonSampleOutcomeCallable MpsClient::ModifyPersonSampleCallable(const ModifyPersonSampleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPersonSampleOutcome>>();
-    ModifyPersonSampleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyPersonSampleRequest&,
-        ModifyPersonSampleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPersonSampleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPersonSample(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyProcessImageTemplateOutcome MpsClient::ModifyProcessImageTemplate(const ModifyProcessImageTemplateRequest &request)
@@ -6112,32 +5265,25 @@ MpsClient::ModifyProcessImageTemplateOutcome MpsClient::ModifyProcessImageTempla
 
 void MpsClient::ModifyProcessImageTemplateAsync(const ModifyProcessImageTemplateRequest& request, const ModifyProcessImageTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProcessImageTemplateRequest&;
-    using Resp = ModifyProcessImageTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProcessImageTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProcessImageTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyProcessImageTemplateOutcomeCallable MpsClient::ModifyProcessImageTemplateCallable(const ModifyProcessImageTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProcessImageTemplateOutcome>>();
-    ModifyProcessImageTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyProcessImageTemplateRequest&,
-        ModifyProcessImageTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProcessImageTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProcessImageTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyQualityControlTemplateOutcome MpsClient::ModifyQualityControlTemplate(const ModifyQualityControlTemplateRequest &request)
@@ -6162,32 +5308,25 @@ MpsClient::ModifyQualityControlTemplateOutcome MpsClient::ModifyQualityControlTe
 
 void MpsClient::ModifyQualityControlTemplateAsync(const ModifyQualityControlTemplateRequest& request, const ModifyQualityControlTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyQualityControlTemplateRequest&;
-    using Resp = ModifyQualityControlTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyQualityControlTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyQualityControlTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyQualityControlTemplateOutcomeCallable MpsClient::ModifyQualityControlTemplateCallable(const ModifyQualityControlTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyQualityControlTemplateOutcome>>();
-    ModifyQualityControlTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyQualityControlTemplateRequest&,
-        ModifyQualityControlTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyQualityControlTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyQualityControlTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifySampleSnapshotTemplateOutcome MpsClient::ModifySampleSnapshotTemplate(const ModifySampleSnapshotTemplateRequest &request)
@@ -6212,32 +5351,25 @@ MpsClient::ModifySampleSnapshotTemplateOutcome MpsClient::ModifySampleSnapshotTe
 
 void MpsClient::ModifySampleSnapshotTemplateAsync(const ModifySampleSnapshotTemplateRequest& request, const ModifySampleSnapshotTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySampleSnapshotTemplateRequest&;
-    using Resp = ModifySampleSnapshotTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySampleSnapshotTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySampleSnapshotTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifySampleSnapshotTemplateOutcomeCallable MpsClient::ModifySampleSnapshotTemplateCallable(const ModifySampleSnapshotTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySampleSnapshotTemplateOutcome>>();
-    ModifySampleSnapshotTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifySampleSnapshotTemplateRequest&,
-        ModifySampleSnapshotTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySampleSnapshotTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySampleSnapshotTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyScheduleOutcome MpsClient::ModifySchedule(const ModifyScheduleRequest &request)
@@ -6262,32 +5394,25 @@ MpsClient::ModifyScheduleOutcome MpsClient::ModifySchedule(const ModifyScheduleR
 
 void MpsClient::ModifyScheduleAsync(const ModifyScheduleRequest& request, const ModifyScheduleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyScheduleRequest&;
-    using Resp = ModifyScheduleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySchedule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySchedule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyScheduleOutcomeCallable MpsClient::ModifyScheduleCallable(const ModifyScheduleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyScheduleOutcome>>();
-    ModifyScheduleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyScheduleRequest&,
-        ModifyScheduleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyScheduleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySchedule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifySmartEraseTemplateOutcome MpsClient::ModifySmartEraseTemplate(const ModifySmartEraseTemplateRequest &request)
@@ -6312,32 +5437,25 @@ MpsClient::ModifySmartEraseTemplateOutcome MpsClient::ModifySmartEraseTemplate(c
 
 void MpsClient::ModifySmartEraseTemplateAsync(const ModifySmartEraseTemplateRequest& request, const ModifySmartEraseTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySmartEraseTemplateRequest&;
-    using Resp = ModifySmartEraseTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySmartEraseTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySmartEraseTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifySmartEraseTemplateOutcomeCallable MpsClient::ModifySmartEraseTemplateCallable(const ModifySmartEraseTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySmartEraseTemplateOutcome>>();
-    ModifySmartEraseTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifySmartEraseTemplateRequest&,
-        ModifySmartEraseTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySmartEraseTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySmartEraseTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifySmartSubtitleTemplateOutcome MpsClient::ModifySmartSubtitleTemplate(const ModifySmartSubtitleTemplateRequest &request)
@@ -6362,32 +5480,25 @@ MpsClient::ModifySmartSubtitleTemplateOutcome MpsClient::ModifySmartSubtitleTemp
 
 void MpsClient::ModifySmartSubtitleTemplateAsync(const ModifySmartSubtitleTemplateRequest& request, const ModifySmartSubtitleTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySmartSubtitleTemplateRequest&;
-    using Resp = ModifySmartSubtitleTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySmartSubtitleTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySmartSubtitleTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifySmartSubtitleTemplateOutcomeCallable MpsClient::ModifySmartSubtitleTemplateCallable(const ModifySmartSubtitleTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySmartSubtitleTemplateOutcome>>();
-    ModifySmartSubtitleTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifySmartSubtitleTemplateRequest&,
-        ModifySmartSubtitleTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySmartSubtitleTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySmartSubtitleTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifySnapshotByTimeOffsetTemplateOutcome MpsClient::ModifySnapshotByTimeOffsetTemplate(const ModifySnapshotByTimeOffsetTemplateRequest &request)
@@ -6412,32 +5523,25 @@ MpsClient::ModifySnapshotByTimeOffsetTemplateOutcome MpsClient::ModifySnapshotBy
 
 void MpsClient::ModifySnapshotByTimeOffsetTemplateAsync(const ModifySnapshotByTimeOffsetTemplateRequest& request, const ModifySnapshotByTimeOffsetTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySnapshotByTimeOffsetTemplateRequest&;
-    using Resp = ModifySnapshotByTimeOffsetTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySnapshotByTimeOffsetTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySnapshotByTimeOffsetTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifySnapshotByTimeOffsetTemplateOutcomeCallable MpsClient::ModifySnapshotByTimeOffsetTemplateCallable(const ModifySnapshotByTimeOffsetTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySnapshotByTimeOffsetTemplateOutcome>>();
-    ModifySnapshotByTimeOffsetTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifySnapshotByTimeOffsetTemplateRequest&,
-        ModifySnapshotByTimeOffsetTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySnapshotByTimeOffsetTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySnapshotByTimeOffsetTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyStreamLinkEventOutcome MpsClient::ModifyStreamLinkEvent(const ModifyStreamLinkEventRequest &request)
@@ -6462,32 +5566,25 @@ MpsClient::ModifyStreamLinkEventOutcome MpsClient::ModifyStreamLinkEvent(const M
 
 void MpsClient::ModifyStreamLinkEventAsync(const ModifyStreamLinkEventRequest& request, const ModifyStreamLinkEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyStreamLinkEventRequest&;
-    using Resp = ModifyStreamLinkEventResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyStreamLinkEvent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyStreamLinkEvent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyStreamLinkEventOutcomeCallable MpsClient::ModifyStreamLinkEventCallable(const ModifyStreamLinkEventRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyStreamLinkEventOutcome>>();
-    ModifyStreamLinkEventAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyStreamLinkEventRequest&,
-        ModifyStreamLinkEventOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyStreamLinkEventOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyStreamLinkEvent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyStreamLinkFlowOutcome MpsClient::ModifyStreamLinkFlow(const ModifyStreamLinkFlowRequest &request)
@@ -6512,32 +5609,25 @@ MpsClient::ModifyStreamLinkFlowOutcome MpsClient::ModifyStreamLinkFlow(const Mod
 
 void MpsClient::ModifyStreamLinkFlowAsync(const ModifyStreamLinkFlowRequest& request, const ModifyStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyStreamLinkFlowRequest&;
-    using Resp = ModifyStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyStreamLinkFlowOutcomeCallable MpsClient::ModifyStreamLinkFlowCallable(const ModifyStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyStreamLinkFlowOutcome>>();
-    ModifyStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyStreamLinkFlowRequest&,
-        ModifyStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyStreamLinkInputOutcome MpsClient::ModifyStreamLinkInput(const ModifyStreamLinkInputRequest &request)
@@ -6562,32 +5652,25 @@ MpsClient::ModifyStreamLinkInputOutcome MpsClient::ModifyStreamLinkInput(const M
 
 void MpsClient::ModifyStreamLinkInputAsync(const ModifyStreamLinkInputRequest& request, const ModifyStreamLinkInputAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyStreamLinkInputRequest&;
-    using Resp = ModifyStreamLinkInputResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyStreamLinkInput(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyStreamLinkInput", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyStreamLinkInputOutcomeCallable MpsClient::ModifyStreamLinkInputCallable(const ModifyStreamLinkInputRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyStreamLinkInputOutcome>>();
-    ModifyStreamLinkInputAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyStreamLinkInputRequest&,
-        ModifyStreamLinkInputOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyStreamLinkInputOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyStreamLinkInput(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyStreamLinkOutputInfoOutcome MpsClient::ModifyStreamLinkOutputInfo(const ModifyStreamLinkOutputInfoRequest &request)
@@ -6612,32 +5695,25 @@ MpsClient::ModifyStreamLinkOutputInfoOutcome MpsClient::ModifyStreamLinkOutputIn
 
 void MpsClient::ModifyStreamLinkOutputInfoAsync(const ModifyStreamLinkOutputInfoRequest& request, const ModifyStreamLinkOutputInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyStreamLinkOutputInfoRequest&;
-    using Resp = ModifyStreamLinkOutputInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyStreamLinkOutputInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyStreamLinkOutputInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyStreamLinkOutputInfoOutcomeCallable MpsClient::ModifyStreamLinkOutputInfoCallable(const ModifyStreamLinkOutputInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyStreamLinkOutputInfoOutcome>>();
-    ModifyStreamLinkOutputInfoAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyStreamLinkOutputInfoRequest&,
-        ModifyStreamLinkOutputInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyStreamLinkOutputInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyStreamLinkOutputInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyStreamLinkSecurityGroupOutcome MpsClient::ModifyStreamLinkSecurityGroup(const ModifyStreamLinkSecurityGroupRequest &request)
@@ -6662,32 +5738,25 @@ MpsClient::ModifyStreamLinkSecurityGroupOutcome MpsClient::ModifyStreamLinkSecur
 
 void MpsClient::ModifyStreamLinkSecurityGroupAsync(const ModifyStreamLinkSecurityGroupRequest& request, const ModifyStreamLinkSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyStreamLinkSecurityGroupRequest&;
-    using Resp = ModifyStreamLinkSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyStreamLinkSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyStreamLinkSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyStreamLinkSecurityGroupOutcomeCallable MpsClient::ModifyStreamLinkSecurityGroupCallable(const ModifyStreamLinkSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyStreamLinkSecurityGroupOutcome>>();
-    ModifyStreamLinkSecurityGroupAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyStreamLinkSecurityGroupRequest&,
-        ModifyStreamLinkSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyStreamLinkSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyStreamLinkSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyTranscodeTemplateOutcome MpsClient::ModifyTranscodeTemplate(const ModifyTranscodeTemplateRequest &request)
@@ -6712,32 +5781,25 @@ MpsClient::ModifyTranscodeTemplateOutcome MpsClient::ModifyTranscodeTemplate(con
 
 void MpsClient::ModifyTranscodeTemplateAsync(const ModifyTranscodeTemplateRequest& request, const ModifyTranscodeTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTranscodeTemplateRequest&;
-    using Resp = ModifyTranscodeTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTranscodeTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTranscodeTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyTranscodeTemplateOutcomeCallable MpsClient::ModifyTranscodeTemplateCallable(const ModifyTranscodeTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTranscodeTemplateOutcome>>();
-    ModifyTranscodeTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyTranscodeTemplateRequest&,
-        ModifyTranscodeTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTranscodeTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTranscodeTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyWatermarkTemplateOutcome MpsClient::ModifyWatermarkTemplate(const ModifyWatermarkTemplateRequest &request)
@@ -6762,32 +5824,25 @@ MpsClient::ModifyWatermarkTemplateOutcome MpsClient::ModifyWatermarkTemplate(con
 
 void MpsClient::ModifyWatermarkTemplateAsync(const ModifyWatermarkTemplateRequest& request, const ModifyWatermarkTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyWatermarkTemplateRequest&;
-    using Resp = ModifyWatermarkTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyWatermarkTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyWatermarkTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyWatermarkTemplateOutcomeCallable MpsClient::ModifyWatermarkTemplateCallable(const ModifyWatermarkTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyWatermarkTemplateOutcome>>();
-    ModifyWatermarkTemplateAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyWatermarkTemplateRequest&,
-        ModifyWatermarkTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyWatermarkTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyWatermarkTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ModifyWordSampleOutcome MpsClient::ModifyWordSample(const ModifyWordSampleRequest &request)
@@ -6812,32 +5867,25 @@ MpsClient::ModifyWordSampleOutcome MpsClient::ModifyWordSample(const ModifyWordS
 
 void MpsClient::ModifyWordSampleAsync(const ModifyWordSampleRequest& request, const ModifyWordSampleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyWordSampleRequest&;
-    using Resp = ModifyWordSampleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyWordSample(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyWordSample", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ModifyWordSampleOutcomeCallable MpsClient::ModifyWordSampleCallable(const ModifyWordSampleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyWordSampleOutcome>>();
-    ModifyWordSampleAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ModifyWordSampleRequest&,
-        ModifyWordSampleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyWordSampleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyWordSample(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ParseLiveStreamProcessNotificationOutcome MpsClient::ParseLiveStreamProcessNotification(const ParseLiveStreamProcessNotificationRequest &request)
@@ -6862,32 +5910,25 @@ MpsClient::ParseLiveStreamProcessNotificationOutcome MpsClient::ParseLiveStreamP
 
 void MpsClient::ParseLiveStreamProcessNotificationAsync(const ParseLiveStreamProcessNotificationRequest& request, const ParseLiveStreamProcessNotificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ParseLiveStreamProcessNotificationRequest&;
-    using Resp = ParseLiveStreamProcessNotificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ParseLiveStreamProcessNotification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ParseLiveStreamProcessNotification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ParseLiveStreamProcessNotificationOutcomeCallable MpsClient::ParseLiveStreamProcessNotificationCallable(const ParseLiveStreamProcessNotificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ParseLiveStreamProcessNotificationOutcome>>();
-    ParseLiveStreamProcessNotificationAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ParseLiveStreamProcessNotificationRequest&,
-        ParseLiveStreamProcessNotificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ParseLiveStreamProcessNotificationOutcome()>>(
+        [this, request]()
+        {
+            return this->ParseLiveStreamProcessNotification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ParseNotificationOutcome MpsClient::ParseNotification(const ParseNotificationRequest &request)
@@ -6912,32 +5953,25 @@ MpsClient::ParseNotificationOutcome MpsClient::ParseNotification(const ParseNoti
 
 void MpsClient::ParseNotificationAsync(const ParseNotificationRequest& request, const ParseNotificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ParseNotificationRequest&;
-    using Resp = ParseNotificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ParseNotification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ParseNotification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ParseNotificationOutcomeCallable MpsClient::ParseNotificationCallable(const ParseNotificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ParseNotificationOutcome>>();
-    ParseNotificationAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ParseNotificationRequest&,
-        ParseNotificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ParseNotificationOutcome()>>(
+        [this, request]()
+        {
+            return this->ParseNotification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ProcessImageOutcome MpsClient::ProcessImage(const ProcessImageRequest &request)
@@ -6962,32 +5996,25 @@ MpsClient::ProcessImageOutcome MpsClient::ProcessImage(const ProcessImageRequest
 
 void MpsClient::ProcessImageAsync(const ProcessImageRequest& request, const ProcessImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ProcessImageRequest&;
-    using Resp = ProcessImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ProcessImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ProcessImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ProcessImageOutcomeCallable MpsClient::ProcessImageCallable(const ProcessImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ProcessImageOutcome>>();
-    ProcessImageAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ProcessImageRequest&,
-        ProcessImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ProcessImageOutcome()>>(
+        [this, request]()
+        {
+            return this->ProcessImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ProcessLiveStreamOutcome MpsClient::ProcessLiveStream(const ProcessLiveStreamRequest &request)
@@ -7012,32 +6039,25 @@ MpsClient::ProcessLiveStreamOutcome MpsClient::ProcessLiveStream(const ProcessLi
 
 void MpsClient::ProcessLiveStreamAsync(const ProcessLiveStreamRequest& request, const ProcessLiveStreamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ProcessLiveStreamRequest&;
-    using Resp = ProcessLiveStreamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ProcessLiveStream(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ProcessLiveStream", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ProcessLiveStreamOutcomeCallable MpsClient::ProcessLiveStreamCallable(const ProcessLiveStreamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ProcessLiveStreamOutcome>>();
-    ProcessLiveStreamAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ProcessLiveStreamRequest&,
-        ProcessLiveStreamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ProcessLiveStreamOutcome()>>(
+        [this, request]()
+        {
+            return this->ProcessLiveStream(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ProcessMediaOutcome MpsClient::ProcessMedia(const ProcessMediaRequest &request)
@@ -7062,32 +6082,25 @@ MpsClient::ProcessMediaOutcome MpsClient::ProcessMedia(const ProcessMediaRequest
 
 void MpsClient::ProcessMediaAsync(const ProcessMediaRequest& request, const ProcessMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ProcessMediaRequest&;
-    using Resp = ProcessMediaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ProcessMedia(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ProcessMedia", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ProcessMediaOutcomeCallable MpsClient::ProcessMediaCallable(const ProcessMediaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ProcessMediaOutcome>>();
-    ProcessMediaAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ProcessMediaRequest&,
-        ProcessMediaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ProcessMediaOutcome()>>(
+        [this, request]()
+        {
+            return this->ProcessMedia(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::RecognizeMediaForZhiXueOutcome MpsClient::RecognizeMediaForZhiXue(const RecognizeMediaForZhiXueRequest &request)
@@ -7112,32 +6125,25 @@ MpsClient::RecognizeMediaForZhiXueOutcome MpsClient::RecognizeMediaForZhiXue(con
 
 void MpsClient::RecognizeMediaForZhiXueAsync(const RecognizeMediaForZhiXueRequest& request, const RecognizeMediaForZhiXueAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RecognizeMediaForZhiXueRequest&;
-    using Resp = RecognizeMediaForZhiXueResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RecognizeMediaForZhiXue(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RecognizeMediaForZhiXue", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::RecognizeMediaForZhiXueOutcomeCallable MpsClient::RecognizeMediaForZhiXueCallable(const RecognizeMediaForZhiXueRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RecognizeMediaForZhiXueOutcome>>();
-    RecognizeMediaForZhiXueAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const RecognizeMediaForZhiXueRequest&,
-        RecognizeMediaForZhiXueOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RecognizeMediaForZhiXueOutcome()>>(
+        [this, request]()
+        {
+            return this->RecognizeMediaForZhiXue(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::ResetWorkflowOutcome MpsClient::ResetWorkflow(const ResetWorkflowRequest &request)
@@ -7162,32 +6168,25 @@ MpsClient::ResetWorkflowOutcome MpsClient::ResetWorkflow(const ResetWorkflowRequ
 
 void MpsClient::ResetWorkflowAsync(const ResetWorkflowRequest& request, const ResetWorkflowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetWorkflowRequest&;
-    using Resp = ResetWorkflowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetWorkflow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetWorkflow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::ResetWorkflowOutcomeCallable MpsClient::ResetWorkflowCallable(const ResetWorkflowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetWorkflowOutcome>>();
-    ResetWorkflowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const ResetWorkflowRequest&,
-        ResetWorkflowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetWorkflowOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetWorkflow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::StartStreamLinkFlowOutcome MpsClient::StartStreamLinkFlow(const StartStreamLinkFlowRequest &request)
@@ -7212,32 +6211,25 @@ MpsClient::StartStreamLinkFlowOutcome MpsClient::StartStreamLinkFlow(const Start
 
 void MpsClient::StartStreamLinkFlowAsync(const StartStreamLinkFlowRequest& request, const StartStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartStreamLinkFlowRequest&;
-    using Resp = StartStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::StartStreamLinkFlowOutcomeCallable MpsClient::StartStreamLinkFlowCallable(const StartStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartStreamLinkFlowOutcome>>();
-    StartStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const StartStreamLinkFlowRequest&,
-        StartStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->StartStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::StopStreamLinkFlowOutcome MpsClient::StopStreamLinkFlow(const StopStreamLinkFlowRequest &request)
@@ -7262,32 +6254,25 @@ MpsClient::StopStreamLinkFlowOutcome MpsClient::StopStreamLinkFlow(const StopStr
 
 void MpsClient::StopStreamLinkFlowAsync(const StopStreamLinkFlowRequest& request, const StopStreamLinkFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopStreamLinkFlowRequest&;
-    using Resp = StopStreamLinkFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopStreamLinkFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopStreamLinkFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::StopStreamLinkFlowOutcomeCallable MpsClient::StopStreamLinkFlowCallable(const StopStreamLinkFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopStreamLinkFlowOutcome>>();
-    StopStreamLinkFlowAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const StopStreamLinkFlowRequest&,
-        StopStreamLinkFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopStreamLinkFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->StopStreamLinkFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MpsClient::WithdrawsWatermarkOutcome MpsClient::WithdrawsWatermark(const WithdrawsWatermarkRequest &request)
@@ -7312,31 +6297,24 @@ MpsClient::WithdrawsWatermarkOutcome MpsClient::WithdrawsWatermark(const Withdra
 
 void MpsClient::WithdrawsWatermarkAsync(const WithdrawsWatermarkRequest& request, const WithdrawsWatermarkAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const WithdrawsWatermarkRequest&;
-    using Resp = WithdrawsWatermarkResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->WithdrawsWatermark(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "WithdrawsWatermark", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MpsClient::WithdrawsWatermarkOutcomeCallable MpsClient::WithdrawsWatermarkCallable(const WithdrawsWatermarkRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<WithdrawsWatermarkOutcome>>();
-    WithdrawsWatermarkAsync(
-    request,
-    [prom](
-        const MpsClient*,
-        const WithdrawsWatermarkRequest&,
-        WithdrawsWatermarkOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<WithdrawsWatermarkOutcome()>>(
+        [this, request]()
+        {
+            return this->WithdrawsWatermark(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

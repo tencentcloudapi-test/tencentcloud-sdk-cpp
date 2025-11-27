@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AdvertiseTextDetection;
+                class ImageSize;
+
                 /**
                 * AdvertiseOCR返回参数结构体
                 */

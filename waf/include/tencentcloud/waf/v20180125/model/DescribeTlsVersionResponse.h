@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TLSVersion;
+
                 /**
                 * DescribeTlsVersion返回参数结构体
                 */

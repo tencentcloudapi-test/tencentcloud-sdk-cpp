@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * TLS 加密套件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TLSCiphers();
-                    ~TLSCiphers() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

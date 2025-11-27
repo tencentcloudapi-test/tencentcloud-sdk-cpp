@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetDetect;
+
                 /**
                 * CreateNetDetect返回参数结构体
                 */

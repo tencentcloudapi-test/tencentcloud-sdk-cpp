@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TWeCallLicenseInfo;
+
                 /**
                 * 增值服务数量统计
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     LicenseServiceNumInfo();
-                    ~LicenseServiceNumInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

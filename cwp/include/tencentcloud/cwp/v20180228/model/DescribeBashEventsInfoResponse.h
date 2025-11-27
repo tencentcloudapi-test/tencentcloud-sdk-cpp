@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BashEventsInfo;
+
                 /**
                 * DescribeBashEventsInfo返回参数结构体
                 */

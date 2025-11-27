@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KyuubiQueryInfo;
+
                 /**
                 * DescribeKyuubiQueryInfo返回参数结构体
                 */

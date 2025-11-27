@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Condition;
+
                 /**
                 * DescribeAggrSoftCategorySoftList请求参数结构体
                 */

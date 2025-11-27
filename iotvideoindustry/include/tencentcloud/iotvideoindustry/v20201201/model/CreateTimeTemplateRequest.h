@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimeTemplateSpec;
+
                 /**
                 * CreateTimeTemplate请求参数结构体
                 */

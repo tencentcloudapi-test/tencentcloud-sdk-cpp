@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableRow;
+
                 /**
                 * DescribeTablesRows返回参数结构体
                 */

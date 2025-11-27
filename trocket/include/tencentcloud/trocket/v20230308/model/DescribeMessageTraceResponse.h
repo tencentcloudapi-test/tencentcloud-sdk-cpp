@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MessageTraceItem;
+
                 /**
                 * DescribeMessageTrace返回参数结构体
                 */

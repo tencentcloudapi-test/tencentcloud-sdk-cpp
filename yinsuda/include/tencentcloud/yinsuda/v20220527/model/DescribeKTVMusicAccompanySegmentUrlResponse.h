@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KTVOtherSegments;
+
                 /**
                 * DescribeKTVMusicAccompanySegmentUrl返回参数结构体
                 */

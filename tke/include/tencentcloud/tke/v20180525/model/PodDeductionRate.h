@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 可被预留券抵扣的 Pod 某种规格的抵扣率
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PodDeductionRate();
-                    ~PodDeductionRate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

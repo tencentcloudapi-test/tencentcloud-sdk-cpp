@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextEduPaper;
+                class QuestionBlockObj;
+
                 /**
                 * EduPaperOCR返回参数结构体
                 */

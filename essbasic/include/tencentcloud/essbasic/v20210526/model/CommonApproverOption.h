@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 签署人配置信息。
 此参数对子客和自动签无效，不允许进行修改。
@@ -42,7 +43,6 @@ namespace TencentCloud
                 {
                 public:
                     CommonApproverOption();
-                    ~CommonApproverOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

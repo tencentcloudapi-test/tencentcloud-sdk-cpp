@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PulsarProClusterInfo;
+                class PulsarNetworkAccessPointInfo;
+                class PulsarProClusterSpecInfo;
+
                 /**
                 * DescribePulsarProInstanceDetail返回参数结构体
                 */

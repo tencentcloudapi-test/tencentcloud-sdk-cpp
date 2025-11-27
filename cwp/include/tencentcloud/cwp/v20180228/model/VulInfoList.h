@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 主机安全-漏洞管理-漏洞列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VulInfoList();
-                    ~VulInfoList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

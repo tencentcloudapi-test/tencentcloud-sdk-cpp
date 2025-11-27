@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataBackfillRange;
+                class KVPair;
+
                 /**
                 * CreateDataBackfillPlan请求参数结构体
                 */

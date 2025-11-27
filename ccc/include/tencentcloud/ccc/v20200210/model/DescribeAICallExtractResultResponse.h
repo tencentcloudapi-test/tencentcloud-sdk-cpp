@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AICallExtractResultElement;
+
                 /**
                 * DescribeAICallExtractResult返回参数结构体
                 */

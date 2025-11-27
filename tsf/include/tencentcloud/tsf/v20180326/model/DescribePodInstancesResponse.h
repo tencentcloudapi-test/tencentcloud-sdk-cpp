@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupPodResult;
+
                 /**
                 * DescribePodInstances返回参数结构体
                 */

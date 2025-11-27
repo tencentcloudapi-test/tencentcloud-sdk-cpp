@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VersionWeight;
+                class VersionMatch;
+
                 /**
                 * 别名的版本路由配置
 其中：随机权重路由附加版本和规则路由附加版本不可以同时配置
@@ -44,7 +47,6 @@ namespace TencentCloud
                 {
                 public:
                     RoutingConfig();
-                    ~RoutingConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

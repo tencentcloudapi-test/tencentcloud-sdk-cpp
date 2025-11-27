@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RefundOrderResult;
+
                 /**
                 * RefundTlinxOrder返回参数结构体
                 */

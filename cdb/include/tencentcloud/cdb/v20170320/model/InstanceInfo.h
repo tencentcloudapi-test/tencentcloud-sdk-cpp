@@ -42,6 +42,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoVipInfo;
+                class SlaveInfo;
+                class RoGroup;
+                class MasterInfo;
+                class DrInfo;
+                class TagInfoItem;
+                class ClusterInfo;
+                class AnalysisNodeInfo;
+
                 /**
                 * 实例详细信息
                 */
@@ -49,7 +58,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceInfo();
-                    ~InstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

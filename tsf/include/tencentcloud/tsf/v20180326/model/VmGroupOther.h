@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthCheckSettings;
+
                 /**
                 * 虚拟机部署组其他字段
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VmGroupOther();
-                    ~VmGroupOther() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

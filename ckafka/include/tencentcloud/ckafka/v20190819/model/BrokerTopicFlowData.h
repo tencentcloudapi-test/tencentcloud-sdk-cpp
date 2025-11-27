@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * broker维度topic 流量排行指标
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BrokerTopicFlowData();
-                    ~BrokerTopicFlowData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

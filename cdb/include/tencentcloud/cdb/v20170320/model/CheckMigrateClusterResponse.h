@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CheckMigrateResult;
+
                 /**
                 * CheckMigrateCluster返回参数结构体
                 */

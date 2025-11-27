@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 免疫接种记录
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Vaccination();
-                    ~Vaccination() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

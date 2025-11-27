@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClusterTaskId;
+
                 /**
                 * ModifyClusterReadOnly返回参数结构体
                 */

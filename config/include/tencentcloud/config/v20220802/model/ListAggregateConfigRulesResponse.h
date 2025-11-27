@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigRule;
+
                 /**
                 * ListAggregateConfigRules返回参数结构体
                 */

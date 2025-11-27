@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeMidDimensionValueList的查询条件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MidQueryCondition();
-                    ~MidQueryCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

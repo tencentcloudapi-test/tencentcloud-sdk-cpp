@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class Tag;
+
                 /**
                 * CreateContractDiffTaskWebUrl请求参数结构体
                 */

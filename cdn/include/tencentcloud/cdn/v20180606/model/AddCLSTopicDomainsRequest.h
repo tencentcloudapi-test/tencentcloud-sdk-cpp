@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DomainAreaConfig;
+
                 /**
                 * AddCLSTopicDomains请求参数结构体
                 */

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageRegistryCredential;
+                class EipAttribute;
+                class Tag;
+
                 /**
                 * CreateImageCache请求参数结构体
                 */

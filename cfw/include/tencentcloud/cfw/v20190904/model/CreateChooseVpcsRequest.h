@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcZoneData;
+
                 /**
                 * CreateChooseVpcs请求参数结构体
                 */

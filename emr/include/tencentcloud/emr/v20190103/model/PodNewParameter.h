@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * POD自定义权限和自定义参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PodNewParameter();
-                    ~PodNewParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

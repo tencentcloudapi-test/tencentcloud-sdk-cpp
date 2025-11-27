@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 按授权查看的license列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     License();
-                    ~License() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

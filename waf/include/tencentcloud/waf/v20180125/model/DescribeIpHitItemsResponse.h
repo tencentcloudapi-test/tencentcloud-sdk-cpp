@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IpHitItemsData;
+
                 /**
                 * DescribeIpHitItems返回参数结构体
                 */

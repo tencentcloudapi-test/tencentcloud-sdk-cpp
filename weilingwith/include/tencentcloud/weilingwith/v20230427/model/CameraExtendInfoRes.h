@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视频扩展信息结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CameraExtendInfoRes();
-                    ~CameraExtendInfoRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

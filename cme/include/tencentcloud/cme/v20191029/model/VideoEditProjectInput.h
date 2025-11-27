@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaTrack;
+
                 /**
                 * 视频编辑项目输入参数
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VideoEditProjectInput();
-                    ~VideoEditProjectInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

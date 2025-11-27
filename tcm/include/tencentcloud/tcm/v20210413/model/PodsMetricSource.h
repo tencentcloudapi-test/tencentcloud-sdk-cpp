@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * PodsMetricSource 定义了如何根据特定指标进行扩缩容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PodsMetricSource();
-                    ~PodsMetricSource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 对象存储源站私有鉴权参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PrivateParameter();
-                    ~PrivateParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

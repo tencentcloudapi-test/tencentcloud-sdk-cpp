@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 版本控制-协议详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AvailableProtoStatus();
-                    ~AvailableProtoStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

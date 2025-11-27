@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TrafficPackage;
+
                 /**
                 * DescribeTrafficPackages返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserMediaStream;
+
                 /**
                 * 指定动态布局中悬浮布局和屏幕分享布局的大画面信息，只在悬浮布局和屏幕分享布局有效。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MaxVideoUser();
-                    ~MaxVideoUser() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

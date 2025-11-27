@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 账号查询参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AppAccountSearchCriteria();
-                    ~AppAccountSearchCriteria() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

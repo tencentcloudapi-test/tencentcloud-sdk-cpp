@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IdlFileInfo;
+                class ErrorInfo;
+                class SyncTableInfo;
+
                 /**
                 * 表格详情信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     TableInfoNew();
-                    ~TableInfoNew() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 输出重定向配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OutputRedirect();
-                    ~OutputRedirect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

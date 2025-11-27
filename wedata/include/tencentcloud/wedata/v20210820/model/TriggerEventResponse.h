@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchReturn;
+
                 /**
                 * TriggerEvent返回参数结构体
                 */

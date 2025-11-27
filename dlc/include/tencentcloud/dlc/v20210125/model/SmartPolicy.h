@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SmartPolicyBaseInfo;
+                class SmartOptimizerPolicy;
+
                 /**
                 * SmartPolicyRequest
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SmartPolicy();
-                    ~SmartPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

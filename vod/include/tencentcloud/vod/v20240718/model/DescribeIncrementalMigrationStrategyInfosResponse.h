@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IncrementalMigrationStrategyInfo;
+
                 /**
                 * DescribeIncrementalMigrationStrategyInfos返回参数结构体
                 */

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OutputRisk;
+                class RiskIdentificationRoleInfo;
+                class OutputReference;
+
                 /**
                 * DescribeContractReviewTask返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 字幕格式列表操作。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SubtitleFormatsOperation();
-                    ~SubtitleFormatsOperation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

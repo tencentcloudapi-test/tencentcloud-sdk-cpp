@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 内网配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IntranetConfigIn();
-                    ~IntranetConfigIn() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

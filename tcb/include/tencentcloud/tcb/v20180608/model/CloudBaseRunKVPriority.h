@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * KV参数的优先级
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudBaseRunKVPriority();
-                    ~CloudBaseRunKVPriority() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

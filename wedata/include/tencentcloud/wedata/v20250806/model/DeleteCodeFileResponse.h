@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CodeStudioFileActionResult;
+
                 /**
                 * DeleteCodeFile返回参数结构体
                 */

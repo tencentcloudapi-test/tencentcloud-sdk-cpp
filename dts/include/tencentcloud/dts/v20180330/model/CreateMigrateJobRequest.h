@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MigrateOption;
+                class SrcInfo;
+                class DstInfo;
+                class TagItem;
+
                 /**
                 * CreateMigrateJob请求参数结构体
                 */

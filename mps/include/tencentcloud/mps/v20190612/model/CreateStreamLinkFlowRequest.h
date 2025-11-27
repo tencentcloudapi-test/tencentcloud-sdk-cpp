@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateInput;
+                class CreateOutputInfo;
+
                 /**
                 * CreateStreamLinkFlow请求参数结构体
                 */

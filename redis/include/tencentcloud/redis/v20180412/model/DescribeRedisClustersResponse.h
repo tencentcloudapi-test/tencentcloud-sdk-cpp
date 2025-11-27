@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CDCResource;
+
                 /**
                 * DescribeRedisClusters返回参数结构体
                 */

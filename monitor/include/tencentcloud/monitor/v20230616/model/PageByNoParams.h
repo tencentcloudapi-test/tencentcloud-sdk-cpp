@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 分页请求参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PageByNoParams();
-                    ~PageByNoParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

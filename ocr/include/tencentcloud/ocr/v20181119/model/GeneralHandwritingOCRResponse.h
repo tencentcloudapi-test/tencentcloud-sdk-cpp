@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextGeneralHandwriting;
+
                 /**
                 * GeneralHandwritingOCR返回参数结构体
                 */

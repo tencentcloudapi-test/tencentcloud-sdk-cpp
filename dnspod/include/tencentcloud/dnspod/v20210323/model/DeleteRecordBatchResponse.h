@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeleteRecordBatchDetail;
+
                 /**
                 * DeleteRecordBatch返回参数结构体
                 */

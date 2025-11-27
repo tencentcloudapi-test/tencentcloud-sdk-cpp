@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Ip6Translator;
+
                 /**
                 * DescribeIp6Translators返回参数结构体
                 */

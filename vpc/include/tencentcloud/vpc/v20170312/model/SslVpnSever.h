@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccessPolicy;
+
                 /**
                 * SSL-VPN-SERVER 出参
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SslVpnSever();
-                    ~SslVpnSever() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

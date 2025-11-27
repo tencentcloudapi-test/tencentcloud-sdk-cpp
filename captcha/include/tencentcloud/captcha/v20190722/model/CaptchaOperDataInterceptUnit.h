@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeCaptchaOperData方法 拦截情况type = 2 返回的数据结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CaptchaOperDataInterceptUnit();
-                    ~CaptchaOperDataInterceptUnit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

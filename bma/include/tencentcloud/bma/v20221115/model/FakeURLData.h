@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 仿冒网址数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FakeURLData();
-                    ~FakeURLData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpaceInfo;
+
                 /**
                 * DescribeWorkspaces返回参数结构体
                 */

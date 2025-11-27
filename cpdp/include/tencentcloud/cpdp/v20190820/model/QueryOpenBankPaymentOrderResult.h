@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpenBankRedirectInfo;
+                class OpenBankApprovalGuideInfo;
+                class OpenBankProfitShareRespInfo;
+
                 /**
                 * 云企付-查询订单支付结果
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     QueryOpenBankPaymentOrderResult();
-                    ~QueryOpenBankPaymentOrderResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

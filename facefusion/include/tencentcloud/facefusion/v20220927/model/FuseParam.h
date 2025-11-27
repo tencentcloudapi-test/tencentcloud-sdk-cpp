@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageCodecParam;
+
                 /**
                 * 融合参数
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FuseParam();
-                    ~FuseParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextWaybill;
+
                 /**
                 * WaybillOCR返回参数结构体
                 */

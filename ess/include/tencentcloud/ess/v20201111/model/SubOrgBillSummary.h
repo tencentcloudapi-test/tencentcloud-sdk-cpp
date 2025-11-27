@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubOrgBillUsage;
+
                 /**
                 * 子企业套餐使用情况
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SubOrgBillSummary();
-                    ~SubOrgBillSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

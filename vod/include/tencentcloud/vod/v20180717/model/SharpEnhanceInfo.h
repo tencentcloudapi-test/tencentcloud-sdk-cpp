@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 细节增强控制
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SharpEnhanceInfo();
-                    ~SharpEnhanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

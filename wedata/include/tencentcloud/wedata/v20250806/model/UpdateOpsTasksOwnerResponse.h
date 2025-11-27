@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpdateTasksOwner;
+
                 /**
                 * UpdateOpsTasksOwner返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchStatus;
+
                 /**
                 * CheckBatchStatus返回参数结构体
                 */

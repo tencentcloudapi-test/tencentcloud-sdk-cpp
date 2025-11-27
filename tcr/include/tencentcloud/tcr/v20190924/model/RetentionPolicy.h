@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RetentionRule;
+
                 /**
                 * 版本保留策略
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RetentionPolicy();
-                    ~RetentionPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

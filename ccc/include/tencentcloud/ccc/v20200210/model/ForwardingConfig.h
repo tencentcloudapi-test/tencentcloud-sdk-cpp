@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ForwardingTarget;
+
                 /**
                 * 呼转配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ForwardingConfig();
-                    ~ForwardingConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

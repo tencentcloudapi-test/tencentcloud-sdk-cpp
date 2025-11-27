@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NacosReplica;
+
                 /**
                 * DescribeNacosReplicas返回参数结构体
                 */

@@ -62,32 +62,25 @@ BtoeClient::CreateAudioDepositOutcome BtoeClient::CreateAudioDeposit(const Creat
 
 void BtoeClient::CreateAudioDepositAsync(const CreateAudioDepositRequest& request, const CreateAudioDepositAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAudioDepositRequest&;
-    using Resp = CreateAudioDepositResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAudioDeposit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAudioDeposit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateAudioDepositOutcomeCallable BtoeClient::CreateAudioDepositCallable(const CreateAudioDepositRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAudioDepositOutcome>>();
-    CreateAudioDepositAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateAudioDepositRequest&,
-        CreateAudioDepositOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAudioDepositOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAudioDeposit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::CreateDataDepositOutcome BtoeClient::CreateDataDeposit(const CreateDataDepositRequest &request)
@@ -112,32 +105,25 @@ BtoeClient::CreateDataDepositOutcome BtoeClient::CreateDataDeposit(const CreateD
 
 void BtoeClient::CreateDataDepositAsync(const CreateDataDepositRequest& request, const CreateDataDepositAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDataDepositRequest&;
-    using Resp = CreateDataDepositResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDataDeposit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDataDeposit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateDataDepositOutcomeCallable BtoeClient::CreateDataDepositCallable(const CreateDataDepositRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDataDepositOutcome>>();
-    CreateDataDepositAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateDataDepositRequest&,
-        CreateDataDepositOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDataDepositOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDataDeposit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::CreateDocDepositOutcome BtoeClient::CreateDocDeposit(const CreateDocDepositRequest &request)
@@ -162,32 +148,25 @@ BtoeClient::CreateDocDepositOutcome BtoeClient::CreateDocDeposit(const CreateDoc
 
 void BtoeClient::CreateDocDepositAsync(const CreateDocDepositRequest& request, const CreateDocDepositAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDocDepositRequest&;
-    using Resp = CreateDocDepositResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDocDeposit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDocDeposit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateDocDepositOutcomeCallable BtoeClient::CreateDocDepositCallable(const CreateDocDepositRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDocDepositOutcome>>();
-    CreateDocDepositAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateDocDepositRequest&,
-        CreateDocDepositOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDocDepositOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDocDeposit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::CreateHashDepositOutcome BtoeClient::CreateHashDeposit(const CreateHashDepositRequest &request)
@@ -212,32 +191,25 @@ BtoeClient::CreateHashDepositOutcome BtoeClient::CreateHashDeposit(const CreateH
 
 void BtoeClient::CreateHashDepositAsync(const CreateHashDepositRequest& request, const CreateHashDepositAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHashDepositRequest&;
-    using Resp = CreateHashDepositResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHashDeposit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHashDeposit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateHashDepositOutcomeCallable BtoeClient::CreateHashDepositCallable(const CreateHashDepositRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHashDepositOutcome>>();
-    CreateHashDepositAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateHashDepositRequest&,
-        CreateHashDepositOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHashDepositOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHashDeposit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::CreateHashDepositNoCertOutcome BtoeClient::CreateHashDepositNoCert(const CreateHashDepositNoCertRequest &request)
@@ -262,32 +234,25 @@ BtoeClient::CreateHashDepositNoCertOutcome BtoeClient::CreateHashDepositNoCert(c
 
 void BtoeClient::CreateHashDepositNoCertAsync(const CreateHashDepositNoCertRequest& request, const CreateHashDepositNoCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHashDepositNoCertRequest&;
-    using Resp = CreateHashDepositNoCertResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHashDepositNoCert(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHashDepositNoCert", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateHashDepositNoCertOutcomeCallable BtoeClient::CreateHashDepositNoCertCallable(const CreateHashDepositNoCertRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHashDepositNoCertOutcome>>();
-    CreateHashDepositNoCertAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateHashDepositNoCertRequest&,
-        CreateHashDepositNoCertOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHashDepositNoCertOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHashDepositNoCert(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::CreateHashDepositNoSealOutcome BtoeClient::CreateHashDepositNoSeal(const CreateHashDepositNoSealRequest &request)
@@ -312,32 +277,25 @@ BtoeClient::CreateHashDepositNoSealOutcome BtoeClient::CreateHashDepositNoSeal(c
 
 void BtoeClient::CreateHashDepositNoSealAsync(const CreateHashDepositNoSealRequest& request, const CreateHashDepositNoSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHashDepositNoSealRequest&;
-    using Resp = CreateHashDepositNoSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHashDepositNoSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHashDepositNoSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateHashDepositNoSealOutcomeCallable BtoeClient::CreateHashDepositNoSealCallable(const CreateHashDepositNoSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHashDepositNoSealOutcome>>();
-    CreateHashDepositNoSealAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateHashDepositNoSealRequest&,
-        CreateHashDepositNoSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHashDepositNoSealOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHashDepositNoSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::CreateImageDepositOutcome BtoeClient::CreateImageDeposit(const CreateImageDepositRequest &request)
@@ -362,32 +320,25 @@ BtoeClient::CreateImageDepositOutcome BtoeClient::CreateImageDeposit(const Creat
 
 void BtoeClient::CreateImageDepositAsync(const CreateImageDepositRequest& request, const CreateImageDepositAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateImageDepositRequest&;
-    using Resp = CreateImageDepositResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateImageDeposit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateImageDeposit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateImageDepositOutcomeCallable BtoeClient::CreateImageDepositCallable(const CreateImageDepositRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateImageDepositOutcome>>();
-    CreateImageDepositAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateImageDepositRequest&,
-        CreateImageDepositOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateImageDepositOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateImageDeposit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::CreateVideoDepositOutcome BtoeClient::CreateVideoDeposit(const CreateVideoDepositRequest &request)
@@ -412,32 +363,25 @@ BtoeClient::CreateVideoDepositOutcome BtoeClient::CreateVideoDeposit(const Creat
 
 void BtoeClient::CreateVideoDepositAsync(const CreateVideoDepositRequest& request, const CreateVideoDepositAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVideoDepositRequest&;
-    using Resp = CreateVideoDepositResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVideoDeposit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoDeposit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateVideoDepositOutcomeCallable BtoeClient::CreateVideoDepositCallable(const CreateVideoDepositRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVideoDepositOutcome>>();
-    CreateVideoDepositAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateVideoDepositRequest&,
-        CreateVideoDepositOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVideoDepositOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVideoDeposit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::CreateWebpageDepositOutcome BtoeClient::CreateWebpageDeposit(const CreateWebpageDepositRequest &request)
@@ -462,32 +406,25 @@ BtoeClient::CreateWebpageDepositOutcome BtoeClient::CreateWebpageDeposit(const C
 
 void BtoeClient::CreateWebpageDepositAsync(const CreateWebpageDepositRequest& request, const CreateWebpageDepositAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWebpageDepositRequest&;
-    using Resp = CreateWebpageDepositResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWebpageDeposit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWebpageDeposit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::CreateWebpageDepositOutcomeCallable BtoeClient::CreateWebpageDepositCallable(const CreateWebpageDepositRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWebpageDepositOutcome>>();
-    CreateWebpageDepositAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const CreateWebpageDepositRequest&,
-        CreateWebpageDepositOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWebpageDepositOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWebpageDeposit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::GetDepositCertOutcome BtoeClient::GetDepositCert(const GetDepositCertRequest &request)
@@ -512,32 +449,25 @@ BtoeClient::GetDepositCertOutcome BtoeClient::GetDepositCert(const GetDepositCer
 
 void BtoeClient::GetDepositCertAsync(const GetDepositCertRequest& request, const GetDepositCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetDepositCertRequest&;
-    using Resp = GetDepositCertResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetDepositCert(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetDepositCert", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::GetDepositCertOutcomeCallable BtoeClient::GetDepositCertCallable(const GetDepositCertRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetDepositCertOutcome>>();
-    GetDepositCertAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const GetDepositCertRequest&,
-        GetDepositCertOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetDepositCertOutcome()>>(
+        [this, request]()
+        {
+            return this->GetDepositCert(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::GetDepositFileOutcome BtoeClient::GetDepositFile(const GetDepositFileRequest &request)
@@ -562,32 +492,25 @@ BtoeClient::GetDepositFileOutcome BtoeClient::GetDepositFile(const GetDepositFil
 
 void BtoeClient::GetDepositFileAsync(const GetDepositFileRequest& request, const GetDepositFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetDepositFileRequest&;
-    using Resp = GetDepositFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetDepositFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetDepositFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::GetDepositFileOutcomeCallable BtoeClient::GetDepositFileCallable(const GetDepositFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetDepositFileOutcome>>();
-    GetDepositFileAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const GetDepositFileRequest&,
-        GetDepositFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetDepositFileOutcome()>>(
+        [this, request]()
+        {
+            return this->GetDepositFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BtoeClient::GetDepositInfoOutcome BtoeClient::GetDepositInfo(const GetDepositInfoRequest &request)
@@ -612,31 +535,24 @@ BtoeClient::GetDepositInfoOutcome BtoeClient::GetDepositInfo(const GetDepositInf
 
 void BtoeClient::GetDepositInfoAsync(const GetDepositInfoRequest& request, const GetDepositInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetDepositInfoRequest&;
-    using Resp = GetDepositInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetDepositInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetDepositInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BtoeClient::GetDepositInfoOutcomeCallable BtoeClient::GetDepositInfoCallable(const GetDepositInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetDepositInfoOutcome>>();
-    GetDepositInfoAsync(
-    request,
-    [prom](
-        const BtoeClient*,
-        const GetDepositInfoRequest&,
-        GetDepositInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetDepositInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->GetDepositInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

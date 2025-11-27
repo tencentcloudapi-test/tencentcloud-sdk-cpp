@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TemplateInfo;
+
                 /**
                 * DescribeFlowTemplates返回参数结构体
                 */

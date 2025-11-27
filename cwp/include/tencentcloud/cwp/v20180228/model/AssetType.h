@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 资产指纹类型描述
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AssetType();
-                    ~AssetType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

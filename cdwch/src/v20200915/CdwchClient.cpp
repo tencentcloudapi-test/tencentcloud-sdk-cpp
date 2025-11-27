@@ -62,32 +62,25 @@ CdwchClient::ActionAlterCkUserOutcome CdwchClient::ActionAlterCkUser(const Actio
 
 void CdwchClient::ActionAlterCkUserAsync(const ActionAlterCkUserRequest& request, const ActionAlterCkUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ActionAlterCkUserRequest&;
-    using Resp = ActionAlterCkUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ActionAlterCkUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ActionAlterCkUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::ActionAlterCkUserOutcomeCallable CdwchClient::ActionAlterCkUserCallable(const ActionAlterCkUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ActionAlterCkUserOutcome>>();
-    ActionAlterCkUserAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const ActionAlterCkUserRequest&,
-        ActionAlterCkUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ActionAlterCkUserOutcome()>>(
+        [this, request]()
+        {
+            return this->ActionAlterCkUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::CreateBackUpScheduleOutcome CdwchClient::CreateBackUpSchedule(const CreateBackUpScheduleRequest &request)
@@ -112,32 +105,25 @@ CdwchClient::CreateBackUpScheduleOutcome CdwchClient::CreateBackUpSchedule(const
 
 void CdwchClient::CreateBackUpScheduleAsync(const CreateBackUpScheduleRequest& request, const CreateBackUpScheduleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBackUpScheduleRequest&;
-    using Resp = CreateBackUpScheduleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBackUpSchedule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBackUpSchedule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::CreateBackUpScheduleOutcomeCallable CdwchClient::CreateBackUpScheduleCallable(const CreateBackUpScheduleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBackUpScheduleOutcome>>();
-    CreateBackUpScheduleAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const CreateBackUpScheduleRequest&,
-        CreateBackUpScheduleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBackUpScheduleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBackUpSchedule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::CreateInstanceNewOutcome CdwchClient::CreateInstanceNew(const CreateInstanceNewRequest &request)
@@ -162,32 +148,25 @@ CdwchClient::CreateInstanceNewOutcome CdwchClient::CreateInstanceNew(const Creat
 
 void CdwchClient::CreateInstanceNewAsync(const CreateInstanceNewRequest& request, const CreateInstanceNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateInstanceNewRequest&;
-    using Resp = CreateInstanceNewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateInstanceNew(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateInstanceNew", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::CreateInstanceNewOutcomeCallable CdwchClient::CreateInstanceNewCallable(const CreateInstanceNewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateInstanceNewOutcome>>();
-    CreateInstanceNewAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const CreateInstanceNewRequest&,
-        CreateInstanceNewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateInstanceNewOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateInstanceNew(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DeleteBackUpDataOutcome CdwchClient::DeleteBackUpData(const DeleteBackUpDataRequest &request)
@@ -212,32 +191,25 @@ CdwchClient::DeleteBackUpDataOutcome CdwchClient::DeleteBackUpData(const DeleteB
 
 void CdwchClient::DeleteBackUpDataAsync(const DeleteBackUpDataRequest& request, const DeleteBackUpDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteBackUpDataRequest&;
-    using Resp = DeleteBackUpDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteBackUpData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteBackUpData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DeleteBackUpDataOutcomeCallable CdwchClient::DeleteBackUpDataCallable(const DeleteBackUpDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteBackUpDataOutcome>>();
-    DeleteBackUpDataAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DeleteBackUpDataRequest&,
-        DeleteBackUpDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteBackUpDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteBackUpData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeBackUpJobOutcome CdwchClient::DescribeBackUpJob(const DescribeBackUpJobRequest &request)
@@ -262,32 +234,25 @@ CdwchClient::DescribeBackUpJobOutcome CdwchClient::DescribeBackUpJob(const Descr
 
 void CdwchClient::DescribeBackUpJobAsync(const DescribeBackUpJobRequest& request, const DescribeBackUpJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackUpJobRequest&;
-    using Resp = DescribeBackUpJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackUpJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackUpJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeBackUpJobOutcomeCallable CdwchClient::DescribeBackUpJobCallable(const DescribeBackUpJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackUpJobOutcome>>();
-    DescribeBackUpJobAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeBackUpJobRequest&,
-        DescribeBackUpJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackUpJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackUpJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeBackUpJobDetailOutcome CdwchClient::DescribeBackUpJobDetail(const DescribeBackUpJobDetailRequest &request)
@@ -312,32 +277,25 @@ CdwchClient::DescribeBackUpJobDetailOutcome CdwchClient::DescribeBackUpJobDetail
 
 void CdwchClient::DescribeBackUpJobDetailAsync(const DescribeBackUpJobDetailRequest& request, const DescribeBackUpJobDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackUpJobDetailRequest&;
-    using Resp = DescribeBackUpJobDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackUpJobDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackUpJobDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeBackUpJobDetailOutcomeCallable CdwchClient::DescribeBackUpJobDetailCallable(const DescribeBackUpJobDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackUpJobDetailOutcome>>();
-    DescribeBackUpJobDetailAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeBackUpJobDetailRequest&,
-        DescribeBackUpJobDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackUpJobDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackUpJobDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeBackUpScheduleOutcome CdwchClient::DescribeBackUpSchedule(const DescribeBackUpScheduleRequest &request)
@@ -362,32 +320,25 @@ CdwchClient::DescribeBackUpScheduleOutcome CdwchClient::DescribeBackUpSchedule(c
 
 void CdwchClient::DescribeBackUpScheduleAsync(const DescribeBackUpScheduleRequest& request, const DescribeBackUpScheduleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackUpScheduleRequest&;
-    using Resp = DescribeBackUpScheduleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackUpSchedule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackUpSchedule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeBackUpScheduleOutcomeCallable CdwchClient::DescribeBackUpScheduleCallable(const DescribeBackUpScheduleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackUpScheduleOutcome>>();
-    DescribeBackUpScheduleAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeBackUpScheduleRequest&,
-        DescribeBackUpScheduleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackUpScheduleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackUpSchedule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeBackUpTablesOutcome CdwchClient::DescribeBackUpTables(const DescribeBackUpTablesRequest &request)
@@ -412,32 +363,25 @@ CdwchClient::DescribeBackUpTablesOutcome CdwchClient::DescribeBackUpTables(const
 
 void CdwchClient::DescribeBackUpTablesAsync(const DescribeBackUpTablesRequest& request, const DescribeBackUpTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackUpTablesRequest&;
-    using Resp = DescribeBackUpTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackUpTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackUpTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeBackUpTablesOutcomeCallable CdwchClient::DescribeBackUpTablesCallable(const DescribeBackUpTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackUpTablesOutcome>>();
-    DescribeBackUpTablesAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeBackUpTablesRequest&,
-        DescribeBackUpTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackUpTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackUpTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeCNInstancesOutcome CdwchClient::DescribeCNInstances(const DescribeCNInstancesRequest &request)
@@ -462,32 +406,25 @@ CdwchClient::DescribeCNInstancesOutcome CdwchClient::DescribeCNInstances(const D
 
 void CdwchClient::DescribeCNInstancesAsync(const DescribeCNInstancesRequest& request, const DescribeCNInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCNInstancesRequest&;
-    using Resp = DescribeCNInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCNInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCNInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeCNInstancesOutcomeCallable CdwchClient::DescribeCNInstancesCallable(const DescribeCNInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCNInstancesOutcome>>();
-    DescribeCNInstancesAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeCNInstancesRequest&,
-        DescribeCNInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCNInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCNInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeCkSqlApisOutcome CdwchClient::DescribeCkSqlApis(const DescribeCkSqlApisRequest &request)
@@ -512,32 +449,25 @@ CdwchClient::DescribeCkSqlApisOutcome CdwchClient::DescribeCkSqlApis(const Descr
 
 void CdwchClient::DescribeCkSqlApisAsync(const DescribeCkSqlApisRequest& request, const DescribeCkSqlApisAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCkSqlApisRequest&;
-    using Resp = DescribeCkSqlApisResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCkSqlApis(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCkSqlApis", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeCkSqlApisOutcomeCallable CdwchClient::DescribeCkSqlApisCallable(const DescribeCkSqlApisRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCkSqlApisOutcome>>();
-    DescribeCkSqlApisAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeCkSqlApisRequest&,
-        DescribeCkSqlApisOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCkSqlApisOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCkSqlApis(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeClusterConfigsOutcome CdwchClient::DescribeClusterConfigs(const DescribeClusterConfigsRequest &request)
@@ -562,32 +492,25 @@ CdwchClient::DescribeClusterConfigsOutcome CdwchClient::DescribeClusterConfigs(c
 
 void CdwchClient::DescribeClusterConfigsAsync(const DescribeClusterConfigsRequest& request, const DescribeClusterConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeClusterConfigsRequest&;
-    using Resp = DescribeClusterConfigsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeClusterConfigs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeClusterConfigs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeClusterConfigsOutcomeCallable CdwchClient::DescribeClusterConfigsCallable(const DescribeClusterConfigsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeClusterConfigsOutcome>>();
-    DescribeClusterConfigsAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeClusterConfigsRequest&,
-        DescribeClusterConfigsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeClusterConfigsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeClusterConfigs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeInstanceOutcome CdwchClient::DescribeInstance(const DescribeInstanceRequest &request)
@@ -612,32 +535,25 @@ CdwchClient::DescribeInstanceOutcome CdwchClient::DescribeInstance(const Describ
 
 void CdwchClient::DescribeInstanceAsync(const DescribeInstanceRequest& request, const DescribeInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceRequest&;
-    using Resp = DescribeInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeInstanceOutcomeCallable CdwchClient::DescribeInstanceCallable(const DescribeInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceOutcome>>();
-    DescribeInstanceAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeInstanceRequest&,
-        DescribeInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeInstanceClustersOutcome CdwchClient::DescribeInstanceClusters(const DescribeInstanceClustersRequest &request)
@@ -662,32 +578,25 @@ CdwchClient::DescribeInstanceClustersOutcome CdwchClient::DescribeInstanceCluste
 
 void CdwchClient::DescribeInstanceClustersAsync(const DescribeInstanceClustersRequest& request, const DescribeInstanceClustersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceClustersRequest&;
-    using Resp = DescribeInstanceClustersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceClusters(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceClusters", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeInstanceClustersOutcomeCallable CdwchClient::DescribeInstanceClustersCallable(const DescribeInstanceClustersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceClustersOutcome>>();
-    DescribeInstanceClustersAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeInstanceClustersRequest&,
-        DescribeInstanceClustersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceClustersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceClusters(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeInstanceKeyValConfigsOutcome CdwchClient::DescribeInstanceKeyValConfigs(const DescribeInstanceKeyValConfigsRequest &request)
@@ -712,32 +621,25 @@ CdwchClient::DescribeInstanceKeyValConfigsOutcome CdwchClient::DescribeInstanceK
 
 void CdwchClient::DescribeInstanceKeyValConfigsAsync(const DescribeInstanceKeyValConfigsRequest& request, const DescribeInstanceKeyValConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceKeyValConfigsRequest&;
-    using Resp = DescribeInstanceKeyValConfigsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceKeyValConfigs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceKeyValConfigs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeInstanceKeyValConfigsOutcomeCallable CdwchClient::DescribeInstanceKeyValConfigsCallable(const DescribeInstanceKeyValConfigsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceKeyValConfigsOutcome>>();
-    DescribeInstanceKeyValConfigsAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeInstanceKeyValConfigsRequest&,
-        DescribeInstanceKeyValConfigsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceKeyValConfigsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceKeyValConfigs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeInstanceNodesOutcome CdwchClient::DescribeInstanceNodes(const DescribeInstanceNodesRequest &request)
@@ -762,32 +664,25 @@ CdwchClient::DescribeInstanceNodesOutcome CdwchClient::DescribeInstanceNodes(con
 
 void CdwchClient::DescribeInstanceNodesAsync(const DescribeInstanceNodesRequest& request, const DescribeInstanceNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceNodesRequest&;
-    using Resp = DescribeInstanceNodesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceNodes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceNodes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeInstanceNodesOutcomeCallable CdwchClient::DescribeInstanceNodesCallable(const DescribeInstanceNodesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceNodesOutcome>>();
-    DescribeInstanceNodesAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeInstanceNodesRequest&,
-        DescribeInstanceNodesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceNodesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceNodes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeInstanceShardsOutcome CdwchClient::DescribeInstanceShards(const DescribeInstanceShardsRequest &request)
@@ -812,32 +707,25 @@ CdwchClient::DescribeInstanceShardsOutcome CdwchClient::DescribeInstanceShards(c
 
 void CdwchClient::DescribeInstanceShardsAsync(const DescribeInstanceShardsRequest& request, const DescribeInstanceShardsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceShardsRequest&;
-    using Resp = DescribeInstanceShardsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceShards(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceShards", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeInstanceShardsOutcomeCallable CdwchClient::DescribeInstanceShardsCallable(const DescribeInstanceShardsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceShardsOutcome>>();
-    DescribeInstanceShardsAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeInstanceShardsRequest&,
-        DescribeInstanceShardsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceShardsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceShards(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeInstanceStateOutcome CdwchClient::DescribeInstanceState(const DescribeInstanceStateRequest &request)
@@ -862,32 +750,25 @@ CdwchClient::DescribeInstanceStateOutcome CdwchClient::DescribeInstanceState(con
 
 void CdwchClient::DescribeInstanceStateAsync(const DescribeInstanceStateRequest& request, const DescribeInstanceStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceStateRequest&;
-    using Resp = DescribeInstanceStateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceState(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceState", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeInstanceStateOutcomeCallable CdwchClient::DescribeInstanceStateCallable(const DescribeInstanceStateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceStateOutcome>>();
-    DescribeInstanceStateAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeInstanceStateRequest&,
-        DescribeInstanceStateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceStateOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceState(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeInstancesNewOutcome CdwchClient::DescribeInstancesNew(const DescribeInstancesNewRequest &request)
@@ -912,32 +793,25 @@ CdwchClient::DescribeInstancesNewOutcome CdwchClient::DescribeInstancesNew(const
 
 void CdwchClient::DescribeInstancesNewAsync(const DescribeInstancesNewRequest& request, const DescribeInstancesNewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesNewRequest&;
-    using Resp = DescribeInstancesNewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstancesNew(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstancesNew", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeInstancesNewOutcomeCallable CdwchClient::DescribeInstancesNewCallable(const DescribeInstancesNewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesNewOutcome>>();
-    DescribeInstancesNewAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeInstancesNewRequest&,
-        DescribeInstancesNewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesNewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstancesNew(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DescribeSpecOutcome CdwchClient::DescribeSpec(const DescribeSpecRequest &request)
@@ -962,32 +836,25 @@ CdwchClient::DescribeSpecOutcome CdwchClient::DescribeSpec(const DescribeSpecReq
 
 void CdwchClient::DescribeSpecAsync(const DescribeSpecRequest& request, const DescribeSpecAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSpecRequest&;
-    using Resp = DescribeSpecResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSpec(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSpec", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DescribeSpecOutcomeCallable CdwchClient::DescribeSpecCallable(const DescribeSpecRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSpecOutcome>>();
-    DescribeSpecAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DescribeSpecRequest&,
-        DescribeSpecOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSpecOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSpec(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::DestroyInstanceOutcome CdwchClient::DestroyInstance(const DestroyInstanceRequest &request)
@@ -1012,32 +879,25 @@ CdwchClient::DestroyInstanceOutcome CdwchClient::DestroyInstance(const DestroyIn
 
 void CdwchClient::DestroyInstanceAsync(const DestroyInstanceRequest& request, const DestroyInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyInstanceRequest&;
-    using Resp = DestroyInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::DestroyInstanceOutcomeCallable CdwchClient::DestroyInstanceCallable(const DestroyInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyInstanceOutcome>>();
-    DestroyInstanceAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const DestroyInstanceRequest&,
-        DestroyInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::ModifyClusterConfigsOutcome CdwchClient::ModifyClusterConfigs(const ModifyClusterConfigsRequest &request)
@@ -1062,32 +922,25 @@ CdwchClient::ModifyClusterConfigsOutcome CdwchClient::ModifyClusterConfigs(const
 
 void CdwchClient::ModifyClusterConfigsAsync(const ModifyClusterConfigsRequest& request, const ModifyClusterConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyClusterConfigsRequest&;
-    using Resp = ModifyClusterConfigsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyClusterConfigs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyClusterConfigs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::ModifyClusterConfigsOutcomeCallable CdwchClient::ModifyClusterConfigsCallable(const ModifyClusterConfigsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyClusterConfigsOutcome>>();
-    ModifyClusterConfigsAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const ModifyClusterConfigsRequest&,
-        ModifyClusterConfigsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyClusterConfigsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyClusterConfigs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::ModifyInstanceKeyValConfigsOutcome CdwchClient::ModifyInstanceKeyValConfigs(const ModifyInstanceKeyValConfigsRequest &request)
@@ -1112,32 +965,25 @@ CdwchClient::ModifyInstanceKeyValConfigsOutcome CdwchClient::ModifyInstanceKeyVa
 
 void CdwchClient::ModifyInstanceKeyValConfigsAsync(const ModifyInstanceKeyValConfigsRequest& request, const ModifyInstanceKeyValConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceKeyValConfigsRequest&;
-    using Resp = ModifyInstanceKeyValConfigsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceKeyValConfigs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceKeyValConfigs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::ModifyInstanceKeyValConfigsOutcomeCallable CdwchClient::ModifyInstanceKeyValConfigsCallable(const ModifyInstanceKeyValConfigsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceKeyValConfigsOutcome>>();
-    ModifyInstanceKeyValConfigsAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const ModifyInstanceKeyValConfigsRequest&,
-        ModifyInstanceKeyValConfigsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceKeyValConfigsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceKeyValConfigs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::ModifyUserNewPrivilegeOutcome CdwchClient::ModifyUserNewPrivilege(const ModifyUserNewPrivilegeRequest &request)
@@ -1162,32 +1008,25 @@ CdwchClient::ModifyUserNewPrivilegeOutcome CdwchClient::ModifyUserNewPrivilege(c
 
 void CdwchClient::ModifyUserNewPrivilegeAsync(const ModifyUserNewPrivilegeRequest& request, const ModifyUserNewPrivilegeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserNewPrivilegeRequest&;
-    using Resp = ModifyUserNewPrivilegeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserNewPrivilege(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserNewPrivilege", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::ModifyUserNewPrivilegeOutcomeCallable CdwchClient::ModifyUserNewPrivilegeCallable(const ModifyUserNewPrivilegeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserNewPrivilegeOutcome>>();
-    ModifyUserNewPrivilegeAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const ModifyUserNewPrivilegeRequest&,
-        ModifyUserNewPrivilegeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserNewPrivilegeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserNewPrivilege(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::OpenBackUpOutcome CdwchClient::OpenBackUp(const OpenBackUpRequest &request)
@@ -1212,32 +1051,25 @@ CdwchClient::OpenBackUpOutcome CdwchClient::OpenBackUp(const OpenBackUpRequest &
 
 void CdwchClient::OpenBackUpAsync(const OpenBackUpRequest& request, const OpenBackUpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenBackUpRequest&;
-    using Resp = OpenBackUpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenBackUp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenBackUp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::OpenBackUpOutcomeCallable CdwchClient::OpenBackUpCallable(const OpenBackUpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenBackUpOutcome>>();
-    OpenBackUpAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const OpenBackUpRequest&,
-        OpenBackUpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenBackUpOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenBackUp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::RecoverBackUpJobOutcome CdwchClient::RecoverBackUpJob(const RecoverBackUpJobRequest &request)
@@ -1262,32 +1094,25 @@ CdwchClient::RecoverBackUpJobOutcome CdwchClient::RecoverBackUpJob(const Recover
 
 void CdwchClient::RecoverBackUpJobAsync(const RecoverBackUpJobRequest& request, const RecoverBackUpJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RecoverBackUpJobRequest&;
-    using Resp = RecoverBackUpJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RecoverBackUpJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RecoverBackUpJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::RecoverBackUpJobOutcomeCallable CdwchClient::RecoverBackUpJobCallable(const RecoverBackUpJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RecoverBackUpJobOutcome>>();
-    RecoverBackUpJobAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const RecoverBackUpJobRequest&,
-        RecoverBackUpJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RecoverBackUpJobOutcome()>>(
+        [this, request]()
+        {
+            return this->RecoverBackUpJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::ResizeDiskOutcome CdwchClient::ResizeDisk(const ResizeDiskRequest &request)
@@ -1312,32 +1137,25 @@ CdwchClient::ResizeDiskOutcome CdwchClient::ResizeDisk(const ResizeDiskRequest &
 
 void CdwchClient::ResizeDiskAsync(const ResizeDiskRequest& request, const ResizeDiskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResizeDiskRequest&;
-    using Resp = ResizeDiskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResizeDisk(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResizeDisk", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::ResizeDiskOutcomeCallable CdwchClient::ResizeDiskCallable(const ResizeDiskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResizeDiskOutcome>>();
-    ResizeDiskAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const ResizeDiskRequest&,
-        ResizeDiskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResizeDiskOutcome()>>(
+        [this, request]()
+        {
+            return this->ResizeDisk(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::ScaleCNOutUpInstanceOutcome CdwchClient::ScaleCNOutUpInstance(const ScaleCNOutUpInstanceRequest &request)
@@ -1362,32 +1180,25 @@ CdwchClient::ScaleCNOutUpInstanceOutcome CdwchClient::ScaleCNOutUpInstance(const
 
 void CdwchClient::ScaleCNOutUpInstanceAsync(const ScaleCNOutUpInstanceRequest& request, const ScaleCNOutUpInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleCNOutUpInstanceRequest&;
-    using Resp = ScaleCNOutUpInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleCNOutUpInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleCNOutUpInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::ScaleCNOutUpInstanceOutcomeCallable CdwchClient::ScaleCNOutUpInstanceCallable(const ScaleCNOutUpInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleCNOutUpInstanceOutcome>>();
-    ScaleCNOutUpInstanceAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const ScaleCNOutUpInstanceRequest&,
-        ScaleCNOutUpInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleCNOutUpInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleCNOutUpInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::ScaleOutInstanceOutcome CdwchClient::ScaleOutInstance(const ScaleOutInstanceRequest &request)
@@ -1412,32 +1223,25 @@ CdwchClient::ScaleOutInstanceOutcome CdwchClient::ScaleOutInstance(const ScaleOu
 
 void CdwchClient::ScaleOutInstanceAsync(const ScaleOutInstanceRequest& request, const ScaleOutInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleOutInstanceRequest&;
-    using Resp = ScaleOutInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleOutInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleOutInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::ScaleOutInstanceOutcomeCallable CdwchClient::ScaleOutInstanceCallable(const ScaleOutInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleOutInstanceOutcome>>();
-    ScaleOutInstanceAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const ScaleOutInstanceRequest&,
-        ScaleOutInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleOutInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleOutInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwchClient::ScaleUpInstanceOutcome CdwchClient::ScaleUpInstance(const ScaleUpInstanceRequest &request)
@@ -1462,31 +1266,24 @@ CdwchClient::ScaleUpInstanceOutcome CdwchClient::ScaleUpInstance(const ScaleUpIn
 
 void CdwchClient::ScaleUpInstanceAsync(const ScaleUpInstanceRequest& request, const ScaleUpInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleUpInstanceRequest&;
-    using Resp = ScaleUpInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleUpInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleUpInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwchClient::ScaleUpInstanceOutcomeCallable CdwchClient::ScaleUpInstanceCallable(const ScaleUpInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleUpInstanceOutcome>>();
-    ScaleUpInstanceAsync(
-    request,
-    [prom](
-        const CdwchClient*,
-        const ScaleUpInstanceRequest&,
-        ScaleUpInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleUpInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleUpInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

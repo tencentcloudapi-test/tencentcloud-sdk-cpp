@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SsoTeamUserResult;
+
                 /**
                 * DescribeWorkspaceUserList返回参数结构体
                 */

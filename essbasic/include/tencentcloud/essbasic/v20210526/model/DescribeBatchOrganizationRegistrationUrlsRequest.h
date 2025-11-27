@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+
                 /**
                 * DescribeBatchOrganizationRegistrationUrls请求参数结构体
                 */

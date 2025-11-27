@@ -27,7 +27,6 @@
 #include <tencentcloud/wedata/v20210820/model/TaskTypeDsVO.h>
 #include <tencentcloud/wedata/v20210820/model/TaskExtDsVO.h>
 #include <tencentcloud/wedata/v20210820/model/AlarmDsVO.h>
-#include <tencentcloud/wedata/v20210820/model/TaskDsDTO.h>
 #include <tencentcloud/wedata/v20210820/model/DependencyConfigDsDTO.h>
 #include <tencentcloud/wedata/v20210820/model/ParameterTaskDsDto.h>
 #include <tencentcloud/wedata/v20210820/model/TaskLinkDsDTO.h>
@@ -45,6 +44,17 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskTypeDsVO;
+                class TaskExtDsVO;
+                class AlarmDsVO;
+                class DependencyConfigDsDTO;
+                class ParameterTaskDsDto;
+                class TaskLinkDsDTO;
+                class ParameterTaskInDsDto;
+                class ParameterTaskOutDsDto;
+                class TaskDataRegistryDTO;
+                class TaskCycleLinkDTO;
+
                 /**
                 * 任务信息
                 */
@@ -52,7 +62,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskDsDTO();
-                    ~TaskDsDTO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

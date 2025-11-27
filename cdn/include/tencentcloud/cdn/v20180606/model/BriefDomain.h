@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Origin;
+
                 /**
                 * 域名基础配置信息，含 CNAME、状态、业务类型、加速区域、创建时间、更新时间、源站配置等。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BriefDomain();
-                    ~BriefDomain() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

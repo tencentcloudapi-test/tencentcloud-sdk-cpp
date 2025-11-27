@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ManageInternalEndpoint返回参数结构体
                 */

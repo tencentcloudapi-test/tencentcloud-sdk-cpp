@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServerPushText;
+                class InvokeLLM;
+
                 /**
                 * ControlAIConversation请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JgwOperateResponse;
+
                 /**
                 * ModifyTopicAttributes返回参数结构体
                 */

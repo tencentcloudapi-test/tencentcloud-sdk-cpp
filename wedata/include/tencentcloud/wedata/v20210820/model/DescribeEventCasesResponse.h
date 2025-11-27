@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EventCaseAuditLogVOCollection;
+
                 /**
                 * DescribeEventCases返回参数结构体
                 */

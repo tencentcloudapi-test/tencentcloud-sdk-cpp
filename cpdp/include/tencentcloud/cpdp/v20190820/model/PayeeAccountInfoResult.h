@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PayeeAccountUserInfo;
+                class PayeeAccountPropertyInfo;
+
                 /**
                 * 账户信息结果
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     PayeeAccountInfoResult();
-                    ~PayeeAccountInfoResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

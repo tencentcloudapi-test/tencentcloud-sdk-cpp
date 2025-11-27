@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Caller;
+                class SignSeal;
+
                 /**
                 * SignFlow请求参数结构体
                 */

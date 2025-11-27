@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AnalysisItems;
+
                 /**
                 * 慢SQL 统计分析接口返回详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Detail();
-                    ~Detail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

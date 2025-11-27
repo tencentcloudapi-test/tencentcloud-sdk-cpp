@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityGroupInfo;
+
                 /**
                 * DescribeStreamLinkSecurityGroups返回参数结构体
                 */

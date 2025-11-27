@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EcgDescription;
+                class EcgDiagnosis;
+
                 /**
                 * 心电图
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Electrocardiogram();
-                    ~Electrocardiogram() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

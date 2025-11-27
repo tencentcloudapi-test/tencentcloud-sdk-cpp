@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MultiPathGatewayCurrentOriginACL;
+                class MultiPathGatewayNextOriginACL;
+
                 /**
                 * 多通道网关示例实例与回源 IP 网段的绑定关系，以及回源 IP 网段详情。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MultiPathGatewayOriginACLInfo();
-                    ~MultiPathGatewayOriginACLInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

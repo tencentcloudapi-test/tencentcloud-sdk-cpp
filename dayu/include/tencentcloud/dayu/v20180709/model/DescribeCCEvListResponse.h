@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CCEventRecord;
+
                 /**
                 * DescribeCCEvList返回参数结构体
                 */

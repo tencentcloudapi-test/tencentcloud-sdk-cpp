@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 转发到第三方http(s)服务
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ServiceAction();
-                    ~ServiceAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

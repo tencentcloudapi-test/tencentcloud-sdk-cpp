@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * IPSec配置，腾讯云提供IPSec安全会话设置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IPSECOptionsSpecification();
-                    ~IPSECOptionsSpecification() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

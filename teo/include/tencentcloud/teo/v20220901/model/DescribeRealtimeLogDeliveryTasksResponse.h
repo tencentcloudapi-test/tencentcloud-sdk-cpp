@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RealtimeLogDeliveryTask;
+
                 /**
                 * DescribeRealtimeLogDeliveryTasks返回参数结构体
                 */

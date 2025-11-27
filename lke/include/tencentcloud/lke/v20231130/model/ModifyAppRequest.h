@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaseConfig;
+                class AppConfig;
+
                 /**
                 * ModifyApp请求参数结构体
                 */

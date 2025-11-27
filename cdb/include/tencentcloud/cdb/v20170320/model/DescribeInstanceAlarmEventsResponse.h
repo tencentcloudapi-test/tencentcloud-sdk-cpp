@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstEventInfo;
+
                 /**
                 * DescribeInstanceAlarmEvents返回参数结构体
                 */

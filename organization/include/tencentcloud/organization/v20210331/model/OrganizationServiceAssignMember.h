@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MemberMainInfo;
+                class NodeMainInfo;
+
                 /**
                 * 集团服务委派成员信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     OrganizationServiceAssignMember();
-                    ~OrganizationServiceAssignMember() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

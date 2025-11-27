@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视频片头片尾识别输出。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AiRecognitionTaskHeadTailResultOutput();
-                    ~AiRecognitionTaskHeadTailResultOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

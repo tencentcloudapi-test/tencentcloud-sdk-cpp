@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DDoSAIRelation;
+
                 /**
                 * DescribeListDDoSAI返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowFolder;
+
                 /**
                 * 资源文件分页
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowFolderPage();
-                    ~WorkflowFolderPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

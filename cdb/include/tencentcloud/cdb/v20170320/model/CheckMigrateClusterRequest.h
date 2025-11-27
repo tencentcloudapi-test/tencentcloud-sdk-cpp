@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClusterTopology;
+                class MigrateClusterRoInfo;
+
                 /**
                 * CheckMigrateCluster请求参数结构体
                 */

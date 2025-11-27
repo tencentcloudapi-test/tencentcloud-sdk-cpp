@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TsfPageMsInstance;
+
                 /**
                 * DescribeMicroservice返回参数结构体
                 */

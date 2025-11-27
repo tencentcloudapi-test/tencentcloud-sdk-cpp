@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BudgetRemindRecordList;
+
                 /**
                 * DescribeBudgetRemindRecordList返回参数结构体
                 */

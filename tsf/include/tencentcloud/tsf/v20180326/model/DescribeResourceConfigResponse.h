@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeResourceConfigResultV2;
+
                 /**
                 * DescribeResourceConfig返回参数结构体
                 */

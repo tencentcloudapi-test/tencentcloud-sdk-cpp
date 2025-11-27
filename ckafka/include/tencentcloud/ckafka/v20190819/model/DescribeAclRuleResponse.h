@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AclRuleResp;
+
                 /**
                 * DescribeAclRule返回参数结构体
                 */

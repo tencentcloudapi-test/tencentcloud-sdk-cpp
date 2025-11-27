@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertificateIdentityUser;
+
                 /**
                 * CreateVerifyReport请求参数结构体
                 */

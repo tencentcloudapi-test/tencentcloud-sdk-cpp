@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Remote Write 协议额外添加的 HTTP 头
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RemoteWriteHeader();
-                    ~RemoteWriteHeader() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceChargePrepaid;
+                class Tag;
+
                 /**
                 * CreateVpnGateway请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网关基础信息，包括id，名称，规格和状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GatewayInfo();
-                    ~GatewayInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

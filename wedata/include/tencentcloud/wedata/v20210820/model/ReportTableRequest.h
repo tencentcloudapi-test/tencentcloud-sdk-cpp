@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReportColumnInfo;
+
                 /**
                 * ReportTable请求参数结构体
                 */

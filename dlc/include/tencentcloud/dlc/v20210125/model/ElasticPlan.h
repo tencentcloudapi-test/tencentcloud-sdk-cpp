@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 引擎资源弹性伸缩计划
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ElasticPlan();
-                    ~ElasticPlan() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

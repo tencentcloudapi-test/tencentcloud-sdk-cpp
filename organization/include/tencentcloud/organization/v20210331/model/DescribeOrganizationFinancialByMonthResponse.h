@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrgFinancialByMonth;
+
                 /**
                 * DescribeOrganizationFinancialByMonth返回参数结构体
                 */

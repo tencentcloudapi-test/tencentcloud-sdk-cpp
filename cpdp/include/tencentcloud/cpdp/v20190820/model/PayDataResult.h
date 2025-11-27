@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * pay支付方式json数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PayDataResult();
-                    ~PayDataResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

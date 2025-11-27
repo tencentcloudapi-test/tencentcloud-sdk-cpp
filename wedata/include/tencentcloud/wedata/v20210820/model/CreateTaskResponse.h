@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommonId;
+
                 /**
                 * CreateTask返回参数结构体
                 */

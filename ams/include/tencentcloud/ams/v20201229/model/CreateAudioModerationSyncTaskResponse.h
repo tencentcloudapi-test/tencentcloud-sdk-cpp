@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextResult;
+                class MoanResult;
+                class AudioResultDetailLanguageResult;
+                class AudioResultDetailSpeakerResult;
+                class RecognitionResult;
+
                 /**
                 * CreateAudioModerationSyncTask返回参数结构体
                 */

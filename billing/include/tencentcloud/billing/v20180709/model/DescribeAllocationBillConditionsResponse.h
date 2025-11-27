@@ -46,6 +46,22 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BillBusiness;
+                class BillProduct;
+                class BillItem;
+                class BillRegion;
+                class BillInstanceType;
+                class BillPayMode;
+                class BillProject;
+                class BillTag;
+                class BillOwnerUin;
+                class BillOperateUin;
+                class BillDays;
+                class BillActionType;
+                class BillComponent;
+                class BillZoneId;
+                class AllocationTreeNode;
+
                 /**
                 * DescribeAllocationBillConditions返回参数结构体
                 */

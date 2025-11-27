@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextData;
+
                 /**
                 * TextModeration返回参数结构体
                 */

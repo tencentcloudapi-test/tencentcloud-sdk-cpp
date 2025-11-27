@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserWorkloadGroup;
+
                 /**
                 * DescribeUserBindWorkloadGroup返回参数结构体
                 */

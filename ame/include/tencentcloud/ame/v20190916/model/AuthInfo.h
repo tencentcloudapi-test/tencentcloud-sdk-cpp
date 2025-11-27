@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * AuthInfo集合
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AuthInfo();
-                    ~AuthInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

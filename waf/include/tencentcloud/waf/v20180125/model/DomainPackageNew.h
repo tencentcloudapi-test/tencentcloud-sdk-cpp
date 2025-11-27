@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * waf 域名扩展套餐
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DomainPackageNew();
-                    ~DomainPackageNew() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

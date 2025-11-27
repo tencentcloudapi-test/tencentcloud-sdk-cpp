@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 发布拒答
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ReleaseRejectedQuestion();
-                    ~ReleaseRejectedQuestion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

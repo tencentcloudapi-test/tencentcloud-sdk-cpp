@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 作业运行时信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     JobRuntimeInfo();
-                    ~JobRuntimeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class APM;
+                class TracingZipkin;
+
                 /**
                 * 调用链配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TracingConfig();
-                    ~TracingConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

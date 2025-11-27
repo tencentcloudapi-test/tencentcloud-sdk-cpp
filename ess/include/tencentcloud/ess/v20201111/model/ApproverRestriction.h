@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 指定签署人限制项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ApproverRestriction();
-                    ~ApproverRestriction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

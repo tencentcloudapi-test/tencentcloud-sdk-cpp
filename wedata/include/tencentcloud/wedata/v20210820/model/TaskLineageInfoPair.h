@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskLineageInfo;
+
                 /**
                 * 任务血缘信息，包括源表和目标表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskLineageInfoPair();
-                    ~TaskLineageInfoPair() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

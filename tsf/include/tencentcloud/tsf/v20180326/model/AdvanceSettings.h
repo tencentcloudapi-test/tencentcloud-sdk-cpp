@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 高级选项设置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AdvanceSettings();
-                    ~AdvanceSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

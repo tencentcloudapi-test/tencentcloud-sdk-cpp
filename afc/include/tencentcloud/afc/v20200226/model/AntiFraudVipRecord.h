@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SimpleKindRiskDetail;
+                class OtherModelScores;
+
                 /**
                 * 反欺诈VIP查询结果
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AntiFraudVipRecord();
-                    ~AntiFraudVipRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

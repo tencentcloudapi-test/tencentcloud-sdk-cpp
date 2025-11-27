@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PartDesc;
+
                 /**
                 * 标准部位
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     NormPart();
-                    ~NormPart() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

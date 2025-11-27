@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Anycast高防套餐详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EipAddressPackRelation();
-                    ~EipAddressPackRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RouteDTO;
+
                 /**
                 * 操作类型返回的Data结构
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OperateResponseData();
-                    ~OperateResponseData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

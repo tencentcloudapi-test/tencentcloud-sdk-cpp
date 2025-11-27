@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ShareResource;
+
                 /**
                 * DeleteShareUnitResources请求参数结构体
                 */

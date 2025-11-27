@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 通用时间窗
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CommonTimeWindow();
-                    ~CommonTimeWindow() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

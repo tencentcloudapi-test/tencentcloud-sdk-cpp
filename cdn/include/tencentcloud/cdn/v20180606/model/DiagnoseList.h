@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClientInfo;
+
                 /**
                 * 客户端访问诊断URL信息列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DiagnoseList();
-                    ~DiagnoseList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

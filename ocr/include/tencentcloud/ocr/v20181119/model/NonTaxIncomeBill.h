@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NonTaxItem;
+
                 /**
                 * 非税收入
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     NonTaxIncomeBill();
-                    ~NonTaxIncomeBill() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AntiFraudFilter;
+                class AntiFraudCryptoFilter;
+
                 /**
                 * GetAntiFraud请求参数结构体
                 */

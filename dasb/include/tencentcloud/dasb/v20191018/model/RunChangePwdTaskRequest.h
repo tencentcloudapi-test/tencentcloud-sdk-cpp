@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunChangePwdTaskDetail;
+
                 /**
                 * RunChangePwdTask请求参数结构体
                 */

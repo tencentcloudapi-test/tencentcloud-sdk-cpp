@@ -62,32 +62,25 @@ CdzClient::DescribeCloudDedicatedZoneHostsOutcome CdzClient::DescribeCloudDedica
 
 void CdzClient::DescribeCloudDedicatedZoneHostsAsync(const DescribeCloudDedicatedZoneHostsRequest& request, const DescribeCloudDedicatedZoneHostsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudDedicatedZoneHostsRequest&;
-    using Resp = DescribeCloudDedicatedZoneHostsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudDedicatedZoneHosts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudDedicatedZoneHosts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdzClient::DescribeCloudDedicatedZoneHostsOutcomeCallable CdzClient::DescribeCloudDedicatedZoneHostsCallable(const DescribeCloudDedicatedZoneHostsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudDedicatedZoneHostsOutcome>>();
-    DescribeCloudDedicatedZoneHostsAsync(
-    request,
-    [prom](
-        const CdzClient*,
-        const DescribeCloudDedicatedZoneHostsRequest&,
-        DescribeCloudDedicatedZoneHostsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudDedicatedZoneHostsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudDedicatedZoneHosts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdzClient::DescribeCloudDedicatedZoneResourceSummaryOutcome CdzClient::DescribeCloudDedicatedZoneResourceSummary(const DescribeCloudDedicatedZoneResourceSummaryRequest &request)
@@ -112,31 +105,24 @@ CdzClient::DescribeCloudDedicatedZoneResourceSummaryOutcome CdzClient::DescribeC
 
 void CdzClient::DescribeCloudDedicatedZoneResourceSummaryAsync(const DescribeCloudDedicatedZoneResourceSummaryRequest& request, const DescribeCloudDedicatedZoneResourceSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCloudDedicatedZoneResourceSummaryRequest&;
-    using Resp = DescribeCloudDedicatedZoneResourceSummaryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCloudDedicatedZoneResourceSummary(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCloudDedicatedZoneResourceSummary", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdzClient::DescribeCloudDedicatedZoneResourceSummaryOutcomeCallable CdzClient::DescribeCloudDedicatedZoneResourceSummaryCallable(const DescribeCloudDedicatedZoneResourceSummaryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCloudDedicatedZoneResourceSummaryOutcome>>();
-    DescribeCloudDedicatedZoneResourceSummaryAsync(
-    request,
-    [prom](
-        const CdzClient*,
-        const DescribeCloudDedicatedZoneResourceSummaryRequest&,
-        DescribeCloudDedicatedZoneResourceSummaryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCloudDedicatedZoneResourceSummaryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCloudDedicatedZoneResourceSummary(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

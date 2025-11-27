@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * prometheus告警历史
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusAlertHistoryItem();
-                    ~PrometheusAlertHistoryItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

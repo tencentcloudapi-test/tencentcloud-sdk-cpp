@@ -62,32 +62,25 @@ AfcClient::GetAntiFraudVipOutcome AfcClient::GetAntiFraudVip(const GetAntiFraudV
 
 void AfcClient::GetAntiFraudVipAsync(const GetAntiFraudVipRequest& request, const GetAntiFraudVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetAntiFraudVipRequest&;
-    using Resp = GetAntiFraudVipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetAntiFraudVip(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetAntiFraudVip", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AfcClient::GetAntiFraudVipOutcomeCallable AfcClient::GetAntiFraudVipCallable(const GetAntiFraudVipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetAntiFraudVipOutcome>>();
-    GetAntiFraudVipAsync(
-    request,
-    [prom](
-        const AfcClient*,
-        const GetAntiFraudVipRequest&,
-        GetAntiFraudVipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetAntiFraudVipOutcome()>>(
+        [this, request]()
+        {
+            return this->GetAntiFraudVip(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AfcClient::QueryAntiFraudVipOutcome AfcClient::QueryAntiFraudVip(const QueryAntiFraudVipRequest &request)
@@ -112,32 +105,25 @@ AfcClient::QueryAntiFraudVipOutcome AfcClient::QueryAntiFraudVip(const QueryAnti
 
 void AfcClient::QueryAntiFraudVipAsync(const QueryAntiFraudVipRequest& request, const QueryAntiFraudVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryAntiFraudVipRequest&;
-    using Resp = QueryAntiFraudVipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryAntiFraudVip(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryAntiFraudVip", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AfcClient::QueryAntiFraudVipOutcomeCallable AfcClient::QueryAntiFraudVipCallable(const QueryAntiFraudVipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryAntiFraudVipOutcome>>();
-    QueryAntiFraudVipAsync(
-    request,
-    [prom](
-        const AfcClient*,
-        const QueryAntiFraudVipRequest&,
-        QueryAntiFraudVipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryAntiFraudVipOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryAntiFraudVip(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AfcClient::TransportGeneralInterfaceOutcome AfcClient::TransportGeneralInterface(const TransportGeneralInterfaceRequest &request)
@@ -162,31 +148,24 @@ AfcClient::TransportGeneralInterfaceOutcome AfcClient::TransportGeneralInterface
 
 void AfcClient::TransportGeneralInterfaceAsync(const TransportGeneralInterfaceRequest& request, const TransportGeneralInterfaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TransportGeneralInterfaceRequest&;
-    using Resp = TransportGeneralInterfaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TransportGeneralInterface(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TransportGeneralInterface", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AfcClient::TransportGeneralInterfaceOutcomeCallable AfcClient::TransportGeneralInterfaceCallable(const TransportGeneralInterfaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TransportGeneralInterfaceOutcome>>();
-    TransportGeneralInterfaceAsync(
-    request,
-    [prom](
-        const AfcClient*,
-        const TransportGeneralInterfaceRequest&,
-        TransportGeneralInterfaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TransportGeneralInterfaceOutcome()>>(
+        [this, request]()
+        {
+            return this->TransportGeneralInterface(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

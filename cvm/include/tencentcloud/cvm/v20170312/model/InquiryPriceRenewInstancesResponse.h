@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Price;
+
                 /**
                 * InquiryPriceRenewInstances返回参数结构体
                 */

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Task;
+                class Dependence;
+                class Tag;
+
                 /**
                 * DescribeJobSubmitInfo返回参数结构体
                 */

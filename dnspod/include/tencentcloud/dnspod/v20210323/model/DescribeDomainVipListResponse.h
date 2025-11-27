@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PackageListItem;
+
                 /**
                 * DescribeDomainVipList返回参数结构体
                 */

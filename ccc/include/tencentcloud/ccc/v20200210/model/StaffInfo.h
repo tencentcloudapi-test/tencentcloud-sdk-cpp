@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SkillGroupItem;
+                class ForwardingConfig;
+
                 /**
                 * 带有技能组优先级的座席信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     StaffInfo();
-                    ~StaffInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

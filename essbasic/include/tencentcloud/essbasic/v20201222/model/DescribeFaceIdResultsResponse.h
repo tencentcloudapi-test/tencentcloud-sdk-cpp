@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FaceIdResult;
+
                 /**
                 * DescribeFaceIdResults返回参数结构体
                 */

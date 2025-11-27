@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WordRsp;
+                class SentenceInfo;
+
                 /**
                 * TransmitOralProcessWithInit返回参数结构体
                 */

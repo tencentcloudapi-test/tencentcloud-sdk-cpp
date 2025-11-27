@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleGroupSubscribe;
+
                 /**
                 * DescribeRuleGroupSubscription返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunTimeFilters;
+
                 /**
                 * DescribeExportJobManageList请求参数结构体
                 */

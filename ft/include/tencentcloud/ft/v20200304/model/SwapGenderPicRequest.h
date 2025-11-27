@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GenderInfo;
+
                 /**
                 * SwapGenderPic请求参数结构体
                 */

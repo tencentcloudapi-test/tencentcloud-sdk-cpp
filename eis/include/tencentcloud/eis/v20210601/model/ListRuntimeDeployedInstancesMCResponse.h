@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuntimeDeployedInstanceMC;
+
                 /**
                 * ListRuntimeDeployedInstancesMC返回参数结构体
                 */

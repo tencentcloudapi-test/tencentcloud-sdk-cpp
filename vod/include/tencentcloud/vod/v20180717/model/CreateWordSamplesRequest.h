@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiSampleWordInfo;
+
                 /**
                 * CreateWordSamples请求参数结构体
                 */

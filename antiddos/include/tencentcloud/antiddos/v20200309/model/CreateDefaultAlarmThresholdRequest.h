@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DefaultAlarmThreshold;
+
                 /**
                 * CreateDefaultAlarmThreshold请求参数结构体
                 */

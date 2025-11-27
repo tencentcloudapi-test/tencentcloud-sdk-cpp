@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 附件结构，包含附件名和base64之后的附件内容。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Attachment();
-                    ~Attachment() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

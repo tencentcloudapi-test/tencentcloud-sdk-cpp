@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyMetadata;
+
                 /**
                 * ListKeyAliasByRegion返回参数结构体
                 */

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValue;
+                class KeyValueRecord;
+
                 /**
                 * DescribeCCIpAllowDeny返回参数结构体
                 */

@@ -62,32 +62,25 @@ GaapClient::AddRealServersOutcome GaapClient::AddRealServers(const AddRealServer
 
 void GaapClient::AddRealServersAsync(const AddRealServersRequest& request, const AddRealServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddRealServersRequest&;
-    using Resp = AddRealServersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddRealServers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddRealServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::AddRealServersOutcomeCallable GaapClient::AddRealServersCallable(const AddRealServersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddRealServersOutcome>>();
-    AddRealServersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const AddRealServersRequest&,
-        AddRealServersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddRealServersOutcome()>>(
+        [this, request]()
+        {
+            return this->AddRealServers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::BanAndRecoverProxyOutcome GaapClient::BanAndRecoverProxy(const BanAndRecoverProxyRequest &request)
@@ -112,32 +105,25 @@ GaapClient::BanAndRecoverProxyOutcome GaapClient::BanAndRecoverProxy(const BanAn
 
 void GaapClient::BanAndRecoverProxyAsync(const BanAndRecoverProxyRequest& request, const BanAndRecoverProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BanAndRecoverProxyRequest&;
-    using Resp = BanAndRecoverProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BanAndRecoverProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BanAndRecoverProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::BanAndRecoverProxyOutcomeCallable GaapClient::BanAndRecoverProxyCallable(const BanAndRecoverProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BanAndRecoverProxyOutcome>>();
-    BanAndRecoverProxyAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const BanAndRecoverProxyRequest&,
-        BanAndRecoverProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BanAndRecoverProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->BanAndRecoverProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::BindListenerRealServersOutcome GaapClient::BindListenerRealServers(const BindListenerRealServersRequest &request)
@@ -162,32 +148,25 @@ GaapClient::BindListenerRealServersOutcome GaapClient::BindListenerRealServers(c
 
 void GaapClient::BindListenerRealServersAsync(const BindListenerRealServersRequest& request, const BindListenerRealServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindListenerRealServersRequest&;
-    using Resp = BindListenerRealServersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindListenerRealServers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindListenerRealServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::BindListenerRealServersOutcomeCallable GaapClient::BindListenerRealServersCallable(const BindListenerRealServersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindListenerRealServersOutcome>>();
-    BindListenerRealServersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const BindListenerRealServersRequest&,
-        BindListenerRealServersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindListenerRealServersOutcome()>>(
+        [this, request]()
+        {
+            return this->BindListenerRealServers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::BindRuleRealServersOutcome GaapClient::BindRuleRealServers(const BindRuleRealServersRequest &request)
@@ -212,32 +191,25 @@ GaapClient::BindRuleRealServersOutcome GaapClient::BindRuleRealServers(const Bin
 
 void GaapClient::BindRuleRealServersAsync(const BindRuleRealServersRequest& request, const BindRuleRealServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindRuleRealServersRequest&;
-    using Resp = BindRuleRealServersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindRuleRealServers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindRuleRealServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::BindRuleRealServersOutcomeCallable GaapClient::BindRuleRealServersCallable(const BindRuleRealServersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindRuleRealServersOutcome>>();
-    BindRuleRealServersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const BindRuleRealServersRequest&,
-        BindRuleRealServersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindRuleRealServersOutcome()>>(
+        [this, request]()
+        {
+            return this->BindRuleRealServers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CheckProxyCreateOutcome GaapClient::CheckProxyCreate(const CheckProxyCreateRequest &request)
@@ -262,32 +234,25 @@ GaapClient::CheckProxyCreateOutcome GaapClient::CheckProxyCreate(const CheckProx
 
 void GaapClient::CheckProxyCreateAsync(const CheckProxyCreateRequest& request, const CheckProxyCreateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckProxyCreateRequest&;
-    using Resp = CheckProxyCreateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckProxyCreate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckProxyCreate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CheckProxyCreateOutcomeCallable GaapClient::CheckProxyCreateCallable(const CheckProxyCreateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckProxyCreateOutcome>>();
-    CheckProxyCreateAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CheckProxyCreateRequest&,
-        CheckProxyCreateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckProxyCreateOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckProxyCreate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CloseProxiesOutcome GaapClient::CloseProxies(const CloseProxiesRequest &request)
@@ -312,32 +277,25 @@ GaapClient::CloseProxiesOutcome GaapClient::CloseProxies(const CloseProxiesReque
 
 void GaapClient::CloseProxiesAsync(const CloseProxiesRequest& request, const CloseProxiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseProxiesRequest&;
-    using Resp = CloseProxiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseProxies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseProxies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CloseProxiesOutcomeCallable GaapClient::CloseProxiesCallable(const CloseProxiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseProxiesOutcome>>();
-    CloseProxiesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CloseProxiesRequest&,
-        CloseProxiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseProxiesOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseProxies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CloseProxyGroupOutcome GaapClient::CloseProxyGroup(const CloseProxyGroupRequest &request)
@@ -362,32 +320,25 @@ GaapClient::CloseProxyGroupOutcome GaapClient::CloseProxyGroup(const CloseProxyG
 
 void GaapClient::CloseProxyGroupAsync(const CloseProxyGroupRequest& request, const CloseProxyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseProxyGroupRequest&;
-    using Resp = CloseProxyGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseProxyGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseProxyGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CloseProxyGroupOutcomeCallable GaapClient::CloseProxyGroupCallable(const CloseProxyGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseProxyGroupOutcome>>();
-    CloseProxyGroupAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CloseProxyGroupRequest&,
-        CloseProxyGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseProxyGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseProxyGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CloseSecurityPolicyOutcome GaapClient::CloseSecurityPolicy(const CloseSecurityPolicyRequest &request)
@@ -412,32 +363,25 @@ GaapClient::CloseSecurityPolicyOutcome GaapClient::CloseSecurityPolicy(const Clo
 
 void GaapClient::CloseSecurityPolicyAsync(const CloseSecurityPolicyRequest& request, const CloseSecurityPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseSecurityPolicyRequest&;
-    using Resp = CloseSecurityPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseSecurityPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseSecurityPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CloseSecurityPolicyOutcomeCallable GaapClient::CloseSecurityPolicyCallable(const CloseSecurityPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseSecurityPolicyOutcome>>();
-    CloseSecurityPolicyAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CloseSecurityPolicyRequest&,
-        CloseSecurityPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseSecurityPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseSecurityPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateCertificateOutcome GaapClient::CreateCertificate(const CreateCertificateRequest &request)
@@ -462,32 +406,25 @@ GaapClient::CreateCertificateOutcome GaapClient::CreateCertificate(const CreateC
 
 void GaapClient::CreateCertificateAsync(const CreateCertificateRequest& request, const CreateCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCertificateRequest&;
-    using Resp = CreateCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateCertificateOutcomeCallable GaapClient::CreateCertificateCallable(const CreateCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCertificateOutcome>>();
-    CreateCertificateAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateCertificateRequest&,
-        CreateCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateCustomHeaderOutcome GaapClient::CreateCustomHeader(const CreateCustomHeaderRequest &request)
@@ -512,32 +449,25 @@ GaapClient::CreateCustomHeaderOutcome GaapClient::CreateCustomHeader(const Creat
 
 void GaapClient::CreateCustomHeaderAsync(const CreateCustomHeaderRequest& request, const CreateCustomHeaderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCustomHeaderRequest&;
-    using Resp = CreateCustomHeaderResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCustomHeader(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCustomHeader", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateCustomHeaderOutcomeCallable GaapClient::CreateCustomHeaderCallable(const CreateCustomHeaderRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCustomHeaderOutcome>>();
-    CreateCustomHeaderAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateCustomHeaderRequest&,
-        CreateCustomHeaderOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCustomHeaderOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCustomHeader(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateDomainOutcome GaapClient::CreateDomain(const CreateDomainRequest &request)
@@ -562,32 +492,25 @@ GaapClient::CreateDomainOutcome GaapClient::CreateDomain(const CreateDomainReque
 
 void GaapClient::CreateDomainAsync(const CreateDomainRequest& request, const CreateDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDomainRequest&;
-    using Resp = CreateDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateDomainOutcomeCallable GaapClient::CreateDomainCallable(const CreateDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDomainOutcome>>();
-    CreateDomainAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateDomainRequest&,
-        CreateDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateDomainErrorPageInfoOutcome GaapClient::CreateDomainErrorPageInfo(const CreateDomainErrorPageInfoRequest &request)
@@ -612,32 +535,25 @@ GaapClient::CreateDomainErrorPageInfoOutcome GaapClient::CreateDomainErrorPageIn
 
 void GaapClient::CreateDomainErrorPageInfoAsync(const CreateDomainErrorPageInfoRequest& request, const CreateDomainErrorPageInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDomainErrorPageInfoRequest&;
-    using Resp = CreateDomainErrorPageInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDomainErrorPageInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDomainErrorPageInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateDomainErrorPageInfoOutcomeCallable GaapClient::CreateDomainErrorPageInfoCallable(const CreateDomainErrorPageInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDomainErrorPageInfoOutcome>>();
-    CreateDomainErrorPageInfoAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateDomainErrorPageInfoRequest&,
-        CreateDomainErrorPageInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDomainErrorPageInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDomainErrorPageInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateGlobalDomainOutcome GaapClient::CreateGlobalDomain(const CreateGlobalDomainRequest &request)
@@ -662,32 +578,25 @@ GaapClient::CreateGlobalDomainOutcome GaapClient::CreateGlobalDomain(const Creat
 
 void GaapClient::CreateGlobalDomainAsync(const CreateGlobalDomainRequest& request, const CreateGlobalDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGlobalDomainRequest&;
-    using Resp = CreateGlobalDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGlobalDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGlobalDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateGlobalDomainOutcomeCallable GaapClient::CreateGlobalDomainCallable(const CreateGlobalDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGlobalDomainOutcome>>();
-    CreateGlobalDomainAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateGlobalDomainRequest&,
-        CreateGlobalDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGlobalDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGlobalDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateGlobalDomainDnsOutcome GaapClient::CreateGlobalDomainDns(const CreateGlobalDomainDnsRequest &request)
@@ -712,32 +621,25 @@ GaapClient::CreateGlobalDomainDnsOutcome GaapClient::CreateGlobalDomainDns(const
 
 void GaapClient::CreateGlobalDomainDnsAsync(const CreateGlobalDomainDnsRequest& request, const CreateGlobalDomainDnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGlobalDomainDnsRequest&;
-    using Resp = CreateGlobalDomainDnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGlobalDomainDns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGlobalDomainDns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateGlobalDomainDnsOutcomeCallable GaapClient::CreateGlobalDomainDnsCallable(const CreateGlobalDomainDnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGlobalDomainDnsOutcome>>();
-    CreateGlobalDomainDnsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateGlobalDomainDnsRequest&,
-        CreateGlobalDomainDnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGlobalDomainDnsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGlobalDomainDns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateHTTPListenerOutcome GaapClient::CreateHTTPListener(const CreateHTTPListenerRequest &request)
@@ -762,32 +664,25 @@ GaapClient::CreateHTTPListenerOutcome GaapClient::CreateHTTPListener(const Creat
 
 void GaapClient::CreateHTTPListenerAsync(const CreateHTTPListenerRequest& request, const CreateHTTPListenerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHTTPListenerRequest&;
-    using Resp = CreateHTTPListenerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHTTPListener(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHTTPListener", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateHTTPListenerOutcomeCallable GaapClient::CreateHTTPListenerCallable(const CreateHTTPListenerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHTTPListenerOutcome>>();
-    CreateHTTPListenerAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateHTTPListenerRequest&,
-        CreateHTTPListenerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHTTPListenerOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHTTPListener(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateHTTPSListenerOutcome GaapClient::CreateHTTPSListener(const CreateHTTPSListenerRequest &request)
@@ -812,32 +707,25 @@ GaapClient::CreateHTTPSListenerOutcome GaapClient::CreateHTTPSListener(const Cre
 
 void GaapClient::CreateHTTPSListenerAsync(const CreateHTTPSListenerRequest& request, const CreateHTTPSListenerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHTTPSListenerRequest&;
-    using Resp = CreateHTTPSListenerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHTTPSListener(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHTTPSListener", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateHTTPSListenerOutcomeCallable GaapClient::CreateHTTPSListenerCallable(const CreateHTTPSListenerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHTTPSListenerOutcome>>();
-    CreateHTTPSListenerAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateHTTPSListenerRequest&,
-        CreateHTTPSListenerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHTTPSListenerOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHTTPSListener(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateProxyOutcome GaapClient::CreateProxy(const CreateProxyRequest &request)
@@ -862,32 +750,25 @@ GaapClient::CreateProxyOutcome GaapClient::CreateProxy(const CreateProxyRequest 
 
 void GaapClient::CreateProxyAsync(const CreateProxyRequest& request, const CreateProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateProxyRequest&;
-    using Resp = CreateProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateProxyOutcomeCallable GaapClient::CreateProxyCallable(const CreateProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateProxyOutcome>>();
-    CreateProxyAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateProxyRequest&,
-        CreateProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateProxyGroupOutcome GaapClient::CreateProxyGroup(const CreateProxyGroupRequest &request)
@@ -912,32 +793,25 @@ GaapClient::CreateProxyGroupOutcome GaapClient::CreateProxyGroup(const CreatePro
 
 void GaapClient::CreateProxyGroupAsync(const CreateProxyGroupRequest& request, const CreateProxyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateProxyGroupRequest&;
-    using Resp = CreateProxyGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateProxyGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateProxyGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateProxyGroupOutcomeCallable GaapClient::CreateProxyGroupCallable(const CreateProxyGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateProxyGroupOutcome>>();
-    CreateProxyGroupAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateProxyGroupRequest&,
-        CreateProxyGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateProxyGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateProxyGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateProxyGroupDomainOutcome GaapClient::CreateProxyGroupDomain(const CreateProxyGroupDomainRequest &request)
@@ -962,32 +836,25 @@ GaapClient::CreateProxyGroupDomainOutcome GaapClient::CreateProxyGroupDomain(con
 
 void GaapClient::CreateProxyGroupDomainAsync(const CreateProxyGroupDomainRequest& request, const CreateProxyGroupDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateProxyGroupDomainRequest&;
-    using Resp = CreateProxyGroupDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateProxyGroupDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateProxyGroupDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateProxyGroupDomainOutcomeCallable GaapClient::CreateProxyGroupDomainCallable(const CreateProxyGroupDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateProxyGroupDomainOutcome>>();
-    CreateProxyGroupDomainAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateProxyGroupDomainRequest&,
-        CreateProxyGroupDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateProxyGroupDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateProxyGroupDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateRuleOutcome GaapClient::CreateRule(const CreateRuleRequest &request)
@@ -1012,32 +879,25 @@ GaapClient::CreateRuleOutcome GaapClient::CreateRule(const CreateRuleRequest &re
 
 void GaapClient::CreateRuleAsync(const CreateRuleRequest& request, const CreateRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRuleRequest&;
-    using Resp = CreateRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateRuleOutcomeCallable GaapClient::CreateRuleCallable(const CreateRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRuleOutcome>>();
-    CreateRuleAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateRuleRequest&,
-        CreateRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateSecurityPolicyOutcome GaapClient::CreateSecurityPolicy(const CreateSecurityPolicyRequest &request)
@@ -1062,32 +922,25 @@ GaapClient::CreateSecurityPolicyOutcome GaapClient::CreateSecurityPolicy(const C
 
 void GaapClient::CreateSecurityPolicyAsync(const CreateSecurityPolicyRequest& request, const CreateSecurityPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSecurityPolicyRequest&;
-    using Resp = CreateSecurityPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSecurityPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSecurityPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateSecurityPolicyOutcomeCallable GaapClient::CreateSecurityPolicyCallable(const CreateSecurityPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSecurityPolicyOutcome>>();
-    CreateSecurityPolicyAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateSecurityPolicyRequest&,
-        CreateSecurityPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSecurityPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSecurityPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateSecurityRulesOutcome GaapClient::CreateSecurityRules(const CreateSecurityRulesRequest &request)
@@ -1112,32 +965,25 @@ GaapClient::CreateSecurityRulesOutcome GaapClient::CreateSecurityRules(const Cre
 
 void GaapClient::CreateSecurityRulesAsync(const CreateSecurityRulesRequest& request, const CreateSecurityRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSecurityRulesRequest&;
-    using Resp = CreateSecurityRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSecurityRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSecurityRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateSecurityRulesOutcomeCallable GaapClient::CreateSecurityRulesCallable(const CreateSecurityRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSecurityRulesOutcome>>();
-    CreateSecurityRulesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateSecurityRulesRequest&,
-        CreateSecurityRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSecurityRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSecurityRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateTCPListenersOutcome GaapClient::CreateTCPListeners(const CreateTCPListenersRequest &request)
@@ -1162,32 +1008,25 @@ GaapClient::CreateTCPListenersOutcome GaapClient::CreateTCPListeners(const Creat
 
 void GaapClient::CreateTCPListenersAsync(const CreateTCPListenersRequest& request, const CreateTCPListenersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTCPListenersRequest&;
-    using Resp = CreateTCPListenersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTCPListeners(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTCPListeners", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateTCPListenersOutcomeCallable GaapClient::CreateTCPListenersCallable(const CreateTCPListenersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTCPListenersOutcome>>();
-    CreateTCPListenersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateTCPListenersRequest&,
-        CreateTCPListenersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTCPListenersOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTCPListeners(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::CreateUDPListenersOutcome GaapClient::CreateUDPListeners(const CreateUDPListenersRequest &request)
@@ -1212,32 +1051,25 @@ GaapClient::CreateUDPListenersOutcome GaapClient::CreateUDPListeners(const Creat
 
 void GaapClient::CreateUDPListenersAsync(const CreateUDPListenersRequest& request, const CreateUDPListenersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUDPListenersRequest&;
-    using Resp = CreateUDPListenersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUDPListeners(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUDPListeners", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::CreateUDPListenersOutcomeCallable GaapClient::CreateUDPListenersCallable(const CreateUDPListenersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUDPListenersOutcome>>();
-    CreateUDPListenersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const CreateUDPListenersRequest&,
-        CreateUDPListenersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUDPListenersOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUDPListeners(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteCertificateOutcome GaapClient::DeleteCertificate(const DeleteCertificateRequest &request)
@@ -1262,32 +1094,25 @@ GaapClient::DeleteCertificateOutcome GaapClient::DeleteCertificate(const DeleteC
 
 void GaapClient::DeleteCertificateAsync(const DeleteCertificateRequest& request, const DeleteCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCertificateRequest&;
-    using Resp = DeleteCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteCertificateOutcomeCallable GaapClient::DeleteCertificateCallable(const DeleteCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCertificateOutcome>>();
-    DeleteCertificateAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteCertificateRequest&,
-        DeleteCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteDomainOutcome GaapClient::DeleteDomain(const DeleteDomainRequest &request)
@@ -1312,32 +1137,25 @@ GaapClient::DeleteDomainOutcome GaapClient::DeleteDomain(const DeleteDomainReque
 
 void GaapClient::DeleteDomainAsync(const DeleteDomainRequest& request, const DeleteDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDomainRequest&;
-    using Resp = DeleteDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteDomainOutcomeCallable GaapClient::DeleteDomainCallable(const DeleteDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDomainOutcome>>();
-    DeleteDomainAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteDomainRequest&,
-        DeleteDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteDomainErrorPageInfoOutcome GaapClient::DeleteDomainErrorPageInfo(const DeleteDomainErrorPageInfoRequest &request)
@@ -1362,32 +1180,25 @@ GaapClient::DeleteDomainErrorPageInfoOutcome GaapClient::DeleteDomainErrorPageIn
 
 void GaapClient::DeleteDomainErrorPageInfoAsync(const DeleteDomainErrorPageInfoRequest& request, const DeleteDomainErrorPageInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDomainErrorPageInfoRequest&;
-    using Resp = DeleteDomainErrorPageInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDomainErrorPageInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDomainErrorPageInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteDomainErrorPageInfoOutcomeCallable GaapClient::DeleteDomainErrorPageInfoCallable(const DeleteDomainErrorPageInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDomainErrorPageInfoOutcome>>();
-    DeleteDomainErrorPageInfoAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteDomainErrorPageInfoRequest&,
-        DeleteDomainErrorPageInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDomainErrorPageInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDomainErrorPageInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteGlobalDomainOutcome GaapClient::DeleteGlobalDomain(const DeleteGlobalDomainRequest &request)
@@ -1412,32 +1223,25 @@ GaapClient::DeleteGlobalDomainOutcome GaapClient::DeleteGlobalDomain(const Delet
 
 void GaapClient::DeleteGlobalDomainAsync(const DeleteGlobalDomainRequest& request, const DeleteGlobalDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGlobalDomainRequest&;
-    using Resp = DeleteGlobalDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGlobalDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGlobalDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteGlobalDomainOutcomeCallable GaapClient::DeleteGlobalDomainCallable(const DeleteGlobalDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGlobalDomainOutcome>>();
-    DeleteGlobalDomainAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteGlobalDomainRequest&,
-        DeleteGlobalDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGlobalDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGlobalDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteGlobalDomainDnsOutcome GaapClient::DeleteGlobalDomainDns(const DeleteGlobalDomainDnsRequest &request)
@@ -1462,32 +1266,25 @@ GaapClient::DeleteGlobalDomainDnsOutcome GaapClient::DeleteGlobalDomainDns(const
 
 void GaapClient::DeleteGlobalDomainDnsAsync(const DeleteGlobalDomainDnsRequest& request, const DeleteGlobalDomainDnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGlobalDomainDnsRequest&;
-    using Resp = DeleteGlobalDomainDnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGlobalDomainDns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGlobalDomainDns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteGlobalDomainDnsOutcomeCallable GaapClient::DeleteGlobalDomainDnsCallable(const DeleteGlobalDomainDnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGlobalDomainDnsOutcome>>();
-    DeleteGlobalDomainDnsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteGlobalDomainDnsRequest&,
-        DeleteGlobalDomainDnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGlobalDomainDnsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGlobalDomainDns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteListenersOutcome GaapClient::DeleteListeners(const DeleteListenersRequest &request)
@@ -1512,32 +1309,25 @@ GaapClient::DeleteListenersOutcome GaapClient::DeleteListeners(const DeleteListe
 
 void GaapClient::DeleteListenersAsync(const DeleteListenersRequest& request, const DeleteListenersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteListenersRequest&;
-    using Resp = DeleteListenersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteListeners(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteListeners", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteListenersOutcomeCallable GaapClient::DeleteListenersCallable(const DeleteListenersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteListenersOutcome>>();
-    DeleteListenersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteListenersRequest&,
-        DeleteListenersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteListenersOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteListeners(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteProxyGroupOutcome GaapClient::DeleteProxyGroup(const DeleteProxyGroupRequest &request)
@@ -1562,32 +1352,25 @@ GaapClient::DeleteProxyGroupOutcome GaapClient::DeleteProxyGroup(const DeletePro
 
 void GaapClient::DeleteProxyGroupAsync(const DeleteProxyGroupRequest& request, const DeleteProxyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteProxyGroupRequest&;
-    using Resp = DeleteProxyGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteProxyGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteProxyGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteProxyGroupOutcomeCallable GaapClient::DeleteProxyGroupCallable(const DeleteProxyGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteProxyGroupOutcome>>();
-    DeleteProxyGroupAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteProxyGroupRequest&,
-        DeleteProxyGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteProxyGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteProxyGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteRuleOutcome GaapClient::DeleteRule(const DeleteRuleRequest &request)
@@ -1612,32 +1395,25 @@ GaapClient::DeleteRuleOutcome GaapClient::DeleteRule(const DeleteRuleRequest &re
 
 void GaapClient::DeleteRuleAsync(const DeleteRuleRequest& request, const DeleteRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRuleRequest&;
-    using Resp = DeleteRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteRuleOutcomeCallable GaapClient::DeleteRuleCallable(const DeleteRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRuleOutcome>>();
-    DeleteRuleAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteRuleRequest&,
-        DeleteRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteSecurityPolicyOutcome GaapClient::DeleteSecurityPolicy(const DeleteSecurityPolicyRequest &request)
@@ -1662,32 +1438,25 @@ GaapClient::DeleteSecurityPolicyOutcome GaapClient::DeleteSecurityPolicy(const D
 
 void GaapClient::DeleteSecurityPolicyAsync(const DeleteSecurityPolicyRequest& request, const DeleteSecurityPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSecurityPolicyRequest&;
-    using Resp = DeleteSecurityPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSecurityPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSecurityPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteSecurityPolicyOutcomeCallable GaapClient::DeleteSecurityPolicyCallable(const DeleteSecurityPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSecurityPolicyOutcome>>();
-    DeleteSecurityPolicyAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteSecurityPolicyRequest&,
-        DeleteSecurityPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSecurityPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSecurityPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DeleteSecurityRulesOutcome GaapClient::DeleteSecurityRules(const DeleteSecurityRulesRequest &request)
@@ -1712,32 +1481,25 @@ GaapClient::DeleteSecurityRulesOutcome GaapClient::DeleteSecurityRules(const Del
 
 void GaapClient::DeleteSecurityRulesAsync(const DeleteSecurityRulesRequest& request, const DeleteSecurityRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSecurityRulesRequest&;
-    using Resp = DeleteSecurityRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSecurityRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSecurityRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DeleteSecurityRulesOutcomeCallable GaapClient::DeleteSecurityRulesCallable(const DeleteSecurityRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSecurityRulesOutcome>>();
-    DeleteSecurityRulesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DeleteSecurityRulesRequest&,
-        DeleteSecurityRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSecurityRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSecurityRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeAccessRegionsOutcome GaapClient::DescribeAccessRegions(const DescribeAccessRegionsRequest &request)
@@ -1762,32 +1524,25 @@ GaapClient::DescribeAccessRegionsOutcome GaapClient::DescribeAccessRegions(const
 
 void GaapClient::DescribeAccessRegionsAsync(const DescribeAccessRegionsRequest& request, const DescribeAccessRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccessRegionsRequest&;
-    using Resp = DescribeAccessRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccessRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccessRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeAccessRegionsOutcomeCallable GaapClient::DescribeAccessRegionsCallable(const DescribeAccessRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccessRegionsOutcome>>();
-    DescribeAccessRegionsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeAccessRegionsRequest&,
-        DescribeAccessRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccessRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccessRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeAccessRegionsByDestRegionOutcome GaapClient::DescribeAccessRegionsByDestRegion(const DescribeAccessRegionsByDestRegionRequest &request)
@@ -1812,32 +1567,25 @@ GaapClient::DescribeAccessRegionsByDestRegionOutcome GaapClient::DescribeAccessR
 
 void GaapClient::DescribeAccessRegionsByDestRegionAsync(const DescribeAccessRegionsByDestRegionRequest& request, const DescribeAccessRegionsByDestRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccessRegionsByDestRegionRequest&;
-    using Resp = DescribeAccessRegionsByDestRegionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccessRegionsByDestRegion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccessRegionsByDestRegion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeAccessRegionsByDestRegionOutcomeCallable GaapClient::DescribeAccessRegionsByDestRegionCallable(const DescribeAccessRegionsByDestRegionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccessRegionsByDestRegionOutcome>>();
-    DescribeAccessRegionsByDestRegionAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeAccessRegionsByDestRegionRequest&,
-        DescribeAccessRegionsByDestRegionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccessRegionsByDestRegionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccessRegionsByDestRegion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeAuthSignatureOutcome GaapClient::DescribeAuthSignature(const DescribeAuthSignatureRequest &request)
@@ -1862,32 +1610,25 @@ GaapClient::DescribeAuthSignatureOutcome GaapClient::DescribeAuthSignature(const
 
 void GaapClient::DescribeAuthSignatureAsync(const DescribeAuthSignatureRequest& request, const DescribeAuthSignatureAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuthSignatureRequest&;
-    using Resp = DescribeAuthSignatureResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuthSignature(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuthSignature", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeAuthSignatureOutcomeCallable GaapClient::DescribeAuthSignatureCallable(const DescribeAuthSignatureRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuthSignatureOutcome>>();
-    DescribeAuthSignatureAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeAuthSignatureRequest&,
-        DescribeAuthSignatureOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuthSignatureOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuthSignature(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeBlackHeaderOutcome GaapClient::DescribeBlackHeader(const DescribeBlackHeaderRequest &request)
@@ -1912,32 +1653,25 @@ GaapClient::DescribeBlackHeaderOutcome GaapClient::DescribeBlackHeader(const Des
 
 void GaapClient::DescribeBlackHeaderAsync(const DescribeBlackHeaderRequest& request, const DescribeBlackHeaderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBlackHeaderRequest&;
-    using Resp = DescribeBlackHeaderResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBlackHeader(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBlackHeader", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeBlackHeaderOutcomeCallable GaapClient::DescribeBlackHeaderCallable(const DescribeBlackHeaderRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBlackHeaderOutcome>>();
-    DescribeBlackHeaderAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeBlackHeaderRequest&,
-        DescribeBlackHeaderOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBlackHeaderOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBlackHeader(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeCertificateDetailOutcome GaapClient::DescribeCertificateDetail(const DescribeCertificateDetailRequest &request)
@@ -1962,32 +1696,25 @@ GaapClient::DescribeCertificateDetailOutcome GaapClient::DescribeCertificateDeta
 
 void GaapClient::DescribeCertificateDetailAsync(const DescribeCertificateDetailRequest& request, const DescribeCertificateDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCertificateDetailRequest&;
-    using Resp = DescribeCertificateDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCertificateDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCertificateDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeCertificateDetailOutcomeCallable GaapClient::DescribeCertificateDetailCallable(const DescribeCertificateDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCertificateDetailOutcome>>();
-    DescribeCertificateDetailAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeCertificateDetailRequest&,
-        DescribeCertificateDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCertificateDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCertificateDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeCertificatesOutcome GaapClient::DescribeCertificates(const DescribeCertificatesRequest &request)
@@ -2012,32 +1739,25 @@ GaapClient::DescribeCertificatesOutcome GaapClient::DescribeCertificates(const D
 
 void GaapClient::DescribeCertificatesAsync(const DescribeCertificatesRequest& request, const DescribeCertificatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCertificatesRequest&;
-    using Resp = DescribeCertificatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCertificates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCertificates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeCertificatesOutcomeCallable GaapClient::DescribeCertificatesCallable(const DescribeCertificatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCertificatesOutcome>>();
-    DescribeCertificatesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeCertificatesRequest&,
-        DescribeCertificatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCertificatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCertificates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeCountryAreaMappingOutcome GaapClient::DescribeCountryAreaMapping(const DescribeCountryAreaMappingRequest &request)
@@ -2062,32 +1782,25 @@ GaapClient::DescribeCountryAreaMappingOutcome GaapClient::DescribeCountryAreaMap
 
 void GaapClient::DescribeCountryAreaMappingAsync(const DescribeCountryAreaMappingRequest& request, const DescribeCountryAreaMappingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCountryAreaMappingRequest&;
-    using Resp = DescribeCountryAreaMappingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCountryAreaMapping(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCountryAreaMapping", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeCountryAreaMappingOutcomeCallable GaapClient::DescribeCountryAreaMappingCallable(const DescribeCountryAreaMappingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCountryAreaMappingOutcome>>();
-    DescribeCountryAreaMappingAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeCountryAreaMappingRequest&,
-        DescribeCountryAreaMappingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCountryAreaMappingOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCountryAreaMapping(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeCrossBorderProxiesOutcome GaapClient::DescribeCrossBorderProxies(const DescribeCrossBorderProxiesRequest &request)
@@ -2112,32 +1825,25 @@ GaapClient::DescribeCrossBorderProxiesOutcome GaapClient::DescribeCrossBorderPro
 
 void GaapClient::DescribeCrossBorderProxiesAsync(const DescribeCrossBorderProxiesRequest& request, const DescribeCrossBorderProxiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCrossBorderProxiesRequest&;
-    using Resp = DescribeCrossBorderProxiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCrossBorderProxies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCrossBorderProxies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeCrossBorderProxiesOutcomeCallable GaapClient::DescribeCrossBorderProxiesCallable(const DescribeCrossBorderProxiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCrossBorderProxiesOutcome>>();
-    DescribeCrossBorderProxiesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeCrossBorderProxiesRequest&,
-        DescribeCrossBorderProxiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCrossBorderProxiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCrossBorderProxies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeCustomHeaderOutcome GaapClient::DescribeCustomHeader(const DescribeCustomHeaderRequest &request)
@@ -2162,32 +1868,25 @@ GaapClient::DescribeCustomHeaderOutcome GaapClient::DescribeCustomHeader(const D
 
 void GaapClient::DescribeCustomHeaderAsync(const DescribeCustomHeaderRequest& request, const DescribeCustomHeaderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomHeaderRequest&;
-    using Resp = DescribeCustomHeaderResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomHeader(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomHeader", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeCustomHeaderOutcomeCallable GaapClient::DescribeCustomHeaderCallable(const DescribeCustomHeaderRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomHeaderOutcome>>();
-    DescribeCustomHeaderAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeCustomHeaderRequest&,
-        DescribeCustomHeaderOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomHeaderOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomHeader(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeDestRegionsOutcome GaapClient::DescribeDestRegions(const DescribeDestRegionsRequest &request)
@@ -2212,32 +1911,25 @@ GaapClient::DescribeDestRegionsOutcome GaapClient::DescribeDestRegions(const Des
 
 void GaapClient::DescribeDestRegionsAsync(const DescribeDestRegionsRequest& request, const DescribeDestRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDestRegionsRequest&;
-    using Resp = DescribeDestRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDestRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDestRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeDestRegionsOutcomeCallable GaapClient::DescribeDestRegionsCallable(const DescribeDestRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDestRegionsOutcome>>();
-    DescribeDestRegionsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeDestRegionsRequest&,
-        DescribeDestRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDestRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDestRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeDomainErrorPageInfoOutcome GaapClient::DescribeDomainErrorPageInfo(const DescribeDomainErrorPageInfoRequest &request)
@@ -2262,32 +1954,25 @@ GaapClient::DescribeDomainErrorPageInfoOutcome GaapClient::DescribeDomainErrorPa
 
 void GaapClient::DescribeDomainErrorPageInfoAsync(const DescribeDomainErrorPageInfoRequest& request, const DescribeDomainErrorPageInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainErrorPageInfoRequest&;
-    using Resp = DescribeDomainErrorPageInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainErrorPageInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainErrorPageInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeDomainErrorPageInfoOutcomeCallable GaapClient::DescribeDomainErrorPageInfoCallable(const DescribeDomainErrorPageInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainErrorPageInfoOutcome>>();
-    DescribeDomainErrorPageInfoAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeDomainErrorPageInfoRequest&,
-        DescribeDomainErrorPageInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainErrorPageInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainErrorPageInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeDomainErrorPageInfoByIdsOutcome GaapClient::DescribeDomainErrorPageInfoByIds(const DescribeDomainErrorPageInfoByIdsRequest &request)
@@ -2312,32 +1997,25 @@ GaapClient::DescribeDomainErrorPageInfoByIdsOutcome GaapClient::DescribeDomainEr
 
 void GaapClient::DescribeDomainErrorPageInfoByIdsAsync(const DescribeDomainErrorPageInfoByIdsRequest& request, const DescribeDomainErrorPageInfoByIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainErrorPageInfoByIdsRequest&;
-    using Resp = DescribeDomainErrorPageInfoByIdsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainErrorPageInfoByIds(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainErrorPageInfoByIds", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeDomainErrorPageInfoByIdsOutcomeCallable GaapClient::DescribeDomainErrorPageInfoByIdsCallable(const DescribeDomainErrorPageInfoByIdsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainErrorPageInfoByIdsOutcome>>();
-    DescribeDomainErrorPageInfoByIdsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeDomainErrorPageInfoByIdsRequest&,
-        DescribeDomainErrorPageInfoByIdsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainErrorPageInfoByIdsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainErrorPageInfoByIds(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeGlobalDomainDnsOutcome GaapClient::DescribeGlobalDomainDns(const DescribeGlobalDomainDnsRequest &request)
@@ -2362,32 +2040,25 @@ GaapClient::DescribeGlobalDomainDnsOutcome GaapClient::DescribeGlobalDomainDns(c
 
 void GaapClient::DescribeGlobalDomainDnsAsync(const DescribeGlobalDomainDnsRequest& request, const DescribeGlobalDomainDnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGlobalDomainDnsRequest&;
-    using Resp = DescribeGlobalDomainDnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGlobalDomainDns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGlobalDomainDns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeGlobalDomainDnsOutcomeCallable GaapClient::DescribeGlobalDomainDnsCallable(const DescribeGlobalDomainDnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGlobalDomainDnsOutcome>>();
-    DescribeGlobalDomainDnsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeGlobalDomainDnsRequest&,
-        DescribeGlobalDomainDnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGlobalDomainDnsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGlobalDomainDns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeGlobalDomainsOutcome GaapClient::DescribeGlobalDomains(const DescribeGlobalDomainsRequest &request)
@@ -2412,32 +2083,25 @@ GaapClient::DescribeGlobalDomainsOutcome GaapClient::DescribeGlobalDomains(const
 
 void GaapClient::DescribeGlobalDomainsAsync(const DescribeGlobalDomainsRequest& request, const DescribeGlobalDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGlobalDomainsRequest&;
-    using Resp = DescribeGlobalDomainsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGlobalDomains(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGlobalDomains", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeGlobalDomainsOutcomeCallable GaapClient::DescribeGlobalDomainsCallable(const DescribeGlobalDomainsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGlobalDomainsOutcome>>();
-    DescribeGlobalDomainsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeGlobalDomainsRequest&,
-        DescribeGlobalDomainsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGlobalDomainsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGlobalDomains(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeGroupAndStatisticsProxyOutcome GaapClient::DescribeGroupAndStatisticsProxy(const DescribeGroupAndStatisticsProxyRequest &request)
@@ -2462,32 +2126,25 @@ GaapClient::DescribeGroupAndStatisticsProxyOutcome GaapClient::DescribeGroupAndS
 
 void GaapClient::DescribeGroupAndStatisticsProxyAsync(const DescribeGroupAndStatisticsProxyRequest& request, const DescribeGroupAndStatisticsProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupAndStatisticsProxyRequest&;
-    using Resp = DescribeGroupAndStatisticsProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroupAndStatisticsProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroupAndStatisticsProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeGroupAndStatisticsProxyOutcomeCallable GaapClient::DescribeGroupAndStatisticsProxyCallable(const DescribeGroupAndStatisticsProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupAndStatisticsProxyOutcome>>();
-    DescribeGroupAndStatisticsProxyAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeGroupAndStatisticsProxyRequest&,
-        DescribeGroupAndStatisticsProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupAndStatisticsProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroupAndStatisticsProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeGroupDomainConfigOutcome GaapClient::DescribeGroupDomainConfig(const DescribeGroupDomainConfigRequest &request)
@@ -2512,32 +2169,25 @@ GaapClient::DescribeGroupDomainConfigOutcome GaapClient::DescribeGroupDomainConf
 
 void GaapClient::DescribeGroupDomainConfigAsync(const DescribeGroupDomainConfigRequest& request, const DescribeGroupDomainConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupDomainConfigRequest&;
-    using Resp = DescribeGroupDomainConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroupDomainConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroupDomainConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeGroupDomainConfigOutcomeCallable GaapClient::DescribeGroupDomainConfigCallable(const DescribeGroupDomainConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupDomainConfigOutcome>>();
-    DescribeGroupDomainConfigAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeGroupDomainConfigRequest&,
-        DescribeGroupDomainConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupDomainConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroupDomainConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeHTTPListenersOutcome GaapClient::DescribeHTTPListeners(const DescribeHTTPListenersRequest &request)
@@ -2562,32 +2212,25 @@ GaapClient::DescribeHTTPListenersOutcome GaapClient::DescribeHTTPListeners(const
 
 void GaapClient::DescribeHTTPListenersAsync(const DescribeHTTPListenersRequest& request, const DescribeHTTPListenersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHTTPListenersRequest&;
-    using Resp = DescribeHTTPListenersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHTTPListeners(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHTTPListeners", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeHTTPListenersOutcomeCallable GaapClient::DescribeHTTPListenersCallable(const DescribeHTTPListenersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHTTPListenersOutcome>>();
-    DescribeHTTPListenersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeHTTPListenersRequest&,
-        DescribeHTTPListenersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHTTPListenersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHTTPListeners(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeHTTPSListenersOutcome GaapClient::DescribeHTTPSListeners(const DescribeHTTPSListenersRequest &request)
@@ -2612,32 +2255,25 @@ GaapClient::DescribeHTTPSListenersOutcome GaapClient::DescribeHTTPSListeners(con
 
 void GaapClient::DescribeHTTPSListenersAsync(const DescribeHTTPSListenersRequest& request, const DescribeHTTPSListenersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHTTPSListenersRequest&;
-    using Resp = DescribeHTTPSListenersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHTTPSListeners(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHTTPSListeners", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeHTTPSListenersOutcomeCallable GaapClient::DescribeHTTPSListenersCallable(const DescribeHTTPSListenersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHTTPSListenersOutcome>>();
-    DescribeHTTPSListenersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeHTTPSListenersRequest&,
-        DescribeHTTPSListenersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHTTPSListenersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHTTPSListeners(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeListenerRealServersOutcome GaapClient::DescribeListenerRealServers(const DescribeListenerRealServersRequest &request)
@@ -2662,32 +2298,25 @@ GaapClient::DescribeListenerRealServersOutcome GaapClient::DescribeListenerRealS
 
 void GaapClient::DescribeListenerRealServersAsync(const DescribeListenerRealServersRequest& request, const DescribeListenerRealServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeListenerRealServersRequest&;
-    using Resp = DescribeListenerRealServersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeListenerRealServers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeListenerRealServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeListenerRealServersOutcomeCallable GaapClient::DescribeListenerRealServersCallable(const DescribeListenerRealServersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeListenerRealServersOutcome>>();
-    DescribeListenerRealServersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeListenerRealServersRequest&,
-        DescribeListenerRealServersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeListenerRealServersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeListenerRealServers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeListenerStatisticsOutcome GaapClient::DescribeListenerStatistics(const DescribeListenerStatisticsRequest &request)
@@ -2712,32 +2341,25 @@ GaapClient::DescribeListenerStatisticsOutcome GaapClient::DescribeListenerStatis
 
 void GaapClient::DescribeListenerStatisticsAsync(const DescribeListenerStatisticsRequest& request, const DescribeListenerStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeListenerStatisticsRequest&;
-    using Resp = DescribeListenerStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeListenerStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeListenerStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeListenerStatisticsOutcomeCallable GaapClient::DescribeListenerStatisticsCallable(const DescribeListenerStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeListenerStatisticsOutcome>>();
-    DescribeListenerStatisticsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeListenerStatisticsRequest&,
-        DescribeListenerStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeListenerStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeListenerStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeProxiesOutcome GaapClient::DescribeProxies(const DescribeProxiesRequest &request)
@@ -2762,32 +2384,25 @@ GaapClient::DescribeProxiesOutcome GaapClient::DescribeProxies(const DescribePro
 
 void GaapClient::DescribeProxiesAsync(const DescribeProxiesRequest& request, const DescribeProxiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxiesRequest&;
-    using Resp = DescribeProxiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeProxiesOutcomeCallable GaapClient::DescribeProxiesCallable(const DescribeProxiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxiesOutcome>>();
-    DescribeProxiesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeProxiesRequest&,
-        DescribeProxiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeProxiesStatusOutcome GaapClient::DescribeProxiesStatus(const DescribeProxiesStatusRequest &request)
@@ -2812,32 +2427,25 @@ GaapClient::DescribeProxiesStatusOutcome GaapClient::DescribeProxiesStatus(const
 
 void GaapClient::DescribeProxiesStatusAsync(const DescribeProxiesStatusRequest& request, const DescribeProxiesStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxiesStatusRequest&;
-    using Resp = DescribeProxiesStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxiesStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxiesStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeProxiesStatusOutcomeCallable GaapClient::DescribeProxiesStatusCallable(const DescribeProxiesStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxiesStatusOutcome>>();
-    DescribeProxiesStatusAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeProxiesStatusRequest&,
-        DescribeProxiesStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxiesStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxiesStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeProxyAndStatisticsListenersOutcome GaapClient::DescribeProxyAndStatisticsListeners(const DescribeProxyAndStatisticsListenersRequest &request)
@@ -2862,32 +2470,25 @@ GaapClient::DescribeProxyAndStatisticsListenersOutcome GaapClient::DescribeProxy
 
 void GaapClient::DescribeProxyAndStatisticsListenersAsync(const DescribeProxyAndStatisticsListenersRequest& request, const DescribeProxyAndStatisticsListenersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxyAndStatisticsListenersRequest&;
-    using Resp = DescribeProxyAndStatisticsListenersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxyAndStatisticsListeners(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxyAndStatisticsListeners", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeProxyAndStatisticsListenersOutcomeCallable GaapClient::DescribeProxyAndStatisticsListenersCallable(const DescribeProxyAndStatisticsListenersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxyAndStatisticsListenersOutcome>>();
-    DescribeProxyAndStatisticsListenersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeProxyAndStatisticsListenersRequest&,
-        DescribeProxyAndStatisticsListenersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxyAndStatisticsListenersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxyAndStatisticsListeners(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeProxyDetailOutcome GaapClient::DescribeProxyDetail(const DescribeProxyDetailRequest &request)
@@ -2912,32 +2513,25 @@ GaapClient::DescribeProxyDetailOutcome GaapClient::DescribeProxyDetail(const Des
 
 void GaapClient::DescribeProxyDetailAsync(const DescribeProxyDetailRequest& request, const DescribeProxyDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxyDetailRequest&;
-    using Resp = DescribeProxyDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxyDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxyDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeProxyDetailOutcomeCallable GaapClient::DescribeProxyDetailCallable(const DescribeProxyDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxyDetailOutcome>>();
-    DescribeProxyDetailAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeProxyDetailRequest&,
-        DescribeProxyDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxyDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxyDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeProxyGroupDetailsOutcome GaapClient::DescribeProxyGroupDetails(const DescribeProxyGroupDetailsRequest &request)
@@ -2962,32 +2556,25 @@ GaapClient::DescribeProxyGroupDetailsOutcome GaapClient::DescribeProxyGroupDetai
 
 void GaapClient::DescribeProxyGroupDetailsAsync(const DescribeProxyGroupDetailsRequest& request, const DescribeProxyGroupDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxyGroupDetailsRequest&;
-    using Resp = DescribeProxyGroupDetailsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxyGroupDetails(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxyGroupDetails", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeProxyGroupDetailsOutcomeCallable GaapClient::DescribeProxyGroupDetailsCallable(const DescribeProxyGroupDetailsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxyGroupDetailsOutcome>>();
-    DescribeProxyGroupDetailsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeProxyGroupDetailsRequest&,
-        DescribeProxyGroupDetailsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxyGroupDetailsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxyGroupDetails(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeProxyGroupListOutcome GaapClient::DescribeProxyGroupList(const DescribeProxyGroupListRequest &request)
@@ -3012,32 +2599,25 @@ GaapClient::DescribeProxyGroupListOutcome GaapClient::DescribeProxyGroupList(con
 
 void GaapClient::DescribeProxyGroupListAsync(const DescribeProxyGroupListRequest& request, const DescribeProxyGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxyGroupListRequest&;
-    using Resp = DescribeProxyGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxyGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxyGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeProxyGroupListOutcomeCallable GaapClient::DescribeProxyGroupListCallable(const DescribeProxyGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxyGroupListOutcome>>();
-    DescribeProxyGroupListAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeProxyGroupListRequest&,
-        DescribeProxyGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxyGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxyGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeProxyGroupStatisticsOutcome GaapClient::DescribeProxyGroupStatistics(const DescribeProxyGroupStatisticsRequest &request)
@@ -3062,32 +2642,25 @@ GaapClient::DescribeProxyGroupStatisticsOutcome GaapClient::DescribeProxyGroupSt
 
 void GaapClient::DescribeProxyGroupStatisticsAsync(const DescribeProxyGroupStatisticsRequest& request, const DescribeProxyGroupStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxyGroupStatisticsRequest&;
-    using Resp = DescribeProxyGroupStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxyGroupStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxyGroupStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeProxyGroupStatisticsOutcomeCallable GaapClient::DescribeProxyGroupStatisticsCallable(const DescribeProxyGroupStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxyGroupStatisticsOutcome>>();
-    DescribeProxyGroupStatisticsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeProxyGroupStatisticsRequest&,
-        DescribeProxyGroupStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxyGroupStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxyGroupStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeProxyStatisticsOutcome GaapClient::DescribeProxyStatistics(const DescribeProxyStatisticsRequest &request)
@@ -3112,32 +2685,25 @@ GaapClient::DescribeProxyStatisticsOutcome GaapClient::DescribeProxyStatistics(c
 
 void GaapClient::DescribeProxyStatisticsAsync(const DescribeProxyStatisticsRequest& request, const DescribeProxyStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxyStatisticsRequest&;
-    using Resp = DescribeProxyStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxyStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxyStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeProxyStatisticsOutcomeCallable GaapClient::DescribeProxyStatisticsCallable(const DescribeProxyStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxyStatisticsOutcome>>();
-    DescribeProxyStatisticsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeProxyStatisticsRequest&,
-        DescribeProxyStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxyStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxyStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeRealServerStatisticsOutcome GaapClient::DescribeRealServerStatistics(const DescribeRealServerStatisticsRequest &request)
@@ -3162,32 +2728,25 @@ GaapClient::DescribeRealServerStatisticsOutcome GaapClient::DescribeRealServerSt
 
 void GaapClient::DescribeRealServerStatisticsAsync(const DescribeRealServerStatisticsRequest& request, const DescribeRealServerStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRealServerStatisticsRequest&;
-    using Resp = DescribeRealServerStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRealServerStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRealServerStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeRealServerStatisticsOutcomeCallable GaapClient::DescribeRealServerStatisticsCallable(const DescribeRealServerStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRealServerStatisticsOutcome>>();
-    DescribeRealServerStatisticsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeRealServerStatisticsRequest&,
-        DescribeRealServerStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRealServerStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRealServerStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeRealServersOutcome GaapClient::DescribeRealServers(const DescribeRealServersRequest &request)
@@ -3212,32 +2771,25 @@ GaapClient::DescribeRealServersOutcome GaapClient::DescribeRealServers(const Des
 
 void GaapClient::DescribeRealServersAsync(const DescribeRealServersRequest& request, const DescribeRealServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRealServersRequest&;
-    using Resp = DescribeRealServersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRealServers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRealServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeRealServersOutcomeCallable GaapClient::DescribeRealServersCallable(const DescribeRealServersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRealServersOutcome>>();
-    DescribeRealServersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeRealServersRequest&,
-        DescribeRealServersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRealServersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRealServers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeRealServersStatusOutcome GaapClient::DescribeRealServersStatus(const DescribeRealServersStatusRequest &request)
@@ -3262,32 +2814,25 @@ GaapClient::DescribeRealServersStatusOutcome GaapClient::DescribeRealServersStat
 
 void GaapClient::DescribeRealServersStatusAsync(const DescribeRealServersStatusRequest& request, const DescribeRealServersStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRealServersStatusRequest&;
-    using Resp = DescribeRealServersStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRealServersStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRealServersStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeRealServersStatusOutcomeCallable GaapClient::DescribeRealServersStatusCallable(const DescribeRealServersStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRealServersStatusOutcome>>();
-    DescribeRealServersStatusAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeRealServersStatusRequest&,
-        DescribeRealServersStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRealServersStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRealServersStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeRegionAndPriceOutcome GaapClient::DescribeRegionAndPrice(const DescribeRegionAndPriceRequest &request)
@@ -3312,32 +2857,25 @@ GaapClient::DescribeRegionAndPriceOutcome GaapClient::DescribeRegionAndPrice(con
 
 void GaapClient::DescribeRegionAndPriceAsync(const DescribeRegionAndPriceRequest& request, const DescribeRegionAndPriceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRegionAndPriceRequest&;
-    using Resp = DescribeRegionAndPriceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRegionAndPrice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRegionAndPrice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeRegionAndPriceOutcomeCallable GaapClient::DescribeRegionAndPriceCallable(const DescribeRegionAndPriceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRegionAndPriceOutcome>>();
-    DescribeRegionAndPriceAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeRegionAndPriceRequest&,
-        DescribeRegionAndPriceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRegionAndPriceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRegionAndPrice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeResourcesByTagOutcome GaapClient::DescribeResourcesByTag(const DescribeResourcesByTagRequest &request)
@@ -3362,32 +2900,25 @@ GaapClient::DescribeResourcesByTagOutcome GaapClient::DescribeResourcesByTag(con
 
 void GaapClient::DescribeResourcesByTagAsync(const DescribeResourcesByTagRequest& request, const DescribeResourcesByTagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeResourcesByTagRequest&;
-    using Resp = DescribeResourcesByTagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeResourcesByTag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeResourcesByTag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeResourcesByTagOutcomeCallable GaapClient::DescribeResourcesByTagCallable(const DescribeResourcesByTagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeResourcesByTagOutcome>>();
-    DescribeResourcesByTagAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeResourcesByTagRequest&,
-        DescribeResourcesByTagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeResourcesByTagOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeResourcesByTag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeRuleRealServersOutcome GaapClient::DescribeRuleRealServers(const DescribeRuleRealServersRequest &request)
@@ -3412,32 +2943,25 @@ GaapClient::DescribeRuleRealServersOutcome GaapClient::DescribeRuleRealServers(c
 
 void GaapClient::DescribeRuleRealServersAsync(const DescribeRuleRealServersRequest& request, const DescribeRuleRealServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRuleRealServersRequest&;
-    using Resp = DescribeRuleRealServersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRuleRealServers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRuleRealServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeRuleRealServersOutcomeCallable GaapClient::DescribeRuleRealServersCallable(const DescribeRuleRealServersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRuleRealServersOutcome>>();
-    DescribeRuleRealServersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeRuleRealServersRequest&,
-        DescribeRuleRealServersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRuleRealServersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRuleRealServers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeRulesOutcome GaapClient::DescribeRules(const DescribeRulesRequest &request)
@@ -3462,32 +2986,25 @@ GaapClient::DescribeRulesOutcome GaapClient::DescribeRules(const DescribeRulesRe
 
 void GaapClient::DescribeRulesAsync(const DescribeRulesRequest& request, const DescribeRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRulesRequest&;
-    using Resp = DescribeRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeRulesOutcomeCallable GaapClient::DescribeRulesCallable(const DescribeRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRulesOutcome>>();
-    DescribeRulesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeRulesRequest&,
-        DescribeRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeRulesByRuleIdsOutcome GaapClient::DescribeRulesByRuleIds(const DescribeRulesByRuleIdsRequest &request)
@@ -3512,32 +3029,25 @@ GaapClient::DescribeRulesByRuleIdsOutcome GaapClient::DescribeRulesByRuleIds(con
 
 void GaapClient::DescribeRulesByRuleIdsAsync(const DescribeRulesByRuleIdsRequest& request, const DescribeRulesByRuleIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRulesByRuleIdsRequest&;
-    using Resp = DescribeRulesByRuleIdsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRulesByRuleIds(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRulesByRuleIds", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeRulesByRuleIdsOutcomeCallable GaapClient::DescribeRulesByRuleIdsCallable(const DescribeRulesByRuleIdsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRulesByRuleIdsOutcome>>();
-    DescribeRulesByRuleIdsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeRulesByRuleIdsRequest&,
-        DescribeRulesByRuleIdsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRulesByRuleIdsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRulesByRuleIds(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeSecurityPolicyDetailOutcome GaapClient::DescribeSecurityPolicyDetail(const DescribeSecurityPolicyDetailRequest &request)
@@ -3562,32 +3072,25 @@ GaapClient::DescribeSecurityPolicyDetailOutcome GaapClient::DescribeSecurityPoli
 
 void GaapClient::DescribeSecurityPolicyDetailAsync(const DescribeSecurityPolicyDetailRequest& request, const DescribeSecurityPolicyDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityPolicyDetailRequest&;
-    using Resp = DescribeSecurityPolicyDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityPolicyDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityPolicyDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeSecurityPolicyDetailOutcomeCallable GaapClient::DescribeSecurityPolicyDetailCallable(const DescribeSecurityPolicyDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityPolicyDetailOutcome>>();
-    DescribeSecurityPolicyDetailAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeSecurityPolicyDetailRequest&,
-        DescribeSecurityPolicyDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityPolicyDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityPolicyDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeSecurityRulesOutcome GaapClient::DescribeSecurityRules(const DescribeSecurityRulesRequest &request)
@@ -3612,32 +3115,25 @@ GaapClient::DescribeSecurityRulesOutcome GaapClient::DescribeSecurityRules(const
 
 void GaapClient::DescribeSecurityRulesAsync(const DescribeSecurityRulesRequest& request, const DescribeSecurityRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityRulesRequest&;
-    using Resp = DescribeSecurityRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeSecurityRulesOutcomeCallable GaapClient::DescribeSecurityRulesCallable(const DescribeSecurityRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityRulesOutcome>>();
-    DescribeSecurityRulesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeSecurityRulesRequest&,
-        DescribeSecurityRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeTCPListenersOutcome GaapClient::DescribeTCPListeners(const DescribeTCPListenersRequest &request)
@@ -3662,32 +3158,25 @@ GaapClient::DescribeTCPListenersOutcome GaapClient::DescribeTCPListeners(const D
 
 void GaapClient::DescribeTCPListenersAsync(const DescribeTCPListenersRequest& request, const DescribeTCPListenersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTCPListenersRequest&;
-    using Resp = DescribeTCPListenersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTCPListeners(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTCPListeners", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeTCPListenersOutcomeCallable GaapClient::DescribeTCPListenersCallable(const DescribeTCPListenersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTCPListenersOutcome>>();
-    DescribeTCPListenersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeTCPListenersRequest&,
-        DescribeTCPListenersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTCPListenersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTCPListeners(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeTaskStatusOutcome GaapClient::DescribeTaskStatus(const DescribeTaskStatusRequest &request)
@@ -3712,32 +3201,25 @@ GaapClient::DescribeTaskStatusOutcome GaapClient::DescribeTaskStatus(const Descr
 
 void GaapClient::DescribeTaskStatusAsync(const DescribeTaskStatusRequest& request, const DescribeTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskStatusRequest&;
-    using Resp = DescribeTaskStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeTaskStatusOutcomeCallable GaapClient::DescribeTaskStatusCallable(const DescribeTaskStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskStatusOutcome>>();
-    DescribeTaskStatusAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeTaskStatusRequest&,
-        DescribeTaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DescribeUDPListenersOutcome GaapClient::DescribeUDPListeners(const DescribeUDPListenersRequest &request)
@@ -3762,32 +3244,25 @@ GaapClient::DescribeUDPListenersOutcome GaapClient::DescribeUDPListeners(const D
 
 void GaapClient::DescribeUDPListenersAsync(const DescribeUDPListenersRequest& request, const DescribeUDPListenersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUDPListenersRequest&;
-    using Resp = DescribeUDPListenersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUDPListeners(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUDPListeners", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DescribeUDPListenersOutcomeCallable GaapClient::DescribeUDPListenersCallable(const DescribeUDPListenersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUDPListenersOutcome>>();
-    DescribeUDPListenersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DescribeUDPListenersRequest&,
-        DescribeUDPListenersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUDPListenersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUDPListeners(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DestroyProxiesOutcome GaapClient::DestroyProxies(const DestroyProxiesRequest &request)
@@ -3812,32 +3287,25 @@ GaapClient::DestroyProxiesOutcome GaapClient::DestroyProxies(const DestroyProxie
 
 void GaapClient::DestroyProxiesAsync(const DestroyProxiesRequest& request, const DestroyProxiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyProxiesRequest&;
-    using Resp = DestroyProxiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyProxies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyProxies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DestroyProxiesOutcomeCallable GaapClient::DestroyProxiesCallable(const DestroyProxiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyProxiesOutcome>>();
-    DestroyProxiesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DestroyProxiesRequest&,
-        DestroyProxiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyProxiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyProxies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::DisableGlobalDomainOutcome GaapClient::DisableGlobalDomain(const DisableGlobalDomainRequest &request)
@@ -3862,32 +3330,25 @@ GaapClient::DisableGlobalDomainOutcome GaapClient::DisableGlobalDomain(const Dis
 
 void GaapClient::DisableGlobalDomainAsync(const DisableGlobalDomainRequest& request, const DisableGlobalDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableGlobalDomainRequest&;
-    using Resp = DisableGlobalDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableGlobalDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableGlobalDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::DisableGlobalDomainOutcomeCallable GaapClient::DisableGlobalDomainCallable(const DisableGlobalDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableGlobalDomainOutcome>>();
-    DisableGlobalDomainAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const DisableGlobalDomainRequest&,
-        DisableGlobalDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableGlobalDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableGlobalDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::EnableGlobalDomainOutcome GaapClient::EnableGlobalDomain(const EnableGlobalDomainRequest &request)
@@ -3912,32 +3373,25 @@ GaapClient::EnableGlobalDomainOutcome GaapClient::EnableGlobalDomain(const Enabl
 
 void GaapClient::EnableGlobalDomainAsync(const EnableGlobalDomainRequest& request, const EnableGlobalDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableGlobalDomainRequest&;
-    using Resp = EnableGlobalDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableGlobalDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableGlobalDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::EnableGlobalDomainOutcomeCallable GaapClient::EnableGlobalDomainCallable(const EnableGlobalDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableGlobalDomainOutcome>>();
-    EnableGlobalDomainAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const EnableGlobalDomainRequest&,
-        EnableGlobalDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableGlobalDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableGlobalDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::InquiryPriceCreateProxyOutcome GaapClient::InquiryPriceCreateProxy(const InquiryPriceCreateProxyRequest &request)
@@ -3962,32 +3416,25 @@ GaapClient::InquiryPriceCreateProxyOutcome GaapClient::InquiryPriceCreateProxy(c
 
 void GaapClient::InquiryPriceCreateProxyAsync(const InquiryPriceCreateProxyRequest& request, const InquiryPriceCreateProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceCreateProxyRequest&;
-    using Resp = InquiryPriceCreateProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceCreateProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceCreateProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::InquiryPriceCreateProxyOutcomeCallable GaapClient::InquiryPriceCreateProxyCallable(const InquiryPriceCreateProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceCreateProxyOutcome>>();
-    InquiryPriceCreateProxyAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const InquiryPriceCreateProxyRequest&,
-        InquiryPriceCreateProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceCreateProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceCreateProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyCertificateOutcome GaapClient::ModifyCertificate(const ModifyCertificateRequest &request)
@@ -4012,32 +3459,25 @@ GaapClient::ModifyCertificateOutcome GaapClient::ModifyCertificate(const ModifyC
 
 void GaapClient::ModifyCertificateAsync(const ModifyCertificateRequest& request, const ModifyCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCertificateRequest&;
-    using Resp = ModifyCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyCertificateOutcomeCallable GaapClient::ModifyCertificateCallable(const ModifyCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCertificateOutcome>>();
-    ModifyCertificateAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyCertificateRequest&,
-        ModifyCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyCertificateAttributesOutcome GaapClient::ModifyCertificateAttributes(const ModifyCertificateAttributesRequest &request)
@@ -4062,32 +3502,25 @@ GaapClient::ModifyCertificateAttributesOutcome GaapClient::ModifyCertificateAttr
 
 void GaapClient::ModifyCertificateAttributesAsync(const ModifyCertificateAttributesRequest& request, const ModifyCertificateAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCertificateAttributesRequest&;
-    using Resp = ModifyCertificateAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCertificateAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCertificateAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyCertificateAttributesOutcomeCallable GaapClient::ModifyCertificateAttributesCallable(const ModifyCertificateAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCertificateAttributesOutcome>>();
-    ModifyCertificateAttributesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyCertificateAttributesRequest&,
-        ModifyCertificateAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCertificateAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCertificateAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyDomainOutcome GaapClient::ModifyDomain(const ModifyDomainRequest &request)
@@ -4112,32 +3545,25 @@ GaapClient::ModifyDomainOutcome GaapClient::ModifyDomain(const ModifyDomainReque
 
 void GaapClient::ModifyDomainAsync(const ModifyDomainRequest& request, const ModifyDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDomainRequest&;
-    using Resp = ModifyDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyDomainOutcomeCallable GaapClient::ModifyDomainCallable(const ModifyDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDomainOutcome>>();
-    ModifyDomainAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyDomainRequest&,
-        ModifyDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyGlobalDomainAttributeOutcome GaapClient::ModifyGlobalDomainAttribute(const ModifyGlobalDomainAttributeRequest &request)
@@ -4162,32 +3588,25 @@ GaapClient::ModifyGlobalDomainAttributeOutcome GaapClient::ModifyGlobalDomainAtt
 
 void GaapClient::ModifyGlobalDomainAttributeAsync(const ModifyGlobalDomainAttributeRequest& request, const ModifyGlobalDomainAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGlobalDomainAttributeRequest&;
-    using Resp = ModifyGlobalDomainAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGlobalDomainAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGlobalDomainAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyGlobalDomainAttributeOutcomeCallable GaapClient::ModifyGlobalDomainAttributeCallable(const ModifyGlobalDomainAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGlobalDomainAttributeOutcome>>();
-    ModifyGlobalDomainAttributeAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyGlobalDomainAttributeRequest&,
-        ModifyGlobalDomainAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGlobalDomainAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGlobalDomainAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyGlobalDomainDnsOutcome GaapClient::ModifyGlobalDomainDns(const ModifyGlobalDomainDnsRequest &request)
@@ -4212,32 +3631,25 @@ GaapClient::ModifyGlobalDomainDnsOutcome GaapClient::ModifyGlobalDomainDns(const
 
 void GaapClient::ModifyGlobalDomainDnsAsync(const ModifyGlobalDomainDnsRequest& request, const ModifyGlobalDomainDnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGlobalDomainDnsRequest&;
-    using Resp = ModifyGlobalDomainDnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGlobalDomainDns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGlobalDomainDns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyGlobalDomainDnsOutcomeCallable GaapClient::ModifyGlobalDomainDnsCallable(const ModifyGlobalDomainDnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGlobalDomainDnsOutcome>>();
-    ModifyGlobalDomainDnsAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyGlobalDomainDnsRequest&,
-        ModifyGlobalDomainDnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGlobalDomainDnsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGlobalDomainDns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyGroupDomainConfigOutcome GaapClient::ModifyGroupDomainConfig(const ModifyGroupDomainConfigRequest &request)
@@ -4262,32 +3674,25 @@ GaapClient::ModifyGroupDomainConfigOutcome GaapClient::ModifyGroupDomainConfig(c
 
 void GaapClient::ModifyGroupDomainConfigAsync(const ModifyGroupDomainConfigRequest& request, const ModifyGroupDomainConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGroupDomainConfigRequest&;
-    using Resp = ModifyGroupDomainConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGroupDomainConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGroupDomainConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyGroupDomainConfigOutcomeCallable GaapClient::ModifyGroupDomainConfigCallable(const ModifyGroupDomainConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGroupDomainConfigOutcome>>();
-    ModifyGroupDomainConfigAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyGroupDomainConfigRequest&,
-        ModifyGroupDomainConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGroupDomainConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGroupDomainConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyHTTPListenerAttributeOutcome GaapClient::ModifyHTTPListenerAttribute(const ModifyHTTPListenerAttributeRequest &request)
@@ -4312,32 +3717,25 @@ GaapClient::ModifyHTTPListenerAttributeOutcome GaapClient::ModifyHTTPListenerAtt
 
 void GaapClient::ModifyHTTPListenerAttributeAsync(const ModifyHTTPListenerAttributeRequest& request, const ModifyHTTPListenerAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHTTPListenerAttributeRequest&;
-    using Resp = ModifyHTTPListenerAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHTTPListenerAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHTTPListenerAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyHTTPListenerAttributeOutcomeCallable GaapClient::ModifyHTTPListenerAttributeCallable(const ModifyHTTPListenerAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHTTPListenerAttributeOutcome>>();
-    ModifyHTTPListenerAttributeAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyHTTPListenerAttributeRequest&,
-        ModifyHTTPListenerAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHTTPListenerAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHTTPListenerAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyHTTPSListenerAttributeOutcome GaapClient::ModifyHTTPSListenerAttribute(const ModifyHTTPSListenerAttributeRequest &request)
@@ -4362,32 +3760,25 @@ GaapClient::ModifyHTTPSListenerAttributeOutcome GaapClient::ModifyHTTPSListenerA
 
 void GaapClient::ModifyHTTPSListenerAttributeAsync(const ModifyHTTPSListenerAttributeRequest& request, const ModifyHTTPSListenerAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHTTPSListenerAttributeRequest&;
-    using Resp = ModifyHTTPSListenerAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHTTPSListenerAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHTTPSListenerAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyHTTPSListenerAttributeOutcomeCallable GaapClient::ModifyHTTPSListenerAttributeCallable(const ModifyHTTPSListenerAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHTTPSListenerAttributeOutcome>>();
-    ModifyHTTPSListenerAttributeAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyHTTPSListenerAttributeRequest&,
-        ModifyHTTPSListenerAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHTTPSListenerAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHTTPSListenerAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyProxiesAttributeOutcome GaapClient::ModifyProxiesAttribute(const ModifyProxiesAttributeRequest &request)
@@ -4412,32 +3803,25 @@ GaapClient::ModifyProxiesAttributeOutcome GaapClient::ModifyProxiesAttribute(con
 
 void GaapClient::ModifyProxiesAttributeAsync(const ModifyProxiesAttributeRequest& request, const ModifyProxiesAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProxiesAttributeRequest&;
-    using Resp = ModifyProxiesAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProxiesAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProxiesAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyProxiesAttributeOutcomeCallable GaapClient::ModifyProxiesAttributeCallable(const ModifyProxiesAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProxiesAttributeOutcome>>();
-    ModifyProxiesAttributeAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyProxiesAttributeRequest&,
-        ModifyProxiesAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProxiesAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProxiesAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyProxiesProjectOutcome GaapClient::ModifyProxiesProject(const ModifyProxiesProjectRequest &request)
@@ -4462,32 +3846,25 @@ GaapClient::ModifyProxiesProjectOutcome GaapClient::ModifyProxiesProject(const M
 
 void GaapClient::ModifyProxiesProjectAsync(const ModifyProxiesProjectRequest& request, const ModifyProxiesProjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProxiesProjectRequest&;
-    using Resp = ModifyProxiesProjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProxiesProject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProxiesProject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyProxiesProjectOutcomeCallable GaapClient::ModifyProxiesProjectCallable(const ModifyProxiesProjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProxiesProjectOutcome>>();
-    ModifyProxiesProjectAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyProxiesProjectRequest&,
-        ModifyProxiesProjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProxiesProjectOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProxiesProject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyProxyConfigurationOutcome GaapClient::ModifyProxyConfiguration(const ModifyProxyConfigurationRequest &request)
@@ -4512,32 +3889,25 @@ GaapClient::ModifyProxyConfigurationOutcome GaapClient::ModifyProxyConfiguration
 
 void GaapClient::ModifyProxyConfigurationAsync(const ModifyProxyConfigurationRequest& request, const ModifyProxyConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProxyConfigurationRequest&;
-    using Resp = ModifyProxyConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProxyConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProxyConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyProxyConfigurationOutcomeCallable GaapClient::ModifyProxyConfigurationCallable(const ModifyProxyConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProxyConfigurationOutcome>>();
-    ModifyProxyConfigurationAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyProxyConfigurationRequest&,
-        ModifyProxyConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProxyConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProxyConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyProxyGroupAttributeOutcome GaapClient::ModifyProxyGroupAttribute(const ModifyProxyGroupAttributeRequest &request)
@@ -4562,32 +3932,25 @@ GaapClient::ModifyProxyGroupAttributeOutcome GaapClient::ModifyProxyGroupAttribu
 
 void GaapClient::ModifyProxyGroupAttributeAsync(const ModifyProxyGroupAttributeRequest& request, const ModifyProxyGroupAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyProxyGroupAttributeRequest&;
-    using Resp = ModifyProxyGroupAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyProxyGroupAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyProxyGroupAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyProxyGroupAttributeOutcomeCallable GaapClient::ModifyProxyGroupAttributeCallable(const ModifyProxyGroupAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyProxyGroupAttributeOutcome>>();
-    ModifyProxyGroupAttributeAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyProxyGroupAttributeRequest&,
-        ModifyProxyGroupAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyProxyGroupAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyProxyGroupAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyRealServerNameOutcome GaapClient::ModifyRealServerName(const ModifyRealServerNameRequest &request)
@@ -4612,32 +3975,25 @@ GaapClient::ModifyRealServerNameOutcome GaapClient::ModifyRealServerName(const M
 
 void GaapClient::ModifyRealServerNameAsync(const ModifyRealServerNameRequest& request, const ModifyRealServerNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRealServerNameRequest&;
-    using Resp = ModifyRealServerNameResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRealServerName(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRealServerName", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyRealServerNameOutcomeCallable GaapClient::ModifyRealServerNameCallable(const ModifyRealServerNameRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRealServerNameOutcome>>();
-    ModifyRealServerNameAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyRealServerNameRequest&,
-        ModifyRealServerNameOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRealServerNameOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRealServerName(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyRuleAttributeOutcome GaapClient::ModifyRuleAttribute(const ModifyRuleAttributeRequest &request)
@@ -4662,32 +4018,25 @@ GaapClient::ModifyRuleAttributeOutcome GaapClient::ModifyRuleAttribute(const Mod
 
 void GaapClient::ModifyRuleAttributeAsync(const ModifyRuleAttributeRequest& request, const ModifyRuleAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRuleAttributeRequest&;
-    using Resp = ModifyRuleAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRuleAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRuleAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyRuleAttributeOutcomeCallable GaapClient::ModifyRuleAttributeCallable(const ModifyRuleAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRuleAttributeOutcome>>();
-    ModifyRuleAttributeAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyRuleAttributeRequest&,
-        ModifyRuleAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRuleAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRuleAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifySecurityRuleOutcome GaapClient::ModifySecurityRule(const ModifySecurityRuleRequest &request)
@@ -4712,32 +4061,25 @@ GaapClient::ModifySecurityRuleOutcome GaapClient::ModifySecurityRule(const Modif
 
 void GaapClient::ModifySecurityRuleAsync(const ModifySecurityRuleRequest& request, const ModifySecurityRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySecurityRuleRequest&;
-    using Resp = ModifySecurityRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySecurityRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySecurityRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifySecurityRuleOutcomeCallable GaapClient::ModifySecurityRuleCallable(const ModifySecurityRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySecurityRuleOutcome>>();
-    ModifySecurityRuleAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifySecurityRuleRequest&,
-        ModifySecurityRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySecurityRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySecurityRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyTCPListenerAttributeOutcome GaapClient::ModifyTCPListenerAttribute(const ModifyTCPListenerAttributeRequest &request)
@@ -4762,32 +4104,25 @@ GaapClient::ModifyTCPListenerAttributeOutcome GaapClient::ModifyTCPListenerAttri
 
 void GaapClient::ModifyTCPListenerAttributeAsync(const ModifyTCPListenerAttributeRequest& request, const ModifyTCPListenerAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTCPListenerAttributeRequest&;
-    using Resp = ModifyTCPListenerAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTCPListenerAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTCPListenerAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyTCPListenerAttributeOutcomeCallable GaapClient::ModifyTCPListenerAttributeCallable(const ModifyTCPListenerAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTCPListenerAttributeOutcome>>();
-    ModifyTCPListenerAttributeAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyTCPListenerAttributeRequest&,
-        ModifyTCPListenerAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTCPListenerAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTCPListenerAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::ModifyUDPListenerAttributeOutcome GaapClient::ModifyUDPListenerAttribute(const ModifyUDPListenerAttributeRequest &request)
@@ -4812,32 +4147,25 @@ GaapClient::ModifyUDPListenerAttributeOutcome GaapClient::ModifyUDPListenerAttri
 
 void GaapClient::ModifyUDPListenerAttributeAsync(const ModifyUDPListenerAttributeRequest& request, const ModifyUDPListenerAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUDPListenerAttributeRequest&;
-    using Resp = ModifyUDPListenerAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUDPListenerAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUDPListenerAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::ModifyUDPListenerAttributeOutcomeCallable GaapClient::ModifyUDPListenerAttributeCallable(const ModifyUDPListenerAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUDPListenerAttributeOutcome>>();
-    ModifyUDPListenerAttributeAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const ModifyUDPListenerAttributeRequest&,
-        ModifyUDPListenerAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUDPListenerAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUDPListenerAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::OpenProxiesOutcome GaapClient::OpenProxies(const OpenProxiesRequest &request)
@@ -4862,32 +4190,25 @@ GaapClient::OpenProxiesOutcome GaapClient::OpenProxies(const OpenProxiesRequest 
 
 void GaapClient::OpenProxiesAsync(const OpenProxiesRequest& request, const OpenProxiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenProxiesRequest&;
-    using Resp = OpenProxiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenProxies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenProxies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::OpenProxiesOutcomeCallable GaapClient::OpenProxiesCallable(const OpenProxiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenProxiesOutcome>>();
-    OpenProxiesAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const OpenProxiesRequest&,
-        OpenProxiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenProxiesOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenProxies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::OpenProxyGroupOutcome GaapClient::OpenProxyGroup(const OpenProxyGroupRequest &request)
@@ -4912,32 +4233,25 @@ GaapClient::OpenProxyGroupOutcome GaapClient::OpenProxyGroup(const OpenProxyGrou
 
 void GaapClient::OpenProxyGroupAsync(const OpenProxyGroupRequest& request, const OpenProxyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenProxyGroupRequest&;
-    using Resp = OpenProxyGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenProxyGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenProxyGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::OpenProxyGroupOutcomeCallable GaapClient::OpenProxyGroupCallable(const OpenProxyGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenProxyGroupOutcome>>();
-    OpenProxyGroupAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const OpenProxyGroupRequest&,
-        OpenProxyGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenProxyGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenProxyGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::OpenSecurityPolicyOutcome GaapClient::OpenSecurityPolicy(const OpenSecurityPolicyRequest &request)
@@ -4962,32 +4276,25 @@ GaapClient::OpenSecurityPolicyOutcome GaapClient::OpenSecurityPolicy(const OpenS
 
 void GaapClient::OpenSecurityPolicyAsync(const OpenSecurityPolicyRequest& request, const OpenSecurityPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenSecurityPolicyRequest&;
-    using Resp = OpenSecurityPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenSecurityPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenSecurityPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::OpenSecurityPolicyOutcomeCallable GaapClient::OpenSecurityPolicyCallable(const OpenSecurityPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenSecurityPolicyOutcome>>();
-    OpenSecurityPolicyAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const OpenSecurityPolicyRequest&,
-        OpenSecurityPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenSecurityPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenSecurityPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::RemoveRealServersOutcome GaapClient::RemoveRealServers(const RemoveRealServersRequest &request)
@@ -5012,32 +4319,25 @@ GaapClient::RemoveRealServersOutcome GaapClient::RemoveRealServers(const RemoveR
 
 void GaapClient::RemoveRealServersAsync(const RemoveRealServersRequest& request, const RemoveRealServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveRealServersRequest&;
-    using Resp = RemoveRealServersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveRealServers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveRealServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::RemoveRealServersOutcomeCallable GaapClient::RemoveRealServersCallable(const RemoveRealServersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveRealServersOutcome>>();
-    RemoveRealServersAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const RemoveRealServersRequest&,
-        RemoveRealServersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveRealServersOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveRealServers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::SetAuthenticationOutcome GaapClient::SetAuthentication(const SetAuthenticationRequest &request)
@@ -5062,32 +4362,25 @@ GaapClient::SetAuthenticationOutcome GaapClient::SetAuthentication(const SetAuth
 
 void GaapClient::SetAuthenticationAsync(const SetAuthenticationRequest& request, const SetAuthenticationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetAuthenticationRequest&;
-    using Resp = SetAuthenticationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetAuthentication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetAuthentication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::SetAuthenticationOutcomeCallable GaapClient::SetAuthenticationCallable(const SetAuthenticationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetAuthenticationOutcome>>();
-    SetAuthenticationAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const SetAuthenticationRequest&,
-        SetAuthenticationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetAuthenticationOutcome()>>(
+        [this, request]()
+        {
+            return this->SetAuthentication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 GaapClient::SetTlsVersionOutcome GaapClient::SetTlsVersion(const SetTlsVersionRequest &request)
@@ -5112,31 +4405,24 @@ GaapClient::SetTlsVersionOutcome GaapClient::SetTlsVersion(const SetTlsVersionRe
 
 void GaapClient::SetTlsVersionAsync(const SetTlsVersionRequest& request, const SetTlsVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetTlsVersionRequest&;
-    using Resp = SetTlsVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetTlsVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetTlsVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 GaapClient::SetTlsVersionOutcomeCallable GaapClient::SetTlsVersionCallable(const SetTlsVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetTlsVersionOutcome>>();
-    SetTlsVersionAsync(
-    request,
-    [prom](
-        const GaapClient*,
-        const SetTlsVersionRequest&,
-        SetTlsVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetTlsVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->SetTlsVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

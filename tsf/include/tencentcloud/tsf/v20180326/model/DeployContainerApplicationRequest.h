@@ -45,6 +45,21 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ContainerGroupObservabilityConfig;
+                class Env;
+                class VolumeMountInfo;
+                class LifeCycleHook;
+                class ContainerInfo;
+                class VolumeInfo;
+                class ServiceSetting;
+                class Tag;
+                class TcrRepoInfo;
+                class HealthCheckSettings;
+                class SchedulingStrategy;
+                class ContainerGroupServiceGovernanceConfig;
+                class WarmupSetting;
+                class AgentProfile;
+
                 /**
                 * DeployContainerApplication请求参数结构体
                 */

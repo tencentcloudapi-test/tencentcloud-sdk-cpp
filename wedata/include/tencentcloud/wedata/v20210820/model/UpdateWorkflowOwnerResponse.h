@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchOperationOpsDto;
+
                 /**
                 * UpdateWorkflowOwner返回参数结构体
                 */

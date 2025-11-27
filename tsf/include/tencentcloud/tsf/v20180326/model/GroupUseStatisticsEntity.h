@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * API分组日使用统计对象数据点
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GroupUseStatisticsEntity();
-                    ~GroupUseStatisticsEntity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

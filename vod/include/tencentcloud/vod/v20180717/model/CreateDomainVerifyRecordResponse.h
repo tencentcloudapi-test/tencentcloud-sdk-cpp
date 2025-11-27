@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DNSVerifyInfo;
+                class FileVerifyInfo;
+
                 /**
                 * CreateDomainVerifyRecord返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValue;
+
                 /**
                 * ModifyRecordFields请求参数结构体
                 */

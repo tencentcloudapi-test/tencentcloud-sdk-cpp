@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 扫描忽略的漏洞
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ScanIgnoreVul();
-                    ~ScanIgnoreVul() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

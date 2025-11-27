@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EventContent;
+
                 /**
                 * PullEvents返回参数结构体
                 */

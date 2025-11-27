@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TWeCallInfo;
+
                 /**
                 * PauseTWeCallDevice请求参数结构体
                 */

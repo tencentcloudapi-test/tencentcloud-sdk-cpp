@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KTVMatchRuleMusicInfo;
+
                 /**
                 * 歌曲匹配规则。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     KTVMatchRule();
-                    ~KTVMatchRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

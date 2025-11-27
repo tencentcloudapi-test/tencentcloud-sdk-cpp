@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RegionInfo;
+
                 /**
                 * 媒体传输的地区信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     StreamLinkRegionInfo();
-                    ~StreamLinkRegionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

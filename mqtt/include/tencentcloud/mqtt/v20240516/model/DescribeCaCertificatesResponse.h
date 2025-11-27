@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CaCertificateItem;
+
                 /**
                 * DescribeCaCertificates返回参数结构体
                 */

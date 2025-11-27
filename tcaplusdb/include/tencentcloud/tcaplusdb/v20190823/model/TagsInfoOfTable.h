@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagInfoUnit;
+                class ErrorInfo;
+
                 /**
                 * 表格标签信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TagsInfoOfTable();
-                    ~TagsInfoOfTable() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

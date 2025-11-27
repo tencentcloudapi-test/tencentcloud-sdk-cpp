@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 *  二级状态流水
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SecondaryStatusTransition();
-                    ~SecondaryStatusTransition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

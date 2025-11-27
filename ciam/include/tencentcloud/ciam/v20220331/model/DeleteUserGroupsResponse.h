@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserGroupDeleteResp;
+
                 /**
                 * DeleteUserGroups返回参数结构体
                 */

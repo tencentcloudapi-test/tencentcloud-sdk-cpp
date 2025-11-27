@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Route;
+
                 /**
                 * CreateRoutes请求参数结构体
                 */

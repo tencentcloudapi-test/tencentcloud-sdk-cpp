@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AgentSalesmanElem;
+
                 /**
                 * DescribeSalesmans返回参数结构体
                 */

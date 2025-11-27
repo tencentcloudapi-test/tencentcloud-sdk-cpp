@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RedisKeySpaceData;
+
                 /**
                 * DescribeRedisTopBigKeys返回参数结构体
                 */

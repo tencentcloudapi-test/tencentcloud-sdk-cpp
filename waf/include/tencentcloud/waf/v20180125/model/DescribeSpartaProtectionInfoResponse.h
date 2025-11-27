@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PortItem;
+
                 /**
                 * DescribeSpartaProtectionInfo返回参数结构体
                 */

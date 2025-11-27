@@ -62,32 +62,25 @@ VcgClient::DescribeVideoStylizationJobOutcome VcgClient::DescribeVideoStylizatio
 
 void VcgClient::DescribeVideoStylizationJobAsync(const DescribeVideoStylizationJobRequest& request, const DescribeVideoStylizationJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoStylizationJobRequest&;
-    using Resp = DescribeVideoStylizationJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoStylizationJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoStylizationJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcgClient::DescribeVideoStylizationJobOutcomeCallable VcgClient::DescribeVideoStylizationJobCallable(const DescribeVideoStylizationJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoStylizationJobOutcome>>();
-    DescribeVideoStylizationJobAsync(
-    request,
-    [prom](
-        const VcgClient*,
-        const DescribeVideoStylizationJobRequest&,
-        DescribeVideoStylizationJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoStylizationJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoStylizationJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcgClient::SubmitVideoStylizationJobOutcome VcgClient::SubmitVideoStylizationJob(const SubmitVideoStylizationJobRequest &request)
@@ -112,31 +105,24 @@ VcgClient::SubmitVideoStylizationJobOutcome VcgClient::SubmitVideoStylizationJob
 
 void VcgClient::SubmitVideoStylizationJobAsync(const SubmitVideoStylizationJobRequest& request, const SubmitVideoStylizationJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitVideoStylizationJobRequest&;
-    using Resp = SubmitVideoStylizationJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitVideoStylizationJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitVideoStylizationJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcgClient::SubmitVideoStylizationJobOutcomeCallable VcgClient::SubmitVideoStylizationJobCallable(const SubmitVideoStylizationJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitVideoStylizationJobOutcome>>();
-    SubmitVideoStylizationJobAsync(
-    request,
-    [prom](
-        const VcgClient*,
-        const SubmitVideoStylizationJobRequest&,
-        SubmitVideoStylizationJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitVideoStylizationJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitVideoStylizationJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

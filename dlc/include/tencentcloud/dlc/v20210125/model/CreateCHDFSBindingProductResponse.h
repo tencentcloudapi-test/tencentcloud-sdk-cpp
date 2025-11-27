@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MountPointAssociates;
+
                 /**
                 * CreateCHDFSBindingProduct返回参数结构体
                 */

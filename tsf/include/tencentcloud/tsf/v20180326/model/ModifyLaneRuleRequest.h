@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LaneRuleTag;
+
                 /**
                 * ModifyLaneRule请求参数结构体
                 */

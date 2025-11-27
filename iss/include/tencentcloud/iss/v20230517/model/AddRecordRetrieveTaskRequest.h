@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChannelInfo;
+
                 /**
                 * AddRecordRetrieveTask请求参数结构体
                 */

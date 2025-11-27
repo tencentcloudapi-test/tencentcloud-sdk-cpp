@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceRenewInfo;
+
                 /**
                 * ModifyDBInstanceRenewFlag请求参数结构体
                 */

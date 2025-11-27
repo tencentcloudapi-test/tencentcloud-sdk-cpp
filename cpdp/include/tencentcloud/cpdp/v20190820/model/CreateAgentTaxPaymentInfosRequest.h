@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AgentTaxPayment;
+
                 /**
                 * CreateAgentTaxPaymentInfos请求参数结构体
                 */

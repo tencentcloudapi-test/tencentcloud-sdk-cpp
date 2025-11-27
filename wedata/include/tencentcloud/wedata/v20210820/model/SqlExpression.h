@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SqlExpressionTable;
+
                 /**
                 * 数据质量自定义规则时的sql表达式解析对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SqlExpression();
-                    ~SqlExpression() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

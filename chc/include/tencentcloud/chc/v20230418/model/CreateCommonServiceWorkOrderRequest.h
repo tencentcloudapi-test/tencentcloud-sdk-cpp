@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DevicePosition;
+
                 /**
                 * CreateCommonServiceWorkOrder请求参数结构体
                 */

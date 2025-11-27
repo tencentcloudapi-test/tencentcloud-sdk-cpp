@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 终端自定义分组列表数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DeviceVirtualDeviceGroupsDetail();
-                    ~DeviceVirtualDeviceGroupsDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

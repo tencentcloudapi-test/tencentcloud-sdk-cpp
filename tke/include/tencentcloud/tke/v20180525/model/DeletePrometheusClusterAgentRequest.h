@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusAgentInfo;
+
                 /**
                 * DeletePrometheusClusterAgent请求参数结构体
                 */

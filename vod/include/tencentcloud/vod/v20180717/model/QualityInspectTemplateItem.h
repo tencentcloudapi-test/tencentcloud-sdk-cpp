@@ -44,6 +44,17 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JitterConfigureInfo;
+                class BlurConfigureInfo;
+                class AbnormalLightingConfigureInfo;
+                class CrashScreenConfigureInfo;
+                class BlackWhiteEdgeConfigureInfo;
+                class NoiseConfigureInfo;
+                class MosaicConfigureInfo;
+                class QRCodeConfigureInfo;
+                class QualityEvaluationConfigureInfo;
+                class VoiceConfigureInfo;
+
                 /**
                 * 音画质检测模板详情。
                 */
@@ -51,7 +62,6 @@ namespace TencentCloud
                 {
                 public:
                     QualityInspectTemplateItem();
-                    ~QualityInspectTemplateItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

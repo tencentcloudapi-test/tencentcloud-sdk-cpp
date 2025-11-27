@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeGatewayMonitor;
+
                 /**
                 * DescribeGatewayMonitor返回参数结构体
                 */

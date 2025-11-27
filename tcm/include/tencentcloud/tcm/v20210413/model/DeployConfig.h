@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 部署配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DeployConfig();
-                    ~DeployConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

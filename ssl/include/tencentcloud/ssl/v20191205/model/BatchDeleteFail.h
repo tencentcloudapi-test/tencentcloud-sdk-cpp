@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 批量删除失败的项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BatchDeleteFail();
-                    ~BatchDeleteFail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

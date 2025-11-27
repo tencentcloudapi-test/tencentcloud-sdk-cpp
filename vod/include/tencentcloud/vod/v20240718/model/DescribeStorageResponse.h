@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StorageInfo;
+
                 /**
                 * DescribeStorage返回参数结构体
                 */

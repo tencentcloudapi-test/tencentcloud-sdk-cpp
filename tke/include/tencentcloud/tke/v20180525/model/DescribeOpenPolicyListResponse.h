@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpenPolicyInfo;
+
                 /**
                 * DescribeOpenPolicyList返回参数结构体
                 */

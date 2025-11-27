@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 获取设备列表的响应
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ListDeviceInfo();
-                    ~ListDeviceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

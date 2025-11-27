@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * 许可标签
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     LicenseTag();
-                    ~LicenseTag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

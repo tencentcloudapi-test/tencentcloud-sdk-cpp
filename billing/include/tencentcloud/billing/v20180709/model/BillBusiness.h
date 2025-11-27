@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 产品筛选列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BillBusiness();
-                    ~BillBusiness() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -62,32 +62,25 @@ TemClient::CreateApplicationOutcome TemClient::CreateApplication(const CreateApp
 
 void TemClient::CreateApplicationAsync(const CreateApplicationRequest& request, const CreateApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateApplicationRequest&;
-    using Resp = CreateApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::CreateApplicationOutcomeCallable TemClient::CreateApplicationCallable(const CreateApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateApplicationOutcome>>();
-    CreateApplicationAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const CreateApplicationRequest&,
-        CreateApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::CreateApplicationAutoscalerOutcome TemClient::CreateApplicationAutoscaler(const CreateApplicationAutoscalerRequest &request)
@@ -112,32 +105,25 @@ TemClient::CreateApplicationAutoscalerOutcome TemClient::CreateApplicationAutosc
 
 void TemClient::CreateApplicationAutoscalerAsync(const CreateApplicationAutoscalerRequest& request, const CreateApplicationAutoscalerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateApplicationAutoscalerRequest&;
-    using Resp = CreateApplicationAutoscalerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateApplicationAutoscaler(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateApplicationAutoscaler", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::CreateApplicationAutoscalerOutcomeCallable TemClient::CreateApplicationAutoscalerCallable(const CreateApplicationAutoscalerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateApplicationAutoscalerOutcome>>();
-    CreateApplicationAutoscalerAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const CreateApplicationAutoscalerRequest&,
-        CreateApplicationAutoscalerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateApplicationAutoscalerOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateApplicationAutoscaler(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::CreateApplicationServiceOutcome TemClient::CreateApplicationService(const CreateApplicationServiceRequest &request)
@@ -162,32 +148,25 @@ TemClient::CreateApplicationServiceOutcome TemClient::CreateApplicationService(c
 
 void TemClient::CreateApplicationServiceAsync(const CreateApplicationServiceRequest& request, const CreateApplicationServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateApplicationServiceRequest&;
-    using Resp = CreateApplicationServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateApplicationService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateApplicationService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::CreateApplicationServiceOutcomeCallable TemClient::CreateApplicationServiceCallable(const CreateApplicationServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateApplicationServiceOutcome>>();
-    CreateApplicationServiceAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const CreateApplicationServiceRequest&,
-        CreateApplicationServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateApplicationServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateApplicationService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::CreateConfigDataOutcome TemClient::CreateConfigData(const CreateConfigDataRequest &request)
@@ -212,32 +191,25 @@ TemClient::CreateConfigDataOutcome TemClient::CreateConfigData(const CreateConfi
 
 void TemClient::CreateConfigDataAsync(const CreateConfigDataRequest& request, const CreateConfigDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConfigDataRequest&;
-    using Resp = CreateConfigDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConfigData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConfigData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::CreateConfigDataOutcomeCallable TemClient::CreateConfigDataCallable(const CreateConfigDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConfigDataOutcome>>();
-    CreateConfigDataAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const CreateConfigDataRequest&,
-        CreateConfigDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConfigDataOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConfigData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::CreateCosTokenOutcome TemClient::CreateCosToken(const CreateCosTokenRequest &request)
@@ -262,32 +234,25 @@ TemClient::CreateCosTokenOutcome TemClient::CreateCosToken(const CreateCosTokenR
 
 void TemClient::CreateCosTokenAsync(const CreateCosTokenRequest& request, const CreateCosTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCosTokenRequest&;
-    using Resp = CreateCosTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCosToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCosToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::CreateCosTokenOutcomeCallable TemClient::CreateCosTokenCallable(const CreateCosTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCosTokenOutcome>>();
-    CreateCosTokenAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const CreateCosTokenRequest&,
-        CreateCosTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCosTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCosToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::CreateEnvironmentOutcome TemClient::CreateEnvironment(const CreateEnvironmentRequest &request)
@@ -312,32 +277,25 @@ TemClient::CreateEnvironmentOutcome TemClient::CreateEnvironment(const CreateEnv
 
 void TemClient::CreateEnvironmentAsync(const CreateEnvironmentRequest& request, const CreateEnvironmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateEnvironmentRequest&;
-    using Resp = CreateEnvironmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateEnvironment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateEnvironment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::CreateEnvironmentOutcomeCallable TemClient::CreateEnvironmentCallable(const CreateEnvironmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateEnvironmentOutcome>>();
-    CreateEnvironmentAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const CreateEnvironmentRequest&,
-        CreateEnvironmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateEnvironmentOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateEnvironment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::CreateLogConfigOutcome TemClient::CreateLogConfig(const CreateLogConfigRequest &request)
@@ -362,32 +320,25 @@ TemClient::CreateLogConfigOutcome TemClient::CreateLogConfig(const CreateLogConf
 
 void TemClient::CreateLogConfigAsync(const CreateLogConfigRequest& request, const CreateLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLogConfigRequest&;
-    using Resp = CreateLogConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLogConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLogConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::CreateLogConfigOutcomeCallable TemClient::CreateLogConfigCallable(const CreateLogConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLogConfigOutcome>>();
-    CreateLogConfigAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const CreateLogConfigRequest&,
-        CreateLogConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLogConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLogConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::CreateResourceOutcome TemClient::CreateResource(const CreateResourceRequest &request)
@@ -412,32 +363,25 @@ TemClient::CreateResourceOutcome TemClient::CreateResource(const CreateResourceR
 
 void TemClient::CreateResourceAsync(const CreateResourceRequest& request, const CreateResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateResourceRequest&;
-    using Resp = CreateResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::CreateResourceOutcomeCallable TemClient::CreateResourceCallable(const CreateResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateResourceOutcome>>();
-    CreateResourceAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const CreateResourceRequest&,
-        CreateResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DeleteApplicationOutcome TemClient::DeleteApplication(const DeleteApplicationRequest &request)
@@ -462,32 +406,25 @@ TemClient::DeleteApplicationOutcome TemClient::DeleteApplication(const DeleteApp
 
 void TemClient::DeleteApplicationAsync(const DeleteApplicationRequest& request, const DeleteApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteApplicationRequest&;
-    using Resp = DeleteApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DeleteApplicationOutcomeCallable TemClient::DeleteApplicationCallable(const DeleteApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteApplicationOutcome>>();
-    DeleteApplicationAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DeleteApplicationRequest&,
-        DeleteApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DeleteApplicationAutoscalerOutcome TemClient::DeleteApplicationAutoscaler(const DeleteApplicationAutoscalerRequest &request)
@@ -512,32 +449,25 @@ TemClient::DeleteApplicationAutoscalerOutcome TemClient::DeleteApplicationAutosc
 
 void TemClient::DeleteApplicationAutoscalerAsync(const DeleteApplicationAutoscalerRequest& request, const DeleteApplicationAutoscalerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteApplicationAutoscalerRequest&;
-    using Resp = DeleteApplicationAutoscalerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteApplicationAutoscaler(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteApplicationAutoscaler", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DeleteApplicationAutoscalerOutcomeCallable TemClient::DeleteApplicationAutoscalerCallable(const DeleteApplicationAutoscalerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteApplicationAutoscalerOutcome>>();
-    DeleteApplicationAutoscalerAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DeleteApplicationAutoscalerRequest&,
-        DeleteApplicationAutoscalerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteApplicationAutoscalerOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteApplicationAutoscaler(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DeleteApplicationServiceOutcome TemClient::DeleteApplicationService(const DeleteApplicationServiceRequest &request)
@@ -562,32 +492,25 @@ TemClient::DeleteApplicationServiceOutcome TemClient::DeleteApplicationService(c
 
 void TemClient::DeleteApplicationServiceAsync(const DeleteApplicationServiceRequest& request, const DeleteApplicationServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteApplicationServiceRequest&;
-    using Resp = DeleteApplicationServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteApplicationService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteApplicationService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DeleteApplicationServiceOutcomeCallable TemClient::DeleteApplicationServiceCallable(const DeleteApplicationServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteApplicationServiceOutcome>>();
-    DeleteApplicationServiceAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DeleteApplicationServiceRequest&,
-        DeleteApplicationServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteApplicationServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteApplicationService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DeleteIngressOutcome TemClient::DeleteIngress(const DeleteIngressRequest &request)
@@ -612,32 +535,25 @@ TemClient::DeleteIngressOutcome TemClient::DeleteIngress(const DeleteIngressRequ
 
 void TemClient::DeleteIngressAsync(const DeleteIngressRequest& request, const DeleteIngressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteIngressRequest&;
-    using Resp = DeleteIngressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteIngress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteIngress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DeleteIngressOutcomeCallable TemClient::DeleteIngressCallable(const DeleteIngressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteIngressOutcome>>();
-    DeleteIngressAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DeleteIngressRequest&,
-        DeleteIngressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteIngressOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteIngress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DeployApplicationOutcome TemClient::DeployApplication(const DeployApplicationRequest &request)
@@ -662,32 +578,25 @@ TemClient::DeployApplicationOutcome TemClient::DeployApplication(const DeployApp
 
 void TemClient::DeployApplicationAsync(const DeployApplicationRequest& request, const DeployApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeployApplicationRequest&;
-    using Resp = DeployApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeployApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeployApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DeployApplicationOutcomeCallable TemClient::DeployApplicationCallable(const DeployApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeployApplicationOutcome>>();
-    DeployApplicationAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DeployApplicationRequest&,
-        DeployApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeployApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeployApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeApplicationAutoscalerListOutcome TemClient::DescribeApplicationAutoscalerList(const DescribeApplicationAutoscalerListRequest &request)
@@ -712,32 +621,25 @@ TemClient::DescribeApplicationAutoscalerListOutcome TemClient::DescribeApplicati
 
 void TemClient::DescribeApplicationAutoscalerListAsync(const DescribeApplicationAutoscalerListRequest& request, const DescribeApplicationAutoscalerListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApplicationAutoscalerListRequest&;
-    using Resp = DescribeApplicationAutoscalerListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApplicationAutoscalerList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApplicationAutoscalerList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeApplicationAutoscalerListOutcomeCallable TemClient::DescribeApplicationAutoscalerListCallable(const DescribeApplicationAutoscalerListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApplicationAutoscalerListOutcome>>();
-    DescribeApplicationAutoscalerListAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeApplicationAutoscalerListRequest&,
-        DescribeApplicationAutoscalerListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApplicationAutoscalerListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApplicationAutoscalerList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeApplicationInfoOutcome TemClient::DescribeApplicationInfo(const DescribeApplicationInfoRequest &request)
@@ -762,32 +664,25 @@ TemClient::DescribeApplicationInfoOutcome TemClient::DescribeApplicationInfo(con
 
 void TemClient::DescribeApplicationInfoAsync(const DescribeApplicationInfoRequest& request, const DescribeApplicationInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApplicationInfoRequest&;
-    using Resp = DescribeApplicationInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApplicationInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApplicationInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeApplicationInfoOutcomeCallable TemClient::DescribeApplicationInfoCallable(const DescribeApplicationInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApplicationInfoOutcome>>();
-    DescribeApplicationInfoAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeApplicationInfoRequest&,
-        DescribeApplicationInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApplicationInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApplicationInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeApplicationPodsOutcome TemClient::DescribeApplicationPods(const DescribeApplicationPodsRequest &request)
@@ -812,32 +707,25 @@ TemClient::DescribeApplicationPodsOutcome TemClient::DescribeApplicationPods(con
 
 void TemClient::DescribeApplicationPodsAsync(const DescribeApplicationPodsRequest& request, const DescribeApplicationPodsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApplicationPodsRequest&;
-    using Resp = DescribeApplicationPodsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApplicationPods(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApplicationPods", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeApplicationPodsOutcomeCallable TemClient::DescribeApplicationPodsCallable(const DescribeApplicationPodsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApplicationPodsOutcome>>();
-    DescribeApplicationPodsAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeApplicationPodsRequest&,
-        DescribeApplicationPodsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApplicationPodsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApplicationPods(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeApplicationServiceListOutcome TemClient::DescribeApplicationServiceList(const DescribeApplicationServiceListRequest &request)
@@ -862,32 +750,25 @@ TemClient::DescribeApplicationServiceListOutcome TemClient::DescribeApplicationS
 
 void TemClient::DescribeApplicationServiceListAsync(const DescribeApplicationServiceListRequest& request, const DescribeApplicationServiceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApplicationServiceListRequest&;
-    using Resp = DescribeApplicationServiceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApplicationServiceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApplicationServiceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeApplicationServiceListOutcomeCallable TemClient::DescribeApplicationServiceListCallable(const DescribeApplicationServiceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApplicationServiceListOutcome>>();
-    DescribeApplicationServiceListAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeApplicationServiceListRequest&,
-        DescribeApplicationServiceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApplicationServiceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApplicationServiceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeApplicationsOutcome TemClient::DescribeApplications(const DescribeApplicationsRequest &request)
@@ -912,32 +793,25 @@ TemClient::DescribeApplicationsOutcome TemClient::DescribeApplications(const Des
 
 void TemClient::DescribeApplicationsAsync(const DescribeApplicationsRequest& request, const DescribeApplicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApplicationsRequest&;
-    using Resp = DescribeApplicationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApplications(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApplications", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeApplicationsOutcomeCallable TemClient::DescribeApplicationsCallable(const DescribeApplicationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApplicationsOutcome>>();
-    DescribeApplicationsAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeApplicationsRequest&,
-        DescribeApplicationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApplicationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApplications(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeApplicationsStatusOutcome TemClient::DescribeApplicationsStatus(const DescribeApplicationsStatusRequest &request)
@@ -962,32 +836,25 @@ TemClient::DescribeApplicationsStatusOutcome TemClient::DescribeApplicationsStat
 
 void TemClient::DescribeApplicationsStatusAsync(const DescribeApplicationsStatusRequest& request, const DescribeApplicationsStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApplicationsStatusRequest&;
-    using Resp = DescribeApplicationsStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApplicationsStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApplicationsStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeApplicationsStatusOutcomeCallable TemClient::DescribeApplicationsStatusCallable(const DescribeApplicationsStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApplicationsStatusOutcome>>();
-    DescribeApplicationsStatusAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeApplicationsStatusRequest&,
-        DescribeApplicationsStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApplicationsStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApplicationsStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeConfigDataOutcome TemClient::DescribeConfigData(const DescribeConfigDataRequest &request)
@@ -1012,32 +879,25 @@ TemClient::DescribeConfigDataOutcome TemClient::DescribeConfigData(const Describ
 
 void TemClient::DescribeConfigDataAsync(const DescribeConfigDataRequest& request, const DescribeConfigDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigDataRequest&;
-    using Resp = DescribeConfigDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeConfigDataOutcomeCallable TemClient::DescribeConfigDataCallable(const DescribeConfigDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigDataOutcome>>();
-    DescribeConfigDataAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeConfigDataRequest&,
-        DescribeConfigDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeConfigDataListOutcome TemClient::DescribeConfigDataList(const DescribeConfigDataListRequest &request)
@@ -1062,32 +922,25 @@ TemClient::DescribeConfigDataListOutcome TemClient::DescribeConfigDataList(const
 
 void TemClient::DescribeConfigDataListAsync(const DescribeConfigDataListRequest& request, const DescribeConfigDataListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConfigDataListRequest&;
-    using Resp = DescribeConfigDataListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConfigDataList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConfigDataList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeConfigDataListOutcomeCallable TemClient::DescribeConfigDataListCallable(const DescribeConfigDataListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConfigDataListOutcome>>();
-    DescribeConfigDataListAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeConfigDataListRequest&,
-        DescribeConfigDataListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConfigDataListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConfigDataList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeDeployApplicationDetailOutcome TemClient::DescribeDeployApplicationDetail(const DescribeDeployApplicationDetailRequest &request)
@@ -1112,32 +965,25 @@ TemClient::DescribeDeployApplicationDetailOutcome TemClient::DescribeDeployAppli
 
 void TemClient::DescribeDeployApplicationDetailAsync(const DescribeDeployApplicationDetailRequest& request, const DescribeDeployApplicationDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeployApplicationDetailRequest&;
-    using Resp = DescribeDeployApplicationDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeployApplicationDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeployApplicationDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeDeployApplicationDetailOutcomeCallable TemClient::DescribeDeployApplicationDetailCallable(const DescribeDeployApplicationDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeployApplicationDetailOutcome>>();
-    DescribeDeployApplicationDetailAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeDeployApplicationDetailRequest&,
-        DescribeDeployApplicationDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeployApplicationDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeployApplicationDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeEnvironmentOutcome TemClient::DescribeEnvironment(const DescribeEnvironmentRequest &request)
@@ -1162,32 +1008,25 @@ TemClient::DescribeEnvironmentOutcome TemClient::DescribeEnvironment(const Descr
 
 void TemClient::DescribeEnvironmentAsync(const DescribeEnvironmentRequest& request, const DescribeEnvironmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEnvironmentRequest&;
-    using Resp = DescribeEnvironmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEnvironment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEnvironment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeEnvironmentOutcomeCallable TemClient::DescribeEnvironmentCallable(const DescribeEnvironmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEnvironmentOutcome>>();
-    DescribeEnvironmentAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeEnvironmentRequest&,
-        DescribeEnvironmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEnvironmentOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEnvironment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeEnvironmentStatusOutcome TemClient::DescribeEnvironmentStatus(const DescribeEnvironmentStatusRequest &request)
@@ -1212,32 +1051,25 @@ TemClient::DescribeEnvironmentStatusOutcome TemClient::DescribeEnvironmentStatus
 
 void TemClient::DescribeEnvironmentStatusAsync(const DescribeEnvironmentStatusRequest& request, const DescribeEnvironmentStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEnvironmentStatusRequest&;
-    using Resp = DescribeEnvironmentStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEnvironmentStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEnvironmentStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeEnvironmentStatusOutcomeCallable TemClient::DescribeEnvironmentStatusCallable(const DescribeEnvironmentStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEnvironmentStatusOutcome>>();
-    DescribeEnvironmentStatusAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeEnvironmentStatusRequest&,
-        DescribeEnvironmentStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEnvironmentStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEnvironmentStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeEnvironmentsOutcome TemClient::DescribeEnvironments(const DescribeEnvironmentsRequest &request)
@@ -1262,32 +1094,25 @@ TemClient::DescribeEnvironmentsOutcome TemClient::DescribeEnvironments(const Des
 
 void TemClient::DescribeEnvironmentsAsync(const DescribeEnvironmentsRequest& request, const DescribeEnvironmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEnvironmentsRequest&;
-    using Resp = DescribeEnvironmentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEnvironments(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEnvironments", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeEnvironmentsOutcomeCallable TemClient::DescribeEnvironmentsCallable(const DescribeEnvironmentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEnvironmentsOutcome>>();
-    DescribeEnvironmentsAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeEnvironmentsRequest&,
-        DescribeEnvironmentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEnvironmentsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEnvironments(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeIngressOutcome TemClient::DescribeIngress(const DescribeIngressRequest &request)
@@ -1312,32 +1137,25 @@ TemClient::DescribeIngressOutcome TemClient::DescribeIngress(const DescribeIngre
 
 void TemClient::DescribeIngressAsync(const DescribeIngressRequest& request, const DescribeIngressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIngressRequest&;
-    using Resp = DescribeIngressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIngress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIngress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeIngressOutcomeCallable TemClient::DescribeIngressCallable(const DescribeIngressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIngressOutcome>>();
-    DescribeIngressAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeIngressRequest&,
-        DescribeIngressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIngressOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIngress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeIngressesOutcome TemClient::DescribeIngresses(const DescribeIngressesRequest &request)
@@ -1362,32 +1180,25 @@ TemClient::DescribeIngressesOutcome TemClient::DescribeIngresses(const DescribeI
 
 void TemClient::DescribeIngressesAsync(const DescribeIngressesRequest& request, const DescribeIngressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIngressesRequest&;
-    using Resp = DescribeIngressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIngresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIngresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeIngressesOutcomeCallable TemClient::DescribeIngressesCallable(const DescribeIngressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIngressesOutcome>>();
-    DescribeIngressesAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeIngressesRequest&,
-        DescribeIngressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIngressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIngresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeLogConfigOutcome TemClient::DescribeLogConfig(const DescribeLogConfigRequest &request)
@@ -1412,32 +1223,25 @@ TemClient::DescribeLogConfigOutcome TemClient::DescribeLogConfig(const DescribeL
 
 void TemClient::DescribeLogConfigAsync(const DescribeLogConfigRequest& request, const DescribeLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLogConfigRequest&;
-    using Resp = DescribeLogConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLogConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLogConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeLogConfigOutcomeCallable TemClient::DescribeLogConfigCallable(const DescribeLogConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLogConfigOutcome>>();
-    DescribeLogConfigAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeLogConfigRequest&,
-        DescribeLogConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLogConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLogConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribePagedLogConfigListOutcome TemClient::DescribePagedLogConfigList(const DescribePagedLogConfigListRequest &request)
@@ -1462,32 +1266,25 @@ TemClient::DescribePagedLogConfigListOutcome TemClient::DescribePagedLogConfigLi
 
 void TemClient::DescribePagedLogConfigListAsync(const DescribePagedLogConfigListRequest& request, const DescribePagedLogConfigListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePagedLogConfigListRequest&;
-    using Resp = DescribePagedLogConfigListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePagedLogConfigList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePagedLogConfigList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribePagedLogConfigListOutcomeCallable TemClient::DescribePagedLogConfigListCallable(const DescribePagedLogConfigListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePagedLogConfigListOutcome>>();
-    DescribePagedLogConfigListAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribePagedLogConfigListRequest&,
-        DescribePagedLogConfigListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePagedLogConfigListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePagedLogConfigList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DescribeRelatedIngressesOutcome TemClient::DescribeRelatedIngresses(const DescribeRelatedIngressesRequest &request)
@@ -1512,32 +1309,25 @@ TemClient::DescribeRelatedIngressesOutcome TemClient::DescribeRelatedIngresses(c
 
 void TemClient::DescribeRelatedIngressesAsync(const DescribeRelatedIngressesRequest& request, const DescribeRelatedIngressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRelatedIngressesRequest&;
-    using Resp = DescribeRelatedIngressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRelatedIngresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRelatedIngresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DescribeRelatedIngressesOutcomeCallable TemClient::DescribeRelatedIngressesCallable(const DescribeRelatedIngressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRelatedIngressesOutcome>>();
-    DescribeRelatedIngressesAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DescribeRelatedIngressesRequest&,
-        DescribeRelatedIngressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRelatedIngressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRelatedIngresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DestroyConfigDataOutcome TemClient::DestroyConfigData(const DestroyConfigDataRequest &request)
@@ -1562,32 +1352,25 @@ TemClient::DestroyConfigDataOutcome TemClient::DestroyConfigData(const DestroyCo
 
 void TemClient::DestroyConfigDataAsync(const DestroyConfigDataRequest& request, const DestroyConfigDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyConfigDataRequest&;
-    using Resp = DestroyConfigDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyConfigData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyConfigData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DestroyConfigDataOutcomeCallable TemClient::DestroyConfigDataCallable(const DestroyConfigDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyConfigDataOutcome>>();
-    DestroyConfigDataAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DestroyConfigDataRequest&,
-        DestroyConfigDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyConfigDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyConfigData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DestroyEnvironmentOutcome TemClient::DestroyEnvironment(const DestroyEnvironmentRequest &request)
@@ -1612,32 +1395,25 @@ TemClient::DestroyEnvironmentOutcome TemClient::DestroyEnvironment(const Destroy
 
 void TemClient::DestroyEnvironmentAsync(const DestroyEnvironmentRequest& request, const DestroyEnvironmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyEnvironmentRequest&;
-    using Resp = DestroyEnvironmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyEnvironment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyEnvironment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DestroyEnvironmentOutcomeCallable TemClient::DestroyEnvironmentCallable(const DestroyEnvironmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyEnvironmentOutcome>>();
-    DestroyEnvironmentAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DestroyEnvironmentRequest&,
-        DestroyEnvironmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyEnvironmentOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyEnvironment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DestroyLogConfigOutcome TemClient::DestroyLogConfig(const DestroyLogConfigRequest &request)
@@ -1662,32 +1438,25 @@ TemClient::DestroyLogConfigOutcome TemClient::DestroyLogConfig(const DestroyLogC
 
 void TemClient::DestroyLogConfigAsync(const DestroyLogConfigRequest& request, const DestroyLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyLogConfigRequest&;
-    using Resp = DestroyLogConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyLogConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyLogConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DestroyLogConfigOutcomeCallable TemClient::DestroyLogConfigCallable(const DestroyLogConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyLogConfigOutcome>>();
-    DestroyLogConfigAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DestroyLogConfigRequest&,
-        DestroyLogConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyLogConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyLogConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::DisableApplicationAutoscalerOutcome TemClient::DisableApplicationAutoscaler(const DisableApplicationAutoscalerRequest &request)
@@ -1712,32 +1481,25 @@ TemClient::DisableApplicationAutoscalerOutcome TemClient::DisableApplicationAuto
 
 void TemClient::DisableApplicationAutoscalerAsync(const DisableApplicationAutoscalerRequest& request, const DisableApplicationAutoscalerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableApplicationAutoscalerRequest&;
-    using Resp = DisableApplicationAutoscalerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableApplicationAutoscaler(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableApplicationAutoscaler", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::DisableApplicationAutoscalerOutcomeCallable TemClient::DisableApplicationAutoscalerCallable(const DisableApplicationAutoscalerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableApplicationAutoscalerOutcome>>();
-    DisableApplicationAutoscalerAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const DisableApplicationAutoscalerRequest&,
-        DisableApplicationAutoscalerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableApplicationAutoscalerOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableApplicationAutoscaler(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::EnableApplicationAutoscalerOutcome TemClient::EnableApplicationAutoscaler(const EnableApplicationAutoscalerRequest &request)
@@ -1762,32 +1524,25 @@ TemClient::EnableApplicationAutoscalerOutcome TemClient::EnableApplicationAutosc
 
 void TemClient::EnableApplicationAutoscalerAsync(const EnableApplicationAutoscalerRequest& request, const EnableApplicationAutoscalerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableApplicationAutoscalerRequest&;
-    using Resp = EnableApplicationAutoscalerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableApplicationAutoscaler(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableApplicationAutoscaler", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::EnableApplicationAutoscalerOutcomeCallable TemClient::EnableApplicationAutoscalerCallable(const EnableApplicationAutoscalerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableApplicationAutoscalerOutcome>>();
-    EnableApplicationAutoscalerAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const EnableApplicationAutoscalerRequest&,
-        EnableApplicationAutoscalerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableApplicationAutoscalerOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableApplicationAutoscaler(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::GenerateApplicationPackageDownloadUrlOutcome TemClient::GenerateApplicationPackageDownloadUrl(const GenerateApplicationPackageDownloadUrlRequest &request)
@@ -1812,32 +1567,25 @@ TemClient::GenerateApplicationPackageDownloadUrlOutcome TemClient::GenerateAppli
 
 void TemClient::GenerateApplicationPackageDownloadUrlAsync(const GenerateApplicationPackageDownloadUrlRequest& request, const GenerateApplicationPackageDownloadUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GenerateApplicationPackageDownloadUrlRequest&;
-    using Resp = GenerateApplicationPackageDownloadUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GenerateApplicationPackageDownloadUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GenerateApplicationPackageDownloadUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::GenerateApplicationPackageDownloadUrlOutcomeCallable TemClient::GenerateApplicationPackageDownloadUrlCallable(const GenerateApplicationPackageDownloadUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GenerateApplicationPackageDownloadUrlOutcome>>();
-    GenerateApplicationPackageDownloadUrlAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const GenerateApplicationPackageDownloadUrlRequest&,
-        GenerateApplicationPackageDownloadUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GenerateApplicationPackageDownloadUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->GenerateApplicationPackageDownloadUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyApplicationAutoscalerOutcome TemClient::ModifyApplicationAutoscaler(const ModifyApplicationAutoscalerRequest &request)
@@ -1862,32 +1610,25 @@ TemClient::ModifyApplicationAutoscalerOutcome TemClient::ModifyApplicationAutosc
 
 void TemClient::ModifyApplicationAutoscalerAsync(const ModifyApplicationAutoscalerRequest& request, const ModifyApplicationAutoscalerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyApplicationAutoscalerRequest&;
-    using Resp = ModifyApplicationAutoscalerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApplicationAutoscaler(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApplicationAutoscaler", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyApplicationAutoscalerOutcomeCallable TemClient::ModifyApplicationAutoscalerCallable(const ModifyApplicationAutoscalerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyApplicationAutoscalerOutcome>>();
-    ModifyApplicationAutoscalerAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyApplicationAutoscalerRequest&,
-        ModifyApplicationAutoscalerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyApplicationAutoscalerOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApplicationAutoscaler(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyApplicationInfoOutcome TemClient::ModifyApplicationInfo(const ModifyApplicationInfoRequest &request)
@@ -1912,32 +1653,25 @@ TemClient::ModifyApplicationInfoOutcome TemClient::ModifyApplicationInfo(const M
 
 void TemClient::ModifyApplicationInfoAsync(const ModifyApplicationInfoRequest& request, const ModifyApplicationInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyApplicationInfoRequest&;
-    using Resp = ModifyApplicationInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApplicationInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApplicationInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyApplicationInfoOutcomeCallable TemClient::ModifyApplicationInfoCallable(const ModifyApplicationInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyApplicationInfoOutcome>>();
-    ModifyApplicationInfoAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyApplicationInfoRequest&,
-        ModifyApplicationInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyApplicationInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApplicationInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyApplicationReplicasOutcome TemClient::ModifyApplicationReplicas(const ModifyApplicationReplicasRequest &request)
@@ -1962,32 +1696,25 @@ TemClient::ModifyApplicationReplicasOutcome TemClient::ModifyApplicationReplicas
 
 void TemClient::ModifyApplicationReplicasAsync(const ModifyApplicationReplicasRequest& request, const ModifyApplicationReplicasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyApplicationReplicasRequest&;
-    using Resp = ModifyApplicationReplicasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApplicationReplicas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApplicationReplicas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyApplicationReplicasOutcomeCallable TemClient::ModifyApplicationReplicasCallable(const ModifyApplicationReplicasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyApplicationReplicasOutcome>>();
-    ModifyApplicationReplicasAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyApplicationReplicasRequest&,
-        ModifyApplicationReplicasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyApplicationReplicasOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApplicationReplicas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyApplicationServiceOutcome TemClient::ModifyApplicationService(const ModifyApplicationServiceRequest &request)
@@ -2012,32 +1739,25 @@ TemClient::ModifyApplicationServiceOutcome TemClient::ModifyApplicationService(c
 
 void TemClient::ModifyApplicationServiceAsync(const ModifyApplicationServiceRequest& request, const ModifyApplicationServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyApplicationServiceRequest&;
-    using Resp = ModifyApplicationServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApplicationService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApplicationService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyApplicationServiceOutcomeCallable TemClient::ModifyApplicationServiceCallable(const ModifyApplicationServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyApplicationServiceOutcome>>();
-    ModifyApplicationServiceAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyApplicationServiceRequest&,
-        ModifyApplicationServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyApplicationServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApplicationService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyConfigDataOutcome TemClient::ModifyConfigData(const ModifyConfigDataRequest &request)
@@ -2062,32 +1782,25 @@ TemClient::ModifyConfigDataOutcome TemClient::ModifyConfigData(const ModifyConfi
 
 void TemClient::ModifyConfigDataAsync(const ModifyConfigDataRequest& request, const ModifyConfigDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConfigDataRequest&;
-    using Resp = ModifyConfigDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConfigData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConfigData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyConfigDataOutcomeCallable TemClient::ModifyConfigDataCallable(const ModifyConfigDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConfigDataOutcome>>();
-    ModifyConfigDataAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyConfigDataRequest&,
-        ModifyConfigDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConfigDataOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConfigData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyEnvironmentOutcome TemClient::ModifyEnvironment(const ModifyEnvironmentRequest &request)
@@ -2112,32 +1825,25 @@ TemClient::ModifyEnvironmentOutcome TemClient::ModifyEnvironment(const ModifyEnv
 
 void TemClient::ModifyEnvironmentAsync(const ModifyEnvironmentRequest& request, const ModifyEnvironmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyEnvironmentRequest&;
-    using Resp = ModifyEnvironmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyEnvironment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyEnvironment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyEnvironmentOutcomeCallable TemClient::ModifyEnvironmentCallable(const ModifyEnvironmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyEnvironmentOutcome>>();
-    ModifyEnvironmentAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyEnvironmentRequest&,
-        ModifyEnvironmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyEnvironmentOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyEnvironment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyGatewayIngressOutcome TemClient::ModifyGatewayIngress(const ModifyGatewayIngressRequest &request)
@@ -2162,32 +1868,25 @@ TemClient::ModifyGatewayIngressOutcome TemClient::ModifyGatewayIngress(const Mod
 
 void TemClient::ModifyGatewayIngressAsync(const ModifyGatewayIngressRequest& request, const ModifyGatewayIngressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGatewayIngressRequest&;
-    using Resp = ModifyGatewayIngressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGatewayIngress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGatewayIngress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyGatewayIngressOutcomeCallable TemClient::ModifyGatewayIngressCallable(const ModifyGatewayIngressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGatewayIngressOutcome>>();
-    ModifyGatewayIngressAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyGatewayIngressRequest&,
-        ModifyGatewayIngressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGatewayIngressOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGatewayIngress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyIngressOutcome TemClient::ModifyIngress(const ModifyIngressRequest &request)
@@ -2212,32 +1911,25 @@ TemClient::ModifyIngressOutcome TemClient::ModifyIngress(const ModifyIngressRequ
 
 void TemClient::ModifyIngressAsync(const ModifyIngressRequest& request, const ModifyIngressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIngressRequest&;
-    using Resp = ModifyIngressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIngress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIngress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyIngressOutcomeCallable TemClient::ModifyIngressCallable(const ModifyIngressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIngressOutcome>>();
-    ModifyIngressAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyIngressRequest&,
-        ModifyIngressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIngressOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIngress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ModifyLogConfigOutcome TemClient::ModifyLogConfig(const ModifyLogConfigRequest &request)
@@ -2262,32 +1954,25 @@ TemClient::ModifyLogConfigOutcome TemClient::ModifyLogConfig(const ModifyLogConf
 
 void TemClient::ModifyLogConfigAsync(const ModifyLogConfigRequest& request, const ModifyLogConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLogConfigRequest&;
-    using Resp = ModifyLogConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLogConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLogConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ModifyLogConfigOutcomeCallable TemClient::ModifyLogConfigCallable(const ModifyLogConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLogConfigOutcome>>();
-    ModifyLogConfigAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ModifyLogConfigRequest&,
-        ModifyLogConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLogConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLogConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::RestartApplicationOutcome TemClient::RestartApplication(const RestartApplicationRequest &request)
@@ -2312,32 +1997,25 @@ TemClient::RestartApplicationOutcome TemClient::RestartApplication(const Restart
 
 void TemClient::RestartApplicationAsync(const RestartApplicationRequest& request, const RestartApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestartApplicationRequest&;
-    using Resp = RestartApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestartApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestartApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::RestartApplicationOutcomeCallable TemClient::RestartApplicationCallable(const RestartApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestartApplicationOutcome>>();
-    RestartApplicationAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const RestartApplicationRequest&,
-        RestartApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestartApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->RestartApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::RestartApplicationPodOutcome TemClient::RestartApplicationPod(const RestartApplicationPodRequest &request)
@@ -2362,32 +2040,25 @@ TemClient::RestartApplicationPodOutcome TemClient::RestartApplicationPod(const R
 
 void TemClient::RestartApplicationPodAsync(const RestartApplicationPodRequest& request, const RestartApplicationPodAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestartApplicationPodRequest&;
-    using Resp = RestartApplicationPodResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestartApplicationPod(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestartApplicationPod", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::RestartApplicationPodOutcomeCallable TemClient::RestartApplicationPodCallable(const RestartApplicationPodRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestartApplicationPodOutcome>>();
-    RestartApplicationPodAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const RestartApplicationPodRequest&,
-        RestartApplicationPodOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestartApplicationPodOutcome()>>(
+        [this, request]()
+        {
+            return this->RestartApplicationPod(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::ResumeDeployApplicationOutcome TemClient::ResumeDeployApplication(const ResumeDeployApplicationRequest &request)
@@ -2412,32 +2083,25 @@ TemClient::ResumeDeployApplicationOutcome TemClient::ResumeDeployApplication(con
 
 void TemClient::ResumeDeployApplicationAsync(const ResumeDeployApplicationRequest& request, const ResumeDeployApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResumeDeployApplicationRequest&;
-    using Resp = ResumeDeployApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResumeDeployApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResumeDeployApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::ResumeDeployApplicationOutcomeCallable TemClient::ResumeDeployApplicationCallable(const ResumeDeployApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResumeDeployApplicationOutcome>>();
-    ResumeDeployApplicationAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const ResumeDeployApplicationRequest&,
-        ResumeDeployApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResumeDeployApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->ResumeDeployApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::RevertDeployApplicationOutcome TemClient::RevertDeployApplication(const RevertDeployApplicationRequest &request)
@@ -2462,32 +2126,25 @@ TemClient::RevertDeployApplicationOutcome TemClient::RevertDeployApplication(con
 
 void TemClient::RevertDeployApplicationAsync(const RevertDeployApplicationRequest& request, const RevertDeployApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RevertDeployApplicationRequest&;
-    using Resp = RevertDeployApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RevertDeployApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RevertDeployApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::RevertDeployApplicationOutcomeCallable TemClient::RevertDeployApplicationCallable(const RevertDeployApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RevertDeployApplicationOutcome>>();
-    RevertDeployApplicationAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const RevertDeployApplicationRequest&,
-        RevertDeployApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RevertDeployApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->RevertDeployApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::RollingUpdateApplicationByVersionOutcome TemClient::RollingUpdateApplicationByVersion(const RollingUpdateApplicationByVersionRequest &request)
@@ -2512,32 +2169,25 @@ TemClient::RollingUpdateApplicationByVersionOutcome TemClient::RollingUpdateAppl
 
 void TemClient::RollingUpdateApplicationByVersionAsync(const RollingUpdateApplicationByVersionRequest& request, const RollingUpdateApplicationByVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RollingUpdateApplicationByVersionRequest&;
-    using Resp = RollingUpdateApplicationByVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RollingUpdateApplicationByVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RollingUpdateApplicationByVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::RollingUpdateApplicationByVersionOutcomeCallable TemClient::RollingUpdateApplicationByVersionCallable(const RollingUpdateApplicationByVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RollingUpdateApplicationByVersionOutcome>>();
-    RollingUpdateApplicationByVersionAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const RollingUpdateApplicationByVersionRequest&,
-        RollingUpdateApplicationByVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RollingUpdateApplicationByVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->RollingUpdateApplicationByVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TemClient::StopApplicationOutcome TemClient::StopApplication(const StopApplicationRequest &request)
@@ -2562,31 +2212,24 @@ TemClient::StopApplicationOutcome TemClient::StopApplication(const StopApplicati
 
 void TemClient::StopApplicationAsync(const StopApplicationRequest& request, const StopApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopApplicationRequest&;
-    using Resp = StopApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TemClient::StopApplicationOutcomeCallable TemClient::StopApplicationCallable(const StopApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopApplicationOutcome>>();
-    StopApplicationAsync(
-    request,
-    [prom](
-        const TemClient*,
-        const StopApplicationRequest&,
-        StopApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->StopApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

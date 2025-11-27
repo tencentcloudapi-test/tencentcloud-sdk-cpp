@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExtractCopyRightWatermarkTaskInput;
+                class ExtractCopyRightWatermarkTaskOutput;
+
                 /**
                 * 提取版权水印任务。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ExtractCopyRightWatermarkTask();
-                    ~ExtractCopyRightWatermarkTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReadOnlyInstance;
+
                 /**
                 * DescribeReadOnlyGroupDetails返回参数结构体
                 */

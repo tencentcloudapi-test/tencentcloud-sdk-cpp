@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class FormField;
+                class Agent;
+
                 /**
                 * CreateDocument请求参数结构体
                 */

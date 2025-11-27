@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RevokeDomainValidateAuths;
+
                 /**
                 * RevokeCertificate返回参数结构体
                 */

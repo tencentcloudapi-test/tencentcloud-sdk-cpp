@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Datahub请求的taskid
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DatahubTaskIdRes();
-                    ~DatahubTaskIdRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

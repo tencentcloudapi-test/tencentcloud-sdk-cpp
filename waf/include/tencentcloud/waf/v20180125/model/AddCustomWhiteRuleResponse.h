@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResponseCode;
+
                 /**
                 * AddCustomWhiteRule返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CoolDownTableDataInfo;
+
                 /**
                 * DescribeCoolDownTableData返回参数结构体
                 */

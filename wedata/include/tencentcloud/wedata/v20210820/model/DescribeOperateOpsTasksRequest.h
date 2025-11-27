@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskTag;
+
                 /**
                 * DescribeOperateOpsTasks请求参数结构体
                 */

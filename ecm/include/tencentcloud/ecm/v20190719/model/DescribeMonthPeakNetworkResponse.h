@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MonthNetwork;
+
                 /**
                 * DescribeMonthPeakNetwork返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CCAlarmThreshold;
+
                 /**
                 * DescribeCCAlarmThreshold返回参数结构体
                 */

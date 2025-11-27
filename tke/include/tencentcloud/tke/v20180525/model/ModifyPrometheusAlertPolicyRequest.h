@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusAlertPolicyItem;
+
                 /**
                 * ModifyPrometheusAlertPolicy请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用以帮助用户自动创建EIP的配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EipAttribute();
-                    ~EipAttribute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

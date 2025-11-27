@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscribeCheckStepTip;
+
                 /**
                 * 订阅校验任务的各步骤信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SubscribeCheckStepInfo();
-                    ~SubscribeCheckStepInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

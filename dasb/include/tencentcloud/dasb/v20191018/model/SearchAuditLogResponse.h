@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuditLogResult;
+
                 /**
                 * SearchAuditLog返回参数结构体
                 */

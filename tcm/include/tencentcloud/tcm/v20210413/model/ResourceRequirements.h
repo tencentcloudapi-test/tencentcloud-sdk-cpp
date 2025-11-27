@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Resource;
+
                 /**
                 * ResourceRequirements 描述了计算资源需求。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ResourceRequirements();
-                    ~ResourceRequirements() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -26,7 +26,6 @@
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/cls/v20201016/model/NoticeReceiver.h>
 #include <tencentcloud/cls/v20201016/model/WebCallback.h>
-#include <tencentcloud/cls/v20201016/model/EscalateNoticeInfo.h>
 
 
 namespace TencentCloud
@@ -37,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NoticeReceiver;
+                class WebCallback;
+
                 /**
                 * 升级通知
                 */
@@ -44,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     EscalateNoticeInfo();
-                    ~EscalateNoticeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IpUnBlockData;
+
                 /**
                 * DescribeIpUnBlockList返回参数结构体
                 */

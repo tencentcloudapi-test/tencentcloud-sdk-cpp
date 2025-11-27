@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Error;
+
                 /**
                 * 安卓实例错误信息，用于批量安卓实例操作中返回部分操作错误的情况
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AndroidInstanceError();
-                    ~AndroidInstanceError() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InputAccount;
+                class AccountParam;
+
                 /**
                 * ModifyAccountParams请求参数结构体
                 */

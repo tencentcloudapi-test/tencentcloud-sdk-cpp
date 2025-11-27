@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyLoadBalancerChargeModeListener;
+
                 /**
                 * ModifyLoadBalancerChargeMode请求参数结构体
                 */

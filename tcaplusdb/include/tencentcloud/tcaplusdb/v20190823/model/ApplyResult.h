@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ErrorInfo;
+
                 /**
                 * 更新申请单结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ApplyResult();
-                    ~ApplyResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

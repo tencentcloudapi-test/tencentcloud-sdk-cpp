@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AndroidAppCosInfo;
+                class FileCosInfo;
+
                 /**
                 * CreateCosCredential请求参数结构体
                 */

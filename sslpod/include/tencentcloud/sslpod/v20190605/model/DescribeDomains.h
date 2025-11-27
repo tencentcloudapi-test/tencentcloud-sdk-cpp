@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DomainSiteInfo;
+
                 /**
                 * 监控域名列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeDomains();
-                    ~DescribeDomains() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

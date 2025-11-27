@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CostItem;
+
                 /**
                 * DescribeDetectPackageDetail返回参数结构体
                 */

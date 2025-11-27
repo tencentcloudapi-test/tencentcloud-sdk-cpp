@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 缓存卷自动扩容策略
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VolumeAutoScaleUpRule();
-                    ~VolumeAutoScaleUpRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -62,32 +62,25 @@ TmsClient::CreateFinancialLLMTaskOutcome TmsClient::CreateFinancialLLMTask(const
 
 void TmsClient::CreateFinancialLLMTaskAsync(const CreateFinancialLLMTaskRequest& request, const CreateFinancialLLMTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateFinancialLLMTaskRequest&;
-    using Resp = CreateFinancialLLMTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateFinancialLLMTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateFinancialLLMTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TmsClient::CreateFinancialLLMTaskOutcomeCallable TmsClient::CreateFinancialLLMTaskCallable(const CreateFinancialLLMTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateFinancialLLMTaskOutcome>>();
-    CreateFinancialLLMTaskAsync(
-    request,
-    [prom](
-        const TmsClient*,
-        const CreateFinancialLLMTaskRequest&,
-        CreateFinancialLLMTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateFinancialLLMTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateFinancialLLMTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TmsClient::GetFinancialLLMTaskResultOutcome TmsClient::GetFinancialLLMTaskResult(const GetFinancialLLMTaskResultRequest &request)
@@ -112,32 +105,25 @@ TmsClient::GetFinancialLLMTaskResultOutcome TmsClient::GetFinancialLLMTaskResult
 
 void TmsClient::GetFinancialLLMTaskResultAsync(const GetFinancialLLMTaskResultRequest& request, const GetFinancialLLMTaskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetFinancialLLMTaskResultRequest&;
-    using Resp = GetFinancialLLMTaskResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetFinancialLLMTaskResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetFinancialLLMTaskResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TmsClient::GetFinancialLLMTaskResultOutcomeCallable TmsClient::GetFinancialLLMTaskResultCallable(const GetFinancialLLMTaskResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetFinancialLLMTaskResultOutcome>>();
-    GetFinancialLLMTaskResultAsync(
-    request,
-    [prom](
-        const TmsClient*,
-        const GetFinancialLLMTaskResultRequest&,
-        GetFinancialLLMTaskResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetFinancialLLMTaskResultOutcome()>>(
+        [this, request]()
+        {
+            return this->GetFinancialLLMTaskResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TmsClient::TextModerationOutcome TmsClient::TextModeration(const TextModerationRequest &request)
@@ -162,31 +148,24 @@ TmsClient::TextModerationOutcome TmsClient::TextModeration(const TextModerationR
 
 void TmsClient::TextModerationAsync(const TextModerationRequest& request, const TextModerationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TextModerationRequest&;
-    using Resp = TextModerationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TextModeration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TextModeration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TmsClient::TextModerationOutcomeCallable TmsClient::TextModerationCallable(const TextModerationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TextModerationOutcome>>();
-    TextModerationAsync(
-    request,
-    [prom](
-        const TmsClient*,
-        const TextModerationRequest&,
-        TextModerationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TextModerationOutcome()>>(
+        [this, request]()
+        {
+            return this->TextModeration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

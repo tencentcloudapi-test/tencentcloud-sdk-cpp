@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JobGraph;
+                class NodeConfig;
+                class SlotSharingGroup;
+
                 /**
                 * 作业配置 -- 专家模式的详细配置
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     ExpertModeConfiguration();
-                    ~ExpertModeConfiguration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClueInfoDetail;
+
                 /**
                 * QueryClueInfoList返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskOpsDto;
+
                 /**
                 * 任务分页查询
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OpsTaskInfoPage();
-                    ~OpsTaskInfoPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

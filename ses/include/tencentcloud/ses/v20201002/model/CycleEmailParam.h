@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 创建重复周期发送邮件任务的参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CycleEmailParam();
-                    ~CycleEmailParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

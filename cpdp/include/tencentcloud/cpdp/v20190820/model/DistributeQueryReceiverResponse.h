@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DistributeReceiverResult;
+
                 /**
                 * DistributeQueryReceiver返回参数结构体
                 */

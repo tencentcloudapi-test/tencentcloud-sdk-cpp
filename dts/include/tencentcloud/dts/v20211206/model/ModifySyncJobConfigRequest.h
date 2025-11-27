@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Objects;
+                class DynamicOptions;
+
                 /**
                 * ModifySyncJobConfig请求参数结构体
                 */

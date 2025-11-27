@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompliancePeriodTaskRule;
+                class ComplianceBenchmarkStandard;
+
                 /**
                 * 表示一个合规基线检测定时任务的信息。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     CompliancePeriodTask();
-                    ~CompliancePeriodTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

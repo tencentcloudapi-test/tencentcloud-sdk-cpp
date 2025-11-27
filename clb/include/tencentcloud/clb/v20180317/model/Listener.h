@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertificateOutput;
+                class HealthCheck;
+                class RuleOutput;
+                class BasicTargetGroupInfo;
+
                 /**
                 * 监听器的信息
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     Listener();
-                    ~Listener() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

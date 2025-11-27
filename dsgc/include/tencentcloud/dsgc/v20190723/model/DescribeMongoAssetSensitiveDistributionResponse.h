@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MongoAsset;
+                class TopAsset;
+                class MongoAssetDBDetail;
+
                 /**
                 * DescribeMongoAssetSensitiveDistribution返回参数结构体
                 */

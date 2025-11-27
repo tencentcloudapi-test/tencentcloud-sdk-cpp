@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceChargePrepaid;
+                class SystemDisk;
+                class DataDisk;
+                class InternetAccessible;
+
                 /**
                 * 登录节点信息。
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     LoginNode();
-                    ~LoginNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

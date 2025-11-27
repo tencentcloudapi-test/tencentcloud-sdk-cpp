@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 存储定时过期时间和对应 IP。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IPExpireInfo();
-                    ~IPExpireInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

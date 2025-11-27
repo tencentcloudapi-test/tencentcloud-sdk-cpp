@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MachineGroupTypeInfo;
+                class Tag;
+                class MetaTagInfo;
+
                 /**
                 * ModifyMachineGroup请求参数结构体
                 */

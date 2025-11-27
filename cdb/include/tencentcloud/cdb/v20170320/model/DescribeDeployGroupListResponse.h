@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeployGroupInfo;
+
                 /**
                 * DescribeDeployGroupList返回参数结构体
                 */

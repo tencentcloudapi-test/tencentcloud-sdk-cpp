@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 家族肿瘤史
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RelativeCancerHistoryBlock();
-                    ~RelativeCancerHistoryBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

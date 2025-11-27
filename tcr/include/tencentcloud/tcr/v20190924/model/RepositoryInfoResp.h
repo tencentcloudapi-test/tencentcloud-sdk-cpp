@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询共享版仓库信息返回
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RepositoryInfoResp();
-                    ~RepositoryInfoResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

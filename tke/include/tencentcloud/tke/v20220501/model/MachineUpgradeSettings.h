@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AutoUpgradeOptions;
+                class IntOrString;
+
                 /**
                 * 托管节点池自动升级配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MachineUpgradeSettings();
-                    ~MachineUpgradeSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

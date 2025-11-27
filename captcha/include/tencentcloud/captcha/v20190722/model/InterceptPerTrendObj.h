@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 拦截率趋势obj
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InterceptPerTrendObj();
-                    ~InterceptPerTrendObj() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

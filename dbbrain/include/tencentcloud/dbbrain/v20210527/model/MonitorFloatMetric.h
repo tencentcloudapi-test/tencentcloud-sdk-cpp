@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 监控数据（浮点型）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MonitorFloatMetric();
-                    ~MonitorFloatMetric() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextType;
+
                 /**
                 * 文本类型列表块
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TextTypeListBlock();
-                    ~TextTypeListBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

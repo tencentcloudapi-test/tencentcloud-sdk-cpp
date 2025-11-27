@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ToolCall;
+
                 /**
                 * 会话内容，按对话时间从旧到新在数组中排列，长度受模型窗口大小限制。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OutputMessage();
-                    ~OutputMessage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeFirewallTemplateRuleQuota返回参数结构体
                 */

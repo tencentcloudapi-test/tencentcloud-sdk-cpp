@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CallInMetrics;
+                class CallInNumberMetrics;
+                class CallInSkillGroupMetrics;
+
                 /**
                 * DescribeCallInMetrics返回参数结构体
                 */

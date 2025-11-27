@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WebHookEventKv;
+                class WebHookHostLabel;
+                class WebHookReceiver;
+                class WebHookCustomField;
+
                 /**
                 * ModifyWebHookPolicy请求参数结构体
                 */

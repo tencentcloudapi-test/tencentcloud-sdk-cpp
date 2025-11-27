@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HotKeyInfo;
+
                 /**
                 * DescribeInstanceMonitorHotKey返回参数结构体
                 */

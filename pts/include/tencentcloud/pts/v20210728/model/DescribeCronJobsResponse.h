@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CronJob;
+
                 /**
                 * DescribeCronJobs返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 自定义回源302 follow请求host配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RedirectConfig();
-                    ~RedirectConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

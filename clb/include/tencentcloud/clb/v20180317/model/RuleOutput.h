@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthCheck;
+                class CertificateOutput;
+                class RewriteTarget;
+                class BasicTargetGroupInfo;
+                class OAuth;
+
                 /**
                 * HTTP/HTTPS监听器的转发规则（输出）
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleOutput();
-                    ~RuleOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

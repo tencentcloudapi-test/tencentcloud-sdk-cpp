@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TriggerLogResp;
+
                 /**
                 * 查询应用更新触发器触发日志返回值
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeApplicationTriggerLogPersonalResp();
-                    ~DescribeApplicationTriggerLogPersonalResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

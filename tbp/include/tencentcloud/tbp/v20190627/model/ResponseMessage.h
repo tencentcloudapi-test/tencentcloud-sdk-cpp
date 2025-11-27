@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Group;
+
                 /**
                 * 从TBP-RTS服务v1.3版本起，机器人以消息组列表的形式响应，消息组列表GroupList包含多组消息，用户根据需要对部分或全部消息组进行组合使用。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ResponseMessage();
-                    ~ResponseMessage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

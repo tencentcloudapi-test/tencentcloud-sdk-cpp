@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OwnershipVerification;
+
                 /**
                 * CNAME 接入类型站点参数详情。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CNAMEDetail();
-                    ~CNAMEDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

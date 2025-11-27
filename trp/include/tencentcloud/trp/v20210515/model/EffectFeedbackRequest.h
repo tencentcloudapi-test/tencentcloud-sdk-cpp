@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InputEncryptData;
+
                 /**
                 * EffectFeedback请求参数结构体
                 */

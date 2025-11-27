@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 当前机构节点下的子节点列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OrgNodeChildInfo();
-                    ~OrgNodeChildInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

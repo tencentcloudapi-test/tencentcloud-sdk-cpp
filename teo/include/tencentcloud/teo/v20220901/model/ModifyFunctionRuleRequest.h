@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FunctionRuleCondition;
+                class FunctionRegionSelection;
+                class FunctionWeightedSelection;
+
                 /**
                 * ModifyFunctionRule请求参数结构体
                 */

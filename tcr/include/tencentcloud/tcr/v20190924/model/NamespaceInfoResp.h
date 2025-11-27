@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NamespaceInfo;
+
                 /**
                 * 获取命名空间信息返回
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     NamespaceInfoResp();
-                    ~NamespaceInfoResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

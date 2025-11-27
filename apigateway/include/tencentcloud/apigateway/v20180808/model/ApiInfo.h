@@ -46,6 +46,19 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OauthConfig;
+                class RequestConfig;
+                class ErrorCodes;
+                class ReqParameter;
+                class ServiceConfig;
+                class DescribeApiResultServiceParametersInfo;
+                class ConstantParameter;
+                class MicroService;
+                class TsfLoadBalanceConfResp;
+                class HealthCheckConf;
+                class Tag;
+                class Base64EncodedTriggerRule;
+
                 /**
                 * 展示api信息
                 */
@@ -53,7 +66,6 @@ namespace TencentCloud
                 {
                 public:
                     ApiInfo();
-                    ~ApiInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

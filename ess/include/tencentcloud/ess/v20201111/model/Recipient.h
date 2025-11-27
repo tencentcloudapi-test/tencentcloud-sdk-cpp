@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 流程中参与方的信息结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Recipient();
-                    ~Recipient() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

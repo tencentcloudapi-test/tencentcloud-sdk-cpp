@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttrLabelRefer;
+                class SimilarQuestionModify;
+
                 /**
                 * ModifyQA请求参数结构体
                 */

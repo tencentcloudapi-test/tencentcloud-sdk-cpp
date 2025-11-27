@@ -38,6 +38,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscribeObject;
+                class SubscribeKafkaConfig;
+                class EndpointItem;
+                class PipelineInfo;
+                class TagItem;
+                class SubsErr;
+                class KeyValuePairOption;
+
                 /**
                 * DescribeSubscribeDetail返回参数结构体
                 */

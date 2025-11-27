@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChannelArchiveDynamicApproverData;
+
                 /**
                 * ArchiveDynamicFlow返回参数结构体
                 */

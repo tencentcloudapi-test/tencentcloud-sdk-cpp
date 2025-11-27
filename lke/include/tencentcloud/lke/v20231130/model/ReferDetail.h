@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Highlight;
+
                 /**
                 * 引用来源详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ReferDetail();
-                    ~ReferDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComputeEnvData;
+
                 /**
                 * ModifyComputeEnv请求参数结构体
                 */

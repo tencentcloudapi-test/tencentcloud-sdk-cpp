@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Ipv6;
+                class ApplicationProxyRule;
+                class AccelerateMainland;
+
                 /**
                 * CreateApplicationProxy请求参数结构体
                 */

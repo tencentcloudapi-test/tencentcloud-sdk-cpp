@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 关联的对象Bucket, 并将其映射到文件系统某个路径上
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MappedBucket();
-                    ~MappedBucket() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

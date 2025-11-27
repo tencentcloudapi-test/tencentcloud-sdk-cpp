@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 授权企业列表（目前仅用于“企业自动签 -> 合作企业授权”）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HasAuthOrganization();
-                    ~HasAuthOrganization() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

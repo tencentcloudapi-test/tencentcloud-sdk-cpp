@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 环境角色集合
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EnvironmentRole();
-                    ~EnvironmentRole() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

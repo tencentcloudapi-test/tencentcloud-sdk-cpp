@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VirusTendencyInfo;
+
                 /**
                 * DescribeVirusEventTendency返回参数结构体
                 */

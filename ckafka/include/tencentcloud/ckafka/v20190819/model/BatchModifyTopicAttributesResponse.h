@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchModifyTopicResultDTO;
+
                 /**
                 * BatchModifyTopicAttributes返回参数结构体
                 */

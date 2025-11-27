@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数字加签文件验签结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VerifyDigitFileResult();
-                    ~VerifyDigitFileResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 语音过滤用量统计数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VoiceFilterStatisticsItem();
-                    ~VoiceFilterStatisticsItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReportImg;
+                class HandlerPersonInfo;
+                class HandleRecordInfo;
+
                 /**
                 * 告警信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     AlarmInfo();
-                    ~AlarmInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

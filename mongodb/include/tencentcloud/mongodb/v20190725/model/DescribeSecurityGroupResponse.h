@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityGroup;
+
                 /**
                 * DescribeSecurityGroup返回参数结构体
                 */

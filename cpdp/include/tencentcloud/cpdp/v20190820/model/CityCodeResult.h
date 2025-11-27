@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询城市编码响应对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CityCodeResult();
-                    ~CityCodeResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

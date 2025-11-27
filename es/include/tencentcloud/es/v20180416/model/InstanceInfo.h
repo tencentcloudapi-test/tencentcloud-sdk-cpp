@@ -48,6 +48,21 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EsAcl;
+                class EsDictionaryInfo;
+                class MasterNodeInfo;
+                class CosBackup;
+                class TagInfo;
+                class NodeInfo;
+                class ZoneDetail;
+                class KibanaNodeInfo;
+                class WebNodeTypeInfo;
+                class EsConfigSetInfo;
+                class OperationDuration;
+                class OptionalWebServiceInfo;
+                class OutboundPublicAcl;
+                class EnableScheduleOperationDuration;
+
                 /**
                 * 实例详细信息
                 */
@@ -55,7 +70,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceInfo();
-                    ~InstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

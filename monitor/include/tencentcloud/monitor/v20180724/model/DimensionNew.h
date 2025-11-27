@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Operator;
+
                 /**
                 * 策略类型的维度信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DimensionNew();
-                    ~DimensionNew() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

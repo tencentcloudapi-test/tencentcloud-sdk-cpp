@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 服务环境策略
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ServiceEnvironmentStrategy();
-                    ~ServiceEnvironmentStrategy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

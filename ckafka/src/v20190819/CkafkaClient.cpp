@@ -62,32 +62,25 @@ CkafkaClient::AuthorizeTokenOutcome CkafkaClient::AuthorizeToken(const Authorize
 
 void CkafkaClient::AuthorizeTokenAsync(const AuthorizeTokenRequest& request, const AuthorizeTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AuthorizeTokenRequest&;
-    using Resp = AuthorizeTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AuthorizeToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AuthorizeToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::AuthorizeTokenOutcomeCallable CkafkaClient::AuthorizeTokenCallable(const AuthorizeTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AuthorizeTokenOutcome>>();
-    AuthorizeTokenAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const AuthorizeTokenRequest&,
-        AuthorizeTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AuthorizeTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->AuthorizeToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::BatchCreateAclOutcome CkafkaClient::BatchCreateAcl(const BatchCreateAclRequest &request)
@@ -112,32 +105,25 @@ CkafkaClient::BatchCreateAclOutcome CkafkaClient::BatchCreateAcl(const BatchCrea
 
 void CkafkaClient::BatchCreateAclAsync(const BatchCreateAclRequest& request, const BatchCreateAclAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchCreateAclRequest&;
-    using Resp = BatchCreateAclResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchCreateAcl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchCreateAcl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::BatchCreateAclOutcomeCallable CkafkaClient::BatchCreateAclCallable(const BatchCreateAclRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchCreateAclOutcome>>();
-    BatchCreateAclAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const BatchCreateAclRequest&,
-        BatchCreateAclOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchCreateAclOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchCreateAcl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::BatchModifyGroupOffsetsOutcome CkafkaClient::BatchModifyGroupOffsets(const BatchModifyGroupOffsetsRequest &request)
@@ -162,32 +148,25 @@ CkafkaClient::BatchModifyGroupOffsetsOutcome CkafkaClient::BatchModifyGroupOffse
 
 void CkafkaClient::BatchModifyGroupOffsetsAsync(const BatchModifyGroupOffsetsRequest& request, const BatchModifyGroupOffsetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchModifyGroupOffsetsRequest&;
-    using Resp = BatchModifyGroupOffsetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchModifyGroupOffsets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchModifyGroupOffsets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::BatchModifyGroupOffsetsOutcomeCallable CkafkaClient::BatchModifyGroupOffsetsCallable(const BatchModifyGroupOffsetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchModifyGroupOffsetsOutcome>>();
-    BatchModifyGroupOffsetsAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const BatchModifyGroupOffsetsRequest&,
-        BatchModifyGroupOffsetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchModifyGroupOffsetsOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchModifyGroupOffsets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::BatchModifyTopicAttributesOutcome CkafkaClient::BatchModifyTopicAttributes(const BatchModifyTopicAttributesRequest &request)
@@ -212,32 +191,25 @@ CkafkaClient::BatchModifyTopicAttributesOutcome CkafkaClient::BatchModifyTopicAt
 
 void CkafkaClient::BatchModifyTopicAttributesAsync(const BatchModifyTopicAttributesRequest& request, const BatchModifyTopicAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchModifyTopicAttributesRequest&;
-    using Resp = BatchModifyTopicAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchModifyTopicAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchModifyTopicAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::BatchModifyTopicAttributesOutcomeCallable CkafkaClient::BatchModifyTopicAttributesCallable(const BatchModifyTopicAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchModifyTopicAttributesOutcome>>();
-    BatchModifyTopicAttributesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const BatchModifyTopicAttributesRequest&,
-        BatchModifyTopicAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchModifyTopicAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchModifyTopicAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CancelAuthorizationTokenOutcome CkafkaClient::CancelAuthorizationToken(const CancelAuthorizationTokenRequest &request)
@@ -262,32 +234,25 @@ CkafkaClient::CancelAuthorizationTokenOutcome CkafkaClient::CancelAuthorizationT
 
 void CkafkaClient::CancelAuthorizationTokenAsync(const CancelAuthorizationTokenRequest& request, const CancelAuthorizationTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CancelAuthorizationTokenRequest&;
-    using Resp = CancelAuthorizationTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CancelAuthorizationToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CancelAuthorizationToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CancelAuthorizationTokenOutcomeCallable CkafkaClient::CancelAuthorizationTokenCallable(const CancelAuthorizationTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CancelAuthorizationTokenOutcome>>();
-    CancelAuthorizationTokenAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CancelAuthorizationTokenRequest&,
-        CancelAuthorizationTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CancelAuthorizationTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->CancelAuthorizationToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CheckCdcClusterOutcome CkafkaClient::CheckCdcCluster(const CheckCdcClusterRequest &request)
@@ -312,32 +277,25 @@ CkafkaClient::CheckCdcClusterOutcome CkafkaClient::CheckCdcCluster(const CheckCd
 
 void CkafkaClient::CheckCdcClusterAsync(const CheckCdcClusterRequest& request, const CheckCdcClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckCdcClusterRequest&;
-    using Resp = CheckCdcClusterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckCdcCluster(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckCdcCluster", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CheckCdcClusterOutcomeCallable CkafkaClient::CheckCdcClusterCallable(const CheckCdcClusterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckCdcClusterOutcome>>();
-    CheckCdcClusterAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CheckCdcClusterRequest&,
-        CheckCdcClusterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckCdcClusterOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckCdcCluster(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateAclOutcome CkafkaClient::CreateAcl(const CreateAclRequest &request)
@@ -362,32 +320,25 @@ CkafkaClient::CreateAclOutcome CkafkaClient::CreateAcl(const CreateAclRequest &r
 
 void CkafkaClient::CreateAclAsync(const CreateAclRequest& request, const CreateAclAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAclRequest&;
-    using Resp = CreateAclResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAcl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAcl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateAclOutcomeCallable CkafkaClient::CreateAclCallable(const CreateAclRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAclOutcome>>();
-    CreateAclAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateAclRequest&,
-        CreateAclOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAclOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAcl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateAclRuleOutcome CkafkaClient::CreateAclRule(const CreateAclRuleRequest &request)
@@ -412,32 +363,25 @@ CkafkaClient::CreateAclRuleOutcome CkafkaClient::CreateAclRule(const CreateAclRu
 
 void CkafkaClient::CreateAclRuleAsync(const CreateAclRuleRequest& request, const CreateAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAclRuleRequest&;
-    using Resp = CreateAclRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAclRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAclRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateAclRuleOutcomeCallable CkafkaClient::CreateAclRuleCallable(const CreateAclRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAclRuleOutcome>>();
-    CreateAclRuleAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateAclRuleRequest&,
-        CreateAclRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAclRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAclRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateCdcClusterOutcome CkafkaClient::CreateCdcCluster(const CreateCdcClusterRequest &request)
@@ -462,32 +406,25 @@ CkafkaClient::CreateCdcClusterOutcome CkafkaClient::CreateCdcCluster(const Creat
 
 void CkafkaClient::CreateCdcClusterAsync(const CreateCdcClusterRequest& request, const CreateCdcClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCdcClusterRequest&;
-    using Resp = CreateCdcClusterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCdcCluster(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCdcCluster", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateCdcClusterOutcomeCallable CkafkaClient::CreateCdcClusterCallable(const CreateCdcClusterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCdcClusterOutcome>>();
-    CreateCdcClusterAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateCdcClusterRequest&,
-        CreateCdcClusterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCdcClusterOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCdcCluster(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateConnectResourceOutcome CkafkaClient::CreateConnectResource(const CreateConnectResourceRequest &request)
@@ -512,32 +449,25 @@ CkafkaClient::CreateConnectResourceOutcome CkafkaClient::CreateConnectResource(c
 
 void CkafkaClient::CreateConnectResourceAsync(const CreateConnectResourceRequest& request, const CreateConnectResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConnectResourceRequest&;
-    using Resp = CreateConnectResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConnectResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConnectResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateConnectResourceOutcomeCallable CkafkaClient::CreateConnectResourceCallable(const CreateConnectResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConnectResourceOutcome>>();
-    CreateConnectResourceAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateConnectResourceRequest&,
-        CreateConnectResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConnectResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConnectResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateConsumerOutcome CkafkaClient::CreateConsumer(const CreateConsumerRequest &request)
@@ -562,32 +492,25 @@ CkafkaClient::CreateConsumerOutcome CkafkaClient::CreateConsumer(const CreateCon
 
 void CkafkaClient::CreateConsumerAsync(const CreateConsumerRequest& request, const CreateConsumerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConsumerRequest&;
-    using Resp = CreateConsumerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConsumer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConsumer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateConsumerOutcomeCallable CkafkaClient::CreateConsumerCallable(const CreateConsumerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConsumerOutcome>>();
-    CreateConsumerAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateConsumerRequest&,
-        CreateConsumerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConsumerOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConsumer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateDatahubTaskOutcome CkafkaClient::CreateDatahubTask(const CreateDatahubTaskRequest &request)
@@ -612,32 +535,25 @@ CkafkaClient::CreateDatahubTaskOutcome CkafkaClient::CreateDatahubTask(const Cre
 
 void CkafkaClient::CreateDatahubTaskAsync(const CreateDatahubTaskRequest& request, const CreateDatahubTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDatahubTaskRequest&;
-    using Resp = CreateDatahubTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDatahubTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDatahubTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateDatahubTaskOutcomeCallable CkafkaClient::CreateDatahubTaskCallable(const CreateDatahubTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDatahubTaskOutcome>>();
-    CreateDatahubTaskAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateDatahubTaskRequest&,
-        CreateDatahubTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDatahubTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDatahubTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateDatahubTopicOutcome CkafkaClient::CreateDatahubTopic(const CreateDatahubTopicRequest &request)
@@ -662,32 +578,25 @@ CkafkaClient::CreateDatahubTopicOutcome CkafkaClient::CreateDatahubTopic(const C
 
 void CkafkaClient::CreateDatahubTopicAsync(const CreateDatahubTopicRequest& request, const CreateDatahubTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDatahubTopicRequest&;
-    using Resp = CreateDatahubTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDatahubTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDatahubTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateDatahubTopicOutcomeCallable CkafkaClient::CreateDatahubTopicCallable(const CreateDatahubTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDatahubTopicOutcome>>();
-    CreateDatahubTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateDatahubTopicRequest&,
-        CreateDatahubTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDatahubTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDatahubTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateInstancePreOutcome CkafkaClient::CreateInstancePre(const CreateInstancePreRequest &request)
@@ -712,32 +621,25 @@ CkafkaClient::CreateInstancePreOutcome CkafkaClient::CreateInstancePre(const Cre
 
 void CkafkaClient::CreateInstancePreAsync(const CreateInstancePreRequest& request, const CreateInstancePreAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateInstancePreRequest&;
-    using Resp = CreateInstancePreResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateInstancePre(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateInstancePre", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateInstancePreOutcomeCallable CkafkaClient::CreateInstancePreCallable(const CreateInstancePreRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateInstancePreOutcome>>();
-    CreateInstancePreAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateInstancePreRequest&,
-        CreateInstancePreOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateInstancePreOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateInstancePre(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreatePartitionOutcome CkafkaClient::CreatePartition(const CreatePartitionRequest &request)
@@ -762,32 +664,25 @@ CkafkaClient::CreatePartitionOutcome CkafkaClient::CreatePartition(const CreateP
 
 void CkafkaClient::CreatePartitionAsync(const CreatePartitionRequest& request, const CreatePartitionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePartitionRequest&;
-    using Resp = CreatePartitionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePartition(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePartition", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreatePartitionOutcomeCallable CkafkaClient::CreatePartitionCallable(const CreatePartitionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePartitionOutcome>>();
-    CreatePartitionAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreatePartitionRequest&,
-        CreatePartitionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePartitionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePartition(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreatePostPaidInstanceOutcome CkafkaClient::CreatePostPaidInstance(const CreatePostPaidInstanceRequest &request)
@@ -812,32 +707,25 @@ CkafkaClient::CreatePostPaidInstanceOutcome CkafkaClient::CreatePostPaidInstance
 
 void CkafkaClient::CreatePostPaidInstanceAsync(const CreatePostPaidInstanceRequest& request, const CreatePostPaidInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePostPaidInstanceRequest&;
-    using Resp = CreatePostPaidInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePostPaidInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePostPaidInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreatePostPaidInstanceOutcomeCallable CkafkaClient::CreatePostPaidInstanceCallable(const CreatePostPaidInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePostPaidInstanceOutcome>>();
-    CreatePostPaidInstanceAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreatePostPaidInstanceRequest&,
-        CreatePostPaidInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePostPaidInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePostPaidInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreatePrometheusOutcome CkafkaClient::CreatePrometheus(const CreatePrometheusRequest &request)
@@ -862,32 +750,25 @@ CkafkaClient::CreatePrometheusOutcome CkafkaClient::CreatePrometheus(const Creat
 
 void CkafkaClient::CreatePrometheusAsync(const CreatePrometheusRequest& request, const CreatePrometheusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusRequest&;
-    using Resp = CreatePrometheusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreatePrometheusOutcomeCallable CkafkaClient::CreatePrometheusCallable(const CreatePrometheusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusOutcome>>();
-    CreatePrometheusAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreatePrometheusRequest&,
-        CreatePrometheusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateRouteOutcome CkafkaClient::CreateRoute(const CreateRouteRequest &request)
@@ -912,32 +793,25 @@ CkafkaClient::CreateRouteOutcome CkafkaClient::CreateRoute(const CreateRouteRequ
 
 void CkafkaClient::CreateRouteAsync(const CreateRouteRequest& request, const CreateRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRouteRequest&;
-    using Resp = CreateRouteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateRouteOutcomeCallable CkafkaClient::CreateRouteCallable(const CreateRouteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRouteOutcome>>();
-    CreateRouteAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateRouteRequest&,
-        CreateRouteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRouteOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateTokenOutcome CkafkaClient::CreateToken(const CreateTokenRequest &request)
@@ -962,32 +836,25 @@ CkafkaClient::CreateTokenOutcome CkafkaClient::CreateToken(const CreateTokenRequ
 
 void CkafkaClient::CreateTokenAsync(const CreateTokenRequest& request, const CreateTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTokenRequest&;
-    using Resp = CreateTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateTokenOutcomeCallable CkafkaClient::CreateTokenCallable(const CreateTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTokenOutcome>>();
-    CreateTokenAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateTokenRequest&,
-        CreateTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateTopicOutcome CkafkaClient::CreateTopic(const CreateTopicRequest &request)
@@ -1012,32 +879,25 @@ CkafkaClient::CreateTopicOutcome CkafkaClient::CreateTopic(const CreateTopicRequ
 
 void CkafkaClient::CreateTopicAsync(const CreateTopicRequest& request, const CreateTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTopicRequest&;
-    using Resp = CreateTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateTopicOutcomeCallable CkafkaClient::CreateTopicCallable(const CreateTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTopicOutcome>>();
-    CreateTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateTopicRequest&,
-        CreateTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateTopicIpWhiteListOutcome CkafkaClient::CreateTopicIpWhiteList(const CreateTopicIpWhiteListRequest &request)
@@ -1062,32 +922,25 @@ CkafkaClient::CreateTopicIpWhiteListOutcome CkafkaClient::CreateTopicIpWhiteList
 
 void CkafkaClient::CreateTopicIpWhiteListAsync(const CreateTopicIpWhiteListRequest& request, const CreateTopicIpWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTopicIpWhiteListRequest&;
-    using Resp = CreateTopicIpWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTopicIpWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTopicIpWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateTopicIpWhiteListOutcomeCallable CkafkaClient::CreateTopicIpWhiteListCallable(const CreateTopicIpWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTopicIpWhiteListOutcome>>();
-    CreateTopicIpWhiteListAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateTopicIpWhiteListRequest&,
-        CreateTopicIpWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTopicIpWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTopicIpWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::CreateUserOutcome CkafkaClient::CreateUser(const CreateUserRequest &request)
@@ -1112,32 +965,25 @@ CkafkaClient::CreateUserOutcome CkafkaClient::CreateUser(const CreateUserRequest
 
 void CkafkaClient::CreateUserAsync(const CreateUserRequest& request, const CreateUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserRequest&;
-    using Resp = CreateUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::CreateUserOutcomeCallable CkafkaClient::CreateUserCallable(const CreateUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserOutcome>>();
-    CreateUserAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const CreateUserRequest&,
-        CreateUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteAclOutcome CkafkaClient::DeleteAcl(const DeleteAclRequest &request)
@@ -1162,32 +1008,25 @@ CkafkaClient::DeleteAclOutcome CkafkaClient::DeleteAcl(const DeleteAclRequest &r
 
 void CkafkaClient::DeleteAclAsync(const DeleteAclRequest& request, const DeleteAclAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAclRequest&;
-    using Resp = DeleteAclResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAcl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAcl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteAclOutcomeCallable CkafkaClient::DeleteAclCallable(const DeleteAclRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAclOutcome>>();
-    DeleteAclAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteAclRequest&,
-        DeleteAclOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAclOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAcl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteAclRuleOutcome CkafkaClient::DeleteAclRule(const DeleteAclRuleRequest &request)
@@ -1212,32 +1051,25 @@ CkafkaClient::DeleteAclRuleOutcome CkafkaClient::DeleteAclRule(const DeleteAclRu
 
 void CkafkaClient::DeleteAclRuleAsync(const DeleteAclRuleRequest& request, const DeleteAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAclRuleRequest&;
-    using Resp = DeleteAclRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAclRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAclRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteAclRuleOutcomeCallable CkafkaClient::DeleteAclRuleCallable(const DeleteAclRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAclRuleOutcome>>();
-    DeleteAclRuleAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteAclRuleRequest&,
-        DeleteAclRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAclRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAclRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteConnectResourceOutcome CkafkaClient::DeleteConnectResource(const DeleteConnectResourceRequest &request)
@@ -1262,32 +1094,25 @@ CkafkaClient::DeleteConnectResourceOutcome CkafkaClient::DeleteConnectResource(c
 
 void CkafkaClient::DeleteConnectResourceAsync(const DeleteConnectResourceRequest& request, const DeleteConnectResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConnectResourceRequest&;
-    using Resp = DeleteConnectResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConnectResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConnectResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteConnectResourceOutcomeCallable CkafkaClient::DeleteConnectResourceCallable(const DeleteConnectResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConnectResourceOutcome>>();
-    DeleteConnectResourceAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteConnectResourceRequest&,
-        DeleteConnectResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConnectResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConnectResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteDatahubTaskOutcome CkafkaClient::DeleteDatahubTask(const DeleteDatahubTaskRequest &request)
@@ -1312,32 +1137,25 @@ CkafkaClient::DeleteDatahubTaskOutcome CkafkaClient::DeleteDatahubTask(const Del
 
 void CkafkaClient::DeleteDatahubTaskAsync(const DeleteDatahubTaskRequest& request, const DeleteDatahubTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDatahubTaskRequest&;
-    using Resp = DeleteDatahubTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDatahubTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDatahubTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteDatahubTaskOutcomeCallable CkafkaClient::DeleteDatahubTaskCallable(const DeleteDatahubTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDatahubTaskOutcome>>();
-    DeleteDatahubTaskAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteDatahubTaskRequest&,
-        DeleteDatahubTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDatahubTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDatahubTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteDatahubTopicOutcome CkafkaClient::DeleteDatahubTopic(const DeleteDatahubTopicRequest &request)
@@ -1362,32 +1180,25 @@ CkafkaClient::DeleteDatahubTopicOutcome CkafkaClient::DeleteDatahubTopic(const D
 
 void CkafkaClient::DeleteDatahubTopicAsync(const DeleteDatahubTopicRequest& request, const DeleteDatahubTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDatahubTopicRequest&;
-    using Resp = DeleteDatahubTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDatahubTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDatahubTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteDatahubTopicOutcomeCallable CkafkaClient::DeleteDatahubTopicCallable(const DeleteDatahubTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDatahubTopicOutcome>>();
-    DeleteDatahubTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteDatahubTopicRequest&,
-        DeleteDatahubTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDatahubTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDatahubTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteGroupOutcome CkafkaClient::DeleteGroup(const DeleteGroupRequest &request)
@@ -1412,32 +1223,25 @@ CkafkaClient::DeleteGroupOutcome CkafkaClient::DeleteGroup(const DeleteGroupRequ
 
 void CkafkaClient::DeleteGroupAsync(const DeleteGroupRequest& request, const DeleteGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGroupRequest&;
-    using Resp = DeleteGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteGroupOutcomeCallable CkafkaClient::DeleteGroupCallable(const DeleteGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGroupOutcome>>();
-    DeleteGroupAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteGroupRequest&,
-        DeleteGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteInstancePostOutcome CkafkaClient::DeleteInstancePost(const DeleteInstancePostRequest &request)
@@ -1462,32 +1266,25 @@ CkafkaClient::DeleteInstancePostOutcome CkafkaClient::DeleteInstancePost(const D
 
 void CkafkaClient::DeleteInstancePostAsync(const DeleteInstancePostRequest& request, const DeleteInstancePostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteInstancePostRequest&;
-    using Resp = DeleteInstancePostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteInstancePost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteInstancePost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteInstancePostOutcomeCallable CkafkaClient::DeleteInstancePostCallable(const DeleteInstancePostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteInstancePostOutcome>>();
-    DeleteInstancePostAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteInstancePostRequest&,
-        DeleteInstancePostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteInstancePostOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteInstancePost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteInstancePreOutcome CkafkaClient::DeleteInstancePre(const DeleteInstancePreRequest &request)
@@ -1512,32 +1309,25 @@ CkafkaClient::DeleteInstancePreOutcome CkafkaClient::DeleteInstancePre(const Del
 
 void CkafkaClient::DeleteInstancePreAsync(const DeleteInstancePreRequest& request, const DeleteInstancePreAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteInstancePreRequest&;
-    using Resp = DeleteInstancePreResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteInstancePre(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteInstancePre", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteInstancePreOutcomeCallable CkafkaClient::DeleteInstancePreCallable(const DeleteInstancePreRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteInstancePreOutcome>>();
-    DeleteInstancePreAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteInstancePreRequest&,
-        DeleteInstancePreOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteInstancePreOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteInstancePre(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteRouteOutcome CkafkaClient::DeleteRoute(const DeleteRouteRequest &request)
@@ -1562,32 +1352,25 @@ CkafkaClient::DeleteRouteOutcome CkafkaClient::DeleteRoute(const DeleteRouteRequ
 
 void CkafkaClient::DeleteRouteAsync(const DeleteRouteRequest& request, const DeleteRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRouteRequest&;
-    using Resp = DeleteRouteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRoute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRoute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteRouteOutcomeCallable CkafkaClient::DeleteRouteCallable(const DeleteRouteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRouteOutcome>>();
-    DeleteRouteAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteRouteRequest&,
-        DeleteRouteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRouteOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRoute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteRouteTriggerTimeOutcome CkafkaClient::DeleteRouteTriggerTime(const DeleteRouteTriggerTimeRequest &request)
@@ -1612,32 +1395,25 @@ CkafkaClient::DeleteRouteTriggerTimeOutcome CkafkaClient::DeleteRouteTriggerTime
 
 void CkafkaClient::DeleteRouteTriggerTimeAsync(const DeleteRouteTriggerTimeRequest& request, const DeleteRouteTriggerTimeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRouteTriggerTimeRequest&;
-    using Resp = DeleteRouteTriggerTimeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRouteTriggerTime(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRouteTriggerTime", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteRouteTriggerTimeOutcomeCallable CkafkaClient::DeleteRouteTriggerTimeCallable(const DeleteRouteTriggerTimeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRouteTriggerTimeOutcome>>();
-    DeleteRouteTriggerTimeAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteRouteTriggerTimeRequest&,
-        DeleteRouteTriggerTimeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRouteTriggerTimeOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRouteTriggerTime(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteTopicOutcome CkafkaClient::DeleteTopic(const DeleteTopicRequest &request)
@@ -1662,32 +1438,25 @@ CkafkaClient::DeleteTopicOutcome CkafkaClient::DeleteTopic(const DeleteTopicRequ
 
 void CkafkaClient::DeleteTopicAsync(const DeleteTopicRequest& request, const DeleteTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTopicRequest&;
-    using Resp = DeleteTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteTopicOutcomeCallable CkafkaClient::DeleteTopicCallable(const DeleteTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTopicOutcome>>();
-    DeleteTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteTopicRequest&,
-        DeleteTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteTopicIpWhiteListOutcome CkafkaClient::DeleteTopicIpWhiteList(const DeleteTopicIpWhiteListRequest &request)
@@ -1712,32 +1481,25 @@ CkafkaClient::DeleteTopicIpWhiteListOutcome CkafkaClient::DeleteTopicIpWhiteList
 
 void CkafkaClient::DeleteTopicIpWhiteListAsync(const DeleteTopicIpWhiteListRequest& request, const DeleteTopicIpWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTopicIpWhiteListRequest&;
-    using Resp = DeleteTopicIpWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTopicIpWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTopicIpWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteTopicIpWhiteListOutcomeCallable CkafkaClient::DeleteTopicIpWhiteListCallable(const DeleteTopicIpWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTopicIpWhiteListOutcome>>();
-    DeleteTopicIpWhiteListAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteTopicIpWhiteListRequest&,
-        DeleteTopicIpWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTopicIpWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTopicIpWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DeleteUserOutcome CkafkaClient::DeleteUser(const DeleteUserRequest &request)
@@ -1762,32 +1524,25 @@ CkafkaClient::DeleteUserOutcome CkafkaClient::DeleteUser(const DeleteUserRequest
 
 void CkafkaClient::DeleteUserAsync(const DeleteUserRequest& request, const DeleteUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteUserRequest&;
-    using Resp = DeleteUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DeleteUserOutcomeCallable CkafkaClient::DeleteUserCallable(const DeleteUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteUserOutcome>>();
-    DeleteUserAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DeleteUserRequest&,
-        DeleteUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteUserOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeACLOutcome CkafkaClient::DescribeACL(const DescribeACLRequest &request)
@@ -1812,32 +1567,25 @@ CkafkaClient::DescribeACLOutcome CkafkaClient::DescribeACL(const DescribeACLRequ
 
 void CkafkaClient::DescribeACLAsync(const DescribeACLRequest& request, const DescribeACLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeACLRequest&;
-    using Resp = DescribeACLResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeACL(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeACL", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeACLOutcomeCallable CkafkaClient::DescribeACLCallable(const DescribeACLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeACLOutcome>>();
-    DescribeACLAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeACLRequest&,
-        DescribeACLOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeACLOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeACL(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeAclRuleOutcome CkafkaClient::DescribeAclRule(const DescribeAclRuleRequest &request)
@@ -1862,32 +1610,25 @@ CkafkaClient::DescribeAclRuleOutcome CkafkaClient::DescribeAclRule(const Describ
 
 void CkafkaClient::DescribeAclRuleAsync(const DescribeAclRuleRequest& request, const DescribeAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAclRuleRequest&;
-    using Resp = DescribeAclRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAclRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAclRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeAclRuleOutcomeCallable CkafkaClient::DescribeAclRuleCallable(const DescribeAclRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAclRuleOutcome>>();
-    DescribeAclRuleAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeAclRuleRequest&,
-        DescribeAclRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAclRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAclRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeCkafkaVersionOutcome CkafkaClient::DescribeCkafkaVersion(const DescribeCkafkaVersionRequest &request)
@@ -1912,32 +1653,25 @@ CkafkaClient::DescribeCkafkaVersionOutcome CkafkaClient::DescribeCkafkaVersion(c
 
 void CkafkaClient::DescribeCkafkaVersionAsync(const DescribeCkafkaVersionRequest& request, const DescribeCkafkaVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCkafkaVersionRequest&;
-    using Resp = DescribeCkafkaVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCkafkaVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCkafkaVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeCkafkaVersionOutcomeCallable CkafkaClient::DescribeCkafkaVersionCallable(const DescribeCkafkaVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCkafkaVersionOutcome>>();
-    DescribeCkafkaVersionAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeCkafkaVersionRequest&,
-        DescribeCkafkaVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCkafkaVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCkafkaVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeCkafkaZoneOutcome CkafkaClient::DescribeCkafkaZone(const DescribeCkafkaZoneRequest &request)
@@ -1962,32 +1696,25 @@ CkafkaClient::DescribeCkafkaZoneOutcome CkafkaClient::DescribeCkafkaZone(const D
 
 void CkafkaClient::DescribeCkafkaZoneAsync(const DescribeCkafkaZoneRequest& request, const DescribeCkafkaZoneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCkafkaZoneRequest&;
-    using Resp = DescribeCkafkaZoneResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCkafkaZone(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCkafkaZone", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeCkafkaZoneOutcomeCallable CkafkaClient::DescribeCkafkaZoneCallable(const DescribeCkafkaZoneRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCkafkaZoneOutcome>>();
-    DescribeCkafkaZoneAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeCkafkaZoneRequest&,
-        DescribeCkafkaZoneOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCkafkaZoneOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCkafkaZone(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeConnectResourceOutcome CkafkaClient::DescribeConnectResource(const DescribeConnectResourceRequest &request)
@@ -2012,32 +1739,25 @@ CkafkaClient::DescribeConnectResourceOutcome CkafkaClient::DescribeConnectResour
 
 void CkafkaClient::DescribeConnectResourceAsync(const DescribeConnectResourceRequest& request, const DescribeConnectResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConnectResourceRequest&;
-    using Resp = DescribeConnectResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConnectResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConnectResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeConnectResourceOutcomeCallable CkafkaClient::DescribeConnectResourceCallable(const DescribeConnectResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConnectResourceOutcome>>();
-    DescribeConnectResourceAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeConnectResourceRequest&,
-        DescribeConnectResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConnectResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConnectResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeConnectResourcesOutcome CkafkaClient::DescribeConnectResources(const DescribeConnectResourcesRequest &request)
@@ -2062,32 +1782,25 @@ CkafkaClient::DescribeConnectResourcesOutcome CkafkaClient::DescribeConnectResou
 
 void CkafkaClient::DescribeConnectResourcesAsync(const DescribeConnectResourcesRequest& request, const DescribeConnectResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConnectResourcesRequest&;
-    using Resp = DescribeConnectResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConnectResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConnectResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeConnectResourcesOutcomeCallable CkafkaClient::DescribeConnectResourcesCallable(const DescribeConnectResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConnectResourcesOutcome>>();
-    DescribeConnectResourcesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeConnectResourcesRequest&,
-        DescribeConnectResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConnectResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConnectResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeConsumerGroupOutcome CkafkaClient::DescribeConsumerGroup(const DescribeConsumerGroupRequest &request)
@@ -2112,32 +1825,25 @@ CkafkaClient::DescribeConsumerGroupOutcome CkafkaClient::DescribeConsumerGroup(c
 
 void CkafkaClient::DescribeConsumerGroupAsync(const DescribeConsumerGroupRequest& request, const DescribeConsumerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConsumerGroupRequest&;
-    using Resp = DescribeConsumerGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConsumerGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConsumerGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeConsumerGroupOutcomeCallable CkafkaClient::DescribeConsumerGroupCallable(const DescribeConsumerGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConsumerGroupOutcome>>();
-    DescribeConsumerGroupAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeConsumerGroupRequest&,
-        DescribeConsumerGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConsumerGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConsumerGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeCvmInfoOutcome CkafkaClient::DescribeCvmInfo(const DescribeCvmInfoRequest &request)
@@ -2162,32 +1868,25 @@ CkafkaClient::DescribeCvmInfoOutcome CkafkaClient::DescribeCvmInfo(const Describ
 
 void CkafkaClient::DescribeCvmInfoAsync(const DescribeCvmInfoRequest& request, const DescribeCvmInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCvmInfoRequest&;
-    using Resp = DescribeCvmInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCvmInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCvmInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeCvmInfoOutcomeCallable CkafkaClient::DescribeCvmInfoCallable(const DescribeCvmInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCvmInfoOutcome>>();
-    DescribeCvmInfoAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeCvmInfoRequest&,
-        DescribeCvmInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCvmInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCvmInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeDatahubGroupOffsetsOutcome CkafkaClient::DescribeDatahubGroupOffsets(const DescribeDatahubGroupOffsetsRequest &request)
@@ -2212,32 +1911,25 @@ CkafkaClient::DescribeDatahubGroupOffsetsOutcome CkafkaClient::DescribeDatahubGr
 
 void CkafkaClient::DescribeDatahubGroupOffsetsAsync(const DescribeDatahubGroupOffsetsRequest& request, const DescribeDatahubGroupOffsetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDatahubGroupOffsetsRequest&;
-    using Resp = DescribeDatahubGroupOffsetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDatahubGroupOffsets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatahubGroupOffsets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeDatahubGroupOffsetsOutcomeCallable CkafkaClient::DescribeDatahubGroupOffsetsCallable(const DescribeDatahubGroupOffsetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDatahubGroupOffsetsOutcome>>();
-    DescribeDatahubGroupOffsetsAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeDatahubGroupOffsetsRequest&,
-        DescribeDatahubGroupOffsetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDatahubGroupOffsetsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDatahubGroupOffsets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeDatahubTaskOutcome CkafkaClient::DescribeDatahubTask(const DescribeDatahubTaskRequest &request)
@@ -2262,32 +1954,25 @@ CkafkaClient::DescribeDatahubTaskOutcome CkafkaClient::DescribeDatahubTask(const
 
 void CkafkaClient::DescribeDatahubTaskAsync(const DescribeDatahubTaskRequest& request, const DescribeDatahubTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDatahubTaskRequest&;
-    using Resp = DescribeDatahubTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDatahubTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatahubTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeDatahubTaskOutcomeCallable CkafkaClient::DescribeDatahubTaskCallable(const DescribeDatahubTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDatahubTaskOutcome>>();
-    DescribeDatahubTaskAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeDatahubTaskRequest&,
-        DescribeDatahubTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDatahubTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDatahubTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeDatahubTasksOutcome CkafkaClient::DescribeDatahubTasks(const DescribeDatahubTasksRequest &request)
@@ -2312,32 +1997,25 @@ CkafkaClient::DescribeDatahubTasksOutcome CkafkaClient::DescribeDatahubTasks(con
 
 void CkafkaClient::DescribeDatahubTasksAsync(const DescribeDatahubTasksRequest& request, const DescribeDatahubTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDatahubTasksRequest&;
-    using Resp = DescribeDatahubTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDatahubTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatahubTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeDatahubTasksOutcomeCallable CkafkaClient::DescribeDatahubTasksCallable(const DescribeDatahubTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDatahubTasksOutcome>>();
-    DescribeDatahubTasksAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeDatahubTasksRequest&,
-        DescribeDatahubTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDatahubTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDatahubTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeDatahubTopicOutcome CkafkaClient::DescribeDatahubTopic(const DescribeDatahubTopicRequest &request)
@@ -2362,32 +2040,25 @@ CkafkaClient::DescribeDatahubTopicOutcome CkafkaClient::DescribeDatahubTopic(con
 
 void CkafkaClient::DescribeDatahubTopicAsync(const DescribeDatahubTopicRequest& request, const DescribeDatahubTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDatahubTopicRequest&;
-    using Resp = DescribeDatahubTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDatahubTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatahubTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeDatahubTopicOutcomeCallable CkafkaClient::DescribeDatahubTopicCallable(const DescribeDatahubTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDatahubTopicOutcome>>();
-    DescribeDatahubTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeDatahubTopicRequest&,
-        DescribeDatahubTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDatahubTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDatahubTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeDatahubTopicsOutcome CkafkaClient::DescribeDatahubTopics(const DescribeDatahubTopicsRequest &request)
@@ -2412,32 +2083,25 @@ CkafkaClient::DescribeDatahubTopicsOutcome CkafkaClient::DescribeDatahubTopics(c
 
 void CkafkaClient::DescribeDatahubTopicsAsync(const DescribeDatahubTopicsRequest& request, const DescribeDatahubTopicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDatahubTopicsRequest&;
-    using Resp = DescribeDatahubTopicsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDatahubTopics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatahubTopics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeDatahubTopicsOutcomeCallable CkafkaClient::DescribeDatahubTopicsCallable(const DescribeDatahubTopicsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDatahubTopicsOutcome>>();
-    DescribeDatahubTopicsAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeDatahubTopicsRequest&,
-        DescribeDatahubTopicsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDatahubTopicsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDatahubTopics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeGroupOutcome CkafkaClient::DescribeGroup(const DescribeGroupRequest &request)
@@ -2462,32 +2126,25 @@ CkafkaClient::DescribeGroupOutcome CkafkaClient::DescribeGroup(const DescribeGro
 
 void CkafkaClient::DescribeGroupAsync(const DescribeGroupRequest& request, const DescribeGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupRequest&;
-    using Resp = DescribeGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeGroupOutcomeCallable CkafkaClient::DescribeGroupCallable(const DescribeGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupOutcome>>();
-    DescribeGroupAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeGroupRequest&,
-        DescribeGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeGroupInfoOutcome CkafkaClient::DescribeGroupInfo(const DescribeGroupInfoRequest &request)
@@ -2512,32 +2169,25 @@ CkafkaClient::DescribeGroupInfoOutcome CkafkaClient::DescribeGroupInfo(const Des
 
 void CkafkaClient::DescribeGroupInfoAsync(const DescribeGroupInfoRequest& request, const DescribeGroupInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupInfoRequest&;
-    using Resp = DescribeGroupInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroupInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroupInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeGroupInfoOutcomeCallable CkafkaClient::DescribeGroupInfoCallable(const DescribeGroupInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupInfoOutcome>>();
-    DescribeGroupInfoAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeGroupInfoRequest&,
-        DescribeGroupInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroupInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeGroupOffsetsOutcome CkafkaClient::DescribeGroupOffsets(const DescribeGroupOffsetsRequest &request)
@@ -2562,32 +2212,25 @@ CkafkaClient::DescribeGroupOffsetsOutcome CkafkaClient::DescribeGroupOffsets(con
 
 void CkafkaClient::DescribeGroupOffsetsAsync(const DescribeGroupOffsetsRequest& request, const DescribeGroupOffsetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGroupOffsetsRequest&;
-    using Resp = DescribeGroupOffsetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGroupOffsets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGroupOffsets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeGroupOffsetsOutcomeCallable CkafkaClient::DescribeGroupOffsetsCallable(const DescribeGroupOffsetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGroupOffsetsOutcome>>();
-    DescribeGroupOffsetsAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeGroupOffsetsRequest&,
-        DescribeGroupOffsetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGroupOffsetsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGroupOffsets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeInstanceAttributesOutcome CkafkaClient::DescribeInstanceAttributes(const DescribeInstanceAttributesRequest &request)
@@ -2612,32 +2255,25 @@ CkafkaClient::DescribeInstanceAttributesOutcome CkafkaClient::DescribeInstanceAt
 
 void CkafkaClient::DescribeInstanceAttributesAsync(const DescribeInstanceAttributesRequest& request, const DescribeInstanceAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceAttributesRequest&;
-    using Resp = DescribeInstanceAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeInstanceAttributesOutcomeCallable CkafkaClient::DescribeInstanceAttributesCallable(const DescribeInstanceAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceAttributesOutcome>>();
-    DescribeInstanceAttributesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeInstanceAttributesRequest&,
-        DescribeInstanceAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeInstancesOutcome CkafkaClient::DescribeInstances(const DescribeInstancesRequest &request)
@@ -2662,32 +2298,25 @@ CkafkaClient::DescribeInstancesOutcome CkafkaClient::DescribeInstances(const Des
 
 void CkafkaClient::DescribeInstancesAsync(const DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesRequest&;
-    using Resp = DescribeInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeInstancesOutcomeCallable CkafkaClient::DescribeInstancesCallable(const DescribeInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesOutcome>>();
-    DescribeInstancesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeInstancesRequest&,
-        DescribeInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeInstancesDetailOutcome CkafkaClient::DescribeInstancesDetail(const DescribeInstancesDetailRequest &request)
@@ -2712,32 +2341,25 @@ CkafkaClient::DescribeInstancesDetailOutcome CkafkaClient::DescribeInstancesDeta
 
 void CkafkaClient::DescribeInstancesDetailAsync(const DescribeInstancesDetailRequest& request, const DescribeInstancesDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesDetailRequest&;
-    using Resp = DescribeInstancesDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstancesDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstancesDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeInstancesDetailOutcomeCallable CkafkaClient::DescribeInstancesDetailCallable(const DescribeInstancesDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesDetailOutcome>>();
-    DescribeInstancesDetailAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeInstancesDetailRequest&,
-        DescribeInstancesDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstancesDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeModifyTypeOutcome CkafkaClient::DescribeModifyType(const DescribeModifyTypeRequest &request)
@@ -2762,32 +2384,25 @@ CkafkaClient::DescribeModifyTypeOutcome CkafkaClient::DescribeModifyType(const D
 
 void CkafkaClient::DescribeModifyTypeAsync(const DescribeModifyTypeRequest& request, const DescribeModifyTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeModifyTypeRequest&;
-    using Resp = DescribeModifyTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeModifyType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeModifyType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeModifyTypeOutcomeCallable CkafkaClient::DescribeModifyTypeCallable(const DescribeModifyTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeModifyTypeOutcome>>();
-    DescribeModifyTypeAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeModifyTypeRequest&,
-        DescribeModifyTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeModifyTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeModifyType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribePrometheusOutcome CkafkaClient::DescribePrometheus(const DescribePrometheusRequest &request)
@@ -2812,32 +2427,25 @@ CkafkaClient::DescribePrometheusOutcome CkafkaClient::DescribePrometheus(const D
 
 void CkafkaClient::DescribePrometheusAsync(const DescribePrometheusRequest& request, const DescribePrometheusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusRequest&;
-    using Resp = DescribePrometheusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribePrometheusOutcomeCallable CkafkaClient::DescribePrometheusCallable(const DescribePrometheusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusOutcome>>();
-    DescribePrometheusAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribePrometheusRequest&,
-        DescribePrometheusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeRegionOutcome CkafkaClient::DescribeRegion(const DescribeRegionRequest &request)
@@ -2862,32 +2470,25 @@ CkafkaClient::DescribeRegionOutcome CkafkaClient::DescribeRegion(const DescribeR
 
 void CkafkaClient::DescribeRegionAsync(const DescribeRegionRequest& request, const DescribeRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRegionRequest&;
-    using Resp = DescribeRegionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRegion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRegion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeRegionOutcomeCallable CkafkaClient::DescribeRegionCallable(const DescribeRegionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRegionOutcome>>();
-    DescribeRegionAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeRegionRequest&,
-        DescribeRegionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRegionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRegion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeRouteOutcome CkafkaClient::DescribeRoute(const DescribeRouteRequest &request)
@@ -2912,32 +2513,25 @@ CkafkaClient::DescribeRouteOutcome CkafkaClient::DescribeRoute(const DescribeRou
 
 void CkafkaClient::DescribeRouteAsync(const DescribeRouteRequest& request, const DescribeRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRouteRequest&;
-    using Resp = DescribeRouteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeRouteOutcomeCallable CkafkaClient::DescribeRouteCallable(const DescribeRouteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRouteOutcome>>();
-    DescribeRouteAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeRouteRequest&,
-        DescribeRouteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRouteOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeSecurityGroupRoutesOutcome CkafkaClient::DescribeSecurityGroupRoutes(const DescribeSecurityGroupRoutesRequest &request)
@@ -2962,32 +2556,25 @@ CkafkaClient::DescribeSecurityGroupRoutesOutcome CkafkaClient::DescribeSecurityG
 
 void CkafkaClient::DescribeSecurityGroupRoutesAsync(const DescribeSecurityGroupRoutesRequest& request, const DescribeSecurityGroupRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityGroupRoutesRequest&;
-    using Resp = DescribeSecurityGroupRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityGroupRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityGroupRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeSecurityGroupRoutesOutcomeCallable CkafkaClient::DescribeSecurityGroupRoutesCallable(const DescribeSecurityGroupRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityGroupRoutesOutcome>>();
-    DescribeSecurityGroupRoutesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeSecurityGroupRoutesRequest&,
-        DescribeSecurityGroupRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityGroupRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityGroupRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTaskStatusOutcome CkafkaClient::DescribeTaskStatus(const DescribeTaskStatusRequest &request)
@@ -3012,32 +2599,25 @@ CkafkaClient::DescribeTaskStatusOutcome CkafkaClient::DescribeTaskStatus(const D
 
 void CkafkaClient::DescribeTaskStatusAsync(const DescribeTaskStatusRequest& request, const DescribeTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskStatusRequest&;
-    using Resp = DescribeTaskStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTaskStatusOutcomeCallable CkafkaClient::DescribeTaskStatusCallable(const DescribeTaskStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskStatusOutcome>>();
-    DescribeTaskStatusAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTaskStatusRequest&,
-        DescribeTaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTopicOutcome CkafkaClient::DescribeTopic(const DescribeTopicRequest &request)
@@ -3062,32 +2642,25 @@ CkafkaClient::DescribeTopicOutcome CkafkaClient::DescribeTopic(const DescribeTop
 
 void CkafkaClient::DescribeTopicAsync(const DescribeTopicRequest& request, const DescribeTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicRequest&;
-    using Resp = DescribeTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTopicOutcomeCallable CkafkaClient::DescribeTopicCallable(const DescribeTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicOutcome>>();
-    DescribeTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTopicRequest&,
-        DescribeTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTopicAttributesOutcome CkafkaClient::DescribeTopicAttributes(const DescribeTopicAttributesRequest &request)
@@ -3112,32 +2685,25 @@ CkafkaClient::DescribeTopicAttributesOutcome CkafkaClient::DescribeTopicAttribut
 
 void CkafkaClient::DescribeTopicAttributesAsync(const DescribeTopicAttributesRequest& request, const DescribeTopicAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicAttributesRequest&;
-    using Resp = DescribeTopicAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTopicAttributesOutcomeCallable CkafkaClient::DescribeTopicAttributesCallable(const DescribeTopicAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicAttributesOutcome>>();
-    DescribeTopicAttributesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTopicAttributesRequest&,
-        DescribeTopicAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTopicDetailOutcome CkafkaClient::DescribeTopicDetail(const DescribeTopicDetailRequest &request)
@@ -3162,32 +2728,25 @@ CkafkaClient::DescribeTopicDetailOutcome CkafkaClient::DescribeTopicDetail(const
 
 void CkafkaClient::DescribeTopicDetailAsync(const DescribeTopicDetailRequest& request, const DescribeTopicDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicDetailRequest&;
-    using Resp = DescribeTopicDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTopicDetailOutcomeCallable CkafkaClient::DescribeTopicDetailCallable(const DescribeTopicDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicDetailOutcome>>();
-    DescribeTopicDetailAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTopicDetailRequest&,
-        DescribeTopicDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTopicFlowRankingOutcome CkafkaClient::DescribeTopicFlowRanking(const DescribeTopicFlowRankingRequest &request)
@@ -3212,32 +2771,25 @@ CkafkaClient::DescribeTopicFlowRankingOutcome CkafkaClient::DescribeTopicFlowRan
 
 void CkafkaClient::DescribeTopicFlowRankingAsync(const DescribeTopicFlowRankingRequest& request, const DescribeTopicFlowRankingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicFlowRankingRequest&;
-    using Resp = DescribeTopicFlowRankingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicFlowRanking(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicFlowRanking", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTopicFlowRankingOutcomeCallable CkafkaClient::DescribeTopicFlowRankingCallable(const DescribeTopicFlowRankingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicFlowRankingOutcome>>();
-    DescribeTopicFlowRankingAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTopicFlowRankingRequest&,
-        DescribeTopicFlowRankingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicFlowRankingOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicFlowRanking(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTopicProduceConnectionOutcome CkafkaClient::DescribeTopicProduceConnection(const DescribeTopicProduceConnectionRequest &request)
@@ -3262,32 +2814,25 @@ CkafkaClient::DescribeTopicProduceConnectionOutcome CkafkaClient::DescribeTopicP
 
 void CkafkaClient::DescribeTopicProduceConnectionAsync(const DescribeTopicProduceConnectionRequest& request, const DescribeTopicProduceConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicProduceConnectionRequest&;
-    using Resp = DescribeTopicProduceConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicProduceConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicProduceConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTopicProduceConnectionOutcomeCallable CkafkaClient::DescribeTopicProduceConnectionCallable(const DescribeTopicProduceConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicProduceConnectionOutcome>>();
-    DescribeTopicProduceConnectionAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTopicProduceConnectionRequest&,
-        DescribeTopicProduceConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicProduceConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicProduceConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTopicSubscribeGroupOutcome CkafkaClient::DescribeTopicSubscribeGroup(const DescribeTopicSubscribeGroupRequest &request)
@@ -3312,32 +2857,25 @@ CkafkaClient::DescribeTopicSubscribeGroupOutcome CkafkaClient::DescribeTopicSubs
 
 void CkafkaClient::DescribeTopicSubscribeGroupAsync(const DescribeTopicSubscribeGroupRequest& request, const DescribeTopicSubscribeGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicSubscribeGroupRequest&;
-    using Resp = DescribeTopicSubscribeGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicSubscribeGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicSubscribeGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTopicSubscribeGroupOutcomeCallable CkafkaClient::DescribeTopicSubscribeGroupCallable(const DescribeTopicSubscribeGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicSubscribeGroupOutcome>>();
-    DescribeTopicSubscribeGroupAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTopicSubscribeGroupRequest&,
-        DescribeTopicSubscribeGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicSubscribeGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicSubscribeGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTopicSyncReplicaOutcome CkafkaClient::DescribeTopicSyncReplica(const DescribeTopicSyncReplicaRequest &request)
@@ -3362,32 +2900,25 @@ CkafkaClient::DescribeTopicSyncReplicaOutcome CkafkaClient::DescribeTopicSyncRep
 
 void CkafkaClient::DescribeTopicSyncReplicaAsync(const DescribeTopicSyncReplicaRequest& request, const DescribeTopicSyncReplicaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicSyncReplicaRequest&;
-    using Resp = DescribeTopicSyncReplicaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicSyncReplica(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicSyncReplica", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTopicSyncReplicaOutcomeCallable CkafkaClient::DescribeTopicSyncReplicaCallable(const DescribeTopicSyncReplicaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicSyncReplicaOutcome>>();
-    DescribeTopicSyncReplicaAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTopicSyncReplicaRequest&,
-        DescribeTopicSyncReplicaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicSyncReplicaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicSyncReplica(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeTypeInstancesOutcome CkafkaClient::DescribeTypeInstances(const DescribeTypeInstancesRequest &request)
@@ -3412,32 +2943,25 @@ CkafkaClient::DescribeTypeInstancesOutcome CkafkaClient::DescribeTypeInstances(c
 
 void CkafkaClient::DescribeTypeInstancesAsync(const DescribeTypeInstancesRequest& request, const DescribeTypeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTypeInstancesRequest&;
-    using Resp = DescribeTypeInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTypeInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTypeInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeTypeInstancesOutcomeCallable CkafkaClient::DescribeTypeInstancesCallable(const DescribeTypeInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTypeInstancesOutcome>>();
-    DescribeTypeInstancesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeTypeInstancesRequest&,
-        DescribeTypeInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTypeInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTypeInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::DescribeUserOutcome CkafkaClient::DescribeUser(const DescribeUserRequest &request)
@@ -3462,32 +2986,25 @@ CkafkaClient::DescribeUserOutcome CkafkaClient::DescribeUser(const DescribeUserR
 
 void CkafkaClient::DescribeUserAsync(const DescribeUserRequest& request, const DescribeUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserRequest&;
-    using Resp = DescribeUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::DescribeUserOutcomeCallable CkafkaClient::DescribeUserCallable(const DescribeUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserOutcome>>();
-    DescribeUserAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const DescribeUserRequest&,
-        DescribeUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::FetchDatahubMessageByOffsetOutcome CkafkaClient::FetchDatahubMessageByOffset(const FetchDatahubMessageByOffsetRequest &request)
@@ -3512,32 +3029,25 @@ CkafkaClient::FetchDatahubMessageByOffsetOutcome CkafkaClient::FetchDatahubMessa
 
 void CkafkaClient::FetchDatahubMessageByOffsetAsync(const FetchDatahubMessageByOffsetRequest& request, const FetchDatahubMessageByOffsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FetchDatahubMessageByOffsetRequest&;
-    using Resp = FetchDatahubMessageByOffsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FetchDatahubMessageByOffset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FetchDatahubMessageByOffset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::FetchDatahubMessageByOffsetOutcomeCallable CkafkaClient::FetchDatahubMessageByOffsetCallable(const FetchDatahubMessageByOffsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FetchDatahubMessageByOffsetOutcome>>();
-    FetchDatahubMessageByOffsetAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const FetchDatahubMessageByOffsetRequest&,
-        FetchDatahubMessageByOffsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FetchDatahubMessageByOffsetOutcome()>>(
+        [this, request]()
+        {
+            return this->FetchDatahubMessageByOffset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::FetchLatestDatahubMessageListOutcome CkafkaClient::FetchLatestDatahubMessageList(const FetchLatestDatahubMessageListRequest &request)
@@ -3562,32 +3072,25 @@ CkafkaClient::FetchLatestDatahubMessageListOutcome CkafkaClient::FetchLatestData
 
 void CkafkaClient::FetchLatestDatahubMessageListAsync(const FetchLatestDatahubMessageListRequest& request, const FetchLatestDatahubMessageListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FetchLatestDatahubMessageListRequest&;
-    using Resp = FetchLatestDatahubMessageListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FetchLatestDatahubMessageList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FetchLatestDatahubMessageList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::FetchLatestDatahubMessageListOutcomeCallable CkafkaClient::FetchLatestDatahubMessageListCallable(const FetchLatestDatahubMessageListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FetchLatestDatahubMessageListOutcome>>();
-    FetchLatestDatahubMessageListAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const FetchLatestDatahubMessageListRequest&,
-        FetchLatestDatahubMessageListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FetchLatestDatahubMessageListOutcome()>>(
+        [this, request]()
+        {
+            return this->FetchLatestDatahubMessageList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::FetchMessageByOffsetOutcome CkafkaClient::FetchMessageByOffset(const FetchMessageByOffsetRequest &request)
@@ -3612,32 +3115,25 @@ CkafkaClient::FetchMessageByOffsetOutcome CkafkaClient::FetchMessageByOffset(con
 
 void CkafkaClient::FetchMessageByOffsetAsync(const FetchMessageByOffsetRequest& request, const FetchMessageByOffsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FetchMessageByOffsetRequest&;
-    using Resp = FetchMessageByOffsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FetchMessageByOffset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FetchMessageByOffset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::FetchMessageByOffsetOutcomeCallable CkafkaClient::FetchMessageByOffsetCallable(const FetchMessageByOffsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FetchMessageByOffsetOutcome>>();
-    FetchMessageByOffsetAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const FetchMessageByOffsetRequest&,
-        FetchMessageByOffsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FetchMessageByOffsetOutcome()>>(
+        [this, request]()
+        {
+            return this->FetchMessageByOffset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::FetchMessageListByOffsetOutcome CkafkaClient::FetchMessageListByOffset(const FetchMessageListByOffsetRequest &request)
@@ -3662,32 +3158,25 @@ CkafkaClient::FetchMessageListByOffsetOutcome CkafkaClient::FetchMessageListByOf
 
 void CkafkaClient::FetchMessageListByOffsetAsync(const FetchMessageListByOffsetRequest& request, const FetchMessageListByOffsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FetchMessageListByOffsetRequest&;
-    using Resp = FetchMessageListByOffsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FetchMessageListByOffset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FetchMessageListByOffset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::FetchMessageListByOffsetOutcomeCallable CkafkaClient::FetchMessageListByOffsetCallable(const FetchMessageListByOffsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FetchMessageListByOffsetOutcome>>();
-    FetchMessageListByOffsetAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const FetchMessageListByOffsetRequest&,
-        FetchMessageListByOffsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FetchMessageListByOffsetOutcome()>>(
+        [this, request]()
+        {
+            return this->FetchMessageListByOffset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::FetchMessageListByTimestampOutcome CkafkaClient::FetchMessageListByTimestamp(const FetchMessageListByTimestampRequest &request)
@@ -3712,32 +3201,25 @@ CkafkaClient::FetchMessageListByTimestampOutcome CkafkaClient::FetchMessageListB
 
 void CkafkaClient::FetchMessageListByTimestampAsync(const FetchMessageListByTimestampRequest& request, const FetchMessageListByTimestampAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const FetchMessageListByTimestampRequest&;
-    using Resp = FetchMessageListByTimestampResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->FetchMessageListByTimestamp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "FetchMessageListByTimestamp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::FetchMessageListByTimestampOutcomeCallable CkafkaClient::FetchMessageListByTimestampCallable(const FetchMessageListByTimestampRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<FetchMessageListByTimestampOutcome>>();
-    FetchMessageListByTimestampAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const FetchMessageListByTimestampRequest&,
-        FetchMessageListByTimestampOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<FetchMessageListByTimestampOutcome()>>(
+        [this, request]()
+        {
+            return this->FetchMessageListByTimestamp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::InquireCkafkaPriceOutcome CkafkaClient::InquireCkafkaPrice(const InquireCkafkaPriceRequest &request)
@@ -3762,32 +3244,25 @@ CkafkaClient::InquireCkafkaPriceOutcome CkafkaClient::InquireCkafkaPrice(const I
 
 void CkafkaClient::InquireCkafkaPriceAsync(const InquireCkafkaPriceRequest& request, const InquireCkafkaPriceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquireCkafkaPriceRequest&;
-    using Resp = InquireCkafkaPriceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquireCkafkaPrice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquireCkafkaPrice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::InquireCkafkaPriceOutcomeCallable CkafkaClient::InquireCkafkaPriceCallable(const InquireCkafkaPriceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquireCkafkaPriceOutcome>>();
-    InquireCkafkaPriceAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const InquireCkafkaPriceRequest&,
-        InquireCkafkaPriceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquireCkafkaPriceOutcome()>>(
+        [this, request]()
+        {
+            return this->InquireCkafkaPrice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::InstanceScalingDownOutcome CkafkaClient::InstanceScalingDown(const InstanceScalingDownRequest &request)
@@ -3812,32 +3287,25 @@ CkafkaClient::InstanceScalingDownOutcome CkafkaClient::InstanceScalingDown(const
 
 void CkafkaClient::InstanceScalingDownAsync(const InstanceScalingDownRequest& request, const InstanceScalingDownAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InstanceScalingDownRequest&;
-    using Resp = InstanceScalingDownResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InstanceScalingDown(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InstanceScalingDown", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::InstanceScalingDownOutcomeCallable CkafkaClient::InstanceScalingDownCallable(const InstanceScalingDownRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InstanceScalingDownOutcome>>();
-    InstanceScalingDownAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const InstanceScalingDownRequest&,
-        InstanceScalingDownOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InstanceScalingDownOutcome()>>(
+        [this, request]()
+        {
+            return this->InstanceScalingDown(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyAclRuleOutcome CkafkaClient::ModifyAclRule(const ModifyAclRuleRequest &request)
@@ -3862,32 +3330,25 @@ CkafkaClient::ModifyAclRuleOutcome CkafkaClient::ModifyAclRule(const ModifyAclRu
 
 void CkafkaClient::ModifyAclRuleAsync(const ModifyAclRuleRequest& request, const ModifyAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAclRuleRequest&;
-    using Resp = ModifyAclRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAclRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAclRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyAclRuleOutcomeCallable CkafkaClient::ModifyAclRuleCallable(const ModifyAclRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAclRuleOutcome>>();
-    ModifyAclRuleAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyAclRuleRequest&,
-        ModifyAclRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAclRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAclRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyConnectResourceOutcome CkafkaClient::ModifyConnectResource(const ModifyConnectResourceRequest &request)
@@ -3912,32 +3373,25 @@ CkafkaClient::ModifyConnectResourceOutcome CkafkaClient::ModifyConnectResource(c
 
 void CkafkaClient::ModifyConnectResourceAsync(const ModifyConnectResourceRequest& request, const ModifyConnectResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConnectResourceRequest&;
-    using Resp = ModifyConnectResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConnectResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConnectResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyConnectResourceOutcomeCallable CkafkaClient::ModifyConnectResourceCallable(const ModifyConnectResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConnectResourceOutcome>>();
-    ModifyConnectResourceAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyConnectResourceRequest&,
-        ModifyConnectResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConnectResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConnectResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyDatahubTaskOutcome CkafkaClient::ModifyDatahubTask(const ModifyDatahubTaskRequest &request)
@@ -3962,32 +3416,25 @@ CkafkaClient::ModifyDatahubTaskOutcome CkafkaClient::ModifyDatahubTask(const Mod
 
 void CkafkaClient::ModifyDatahubTaskAsync(const ModifyDatahubTaskRequest& request, const ModifyDatahubTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDatahubTaskRequest&;
-    using Resp = ModifyDatahubTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDatahubTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDatahubTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyDatahubTaskOutcomeCallable CkafkaClient::ModifyDatahubTaskCallable(const ModifyDatahubTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDatahubTaskOutcome>>();
-    ModifyDatahubTaskAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyDatahubTaskRequest&,
-        ModifyDatahubTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDatahubTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDatahubTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyDatahubTopicOutcome CkafkaClient::ModifyDatahubTopic(const ModifyDatahubTopicRequest &request)
@@ -4012,32 +3459,25 @@ CkafkaClient::ModifyDatahubTopicOutcome CkafkaClient::ModifyDatahubTopic(const M
 
 void CkafkaClient::ModifyDatahubTopicAsync(const ModifyDatahubTopicRequest& request, const ModifyDatahubTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDatahubTopicRequest&;
-    using Resp = ModifyDatahubTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDatahubTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDatahubTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyDatahubTopicOutcomeCallable CkafkaClient::ModifyDatahubTopicCallable(const ModifyDatahubTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDatahubTopicOutcome>>();
-    ModifyDatahubTopicAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyDatahubTopicRequest&,
-        ModifyDatahubTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDatahubTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDatahubTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyGroupOffsetsOutcome CkafkaClient::ModifyGroupOffsets(const ModifyGroupOffsetsRequest &request)
@@ -4062,32 +3502,25 @@ CkafkaClient::ModifyGroupOffsetsOutcome CkafkaClient::ModifyGroupOffsets(const M
 
 void CkafkaClient::ModifyGroupOffsetsAsync(const ModifyGroupOffsetsRequest& request, const ModifyGroupOffsetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGroupOffsetsRequest&;
-    using Resp = ModifyGroupOffsetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGroupOffsets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGroupOffsets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyGroupOffsetsOutcomeCallable CkafkaClient::ModifyGroupOffsetsCallable(const ModifyGroupOffsetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGroupOffsetsOutcome>>();
-    ModifyGroupOffsetsAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyGroupOffsetsRequest&,
-        ModifyGroupOffsetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGroupOffsetsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGroupOffsets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyInstanceAttributesOutcome CkafkaClient::ModifyInstanceAttributes(const ModifyInstanceAttributesRequest &request)
@@ -4112,32 +3545,25 @@ CkafkaClient::ModifyInstanceAttributesOutcome CkafkaClient::ModifyInstanceAttrib
 
 void CkafkaClient::ModifyInstanceAttributesAsync(const ModifyInstanceAttributesRequest& request, const ModifyInstanceAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceAttributesRequest&;
-    using Resp = ModifyInstanceAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyInstanceAttributesOutcomeCallable CkafkaClient::ModifyInstanceAttributesCallable(const ModifyInstanceAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceAttributesOutcome>>();
-    ModifyInstanceAttributesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyInstanceAttributesRequest&,
-        ModifyInstanceAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyInstancePreOutcome CkafkaClient::ModifyInstancePre(const ModifyInstancePreRequest &request)
@@ -4162,32 +3588,25 @@ CkafkaClient::ModifyInstancePreOutcome CkafkaClient::ModifyInstancePre(const Mod
 
 void CkafkaClient::ModifyInstancePreAsync(const ModifyInstancePreRequest& request, const ModifyInstancePreAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstancePreRequest&;
-    using Resp = ModifyInstancePreResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstancePre(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstancePre", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyInstancePreOutcomeCallable CkafkaClient::ModifyInstancePreCallable(const ModifyInstancePreRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstancePreOutcome>>();
-    ModifyInstancePreAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyInstancePreRequest&,
-        ModifyInstancePreOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstancePreOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstancePre(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyPasswordOutcome CkafkaClient::ModifyPassword(const ModifyPasswordRequest &request)
@@ -4212,32 +3631,25 @@ CkafkaClient::ModifyPasswordOutcome CkafkaClient::ModifyPassword(const ModifyPas
 
 void CkafkaClient::ModifyPasswordAsync(const ModifyPasswordRequest& request, const ModifyPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPasswordRequest&;
-    using Resp = ModifyPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyPasswordOutcomeCallable CkafkaClient::ModifyPasswordCallable(const ModifyPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPasswordOutcome>>();
-    ModifyPasswordAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyPasswordRequest&,
-        ModifyPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyRoutineMaintenanceTaskOutcome CkafkaClient::ModifyRoutineMaintenanceTask(const ModifyRoutineMaintenanceTaskRequest &request)
@@ -4262,32 +3674,25 @@ CkafkaClient::ModifyRoutineMaintenanceTaskOutcome CkafkaClient::ModifyRoutineMai
 
 void CkafkaClient::ModifyRoutineMaintenanceTaskAsync(const ModifyRoutineMaintenanceTaskRequest& request, const ModifyRoutineMaintenanceTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRoutineMaintenanceTaskRequest&;
-    using Resp = ModifyRoutineMaintenanceTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRoutineMaintenanceTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRoutineMaintenanceTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyRoutineMaintenanceTaskOutcomeCallable CkafkaClient::ModifyRoutineMaintenanceTaskCallable(const ModifyRoutineMaintenanceTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRoutineMaintenanceTaskOutcome>>();
-    ModifyRoutineMaintenanceTaskAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyRoutineMaintenanceTaskRequest&,
-        ModifyRoutineMaintenanceTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRoutineMaintenanceTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRoutineMaintenanceTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ModifyTopicAttributesOutcome CkafkaClient::ModifyTopicAttributes(const ModifyTopicAttributesRequest &request)
@@ -4312,32 +3717,25 @@ CkafkaClient::ModifyTopicAttributesOutcome CkafkaClient::ModifyTopicAttributes(c
 
 void CkafkaClient::ModifyTopicAttributesAsync(const ModifyTopicAttributesRequest& request, const ModifyTopicAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTopicAttributesRequest&;
-    using Resp = ModifyTopicAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTopicAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTopicAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ModifyTopicAttributesOutcomeCallable CkafkaClient::ModifyTopicAttributesCallable(const ModifyTopicAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTopicAttributesOutcome>>();
-    ModifyTopicAttributesAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ModifyTopicAttributesRequest&,
-        ModifyTopicAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTopicAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTopicAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::PauseDatahubTaskOutcome CkafkaClient::PauseDatahubTask(const PauseDatahubTaskRequest &request)
@@ -4362,32 +3760,25 @@ CkafkaClient::PauseDatahubTaskOutcome CkafkaClient::PauseDatahubTask(const Pause
 
 void CkafkaClient::PauseDatahubTaskAsync(const PauseDatahubTaskRequest& request, const PauseDatahubTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PauseDatahubTaskRequest&;
-    using Resp = PauseDatahubTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PauseDatahubTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PauseDatahubTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::PauseDatahubTaskOutcomeCallable CkafkaClient::PauseDatahubTaskCallable(const PauseDatahubTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PauseDatahubTaskOutcome>>();
-    PauseDatahubTaskAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const PauseDatahubTaskRequest&,
-        PauseDatahubTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PauseDatahubTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->PauseDatahubTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::RenewCkafkaInstanceOutcome CkafkaClient::RenewCkafkaInstance(const RenewCkafkaInstanceRequest &request)
@@ -4412,32 +3803,25 @@ CkafkaClient::RenewCkafkaInstanceOutcome CkafkaClient::RenewCkafkaInstance(const
 
 void CkafkaClient::RenewCkafkaInstanceAsync(const RenewCkafkaInstanceRequest& request, const RenewCkafkaInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewCkafkaInstanceRequest&;
-    using Resp = RenewCkafkaInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewCkafkaInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewCkafkaInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::RenewCkafkaInstanceOutcomeCallable CkafkaClient::RenewCkafkaInstanceCallable(const RenewCkafkaInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewCkafkaInstanceOutcome>>();
-    RenewCkafkaInstanceAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const RenewCkafkaInstanceRequest&,
-        RenewCkafkaInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewCkafkaInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewCkafkaInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::RestartDatahubTaskOutcome CkafkaClient::RestartDatahubTask(const RestartDatahubTaskRequest &request)
@@ -4462,32 +3846,25 @@ CkafkaClient::RestartDatahubTaskOutcome CkafkaClient::RestartDatahubTask(const R
 
 void CkafkaClient::RestartDatahubTaskAsync(const RestartDatahubTaskRequest& request, const RestartDatahubTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestartDatahubTaskRequest&;
-    using Resp = RestartDatahubTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestartDatahubTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestartDatahubTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::RestartDatahubTaskOutcomeCallable CkafkaClient::RestartDatahubTaskCallable(const RestartDatahubTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestartDatahubTaskOutcome>>();
-    RestartDatahubTaskAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const RestartDatahubTaskRequest&,
-        RestartDatahubTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestartDatahubTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->RestartDatahubTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::ResumeDatahubTaskOutcome CkafkaClient::ResumeDatahubTask(const ResumeDatahubTaskRequest &request)
@@ -4512,32 +3889,25 @@ CkafkaClient::ResumeDatahubTaskOutcome CkafkaClient::ResumeDatahubTask(const Res
 
 void CkafkaClient::ResumeDatahubTaskAsync(const ResumeDatahubTaskRequest& request, const ResumeDatahubTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResumeDatahubTaskRequest&;
-    using Resp = ResumeDatahubTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResumeDatahubTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResumeDatahubTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::ResumeDatahubTaskOutcomeCallable CkafkaClient::ResumeDatahubTaskCallable(const ResumeDatahubTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResumeDatahubTaskOutcome>>();
-    ResumeDatahubTaskAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const ResumeDatahubTaskRequest&,
-        ResumeDatahubTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResumeDatahubTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ResumeDatahubTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::SendMessageOutcome CkafkaClient::SendMessage(const SendMessageRequest &request)
@@ -4562,32 +3932,25 @@ CkafkaClient::SendMessageOutcome CkafkaClient::SendMessage(const SendMessageRequ
 
 void CkafkaClient::SendMessageAsync(const SendMessageRequest& request, const SendMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendMessageRequest&;
-    using Resp = SendMessageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendMessage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendMessage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::SendMessageOutcomeCallable CkafkaClient::SendMessageCallable(const SendMessageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendMessageOutcome>>();
-    SendMessageAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const SendMessageRequest&,
-        SendMessageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendMessageOutcome()>>(
+        [this, request]()
+        {
+            return this->SendMessage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CkafkaClient::UpgradeBrokerVersionOutcome CkafkaClient::UpgradeBrokerVersion(const UpgradeBrokerVersionRequest &request)
@@ -4612,31 +3975,24 @@ CkafkaClient::UpgradeBrokerVersionOutcome CkafkaClient::UpgradeBrokerVersion(con
 
 void CkafkaClient::UpgradeBrokerVersionAsync(const UpgradeBrokerVersionRequest& request, const UpgradeBrokerVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeBrokerVersionRequest&;
-    using Resp = UpgradeBrokerVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeBrokerVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeBrokerVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CkafkaClient::UpgradeBrokerVersionOutcomeCallable CkafkaClient::UpgradeBrokerVersionCallable(const UpgradeBrokerVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeBrokerVersionOutcome>>();
-    UpgradeBrokerVersionAsync(
-    request,
-    [prom](
-        const CkafkaClient*,
-        const UpgradeBrokerVersionRequest&,
-        UpgradeBrokerVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeBrokerVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeBrokerVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

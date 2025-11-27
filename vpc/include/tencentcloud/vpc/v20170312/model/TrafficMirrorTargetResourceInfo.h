@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 流量镜像接收流量信息，当接收目标为ENI和CLB时返回
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TrafficMirrorTargetResourceInfo();
-                    ~TrafficMirrorTargetResourceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

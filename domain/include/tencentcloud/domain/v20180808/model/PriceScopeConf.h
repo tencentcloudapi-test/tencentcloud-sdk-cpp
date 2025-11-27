@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 预释放价格区间配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PriceScopeConf();
-                    ~PriceScopeConf() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

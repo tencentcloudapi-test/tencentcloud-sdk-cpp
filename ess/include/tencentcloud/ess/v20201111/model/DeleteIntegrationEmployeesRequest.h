@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class Staff;
+                class Agent;
+
                 /**
                 * DeleteIntegrationEmployees请求参数结构体
                 */

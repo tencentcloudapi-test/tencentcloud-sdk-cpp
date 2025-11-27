@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FreequotaInfo;
+
                 /**
                 * DescribePostpayFreeQuotas返回参数结构体
                 */

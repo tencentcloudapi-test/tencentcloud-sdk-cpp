@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchScope;
+                class IntegerRange;
+                class TimeRange;
+                class SortBy;
+
                 /**
                 * SearchMaterial请求参数结构体
                 */

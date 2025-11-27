@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HostRiskLevelCount;
+
                 /**
                 * DescribeBaselineHostRiskTop返回参数结构体
                 */

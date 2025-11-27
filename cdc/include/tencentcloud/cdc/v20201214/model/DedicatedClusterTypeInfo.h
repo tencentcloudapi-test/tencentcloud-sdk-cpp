@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DedicatedClusterType => (Id, Count)
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DedicatedClusterTypeInfo();
-                    ~DedicatedClusterTypeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

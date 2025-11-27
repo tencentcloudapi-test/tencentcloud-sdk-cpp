@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertConf;
+                class WafConf;
+                class EndpointsConf;
+
                 /**
                 * UpdateCustomDomain请求参数结构体
                 */

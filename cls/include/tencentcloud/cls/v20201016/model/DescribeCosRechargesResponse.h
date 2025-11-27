@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosRechargeInfo;
+
                 /**
                 * DescribeCosRecharges返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscribeStreamUserIds;
+
                 /**
                 * 云端切片的控制参数。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SliceParams();
-                    ~SliceParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

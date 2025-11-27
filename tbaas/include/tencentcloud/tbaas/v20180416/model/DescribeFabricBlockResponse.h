@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Transaction;
+
                 /**
                 * DescribeFabricBlock返回参数结构体
                 */

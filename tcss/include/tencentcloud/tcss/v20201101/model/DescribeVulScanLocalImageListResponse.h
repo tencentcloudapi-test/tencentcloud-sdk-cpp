@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulScanImageInfo;
+
                 /**
                 * DescribeVulScanLocalImageList返回参数结构体
                 */

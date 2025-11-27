@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DirectConnectTunnelRoute;
+
                 /**
                 * DescribePublicDirectConnectTunnelRoutes返回参数结构体
                 */

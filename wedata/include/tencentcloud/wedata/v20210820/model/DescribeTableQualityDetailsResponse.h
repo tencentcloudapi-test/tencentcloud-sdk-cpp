@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableQualityDetailPage;
+
                 /**
                 * DescribeTableQualityDetails返回参数结构体
                 */

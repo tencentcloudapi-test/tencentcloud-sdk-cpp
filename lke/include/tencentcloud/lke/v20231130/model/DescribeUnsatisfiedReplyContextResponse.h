@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Context;
+
                 /**
                 * DescribeUnsatisfiedReplyContext返回参数结构体
                 */

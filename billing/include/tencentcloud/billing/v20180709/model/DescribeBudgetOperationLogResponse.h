@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataForBudgetOperationLogPage;
+
                 /**
                 * DescribeBudgetOperationLog返回参数结构体
                 */

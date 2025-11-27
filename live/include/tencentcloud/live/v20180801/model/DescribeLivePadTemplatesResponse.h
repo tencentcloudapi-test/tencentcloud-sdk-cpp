@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PadTemplate;
+
                 /**
                 * DescribeLivePadTemplates返回参数结构体
                 */

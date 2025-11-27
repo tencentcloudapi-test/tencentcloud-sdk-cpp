@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 私网网关转发规则匹配ACL
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TranslationAclRule();
-                    ~TranslationAclRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

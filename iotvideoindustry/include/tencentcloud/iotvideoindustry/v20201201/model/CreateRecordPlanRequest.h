@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceItem;
+
                 /**
                 * CreateRecordPlan请求参数结构体
                 */

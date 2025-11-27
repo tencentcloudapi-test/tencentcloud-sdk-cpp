@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaselinePolicyDetect;
+
                 /**
                 * DescribeBaselineDetectList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RocketMQNamespace;
+
                 /**
                 * DescribeRocketMQNamespaces返回参数结构体
                 */

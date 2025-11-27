@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RealtimeSpeechConf;
+                class VoiceMessageConf;
+                class VoiceFilterConf;
+                class AsrConf;
+
                 /**
                 * CreateApp的输出参数
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     CreateAppResp();
-                    ~CreateAppResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

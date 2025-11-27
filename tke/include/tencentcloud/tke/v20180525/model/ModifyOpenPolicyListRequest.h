@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpenPolicySwitch;
+
                 /**
                 * ModifyOpenPolicyList请求参数结构体
                 */

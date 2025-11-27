@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HostAlias;
+                class DNSConfig;
+
                 /**
                 * 施压机的域名解析相关配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DomainNameConfig();
-                    ~DomainNameConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

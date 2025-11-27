@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SuccessorTaskInfo;
+
                 /**
                 * DescribeSuccessorTaskInfoList返回参数结构体
                 */

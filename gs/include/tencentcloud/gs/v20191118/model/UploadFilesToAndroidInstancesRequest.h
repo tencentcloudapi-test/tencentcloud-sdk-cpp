@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AndroidInstanceUploadFile;
+
                 /**
                 * UploadFilesToAndroidInstances请求参数结构体
                 */

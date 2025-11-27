@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogConfigExtractRule;
+
                 /**
                 * CreateLogConfig请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Item;
+
                 /**
                 * Evaluation返回参数结构体
                 */

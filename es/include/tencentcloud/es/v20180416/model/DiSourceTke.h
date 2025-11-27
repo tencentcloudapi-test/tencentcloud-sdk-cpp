@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiSourceTkePodLabel;
+
                 /**
                 * 数据接入tke数据源
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DiSourceTke();
-                    ~DiSourceTke() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

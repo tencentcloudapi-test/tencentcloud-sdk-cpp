@@ -62,32 +62,25 @@ IrpClient::RecommendContentOutcome IrpClient::RecommendContent(const RecommendCo
 
 void IrpClient::RecommendContentAsync(const RecommendContentRequest& request, const RecommendContentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RecommendContentRequest&;
-    using Resp = RecommendContentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RecommendContent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RecommendContent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IrpClient::RecommendContentOutcomeCallable IrpClient::RecommendContentCallable(const RecommendContentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RecommendContentOutcome>>();
-    RecommendContentAsync(
-    request,
-    [prom](
-        const IrpClient*,
-        const RecommendContentRequest&,
-        RecommendContentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RecommendContentOutcome()>>(
+        [this, request]()
+        {
+            return this->RecommendContent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IrpClient::ReportActionOutcome IrpClient::ReportAction(const ReportActionRequest &request)
@@ -112,32 +105,25 @@ IrpClient::ReportActionOutcome IrpClient::ReportAction(const ReportActionRequest
 
 void IrpClient::ReportActionAsync(const ReportActionRequest& request, const ReportActionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReportActionRequest&;
-    using Resp = ReportActionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReportAction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReportAction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IrpClient::ReportActionOutcomeCallable IrpClient::ReportActionCallable(const ReportActionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReportActionOutcome>>();
-    ReportActionAsync(
-    request,
-    [prom](
-        const IrpClient*,
-        const ReportActionRequest&,
-        ReportActionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReportActionOutcome()>>(
+        [this, request]()
+        {
+            return this->ReportAction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IrpClient::ReportMaterialOutcome IrpClient::ReportMaterial(const ReportMaterialRequest &request)
@@ -162,32 +148,25 @@ IrpClient::ReportMaterialOutcome IrpClient::ReportMaterial(const ReportMaterialR
 
 void IrpClient::ReportMaterialAsync(const ReportMaterialRequest& request, const ReportMaterialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReportMaterialRequest&;
-    using Resp = ReportMaterialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReportMaterial(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReportMaterial", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IrpClient::ReportMaterialOutcomeCallable IrpClient::ReportMaterialCallable(const ReportMaterialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReportMaterialOutcome>>();
-    ReportMaterialAsync(
-    request,
-    [prom](
-        const IrpClient*,
-        const ReportMaterialRequest&,
-        ReportMaterialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReportMaterialOutcome()>>(
+        [this, request]()
+        {
+            return this->ReportMaterial(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IrpClient::ReportPortraitOutcome IrpClient::ReportPortrait(const ReportPortraitRequest &request)
@@ -212,31 +191,24 @@ IrpClient::ReportPortraitOutcome IrpClient::ReportPortrait(const ReportPortraitR
 
 void IrpClient::ReportPortraitAsync(const ReportPortraitRequest& request, const ReportPortraitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReportPortraitRequest&;
-    using Resp = ReportPortraitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReportPortrait(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReportPortrait", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IrpClient::ReportPortraitOutcomeCallable IrpClient::ReportPortraitCallable(const ReportPortraitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReportPortraitOutcome>>();
-    ReportPortraitAsync(
-    request,
-    [prom](
-        const IrpClient*,
-        const ReportPortraitRequest&,
-        ReportPortraitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReportPortraitOutcome()>>(
+        [this, request]()
+        {
+            return this->ReportPortrait(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

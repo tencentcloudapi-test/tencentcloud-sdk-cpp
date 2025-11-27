@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Plan;
+
                 /**
                 * DescribePlans返回参数结构体
                 */

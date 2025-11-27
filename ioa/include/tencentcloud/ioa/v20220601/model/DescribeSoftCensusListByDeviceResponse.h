@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeSoftCensusListByDevicePageData;
+
                 /**
                 * DescribeSoftCensusListByDevice返回参数结构体
                 */

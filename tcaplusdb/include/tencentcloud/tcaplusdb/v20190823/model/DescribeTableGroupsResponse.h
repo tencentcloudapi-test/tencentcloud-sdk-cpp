@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableGroupInfo;
+
                 /**
                 * DescribeTableGroups返回参数结构体
                 */

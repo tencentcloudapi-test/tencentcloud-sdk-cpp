@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DspaDiscoveryDataRule;
+
                 /**
                 * 敏感数据识别规则集
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DspaDiscoveryDataRules();
-                    ~DspaDiscoveryDataRules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

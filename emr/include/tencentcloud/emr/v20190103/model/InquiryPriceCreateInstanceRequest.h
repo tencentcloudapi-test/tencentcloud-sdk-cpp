@@ -37,6 +37,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NewResourceSpec;
+                class Placement;
+                class VPCSettings;
+                class CustomMetaInfo;
+                class ExternalService;
+                class MultiZoneSetting;
+
                 /**
                 * InquiryPriceCreateInstance请求参数结构体
                 */

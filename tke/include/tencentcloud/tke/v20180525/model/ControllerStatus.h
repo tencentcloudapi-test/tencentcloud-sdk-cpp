@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 集群中控制器的状态描述
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ControllerStatus();
-                    ~ControllerStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

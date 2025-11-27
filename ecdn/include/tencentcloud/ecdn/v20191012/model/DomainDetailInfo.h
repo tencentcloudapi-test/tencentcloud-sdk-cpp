@@ -44,6 +44,17 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Origin;
+                class IpFilter;
+                class IpFreqLimit;
+                class ResponseHeader;
+                class CacheKey;
+                class Cache;
+                class Https;
+                class ForceRedirect;
+                class Tag;
+                class WebSocket;
+
                 /**
                 * ECDN域名详细配置信息。
                 */
@@ -51,7 +62,6 @@ namespace TencentCloud
                 {
                 public:
                     DomainDetailInfo();
-                    ~DomainDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UsedDetail;
+
                 /**
                 * DescribeSpecificTrafficPackageUsedDetails返回参数结构体
                 */

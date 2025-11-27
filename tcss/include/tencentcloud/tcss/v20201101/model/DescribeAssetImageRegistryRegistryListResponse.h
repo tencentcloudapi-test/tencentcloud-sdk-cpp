@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageRepoRegistryInfo;
+
                 /**
                 * DescribeAssetImageRegistryRegistryList返回参数结构体
                 */

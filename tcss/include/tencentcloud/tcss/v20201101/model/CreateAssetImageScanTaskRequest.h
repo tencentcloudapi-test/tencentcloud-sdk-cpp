@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetFilters;
+
                 /**
                 * CreateAssetImageScanTask请求参数结构体
                 */

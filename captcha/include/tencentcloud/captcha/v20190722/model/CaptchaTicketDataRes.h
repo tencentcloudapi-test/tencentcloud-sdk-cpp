@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TicketAmountUnit;
+                class TicketThroughUnit;
+                class TicketInterceptUnit;
+
                 /**
                 * DescribeCaptchaTicketData 接口 返回数据类型集合
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     CaptchaTicketDataRes();
-                    ~CaptchaTicketDataRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

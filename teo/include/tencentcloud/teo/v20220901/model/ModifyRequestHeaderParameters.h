@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HeaderAction;
+
                 /**
                 * 修改 HTTP 回源请求头配置参数。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ModifyRequestHeaderParameters();
-                    ~ModifyRequestHeaderParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

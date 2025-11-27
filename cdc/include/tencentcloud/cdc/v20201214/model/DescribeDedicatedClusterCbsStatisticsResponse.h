@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SetInfo;
+
                 /**
                 * DescribeDedicatedClusterCbsStatistics返回参数结构体
                 */

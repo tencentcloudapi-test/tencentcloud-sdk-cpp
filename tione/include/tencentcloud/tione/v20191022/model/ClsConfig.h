@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 接入CLS服务的配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClsConfig();
-                    ~ClsConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

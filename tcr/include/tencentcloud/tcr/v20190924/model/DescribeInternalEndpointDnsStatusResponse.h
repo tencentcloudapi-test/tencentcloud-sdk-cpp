@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcPrivateDomainStatus;
+
                 /**
                 * DescribeInternalEndpointDnsStatus返回参数结构体
                 */

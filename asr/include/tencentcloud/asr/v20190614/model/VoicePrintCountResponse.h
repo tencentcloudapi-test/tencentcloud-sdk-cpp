@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VoicePrintCountData;
+
                 /**
                 * VoicePrintCount返回参数结构体
                 */

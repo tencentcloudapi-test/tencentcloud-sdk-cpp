@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述Es规则目标
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ESTargetParams();
-                    ~ESTargetParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

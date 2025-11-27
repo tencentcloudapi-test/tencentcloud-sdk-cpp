@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VPCSettings;
+
                 /**
                 * 容器集群Pod服务CLB设置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CLBSetting();
-                    ~CLBSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

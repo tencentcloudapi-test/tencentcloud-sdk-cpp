@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleInfo;
+
                 /**
                 * DescribeLiveTimeShiftRules返回参数结构体
                 */

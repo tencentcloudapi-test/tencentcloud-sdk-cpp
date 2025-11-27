@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 预热任务详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PushTask();
-                    ~PushTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

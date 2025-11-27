@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ActivateDeviceCertificate返回参数结构体
                 */

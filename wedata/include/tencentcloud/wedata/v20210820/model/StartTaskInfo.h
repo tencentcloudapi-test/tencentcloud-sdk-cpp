@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordField;
+
                 /**
                 * 批量运行集成任务配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     StartTaskInfo();
-                    ~StartTaskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

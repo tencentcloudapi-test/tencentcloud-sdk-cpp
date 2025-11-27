@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CIC的权限策略
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RolePolicie();
-                    ~RolePolicie() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -62,32 +62,25 @@ OrganizationClient::AcceptJoinShareUnitInvitationOutcome OrganizationClient::Acc
 
 void OrganizationClient::AcceptJoinShareUnitInvitationAsync(const AcceptJoinShareUnitInvitationRequest& request, const AcceptJoinShareUnitInvitationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AcceptJoinShareUnitInvitationRequest&;
-    using Resp = AcceptJoinShareUnitInvitationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AcceptJoinShareUnitInvitation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AcceptJoinShareUnitInvitation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AcceptJoinShareUnitInvitationOutcomeCallable OrganizationClient::AcceptJoinShareUnitInvitationCallable(const AcceptJoinShareUnitInvitationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AcceptJoinShareUnitInvitationOutcome>>();
-    AcceptJoinShareUnitInvitationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AcceptJoinShareUnitInvitationRequest&,
-        AcceptJoinShareUnitInvitationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AcceptJoinShareUnitInvitationOutcome()>>(
+        [this, request]()
+        {
+            return this->AcceptJoinShareUnitInvitation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AddExternalSAMLIdPCertificateOutcome OrganizationClient::AddExternalSAMLIdPCertificate(const AddExternalSAMLIdPCertificateRequest &request)
@@ -112,32 +105,25 @@ OrganizationClient::AddExternalSAMLIdPCertificateOutcome OrganizationClient::Add
 
 void OrganizationClient::AddExternalSAMLIdPCertificateAsync(const AddExternalSAMLIdPCertificateRequest& request, const AddExternalSAMLIdPCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddExternalSAMLIdPCertificateRequest&;
-    using Resp = AddExternalSAMLIdPCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddExternalSAMLIdPCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddExternalSAMLIdPCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AddExternalSAMLIdPCertificateOutcomeCallable OrganizationClient::AddExternalSAMLIdPCertificateCallable(const AddExternalSAMLIdPCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddExternalSAMLIdPCertificateOutcome>>();
-    AddExternalSAMLIdPCertificateAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddExternalSAMLIdPCertificateRequest&,
-        AddExternalSAMLIdPCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddExternalSAMLIdPCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->AddExternalSAMLIdPCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AddOrganizationMemberEmailOutcome OrganizationClient::AddOrganizationMemberEmail(const AddOrganizationMemberEmailRequest &request)
@@ -162,32 +148,25 @@ OrganizationClient::AddOrganizationMemberEmailOutcome OrganizationClient::AddOrg
 
 void OrganizationClient::AddOrganizationMemberEmailAsync(const AddOrganizationMemberEmailRequest& request, const AddOrganizationMemberEmailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddOrganizationMemberEmailRequest&;
-    using Resp = AddOrganizationMemberEmailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddOrganizationMemberEmail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddOrganizationMemberEmail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AddOrganizationMemberEmailOutcomeCallable OrganizationClient::AddOrganizationMemberEmailCallable(const AddOrganizationMemberEmailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddOrganizationMemberEmailOutcome>>();
-    AddOrganizationMemberEmailAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddOrganizationMemberEmailRequest&,
-        AddOrganizationMemberEmailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddOrganizationMemberEmailOutcome()>>(
+        [this, request]()
+        {
+            return this->AddOrganizationMemberEmail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AddOrganizationNodeOutcome OrganizationClient::AddOrganizationNode(const AddOrganizationNodeRequest &request)
@@ -212,32 +191,25 @@ OrganizationClient::AddOrganizationNodeOutcome OrganizationClient::AddOrganizati
 
 void OrganizationClient::AddOrganizationNodeAsync(const AddOrganizationNodeRequest& request, const AddOrganizationNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddOrganizationNodeRequest&;
-    using Resp = AddOrganizationNodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddOrganizationNode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddOrganizationNode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AddOrganizationNodeOutcomeCallable OrganizationClient::AddOrganizationNodeCallable(const AddOrganizationNodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddOrganizationNodeOutcome>>();
-    AddOrganizationNodeAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddOrganizationNodeRequest&,
-        AddOrganizationNodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddOrganizationNodeOutcome()>>(
+        [this, request]()
+        {
+            return this->AddOrganizationNode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AddPermissionPolicyToRoleConfigurationOutcome OrganizationClient::AddPermissionPolicyToRoleConfiguration(const AddPermissionPolicyToRoleConfigurationRequest &request)
@@ -262,32 +234,25 @@ OrganizationClient::AddPermissionPolicyToRoleConfigurationOutcome OrganizationCl
 
 void OrganizationClient::AddPermissionPolicyToRoleConfigurationAsync(const AddPermissionPolicyToRoleConfigurationRequest& request, const AddPermissionPolicyToRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddPermissionPolicyToRoleConfigurationRequest&;
-    using Resp = AddPermissionPolicyToRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddPermissionPolicyToRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddPermissionPolicyToRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AddPermissionPolicyToRoleConfigurationOutcomeCallable OrganizationClient::AddPermissionPolicyToRoleConfigurationCallable(const AddPermissionPolicyToRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddPermissionPolicyToRoleConfigurationOutcome>>();
-    AddPermissionPolicyToRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddPermissionPolicyToRoleConfigurationRequest&,
-        AddPermissionPolicyToRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddPermissionPolicyToRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->AddPermissionPolicyToRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AddShareUnitOutcome OrganizationClient::AddShareUnit(const AddShareUnitRequest &request)
@@ -312,32 +277,25 @@ OrganizationClient::AddShareUnitOutcome OrganizationClient::AddShareUnit(const A
 
 void OrganizationClient::AddShareUnitAsync(const AddShareUnitRequest& request, const AddShareUnitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddShareUnitRequest&;
-    using Resp = AddShareUnitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddShareUnit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddShareUnit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AddShareUnitOutcomeCallable OrganizationClient::AddShareUnitCallable(const AddShareUnitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddShareUnitOutcome>>();
-    AddShareUnitAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddShareUnitRequest&,
-        AddShareUnitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddShareUnitOutcome()>>(
+        [this, request]()
+        {
+            return this->AddShareUnit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AddShareUnitMembersOutcome OrganizationClient::AddShareUnitMembers(const AddShareUnitMembersRequest &request)
@@ -362,32 +320,25 @@ OrganizationClient::AddShareUnitMembersOutcome OrganizationClient::AddShareUnitM
 
 void OrganizationClient::AddShareUnitMembersAsync(const AddShareUnitMembersRequest& request, const AddShareUnitMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddShareUnitMembersRequest&;
-    using Resp = AddShareUnitMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddShareUnitMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddShareUnitMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AddShareUnitMembersOutcomeCallable OrganizationClient::AddShareUnitMembersCallable(const AddShareUnitMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddShareUnitMembersOutcome>>();
-    AddShareUnitMembersAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddShareUnitMembersRequest&,
-        AddShareUnitMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddShareUnitMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->AddShareUnitMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AddShareUnitResourcesOutcome OrganizationClient::AddShareUnitResources(const AddShareUnitResourcesRequest &request)
@@ -412,32 +363,25 @@ OrganizationClient::AddShareUnitResourcesOutcome OrganizationClient::AddShareUni
 
 void OrganizationClient::AddShareUnitResourcesAsync(const AddShareUnitResourcesRequest& request, const AddShareUnitResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddShareUnitResourcesRequest&;
-    using Resp = AddShareUnitResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddShareUnitResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddShareUnitResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AddShareUnitResourcesOutcomeCallable OrganizationClient::AddShareUnitResourcesCallable(const AddShareUnitResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddShareUnitResourcesOutcome>>();
-    AddShareUnitResourcesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddShareUnitResourcesRequest&,
-        AddShareUnitResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddShareUnitResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->AddShareUnitResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AddUserToGroupOutcome OrganizationClient::AddUserToGroup(const AddUserToGroupRequest &request)
@@ -462,32 +406,25 @@ OrganizationClient::AddUserToGroupOutcome OrganizationClient::AddUserToGroup(con
 
 void OrganizationClient::AddUserToGroupAsync(const AddUserToGroupRequest& request, const AddUserToGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddUserToGroupRequest&;
-    using Resp = AddUserToGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddUserToGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddUserToGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AddUserToGroupOutcomeCallable OrganizationClient::AddUserToGroupCallable(const AddUserToGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddUserToGroupOutcome>>();
-    AddUserToGroupAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AddUserToGroupRequest&,
-        AddUserToGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddUserToGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->AddUserToGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::AttachPolicyOutcome OrganizationClient::AttachPolicy(const AttachPolicyRequest &request)
@@ -512,32 +449,25 @@ OrganizationClient::AttachPolicyOutcome OrganizationClient::AttachPolicy(const A
 
 void OrganizationClient::AttachPolicyAsync(const AttachPolicyRequest& request, const AttachPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachPolicyRequest&;
-    using Resp = AttachPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::AttachPolicyOutcomeCallable OrganizationClient::AttachPolicyCallable(const AttachPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachPolicyOutcome>>();
-    AttachPolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const AttachPolicyRequest&,
-        AttachPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::BindOrganizationMemberAuthAccountOutcome OrganizationClient::BindOrganizationMemberAuthAccount(const BindOrganizationMemberAuthAccountRequest &request)
@@ -562,32 +492,25 @@ OrganizationClient::BindOrganizationMemberAuthAccountOutcome OrganizationClient:
 
 void OrganizationClient::BindOrganizationMemberAuthAccountAsync(const BindOrganizationMemberAuthAccountRequest& request, const BindOrganizationMemberAuthAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindOrganizationMemberAuthAccountRequest&;
-    using Resp = BindOrganizationMemberAuthAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindOrganizationMemberAuthAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindOrganizationMemberAuthAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::BindOrganizationMemberAuthAccountOutcomeCallable OrganizationClient::BindOrganizationMemberAuthAccountCallable(const BindOrganizationMemberAuthAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindOrganizationMemberAuthAccountOutcome>>();
-    BindOrganizationMemberAuthAccountAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const BindOrganizationMemberAuthAccountRequest&,
-        BindOrganizationMemberAuthAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindOrganizationMemberAuthAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->BindOrganizationMemberAuthAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::BindOrganizationPolicySubAccountOutcome OrganizationClient::BindOrganizationPolicySubAccount(const BindOrganizationPolicySubAccountRequest &request)
@@ -612,32 +535,25 @@ OrganizationClient::BindOrganizationPolicySubAccountOutcome OrganizationClient::
 
 void OrganizationClient::BindOrganizationPolicySubAccountAsync(const BindOrganizationPolicySubAccountRequest& request, const BindOrganizationPolicySubAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindOrganizationPolicySubAccountRequest&;
-    using Resp = BindOrganizationPolicySubAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindOrganizationPolicySubAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindOrganizationPolicySubAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::BindOrganizationPolicySubAccountOutcomeCallable OrganizationClient::BindOrganizationPolicySubAccountCallable(const BindOrganizationPolicySubAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindOrganizationPolicySubAccountOutcome>>();
-    BindOrganizationPolicySubAccountAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const BindOrganizationPolicySubAccountRequest&,
-        BindOrganizationPolicySubAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindOrganizationPolicySubAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->BindOrganizationPolicySubAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CancelOrganizationMemberAuthAccountOutcome OrganizationClient::CancelOrganizationMemberAuthAccount(const CancelOrganizationMemberAuthAccountRequest &request)
@@ -662,32 +578,25 @@ OrganizationClient::CancelOrganizationMemberAuthAccountOutcome OrganizationClien
 
 void OrganizationClient::CancelOrganizationMemberAuthAccountAsync(const CancelOrganizationMemberAuthAccountRequest& request, const CancelOrganizationMemberAuthAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CancelOrganizationMemberAuthAccountRequest&;
-    using Resp = CancelOrganizationMemberAuthAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CancelOrganizationMemberAuthAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CancelOrganizationMemberAuthAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CancelOrganizationMemberAuthAccountOutcomeCallable OrganizationClient::CancelOrganizationMemberAuthAccountCallable(const CancelOrganizationMemberAuthAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CancelOrganizationMemberAuthAccountOutcome>>();
-    CancelOrganizationMemberAuthAccountAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CancelOrganizationMemberAuthAccountRequest&,
-        CancelOrganizationMemberAuthAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CancelOrganizationMemberAuthAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->CancelOrganizationMemberAuthAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CancelOrganizationPolicySubAccountOutcome OrganizationClient::CancelOrganizationPolicySubAccount(const CancelOrganizationPolicySubAccountRequest &request)
@@ -712,32 +621,25 @@ OrganizationClient::CancelOrganizationPolicySubAccountOutcome OrganizationClient
 
 void OrganizationClient::CancelOrganizationPolicySubAccountAsync(const CancelOrganizationPolicySubAccountRequest& request, const CancelOrganizationPolicySubAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CancelOrganizationPolicySubAccountRequest&;
-    using Resp = CancelOrganizationPolicySubAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CancelOrganizationPolicySubAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CancelOrganizationPolicySubAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CancelOrganizationPolicySubAccountOutcomeCallable OrganizationClient::CancelOrganizationPolicySubAccountCallable(const CancelOrganizationPolicySubAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CancelOrganizationPolicySubAccountOutcome>>();
-    CancelOrganizationPolicySubAccountAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CancelOrganizationPolicySubAccountRequest&,
-        CancelOrganizationPolicySubAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CancelOrganizationPolicySubAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->CancelOrganizationPolicySubAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CheckAccountDeleteOutcome OrganizationClient::CheckAccountDelete(const CheckAccountDeleteRequest &request)
@@ -762,32 +664,25 @@ OrganizationClient::CheckAccountDeleteOutcome OrganizationClient::CheckAccountDe
 
 void OrganizationClient::CheckAccountDeleteAsync(const CheckAccountDeleteRequest& request, const CheckAccountDeleteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckAccountDeleteRequest&;
-    using Resp = CheckAccountDeleteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckAccountDelete(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckAccountDelete", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CheckAccountDeleteOutcomeCallable OrganizationClient::CheckAccountDeleteCallable(const CheckAccountDeleteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckAccountDeleteOutcome>>();
-    CheckAccountDeleteAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CheckAccountDeleteRequest&,
-        CheckAccountDeleteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckAccountDeleteOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckAccountDelete(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ClearExternalSAMLIdentityProviderOutcome OrganizationClient::ClearExternalSAMLIdentityProvider(const ClearExternalSAMLIdentityProviderRequest &request)
@@ -812,32 +707,25 @@ OrganizationClient::ClearExternalSAMLIdentityProviderOutcome OrganizationClient:
 
 void OrganizationClient::ClearExternalSAMLIdentityProviderAsync(const ClearExternalSAMLIdentityProviderRequest& request, const ClearExternalSAMLIdentityProviderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ClearExternalSAMLIdentityProviderRequest&;
-    using Resp = ClearExternalSAMLIdentityProviderResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ClearExternalSAMLIdentityProvider(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ClearExternalSAMLIdentityProvider", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ClearExternalSAMLIdentityProviderOutcomeCallable OrganizationClient::ClearExternalSAMLIdentityProviderCallable(const ClearExternalSAMLIdentityProviderRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ClearExternalSAMLIdentityProviderOutcome>>();
-    ClearExternalSAMLIdentityProviderAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ClearExternalSAMLIdentityProviderRequest&,
-        ClearExternalSAMLIdentityProviderOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ClearExternalSAMLIdentityProviderOutcome()>>(
+        [this, request]()
+        {
+            return this->ClearExternalSAMLIdentityProvider(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateGroupOutcome OrganizationClient::CreateGroup(const CreateGroupRequest &request)
@@ -862,32 +750,25 @@ OrganizationClient::CreateGroupOutcome OrganizationClient::CreateGroup(const Cre
 
 void OrganizationClient::CreateGroupAsync(const CreateGroupRequest& request, const CreateGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGroupRequest&;
-    using Resp = CreateGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateGroupOutcomeCallable OrganizationClient::CreateGroupCallable(const CreateGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGroupOutcome>>();
-    CreateGroupAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateGroupRequest&,
-        CreateGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateOrgServiceAssignOutcome OrganizationClient::CreateOrgServiceAssign(const CreateOrgServiceAssignRequest &request)
@@ -912,32 +793,25 @@ OrganizationClient::CreateOrgServiceAssignOutcome OrganizationClient::CreateOrgS
 
 void OrganizationClient::CreateOrgServiceAssignAsync(const CreateOrgServiceAssignRequest& request, const CreateOrgServiceAssignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrgServiceAssignRequest&;
-    using Resp = CreateOrgServiceAssignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrgServiceAssign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrgServiceAssign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateOrgServiceAssignOutcomeCallable OrganizationClient::CreateOrgServiceAssignCallable(const CreateOrgServiceAssignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrgServiceAssignOutcome>>();
-    CreateOrgServiceAssignAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateOrgServiceAssignRequest&,
-        CreateOrgServiceAssignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrgServiceAssignOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrgServiceAssign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateOrganizationOutcome OrganizationClient::CreateOrganization(const CreateOrganizationRequest &request)
@@ -962,32 +836,25 @@ OrganizationClient::CreateOrganizationOutcome OrganizationClient::CreateOrganiza
 
 void OrganizationClient::CreateOrganizationAsync(const CreateOrganizationRequest& request, const CreateOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrganizationRequest&;
-    using Resp = CreateOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateOrganizationOutcomeCallable OrganizationClient::CreateOrganizationCallable(const CreateOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrganizationOutcome>>();
-    CreateOrganizationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateOrganizationRequest&,
-        CreateOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateOrganizationIdentityOutcome OrganizationClient::CreateOrganizationIdentity(const CreateOrganizationIdentityRequest &request)
@@ -1012,32 +879,25 @@ OrganizationClient::CreateOrganizationIdentityOutcome OrganizationClient::Create
 
 void OrganizationClient::CreateOrganizationIdentityAsync(const CreateOrganizationIdentityRequest& request, const CreateOrganizationIdentityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrganizationIdentityRequest&;
-    using Resp = CreateOrganizationIdentityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrganizationIdentity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrganizationIdentity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateOrganizationIdentityOutcomeCallable OrganizationClient::CreateOrganizationIdentityCallable(const CreateOrganizationIdentityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrganizationIdentityOutcome>>();
-    CreateOrganizationIdentityAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateOrganizationIdentityRequest&,
-        CreateOrganizationIdentityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrganizationIdentityOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrganizationIdentity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateOrganizationMemberOutcome OrganizationClient::CreateOrganizationMember(const CreateOrganizationMemberRequest &request)
@@ -1062,32 +922,25 @@ OrganizationClient::CreateOrganizationMemberOutcome OrganizationClient::CreateOr
 
 void OrganizationClient::CreateOrganizationMemberAsync(const CreateOrganizationMemberRequest& request, const CreateOrganizationMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrganizationMemberRequest&;
-    using Resp = CreateOrganizationMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrganizationMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrganizationMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateOrganizationMemberOutcomeCallable OrganizationClient::CreateOrganizationMemberCallable(const CreateOrganizationMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrganizationMemberOutcome>>();
-    CreateOrganizationMemberAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateOrganizationMemberRequest&,
-        CreateOrganizationMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrganizationMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrganizationMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateOrganizationMemberAuthIdentityOutcome OrganizationClient::CreateOrganizationMemberAuthIdentity(const CreateOrganizationMemberAuthIdentityRequest &request)
@@ -1112,32 +965,25 @@ OrganizationClient::CreateOrganizationMemberAuthIdentityOutcome OrganizationClie
 
 void OrganizationClient::CreateOrganizationMemberAuthIdentityAsync(const CreateOrganizationMemberAuthIdentityRequest& request, const CreateOrganizationMemberAuthIdentityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrganizationMemberAuthIdentityRequest&;
-    using Resp = CreateOrganizationMemberAuthIdentityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrganizationMemberAuthIdentity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrganizationMemberAuthIdentity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateOrganizationMemberAuthIdentityOutcomeCallable OrganizationClient::CreateOrganizationMemberAuthIdentityCallable(const CreateOrganizationMemberAuthIdentityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrganizationMemberAuthIdentityOutcome>>();
-    CreateOrganizationMemberAuthIdentityAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateOrganizationMemberAuthIdentityRequest&,
-        CreateOrganizationMemberAuthIdentityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrganizationMemberAuthIdentityOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrganizationMemberAuthIdentity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateOrganizationMemberPolicyOutcome OrganizationClient::CreateOrganizationMemberPolicy(const CreateOrganizationMemberPolicyRequest &request)
@@ -1162,32 +1008,25 @@ OrganizationClient::CreateOrganizationMemberPolicyOutcome OrganizationClient::Cr
 
 void OrganizationClient::CreateOrganizationMemberPolicyAsync(const CreateOrganizationMemberPolicyRequest& request, const CreateOrganizationMemberPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrganizationMemberPolicyRequest&;
-    using Resp = CreateOrganizationMemberPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrganizationMemberPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrganizationMemberPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateOrganizationMemberPolicyOutcomeCallable OrganizationClient::CreateOrganizationMemberPolicyCallable(const CreateOrganizationMemberPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrganizationMemberPolicyOutcome>>();
-    CreateOrganizationMemberPolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateOrganizationMemberPolicyRequest&,
-        CreateOrganizationMemberPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrganizationMemberPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrganizationMemberPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateOrganizationMembersPolicyOutcome OrganizationClient::CreateOrganizationMembersPolicy(const CreateOrganizationMembersPolicyRequest &request)
@@ -1212,32 +1051,25 @@ OrganizationClient::CreateOrganizationMembersPolicyOutcome OrganizationClient::C
 
 void OrganizationClient::CreateOrganizationMembersPolicyAsync(const CreateOrganizationMembersPolicyRequest& request, const CreateOrganizationMembersPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateOrganizationMembersPolicyRequest&;
-    using Resp = CreateOrganizationMembersPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateOrganizationMembersPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateOrganizationMembersPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateOrganizationMembersPolicyOutcomeCallable OrganizationClient::CreateOrganizationMembersPolicyCallable(const CreateOrganizationMembersPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateOrganizationMembersPolicyOutcome>>();
-    CreateOrganizationMembersPolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateOrganizationMembersPolicyRequest&,
-        CreateOrganizationMembersPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateOrganizationMembersPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateOrganizationMembersPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreatePolicyOutcome OrganizationClient::CreatePolicy(const CreatePolicyRequest &request)
@@ -1262,32 +1094,25 @@ OrganizationClient::CreatePolicyOutcome OrganizationClient::CreatePolicy(const C
 
 void OrganizationClient::CreatePolicyAsync(const CreatePolicyRequest& request, const CreatePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePolicyRequest&;
-    using Resp = CreatePolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreatePolicyOutcomeCallable OrganizationClient::CreatePolicyCallable(const CreatePolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePolicyOutcome>>();
-    CreatePolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreatePolicyRequest&,
-        CreatePolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateRoleAssignmentOutcome OrganizationClient::CreateRoleAssignment(const CreateRoleAssignmentRequest &request)
@@ -1312,32 +1137,25 @@ OrganizationClient::CreateRoleAssignmentOutcome OrganizationClient::CreateRoleAs
 
 void OrganizationClient::CreateRoleAssignmentAsync(const CreateRoleAssignmentRequest& request, const CreateRoleAssignmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoleAssignmentRequest&;
-    using Resp = CreateRoleAssignmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoleAssignment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoleAssignment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateRoleAssignmentOutcomeCallable OrganizationClient::CreateRoleAssignmentCallable(const CreateRoleAssignmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoleAssignmentOutcome>>();
-    CreateRoleAssignmentAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateRoleAssignmentRequest&,
-        CreateRoleAssignmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoleAssignmentOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoleAssignment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateRoleConfigurationOutcome OrganizationClient::CreateRoleConfiguration(const CreateRoleConfigurationRequest &request)
@@ -1362,32 +1180,25 @@ OrganizationClient::CreateRoleConfigurationOutcome OrganizationClient::CreateRol
 
 void OrganizationClient::CreateRoleConfigurationAsync(const CreateRoleConfigurationRequest& request, const CreateRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoleConfigurationRequest&;
-    using Resp = CreateRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateRoleConfigurationOutcomeCallable OrganizationClient::CreateRoleConfigurationCallable(const CreateRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoleConfigurationOutcome>>();
-    CreateRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateRoleConfigurationRequest&,
-        CreateRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateSCIMCredentialOutcome OrganizationClient::CreateSCIMCredential(const CreateSCIMCredentialRequest &request)
@@ -1412,32 +1223,25 @@ OrganizationClient::CreateSCIMCredentialOutcome OrganizationClient::CreateSCIMCr
 
 void OrganizationClient::CreateSCIMCredentialAsync(const CreateSCIMCredentialRequest& request, const CreateSCIMCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSCIMCredentialRequest&;
-    using Resp = CreateSCIMCredentialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSCIMCredential(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSCIMCredential", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateSCIMCredentialOutcomeCallable OrganizationClient::CreateSCIMCredentialCallable(const CreateSCIMCredentialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSCIMCredentialOutcome>>();
-    CreateSCIMCredentialAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateSCIMCredentialRequest&,
-        CreateSCIMCredentialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSCIMCredentialOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSCIMCredential(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateUserOutcome OrganizationClient::CreateUser(const CreateUserRequest &request)
@@ -1462,32 +1266,25 @@ OrganizationClient::CreateUserOutcome OrganizationClient::CreateUser(const Creat
 
 void OrganizationClient::CreateUserAsync(const CreateUserRequest& request, const CreateUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserRequest&;
-    using Resp = CreateUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateUserOutcomeCallable OrganizationClient::CreateUserCallable(const CreateUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserOutcome>>();
-    CreateUserAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateUserRequest&,
-        CreateUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::CreateUserSyncProvisioningOutcome OrganizationClient::CreateUserSyncProvisioning(const CreateUserSyncProvisioningRequest &request)
@@ -1512,32 +1309,25 @@ OrganizationClient::CreateUserSyncProvisioningOutcome OrganizationClient::Create
 
 void OrganizationClient::CreateUserSyncProvisioningAsync(const CreateUserSyncProvisioningRequest& request, const CreateUserSyncProvisioningAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserSyncProvisioningRequest&;
-    using Resp = CreateUserSyncProvisioningResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUserSyncProvisioning(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUserSyncProvisioning", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::CreateUserSyncProvisioningOutcomeCallable OrganizationClient::CreateUserSyncProvisioningCallable(const CreateUserSyncProvisioningRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserSyncProvisioningOutcome>>();
-    CreateUserSyncProvisioningAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const CreateUserSyncProvisioningRequest&,
-        CreateUserSyncProvisioningOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserSyncProvisioningOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUserSyncProvisioning(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteAccountOutcome OrganizationClient::DeleteAccount(const DeleteAccountRequest &request)
@@ -1562,32 +1352,25 @@ OrganizationClient::DeleteAccountOutcome OrganizationClient::DeleteAccount(const
 
 void OrganizationClient::DeleteAccountAsync(const DeleteAccountRequest& request, const DeleteAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAccountRequest&;
-    using Resp = DeleteAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteAccountOutcomeCallable OrganizationClient::DeleteAccountCallable(const DeleteAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAccountOutcome>>();
-    DeleteAccountAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteAccountRequest&,
-        DeleteAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteGroupOutcome OrganizationClient::DeleteGroup(const DeleteGroupRequest &request)
@@ -1612,32 +1395,25 @@ OrganizationClient::DeleteGroupOutcome OrganizationClient::DeleteGroup(const Del
 
 void OrganizationClient::DeleteGroupAsync(const DeleteGroupRequest& request, const DeleteGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGroupRequest&;
-    using Resp = DeleteGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteGroupOutcomeCallable OrganizationClient::DeleteGroupCallable(const DeleteGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGroupOutcome>>();
-    DeleteGroupAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteGroupRequest&,
-        DeleteGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteOrgServiceAssignOutcome OrganizationClient::DeleteOrgServiceAssign(const DeleteOrgServiceAssignRequest &request)
@@ -1662,32 +1438,25 @@ OrganizationClient::DeleteOrgServiceAssignOutcome OrganizationClient::DeleteOrgS
 
 void OrganizationClient::DeleteOrgServiceAssignAsync(const DeleteOrgServiceAssignRequest& request, const DeleteOrgServiceAssignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOrgServiceAssignRequest&;
-    using Resp = DeleteOrgServiceAssignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOrgServiceAssign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOrgServiceAssign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteOrgServiceAssignOutcomeCallable OrganizationClient::DeleteOrgServiceAssignCallable(const DeleteOrgServiceAssignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOrgServiceAssignOutcome>>();
-    DeleteOrgServiceAssignAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteOrgServiceAssignRequest&,
-        DeleteOrgServiceAssignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOrgServiceAssignOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOrgServiceAssign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteOrganizationOutcome OrganizationClient::DeleteOrganization(const DeleteOrganizationRequest &request)
@@ -1712,32 +1481,25 @@ OrganizationClient::DeleteOrganizationOutcome OrganizationClient::DeleteOrganiza
 
 void OrganizationClient::DeleteOrganizationAsync(const DeleteOrganizationRequest& request, const DeleteOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOrganizationRequest&;
-    using Resp = DeleteOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteOrganizationOutcomeCallable OrganizationClient::DeleteOrganizationCallable(const DeleteOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOrganizationOutcome>>();
-    DeleteOrganizationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteOrganizationRequest&,
-        DeleteOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteOrganizationIdentityOutcome OrganizationClient::DeleteOrganizationIdentity(const DeleteOrganizationIdentityRequest &request)
@@ -1762,32 +1524,25 @@ OrganizationClient::DeleteOrganizationIdentityOutcome OrganizationClient::Delete
 
 void OrganizationClient::DeleteOrganizationIdentityAsync(const DeleteOrganizationIdentityRequest& request, const DeleteOrganizationIdentityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOrganizationIdentityRequest&;
-    using Resp = DeleteOrganizationIdentityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOrganizationIdentity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOrganizationIdentity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteOrganizationIdentityOutcomeCallable OrganizationClient::DeleteOrganizationIdentityCallable(const DeleteOrganizationIdentityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOrganizationIdentityOutcome>>();
-    DeleteOrganizationIdentityAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteOrganizationIdentityRequest&,
-        DeleteOrganizationIdentityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOrganizationIdentityOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOrganizationIdentity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteOrganizationMemberAuthIdentityOutcome OrganizationClient::DeleteOrganizationMemberAuthIdentity(const DeleteOrganizationMemberAuthIdentityRequest &request)
@@ -1812,32 +1567,25 @@ OrganizationClient::DeleteOrganizationMemberAuthIdentityOutcome OrganizationClie
 
 void OrganizationClient::DeleteOrganizationMemberAuthIdentityAsync(const DeleteOrganizationMemberAuthIdentityRequest& request, const DeleteOrganizationMemberAuthIdentityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOrganizationMemberAuthIdentityRequest&;
-    using Resp = DeleteOrganizationMemberAuthIdentityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOrganizationMemberAuthIdentity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOrganizationMemberAuthIdentity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteOrganizationMemberAuthIdentityOutcomeCallable OrganizationClient::DeleteOrganizationMemberAuthIdentityCallable(const DeleteOrganizationMemberAuthIdentityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOrganizationMemberAuthIdentityOutcome>>();
-    DeleteOrganizationMemberAuthIdentityAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteOrganizationMemberAuthIdentityRequest&,
-        DeleteOrganizationMemberAuthIdentityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOrganizationMemberAuthIdentityOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOrganizationMemberAuthIdentity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteOrganizationMembersOutcome OrganizationClient::DeleteOrganizationMembers(const DeleteOrganizationMembersRequest &request)
@@ -1862,32 +1610,25 @@ OrganizationClient::DeleteOrganizationMembersOutcome OrganizationClient::DeleteO
 
 void OrganizationClient::DeleteOrganizationMembersAsync(const DeleteOrganizationMembersRequest& request, const DeleteOrganizationMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOrganizationMembersRequest&;
-    using Resp = DeleteOrganizationMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOrganizationMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOrganizationMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteOrganizationMembersOutcomeCallable OrganizationClient::DeleteOrganizationMembersCallable(const DeleteOrganizationMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOrganizationMembersOutcome>>();
-    DeleteOrganizationMembersAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteOrganizationMembersRequest&,
-        DeleteOrganizationMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOrganizationMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOrganizationMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteOrganizationMembersPolicyOutcome OrganizationClient::DeleteOrganizationMembersPolicy(const DeleteOrganizationMembersPolicyRequest &request)
@@ -1912,32 +1653,25 @@ OrganizationClient::DeleteOrganizationMembersPolicyOutcome OrganizationClient::D
 
 void OrganizationClient::DeleteOrganizationMembersPolicyAsync(const DeleteOrganizationMembersPolicyRequest& request, const DeleteOrganizationMembersPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOrganizationMembersPolicyRequest&;
-    using Resp = DeleteOrganizationMembersPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOrganizationMembersPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOrganizationMembersPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteOrganizationMembersPolicyOutcomeCallable OrganizationClient::DeleteOrganizationMembersPolicyCallable(const DeleteOrganizationMembersPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOrganizationMembersPolicyOutcome>>();
-    DeleteOrganizationMembersPolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteOrganizationMembersPolicyRequest&,
-        DeleteOrganizationMembersPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOrganizationMembersPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOrganizationMembersPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteOrganizationNodesOutcome OrganizationClient::DeleteOrganizationNodes(const DeleteOrganizationNodesRequest &request)
@@ -1962,32 +1696,25 @@ OrganizationClient::DeleteOrganizationNodesOutcome OrganizationClient::DeleteOrg
 
 void OrganizationClient::DeleteOrganizationNodesAsync(const DeleteOrganizationNodesRequest& request, const DeleteOrganizationNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOrganizationNodesRequest&;
-    using Resp = DeleteOrganizationNodesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOrganizationNodes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOrganizationNodes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteOrganizationNodesOutcomeCallable OrganizationClient::DeleteOrganizationNodesCallable(const DeleteOrganizationNodesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOrganizationNodesOutcome>>();
-    DeleteOrganizationNodesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteOrganizationNodesRequest&,
-        DeleteOrganizationNodesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOrganizationNodesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOrganizationNodes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeletePolicyOutcome OrganizationClient::DeletePolicy(const DeletePolicyRequest &request)
@@ -2012,32 +1739,25 @@ OrganizationClient::DeletePolicyOutcome OrganizationClient::DeletePolicy(const D
 
 void OrganizationClient::DeletePolicyAsync(const DeletePolicyRequest& request, const DeletePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePolicyRequest&;
-    using Resp = DeletePolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeletePolicyOutcomeCallable OrganizationClient::DeletePolicyCallable(const DeletePolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePolicyOutcome>>();
-    DeletePolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeletePolicyRequest&,
-        DeletePolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteRoleAssignmentOutcome OrganizationClient::DeleteRoleAssignment(const DeleteRoleAssignmentRequest &request)
@@ -2062,32 +1782,25 @@ OrganizationClient::DeleteRoleAssignmentOutcome OrganizationClient::DeleteRoleAs
 
 void OrganizationClient::DeleteRoleAssignmentAsync(const DeleteRoleAssignmentRequest& request, const DeleteRoleAssignmentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRoleAssignmentRequest&;
-    using Resp = DeleteRoleAssignmentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRoleAssignment(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRoleAssignment", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteRoleAssignmentOutcomeCallable OrganizationClient::DeleteRoleAssignmentCallable(const DeleteRoleAssignmentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRoleAssignmentOutcome>>();
-    DeleteRoleAssignmentAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteRoleAssignmentRequest&,
-        DeleteRoleAssignmentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRoleAssignmentOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRoleAssignment(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteRoleConfigurationOutcome OrganizationClient::DeleteRoleConfiguration(const DeleteRoleConfigurationRequest &request)
@@ -2112,32 +1825,25 @@ OrganizationClient::DeleteRoleConfigurationOutcome OrganizationClient::DeleteRol
 
 void OrganizationClient::DeleteRoleConfigurationAsync(const DeleteRoleConfigurationRequest& request, const DeleteRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRoleConfigurationRequest&;
-    using Resp = DeleteRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteRoleConfigurationOutcomeCallable OrganizationClient::DeleteRoleConfigurationCallable(const DeleteRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRoleConfigurationOutcome>>();
-    DeleteRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteRoleConfigurationRequest&,
-        DeleteRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteSCIMCredentialOutcome OrganizationClient::DeleteSCIMCredential(const DeleteSCIMCredentialRequest &request)
@@ -2162,32 +1868,25 @@ OrganizationClient::DeleteSCIMCredentialOutcome OrganizationClient::DeleteSCIMCr
 
 void OrganizationClient::DeleteSCIMCredentialAsync(const DeleteSCIMCredentialRequest& request, const DeleteSCIMCredentialAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSCIMCredentialRequest&;
-    using Resp = DeleteSCIMCredentialResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSCIMCredential(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSCIMCredential", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteSCIMCredentialOutcomeCallable OrganizationClient::DeleteSCIMCredentialCallable(const DeleteSCIMCredentialRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSCIMCredentialOutcome>>();
-    DeleteSCIMCredentialAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteSCIMCredentialRequest&,
-        DeleteSCIMCredentialOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSCIMCredentialOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSCIMCredential(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteShareUnitOutcome OrganizationClient::DeleteShareUnit(const DeleteShareUnitRequest &request)
@@ -2212,32 +1911,25 @@ OrganizationClient::DeleteShareUnitOutcome OrganizationClient::DeleteShareUnit(c
 
 void OrganizationClient::DeleteShareUnitAsync(const DeleteShareUnitRequest& request, const DeleteShareUnitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteShareUnitRequest&;
-    using Resp = DeleteShareUnitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteShareUnit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteShareUnit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteShareUnitOutcomeCallable OrganizationClient::DeleteShareUnitCallable(const DeleteShareUnitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteShareUnitOutcome>>();
-    DeleteShareUnitAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteShareUnitRequest&,
-        DeleteShareUnitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteShareUnitOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteShareUnit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteShareUnitMembersOutcome OrganizationClient::DeleteShareUnitMembers(const DeleteShareUnitMembersRequest &request)
@@ -2262,32 +1954,25 @@ OrganizationClient::DeleteShareUnitMembersOutcome OrganizationClient::DeleteShar
 
 void OrganizationClient::DeleteShareUnitMembersAsync(const DeleteShareUnitMembersRequest& request, const DeleteShareUnitMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteShareUnitMembersRequest&;
-    using Resp = DeleteShareUnitMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteShareUnitMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteShareUnitMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteShareUnitMembersOutcomeCallable OrganizationClient::DeleteShareUnitMembersCallable(const DeleteShareUnitMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteShareUnitMembersOutcome>>();
-    DeleteShareUnitMembersAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteShareUnitMembersRequest&,
-        DeleteShareUnitMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteShareUnitMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteShareUnitMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteShareUnitResourcesOutcome OrganizationClient::DeleteShareUnitResources(const DeleteShareUnitResourcesRequest &request)
@@ -2312,32 +1997,25 @@ OrganizationClient::DeleteShareUnitResourcesOutcome OrganizationClient::DeleteSh
 
 void OrganizationClient::DeleteShareUnitResourcesAsync(const DeleteShareUnitResourcesRequest& request, const DeleteShareUnitResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteShareUnitResourcesRequest&;
-    using Resp = DeleteShareUnitResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteShareUnitResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteShareUnitResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteShareUnitResourcesOutcomeCallable OrganizationClient::DeleteShareUnitResourcesCallable(const DeleteShareUnitResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteShareUnitResourcesOutcome>>();
-    DeleteShareUnitResourcesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteShareUnitResourcesRequest&,
-        DeleteShareUnitResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteShareUnitResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteShareUnitResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteUserOutcome OrganizationClient::DeleteUser(const DeleteUserRequest &request)
@@ -2362,32 +2040,25 @@ OrganizationClient::DeleteUserOutcome OrganizationClient::DeleteUser(const Delet
 
 void OrganizationClient::DeleteUserAsync(const DeleteUserRequest& request, const DeleteUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteUserRequest&;
-    using Resp = DeleteUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteUserOutcomeCallable OrganizationClient::DeleteUserCallable(const DeleteUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteUserOutcome>>();
-    DeleteUserAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteUserRequest&,
-        DeleteUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteUserOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DeleteUserSyncProvisioningOutcome OrganizationClient::DeleteUserSyncProvisioning(const DeleteUserSyncProvisioningRequest &request)
@@ -2412,32 +2083,25 @@ OrganizationClient::DeleteUserSyncProvisioningOutcome OrganizationClient::Delete
 
 void OrganizationClient::DeleteUserSyncProvisioningAsync(const DeleteUserSyncProvisioningRequest& request, const DeleteUserSyncProvisioningAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteUserSyncProvisioningRequest&;
-    using Resp = DeleteUserSyncProvisioningResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteUserSyncProvisioning(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteUserSyncProvisioning", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DeleteUserSyncProvisioningOutcomeCallable OrganizationClient::DeleteUserSyncProvisioningCallable(const DeleteUserSyncProvisioningRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteUserSyncProvisioningOutcome>>();
-    DeleteUserSyncProvisioningAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DeleteUserSyncProvisioningRequest&,
-        DeleteUserSyncProvisioningOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteUserSyncProvisioningOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteUserSyncProvisioning(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeEffectivePolicyOutcome OrganizationClient::DescribeEffectivePolicy(const DescribeEffectivePolicyRequest &request)
@@ -2462,32 +2126,25 @@ OrganizationClient::DescribeEffectivePolicyOutcome OrganizationClient::DescribeE
 
 void OrganizationClient::DescribeEffectivePolicyAsync(const DescribeEffectivePolicyRequest& request, const DescribeEffectivePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEffectivePolicyRequest&;
-    using Resp = DescribeEffectivePolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEffectivePolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEffectivePolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeEffectivePolicyOutcomeCallable OrganizationClient::DescribeEffectivePolicyCallable(const DescribeEffectivePolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEffectivePolicyOutcome>>();
-    DescribeEffectivePolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeEffectivePolicyRequest&,
-        DescribeEffectivePolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEffectivePolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEffectivePolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeIdentityCenterOutcome OrganizationClient::DescribeIdentityCenter(const DescribeIdentityCenterRequest &request)
@@ -2512,32 +2169,25 @@ OrganizationClient::DescribeIdentityCenterOutcome OrganizationClient::DescribeId
 
 void OrganizationClient::DescribeIdentityCenterAsync(const DescribeIdentityCenterRequest& request, const DescribeIdentityCenterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIdentityCenterRequest&;
-    using Resp = DescribeIdentityCenterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIdentityCenter(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIdentityCenter", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeIdentityCenterOutcomeCallable OrganizationClient::DescribeIdentityCenterCallable(const DescribeIdentityCenterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIdentityCenterOutcome>>();
-    DescribeIdentityCenterAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeIdentityCenterRequest&,
-        DescribeIdentityCenterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIdentityCenterOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIdentityCenter(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationOutcome OrganizationClient::DescribeOrganization(const DescribeOrganizationRequest &request)
@@ -2562,32 +2212,25 @@ OrganizationClient::DescribeOrganizationOutcome OrganizationClient::DescribeOrga
 
 void OrganizationClient::DescribeOrganizationAsync(const DescribeOrganizationRequest& request, const DescribeOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationRequest&;
-    using Resp = DescribeOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationOutcomeCallable OrganizationClient::DescribeOrganizationCallable(const DescribeOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationOutcome>>();
-    DescribeOrganizationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationRequest&,
-        DescribeOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationAuthNodeOutcome OrganizationClient::DescribeOrganizationAuthNode(const DescribeOrganizationAuthNodeRequest &request)
@@ -2612,32 +2255,25 @@ OrganizationClient::DescribeOrganizationAuthNodeOutcome OrganizationClient::Desc
 
 void OrganizationClient::DescribeOrganizationAuthNodeAsync(const DescribeOrganizationAuthNodeRequest& request, const DescribeOrganizationAuthNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationAuthNodeRequest&;
-    using Resp = DescribeOrganizationAuthNodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationAuthNode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationAuthNode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationAuthNodeOutcomeCallable OrganizationClient::DescribeOrganizationAuthNodeCallable(const DescribeOrganizationAuthNodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationAuthNodeOutcome>>();
-    DescribeOrganizationAuthNodeAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationAuthNodeRequest&,
-        DescribeOrganizationAuthNodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationAuthNodeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationAuthNode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationFinancialByMemberOutcome OrganizationClient::DescribeOrganizationFinancialByMember(const DescribeOrganizationFinancialByMemberRequest &request)
@@ -2662,32 +2298,25 @@ OrganizationClient::DescribeOrganizationFinancialByMemberOutcome OrganizationCli
 
 void OrganizationClient::DescribeOrganizationFinancialByMemberAsync(const DescribeOrganizationFinancialByMemberRequest& request, const DescribeOrganizationFinancialByMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationFinancialByMemberRequest&;
-    using Resp = DescribeOrganizationFinancialByMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationFinancialByMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationFinancialByMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationFinancialByMemberOutcomeCallable OrganizationClient::DescribeOrganizationFinancialByMemberCallable(const DescribeOrganizationFinancialByMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationFinancialByMemberOutcome>>();
-    DescribeOrganizationFinancialByMemberAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationFinancialByMemberRequest&,
-        DescribeOrganizationFinancialByMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationFinancialByMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationFinancialByMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationFinancialByMonthOutcome OrganizationClient::DescribeOrganizationFinancialByMonth(const DescribeOrganizationFinancialByMonthRequest &request)
@@ -2712,32 +2341,25 @@ OrganizationClient::DescribeOrganizationFinancialByMonthOutcome OrganizationClie
 
 void OrganizationClient::DescribeOrganizationFinancialByMonthAsync(const DescribeOrganizationFinancialByMonthRequest& request, const DescribeOrganizationFinancialByMonthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationFinancialByMonthRequest&;
-    using Resp = DescribeOrganizationFinancialByMonthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationFinancialByMonth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationFinancialByMonth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationFinancialByMonthOutcomeCallable OrganizationClient::DescribeOrganizationFinancialByMonthCallable(const DescribeOrganizationFinancialByMonthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationFinancialByMonthOutcome>>();
-    DescribeOrganizationFinancialByMonthAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationFinancialByMonthRequest&,
-        DescribeOrganizationFinancialByMonthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationFinancialByMonthOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationFinancialByMonth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationFinancialByProductOutcome OrganizationClient::DescribeOrganizationFinancialByProduct(const DescribeOrganizationFinancialByProductRequest &request)
@@ -2762,32 +2384,25 @@ OrganizationClient::DescribeOrganizationFinancialByProductOutcome OrganizationCl
 
 void OrganizationClient::DescribeOrganizationFinancialByProductAsync(const DescribeOrganizationFinancialByProductRequest& request, const DescribeOrganizationFinancialByProductAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationFinancialByProductRequest&;
-    using Resp = DescribeOrganizationFinancialByProductResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationFinancialByProduct(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationFinancialByProduct", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationFinancialByProductOutcomeCallable OrganizationClient::DescribeOrganizationFinancialByProductCallable(const DescribeOrganizationFinancialByProductRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationFinancialByProductOutcome>>();
-    DescribeOrganizationFinancialByProductAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationFinancialByProductRequest&,
-        DescribeOrganizationFinancialByProductOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationFinancialByProductOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationFinancialByProduct(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationMemberAuthAccountsOutcome OrganizationClient::DescribeOrganizationMemberAuthAccounts(const DescribeOrganizationMemberAuthAccountsRequest &request)
@@ -2812,32 +2427,25 @@ OrganizationClient::DescribeOrganizationMemberAuthAccountsOutcome OrganizationCl
 
 void OrganizationClient::DescribeOrganizationMemberAuthAccountsAsync(const DescribeOrganizationMemberAuthAccountsRequest& request, const DescribeOrganizationMemberAuthAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationMemberAuthAccountsRequest&;
-    using Resp = DescribeOrganizationMemberAuthAccountsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationMemberAuthAccounts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationMemberAuthAccounts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationMemberAuthAccountsOutcomeCallable OrganizationClient::DescribeOrganizationMemberAuthAccountsCallable(const DescribeOrganizationMemberAuthAccountsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationMemberAuthAccountsOutcome>>();
-    DescribeOrganizationMemberAuthAccountsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationMemberAuthAccountsRequest&,
-        DescribeOrganizationMemberAuthAccountsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationMemberAuthAccountsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationMemberAuthAccounts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationMemberAuthIdentitiesOutcome OrganizationClient::DescribeOrganizationMemberAuthIdentities(const DescribeOrganizationMemberAuthIdentitiesRequest &request)
@@ -2862,32 +2470,25 @@ OrganizationClient::DescribeOrganizationMemberAuthIdentitiesOutcome Organization
 
 void OrganizationClient::DescribeOrganizationMemberAuthIdentitiesAsync(const DescribeOrganizationMemberAuthIdentitiesRequest& request, const DescribeOrganizationMemberAuthIdentitiesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationMemberAuthIdentitiesRequest&;
-    using Resp = DescribeOrganizationMemberAuthIdentitiesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationMemberAuthIdentities(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationMemberAuthIdentities", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationMemberAuthIdentitiesOutcomeCallable OrganizationClient::DescribeOrganizationMemberAuthIdentitiesCallable(const DescribeOrganizationMemberAuthIdentitiesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationMemberAuthIdentitiesOutcome>>();
-    DescribeOrganizationMemberAuthIdentitiesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationMemberAuthIdentitiesRequest&,
-        DescribeOrganizationMemberAuthIdentitiesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationMemberAuthIdentitiesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationMemberAuthIdentities(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationMemberEmailBindOutcome OrganizationClient::DescribeOrganizationMemberEmailBind(const DescribeOrganizationMemberEmailBindRequest &request)
@@ -2912,32 +2513,25 @@ OrganizationClient::DescribeOrganizationMemberEmailBindOutcome OrganizationClien
 
 void OrganizationClient::DescribeOrganizationMemberEmailBindAsync(const DescribeOrganizationMemberEmailBindRequest& request, const DescribeOrganizationMemberEmailBindAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationMemberEmailBindRequest&;
-    using Resp = DescribeOrganizationMemberEmailBindResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationMemberEmailBind(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationMemberEmailBind", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationMemberEmailBindOutcomeCallable OrganizationClient::DescribeOrganizationMemberEmailBindCallable(const DescribeOrganizationMemberEmailBindRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationMemberEmailBindOutcome>>();
-    DescribeOrganizationMemberEmailBindAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationMemberEmailBindRequest&,
-        DescribeOrganizationMemberEmailBindOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationMemberEmailBindOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationMemberEmailBind(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationMemberPoliciesOutcome OrganizationClient::DescribeOrganizationMemberPolicies(const DescribeOrganizationMemberPoliciesRequest &request)
@@ -2962,32 +2556,25 @@ OrganizationClient::DescribeOrganizationMemberPoliciesOutcome OrganizationClient
 
 void OrganizationClient::DescribeOrganizationMemberPoliciesAsync(const DescribeOrganizationMemberPoliciesRequest& request, const DescribeOrganizationMemberPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationMemberPoliciesRequest&;
-    using Resp = DescribeOrganizationMemberPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationMemberPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationMemberPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationMemberPoliciesOutcomeCallable OrganizationClient::DescribeOrganizationMemberPoliciesCallable(const DescribeOrganizationMemberPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationMemberPoliciesOutcome>>();
-    DescribeOrganizationMemberPoliciesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationMemberPoliciesRequest&,
-        DescribeOrganizationMemberPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationMemberPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationMemberPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationMembersOutcome OrganizationClient::DescribeOrganizationMembers(const DescribeOrganizationMembersRequest &request)
@@ -3012,32 +2599,25 @@ OrganizationClient::DescribeOrganizationMembersOutcome OrganizationClient::Descr
 
 void OrganizationClient::DescribeOrganizationMembersAsync(const DescribeOrganizationMembersRequest& request, const DescribeOrganizationMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationMembersRequest&;
-    using Resp = DescribeOrganizationMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationMembersOutcomeCallable OrganizationClient::DescribeOrganizationMembersCallable(const DescribeOrganizationMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationMembersOutcome>>();
-    DescribeOrganizationMembersAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationMembersRequest&,
-        DescribeOrganizationMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationMembersAuthPolicyOutcome OrganizationClient::DescribeOrganizationMembersAuthPolicy(const DescribeOrganizationMembersAuthPolicyRequest &request)
@@ -3062,32 +2642,25 @@ OrganizationClient::DescribeOrganizationMembersAuthPolicyOutcome OrganizationCli
 
 void OrganizationClient::DescribeOrganizationMembersAuthPolicyAsync(const DescribeOrganizationMembersAuthPolicyRequest& request, const DescribeOrganizationMembersAuthPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationMembersAuthPolicyRequest&;
-    using Resp = DescribeOrganizationMembersAuthPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationMembersAuthPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationMembersAuthPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationMembersAuthPolicyOutcomeCallable OrganizationClient::DescribeOrganizationMembersAuthPolicyCallable(const DescribeOrganizationMembersAuthPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationMembersAuthPolicyOutcome>>();
-    DescribeOrganizationMembersAuthPolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationMembersAuthPolicyRequest&,
-        DescribeOrganizationMembersAuthPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationMembersAuthPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationMembersAuthPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeOrganizationNodesOutcome OrganizationClient::DescribeOrganizationNodes(const DescribeOrganizationNodesRequest &request)
@@ -3112,32 +2685,25 @@ OrganizationClient::DescribeOrganizationNodesOutcome OrganizationClient::Describ
 
 void OrganizationClient::DescribeOrganizationNodesAsync(const DescribeOrganizationNodesRequest& request, const DescribeOrganizationNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationNodesRequest&;
-    using Resp = DescribeOrganizationNodesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganizationNodes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganizationNodes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeOrganizationNodesOutcomeCallable OrganizationClient::DescribeOrganizationNodesCallable(const DescribeOrganizationNodesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationNodesOutcome>>();
-    DescribeOrganizationNodesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeOrganizationNodesRequest&,
-        DescribeOrganizationNodesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationNodesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganizationNodes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribePolicyOutcome OrganizationClient::DescribePolicy(const DescribePolicyRequest &request)
@@ -3162,32 +2728,25 @@ OrganizationClient::DescribePolicyOutcome OrganizationClient::DescribePolicy(con
 
 void OrganizationClient::DescribePolicyAsync(const DescribePolicyRequest& request, const DescribePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePolicyRequest&;
-    using Resp = DescribePolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribePolicyOutcomeCallable OrganizationClient::DescribePolicyCallable(const DescribePolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePolicyOutcome>>();
-    DescribePolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribePolicyRequest&,
-        DescribePolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribePolicyConfigOutcome OrganizationClient::DescribePolicyConfig(const DescribePolicyConfigRequest &request)
@@ -3212,32 +2771,25 @@ OrganizationClient::DescribePolicyConfigOutcome OrganizationClient::DescribePoli
 
 void OrganizationClient::DescribePolicyConfigAsync(const DescribePolicyConfigRequest& request, const DescribePolicyConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePolicyConfigRequest&;
-    using Resp = DescribePolicyConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePolicyConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePolicyConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribePolicyConfigOutcomeCallable OrganizationClient::DescribePolicyConfigCallable(const DescribePolicyConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePolicyConfigOutcome>>();
-    DescribePolicyConfigAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribePolicyConfigRequest&,
-        DescribePolicyConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePolicyConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePolicyConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeResourceToShareMemberOutcome OrganizationClient::DescribeResourceToShareMember(const DescribeResourceToShareMemberRequest &request)
@@ -3262,32 +2814,25 @@ OrganizationClient::DescribeResourceToShareMemberOutcome OrganizationClient::Des
 
 void OrganizationClient::DescribeResourceToShareMemberAsync(const DescribeResourceToShareMemberRequest& request, const DescribeResourceToShareMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeResourceToShareMemberRequest&;
-    using Resp = DescribeResourceToShareMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeResourceToShareMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeResourceToShareMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeResourceToShareMemberOutcomeCallable OrganizationClient::DescribeResourceToShareMemberCallable(const DescribeResourceToShareMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeResourceToShareMemberOutcome>>();
-    DescribeResourceToShareMemberAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeResourceToShareMemberRequest&,
-        DescribeResourceToShareMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeResourceToShareMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeResourceToShareMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeShareAreasOutcome OrganizationClient::DescribeShareAreas(const DescribeShareAreasRequest &request)
@@ -3312,32 +2857,25 @@ OrganizationClient::DescribeShareAreasOutcome OrganizationClient::DescribeShareA
 
 void OrganizationClient::DescribeShareAreasAsync(const DescribeShareAreasRequest& request, const DescribeShareAreasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeShareAreasRequest&;
-    using Resp = DescribeShareAreasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeShareAreas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeShareAreas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeShareAreasOutcomeCallable OrganizationClient::DescribeShareAreasCallable(const DescribeShareAreasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeShareAreasOutcome>>();
-    DescribeShareAreasAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeShareAreasRequest&,
-        DescribeShareAreasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeShareAreasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeShareAreas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeShareUnitMembersOutcome OrganizationClient::DescribeShareUnitMembers(const DescribeShareUnitMembersRequest &request)
@@ -3362,32 +2900,25 @@ OrganizationClient::DescribeShareUnitMembersOutcome OrganizationClient::Describe
 
 void OrganizationClient::DescribeShareUnitMembersAsync(const DescribeShareUnitMembersRequest& request, const DescribeShareUnitMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeShareUnitMembersRequest&;
-    using Resp = DescribeShareUnitMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeShareUnitMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeShareUnitMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeShareUnitMembersOutcomeCallable OrganizationClient::DescribeShareUnitMembersCallable(const DescribeShareUnitMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeShareUnitMembersOutcome>>();
-    DescribeShareUnitMembersAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeShareUnitMembersRequest&,
-        DescribeShareUnitMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeShareUnitMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeShareUnitMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeShareUnitResourcesOutcome OrganizationClient::DescribeShareUnitResources(const DescribeShareUnitResourcesRequest &request)
@@ -3412,32 +2943,25 @@ OrganizationClient::DescribeShareUnitResourcesOutcome OrganizationClient::Descri
 
 void OrganizationClient::DescribeShareUnitResourcesAsync(const DescribeShareUnitResourcesRequest& request, const DescribeShareUnitResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeShareUnitResourcesRequest&;
-    using Resp = DescribeShareUnitResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeShareUnitResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeShareUnitResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeShareUnitResourcesOutcomeCallable OrganizationClient::DescribeShareUnitResourcesCallable(const DescribeShareUnitResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeShareUnitResourcesOutcome>>();
-    DescribeShareUnitResourcesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeShareUnitResourcesRequest&,
-        DescribeShareUnitResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeShareUnitResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeShareUnitResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DescribeShareUnitsOutcome OrganizationClient::DescribeShareUnits(const DescribeShareUnitsRequest &request)
@@ -3462,32 +2986,25 @@ OrganizationClient::DescribeShareUnitsOutcome OrganizationClient::DescribeShareU
 
 void OrganizationClient::DescribeShareUnitsAsync(const DescribeShareUnitsRequest& request, const DescribeShareUnitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeShareUnitsRequest&;
-    using Resp = DescribeShareUnitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeShareUnits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeShareUnits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DescribeShareUnitsOutcomeCallable OrganizationClient::DescribeShareUnitsCallable(const DescribeShareUnitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeShareUnitsOutcome>>();
-    DescribeShareUnitsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DescribeShareUnitsRequest&,
-        DescribeShareUnitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeShareUnitsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeShareUnits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DetachPolicyOutcome OrganizationClient::DetachPolicy(const DetachPolicyRequest &request)
@@ -3512,32 +3029,25 @@ OrganizationClient::DetachPolicyOutcome OrganizationClient::DetachPolicy(const D
 
 void OrganizationClient::DetachPolicyAsync(const DetachPolicyRequest& request, const DetachPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachPolicyRequest&;
-    using Resp = DetachPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DetachPolicyOutcomeCallable OrganizationClient::DetachPolicyCallable(const DetachPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachPolicyOutcome>>();
-    DetachPolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DetachPolicyRequest&,
-        DetachPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DisablePolicyTypeOutcome OrganizationClient::DisablePolicyType(const DisablePolicyTypeRequest &request)
@@ -3562,32 +3072,25 @@ OrganizationClient::DisablePolicyTypeOutcome OrganizationClient::DisablePolicyTy
 
 void OrganizationClient::DisablePolicyTypeAsync(const DisablePolicyTypeRequest& request, const DisablePolicyTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisablePolicyTypeRequest&;
-    using Resp = DisablePolicyTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisablePolicyType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisablePolicyType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DisablePolicyTypeOutcomeCallable OrganizationClient::DisablePolicyTypeCallable(const DisablePolicyTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisablePolicyTypeOutcome>>();
-    DisablePolicyTypeAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DisablePolicyTypeRequest&,
-        DisablePolicyTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisablePolicyTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->DisablePolicyType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::DismantleRoleConfigurationOutcome OrganizationClient::DismantleRoleConfiguration(const DismantleRoleConfigurationRequest &request)
@@ -3612,32 +3115,25 @@ OrganizationClient::DismantleRoleConfigurationOutcome OrganizationClient::Disman
 
 void OrganizationClient::DismantleRoleConfigurationAsync(const DismantleRoleConfigurationRequest& request, const DismantleRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DismantleRoleConfigurationRequest&;
-    using Resp = DismantleRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DismantleRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DismantleRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::DismantleRoleConfigurationOutcomeCallable OrganizationClient::DismantleRoleConfigurationCallable(const DismantleRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DismantleRoleConfigurationOutcome>>();
-    DismantleRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const DismantleRoleConfigurationRequest&,
-        DismantleRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DismantleRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->DismantleRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::EnablePolicyTypeOutcome OrganizationClient::EnablePolicyType(const EnablePolicyTypeRequest &request)
@@ -3662,32 +3158,25 @@ OrganizationClient::EnablePolicyTypeOutcome OrganizationClient::EnablePolicyType
 
 void OrganizationClient::EnablePolicyTypeAsync(const EnablePolicyTypeRequest& request, const EnablePolicyTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnablePolicyTypeRequest&;
-    using Resp = EnablePolicyTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnablePolicyType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnablePolicyType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::EnablePolicyTypeOutcomeCallable OrganizationClient::EnablePolicyTypeCallable(const EnablePolicyTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnablePolicyTypeOutcome>>();
-    EnablePolicyTypeAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const EnablePolicyTypeRequest&,
-        EnablePolicyTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnablePolicyTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->EnablePolicyType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetExternalSAMLIdentityProviderOutcome OrganizationClient::GetExternalSAMLIdentityProvider(const GetExternalSAMLIdentityProviderRequest &request)
@@ -3712,32 +3201,25 @@ OrganizationClient::GetExternalSAMLIdentityProviderOutcome OrganizationClient::G
 
 void OrganizationClient::GetExternalSAMLIdentityProviderAsync(const GetExternalSAMLIdentityProviderRequest& request, const GetExternalSAMLIdentityProviderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetExternalSAMLIdentityProviderRequest&;
-    using Resp = GetExternalSAMLIdentityProviderResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetExternalSAMLIdentityProvider(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetExternalSAMLIdentityProvider", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetExternalSAMLIdentityProviderOutcomeCallable OrganizationClient::GetExternalSAMLIdentityProviderCallable(const GetExternalSAMLIdentityProviderRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetExternalSAMLIdentityProviderOutcome>>();
-    GetExternalSAMLIdentityProviderAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetExternalSAMLIdentityProviderRequest&,
-        GetExternalSAMLIdentityProviderOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetExternalSAMLIdentityProviderOutcome()>>(
+        [this, request]()
+        {
+            return this->GetExternalSAMLIdentityProvider(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetGroupOutcome OrganizationClient::GetGroup(const GetGroupRequest &request)
@@ -3762,32 +3244,25 @@ OrganizationClient::GetGroupOutcome OrganizationClient::GetGroup(const GetGroupR
 
 void OrganizationClient::GetGroupAsync(const GetGroupRequest& request, const GetGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetGroupRequest&;
-    using Resp = GetGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetGroupOutcomeCallable OrganizationClient::GetGroupCallable(const GetGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetGroupOutcome>>();
-    GetGroupAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetGroupRequest&,
-        GetGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->GetGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetProvisioningTaskStatusOutcome OrganizationClient::GetProvisioningTaskStatus(const GetProvisioningTaskStatusRequest &request)
@@ -3812,32 +3287,25 @@ OrganizationClient::GetProvisioningTaskStatusOutcome OrganizationClient::GetProv
 
 void OrganizationClient::GetProvisioningTaskStatusAsync(const GetProvisioningTaskStatusRequest& request, const GetProvisioningTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetProvisioningTaskStatusRequest&;
-    using Resp = GetProvisioningTaskStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetProvisioningTaskStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetProvisioningTaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetProvisioningTaskStatusOutcomeCallable OrganizationClient::GetProvisioningTaskStatusCallable(const GetProvisioningTaskStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetProvisioningTaskStatusOutcome>>();
-    GetProvisioningTaskStatusAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetProvisioningTaskStatusRequest&,
-        GetProvisioningTaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetProvisioningTaskStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->GetProvisioningTaskStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetRoleConfigurationOutcome OrganizationClient::GetRoleConfiguration(const GetRoleConfigurationRequest &request)
@@ -3862,32 +3330,25 @@ OrganizationClient::GetRoleConfigurationOutcome OrganizationClient::GetRoleConfi
 
 void OrganizationClient::GetRoleConfigurationAsync(const GetRoleConfigurationRequest& request, const GetRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRoleConfigurationRequest&;
-    using Resp = GetRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetRoleConfigurationOutcomeCallable OrganizationClient::GetRoleConfigurationCallable(const GetRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRoleConfigurationOutcome>>();
-    GetRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetRoleConfigurationRequest&,
-        GetRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetSCIMSynchronizationStatusOutcome OrganizationClient::GetSCIMSynchronizationStatus(const GetSCIMSynchronizationStatusRequest &request)
@@ -3912,32 +3373,25 @@ OrganizationClient::GetSCIMSynchronizationStatusOutcome OrganizationClient::GetS
 
 void OrganizationClient::GetSCIMSynchronizationStatusAsync(const GetSCIMSynchronizationStatusRequest& request, const GetSCIMSynchronizationStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetSCIMSynchronizationStatusRequest&;
-    using Resp = GetSCIMSynchronizationStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetSCIMSynchronizationStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetSCIMSynchronizationStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetSCIMSynchronizationStatusOutcomeCallable OrganizationClient::GetSCIMSynchronizationStatusCallable(const GetSCIMSynchronizationStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetSCIMSynchronizationStatusOutcome>>();
-    GetSCIMSynchronizationStatusAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetSCIMSynchronizationStatusRequest&,
-        GetSCIMSynchronizationStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetSCIMSynchronizationStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->GetSCIMSynchronizationStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetTaskStatusOutcome OrganizationClient::GetTaskStatus(const GetTaskStatusRequest &request)
@@ -3962,32 +3416,25 @@ OrganizationClient::GetTaskStatusOutcome OrganizationClient::GetTaskStatus(const
 
 void OrganizationClient::GetTaskStatusAsync(const GetTaskStatusRequest& request, const GetTaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTaskStatusRequest&;
-    using Resp = GetTaskStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTaskStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetTaskStatusOutcomeCallable OrganizationClient::GetTaskStatusCallable(const GetTaskStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTaskStatusOutcome>>();
-    GetTaskStatusAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetTaskStatusRequest&,
-        GetTaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTaskStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTaskStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetUserOutcome OrganizationClient::GetUser(const GetUserRequest &request)
@@ -4012,32 +3459,25 @@ OrganizationClient::GetUserOutcome OrganizationClient::GetUser(const GetUserRequ
 
 void OrganizationClient::GetUserAsync(const GetUserRequest& request, const GetUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetUserRequest&;
-    using Resp = GetUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetUserOutcomeCallable OrganizationClient::GetUserCallable(const GetUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetUserOutcome>>();
-    GetUserAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetUserRequest&,
-        GetUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetUserOutcome()>>(
+        [this, request]()
+        {
+            return this->GetUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetUserSyncProvisioningOutcome OrganizationClient::GetUserSyncProvisioning(const GetUserSyncProvisioningRequest &request)
@@ -4062,32 +3502,25 @@ OrganizationClient::GetUserSyncProvisioningOutcome OrganizationClient::GetUserSy
 
 void OrganizationClient::GetUserSyncProvisioningAsync(const GetUserSyncProvisioningRequest& request, const GetUserSyncProvisioningAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetUserSyncProvisioningRequest&;
-    using Resp = GetUserSyncProvisioningResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetUserSyncProvisioning(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetUserSyncProvisioning", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetUserSyncProvisioningOutcomeCallable OrganizationClient::GetUserSyncProvisioningCallable(const GetUserSyncProvisioningRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetUserSyncProvisioningOutcome>>();
-    GetUserSyncProvisioningAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetUserSyncProvisioningRequest&,
-        GetUserSyncProvisioningOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetUserSyncProvisioningOutcome()>>(
+        [this, request]()
+        {
+            return this->GetUserSyncProvisioning(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetZoneSAMLServiceProviderInfoOutcome OrganizationClient::GetZoneSAMLServiceProviderInfo(const GetZoneSAMLServiceProviderInfoRequest &request)
@@ -4112,32 +3545,25 @@ OrganizationClient::GetZoneSAMLServiceProviderInfoOutcome OrganizationClient::Ge
 
 void OrganizationClient::GetZoneSAMLServiceProviderInfoAsync(const GetZoneSAMLServiceProviderInfoRequest& request, const GetZoneSAMLServiceProviderInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetZoneSAMLServiceProviderInfoRequest&;
-    using Resp = GetZoneSAMLServiceProviderInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetZoneSAMLServiceProviderInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetZoneSAMLServiceProviderInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetZoneSAMLServiceProviderInfoOutcomeCallable OrganizationClient::GetZoneSAMLServiceProviderInfoCallable(const GetZoneSAMLServiceProviderInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetZoneSAMLServiceProviderInfoOutcome>>();
-    GetZoneSAMLServiceProviderInfoAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetZoneSAMLServiceProviderInfoRequest&,
-        GetZoneSAMLServiceProviderInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetZoneSAMLServiceProviderInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->GetZoneSAMLServiceProviderInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::GetZoneStatisticsOutcome OrganizationClient::GetZoneStatistics(const GetZoneStatisticsRequest &request)
@@ -4162,32 +3588,25 @@ OrganizationClient::GetZoneStatisticsOutcome OrganizationClient::GetZoneStatisti
 
 void OrganizationClient::GetZoneStatisticsAsync(const GetZoneStatisticsRequest& request, const GetZoneStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetZoneStatisticsRequest&;
-    using Resp = GetZoneStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetZoneStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetZoneStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::GetZoneStatisticsOutcomeCallable OrganizationClient::GetZoneStatisticsCallable(const GetZoneStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetZoneStatisticsOutcome>>();
-    GetZoneStatisticsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const GetZoneStatisticsRequest&,
-        GetZoneStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetZoneStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetZoneStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::InviteOrganizationMemberOutcome OrganizationClient::InviteOrganizationMember(const InviteOrganizationMemberRequest &request)
@@ -4212,32 +3631,25 @@ OrganizationClient::InviteOrganizationMemberOutcome OrganizationClient::InviteOr
 
 void OrganizationClient::InviteOrganizationMemberAsync(const InviteOrganizationMemberRequest& request, const InviteOrganizationMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InviteOrganizationMemberRequest&;
-    using Resp = InviteOrganizationMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InviteOrganizationMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InviteOrganizationMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::InviteOrganizationMemberOutcomeCallable OrganizationClient::InviteOrganizationMemberCallable(const InviteOrganizationMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InviteOrganizationMemberOutcome>>();
-    InviteOrganizationMemberAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const InviteOrganizationMemberRequest&,
-        InviteOrganizationMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InviteOrganizationMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->InviteOrganizationMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListExternalSAMLIdPCertificatesOutcome OrganizationClient::ListExternalSAMLIdPCertificates(const ListExternalSAMLIdPCertificatesRequest &request)
@@ -4262,32 +3674,25 @@ OrganizationClient::ListExternalSAMLIdPCertificatesOutcome OrganizationClient::L
 
 void OrganizationClient::ListExternalSAMLIdPCertificatesAsync(const ListExternalSAMLIdPCertificatesRequest& request, const ListExternalSAMLIdPCertificatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListExternalSAMLIdPCertificatesRequest&;
-    using Resp = ListExternalSAMLIdPCertificatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListExternalSAMLIdPCertificates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListExternalSAMLIdPCertificates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListExternalSAMLIdPCertificatesOutcomeCallable OrganizationClient::ListExternalSAMLIdPCertificatesCallable(const ListExternalSAMLIdPCertificatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListExternalSAMLIdPCertificatesOutcome>>();
-    ListExternalSAMLIdPCertificatesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListExternalSAMLIdPCertificatesRequest&,
-        ListExternalSAMLIdPCertificatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListExternalSAMLIdPCertificatesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListExternalSAMLIdPCertificates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListGroupMembersOutcome OrganizationClient::ListGroupMembers(const ListGroupMembersRequest &request)
@@ -4312,32 +3717,25 @@ OrganizationClient::ListGroupMembersOutcome OrganizationClient::ListGroupMembers
 
 void OrganizationClient::ListGroupMembersAsync(const ListGroupMembersRequest& request, const ListGroupMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListGroupMembersRequest&;
-    using Resp = ListGroupMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListGroupMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListGroupMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListGroupMembersOutcomeCallable OrganizationClient::ListGroupMembersCallable(const ListGroupMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListGroupMembersOutcome>>();
-    ListGroupMembersAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListGroupMembersRequest&,
-        ListGroupMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListGroupMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->ListGroupMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListGroupsOutcome OrganizationClient::ListGroups(const ListGroupsRequest &request)
@@ -4362,32 +3760,25 @@ OrganizationClient::ListGroupsOutcome OrganizationClient::ListGroups(const ListG
 
 void OrganizationClient::ListGroupsAsync(const ListGroupsRequest& request, const ListGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListGroupsRequest&;
-    using Resp = ListGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListGroupsOutcomeCallable OrganizationClient::ListGroupsCallable(const ListGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListGroupsOutcome>>();
-    ListGroupsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListGroupsRequest&,
-        ListGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListJoinedGroupsForUserOutcome OrganizationClient::ListJoinedGroupsForUser(const ListJoinedGroupsForUserRequest &request)
@@ -4412,32 +3803,25 @@ OrganizationClient::ListJoinedGroupsForUserOutcome OrganizationClient::ListJoine
 
 void OrganizationClient::ListJoinedGroupsForUserAsync(const ListJoinedGroupsForUserRequest& request, const ListJoinedGroupsForUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListJoinedGroupsForUserRequest&;
-    using Resp = ListJoinedGroupsForUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListJoinedGroupsForUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListJoinedGroupsForUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListJoinedGroupsForUserOutcomeCallable OrganizationClient::ListJoinedGroupsForUserCallable(const ListJoinedGroupsForUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListJoinedGroupsForUserOutcome>>();
-    ListJoinedGroupsForUserAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListJoinedGroupsForUserRequest&,
-        ListJoinedGroupsForUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListJoinedGroupsForUserOutcome()>>(
+        [this, request]()
+        {
+            return this->ListJoinedGroupsForUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListNonCompliantResourceOutcome OrganizationClient::ListNonCompliantResource(const ListNonCompliantResourceRequest &request)
@@ -4462,32 +3846,25 @@ OrganizationClient::ListNonCompliantResourceOutcome OrganizationClient::ListNonC
 
 void OrganizationClient::ListNonCompliantResourceAsync(const ListNonCompliantResourceRequest& request, const ListNonCompliantResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListNonCompliantResourceRequest&;
-    using Resp = ListNonCompliantResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListNonCompliantResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListNonCompliantResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListNonCompliantResourceOutcomeCallable OrganizationClient::ListNonCompliantResourceCallable(const ListNonCompliantResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListNonCompliantResourceOutcome>>();
-    ListNonCompliantResourceAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListNonCompliantResourceRequest&,
-        ListNonCompliantResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListNonCompliantResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->ListNonCompliantResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListOrgServiceAssignMemberOutcome OrganizationClient::ListOrgServiceAssignMember(const ListOrgServiceAssignMemberRequest &request)
@@ -4512,32 +3889,25 @@ OrganizationClient::ListOrgServiceAssignMemberOutcome OrganizationClient::ListOr
 
 void OrganizationClient::ListOrgServiceAssignMemberAsync(const ListOrgServiceAssignMemberRequest& request, const ListOrgServiceAssignMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListOrgServiceAssignMemberRequest&;
-    using Resp = ListOrgServiceAssignMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListOrgServiceAssignMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListOrgServiceAssignMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListOrgServiceAssignMemberOutcomeCallable OrganizationClient::ListOrgServiceAssignMemberCallable(const ListOrgServiceAssignMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListOrgServiceAssignMemberOutcome>>();
-    ListOrgServiceAssignMemberAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListOrgServiceAssignMemberRequest&,
-        ListOrgServiceAssignMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListOrgServiceAssignMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->ListOrgServiceAssignMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListOrganizationIdentityOutcome OrganizationClient::ListOrganizationIdentity(const ListOrganizationIdentityRequest &request)
@@ -4562,32 +3932,25 @@ OrganizationClient::ListOrganizationIdentityOutcome OrganizationClient::ListOrga
 
 void OrganizationClient::ListOrganizationIdentityAsync(const ListOrganizationIdentityRequest& request, const ListOrganizationIdentityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListOrganizationIdentityRequest&;
-    using Resp = ListOrganizationIdentityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListOrganizationIdentity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListOrganizationIdentity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListOrganizationIdentityOutcomeCallable OrganizationClient::ListOrganizationIdentityCallable(const ListOrganizationIdentityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListOrganizationIdentityOutcome>>();
-    ListOrganizationIdentityAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListOrganizationIdentityRequest&,
-        ListOrganizationIdentityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListOrganizationIdentityOutcome()>>(
+        [this, request]()
+        {
+            return this->ListOrganizationIdentity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListOrganizationServiceOutcome OrganizationClient::ListOrganizationService(const ListOrganizationServiceRequest &request)
@@ -4612,32 +3975,25 @@ OrganizationClient::ListOrganizationServiceOutcome OrganizationClient::ListOrgan
 
 void OrganizationClient::ListOrganizationServiceAsync(const ListOrganizationServiceRequest& request, const ListOrganizationServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListOrganizationServiceRequest&;
-    using Resp = ListOrganizationServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListOrganizationService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListOrganizationService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListOrganizationServiceOutcomeCallable OrganizationClient::ListOrganizationServiceCallable(const ListOrganizationServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListOrganizationServiceOutcome>>();
-    ListOrganizationServiceAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListOrganizationServiceRequest&,
-        ListOrganizationServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListOrganizationServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->ListOrganizationService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListPermissionPoliciesInRoleConfigurationOutcome OrganizationClient::ListPermissionPoliciesInRoleConfiguration(const ListPermissionPoliciesInRoleConfigurationRequest &request)
@@ -4662,32 +4018,25 @@ OrganizationClient::ListPermissionPoliciesInRoleConfigurationOutcome Organizatio
 
 void OrganizationClient::ListPermissionPoliciesInRoleConfigurationAsync(const ListPermissionPoliciesInRoleConfigurationRequest& request, const ListPermissionPoliciesInRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListPermissionPoliciesInRoleConfigurationRequest&;
-    using Resp = ListPermissionPoliciesInRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListPermissionPoliciesInRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListPermissionPoliciesInRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListPermissionPoliciesInRoleConfigurationOutcomeCallable OrganizationClient::ListPermissionPoliciesInRoleConfigurationCallable(const ListPermissionPoliciesInRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListPermissionPoliciesInRoleConfigurationOutcome>>();
-    ListPermissionPoliciesInRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListPermissionPoliciesInRoleConfigurationRequest&,
-        ListPermissionPoliciesInRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListPermissionPoliciesInRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->ListPermissionPoliciesInRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListPoliciesOutcome OrganizationClient::ListPolicies(const ListPoliciesRequest &request)
@@ -4712,32 +4061,25 @@ OrganizationClient::ListPoliciesOutcome OrganizationClient::ListPolicies(const L
 
 void OrganizationClient::ListPoliciesAsync(const ListPoliciesRequest& request, const ListPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListPoliciesRequest&;
-    using Resp = ListPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListPoliciesOutcomeCallable OrganizationClient::ListPoliciesCallable(const ListPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListPoliciesOutcome>>();
-    ListPoliciesAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListPoliciesRequest&,
-        ListPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListPoliciesForTargetOutcome OrganizationClient::ListPoliciesForTarget(const ListPoliciesForTargetRequest &request)
@@ -4762,32 +4104,25 @@ OrganizationClient::ListPoliciesForTargetOutcome OrganizationClient::ListPolicie
 
 void OrganizationClient::ListPoliciesForTargetAsync(const ListPoliciesForTargetRequest& request, const ListPoliciesForTargetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListPoliciesForTargetRequest&;
-    using Resp = ListPoliciesForTargetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListPoliciesForTarget(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListPoliciesForTarget", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListPoliciesForTargetOutcomeCallable OrganizationClient::ListPoliciesForTargetCallable(const ListPoliciesForTargetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListPoliciesForTargetOutcome>>();
-    ListPoliciesForTargetAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListPoliciesForTargetRequest&,
-        ListPoliciesForTargetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListPoliciesForTargetOutcome()>>(
+        [this, request]()
+        {
+            return this->ListPoliciesForTarget(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListRoleAssignmentsOutcome OrganizationClient::ListRoleAssignments(const ListRoleAssignmentsRequest &request)
@@ -4812,32 +4147,25 @@ OrganizationClient::ListRoleAssignmentsOutcome OrganizationClient::ListRoleAssig
 
 void OrganizationClient::ListRoleAssignmentsAsync(const ListRoleAssignmentsRequest& request, const ListRoleAssignmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRoleAssignmentsRequest&;
-    using Resp = ListRoleAssignmentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRoleAssignments(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRoleAssignments", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListRoleAssignmentsOutcomeCallable OrganizationClient::ListRoleAssignmentsCallable(const ListRoleAssignmentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRoleAssignmentsOutcome>>();
-    ListRoleAssignmentsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListRoleAssignmentsRequest&,
-        ListRoleAssignmentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRoleAssignmentsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRoleAssignments(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListRoleConfigurationProvisioningsOutcome OrganizationClient::ListRoleConfigurationProvisionings(const ListRoleConfigurationProvisioningsRequest &request)
@@ -4862,32 +4190,25 @@ OrganizationClient::ListRoleConfigurationProvisioningsOutcome OrganizationClient
 
 void OrganizationClient::ListRoleConfigurationProvisioningsAsync(const ListRoleConfigurationProvisioningsRequest& request, const ListRoleConfigurationProvisioningsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRoleConfigurationProvisioningsRequest&;
-    using Resp = ListRoleConfigurationProvisioningsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRoleConfigurationProvisionings(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRoleConfigurationProvisionings", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListRoleConfigurationProvisioningsOutcomeCallable OrganizationClient::ListRoleConfigurationProvisioningsCallable(const ListRoleConfigurationProvisioningsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRoleConfigurationProvisioningsOutcome>>();
-    ListRoleConfigurationProvisioningsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListRoleConfigurationProvisioningsRequest&,
-        ListRoleConfigurationProvisioningsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRoleConfigurationProvisioningsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRoleConfigurationProvisionings(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListRoleConfigurationsOutcome OrganizationClient::ListRoleConfigurations(const ListRoleConfigurationsRequest &request)
@@ -4912,32 +4233,25 @@ OrganizationClient::ListRoleConfigurationsOutcome OrganizationClient::ListRoleCo
 
 void OrganizationClient::ListRoleConfigurationsAsync(const ListRoleConfigurationsRequest& request, const ListRoleConfigurationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRoleConfigurationsRequest&;
-    using Resp = ListRoleConfigurationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRoleConfigurations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRoleConfigurations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListRoleConfigurationsOutcomeCallable OrganizationClient::ListRoleConfigurationsCallable(const ListRoleConfigurationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRoleConfigurationsOutcome>>();
-    ListRoleConfigurationsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListRoleConfigurationsRequest&,
-        ListRoleConfigurationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRoleConfigurationsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRoleConfigurations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListSCIMCredentialsOutcome OrganizationClient::ListSCIMCredentials(const ListSCIMCredentialsRequest &request)
@@ -4962,32 +4276,25 @@ OrganizationClient::ListSCIMCredentialsOutcome OrganizationClient::ListSCIMCrede
 
 void OrganizationClient::ListSCIMCredentialsAsync(const ListSCIMCredentialsRequest& request, const ListSCIMCredentialsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListSCIMCredentialsRequest&;
-    using Resp = ListSCIMCredentialsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListSCIMCredentials(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListSCIMCredentials", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListSCIMCredentialsOutcomeCallable OrganizationClient::ListSCIMCredentialsCallable(const ListSCIMCredentialsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListSCIMCredentialsOutcome>>();
-    ListSCIMCredentialsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListSCIMCredentialsRequest&,
-        ListSCIMCredentialsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListSCIMCredentialsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListSCIMCredentials(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListTargetsForPolicyOutcome OrganizationClient::ListTargetsForPolicy(const ListTargetsForPolicyRequest &request)
@@ -5012,32 +4319,25 @@ OrganizationClient::ListTargetsForPolicyOutcome OrganizationClient::ListTargetsF
 
 void OrganizationClient::ListTargetsForPolicyAsync(const ListTargetsForPolicyRequest& request, const ListTargetsForPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListTargetsForPolicyRequest&;
-    using Resp = ListTargetsForPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListTargetsForPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListTargetsForPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListTargetsForPolicyOutcomeCallable OrganizationClient::ListTargetsForPolicyCallable(const ListTargetsForPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListTargetsForPolicyOutcome>>();
-    ListTargetsForPolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListTargetsForPolicyRequest&,
-        ListTargetsForPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListTargetsForPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->ListTargetsForPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListTasksOutcome OrganizationClient::ListTasks(const ListTasksRequest &request)
@@ -5062,32 +4362,25 @@ OrganizationClient::ListTasksOutcome OrganizationClient::ListTasks(const ListTas
 
 void OrganizationClient::ListTasksAsync(const ListTasksRequest& request, const ListTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListTasksRequest&;
-    using Resp = ListTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListTasksOutcomeCallable OrganizationClient::ListTasksCallable(const ListTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListTasksOutcome>>();
-    ListTasksAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListTasksRequest&,
-        ListTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->ListTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListUserSyncProvisioningsOutcome OrganizationClient::ListUserSyncProvisionings(const ListUserSyncProvisioningsRequest &request)
@@ -5112,32 +4405,25 @@ OrganizationClient::ListUserSyncProvisioningsOutcome OrganizationClient::ListUse
 
 void OrganizationClient::ListUserSyncProvisioningsAsync(const ListUserSyncProvisioningsRequest& request, const ListUserSyncProvisioningsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListUserSyncProvisioningsRequest&;
-    using Resp = ListUserSyncProvisioningsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListUserSyncProvisionings(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListUserSyncProvisionings", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListUserSyncProvisioningsOutcomeCallable OrganizationClient::ListUserSyncProvisioningsCallable(const ListUserSyncProvisioningsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListUserSyncProvisioningsOutcome>>();
-    ListUserSyncProvisioningsAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListUserSyncProvisioningsRequest&,
-        ListUserSyncProvisioningsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListUserSyncProvisioningsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListUserSyncProvisionings(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ListUsersOutcome OrganizationClient::ListUsers(const ListUsersRequest &request)
@@ -5162,32 +4448,25 @@ OrganizationClient::ListUsersOutcome OrganizationClient::ListUsers(const ListUse
 
 void OrganizationClient::ListUsersAsync(const ListUsersRequest& request, const ListUsersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListUsersRequest&;
-    using Resp = ListUsersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListUsers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListUsers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ListUsersOutcomeCallable OrganizationClient::ListUsersCallable(const ListUsersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListUsersOutcome>>();
-    ListUsersAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ListUsersRequest&,
-        ListUsersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListUsersOutcome()>>(
+        [this, request]()
+        {
+            return this->ListUsers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::MoveOrganizationNodeMembersOutcome OrganizationClient::MoveOrganizationNodeMembers(const MoveOrganizationNodeMembersRequest &request)
@@ -5212,32 +4491,25 @@ OrganizationClient::MoveOrganizationNodeMembersOutcome OrganizationClient::MoveO
 
 void OrganizationClient::MoveOrganizationNodeMembersAsync(const MoveOrganizationNodeMembersRequest& request, const MoveOrganizationNodeMembersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const MoveOrganizationNodeMembersRequest&;
-    using Resp = MoveOrganizationNodeMembersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->MoveOrganizationNodeMembers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "MoveOrganizationNodeMembers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::MoveOrganizationNodeMembersOutcomeCallable OrganizationClient::MoveOrganizationNodeMembersCallable(const MoveOrganizationNodeMembersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<MoveOrganizationNodeMembersOutcome>>();
-    MoveOrganizationNodeMembersAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const MoveOrganizationNodeMembersRequest&,
-        MoveOrganizationNodeMembersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<MoveOrganizationNodeMembersOutcome()>>(
+        [this, request]()
+        {
+            return this->MoveOrganizationNodeMembers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::OpenIdentityCenterOutcome OrganizationClient::OpenIdentityCenter(const OpenIdentityCenterRequest &request)
@@ -5262,32 +4534,25 @@ OrganizationClient::OpenIdentityCenterOutcome OrganizationClient::OpenIdentityCe
 
 void OrganizationClient::OpenIdentityCenterAsync(const OpenIdentityCenterRequest& request, const OpenIdentityCenterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenIdentityCenterRequest&;
-    using Resp = OpenIdentityCenterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenIdentityCenter(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenIdentityCenter", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::OpenIdentityCenterOutcomeCallable OrganizationClient::OpenIdentityCenterCallable(const OpenIdentityCenterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenIdentityCenterOutcome>>();
-    OpenIdentityCenterAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const OpenIdentityCenterRequest&,
-        OpenIdentityCenterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenIdentityCenterOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenIdentityCenter(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::ProvisionRoleConfigurationOutcome OrganizationClient::ProvisionRoleConfiguration(const ProvisionRoleConfigurationRequest &request)
@@ -5312,32 +4577,25 @@ OrganizationClient::ProvisionRoleConfigurationOutcome OrganizationClient::Provis
 
 void OrganizationClient::ProvisionRoleConfigurationAsync(const ProvisionRoleConfigurationRequest& request, const ProvisionRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ProvisionRoleConfigurationRequest&;
-    using Resp = ProvisionRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ProvisionRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ProvisionRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::ProvisionRoleConfigurationOutcomeCallable OrganizationClient::ProvisionRoleConfigurationCallable(const ProvisionRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ProvisionRoleConfigurationOutcome>>();
-    ProvisionRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const ProvisionRoleConfigurationRequest&,
-        ProvisionRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ProvisionRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->ProvisionRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::QuitOrganizationOutcome OrganizationClient::QuitOrganization(const QuitOrganizationRequest &request)
@@ -5362,32 +4620,25 @@ OrganizationClient::QuitOrganizationOutcome OrganizationClient::QuitOrganization
 
 void OrganizationClient::QuitOrganizationAsync(const QuitOrganizationRequest& request, const QuitOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QuitOrganizationRequest&;
-    using Resp = QuitOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QuitOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QuitOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::QuitOrganizationOutcomeCallable OrganizationClient::QuitOrganizationCallable(const QuitOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QuitOrganizationOutcome>>();
-    QuitOrganizationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const QuitOrganizationRequest&,
-        QuitOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QuitOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->QuitOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::RejectJoinShareUnitInvitationOutcome OrganizationClient::RejectJoinShareUnitInvitation(const RejectJoinShareUnitInvitationRequest &request)
@@ -5412,32 +4663,25 @@ OrganizationClient::RejectJoinShareUnitInvitationOutcome OrganizationClient::Rej
 
 void OrganizationClient::RejectJoinShareUnitInvitationAsync(const RejectJoinShareUnitInvitationRequest& request, const RejectJoinShareUnitInvitationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RejectJoinShareUnitInvitationRequest&;
-    using Resp = RejectJoinShareUnitInvitationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RejectJoinShareUnitInvitation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RejectJoinShareUnitInvitation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::RejectJoinShareUnitInvitationOutcomeCallable OrganizationClient::RejectJoinShareUnitInvitationCallable(const RejectJoinShareUnitInvitationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RejectJoinShareUnitInvitationOutcome>>();
-    RejectJoinShareUnitInvitationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const RejectJoinShareUnitInvitationRequest&,
-        RejectJoinShareUnitInvitationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RejectJoinShareUnitInvitationOutcome()>>(
+        [this, request]()
+        {
+            return this->RejectJoinShareUnitInvitation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::RemoveExternalSAMLIdPCertificateOutcome OrganizationClient::RemoveExternalSAMLIdPCertificate(const RemoveExternalSAMLIdPCertificateRequest &request)
@@ -5462,32 +4706,25 @@ OrganizationClient::RemoveExternalSAMLIdPCertificateOutcome OrganizationClient::
 
 void OrganizationClient::RemoveExternalSAMLIdPCertificateAsync(const RemoveExternalSAMLIdPCertificateRequest& request, const RemoveExternalSAMLIdPCertificateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveExternalSAMLIdPCertificateRequest&;
-    using Resp = RemoveExternalSAMLIdPCertificateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveExternalSAMLIdPCertificate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveExternalSAMLIdPCertificate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::RemoveExternalSAMLIdPCertificateOutcomeCallable OrganizationClient::RemoveExternalSAMLIdPCertificateCallable(const RemoveExternalSAMLIdPCertificateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveExternalSAMLIdPCertificateOutcome>>();
-    RemoveExternalSAMLIdPCertificateAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const RemoveExternalSAMLIdPCertificateRequest&,
-        RemoveExternalSAMLIdPCertificateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveExternalSAMLIdPCertificateOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveExternalSAMLIdPCertificate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::RemovePermissionPolicyFromRoleConfigurationOutcome OrganizationClient::RemovePermissionPolicyFromRoleConfiguration(const RemovePermissionPolicyFromRoleConfigurationRequest &request)
@@ -5512,32 +4749,25 @@ OrganizationClient::RemovePermissionPolicyFromRoleConfigurationOutcome Organizat
 
 void OrganizationClient::RemovePermissionPolicyFromRoleConfigurationAsync(const RemovePermissionPolicyFromRoleConfigurationRequest& request, const RemovePermissionPolicyFromRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemovePermissionPolicyFromRoleConfigurationRequest&;
-    using Resp = RemovePermissionPolicyFromRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemovePermissionPolicyFromRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemovePermissionPolicyFromRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::RemovePermissionPolicyFromRoleConfigurationOutcomeCallable OrganizationClient::RemovePermissionPolicyFromRoleConfigurationCallable(const RemovePermissionPolicyFromRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemovePermissionPolicyFromRoleConfigurationOutcome>>();
-    RemovePermissionPolicyFromRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const RemovePermissionPolicyFromRoleConfigurationRequest&,
-        RemovePermissionPolicyFromRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemovePermissionPolicyFromRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->RemovePermissionPolicyFromRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::RemoveUserFromGroupOutcome OrganizationClient::RemoveUserFromGroup(const RemoveUserFromGroupRequest &request)
@@ -5562,32 +4792,25 @@ OrganizationClient::RemoveUserFromGroupOutcome OrganizationClient::RemoveUserFro
 
 void OrganizationClient::RemoveUserFromGroupAsync(const RemoveUserFromGroupRequest& request, const RemoveUserFromGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveUserFromGroupRequest&;
-    using Resp = RemoveUserFromGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveUserFromGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveUserFromGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::RemoveUserFromGroupOutcomeCallable OrganizationClient::RemoveUserFromGroupCallable(const RemoveUserFromGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveUserFromGroupOutcome>>();
-    RemoveUserFromGroupAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const RemoveUserFromGroupRequest&,
-        RemoveUserFromGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveUserFromGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveUserFromGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::SendOrgMemberAccountBindEmailOutcome OrganizationClient::SendOrgMemberAccountBindEmail(const SendOrgMemberAccountBindEmailRequest &request)
@@ -5612,32 +4835,25 @@ OrganizationClient::SendOrgMemberAccountBindEmailOutcome OrganizationClient::Sen
 
 void OrganizationClient::SendOrgMemberAccountBindEmailAsync(const SendOrgMemberAccountBindEmailRequest& request, const SendOrgMemberAccountBindEmailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendOrgMemberAccountBindEmailRequest&;
-    using Resp = SendOrgMemberAccountBindEmailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendOrgMemberAccountBindEmail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendOrgMemberAccountBindEmail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::SendOrgMemberAccountBindEmailOutcomeCallable OrganizationClient::SendOrgMemberAccountBindEmailCallable(const SendOrgMemberAccountBindEmailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendOrgMemberAccountBindEmailOutcome>>();
-    SendOrgMemberAccountBindEmailAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const SendOrgMemberAccountBindEmailRequest&,
-        SendOrgMemberAccountBindEmailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendOrgMemberAccountBindEmailOutcome()>>(
+        [this, request]()
+        {
+            return this->SendOrgMemberAccountBindEmail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::SetExternalSAMLIdentityProviderOutcome OrganizationClient::SetExternalSAMLIdentityProvider(const SetExternalSAMLIdentityProviderRequest &request)
@@ -5662,32 +4878,25 @@ OrganizationClient::SetExternalSAMLIdentityProviderOutcome OrganizationClient::S
 
 void OrganizationClient::SetExternalSAMLIdentityProviderAsync(const SetExternalSAMLIdentityProviderRequest& request, const SetExternalSAMLIdentityProviderAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetExternalSAMLIdentityProviderRequest&;
-    using Resp = SetExternalSAMLIdentityProviderResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetExternalSAMLIdentityProvider(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetExternalSAMLIdentityProvider", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::SetExternalSAMLIdentityProviderOutcomeCallable OrganizationClient::SetExternalSAMLIdentityProviderCallable(const SetExternalSAMLIdentityProviderRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetExternalSAMLIdentityProviderOutcome>>();
-    SetExternalSAMLIdentityProviderAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const SetExternalSAMLIdentityProviderRequest&,
-        SetExternalSAMLIdentityProviderOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetExternalSAMLIdentityProviderOutcome()>>(
+        [this, request]()
+        {
+            return this->SetExternalSAMLIdentityProvider(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateCustomPolicyForRoleConfigurationOutcome OrganizationClient::UpdateCustomPolicyForRoleConfiguration(const UpdateCustomPolicyForRoleConfigurationRequest &request)
@@ -5712,32 +4921,25 @@ OrganizationClient::UpdateCustomPolicyForRoleConfigurationOutcome OrganizationCl
 
 void OrganizationClient::UpdateCustomPolicyForRoleConfigurationAsync(const UpdateCustomPolicyForRoleConfigurationRequest& request, const UpdateCustomPolicyForRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCustomPolicyForRoleConfigurationRequest&;
-    using Resp = UpdateCustomPolicyForRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCustomPolicyForRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCustomPolicyForRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateCustomPolicyForRoleConfigurationOutcomeCallable OrganizationClient::UpdateCustomPolicyForRoleConfigurationCallable(const UpdateCustomPolicyForRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCustomPolicyForRoleConfigurationOutcome>>();
-    UpdateCustomPolicyForRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateCustomPolicyForRoleConfigurationRequest&,
-        UpdateCustomPolicyForRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCustomPolicyForRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCustomPolicyForRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateGroupOutcome OrganizationClient::UpdateGroup(const UpdateGroupRequest &request)
@@ -5762,32 +4964,25 @@ OrganizationClient::UpdateGroupOutcome OrganizationClient::UpdateGroup(const Upd
 
 void OrganizationClient::UpdateGroupAsync(const UpdateGroupRequest& request, const UpdateGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateGroupRequest&;
-    using Resp = UpdateGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateGroupOutcomeCallable OrganizationClient::UpdateGroupCallable(const UpdateGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateGroupOutcome>>();
-    UpdateGroupAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateGroupRequest&,
-        UpdateGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateOrganizationIdentityOutcome OrganizationClient::UpdateOrganizationIdentity(const UpdateOrganizationIdentityRequest &request)
@@ -5812,32 +5007,25 @@ OrganizationClient::UpdateOrganizationIdentityOutcome OrganizationClient::Update
 
 void OrganizationClient::UpdateOrganizationIdentityAsync(const UpdateOrganizationIdentityRequest& request, const UpdateOrganizationIdentityAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateOrganizationIdentityRequest&;
-    using Resp = UpdateOrganizationIdentityResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateOrganizationIdentity(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateOrganizationIdentity", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateOrganizationIdentityOutcomeCallable OrganizationClient::UpdateOrganizationIdentityCallable(const UpdateOrganizationIdentityRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateOrganizationIdentityOutcome>>();
-    UpdateOrganizationIdentityAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateOrganizationIdentityRequest&,
-        UpdateOrganizationIdentityOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateOrganizationIdentityOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateOrganizationIdentity(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateOrganizationMemberOutcome OrganizationClient::UpdateOrganizationMember(const UpdateOrganizationMemberRequest &request)
@@ -5862,32 +5050,25 @@ OrganizationClient::UpdateOrganizationMemberOutcome OrganizationClient::UpdateOr
 
 void OrganizationClient::UpdateOrganizationMemberAsync(const UpdateOrganizationMemberRequest& request, const UpdateOrganizationMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateOrganizationMemberRequest&;
-    using Resp = UpdateOrganizationMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateOrganizationMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateOrganizationMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateOrganizationMemberOutcomeCallable OrganizationClient::UpdateOrganizationMemberCallable(const UpdateOrganizationMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateOrganizationMemberOutcome>>();
-    UpdateOrganizationMemberAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateOrganizationMemberRequest&,
-        UpdateOrganizationMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateOrganizationMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateOrganizationMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateOrganizationMemberEmailBindOutcome OrganizationClient::UpdateOrganizationMemberEmailBind(const UpdateOrganizationMemberEmailBindRequest &request)
@@ -5912,32 +5093,25 @@ OrganizationClient::UpdateOrganizationMemberEmailBindOutcome OrganizationClient:
 
 void OrganizationClient::UpdateOrganizationMemberEmailBindAsync(const UpdateOrganizationMemberEmailBindRequest& request, const UpdateOrganizationMemberEmailBindAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateOrganizationMemberEmailBindRequest&;
-    using Resp = UpdateOrganizationMemberEmailBindResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateOrganizationMemberEmailBind(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateOrganizationMemberEmailBind", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateOrganizationMemberEmailBindOutcomeCallable OrganizationClient::UpdateOrganizationMemberEmailBindCallable(const UpdateOrganizationMemberEmailBindRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateOrganizationMemberEmailBindOutcome>>();
-    UpdateOrganizationMemberEmailBindAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateOrganizationMemberEmailBindRequest&,
-        UpdateOrganizationMemberEmailBindOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateOrganizationMemberEmailBindOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateOrganizationMemberEmailBind(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateOrganizationMembersPolicyOutcome OrganizationClient::UpdateOrganizationMembersPolicy(const UpdateOrganizationMembersPolicyRequest &request)
@@ -5962,32 +5136,25 @@ OrganizationClient::UpdateOrganizationMembersPolicyOutcome OrganizationClient::U
 
 void OrganizationClient::UpdateOrganizationMembersPolicyAsync(const UpdateOrganizationMembersPolicyRequest& request, const UpdateOrganizationMembersPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateOrganizationMembersPolicyRequest&;
-    using Resp = UpdateOrganizationMembersPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateOrganizationMembersPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateOrganizationMembersPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateOrganizationMembersPolicyOutcomeCallable OrganizationClient::UpdateOrganizationMembersPolicyCallable(const UpdateOrganizationMembersPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateOrganizationMembersPolicyOutcome>>();
-    UpdateOrganizationMembersPolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateOrganizationMembersPolicyRequest&,
-        UpdateOrganizationMembersPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateOrganizationMembersPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateOrganizationMembersPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateOrganizationNodeOutcome OrganizationClient::UpdateOrganizationNode(const UpdateOrganizationNodeRequest &request)
@@ -6012,32 +5179,25 @@ OrganizationClient::UpdateOrganizationNodeOutcome OrganizationClient::UpdateOrga
 
 void OrganizationClient::UpdateOrganizationNodeAsync(const UpdateOrganizationNodeRequest& request, const UpdateOrganizationNodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateOrganizationNodeRequest&;
-    using Resp = UpdateOrganizationNodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateOrganizationNode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateOrganizationNode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateOrganizationNodeOutcomeCallable OrganizationClient::UpdateOrganizationNodeCallable(const UpdateOrganizationNodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateOrganizationNodeOutcome>>();
-    UpdateOrganizationNodeAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateOrganizationNodeRequest&,
-        UpdateOrganizationNodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateOrganizationNodeOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateOrganizationNode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdatePolicyOutcome OrganizationClient::UpdatePolicy(const UpdatePolicyRequest &request)
@@ -6062,32 +5222,25 @@ OrganizationClient::UpdatePolicyOutcome OrganizationClient::UpdatePolicy(const U
 
 void OrganizationClient::UpdatePolicyAsync(const UpdatePolicyRequest& request, const UpdatePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdatePolicyRequest&;
-    using Resp = UpdatePolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdatePolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdatePolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdatePolicyOutcomeCallable OrganizationClient::UpdatePolicyCallable(const UpdatePolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdatePolicyOutcome>>();
-    UpdatePolicyAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdatePolicyRequest&,
-        UpdatePolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdatePolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdatePolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateRoleConfigurationOutcome OrganizationClient::UpdateRoleConfiguration(const UpdateRoleConfigurationRequest &request)
@@ -6112,32 +5265,25 @@ OrganizationClient::UpdateRoleConfigurationOutcome OrganizationClient::UpdateRol
 
 void OrganizationClient::UpdateRoleConfigurationAsync(const UpdateRoleConfigurationRequest& request, const UpdateRoleConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateRoleConfigurationRequest&;
-    using Resp = UpdateRoleConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateRoleConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateRoleConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateRoleConfigurationOutcomeCallable OrganizationClient::UpdateRoleConfigurationCallable(const UpdateRoleConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateRoleConfigurationOutcome>>();
-    UpdateRoleConfigurationAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateRoleConfigurationRequest&,
-        UpdateRoleConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateRoleConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateRoleConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateSCIMCredentialStatusOutcome OrganizationClient::UpdateSCIMCredentialStatus(const UpdateSCIMCredentialStatusRequest &request)
@@ -6162,32 +5308,25 @@ OrganizationClient::UpdateSCIMCredentialStatusOutcome OrganizationClient::Update
 
 void OrganizationClient::UpdateSCIMCredentialStatusAsync(const UpdateSCIMCredentialStatusRequest& request, const UpdateSCIMCredentialStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateSCIMCredentialStatusRequest&;
-    using Resp = UpdateSCIMCredentialStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateSCIMCredentialStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateSCIMCredentialStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateSCIMCredentialStatusOutcomeCallable OrganizationClient::UpdateSCIMCredentialStatusCallable(const UpdateSCIMCredentialStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateSCIMCredentialStatusOutcome>>();
-    UpdateSCIMCredentialStatusAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateSCIMCredentialStatusRequest&,
-        UpdateSCIMCredentialStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateSCIMCredentialStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateSCIMCredentialStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateSCIMSynchronizationStatusOutcome OrganizationClient::UpdateSCIMSynchronizationStatus(const UpdateSCIMSynchronizationStatusRequest &request)
@@ -6212,32 +5351,25 @@ OrganizationClient::UpdateSCIMSynchronizationStatusOutcome OrganizationClient::U
 
 void OrganizationClient::UpdateSCIMSynchronizationStatusAsync(const UpdateSCIMSynchronizationStatusRequest& request, const UpdateSCIMSynchronizationStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateSCIMSynchronizationStatusRequest&;
-    using Resp = UpdateSCIMSynchronizationStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateSCIMSynchronizationStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateSCIMSynchronizationStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateSCIMSynchronizationStatusOutcomeCallable OrganizationClient::UpdateSCIMSynchronizationStatusCallable(const UpdateSCIMSynchronizationStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateSCIMSynchronizationStatusOutcome>>();
-    UpdateSCIMSynchronizationStatusAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateSCIMSynchronizationStatusRequest&,
-        UpdateSCIMSynchronizationStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateSCIMSynchronizationStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateSCIMSynchronizationStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateShareUnitOutcome OrganizationClient::UpdateShareUnit(const UpdateShareUnitRequest &request)
@@ -6262,32 +5394,25 @@ OrganizationClient::UpdateShareUnitOutcome OrganizationClient::UpdateShareUnit(c
 
 void OrganizationClient::UpdateShareUnitAsync(const UpdateShareUnitRequest& request, const UpdateShareUnitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateShareUnitRequest&;
-    using Resp = UpdateShareUnitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateShareUnit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateShareUnit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateShareUnitOutcomeCallable OrganizationClient::UpdateShareUnitCallable(const UpdateShareUnitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateShareUnitOutcome>>();
-    UpdateShareUnitAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateShareUnitRequest&,
-        UpdateShareUnitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateShareUnitOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateShareUnit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateUserOutcome OrganizationClient::UpdateUser(const UpdateUserRequest &request)
@@ -6312,32 +5437,25 @@ OrganizationClient::UpdateUserOutcome OrganizationClient::UpdateUser(const Updat
 
 void OrganizationClient::UpdateUserAsync(const UpdateUserRequest& request, const UpdateUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateUserRequest&;
-    using Resp = UpdateUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateUserOutcomeCallable OrganizationClient::UpdateUserCallable(const UpdateUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateUserOutcome>>();
-    UpdateUserAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateUserRequest&,
-        UpdateUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateUserOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateUserStatusOutcome OrganizationClient::UpdateUserStatus(const UpdateUserStatusRequest &request)
@@ -6362,32 +5480,25 @@ OrganizationClient::UpdateUserStatusOutcome OrganizationClient::UpdateUserStatus
 
 void OrganizationClient::UpdateUserStatusAsync(const UpdateUserStatusRequest& request, const UpdateUserStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateUserStatusRequest&;
-    using Resp = UpdateUserStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateUserStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateUserStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateUserStatusOutcomeCallable OrganizationClient::UpdateUserStatusCallable(const UpdateUserStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateUserStatusOutcome>>();
-    UpdateUserStatusAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateUserStatusRequest&,
-        UpdateUserStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateUserStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateUserStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateUserSyncProvisioningOutcome OrganizationClient::UpdateUserSyncProvisioning(const UpdateUserSyncProvisioningRequest &request)
@@ -6412,32 +5523,25 @@ OrganizationClient::UpdateUserSyncProvisioningOutcome OrganizationClient::Update
 
 void OrganizationClient::UpdateUserSyncProvisioningAsync(const UpdateUserSyncProvisioningRequest& request, const UpdateUserSyncProvisioningAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateUserSyncProvisioningRequest&;
-    using Resp = UpdateUserSyncProvisioningResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateUserSyncProvisioning(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateUserSyncProvisioning", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateUserSyncProvisioningOutcomeCallable OrganizationClient::UpdateUserSyncProvisioningCallable(const UpdateUserSyncProvisioningRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateUserSyncProvisioningOutcome>>();
-    UpdateUserSyncProvisioningAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateUserSyncProvisioningRequest&,
-        UpdateUserSyncProvisioningOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateUserSyncProvisioningOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateUserSyncProvisioning(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 OrganizationClient::UpdateZoneOutcome OrganizationClient::UpdateZone(const UpdateZoneRequest &request)
@@ -6462,31 +5566,24 @@ OrganizationClient::UpdateZoneOutcome OrganizationClient::UpdateZone(const Updat
 
 void OrganizationClient::UpdateZoneAsync(const UpdateZoneRequest& request, const UpdateZoneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateZoneRequest&;
-    using Resp = UpdateZoneResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateZone(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateZone", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 OrganizationClient::UpdateZoneOutcomeCallable OrganizationClient::UpdateZoneCallable(const UpdateZoneRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateZoneOutcome>>();
-    UpdateZoneAsync(
-    request,
-    [prom](
-        const OrganizationClient*,
-        const UpdateZoneRequest&,
-        UpdateZoneOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateZoneOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateZone(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

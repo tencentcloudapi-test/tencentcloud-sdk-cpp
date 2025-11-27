@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AudioResultDetailTextResult;
+                class AudioResultDetailMoanResult;
+                class AudioResultDetailLanguageResult;
+
                 /**
                 * 音频输出参数
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     AudioResult();
-                    ~AudioResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

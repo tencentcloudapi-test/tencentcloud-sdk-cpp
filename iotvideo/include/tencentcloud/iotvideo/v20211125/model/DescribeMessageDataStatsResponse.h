@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MessageCntStats;
+
                 /**
                 * DescribeMessageDataStats返回参数结构体
                 */

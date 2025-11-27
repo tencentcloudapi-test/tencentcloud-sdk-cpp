@@ -62,32 +62,25 @@ PrivatednsClient::AddSpecifyPrivateZoneVpcOutcome PrivatednsClient::AddSpecifyPr
 
 void PrivatednsClient::AddSpecifyPrivateZoneVpcAsync(const AddSpecifyPrivateZoneVpcRequest& request, const AddSpecifyPrivateZoneVpcAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddSpecifyPrivateZoneVpcRequest&;
-    using Resp = AddSpecifyPrivateZoneVpcResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddSpecifyPrivateZoneVpc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddSpecifyPrivateZoneVpc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::AddSpecifyPrivateZoneVpcOutcomeCallable PrivatednsClient::AddSpecifyPrivateZoneVpcCallable(const AddSpecifyPrivateZoneVpcRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddSpecifyPrivateZoneVpcOutcome>>();
-    AddSpecifyPrivateZoneVpcAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const AddSpecifyPrivateZoneVpcRequest&,
-        AddSpecifyPrivateZoneVpcOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddSpecifyPrivateZoneVpcOutcome()>>(
+        [this, request]()
+        {
+            return this->AddSpecifyPrivateZoneVpc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::CreateExtendEndpointOutcome PrivatednsClient::CreateExtendEndpoint(const CreateExtendEndpointRequest &request)
@@ -112,32 +105,25 @@ PrivatednsClient::CreateExtendEndpointOutcome PrivatednsClient::CreateExtendEndp
 
 void PrivatednsClient::CreateExtendEndpointAsync(const CreateExtendEndpointRequest& request, const CreateExtendEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateExtendEndpointRequest&;
-    using Resp = CreateExtendEndpointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateExtendEndpoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateExtendEndpoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::CreateExtendEndpointOutcomeCallable PrivatednsClient::CreateExtendEndpointCallable(const CreateExtendEndpointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateExtendEndpointOutcome>>();
-    CreateExtendEndpointAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const CreateExtendEndpointRequest&,
-        CreateExtendEndpointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateExtendEndpointOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateExtendEndpoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::CreateForwardRuleOutcome PrivatednsClient::CreateForwardRule(const CreateForwardRuleRequest &request)
@@ -162,32 +148,25 @@ PrivatednsClient::CreateForwardRuleOutcome PrivatednsClient::CreateForwardRule(c
 
 void PrivatednsClient::CreateForwardRuleAsync(const CreateForwardRuleRequest& request, const CreateForwardRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateForwardRuleRequest&;
-    using Resp = CreateForwardRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateForwardRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateForwardRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::CreateForwardRuleOutcomeCallable PrivatednsClient::CreateForwardRuleCallable(const CreateForwardRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateForwardRuleOutcome>>();
-    CreateForwardRuleAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const CreateForwardRuleRequest&,
-        CreateForwardRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateForwardRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateForwardRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::CreateInboundEndpointOutcome PrivatednsClient::CreateInboundEndpoint(const CreateInboundEndpointRequest &request)
@@ -212,32 +191,25 @@ PrivatednsClient::CreateInboundEndpointOutcome PrivatednsClient::CreateInboundEn
 
 void PrivatednsClient::CreateInboundEndpointAsync(const CreateInboundEndpointRequest& request, const CreateInboundEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateInboundEndpointRequest&;
-    using Resp = CreateInboundEndpointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateInboundEndpoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateInboundEndpoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::CreateInboundEndpointOutcomeCallable PrivatednsClient::CreateInboundEndpointCallable(const CreateInboundEndpointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateInboundEndpointOutcome>>();
-    CreateInboundEndpointAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const CreateInboundEndpointRequest&,
-        CreateInboundEndpointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateInboundEndpointOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateInboundEndpoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::CreatePrivateDNSAccountOutcome PrivatednsClient::CreatePrivateDNSAccount(const CreatePrivateDNSAccountRequest &request)
@@ -262,32 +234,25 @@ PrivatednsClient::CreatePrivateDNSAccountOutcome PrivatednsClient::CreatePrivate
 
 void PrivatednsClient::CreatePrivateDNSAccountAsync(const CreatePrivateDNSAccountRequest& request, const CreatePrivateDNSAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateDNSAccountRequest&;
-    using Resp = CreatePrivateDNSAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateDNSAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateDNSAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::CreatePrivateDNSAccountOutcomeCallable PrivatednsClient::CreatePrivateDNSAccountCallable(const CreatePrivateDNSAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateDNSAccountOutcome>>();
-    CreatePrivateDNSAccountAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const CreatePrivateDNSAccountRequest&,
-        CreatePrivateDNSAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateDNSAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateDNSAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::CreatePrivateZoneOutcome PrivatednsClient::CreatePrivateZone(const CreatePrivateZoneRequest &request)
@@ -312,32 +277,25 @@ PrivatednsClient::CreatePrivateZoneOutcome PrivatednsClient::CreatePrivateZone(c
 
 void PrivatednsClient::CreatePrivateZoneAsync(const CreatePrivateZoneRequest& request, const CreatePrivateZoneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateZoneRequest&;
-    using Resp = CreatePrivateZoneResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateZone(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateZone", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::CreatePrivateZoneOutcomeCallable PrivatednsClient::CreatePrivateZoneCallable(const CreatePrivateZoneRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateZoneOutcome>>();
-    CreatePrivateZoneAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const CreatePrivateZoneRequest&,
-        CreatePrivateZoneOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateZoneOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateZone(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::CreatePrivateZoneListOutcome PrivatednsClient::CreatePrivateZoneList(const CreatePrivateZoneListRequest &request)
@@ -362,32 +320,25 @@ PrivatednsClient::CreatePrivateZoneListOutcome PrivatednsClient::CreatePrivateZo
 
 void PrivatednsClient::CreatePrivateZoneListAsync(const CreatePrivateZoneListRequest& request, const CreatePrivateZoneListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateZoneListRequest&;
-    using Resp = CreatePrivateZoneListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateZoneList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateZoneList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::CreatePrivateZoneListOutcomeCallable PrivatednsClient::CreatePrivateZoneListCallable(const CreatePrivateZoneListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateZoneListOutcome>>();
-    CreatePrivateZoneListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const CreatePrivateZoneListRequest&,
-        CreatePrivateZoneListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateZoneListOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateZoneList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::CreatePrivateZoneRecordOutcome PrivatednsClient::CreatePrivateZoneRecord(const CreatePrivateZoneRecordRequest &request)
@@ -412,32 +363,25 @@ PrivatednsClient::CreatePrivateZoneRecordOutcome PrivatednsClient::CreatePrivate
 
 void PrivatednsClient::CreatePrivateZoneRecordAsync(const CreatePrivateZoneRecordRequest& request, const CreatePrivateZoneRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateZoneRecordRequest&;
-    using Resp = CreatePrivateZoneRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateZoneRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateZoneRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::CreatePrivateZoneRecordOutcomeCallable PrivatednsClient::CreatePrivateZoneRecordCallable(const CreatePrivateZoneRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateZoneRecordOutcome>>();
-    CreatePrivateZoneRecordAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const CreatePrivateZoneRecordRequest&,
-        CreatePrivateZoneRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateZoneRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateZoneRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::CreatePrivateZoneRecordListOutcome PrivatednsClient::CreatePrivateZoneRecordList(const CreatePrivateZoneRecordListRequest &request)
@@ -462,32 +406,25 @@ PrivatednsClient::CreatePrivateZoneRecordListOutcome PrivatednsClient::CreatePri
 
 void PrivatednsClient::CreatePrivateZoneRecordListAsync(const CreatePrivateZoneRecordListRequest& request, const CreatePrivateZoneRecordListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateZoneRecordListRequest&;
-    using Resp = CreatePrivateZoneRecordListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateZoneRecordList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateZoneRecordList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::CreatePrivateZoneRecordListOutcomeCallable PrivatednsClient::CreatePrivateZoneRecordListCallable(const CreatePrivateZoneRecordListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateZoneRecordListOutcome>>();
-    CreatePrivateZoneRecordListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const CreatePrivateZoneRecordListRequest&,
-        CreatePrivateZoneRecordListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateZoneRecordListOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateZoneRecordList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DeleteEndPointOutcome PrivatednsClient::DeleteEndPoint(const DeleteEndPointRequest &request)
@@ -512,32 +449,25 @@ PrivatednsClient::DeleteEndPointOutcome PrivatednsClient::DeleteEndPoint(const D
 
 void PrivatednsClient::DeleteEndPointAsync(const DeleteEndPointRequest& request, const DeleteEndPointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteEndPointRequest&;
-    using Resp = DeleteEndPointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteEndPoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteEndPoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DeleteEndPointOutcomeCallable PrivatednsClient::DeleteEndPointCallable(const DeleteEndPointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteEndPointOutcome>>();
-    DeleteEndPointAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DeleteEndPointRequest&,
-        DeleteEndPointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteEndPointOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteEndPoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DeleteForwardRuleOutcome PrivatednsClient::DeleteForwardRule(const DeleteForwardRuleRequest &request)
@@ -562,32 +492,25 @@ PrivatednsClient::DeleteForwardRuleOutcome PrivatednsClient::DeleteForwardRule(c
 
 void PrivatednsClient::DeleteForwardRuleAsync(const DeleteForwardRuleRequest& request, const DeleteForwardRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteForwardRuleRequest&;
-    using Resp = DeleteForwardRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteForwardRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteForwardRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DeleteForwardRuleOutcomeCallable PrivatednsClient::DeleteForwardRuleCallable(const DeleteForwardRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteForwardRuleOutcome>>();
-    DeleteForwardRuleAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DeleteForwardRuleRequest&,
-        DeleteForwardRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteForwardRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteForwardRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DeleteInboundEndpointOutcome PrivatednsClient::DeleteInboundEndpoint(const DeleteInboundEndpointRequest &request)
@@ -612,32 +535,25 @@ PrivatednsClient::DeleteInboundEndpointOutcome PrivatednsClient::DeleteInboundEn
 
 void PrivatednsClient::DeleteInboundEndpointAsync(const DeleteInboundEndpointRequest& request, const DeleteInboundEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteInboundEndpointRequest&;
-    using Resp = DeleteInboundEndpointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteInboundEndpoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteInboundEndpoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DeleteInboundEndpointOutcomeCallable PrivatednsClient::DeleteInboundEndpointCallable(const DeleteInboundEndpointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteInboundEndpointOutcome>>();
-    DeleteInboundEndpointAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DeleteInboundEndpointRequest&,
-        DeleteInboundEndpointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteInboundEndpointOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteInboundEndpoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DeletePrivateDNSAccountOutcome PrivatednsClient::DeletePrivateDNSAccount(const DeletePrivateDNSAccountRequest &request)
@@ -662,32 +578,25 @@ PrivatednsClient::DeletePrivateDNSAccountOutcome PrivatednsClient::DeletePrivate
 
 void PrivatednsClient::DeletePrivateDNSAccountAsync(const DeletePrivateDNSAccountRequest& request, const DeletePrivateDNSAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrivateDNSAccountRequest&;
-    using Resp = DeletePrivateDNSAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrivateDNSAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrivateDNSAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DeletePrivateDNSAccountOutcomeCallable PrivatednsClient::DeletePrivateDNSAccountCallable(const DeletePrivateDNSAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrivateDNSAccountOutcome>>();
-    DeletePrivateDNSAccountAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DeletePrivateDNSAccountRequest&,
-        DeletePrivateDNSAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrivateDNSAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrivateDNSAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DeletePrivateZoneOutcome PrivatednsClient::DeletePrivateZone(const DeletePrivateZoneRequest &request)
@@ -712,32 +621,25 @@ PrivatednsClient::DeletePrivateZoneOutcome PrivatednsClient::DeletePrivateZone(c
 
 void PrivatednsClient::DeletePrivateZoneAsync(const DeletePrivateZoneRequest& request, const DeletePrivateZoneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrivateZoneRequest&;
-    using Resp = DeletePrivateZoneResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrivateZone(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrivateZone", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DeletePrivateZoneOutcomeCallable PrivatednsClient::DeletePrivateZoneCallable(const DeletePrivateZoneRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrivateZoneOutcome>>();
-    DeletePrivateZoneAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DeletePrivateZoneRequest&,
-        DeletePrivateZoneOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrivateZoneOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrivateZone(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DeletePrivateZoneRecordOutcome PrivatednsClient::DeletePrivateZoneRecord(const DeletePrivateZoneRecordRequest &request)
@@ -762,32 +664,25 @@ PrivatednsClient::DeletePrivateZoneRecordOutcome PrivatednsClient::DeletePrivate
 
 void PrivatednsClient::DeletePrivateZoneRecordAsync(const DeletePrivateZoneRecordRequest& request, const DeletePrivateZoneRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrivateZoneRecordRequest&;
-    using Resp = DeletePrivateZoneRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrivateZoneRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrivateZoneRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DeletePrivateZoneRecordOutcomeCallable PrivatednsClient::DeletePrivateZoneRecordCallable(const DeletePrivateZoneRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrivateZoneRecordOutcome>>();
-    DeletePrivateZoneRecordAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DeletePrivateZoneRecordRequest&,
-        DeletePrivateZoneRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrivateZoneRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrivateZoneRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DeleteSpecifyPrivateZoneVpcOutcome PrivatednsClient::DeleteSpecifyPrivateZoneVpc(const DeleteSpecifyPrivateZoneVpcRequest &request)
@@ -812,32 +707,25 @@ PrivatednsClient::DeleteSpecifyPrivateZoneVpcOutcome PrivatednsClient::DeleteSpe
 
 void PrivatednsClient::DeleteSpecifyPrivateZoneVpcAsync(const DeleteSpecifyPrivateZoneVpcRequest& request, const DeleteSpecifyPrivateZoneVpcAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSpecifyPrivateZoneVpcRequest&;
-    using Resp = DeleteSpecifyPrivateZoneVpcResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSpecifyPrivateZoneVpc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSpecifyPrivateZoneVpc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DeleteSpecifyPrivateZoneVpcOutcomeCallable PrivatednsClient::DeleteSpecifyPrivateZoneVpcCallable(const DeleteSpecifyPrivateZoneVpcRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSpecifyPrivateZoneVpcOutcome>>();
-    DeleteSpecifyPrivateZoneVpcAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DeleteSpecifyPrivateZoneVpcRequest&,
-        DeleteSpecifyPrivateZoneVpcOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSpecifyPrivateZoneVpcOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSpecifyPrivateZoneVpc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeAccountVpcListOutcome PrivatednsClient::DescribeAccountVpcList(const DescribeAccountVpcListRequest &request)
@@ -862,32 +750,25 @@ PrivatednsClient::DescribeAccountVpcListOutcome PrivatednsClient::DescribeAccoun
 
 void PrivatednsClient::DescribeAccountVpcListAsync(const DescribeAccountVpcListRequest& request, const DescribeAccountVpcListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccountVpcListRequest&;
-    using Resp = DescribeAccountVpcListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccountVpcList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccountVpcList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeAccountVpcListOutcomeCallable PrivatednsClient::DescribeAccountVpcListCallable(const DescribeAccountVpcListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccountVpcListOutcome>>();
-    DescribeAccountVpcListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeAccountVpcListRequest&,
-        DescribeAccountVpcListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccountVpcListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccountVpcList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeAuditLogOutcome PrivatednsClient::DescribeAuditLog(const DescribeAuditLogRequest &request)
@@ -912,32 +793,25 @@ PrivatednsClient::DescribeAuditLogOutcome PrivatednsClient::DescribeAuditLog(con
 
 void PrivatednsClient::DescribeAuditLogAsync(const DescribeAuditLogRequest& request, const DescribeAuditLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuditLogRequest&;
-    using Resp = DescribeAuditLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuditLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuditLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeAuditLogOutcomeCallable PrivatednsClient::DescribeAuditLogCallable(const DescribeAuditLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuditLogOutcome>>();
-    DescribeAuditLogAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeAuditLogRequest&,
-        DescribeAuditLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuditLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuditLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeCreateRecordListResultOutcome PrivatednsClient::DescribeCreateRecordListResult(const DescribeCreateRecordListResultRequest &request)
@@ -962,32 +836,25 @@ PrivatednsClient::DescribeCreateRecordListResultOutcome PrivatednsClient::Descri
 
 void PrivatednsClient::DescribeCreateRecordListResultAsync(const DescribeCreateRecordListResultRequest& request, const DescribeCreateRecordListResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCreateRecordListResultRequest&;
-    using Resp = DescribeCreateRecordListResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCreateRecordListResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCreateRecordListResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeCreateRecordListResultOutcomeCallable PrivatednsClient::DescribeCreateRecordListResultCallable(const DescribeCreateRecordListResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCreateRecordListResultOutcome>>();
-    DescribeCreateRecordListResultAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeCreateRecordListResultRequest&,
-        DescribeCreateRecordListResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCreateRecordListResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCreateRecordListResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeCreateZoneListResultOutcome PrivatednsClient::DescribeCreateZoneListResult(const DescribeCreateZoneListResultRequest &request)
@@ -1012,32 +879,25 @@ PrivatednsClient::DescribeCreateZoneListResultOutcome PrivatednsClient::Describe
 
 void PrivatednsClient::DescribeCreateZoneListResultAsync(const DescribeCreateZoneListResultRequest& request, const DescribeCreateZoneListResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCreateZoneListResultRequest&;
-    using Resp = DescribeCreateZoneListResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCreateZoneListResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCreateZoneListResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeCreateZoneListResultOutcomeCallable PrivatednsClient::DescribeCreateZoneListResultCallable(const DescribeCreateZoneListResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCreateZoneListResultOutcome>>();
-    DescribeCreateZoneListResultAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeCreateZoneListResultRequest&,
-        DescribeCreateZoneListResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCreateZoneListResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCreateZoneListResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeDashboardOutcome PrivatednsClient::DescribeDashboard(const DescribeDashboardRequest &request)
@@ -1062,32 +922,25 @@ PrivatednsClient::DescribeDashboardOutcome PrivatednsClient::DescribeDashboard(c
 
 void PrivatednsClient::DescribeDashboardAsync(const DescribeDashboardRequest& request, const DescribeDashboardAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDashboardRequest&;
-    using Resp = DescribeDashboardResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDashboard(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDashboard", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeDashboardOutcomeCallable PrivatednsClient::DescribeDashboardCallable(const DescribeDashboardRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDashboardOutcome>>();
-    DescribeDashboardAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeDashboardRequest&,
-        DescribeDashboardOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDashboardOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDashboard(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeExtendEndpointListOutcome PrivatednsClient::DescribeExtendEndpointList(const DescribeExtendEndpointListRequest &request)
@@ -1112,32 +965,25 @@ PrivatednsClient::DescribeExtendEndpointListOutcome PrivatednsClient::DescribeEx
 
 void PrivatednsClient::DescribeExtendEndpointListAsync(const DescribeExtendEndpointListRequest& request, const DescribeExtendEndpointListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExtendEndpointListRequest&;
-    using Resp = DescribeExtendEndpointListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExtendEndpointList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExtendEndpointList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeExtendEndpointListOutcomeCallable PrivatednsClient::DescribeExtendEndpointListCallable(const DescribeExtendEndpointListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExtendEndpointListOutcome>>();
-    DescribeExtendEndpointListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeExtendEndpointListRequest&,
-        DescribeExtendEndpointListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExtendEndpointListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExtendEndpointList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeForwardRuleListOutcome PrivatednsClient::DescribeForwardRuleList(const DescribeForwardRuleListRequest &request)
@@ -1162,32 +1008,25 @@ PrivatednsClient::DescribeForwardRuleListOutcome PrivatednsClient::DescribeForwa
 
 void PrivatednsClient::DescribeForwardRuleListAsync(const DescribeForwardRuleListRequest& request, const DescribeForwardRuleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeForwardRuleListRequest&;
-    using Resp = DescribeForwardRuleListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeForwardRuleList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeForwardRuleList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeForwardRuleListOutcomeCallable PrivatednsClient::DescribeForwardRuleListCallable(const DescribeForwardRuleListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeForwardRuleListOutcome>>();
-    DescribeForwardRuleListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeForwardRuleListRequest&,
-        DescribeForwardRuleListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeForwardRuleListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeForwardRuleList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeInboundEndpointListOutcome PrivatednsClient::DescribeInboundEndpointList(const DescribeInboundEndpointListRequest &request)
@@ -1212,32 +1051,25 @@ PrivatednsClient::DescribeInboundEndpointListOutcome PrivatednsClient::DescribeI
 
 void PrivatednsClient::DescribeInboundEndpointListAsync(const DescribeInboundEndpointListRequest& request, const DescribeInboundEndpointListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInboundEndpointListRequest&;
-    using Resp = DescribeInboundEndpointListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInboundEndpointList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInboundEndpointList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeInboundEndpointListOutcomeCallable PrivatednsClient::DescribeInboundEndpointListCallable(const DescribeInboundEndpointListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInboundEndpointListOutcome>>();
-    DescribeInboundEndpointListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeInboundEndpointListRequest&,
-        DescribeInboundEndpointListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInboundEndpointListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInboundEndpointList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribePrivateDNSAccountListOutcome PrivatednsClient::DescribePrivateDNSAccountList(const DescribePrivateDNSAccountListRequest &request)
@@ -1262,32 +1094,25 @@ PrivatednsClient::DescribePrivateDNSAccountListOutcome PrivatednsClient::Describ
 
 void PrivatednsClient::DescribePrivateDNSAccountListAsync(const DescribePrivateDNSAccountListRequest& request, const DescribePrivateDNSAccountListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateDNSAccountListRequest&;
-    using Resp = DescribePrivateDNSAccountListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateDNSAccountList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateDNSAccountList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribePrivateDNSAccountListOutcomeCallable PrivatednsClient::DescribePrivateDNSAccountListCallable(const DescribePrivateDNSAccountListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateDNSAccountListOutcome>>();
-    DescribePrivateDNSAccountListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribePrivateDNSAccountListRequest&,
-        DescribePrivateDNSAccountListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateDNSAccountListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateDNSAccountList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribePrivateZoneOutcome PrivatednsClient::DescribePrivateZone(const DescribePrivateZoneRequest &request)
@@ -1312,32 +1137,25 @@ PrivatednsClient::DescribePrivateZoneOutcome PrivatednsClient::DescribePrivateZo
 
 void PrivatednsClient::DescribePrivateZoneAsync(const DescribePrivateZoneRequest& request, const DescribePrivateZoneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateZoneRequest&;
-    using Resp = DescribePrivateZoneResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateZone(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateZone", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribePrivateZoneOutcomeCallable PrivatednsClient::DescribePrivateZoneCallable(const DescribePrivateZoneRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateZoneOutcome>>();
-    DescribePrivateZoneAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribePrivateZoneRequest&,
-        DescribePrivateZoneOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateZoneOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateZone(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribePrivateZoneListOutcome PrivatednsClient::DescribePrivateZoneList(const DescribePrivateZoneListRequest &request)
@@ -1362,32 +1180,25 @@ PrivatednsClient::DescribePrivateZoneListOutcome PrivatednsClient::DescribePriva
 
 void PrivatednsClient::DescribePrivateZoneListAsync(const DescribePrivateZoneListRequest& request, const DescribePrivateZoneListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateZoneListRequest&;
-    using Resp = DescribePrivateZoneListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateZoneList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateZoneList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribePrivateZoneListOutcomeCallable PrivatednsClient::DescribePrivateZoneListCallable(const DescribePrivateZoneListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateZoneListOutcome>>();
-    DescribePrivateZoneListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribePrivateZoneListRequest&,
-        DescribePrivateZoneListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateZoneListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateZoneList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribePrivateZoneRecordListOutcome PrivatednsClient::DescribePrivateZoneRecordList(const DescribePrivateZoneRecordListRequest &request)
@@ -1412,32 +1223,25 @@ PrivatednsClient::DescribePrivateZoneRecordListOutcome PrivatednsClient::Describ
 
 void PrivatednsClient::DescribePrivateZoneRecordListAsync(const DescribePrivateZoneRecordListRequest& request, const DescribePrivateZoneRecordListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateZoneRecordListRequest&;
-    using Resp = DescribePrivateZoneRecordListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateZoneRecordList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateZoneRecordList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribePrivateZoneRecordListOutcomeCallable PrivatednsClient::DescribePrivateZoneRecordListCallable(const DescribePrivateZoneRecordListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateZoneRecordListOutcome>>();
-    DescribePrivateZoneRecordListAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribePrivateZoneRecordListRequest&,
-        DescribePrivateZoneRecordListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateZoneRecordListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateZoneRecordList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribePrivateZoneServiceOutcome PrivatednsClient::DescribePrivateZoneService(const DescribePrivateZoneServiceRequest &request)
@@ -1462,32 +1266,25 @@ PrivatednsClient::DescribePrivateZoneServiceOutcome PrivatednsClient::DescribePr
 
 void PrivatednsClient::DescribePrivateZoneServiceAsync(const DescribePrivateZoneServiceRequest& request, const DescribePrivateZoneServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateZoneServiceRequest&;
-    using Resp = DescribePrivateZoneServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateZoneService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateZoneService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribePrivateZoneServiceOutcomeCallable PrivatednsClient::DescribePrivateZoneServiceCallable(const DescribePrivateZoneServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateZoneServiceOutcome>>();
-    DescribePrivateZoneServiceAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribePrivateZoneServiceRequest&,
-        DescribePrivateZoneServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateZoneServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateZoneService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeQuotaUsageOutcome PrivatednsClient::DescribeQuotaUsage(const DescribeQuotaUsageRequest &request)
@@ -1512,32 +1309,25 @@ PrivatednsClient::DescribeQuotaUsageOutcome PrivatednsClient::DescribeQuotaUsage
 
 void PrivatednsClient::DescribeQuotaUsageAsync(const DescribeQuotaUsageRequest& request, const DescribeQuotaUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeQuotaUsageRequest&;
-    using Resp = DescribeQuotaUsageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeQuotaUsage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeQuotaUsage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeQuotaUsageOutcomeCallable PrivatednsClient::DescribeQuotaUsageCallable(const DescribeQuotaUsageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeQuotaUsageOutcome>>();
-    DescribeQuotaUsageAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeQuotaUsageRequest&,
-        DescribeQuotaUsageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeQuotaUsageOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeQuotaUsage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeRecordOutcome PrivatednsClient::DescribeRecord(const DescribeRecordRequest &request)
@@ -1562,32 +1352,25 @@ PrivatednsClient::DescribeRecordOutcome PrivatednsClient::DescribeRecord(const D
 
 void PrivatednsClient::DescribeRecordAsync(const DescribeRecordRequest& request, const DescribeRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordRequest&;
-    using Resp = DescribeRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeRecordOutcomeCallable PrivatednsClient::DescribeRecordCallable(const DescribeRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordOutcome>>();
-    DescribeRecordAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeRecordRequest&,
-        DescribeRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::DescribeRequestDataOutcome PrivatednsClient::DescribeRequestData(const DescribeRequestDataRequest &request)
@@ -1612,32 +1395,25 @@ PrivatednsClient::DescribeRequestDataOutcome PrivatednsClient::DescribeRequestDa
 
 void PrivatednsClient::DescribeRequestDataAsync(const DescribeRequestDataRequest& request, const DescribeRequestDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRequestDataRequest&;
-    using Resp = DescribeRequestDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRequestData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRequestData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::DescribeRequestDataOutcomeCallable PrivatednsClient::DescribeRequestDataCallable(const DescribeRequestDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRequestDataOutcome>>();
-    DescribeRequestDataAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const DescribeRequestDataRequest&,
-        DescribeRequestDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRequestDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRequestData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::ModifyForwardRuleOutcome PrivatednsClient::ModifyForwardRule(const ModifyForwardRuleRequest &request)
@@ -1662,32 +1438,25 @@ PrivatednsClient::ModifyForwardRuleOutcome PrivatednsClient::ModifyForwardRule(c
 
 void PrivatednsClient::ModifyForwardRuleAsync(const ModifyForwardRuleRequest& request, const ModifyForwardRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyForwardRuleRequest&;
-    using Resp = ModifyForwardRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyForwardRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyForwardRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::ModifyForwardRuleOutcomeCallable PrivatednsClient::ModifyForwardRuleCallable(const ModifyForwardRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyForwardRuleOutcome>>();
-    ModifyForwardRuleAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const ModifyForwardRuleRequest&,
-        ModifyForwardRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyForwardRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyForwardRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::ModifyInboundEndpointOutcome PrivatednsClient::ModifyInboundEndpoint(const ModifyInboundEndpointRequest &request)
@@ -1712,32 +1481,25 @@ PrivatednsClient::ModifyInboundEndpointOutcome PrivatednsClient::ModifyInboundEn
 
 void PrivatednsClient::ModifyInboundEndpointAsync(const ModifyInboundEndpointRequest& request, const ModifyInboundEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInboundEndpointRequest&;
-    using Resp = ModifyInboundEndpointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInboundEndpoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInboundEndpoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::ModifyInboundEndpointOutcomeCallable PrivatednsClient::ModifyInboundEndpointCallable(const ModifyInboundEndpointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInboundEndpointOutcome>>();
-    ModifyInboundEndpointAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const ModifyInboundEndpointRequest&,
-        ModifyInboundEndpointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInboundEndpointOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInboundEndpoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::ModifyPrivateZoneOutcome PrivatednsClient::ModifyPrivateZone(const ModifyPrivateZoneRequest &request)
@@ -1762,32 +1524,25 @@ PrivatednsClient::ModifyPrivateZoneOutcome PrivatednsClient::ModifyPrivateZone(c
 
 void PrivatednsClient::ModifyPrivateZoneAsync(const ModifyPrivateZoneRequest& request, const ModifyPrivateZoneAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrivateZoneRequest&;
-    using Resp = ModifyPrivateZoneResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrivateZone(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrivateZone", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::ModifyPrivateZoneOutcomeCallable PrivatednsClient::ModifyPrivateZoneCallable(const ModifyPrivateZoneRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrivateZoneOutcome>>();
-    ModifyPrivateZoneAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const ModifyPrivateZoneRequest&,
-        ModifyPrivateZoneOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrivateZoneOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrivateZone(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::ModifyPrivateZoneRecordOutcome PrivatednsClient::ModifyPrivateZoneRecord(const ModifyPrivateZoneRecordRequest &request)
@@ -1812,32 +1567,25 @@ PrivatednsClient::ModifyPrivateZoneRecordOutcome PrivatednsClient::ModifyPrivate
 
 void PrivatednsClient::ModifyPrivateZoneRecordAsync(const ModifyPrivateZoneRecordRequest& request, const ModifyPrivateZoneRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrivateZoneRecordRequest&;
-    using Resp = ModifyPrivateZoneRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrivateZoneRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrivateZoneRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::ModifyPrivateZoneRecordOutcomeCallable PrivatednsClient::ModifyPrivateZoneRecordCallable(const ModifyPrivateZoneRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrivateZoneRecordOutcome>>();
-    ModifyPrivateZoneRecordAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const ModifyPrivateZoneRecordRequest&,
-        ModifyPrivateZoneRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrivateZoneRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrivateZoneRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::ModifyPrivateZoneVpcOutcome PrivatednsClient::ModifyPrivateZoneVpc(const ModifyPrivateZoneVpcRequest &request)
@@ -1862,32 +1610,25 @@ PrivatednsClient::ModifyPrivateZoneVpcOutcome PrivatednsClient::ModifyPrivateZon
 
 void PrivatednsClient::ModifyPrivateZoneVpcAsync(const ModifyPrivateZoneVpcRequest& request, const ModifyPrivateZoneVpcAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrivateZoneVpcRequest&;
-    using Resp = ModifyPrivateZoneVpcResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrivateZoneVpc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrivateZoneVpc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::ModifyPrivateZoneVpcOutcomeCallable PrivatednsClient::ModifyPrivateZoneVpcCallable(const ModifyPrivateZoneVpcRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrivateZoneVpcOutcome>>();
-    ModifyPrivateZoneVpcAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const ModifyPrivateZoneVpcRequest&,
-        ModifyPrivateZoneVpcOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrivateZoneVpcOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrivateZoneVpc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::ModifyRecordsStatusOutcome PrivatednsClient::ModifyRecordsStatus(const ModifyRecordsStatusRequest &request)
@@ -1912,32 +1653,25 @@ PrivatednsClient::ModifyRecordsStatusOutcome PrivatednsClient::ModifyRecordsStat
 
 void PrivatednsClient::ModifyRecordsStatusAsync(const ModifyRecordsStatusRequest& request, const ModifyRecordsStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRecordsStatusRequest&;
-    using Resp = ModifyRecordsStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRecordsStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRecordsStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::ModifyRecordsStatusOutcomeCallable PrivatednsClient::ModifyRecordsStatusCallable(const ModifyRecordsStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRecordsStatusOutcome>>();
-    ModifyRecordsStatusAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const ModifyRecordsStatusRequest&,
-        ModifyRecordsStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRecordsStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRecordsStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::QueryAsyncBindVpcStatusOutcome PrivatednsClient::QueryAsyncBindVpcStatus(const QueryAsyncBindVpcStatusRequest &request)
@@ -1962,32 +1696,25 @@ PrivatednsClient::QueryAsyncBindVpcStatusOutcome PrivatednsClient::QueryAsyncBin
 
 void PrivatednsClient::QueryAsyncBindVpcStatusAsync(const QueryAsyncBindVpcStatusRequest& request, const QueryAsyncBindVpcStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryAsyncBindVpcStatusRequest&;
-    using Resp = QueryAsyncBindVpcStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryAsyncBindVpcStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryAsyncBindVpcStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::QueryAsyncBindVpcStatusOutcomeCallable PrivatednsClient::QueryAsyncBindVpcStatusCallable(const QueryAsyncBindVpcStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryAsyncBindVpcStatusOutcome>>();
-    QueryAsyncBindVpcStatusAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const QueryAsyncBindVpcStatusRequest&,
-        QueryAsyncBindVpcStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryAsyncBindVpcStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryAsyncBindVpcStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 PrivatednsClient::SubscribePrivateZoneServiceOutcome PrivatednsClient::SubscribePrivateZoneService(const SubscribePrivateZoneServiceRequest &request)
@@ -2012,31 +1739,24 @@ PrivatednsClient::SubscribePrivateZoneServiceOutcome PrivatednsClient::Subscribe
 
 void PrivatednsClient::SubscribePrivateZoneServiceAsync(const SubscribePrivateZoneServiceRequest& request, const SubscribePrivateZoneServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubscribePrivateZoneServiceRequest&;
-    using Resp = SubscribePrivateZoneServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubscribePrivateZoneService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubscribePrivateZoneService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 PrivatednsClient::SubscribePrivateZoneServiceOutcomeCallable PrivatednsClient::SubscribePrivateZoneServiceCallable(const SubscribePrivateZoneServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubscribePrivateZoneServiceOutcome>>();
-    SubscribePrivateZoneServiceAsync(
-    request,
-    [prom](
-        const PrivatednsClient*,
-        const SubscribePrivateZoneServiceRequest&,
-        SubscribePrivateZoneServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubscribePrivateZoneServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->SubscribePrivateZoneService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

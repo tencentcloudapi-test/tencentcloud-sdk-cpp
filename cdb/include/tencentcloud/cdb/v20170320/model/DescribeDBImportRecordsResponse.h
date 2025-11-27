@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImportRecord;
+
                 /**
                 * DescribeDBImportRecords返回参数结构体
                 */

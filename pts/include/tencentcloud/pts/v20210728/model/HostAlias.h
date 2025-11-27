@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 施压机域名绑定配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HostAlias();
-                    ~HostAlias() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

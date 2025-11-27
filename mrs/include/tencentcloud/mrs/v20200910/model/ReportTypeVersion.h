@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 指定报告类型选用其结构化版本
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ReportTypeVersion();
-                    ~ReportTypeVersion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

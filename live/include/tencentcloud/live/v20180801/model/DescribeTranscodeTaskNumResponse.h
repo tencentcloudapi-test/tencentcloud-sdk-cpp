@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TranscodeTaskNum;
+
                 /**
                 * DescribeTranscodeTaskNum返回参数结构体
                 */

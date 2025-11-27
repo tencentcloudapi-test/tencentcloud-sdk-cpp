@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ClickHouse修改连接源参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClickHouseModifyConnectParam();
-                    ~ClickHouseModifyConnectParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

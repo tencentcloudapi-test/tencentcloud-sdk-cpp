@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AdaptiveDynamicStreamingTaskInput;
+                class AdaptiveDynamicStreamingInfoItem;
+
                 /**
                 * 对视频转自适应码流任务结果类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaProcessTaskAdaptiveDynamicStreamingResult();
-                    ~MediaProcessTaskAdaptiveDynamicStreamingResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

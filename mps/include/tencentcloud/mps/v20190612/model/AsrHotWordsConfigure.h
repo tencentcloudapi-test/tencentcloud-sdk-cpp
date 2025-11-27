@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 智能字幕热词参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AsrHotWordsConfigure();
-                    ~AsrHotWordsConfigure() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

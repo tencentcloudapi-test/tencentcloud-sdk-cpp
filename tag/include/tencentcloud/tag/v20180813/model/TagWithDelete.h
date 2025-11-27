@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 表示一个标签键值对以及是否允许删除
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TagWithDelete();
-                    ~TagWithDelete() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

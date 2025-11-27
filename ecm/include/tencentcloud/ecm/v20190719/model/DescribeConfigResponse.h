@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetworkStorageRange;
+                class InstanceNetworkLimitConfig;
+                class ImageLimitConfig;
+
                 /**
                 * DescribeConfig返回参数结构体
                 */

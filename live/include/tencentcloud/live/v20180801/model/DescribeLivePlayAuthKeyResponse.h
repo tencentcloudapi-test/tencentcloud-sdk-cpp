@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PlayAuthKeyInfo;
+
                 /**
                 * DescribeLivePlayAuthKey返回参数结构体
                 */

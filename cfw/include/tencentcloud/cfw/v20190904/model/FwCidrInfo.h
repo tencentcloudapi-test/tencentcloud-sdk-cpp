@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FwVpcCidr;
+
                 /**
                 * 防火墙网段信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FwCidrInfo();
-                    ~FwCidrInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

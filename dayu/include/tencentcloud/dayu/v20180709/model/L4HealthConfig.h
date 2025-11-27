@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 四层健康检查配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     L4HealthConfig();
-                    ~L4HealthConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

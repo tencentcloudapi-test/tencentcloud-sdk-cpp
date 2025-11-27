@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CNResourceSpec;
+
                 /**
                 * ScaleUpInstance请求参数结构体
                 */

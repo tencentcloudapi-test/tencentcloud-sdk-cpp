@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoutePolicyAssociation;
+
                 /**
                 * DeleteRoutePolicyAssociations请求参数结构体
                 */

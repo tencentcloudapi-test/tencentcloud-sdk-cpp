@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 账户UIN与客户端证书CommonName的映射
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CommonName();
-                    ~CommonName() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

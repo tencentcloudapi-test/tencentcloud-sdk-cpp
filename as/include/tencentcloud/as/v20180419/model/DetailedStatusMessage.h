@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 伸缩活动状态详细描述。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DetailedStatusMessage();
-                    ~DetailedStatusMessage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

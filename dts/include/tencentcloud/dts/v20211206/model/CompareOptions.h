@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 一致性校验选项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CompareOptions();
-                    ~CompareOptions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

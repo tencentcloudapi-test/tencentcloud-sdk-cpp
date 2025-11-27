@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InternetAccessible;
+                class TagInfo;
+                class ExclusiveCluster;
+                class SnatIp;
+
                 /**
                 * CloneLoadBalancer请求参数结构体
                 */

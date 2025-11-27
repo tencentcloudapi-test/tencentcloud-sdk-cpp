@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 门店明细响应对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ViewShopResult();
-                    ~ViewShopResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

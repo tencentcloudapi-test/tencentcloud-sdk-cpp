@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 源站绑定信息查询，BindStatus， 0: 未被绑定 1：被规则或者监听器绑定
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RealServerStatus();
-                    ~RealServerStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

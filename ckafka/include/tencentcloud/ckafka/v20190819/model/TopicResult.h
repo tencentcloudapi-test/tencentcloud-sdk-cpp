@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Topic;
+
                 /**
                 * 统一返回的TopicResponse
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TopicResult();
-                    ~TopicResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

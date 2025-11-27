@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CancelFailureFlow;
+
                 /**
                 * DescribeCancelFlowsTask返回参数结构体
                 */

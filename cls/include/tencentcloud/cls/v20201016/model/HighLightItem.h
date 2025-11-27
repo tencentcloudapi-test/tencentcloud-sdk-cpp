@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 符合检索条件的关键词，一般用于高亮显示。仅支持键值检索，不支持全文检索
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HighLightItem();
-                    ~HighLightItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImportUser;
+
                 /**
                 * CreateApiImportUserJob请求参数结构体
                 */

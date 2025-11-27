@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 跨地域备份下载地址集合
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CrossBackupAddr();
-                    ~CrossBackupAddr() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

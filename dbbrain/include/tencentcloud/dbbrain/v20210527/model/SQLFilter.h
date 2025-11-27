@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实例SQL限流任务。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SQLFilter();
-                    ~SQLFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

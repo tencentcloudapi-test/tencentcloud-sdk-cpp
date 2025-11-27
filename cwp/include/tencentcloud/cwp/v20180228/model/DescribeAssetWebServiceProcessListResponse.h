@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetAppProcessInfo;
+
                 /**
                 * DescribeAssetWebServiceProcessList返回参数结构体
                 */

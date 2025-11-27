@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VipEntity;
+                class Tag;
+
                 /**
                 * 实例详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceDetail();
-                    ~InstanceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

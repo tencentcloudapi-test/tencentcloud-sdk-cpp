@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaSnapshotByTimePicInfoItem;
+                class TaskOutputStorage;
+
                 /**
                 * 点播文件指定时间点截图信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaSnapshotByTimeOffsetItem();
-                    ~MediaSnapshotByTimeOffsetItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

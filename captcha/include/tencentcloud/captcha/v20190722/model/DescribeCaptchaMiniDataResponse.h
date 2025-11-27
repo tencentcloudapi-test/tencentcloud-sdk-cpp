@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CaptchaQueryData;
+
                 /**
                 * DescribeCaptchaMiniData返回参数结构体
                 */

@@ -62,32 +62,25 @@ VclmClient::CheckAnimateImageJobOutcome VclmClient::CheckAnimateImageJob(const C
 
 void VclmClient::CheckAnimateImageJobAsync(const CheckAnimateImageJobRequest& request, const CheckAnimateImageJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckAnimateImageJobRequest&;
-    using Resp = CheckAnimateImageJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckAnimateImageJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckAnimateImageJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::CheckAnimateImageJobOutcomeCallable VclmClient::CheckAnimateImageJobCallable(const CheckAnimateImageJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckAnimateImageJobOutcome>>();
-    CheckAnimateImageJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const CheckAnimateImageJobRequest&,
-        CheckAnimateImageJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckAnimateImageJobOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckAnimateImageJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::DescribeHumanActorJobOutcome VclmClient::DescribeHumanActorJob(const DescribeHumanActorJobRequest &request)
@@ -112,32 +105,25 @@ VclmClient::DescribeHumanActorJobOutcome VclmClient::DescribeHumanActorJob(const
 
 void VclmClient::DescribeHumanActorJobAsync(const DescribeHumanActorJobRequest& request, const DescribeHumanActorJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHumanActorJobRequest&;
-    using Resp = DescribeHumanActorJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHumanActorJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHumanActorJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::DescribeHumanActorJobOutcomeCallable VclmClient::DescribeHumanActorJobCallable(const DescribeHumanActorJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHumanActorJobOutcome>>();
-    DescribeHumanActorJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const DescribeHumanActorJobRequest&,
-        DescribeHumanActorJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHumanActorJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHumanActorJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::DescribeImageAnimateJobOutcome VclmClient::DescribeImageAnimateJob(const DescribeImageAnimateJobRequest &request)
@@ -162,32 +148,25 @@ VclmClient::DescribeImageAnimateJobOutcome VclmClient::DescribeImageAnimateJob(c
 
 void VclmClient::DescribeImageAnimateJobAsync(const DescribeImageAnimateJobRequest& request, const DescribeImageAnimateJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeImageAnimateJobRequest&;
-    using Resp = DescribeImageAnimateJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeImageAnimateJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeImageAnimateJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::DescribeImageAnimateJobOutcomeCallable VclmClient::DescribeImageAnimateJobCallable(const DescribeImageAnimateJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeImageAnimateJobOutcome>>();
-    DescribeImageAnimateJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const DescribeImageAnimateJobRequest&,
-        DescribeImageAnimateJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeImageAnimateJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeImageAnimateJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::DescribeImageToVideoGeneralJobOutcome VclmClient::DescribeImageToVideoGeneralJob(const DescribeImageToVideoGeneralJobRequest &request)
@@ -212,32 +191,25 @@ VclmClient::DescribeImageToVideoGeneralJobOutcome VclmClient::DescribeImageToVid
 
 void VclmClient::DescribeImageToVideoGeneralJobAsync(const DescribeImageToVideoGeneralJobRequest& request, const DescribeImageToVideoGeneralJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeImageToVideoGeneralJobRequest&;
-    using Resp = DescribeImageToVideoGeneralJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeImageToVideoGeneralJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeImageToVideoGeneralJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::DescribeImageToVideoGeneralJobOutcomeCallable VclmClient::DescribeImageToVideoGeneralJobCallable(const DescribeImageToVideoGeneralJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeImageToVideoGeneralJobOutcome>>();
-    DescribeImageToVideoGeneralJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const DescribeImageToVideoGeneralJobRequest&,
-        DescribeImageToVideoGeneralJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeImageToVideoGeneralJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeImageToVideoGeneralJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::DescribePortraitSingJobOutcome VclmClient::DescribePortraitSingJob(const DescribePortraitSingJobRequest &request)
@@ -262,32 +234,25 @@ VclmClient::DescribePortraitSingJobOutcome VclmClient::DescribePortraitSingJob(c
 
 void VclmClient::DescribePortraitSingJobAsync(const DescribePortraitSingJobRequest& request, const DescribePortraitSingJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePortraitSingJobRequest&;
-    using Resp = DescribePortraitSingJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePortraitSingJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePortraitSingJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::DescribePortraitSingJobOutcomeCallable VclmClient::DescribePortraitSingJobCallable(const DescribePortraitSingJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePortraitSingJobOutcome>>();
-    DescribePortraitSingJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const DescribePortraitSingJobRequest&,
-        DescribePortraitSingJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePortraitSingJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePortraitSingJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::DescribeTemplateToVideoJobOutcome VclmClient::DescribeTemplateToVideoJob(const DescribeTemplateToVideoJobRequest &request)
@@ -312,32 +277,25 @@ VclmClient::DescribeTemplateToVideoJobOutcome VclmClient::DescribeTemplateToVide
 
 void VclmClient::DescribeTemplateToVideoJobAsync(const DescribeTemplateToVideoJobRequest& request, const DescribeTemplateToVideoJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTemplateToVideoJobRequest&;
-    using Resp = DescribeTemplateToVideoJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTemplateToVideoJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTemplateToVideoJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::DescribeTemplateToVideoJobOutcomeCallable VclmClient::DescribeTemplateToVideoJobCallable(const DescribeTemplateToVideoJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTemplateToVideoJobOutcome>>();
-    DescribeTemplateToVideoJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const DescribeTemplateToVideoJobRequest&,
-        DescribeTemplateToVideoJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTemplateToVideoJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTemplateToVideoJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::DescribeVideoStylizationJobOutcome VclmClient::DescribeVideoStylizationJob(const DescribeVideoStylizationJobRequest &request)
@@ -362,32 +320,25 @@ VclmClient::DescribeVideoStylizationJobOutcome VclmClient::DescribeVideoStylizat
 
 void VclmClient::DescribeVideoStylizationJobAsync(const DescribeVideoStylizationJobRequest& request, const DescribeVideoStylizationJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoStylizationJobRequest&;
-    using Resp = DescribeVideoStylizationJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoStylizationJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoStylizationJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::DescribeVideoStylizationJobOutcomeCallable VclmClient::DescribeVideoStylizationJobCallable(const DescribeVideoStylizationJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoStylizationJobOutcome>>();
-    DescribeVideoStylizationJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const DescribeVideoStylizationJobRequest&,
-        DescribeVideoStylizationJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoStylizationJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoStylizationJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::SubmitHumanActorJobOutcome VclmClient::SubmitHumanActorJob(const SubmitHumanActorJobRequest &request)
@@ -412,32 +363,25 @@ VclmClient::SubmitHumanActorJobOutcome VclmClient::SubmitHumanActorJob(const Sub
 
 void VclmClient::SubmitHumanActorJobAsync(const SubmitHumanActorJobRequest& request, const SubmitHumanActorJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitHumanActorJobRequest&;
-    using Resp = SubmitHumanActorJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitHumanActorJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitHumanActorJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::SubmitHumanActorJobOutcomeCallable VclmClient::SubmitHumanActorJobCallable(const SubmitHumanActorJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitHumanActorJobOutcome>>();
-    SubmitHumanActorJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const SubmitHumanActorJobRequest&,
-        SubmitHumanActorJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitHumanActorJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitHumanActorJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::SubmitImageAnimateJobOutcome VclmClient::SubmitImageAnimateJob(const SubmitImageAnimateJobRequest &request)
@@ -462,32 +406,25 @@ VclmClient::SubmitImageAnimateJobOutcome VclmClient::SubmitImageAnimateJob(const
 
 void VclmClient::SubmitImageAnimateJobAsync(const SubmitImageAnimateJobRequest& request, const SubmitImageAnimateJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitImageAnimateJobRequest&;
-    using Resp = SubmitImageAnimateJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitImageAnimateJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitImageAnimateJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::SubmitImageAnimateJobOutcomeCallable VclmClient::SubmitImageAnimateJobCallable(const SubmitImageAnimateJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitImageAnimateJobOutcome>>();
-    SubmitImageAnimateJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const SubmitImageAnimateJobRequest&,
-        SubmitImageAnimateJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitImageAnimateJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitImageAnimateJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::SubmitImageToVideoGeneralJobOutcome VclmClient::SubmitImageToVideoGeneralJob(const SubmitImageToVideoGeneralJobRequest &request)
@@ -512,32 +449,25 @@ VclmClient::SubmitImageToVideoGeneralJobOutcome VclmClient::SubmitImageToVideoGe
 
 void VclmClient::SubmitImageToVideoGeneralJobAsync(const SubmitImageToVideoGeneralJobRequest& request, const SubmitImageToVideoGeneralJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitImageToVideoGeneralJobRequest&;
-    using Resp = SubmitImageToVideoGeneralJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitImageToVideoGeneralJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitImageToVideoGeneralJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::SubmitImageToVideoGeneralJobOutcomeCallable VclmClient::SubmitImageToVideoGeneralJobCallable(const SubmitImageToVideoGeneralJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitImageToVideoGeneralJobOutcome>>();
-    SubmitImageToVideoGeneralJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const SubmitImageToVideoGeneralJobRequest&,
-        SubmitImageToVideoGeneralJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitImageToVideoGeneralJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitImageToVideoGeneralJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::SubmitPortraitSingJobOutcome VclmClient::SubmitPortraitSingJob(const SubmitPortraitSingJobRequest &request)
@@ -562,32 +492,25 @@ VclmClient::SubmitPortraitSingJobOutcome VclmClient::SubmitPortraitSingJob(const
 
 void VclmClient::SubmitPortraitSingJobAsync(const SubmitPortraitSingJobRequest& request, const SubmitPortraitSingJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitPortraitSingJobRequest&;
-    using Resp = SubmitPortraitSingJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitPortraitSingJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitPortraitSingJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::SubmitPortraitSingJobOutcomeCallable VclmClient::SubmitPortraitSingJobCallable(const SubmitPortraitSingJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitPortraitSingJobOutcome>>();
-    SubmitPortraitSingJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const SubmitPortraitSingJobRequest&,
-        SubmitPortraitSingJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitPortraitSingJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitPortraitSingJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::SubmitTemplateToVideoJobOutcome VclmClient::SubmitTemplateToVideoJob(const SubmitTemplateToVideoJobRequest &request)
@@ -612,32 +535,25 @@ VclmClient::SubmitTemplateToVideoJobOutcome VclmClient::SubmitTemplateToVideoJob
 
 void VclmClient::SubmitTemplateToVideoJobAsync(const SubmitTemplateToVideoJobRequest& request, const SubmitTemplateToVideoJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitTemplateToVideoJobRequest&;
-    using Resp = SubmitTemplateToVideoJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitTemplateToVideoJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitTemplateToVideoJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::SubmitTemplateToVideoJobOutcomeCallable VclmClient::SubmitTemplateToVideoJobCallable(const SubmitTemplateToVideoJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitTemplateToVideoJobOutcome>>();
-    SubmitTemplateToVideoJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const SubmitTemplateToVideoJobRequest&,
-        SubmitTemplateToVideoJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitTemplateToVideoJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitTemplateToVideoJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VclmClient::SubmitVideoStylizationJobOutcome VclmClient::SubmitVideoStylizationJob(const SubmitVideoStylizationJobRequest &request)
@@ -662,31 +578,24 @@ VclmClient::SubmitVideoStylizationJobOutcome VclmClient::SubmitVideoStylizationJ
 
 void VclmClient::SubmitVideoStylizationJobAsync(const SubmitVideoStylizationJobRequest& request, const SubmitVideoStylizationJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitVideoStylizationJobRequest&;
-    using Resp = SubmitVideoStylizationJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitVideoStylizationJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitVideoStylizationJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VclmClient::SubmitVideoStylizationJobOutcomeCallable VclmClient::SubmitVideoStylizationJobCallable(const SubmitVideoStylizationJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitVideoStylizationJobOutcome>>();
-    SubmitVideoStylizationJobAsync(
-    request,
-    [prom](
-        const VclmClient*,
-        const SubmitVideoStylizationJobRequest&,
-        SubmitVideoStylizationJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitVideoStylizationJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitVideoStylizationJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

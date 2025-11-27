@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CarrierPrivilegeNumberApplicant;
+
                 /**
                 * DescribeCarrierPrivilegeNumberApplicants返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Target;
+
                 /**
                 * ListTargets返回参数结构体
                 */

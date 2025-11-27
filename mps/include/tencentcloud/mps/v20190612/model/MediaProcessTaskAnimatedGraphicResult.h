@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AnimatedGraphicTaskInput;
+                class MediaAnimatedGraphicsItem;
+
                 /**
                 * 转动图任务结果类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaProcessTaskAnimatedGraphicResult();
-                    ~MediaProcessTaskAnimatedGraphicResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

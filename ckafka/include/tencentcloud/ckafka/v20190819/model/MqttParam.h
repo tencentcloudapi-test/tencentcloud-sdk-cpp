@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 创建MQTT 为Source的Data Hub Task参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MqttParam();
-                    ~MqttParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

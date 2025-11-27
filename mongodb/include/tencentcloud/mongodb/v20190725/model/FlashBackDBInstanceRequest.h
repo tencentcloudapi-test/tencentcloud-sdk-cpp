@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlashbackDatabase;
+
                 /**
                 * FlashBackDBInstance请求参数结构体
                 */

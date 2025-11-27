@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FrameTagResult;
+                class SubtitleResult;
+
                 /**
                 * 媒体识别任务处理结果
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaRecognitionTaskResult();
-                    ~MediaRecognitionTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

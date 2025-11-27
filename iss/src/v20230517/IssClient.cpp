@@ -62,32 +62,25 @@ IssClient::AddAITaskOutcome IssClient::AddAITask(const AddAITaskRequest &request
 
 void IssClient::AddAITaskAsync(const AddAITaskRequest& request, const AddAITaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddAITaskRequest&;
-    using Resp = AddAITaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddAITask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddAITask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddAITaskOutcomeCallable IssClient::AddAITaskCallable(const AddAITaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddAITaskOutcome>>();
-    AddAITaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddAITaskRequest&,
-        AddAITaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddAITaskOutcome()>>(
+        [this, request]()
+        {
+            return this->AddAITask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::AddOrganizationOutcome IssClient::AddOrganization(const AddOrganizationRequest &request)
@@ -112,32 +105,25 @@ IssClient::AddOrganizationOutcome IssClient::AddOrganization(const AddOrganizati
 
 void IssClient::AddOrganizationAsync(const AddOrganizationRequest& request, const AddOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddOrganizationRequest&;
-    using Resp = AddOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddOrganizationOutcomeCallable IssClient::AddOrganizationCallable(const AddOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddOrganizationOutcome>>();
-    AddOrganizationAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddOrganizationRequest&,
-        AddOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->AddOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::AddRecordBackupPlanOutcome IssClient::AddRecordBackupPlan(const AddRecordBackupPlanRequest &request)
@@ -162,32 +148,25 @@ IssClient::AddRecordBackupPlanOutcome IssClient::AddRecordBackupPlan(const AddRe
 
 void IssClient::AddRecordBackupPlanAsync(const AddRecordBackupPlanRequest& request, const AddRecordBackupPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddRecordBackupPlanRequest&;
-    using Resp = AddRecordBackupPlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddRecordBackupPlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddRecordBackupPlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddRecordBackupPlanOutcomeCallable IssClient::AddRecordBackupPlanCallable(const AddRecordBackupPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddRecordBackupPlanOutcome>>();
-    AddRecordBackupPlanAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddRecordBackupPlanRequest&,
-        AddRecordBackupPlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddRecordBackupPlanOutcome()>>(
+        [this, request]()
+        {
+            return this->AddRecordBackupPlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::AddRecordBackupTemplateOutcome IssClient::AddRecordBackupTemplate(const AddRecordBackupTemplateRequest &request)
@@ -212,32 +191,25 @@ IssClient::AddRecordBackupTemplateOutcome IssClient::AddRecordBackupTemplate(con
 
 void IssClient::AddRecordBackupTemplateAsync(const AddRecordBackupTemplateRequest& request, const AddRecordBackupTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddRecordBackupTemplateRequest&;
-    using Resp = AddRecordBackupTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddRecordBackupTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddRecordBackupTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddRecordBackupTemplateOutcomeCallable IssClient::AddRecordBackupTemplateCallable(const AddRecordBackupTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddRecordBackupTemplateOutcome>>();
-    AddRecordBackupTemplateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddRecordBackupTemplateRequest&,
-        AddRecordBackupTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddRecordBackupTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->AddRecordBackupTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::AddRecordPlanOutcome IssClient::AddRecordPlan(const AddRecordPlanRequest &request)
@@ -262,32 +234,25 @@ IssClient::AddRecordPlanOutcome IssClient::AddRecordPlan(const AddRecordPlanRequ
 
 void IssClient::AddRecordPlanAsync(const AddRecordPlanRequest& request, const AddRecordPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddRecordPlanRequest&;
-    using Resp = AddRecordPlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddRecordPlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddRecordPlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddRecordPlanOutcomeCallable IssClient::AddRecordPlanCallable(const AddRecordPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddRecordPlanOutcome>>();
-    AddRecordPlanAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddRecordPlanRequest&,
-        AddRecordPlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddRecordPlanOutcome()>>(
+        [this, request]()
+        {
+            return this->AddRecordPlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::AddRecordRetrieveTaskOutcome IssClient::AddRecordRetrieveTask(const AddRecordRetrieveTaskRequest &request)
@@ -312,32 +277,25 @@ IssClient::AddRecordRetrieveTaskOutcome IssClient::AddRecordRetrieveTask(const A
 
 void IssClient::AddRecordRetrieveTaskAsync(const AddRecordRetrieveTaskRequest& request, const AddRecordRetrieveTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddRecordRetrieveTaskRequest&;
-    using Resp = AddRecordRetrieveTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddRecordRetrieveTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddRecordRetrieveTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddRecordRetrieveTaskOutcomeCallable IssClient::AddRecordRetrieveTaskCallable(const AddRecordRetrieveTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddRecordRetrieveTaskOutcome>>();
-    AddRecordRetrieveTaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddRecordRetrieveTaskRequest&,
-        AddRecordRetrieveTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddRecordRetrieveTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->AddRecordRetrieveTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::AddRecordTemplateOutcome IssClient::AddRecordTemplate(const AddRecordTemplateRequest &request)
@@ -362,32 +320,25 @@ IssClient::AddRecordTemplateOutcome IssClient::AddRecordTemplate(const AddRecord
 
 void IssClient::AddRecordTemplateAsync(const AddRecordTemplateRequest& request, const AddRecordTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddRecordTemplateRequest&;
-    using Resp = AddRecordTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddRecordTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddRecordTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddRecordTemplateOutcomeCallable IssClient::AddRecordTemplateCallable(const AddRecordTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddRecordTemplateOutcome>>();
-    AddRecordTemplateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddRecordTemplateRequest&,
-        AddRecordTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddRecordTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->AddRecordTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::AddStreamAuthOutcome IssClient::AddStreamAuth(const AddStreamAuthRequest &request)
@@ -412,32 +363,25 @@ IssClient::AddStreamAuthOutcome IssClient::AddStreamAuth(const AddStreamAuthRequ
 
 void IssClient::AddStreamAuthAsync(const AddStreamAuthRequest& request, const AddStreamAuthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddStreamAuthRequest&;
-    using Resp = AddStreamAuthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddStreamAuth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddStreamAuth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddStreamAuthOutcomeCallable IssClient::AddStreamAuthCallable(const AddStreamAuthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddStreamAuthOutcome>>();
-    AddStreamAuthAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddStreamAuthRequest&,
-        AddStreamAuthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddStreamAuthOutcome()>>(
+        [this, request]()
+        {
+            return this->AddStreamAuth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::AddUserDeviceOutcome IssClient::AddUserDevice(const AddUserDeviceRequest &request)
@@ -462,32 +406,25 @@ IssClient::AddUserDeviceOutcome IssClient::AddUserDevice(const AddUserDeviceRequ
 
 void IssClient::AddUserDeviceAsync(const AddUserDeviceRequest& request, const AddUserDeviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddUserDeviceRequest&;
-    using Resp = AddUserDeviceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddUserDevice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddUserDevice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::AddUserDeviceOutcomeCallable IssClient::AddUserDeviceCallable(const AddUserDeviceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddUserDeviceOutcome>>();
-    AddUserDeviceAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const AddUserDeviceRequest&,
-        AddUserDeviceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddUserDeviceOutcome()>>(
+        [this, request]()
+        {
+            return this->AddUserDevice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::BatchDeleteVideoDownloadTaskOutcome IssClient::BatchDeleteVideoDownloadTask(const BatchDeleteVideoDownloadTaskRequest &request)
@@ -512,32 +449,25 @@ IssClient::BatchDeleteVideoDownloadTaskOutcome IssClient::BatchDeleteVideoDownlo
 
 void IssClient::BatchDeleteVideoDownloadTaskAsync(const BatchDeleteVideoDownloadTaskRequest& request, const BatchDeleteVideoDownloadTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDeleteVideoDownloadTaskRequest&;
-    using Resp = BatchDeleteVideoDownloadTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDeleteVideoDownloadTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDeleteVideoDownloadTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::BatchDeleteVideoDownloadTaskOutcomeCallable IssClient::BatchDeleteVideoDownloadTaskCallable(const BatchDeleteVideoDownloadTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDeleteVideoDownloadTaskOutcome>>();
-    BatchDeleteVideoDownloadTaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const BatchDeleteVideoDownloadTaskRequest&,
-        BatchDeleteVideoDownloadTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDeleteVideoDownloadTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDeleteVideoDownloadTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::BatchOperateDeviceOutcome IssClient::BatchOperateDevice(const BatchOperateDeviceRequest &request)
@@ -562,32 +492,25 @@ IssClient::BatchOperateDeviceOutcome IssClient::BatchOperateDevice(const BatchOp
 
 void IssClient::BatchOperateDeviceAsync(const BatchOperateDeviceRequest& request, const BatchOperateDeviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchOperateDeviceRequest&;
-    using Resp = BatchOperateDeviceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchOperateDevice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchOperateDevice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::BatchOperateDeviceOutcomeCallable IssClient::BatchOperateDeviceCallable(const BatchOperateDeviceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchOperateDeviceOutcome>>();
-    BatchOperateDeviceAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const BatchOperateDeviceRequest&,
-        BatchOperateDeviceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchOperateDeviceOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchOperateDevice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::CallISAPIOutcome IssClient::CallISAPI(const CallISAPIRequest &request)
@@ -612,32 +535,25 @@ IssClient::CallISAPIOutcome IssClient::CallISAPI(const CallISAPIRequest &request
 
 void IssClient::CallISAPIAsync(const CallISAPIRequest& request, const CallISAPIAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CallISAPIRequest&;
-    using Resp = CallISAPIResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CallISAPI(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CallISAPI", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::CallISAPIOutcomeCallable IssClient::CallISAPICallable(const CallISAPIRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CallISAPIOutcome>>();
-    CallISAPIAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const CallISAPIRequest&,
-        CallISAPIOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CallISAPIOutcome()>>(
+        [this, request]()
+        {
+            return this->CallISAPI(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ControlDevicePTZOutcome IssClient::ControlDevicePTZ(const ControlDevicePTZRequest &request)
@@ -662,32 +578,25 @@ IssClient::ControlDevicePTZOutcome IssClient::ControlDevicePTZ(const ControlDevi
 
 void IssClient::ControlDevicePTZAsync(const ControlDevicePTZRequest& request, const ControlDevicePTZAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ControlDevicePTZRequest&;
-    using Resp = ControlDevicePTZResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ControlDevicePTZ(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ControlDevicePTZ", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ControlDevicePTZOutcomeCallable IssClient::ControlDevicePTZCallable(const ControlDevicePTZRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ControlDevicePTZOutcome>>();
-    ControlDevicePTZAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ControlDevicePTZRequest&,
-        ControlDevicePTZOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ControlDevicePTZOutcome()>>(
+        [this, request]()
+        {
+            return this->ControlDevicePTZ(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ControlDevicePresetOutcome IssClient::ControlDevicePreset(const ControlDevicePresetRequest &request)
@@ -712,32 +621,25 @@ IssClient::ControlDevicePresetOutcome IssClient::ControlDevicePreset(const Contr
 
 void IssClient::ControlDevicePresetAsync(const ControlDevicePresetRequest& request, const ControlDevicePresetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ControlDevicePresetRequest&;
-    using Resp = ControlDevicePresetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ControlDevicePreset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ControlDevicePreset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ControlDevicePresetOutcomeCallable IssClient::ControlDevicePresetCallable(const ControlDevicePresetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ControlDevicePresetOutcome>>();
-    ControlDevicePresetAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ControlDevicePresetRequest&,
-        ControlDevicePresetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ControlDevicePresetOutcome()>>(
+        [this, request]()
+        {
+            return this->ControlDevicePreset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ControlDeviceSnapshotOutcome IssClient::ControlDeviceSnapshot(const ControlDeviceSnapshotRequest &request)
@@ -762,32 +664,25 @@ IssClient::ControlDeviceSnapshotOutcome IssClient::ControlDeviceSnapshot(const C
 
 void IssClient::ControlDeviceSnapshotAsync(const ControlDeviceSnapshotRequest& request, const ControlDeviceSnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ControlDeviceSnapshotRequest&;
-    using Resp = ControlDeviceSnapshotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ControlDeviceSnapshot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ControlDeviceSnapshot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ControlDeviceSnapshotOutcomeCallable IssClient::ControlDeviceSnapshotCallable(const ControlDeviceSnapshotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ControlDeviceSnapshotOutcome>>();
-    ControlDeviceSnapshotAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ControlDeviceSnapshotRequest&,
-        ControlDeviceSnapshotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ControlDeviceSnapshotOutcome()>>(
+        [this, request]()
+        {
+            return this->ControlDeviceSnapshot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ControlDeviceStreamOutcome IssClient::ControlDeviceStream(const ControlDeviceStreamRequest &request)
@@ -812,32 +707,25 @@ IssClient::ControlDeviceStreamOutcome IssClient::ControlDeviceStream(const Contr
 
 void IssClient::ControlDeviceStreamAsync(const ControlDeviceStreamRequest& request, const ControlDeviceStreamAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ControlDeviceStreamRequest&;
-    using Resp = ControlDeviceStreamResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ControlDeviceStream(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ControlDeviceStream", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ControlDeviceStreamOutcomeCallable IssClient::ControlDeviceStreamCallable(const ControlDeviceStreamRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ControlDeviceStreamOutcome>>();
-    ControlDeviceStreamAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ControlDeviceStreamRequest&,
-        ControlDeviceStreamOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ControlDeviceStreamOutcome()>>(
+        [this, request]()
+        {
+            return this->ControlDeviceStream(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ControlRecordOutcome IssClient::ControlRecord(const ControlRecordRequest &request)
@@ -862,32 +750,25 @@ IssClient::ControlRecordOutcome IssClient::ControlRecord(const ControlRecordRequ
 
 void IssClient::ControlRecordAsync(const ControlRecordRequest& request, const ControlRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ControlRecordRequest&;
-    using Resp = ControlRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ControlRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ControlRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ControlRecordOutcomeCallable IssClient::ControlRecordCallable(const ControlRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ControlRecordOutcome>>();
-    ControlRecordAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ControlRecordRequest&,
-        ControlRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ControlRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->ControlRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ControlRecordTimelineOutcome IssClient::ControlRecordTimeline(const ControlRecordTimelineRequest &request)
@@ -912,32 +793,25 @@ IssClient::ControlRecordTimelineOutcome IssClient::ControlRecordTimeline(const C
 
 void IssClient::ControlRecordTimelineAsync(const ControlRecordTimelineRequest& request, const ControlRecordTimelineAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ControlRecordTimelineRequest&;
-    using Resp = ControlRecordTimelineResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ControlRecordTimeline(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ControlRecordTimeline", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ControlRecordTimelineOutcomeCallable IssClient::ControlRecordTimelineCallable(const ControlRecordTimelineRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ControlRecordTimelineOutcome>>();
-    ControlRecordTimelineAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ControlRecordTimelineRequest&,
-        ControlRecordTimelineOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ControlRecordTimelineOutcome()>>(
+        [this, request]()
+        {
+            return this->ControlRecordTimeline(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::CreateVideoDownloadTaskOutcome IssClient::CreateVideoDownloadTask(const CreateVideoDownloadTaskRequest &request)
@@ -962,32 +836,25 @@ IssClient::CreateVideoDownloadTaskOutcome IssClient::CreateVideoDownloadTask(con
 
 void IssClient::CreateVideoDownloadTaskAsync(const CreateVideoDownloadTaskRequest& request, const CreateVideoDownloadTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVideoDownloadTaskRequest&;
-    using Resp = CreateVideoDownloadTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVideoDownloadTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoDownloadTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::CreateVideoDownloadTaskOutcomeCallable IssClient::CreateVideoDownloadTaskCallable(const CreateVideoDownloadTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVideoDownloadTaskOutcome>>();
-    CreateVideoDownloadTaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const CreateVideoDownloadTaskRequest&,
-        CreateVideoDownloadTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVideoDownloadTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVideoDownloadTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteAITaskOutcome IssClient::DeleteAITask(const DeleteAITaskRequest &request)
@@ -1012,32 +879,25 @@ IssClient::DeleteAITaskOutcome IssClient::DeleteAITask(const DeleteAITaskRequest
 
 void IssClient::DeleteAITaskAsync(const DeleteAITaskRequest& request, const DeleteAITaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAITaskRequest&;
-    using Resp = DeleteAITaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAITask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAITask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteAITaskOutcomeCallable IssClient::DeleteAITaskCallable(const DeleteAITaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAITaskOutcome>>();
-    DeleteAITaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteAITaskRequest&,
-        DeleteAITaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAITaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAITask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteDomainOutcome IssClient::DeleteDomain(const DeleteDomainRequest &request)
@@ -1062,32 +922,25 @@ IssClient::DeleteDomainOutcome IssClient::DeleteDomain(const DeleteDomainRequest
 
 void IssClient::DeleteDomainAsync(const DeleteDomainRequest& request, const DeleteDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDomainRequest&;
-    using Resp = DeleteDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteDomainOutcomeCallable IssClient::DeleteDomainCallable(const DeleteDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDomainOutcome>>();
-    DeleteDomainAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteDomainRequest&,
-        DeleteDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteGatewayOutcome IssClient::DeleteGateway(const DeleteGatewayRequest &request)
@@ -1112,32 +965,25 @@ IssClient::DeleteGatewayOutcome IssClient::DeleteGateway(const DeleteGatewayRequ
 
 void IssClient::DeleteGatewayAsync(const DeleteGatewayRequest& request, const DeleteGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGatewayRequest&;
-    using Resp = DeleteGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteGatewayOutcomeCallable IssClient::DeleteGatewayCallable(const DeleteGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGatewayOutcome>>();
-    DeleteGatewayAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteGatewayRequest&,
-        DeleteGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteOrganizationOutcome IssClient::DeleteOrganization(const DeleteOrganizationRequest &request)
@@ -1162,32 +1008,25 @@ IssClient::DeleteOrganizationOutcome IssClient::DeleteOrganization(const DeleteO
 
 void IssClient::DeleteOrganizationAsync(const DeleteOrganizationRequest& request, const DeleteOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteOrganizationRequest&;
-    using Resp = DeleteOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteOrganizationOutcomeCallable IssClient::DeleteOrganizationCallable(const DeleteOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteOrganizationOutcome>>();
-    DeleteOrganizationAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteOrganizationRequest&,
-        DeleteOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteRecordBackupPlanOutcome IssClient::DeleteRecordBackupPlan(const DeleteRecordBackupPlanRequest &request)
@@ -1212,32 +1051,25 @@ IssClient::DeleteRecordBackupPlanOutcome IssClient::DeleteRecordBackupPlan(const
 
 void IssClient::DeleteRecordBackupPlanAsync(const DeleteRecordBackupPlanRequest& request, const DeleteRecordBackupPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRecordBackupPlanRequest&;
-    using Resp = DeleteRecordBackupPlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRecordBackupPlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRecordBackupPlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteRecordBackupPlanOutcomeCallable IssClient::DeleteRecordBackupPlanCallable(const DeleteRecordBackupPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRecordBackupPlanOutcome>>();
-    DeleteRecordBackupPlanAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteRecordBackupPlanRequest&,
-        DeleteRecordBackupPlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRecordBackupPlanOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRecordBackupPlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteRecordBackupTemplateOutcome IssClient::DeleteRecordBackupTemplate(const DeleteRecordBackupTemplateRequest &request)
@@ -1262,32 +1094,25 @@ IssClient::DeleteRecordBackupTemplateOutcome IssClient::DeleteRecordBackupTempla
 
 void IssClient::DeleteRecordBackupTemplateAsync(const DeleteRecordBackupTemplateRequest& request, const DeleteRecordBackupTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRecordBackupTemplateRequest&;
-    using Resp = DeleteRecordBackupTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRecordBackupTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRecordBackupTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteRecordBackupTemplateOutcomeCallable IssClient::DeleteRecordBackupTemplateCallable(const DeleteRecordBackupTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRecordBackupTemplateOutcome>>();
-    DeleteRecordBackupTemplateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteRecordBackupTemplateRequest&,
-        DeleteRecordBackupTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRecordBackupTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRecordBackupTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteRecordPlanOutcome IssClient::DeleteRecordPlan(const DeleteRecordPlanRequest &request)
@@ -1312,32 +1137,25 @@ IssClient::DeleteRecordPlanOutcome IssClient::DeleteRecordPlan(const DeleteRecor
 
 void IssClient::DeleteRecordPlanAsync(const DeleteRecordPlanRequest& request, const DeleteRecordPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRecordPlanRequest&;
-    using Resp = DeleteRecordPlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRecordPlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRecordPlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteRecordPlanOutcomeCallable IssClient::DeleteRecordPlanCallable(const DeleteRecordPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRecordPlanOutcome>>();
-    DeleteRecordPlanAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteRecordPlanRequest&,
-        DeleteRecordPlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRecordPlanOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRecordPlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteRecordRetrieveTaskOutcome IssClient::DeleteRecordRetrieveTask(const DeleteRecordRetrieveTaskRequest &request)
@@ -1362,32 +1180,25 @@ IssClient::DeleteRecordRetrieveTaskOutcome IssClient::DeleteRecordRetrieveTask(c
 
 void IssClient::DeleteRecordRetrieveTaskAsync(const DeleteRecordRetrieveTaskRequest& request, const DeleteRecordRetrieveTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRecordRetrieveTaskRequest&;
-    using Resp = DeleteRecordRetrieveTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRecordRetrieveTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRecordRetrieveTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteRecordRetrieveTaskOutcomeCallable IssClient::DeleteRecordRetrieveTaskCallable(const DeleteRecordRetrieveTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRecordRetrieveTaskOutcome>>();
-    DeleteRecordRetrieveTaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteRecordRetrieveTaskRequest&,
-        DeleteRecordRetrieveTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRecordRetrieveTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRecordRetrieveTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteRecordTemplateOutcome IssClient::DeleteRecordTemplate(const DeleteRecordTemplateRequest &request)
@@ -1412,32 +1223,25 @@ IssClient::DeleteRecordTemplateOutcome IssClient::DeleteRecordTemplate(const Del
 
 void IssClient::DeleteRecordTemplateAsync(const DeleteRecordTemplateRequest& request, const DeleteRecordTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRecordTemplateRequest&;
-    using Resp = DeleteRecordTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRecordTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRecordTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteRecordTemplateOutcomeCallable IssClient::DeleteRecordTemplateCallable(const DeleteRecordTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRecordTemplateOutcome>>();
-    DeleteRecordTemplateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteRecordTemplateRequest&,
-        DeleteRecordTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRecordTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRecordTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteTaskOutcome IssClient::DeleteTask(const DeleteTaskRequest &request)
@@ -1462,32 +1266,25 @@ IssClient::DeleteTaskOutcome IssClient::DeleteTask(const DeleteTaskRequest &requ
 
 void IssClient::DeleteTaskAsync(const DeleteTaskRequest& request, const DeleteTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTaskRequest&;
-    using Resp = DeleteTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteTaskOutcomeCallable IssClient::DeleteTaskCallable(const DeleteTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTaskOutcome>>();
-    DeleteTaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteTaskRequest&,
-        DeleteTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DeleteUserDeviceOutcome IssClient::DeleteUserDevice(const DeleteUserDeviceRequest &request)
@@ -1512,32 +1309,25 @@ IssClient::DeleteUserDeviceOutcome IssClient::DeleteUserDevice(const DeleteUserD
 
 void IssClient::DeleteUserDeviceAsync(const DeleteUserDeviceRequest& request, const DeleteUserDeviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteUserDeviceRequest&;
-    using Resp = DeleteUserDeviceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteUserDevice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteUserDevice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DeleteUserDeviceOutcomeCallable IssClient::DeleteUserDeviceCallable(const DeleteUserDeviceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteUserDeviceOutcome>>();
-    DeleteUserDeviceAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DeleteUserDeviceRequest&,
-        DeleteUserDeviceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteUserDeviceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteUserDevice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeAITaskOutcome IssClient::DescribeAITask(const DescribeAITaskRequest &request)
@@ -1562,32 +1352,25 @@ IssClient::DescribeAITaskOutcome IssClient::DescribeAITask(const DescribeAITaskR
 
 void IssClient::DescribeAITaskAsync(const DescribeAITaskRequest& request, const DescribeAITaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAITaskRequest&;
-    using Resp = DescribeAITaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAITask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAITask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeAITaskOutcomeCallable IssClient::DescribeAITaskCallable(const DescribeAITaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAITaskOutcome>>();
-    DescribeAITaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeAITaskRequest&,
-        DescribeAITaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAITaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAITask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeAITaskResultOutcome IssClient::DescribeAITaskResult(const DescribeAITaskResultRequest &request)
@@ -1612,32 +1395,25 @@ IssClient::DescribeAITaskResultOutcome IssClient::DescribeAITaskResult(const Des
 
 void IssClient::DescribeAITaskResultAsync(const DescribeAITaskResultRequest& request, const DescribeAITaskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAITaskResultRequest&;
-    using Resp = DescribeAITaskResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAITaskResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAITaskResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeAITaskResultOutcomeCallable IssClient::DescribeAITaskResultCallable(const DescribeAITaskResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAITaskResultOutcome>>();
-    DescribeAITaskResultAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeAITaskResultRequest&,
-        DescribeAITaskResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAITaskResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAITaskResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeCNAMEOutcome IssClient::DescribeCNAME(const DescribeCNAMERequest &request)
@@ -1662,32 +1438,25 @@ IssClient::DescribeCNAMEOutcome IssClient::DescribeCNAME(const DescribeCNAMERequ
 
 void IssClient::DescribeCNAMEAsync(const DescribeCNAMERequest& request, const DescribeCNAMEAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCNAMERequest&;
-    using Resp = DescribeCNAMEResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCNAME(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCNAME", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeCNAMEOutcomeCallable IssClient::DescribeCNAMECallable(const DescribeCNAMERequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCNAMEOutcome>>();
-    DescribeCNAMEAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeCNAMERequest&,
-        DescribeCNAMEOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCNAMEOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCNAME(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeDeviceChannelOutcome IssClient::DescribeDeviceChannel(const DescribeDeviceChannelRequest &request)
@@ -1712,32 +1481,25 @@ IssClient::DescribeDeviceChannelOutcome IssClient::DescribeDeviceChannel(const D
 
 void IssClient::DescribeDeviceChannelAsync(const DescribeDeviceChannelRequest& request, const DescribeDeviceChannelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeviceChannelRequest&;
-    using Resp = DescribeDeviceChannelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeviceChannel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeviceChannel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeDeviceChannelOutcomeCallable IssClient::DescribeDeviceChannelCallable(const DescribeDeviceChannelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeviceChannelOutcome>>();
-    DescribeDeviceChannelAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeDeviceChannelRequest&,
-        DescribeDeviceChannelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeviceChannelOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeviceChannel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeDevicePresetOutcome IssClient::DescribeDevicePreset(const DescribeDevicePresetRequest &request)
@@ -1762,32 +1524,25 @@ IssClient::DescribeDevicePresetOutcome IssClient::DescribeDevicePreset(const Des
 
 void IssClient::DescribeDevicePresetAsync(const DescribeDevicePresetRequest& request, const DescribeDevicePresetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDevicePresetRequest&;
-    using Resp = DescribeDevicePresetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDevicePreset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDevicePreset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeDevicePresetOutcomeCallable IssClient::DescribeDevicePresetCallable(const DescribeDevicePresetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDevicePresetOutcome>>();
-    DescribeDevicePresetAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeDevicePresetRequest&,
-        DescribeDevicePresetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDevicePresetOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDevicePreset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeDeviceRegionOutcome IssClient::DescribeDeviceRegion(const DescribeDeviceRegionRequest &request)
@@ -1812,32 +1567,25 @@ IssClient::DescribeDeviceRegionOutcome IssClient::DescribeDeviceRegion(const Des
 
 void IssClient::DescribeDeviceRegionAsync(const DescribeDeviceRegionRequest& request, const DescribeDeviceRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDeviceRegionRequest&;
-    using Resp = DescribeDeviceRegionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDeviceRegion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDeviceRegion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeDeviceRegionOutcomeCallable IssClient::DescribeDeviceRegionCallable(const DescribeDeviceRegionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDeviceRegionOutcome>>();
-    DescribeDeviceRegionAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeDeviceRegionRequest&,
-        DescribeDeviceRegionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDeviceRegionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDeviceRegion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeDomainOutcome IssClient::DescribeDomain(const DescribeDomainRequest &request)
@@ -1862,32 +1610,25 @@ IssClient::DescribeDomainOutcome IssClient::DescribeDomain(const DescribeDomainR
 
 void IssClient::DescribeDomainAsync(const DescribeDomainRequest& request, const DescribeDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainRequest&;
-    using Resp = DescribeDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeDomainOutcomeCallable IssClient::DescribeDomainCallable(const DescribeDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainOutcome>>();
-    DescribeDomainAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeDomainRequest&,
-        DescribeDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeDomainRegionOutcome IssClient::DescribeDomainRegion(const DescribeDomainRegionRequest &request)
@@ -1912,32 +1653,25 @@ IssClient::DescribeDomainRegionOutcome IssClient::DescribeDomainRegion(const Des
 
 void IssClient::DescribeDomainRegionAsync(const DescribeDomainRegionRequest& request, const DescribeDomainRegionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainRegionRequest&;
-    using Resp = DescribeDomainRegionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainRegion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainRegion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeDomainRegionOutcomeCallable IssClient::DescribeDomainRegionCallable(const DescribeDomainRegionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainRegionOutcome>>();
-    DescribeDomainRegionAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeDomainRegionRequest&,
-        DescribeDomainRegionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainRegionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainRegion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeGBDeviceAddrOutcome IssClient::DescribeGBDeviceAddr(const DescribeGBDeviceAddrRequest &request)
@@ -1962,32 +1696,25 @@ IssClient::DescribeGBDeviceAddrOutcome IssClient::DescribeGBDeviceAddr(const Des
 
 void IssClient::DescribeGBDeviceAddrAsync(const DescribeGBDeviceAddrRequest& request, const DescribeGBDeviceAddrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGBDeviceAddrRequest&;
-    using Resp = DescribeGBDeviceAddrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGBDeviceAddr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGBDeviceAddr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeGBDeviceAddrOutcomeCallable IssClient::DescribeGBDeviceAddrCallable(const DescribeGBDeviceAddrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGBDeviceAddrOutcome>>();
-    DescribeGBDeviceAddrAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeGBDeviceAddrRequest&,
-        DescribeGBDeviceAddrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGBDeviceAddrOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGBDeviceAddr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeGatewayOutcome IssClient::DescribeGateway(const DescribeGatewayRequest &request)
@@ -2012,32 +1739,25 @@ IssClient::DescribeGatewayOutcome IssClient::DescribeGateway(const DescribeGatew
 
 void IssClient::DescribeGatewayAsync(const DescribeGatewayRequest& request, const DescribeGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGatewayRequest&;
-    using Resp = DescribeGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeGatewayOutcomeCallable IssClient::DescribeGatewayCallable(const DescribeGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGatewayOutcome>>();
-    DescribeGatewayAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeGatewayRequest&,
-        DescribeGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeGatewayMonitorOutcome IssClient::DescribeGatewayMonitor(const DescribeGatewayMonitorRequest &request)
@@ -2062,32 +1782,25 @@ IssClient::DescribeGatewayMonitorOutcome IssClient::DescribeGatewayMonitor(const
 
 void IssClient::DescribeGatewayMonitorAsync(const DescribeGatewayMonitorRequest& request, const DescribeGatewayMonitorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGatewayMonitorRequest&;
-    using Resp = DescribeGatewayMonitorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGatewayMonitor(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayMonitor", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeGatewayMonitorOutcomeCallable IssClient::DescribeGatewayMonitorCallable(const DescribeGatewayMonitorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGatewayMonitorOutcome>>();
-    DescribeGatewayMonitorAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeGatewayMonitorRequest&,
-        DescribeGatewayMonitorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGatewayMonitorOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGatewayMonitor(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeGatewayProtocolOutcome IssClient::DescribeGatewayProtocol(const DescribeGatewayProtocolRequest &request)
@@ -2112,32 +1825,25 @@ IssClient::DescribeGatewayProtocolOutcome IssClient::DescribeGatewayProtocol(con
 
 void IssClient::DescribeGatewayProtocolAsync(const DescribeGatewayProtocolRequest& request, const DescribeGatewayProtocolAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGatewayProtocolRequest&;
-    using Resp = DescribeGatewayProtocolResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGatewayProtocol(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayProtocol", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeGatewayProtocolOutcomeCallable IssClient::DescribeGatewayProtocolCallable(const DescribeGatewayProtocolRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGatewayProtocolOutcome>>();
-    DescribeGatewayProtocolAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeGatewayProtocolRequest&,
-        DescribeGatewayProtocolOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGatewayProtocolOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGatewayProtocol(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeGatewayVersionOutcome IssClient::DescribeGatewayVersion(const DescribeGatewayVersionRequest &request)
@@ -2162,32 +1868,25 @@ IssClient::DescribeGatewayVersionOutcome IssClient::DescribeGatewayVersion(const
 
 void IssClient::DescribeGatewayVersionAsync(const DescribeGatewayVersionRequest& request, const DescribeGatewayVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGatewayVersionRequest&;
-    using Resp = DescribeGatewayVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGatewayVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeGatewayVersionOutcomeCallable IssClient::DescribeGatewayVersionCallable(const DescribeGatewayVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGatewayVersionOutcome>>();
-    DescribeGatewayVersionAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeGatewayVersionRequest&,
-        DescribeGatewayVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGatewayVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGatewayVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeOrganizationOutcome IssClient::DescribeOrganization(const DescribeOrganizationRequest &request)
@@ -2212,32 +1911,25 @@ IssClient::DescribeOrganizationOutcome IssClient::DescribeOrganization(const Des
 
 void IssClient::DescribeOrganizationAsync(const DescribeOrganizationRequest& request, const DescribeOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeOrganizationRequest&;
-    using Resp = DescribeOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeOrganizationOutcomeCallable IssClient::DescribeOrganizationCallable(const DescribeOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeOrganizationOutcome>>();
-    DescribeOrganizationAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeOrganizationRequest&,
-        DescribeOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeRecordBackupPlanOutcome IssClient::DescribeRecordBackupPlan(const DescribeRecordBackupPlanRequest &request)
@@ -2262,32 +1954,25 @@ IssClient::DescribeRecordBackupPlanOutcome IssClient::DescribeRecordBackupPlan(c
 
 void IssClient::DescribeRecordBackupPlanAsync(const DescribeRecordBackupPlanRequest& request, const DescribeRecordBackupPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordBackupPlanRequest&;
-    using Resp = DescribeRecordBackupPlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordBackupPlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordBackupPlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeRecordBackupPlanOutcomeCallable IssClient::DescribeRecordBackupPlanCallable(const DescribeRecordBackupPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordBackupPlanOutcome>>();
-    DescribeRecordBackupPlanAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeRecordBackupPlanRequest&,
-        DescribeRecordBackupPlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordBackupPlanOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordBackupPlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeRecordBackupTemplateOutcome IssClient::DescribeRecordBackupTemplate(const DescribeRecordBackupTemplateRequest &request)
@@ -2312,32 +1997,25 @@ IssClient::DescribeRecordBackupTemplateOutcome IssClient::DescribeRecordBackupTe
 
 void IssClient::DescribeRecordBackupTemplateAsync(const DescribeRecordBackupTemplateRequest& request, const DescribeRecordBackupTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordBackupTemplateRequest&;
-    using Resp = DescribeRecordBackupTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordBackupTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordBackupTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeRecordBackupTemplateOutcomeCallable IssClient::DescribeRecordBackupTemplateCallable(const DescribeRecordBackupTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordBackupTemplateOutcome>>();
-    DescribeRecordBackupTemplateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeRecordBackupTemplateRequest&,
-        DescribeRecordBackupTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordBackupTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordBackupTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeRecordFileOutcome IssClient::DescribeRecordFile(const DescribeRecordFileRequest &request)
@@ -2362,32 +2040,25 @@ IssClient::DescribeRecordFileOutcome IssClient::DescribeRecordFile(const Describ
 
 void IssClient::DescribeRecordFileAsync(const DescribeRecordFileRequest& request, const DescribeRecordFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordFileRequest&;
-    using Resp = DescribeRecordFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeRecordFileOutcomeCallable IssClient::DescribeRecordFileCallable(const DescribeRecordFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordFileOutcome>>();
-    DescribeRecordFileAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeRecordFileRequest&,
-        DescribeRecordFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordFileOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeRecordPlanOutcome IssClient::DescribeRecordPlan(const DescribeRecordPlanRequest &request)
@@ -2412,32 +2083,25 @@ IssClient::DescribeRecordPlanOutcome IssClient::DescribeRecordPlan(const Describ
 
 void IssClient::DescribeRecordPlanAsync(const DescribeRecordPlanRequest& request, const DescribeRecordPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordPlanRequest&;
-    using Resp = DescribeRecordPlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordPlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordPlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeRecordPlanOutcomeCallable IssClient::DescribeRecordPlanCallable(const DescribeRecordPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordPlanOutcome>>();
-    DescribeRecordPlanAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeRecordPlanRequest&,
-        DescribeRecordPlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordPlanOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordPlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeRecordPlaybackUrlOutcome IssClient::DescribeRecordPlaybackUrl(const DescribeRecordPlaybackUrlRequest &request)
@@ -2462,32 +2126,25 @@ IssClient::DescribeRecordPlaybackUrlOutcome IssClient::DescribeRecordPlaybackUrl
 
 void IssClient::DescribeRecordPlaybackUrlAsync(const DescribeRecordPlaybackUrlRequest& request, const DescribeRecordPlaybackUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordPlaybackUrlRequest&;
-    using Resp = DescribeRecordPlaybackUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordPlaybackUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordPlaybackUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeRecordPlaybackUrlOutcomeCallable IssClient::DescribeRecordPlaybackUrlCallable(const DescribeRecordPlaybackUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordPlaybackUrlOutcome>>();
-    DescribeRecordPlaybackUrlAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeRecordPlaybackUrlRequest&,
-        DescribeRecordPlaybackUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordPlaybackUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordPlaybackUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeRecordRetrieveTaskOutcome IssClient::DescribeRecordRetrieveTask(const DescribeRecordRetrieveTaskRequest &request)
@@ -2512,32 +2169,25 @@ IssClient::DescribeRecordRetrieveTaskOutcome IssClient::DescribeRecordRetrieveTa
 
 void IssClient::DescribeRecordRetrieveTaskAsync(const DescribeRecordRetrieveTaskRequest& request, const DescribeRecordRetrieveTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordRetrieveTaskRequest&;
-    using Resp = DescribeRecordRetrieveTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordRetrieveTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordRetrieveTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeRecordRetrieveTaskOutcomeCallable IssClient::DescribeRecordRetrieveTaskCallable(const DescribeRecordRetrieveTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordRetrieveTaskOutcome>>();
-    DescribeRecordRetrieveTaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeRecordRetrieveTaskRequest&,
-        DescribeRecordRetrieveTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordRetrieveTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordRetrieveTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeRecordSliceOutcome IssClient::DescribeRecordSlice(const DescribeRecordSliceRequest &request)
@@ -2562,32 +2212,25 @@ IssClient::DescribeRecordSliceOutcome IssClient::DescribeRecordSlice(const Descr
 
 void IssClient::DescribeRecordSliceAsync(const DescribeRecordSliceRequest& request, const DescribeRecordSliceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordSliceRequest&;
-    using Resp = DescribeRecordSliceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordSlice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordSlice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeRecordSliceOutcomeCallable IssClient::DescribeRecordSliceCallable(const DescribeRecordSliceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordSliceOutcome>>();
-    DescribeRecordSliceAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeRecordSliceRequest&,
-        DescribeRecordSliceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordSliceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordSlice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeRecordTemplateOutcome IssClient::DescribeRecordTemplate(const DescribeRecordTemplateRequest &request)
@@ -2612,32 +2255,25 @@ IssClient::DescribeRecordTemplateOutcome IssClient::DescribeRecordTemplate(const
 
 void IssClient::DescribeRecordTemplateAsync(const DescribeRecordTemplateRequest& request, const DescribeRecordTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordTemplateRequest&;
-    using Resp = DescribeRecordTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeRecordTemplateOutcomeCallable IssClient::DescribeRecordTemplateCallable(const DescribeRecordTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordTemplateOutcome>>();
-    DescribeRecordTemplateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeRecordTemplateRequest&,
-        DescribeRecordTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeStreamAuthOutcome IssClient::DescribeStreamAuth(const DescribeStreamAuthRequest &request)
@@ -2662,32 +2298,25 @@ IssClient::DescribeStreamAuthOutcome IssClient::DescribeStreamAuth(const Describ
 
 void IssClient::DescribeStreamAuthAsync(const DescribeStreamAuthRequest& request, const DescribeStreamAuthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStreamAuthRequest&;
-    using Resp = DescribeStreamAuthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStreamAuth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStreamAuth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeStreamAuthOutcomeCallable IssClient::DescribeStreamAuthCallable(const DescribeStreamAuthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStreamAuthOutcome>>();
-    DescribeStreamAuthAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeStreamAuthRequest&,
-        DescribeStreamAuthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStreamAuthOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStreamAuth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeTaskOutcome IssClient::DescribeTask(const DescribeTaskRequest &request)
@@ -2712,32 +2341,25 @@ IssClient::DescribeTaskOutcome IssClient::DescribeTask(const DescribeTaskRequest
 
 void IssClient::DescribeTaskAsync(const DescribeTaskRequest& request, const DescribeTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskRequest&;
-    using Resp = DescribeTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeTaskOutcomeCallable IssClient::DescribeTaskCallable(const DescribeTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskOutcome>>();
-    DescribeTaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeTaskRequest&,
-        DescribeTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeUserDeviceOutcome IssClient::DescribeUserDevice(const DescribeUserDeviceRequest &request)
@@ -2762,32 +2384,25 @@ IssClient::DescribeUserDeviceOutcome IssClient::DescribeUserDevice(const Describ
 
 void IssClient::DescribeUserDeviceAsync(const DescribeUserDeviceRequest& request, const DescribeUserDeviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserDeviceRequest&;
-    using Resp = DescribeUserDeviceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserDevice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserDevice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeUserDeviceOutcomeCallable IssClient::DescribeUserDeviceCallable(const DescribeUserDeviceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserDeviceOutcome>>();
-    DescribeUserDeviceAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeUserDeviceRequest&,
-        DescribeUserDeviceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserDeviceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserDevice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeUserDeviceListOutcome IssClient::DescribeUserDeviceList(const DescribeUserDeviceListRequest &request)
@@ -2812,32 +2427,25 @@ IssClient::DescribeUserDeviceListOutcome IssClient::DescribeUserDeviceList(const
 
 void IssClient::DescribeUserDeviceListAsync(const DescribeUserDeviceListRequest& request, const DescribeUserDeviceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserDeviceListRequest&;
-    using Resp = DescribeUserDeviceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserDeviceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserDeviceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeUserDeviceListOutcomeCallable IssClient::DescribeUserDeviceListCallable(const DescribeUserDeviceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserDeviceListOutcome>>();
-    DescribeUserDeviceListAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeUserDeviceListRequest&,
-        DescribeUserDeviceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserDeviceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserDeviceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeVideoBitRateOutcome IssClient::DescribeVideoBitRate(const DescribeVideoBitRateRequest &request)
@@ -2862,32 +2470,25 @@ IssClient::DescribeVideoBitRateOutcome IssClient::DescribeVideoBitRate(const Des
 
 void IssClient::DescribeVideoBitRateAsync(const DescribeVideoBitRateRequest& request, const DescribeVideoBitRateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoBitRateRequest&;
-    using Resp = DescribeVideoBitRateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoBitRate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoBitRate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeVideoBitRateOutcomeCallable IssClient::DescribeVideoBitRateCallable(const DescribeVideoBitRateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoBitRateOutcome>>();
-    DescribeVideoBitRateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeVideoBitRateRequest&,
-        DescribeVideoBitRateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoBitRateOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoBitRate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::DescribeVideoDownloadUrlOutcome IssClient::DescribeVideoDownloadUrl(const DescribeVideoDownloadUrlRequest &request)
@@ -2912,32 +2513,25 @@ IssClient::DescribeVideoDownloadUrlOutcome IssClient::DescribeVideoDownloadUrl(c
 
 void IssClient::DescribeVideoDownloadUrlAsync(const DescribeVideoDownloadUrlRequest& request, const DescribeVideoDownloadUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoDownloadUrlRequest&;
-    using Resp = DescribeVideoDownloadUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoDownloadUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoDownloadUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::DescribeVideoDownloadUrlOutcomeCallable IssClient::DescribeVideoDownloadUrlCallable(const DescribeVideoDownloadUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoDownloadUrlOutcome>>();
-    DescribeVideoDownloadUrlAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const DescribeVideoDownloadUrlRequest&,
-        DescribeVideoDownloadUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoDownloadUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoDownloadUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListAITasksOutcome IssClient::ListAITasks(const ListAITasksRequest &request)
@@ -2962,32 +2556,25 @@ IssClient::ListAITasksOutcome IssClient::ListAITasks(const ListAITasksRequest &r
 
 void IssClient::ListAITasksAsync(const ListAITasksRequest& request, const ListAITasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListAITasksRequest&;
-    using Resp = ListAITasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListAITasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListAITasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListAITasksOutcomeCallable IssClient::ListAITasksCallable(const ListAITasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListAITasksOutcome>>();
-    ListAITasksAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListAITasksRequest&,
-        ListAITasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListAITasksOutcome()>>(
+        [this, request]()
+        {
+            return this->ListAITasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListDeviceSnapshotsOutcome IssClient::ListDeviceSnapshots(const ListDeviceSnapshotsRequest &request)
@@ -3012,32 +2599,25 @@ IssClient::ListDeviceSnapshotsOutcome IssClient::ListDeviceSnapshots(const ListD
 
 void IssClient::ListDeviceSnapshotsAsync(const ListDeviceSnapshotsRequest& request, const ListDeviceSnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListDeviceSnapshotsRequest&;
-    using Resp = ListDeviceSnapshotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListDeviceSnapshots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListDeviceSnapshots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListDeviceSnapshotsOutcomeCallable IssClient::ListDeviceSnapshotsCallable(const ListDeviceSnapshotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListDeviceSnapshotsOutcome>>();
-    ListDeviceSnapshotsAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListDeviceSnapshotsRequest&,
-        ListDeviceSnapshotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListDeviceSnapshotsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListDeviceSnapshots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListDevicesOutcome IssClient::ListDevices(const ListDevicesRequest &request)
@@ -3062,32 +2642,25 @@ IssClient::ListDevicesOutcome IssClient::ListDevices(const ListDevicesRequest &r
 
 void IssClient::ListDevicesAsync(const ListDevicesRequest& request, const ListDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListDevicesRequest&;
-    using Resp = ListDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListDevicesOutcomeCallable IssClient::ListDevicesCallable(const ListDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListDevicesOutcome>>();
-    ListDevicesAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListDevicesRequest&,
-        ListDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListGatewayDevicesOutcome IssClient::ListGatewayDevices(const ListGatewayDevicesRequest &request)
@@ -3112,32 +2685,25 @@ IssClient::ListGatewayDevicesOutcome IssClient::ListGatewayDevices(const ListGat
 
 void IssClient::ListGatewayDevicesAsync(const ListGatewayDevicesRequest& request, const ListGatewayDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListGatewayDevicesRequest&;
-    using Resp = ListGatewayDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListGatewayDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListGatewayDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListGatewayDevicesOutcomeCallable IssClient::ListGatewayDevicesCallable(const ListGatewayDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListGatewayDevicesOutcome>>();
-    ListGatewayDevicesAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListGatewayDevicesRequest&,
-        ListGatewayDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListGatewayDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListGatewayDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListGatewaysOutcome IssClient::ListGateways(const ListGatewaysRequest &request)
@@ -3162,32 +2728,25 @@ IssClient::ListGatewaysOutcome IssClient::ListGateways(const ListGatewaysRequest
 
 void IssClient::ListGatewaysAsync(const ListGatewaysRequest& request, const ListGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListGatewaysRequest&;
-    using Resp = ListGatewaysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListGateways(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListGateways", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListGatewaysOutcomeCallable IssClient::ListGatewaysCallable(const ListGatewaysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListGatewaysOutcome>>();
-    ListGatewaysAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListGatewaysRequest&,
-        ListGatewaysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListGatewaysOutcome()>>(
+        [this, request]()
+        {
+            return this->ListGateways(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListOrganizationChannelNumbersOutcome IssClient::ListOrganizationChannelNumbers(const ListOrganizationChannelNumbersRequest &request)
@@ -3212,32 +2771,25 @@ IssClient::ListOrganizationChannelNumbersOutcome IssClient::ListOrganizationChan
 
 void IssClient::ListOrganizationChannelNumbersAsync(const ListOrganizationChannelNumbersRequest& request, const ListOrganizationChannelNumbersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListOrganizationChannelNumbersRequest&;
-    using Resp = ListOrganizationChannelNumbersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListOrganizationChannelNumbers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListOrganizationChannelNumbers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListOrganizationChannelNumbersOutcomeCallable IssClient::ListOrganizationChannelNumbersCallable(const ListOrganizationChannelNumbersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListOrganizationChannelNumbersOutcome>>();
-    ListOrganizationChannelNumbersAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListOrganizationChannelNumbersRequest&,
-        ListOrganizationChannelNumbersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListOrganizationChannelNumbersOutcome()>>(
+        [this, request]()
+        {
+            return this->ListOrganizationChannelNumbers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListOrganizationChannelsOutcome IssClient::ListOrganizationChannels(const ListOrganizationChannelsRequest &request)
@@ -3262,32 +2814,25 @@ IssClient::ListOrganizationChannelsOutcome IssClient::ListOrganizationChannels(c
 
 void IssClient::ListOrganizationChannelsAsync(const ListOrganizationChannelsRequest& request, const ListOrganizationChannelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListOrganizationChannelsRequest&;
-    using Resp = ListOrganizationChannelsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListOrganizationChannels(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListOrganizationChannels", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListOrganizationChannelsOutcomeCallable IssClient::ListOrganizationChannelsCallable(const ListOrganizationChannelsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListOrganizationChannelsOutcome>>();
-    ListOrganizationChannelsAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListOrganizationChannelsRequest&,
-        ListOrganizationChannelsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListOrganizationChannelsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListOrganizationChannels(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListRecordBackupPlanDevicesOutcome IssClient::ListRecordBackupPlanDevices(const ListRecordBackupPlanDevicesRequest &request)
@@ -3312,32 +2857,25 @@ IssClient::ListRecordBackupPlanDevicesOutcome IssClient::ListRecordBackupPlanDev
 
 void IssClient::ListRecordBackupPlanDevicesAsync(const ListRecordBackupPlanDevicesRequest& request, const ListRecordBackupPlanDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRecordBackupPlanDevicesRequest&;
-    using Resp = ListRecordBackupPlanDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRecordBackupPlanDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRecordBackupPlanDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListRecordBackupPlanDevicesOutcomeCallable IssClient::ListRecordBackupPlanDevicesCallable(const ListRecordBackupPlanDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRecordBackupPlanDevicesOutcome>>();
-    ListRecordBackupPlanDevicesAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListRecordBackupPlanDevicesRequest&,
-        ListRecordBackupPlanDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRecordBackupPlanDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRecordBackupPlanDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListRecordBackupPlansOutcome IssClient::ListRecordBackupPlans(const ListRecordBackupPlansRequest &request)
@@ -3362,32 +2900,25 @@ IssClient::ListRecordBackupPlansOutcome IssClient::ListRecordBackupPlans(const L
 
 void IssClient::ListRecordBackupPlansAsync(const ListRecordBackupPlansRequest& request, const ListRecordBackupPlansAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRecordBackupPlansRequest&;
-    using Resp = ListRecordBackupPlansResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRecordBackupPlans(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRecordBackupPlans", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListRecordBackupPlansOutcomeCallable IssClient::ListRecordBackupPlansCallable(const ListRecordBackupPlansRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRecordBackupPlansOutcome>>();
-    ListRecordBackupPlansAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListRecordBackupPlansRequest&,
-        ListRecordBackupPlansOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRecordBackupPlansOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRecordBackupPlans(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListRecordBackupTemplatesOutcome IssClient::ListRecordBackupTemplates(const ListRecordBackupTemplatesRequest &request)
@@ -3412,32 +2943,25 @@ IssClient::ListRecordBackupTemplatesOutcome IssClient::ListRecordBackupTemplates
 
 void IssClient::ListRecordBackupTemplatesAsync(const ListRecordBackupTemplatesRequest& request, const ListRecordBackupTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRecordBackupTemplatesRequest&;
-    using Resp = ListRecordBackupTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRecordBackupTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRecordBackupTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListRecordBackupTemplatesOutcomeCallable IssClient::ListRecordBackupTemplatesCallable(const ListRecordBackupTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRecordBackupTemplatesOutcome>>();
-    ListRecordBackupTemplatesAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListRecordBackupTemplatesRequest&,
-        ListRecordBackupTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRecordBackupTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRecordBackupTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListRecordPlanChannelsOutcome IssClient::ListRecordPlanChannels(const ListRecordPlanChannelsRequest &request)
@@ -3462,32 +2986,25 @@ IssClient::ListRecordPlanChannelsOutcome IssClient::ListRecordPlanChannels(const
 
 void IssClient::ListRecordPlanChannelsAsync(const ListRecordPlanChannelsRequest& request, const ListRecordPlanChannelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRecordPlanChannelsRequest&;
-    using Resp = ListRecordPlanChannelsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRecordPlanChannels(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRecordPlanChannels", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListRecordPlanChannelsOutcomeCallable IssClient::ListRecordPlanChannelsCallable(const ListRecordPlanChannelsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRecordPlanChannelsOutcome>>();
-    ListRecordPlanChannelsAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListRecordPlanChannelsRequest&,
-        ListRecordPlanChannelsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRecordPlanChannelsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRecordPlanChannels(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListRecordPlanDevicesOutcome IssClient::ListRecordPlanDevices(const ListRecordPlanDevicesRequest &request)
@@ -3512,32 +3029,25 @@ IssClient::ListRecordPlanDevicesOutcome IssClient::ListRecordPlanDevices(const L
 
 void IssClient::ListRecordPlanDevicesAsync(const ListRecordPlanDevicesRequest& request, const ListRecordPlanDevicesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRecordPlanDevicesRequest&;
-    using Resp = ListRecordPlanDevicesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRecordPlanDevices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRecordPlanDevices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListRecordPlanDevicesOutcomeCallable IssClient::ListRecordPlanDevicesCallable(const ListRecordPlanDevicesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRecordPlanDevicesOutcome>>();
-    ListRecordPlanDevicesAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListRecordPlanDevicesRequest&,
-        ListRecordPlanDevicesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRecordPlanDevicesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRecordPlanDevices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListRecordPlansOutcome IssClient::ListRecordPlans(const ListRecordPlansRequest &request)
@@ -3562,32 +3072,25 @@ IssClient::ListRecordPlansOutcome IssClient::ListRecordPlans(const ListRecordPla
 
 void IssClient::ListRecordPlansAsync(const ListRecordPlansRequest& request, const ListRecordPlansAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRecordPlansRequest&;
-    using Resp = ListRecordPlansResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRecordPlans(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRecordPlans", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListRecordPlansOutcomeCallable IssClient::ListRecordPlansCallable(const ListRecordPlansRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRecordPlansOutcome>>();
-    ListRecordPlansAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListRecordPlansRequest&,
-        ListRecordPlansOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRecordPlansOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRecordPlans(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListRecordRetrieveTasksOutcome IssClient::ListRecordRetrieveTasks(const ListRecordRetrieveTasksRequest &request)
@@ -3612,32 +3115,25 @@ IssClient::ListRecordRetrieveTasksOutcome IssClient::ListRecordRetrieveTasks(con
 
 void IssClient::ListRecordRetrieveTasksAsync(const ListRecordRetrieveTasksRequest& request, const ListRecordRetrieveTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRecordRetrieveTasksRequest&;
-    using Resp = ListRecordRetrieveTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRecordRetrieveTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRecordRetrieveTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListRecordRetrieveTasksOutcomeCallable IssClient::ListRecordRetrieveTasksCallable(const ListRecordRetrieveTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRecordRetrieveTasksOutcome>>();
-    ListRecordRetrieveTasksAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListRecordRetrieveTasksRequest&,
-        ListRecordRetrieveTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRecordRetrieveTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRecordRetrieveTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListRecordTemplatesOutcome IssClient::ListRecordTemplates(const ListRecordTemplatesRequest &request)
@@ -3662,32 +3158,25 @@ IssClient::ListRecordTemplatesOutcome IssClient::ListRecordTemplates(const ListR
 
 void IssClient::ListRecordTemplatesAsync(const ListRecordTemplatesRequest& request, const ListRecordTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListRecordTemplatesRequest&;
-    using Resp = ListRecordTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListRecordTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListRecordTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListRecordTemplatesOutcomeCallable IssClient::ListRecordTemplatesCallable(const ListRecordTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListRecordTemplatesOutcome>>();
-    ListRecordTemplatesAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListRecordTemplatesRequest&,
-        ListRecordTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListRecordTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListRecordTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListSubTasksOutcome IssClient::ListSubTasks(const ListSubTasksRequest &request)
@@ -3712,32 +3201,25 @@ IssClient::ListSubTasksOutcome IssClient::ListSubTasks(const ListSubTasksRequest
 
 void IssClient::ListSubTasksAsync(const ListSubTasksRequest& request, const ListSubTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListSubTasksRequest&;
-    using Resp = ListSubTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListSubTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListSubTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListSubTasksOutcomeCallable IssClient::ListSubTasksCallable(const ListSubTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListSubTasksOutcome>>();
-    ListSubTasksAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListSubTasksRequest&,
-        ListSubTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListSubTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->ListSubTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListTasksOutcome IssClient::ListTasks(const ListTasksRequest &request)
@@ -3762,32 +3244,25 @@ IssClient::ListTasksOutcome IssClient::ListTasks(const ListTasksRequest &request
 
 void IssClient::ListTasksAsync(const ListTasksRequest& request, const ListTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListTasksRequest&;
-    using Resp = ListTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListTasksOutcomeCallable IssClient::ListTasksCallable(const ListTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListTasksOutcome>>();
-    ListTasksAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListTasksRequest&,
-        ListTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->ListTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::ListVideoDownloadTaskOutcome IssClient::ListVideoDownloadTask(const ListVideoDownloadTaskRequest &request)
@@ -3812,32 +3287,25 @@ IssClient::ListVideoDownloadTaskOutcome IssClient::ListVideoDownloadTask(const L
 
 void IssClient::ListVideoDownloadTaskAsync(const ListVideoDownloadTaskRequest& request, const ListVideoDownloadTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListVideoDownloadTaskRequest&;
-    using Resp = ListVideoDownloadTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListVideoDownloadTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListVideoDownloadTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::ListVideoDownloadTaskOutcomeCallable IssClient::ListVideoDownloadTaskCallable(const ListVideoDownloadTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListVideoDownloadTaskOutcome>>();
-    ListVideoDownloadTaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const ListVideoDownloadTaskRequest&,
-        ListVideoDownloadTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListVideoDownloadTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->ListVideoDownloadTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::PlayRecordOutcome IssClient::PlayRecord(const PlayRecordRequest &request)
@@ -3862,32 +3330,25 @@ IssClient::PlayRecordOutcome IssClient::PlayRecord(const PlayRecordRequest &requ
 
 void IssClient::PlayRecordAsync(const PlayRecordRequest& request, const PlayRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PlayRecordRequest&;
-    using Resp = PlayRecordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PlayRecord(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PlayRecord", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::PlayRecordOutcomeCallable IssClient::PlayRecordCallable(const PlayRecordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PlayRecordOutcome>>();
-    PlayRecordAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const PlayRecordRequest&,
-        PlayRecordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PlayRecordOutcome()>>(
+        [this, request]()
+        {
+            return this->PlayRecord(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::QueryForbidPlayChannelListOutcome IssClient::QueryForbidPlayChannelList(const QueryForbidPlayChannelListRequest &request)
@@ -3912,32 +3373,25 @@ IssClient::QueryForbidPlayChannelListOutcome IssClient::QueryForbidPlayChannelLi
 
 void IssClient::QueryForbidPlayChannelListAsync(const QueryForbidPlayChannelListRequest& request, const QueryForbidPlayChannelListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryForbidPlayChannelListRequest&;
-    using Resp = QueryForbidPlayChannelListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryForbidPlayChannelList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryForbidPlayChannelList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::QueryForbidPlayChannelListOutcomeCallable IssClient::QueryForbidPlayChannelListCallable(const QueryForbidPlayChannelListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryForbidPlayChannelListOutcome>>();
-    QueryForbidPlayChannelListAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const QueryForbidPlayChannelListRequest&,
-        QueryForbidPlayChannelListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryForbidPlayChannelListOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryForbidPlayChannelList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::RefreshDeviceChannelOutcome IssClient::RefreshDeviceChannel(const RefreshDeviceChannelRequest &request)
@@ -3962,32 +3416,25 @@ IssClient::RefreshDeviceChannelOutcome IssClient::RefreshDeviceChannel(const Ref
 
 void IssClient::RefreshDeviceChannelAsync(const RefreshDeviceChannelRequest& request, const RefreshDeviceChannelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RefreshDeviceChannelRequest&;
-    using Resp = RefreshDeviceChannelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RefreshDeviceChannel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RefreshDeviceChannel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::RefreshDeviceChannelOutcomeCallable IssClient::RefreshDeviceChannelCallable(const RefreshDeviceChannelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RefreshDeviceChannelOutcome>>();
-    RefreshDeviceChannelAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const RefreshDeviceChannelRequest&,
-        RefreshDeviceChannelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RefreshDeviceChannelOutcome()>>(
+        [this, request]()
+        {
+            return this->RefreshDeviceChannel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::SetForbidPlayChannelsOutcome IssClient::SetForbidPlayChannels(const SetForbidPlayChannelsRequest &request)
@@ -4012,32 +3459,25 @@ IssClient::SetForbidPlayChannelsOutcome IssClient::SetForbidPlayChannels(const S
 
 void IssClient::SetForbidPlayChannelsAsync(const SetForbidPlayChannelsRequest& request, const SetForbidPlayChannelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetForbidPlayChannelsRequest&;
-    using Resp = SetForbidPlayChannelsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetForbidPlayChannels(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetForbidPlayChannels", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::SetForbidPlayChannelsOutcomeCallable IssClient::SetForbidPlayChannelsCallable(const SetForbidPlayChannelsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetForbidPlayChannelsOutcome>>();
-    SetForbidPlayChannelsAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const SetForbidPlayChannelsRequest&,
-        SetForbidPlayChannelsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetForbidPlayChannelsOutcome()>>(
+        [this, request]()
+        {
+            return this->SetForbidPlayChannels(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateAITaskOutcome IssClient::UpdateAITask(const UpdateAITaskRequest &request)
@@ -4062,32 +3502,25 @@ IssClient::UpdateAITaskOutcome IssClient::UpdateAITask(const UpdateAITaskRequest
 
 void IssClient::UpdateAITaskAsync(const UpdateAITaskRequest& request, const UpdateAITaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateAITaskRequest&;
-    using Resp = UpdateAITaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateAITask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateAITask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateAITaskOutcomeCallable IssClient::UpdateAITaskCallable(const UpdateAITaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateAITaskOutcome>>();
-    UpdateAITaskAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateAITaskRequest&,
-        UpdateAITaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateAITaskOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateAITask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateAITaskStatusOutcome IssClient::UpdateAITaskStatus(const UpdateAITaskStatusRequest &request)
@@ -4112,32 +3545,25 @@ IssClient::UpdateAITaskStatusOutcome IssClient::UpdateAITaskStatus(const UpdateA
 
 void IssClient::UpdateAITaskStatusAsync(const UpdateAITaskStatusRequest& request, const UpdateAITaskStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateAITaskStatusRequest&;
-    using Resp = UpdateAITaskStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateAITaskStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateAITaskStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateAITaskStatusOutcomeCallable IssClient::UpdateAITaskStatusCallable(const UpdateAITaskStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateAITaskStatusOutcome>>();
-    UpdateAITaskStatusAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateAITaskStatusRequest&,
-        UpdateAITaskStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateAITaskStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateAITaskStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateDeviceOrganizationOutcome IssClient::UpdateDeviceOrganization(const UpdateDeviceOrganizationRequest &request)
@@ -4162,32 +3588,25 @@ IssClient::UpdateDeviceOrganizationOutcome IssClient::UpdateDeviceOrganization(c
 
 void IssClient::UpdateDeviceOrganizationAsync(const UpdateDeviceOrganizationRequest& request, const UpdateDeviceOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateDeviceOrganizationRequest&;
-    using Resp = UpdateDeviceOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateDeviceOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateDeviceOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateDeviceOrganizationOutcomeCallable IssClient::UpdateDeviceOrganizationCallable(const UpdateDeviceOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateDeviceOrganizationOutcome>>();
-    UpdateDeviceOrganizationAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateDeviceOrganizationRequest&,
-        UpdateDeviceOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateDeviceOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateDeviceOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateDeviceStatusOutcome IssClient::UpdateDeviceStatus(const UpdateDeviceStatusRequest &request)
@@ -4212,32 +3631,25 @@ IssClient::UpdateDeviceStatusOutcome IssClient::UpdateDeviceStatus(const UpdateD
 
 void IssClient::UpdateDeviceStatusAsync(const UpdateDeviceStatusRequest& request, const UpdateDeviceStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateDeviceStatusRequest&;
-    using Resp = UpdateDeviceStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateDeviceStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateDeviceStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateDeviceStatusOutcomeCallable IssClient::UpdateDeviceStatusCallable(const UpdateDeviceStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateDeviceStatusOutcome>>();
-    UpdateDeviceStatusAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateDeviceStatusRequest&,
-        UpdateDeviceStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateDeviceStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateDeviceStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateGatewayOutcome IssClient::UpdateGateway(const UpdateGatewayRequest &request)
@@ -4262,32 +3674,25 @@ IssClient::UpdateGatewayOutcome IssClient::UpdateGateway(const UpdateGatewayRequ
 
 void IssClient::UpdateGatewayAsync(const UpdateGatewayRequest& request, const UpdateGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateGatewayRequest&;
-    using Resp = UpdateGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateGatewayOutcomeCallable IssClient::UpdateGatewayCallable(const UpdateGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateGatewayOutcome>>();
-    UpdateGatewayAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateGatewayRequest&,
-        UpdateGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateOrganizationOutcome IssClient::UpdateOrganization(const UpdateOrganizationRequest &request)
@@ -4312,32 +3717,25 @@ IssClient::UpdateOrganizationOutcome IssClient::UpdateOrganization(const UpdateO
 
 void IssClient::UpdateOrganizationAsync(const UpdateOrganizationRequest& request, const UpdateOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateOrganizationRequest&;
-    using Resp = UpdateOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateOrganizationOutcomeCallable IssClient::UpdateOrganizationCallable(const UpdateOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateOrganizationOutcome>>();
-    UpdateOrganizationAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateOrganizationRequest&,
-        UpdateOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateRecordBackupPlanOutcome IssClient::UpdateRecordBackupPlan(const UpdateRecordBackupPlanRequest &request)
@@ -4362,32 +3760,25 @@ IssClient::UpdateRecordBackupPlanOutcome IssClient::UpdateRecordBackupPlan(const
 
 void IssClient::UpdateRecordBackupPlanAsync(const UpdateRecordBackupPlanRequest& request, const UpdateRecordBackupPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateRecordBackupPlanRequest&;
-    using Resp = UpdateRecordBackupPlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateRecordBackupPlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateRecordBackupPlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateRecordBackupPlanOutcomeCallable IssClient::UpdateRecordBackupPlanCallable(const UpdateRecordBackupPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateRecordBackupPlanOutcome>>();
-    UpdateRecordBackupPlanAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateRecordBackupPlanRequest&,
-        UpdateRecordBackupPlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateRecordBackupPlanOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateRecordBackupPlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateRecordBackupTemplateOutcome IssClient::UpdateRecordBackupTemplate(const UpdateRecordBackupTemplateRequest &request)
@@ -4412,32 +3803,25 @@ IssClient::UpdateRecordBackupTemplateOutcome IssClient::UpdateRecordBackupTempla
 
 void IssClient::UpdateRecordBackupTemplateAsync(const UpdateRecordBackupTemplateRequest& request, const UpdateRecordBackupTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateRecordBackupTemplateRequest&;
-    using Resp = UpdateRecordBackupTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateRecordBackupTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateRecordBackupTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateRecordBackupTemplateOutcomeCallable IssClient::UpdateRecordBackupTemplateCallable(const UpdateRecordBackupTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateRecordBackupTemplateOutcome>>();
-    UpdateRecordBackupTemplateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateRecordBackupTemplateRequest&,
-        UpdateRecordBackupTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateRecordBackupTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateRecordBackupTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateRecordPlanOutcome IssClient::UpdateRecordPlan(const UpdateRecordPlanRequest &request)
@@ -4462,32 +3846,25 @@ IssClient::UpdateRecordPlanOutcome IssClient::UpdateRecordPlan(const UpdateRecor
 
 void IssClient::UpdateRecordPlanAsync(const UpdateRecordPlanRequest& request, const UpdateRecordPlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateRecordPlanRequest&;
-    using Resp = UpdateRecordPlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateRecordPlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateRecordPlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateRecordPlanOutcomeCallable IssClient::UpdateRecordPlanCallable(const UpdateRecordPlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateRecordPlanOutcome>>();
-    UpdateRecordPlanAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateRecordPlanRequest&,
-        UpdateRecordPlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateRecordPlanOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateRecordPlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateRecordTemplateOutcome IssClient::UpdateRecordTemplate(const UpdateRecordTemplateRequest &request)
@@ -4512,32 +3889,25 @@ IssClient::UpdateRecordTemplateOutcome IssClient::UpdateRecordTemplate(const Upd
 
 void IssClient::UpdateRecordTemplateAsync(const UpdateRecordTemplateRequest& request, const UpdateRecordTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateRecordTemplateRequest&;
-    using Resp = UpdateRecordTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateRecordTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateRecordTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateRecordTemplateOutcomeCallable IssClient::UpdateRecordTemplateCallable(const UpdateRecordTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateRecordTemplateOutcome>>();
-    UpdateRecordTemplateAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateRecordTemplateRequest&,
-        UpdateRecordTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateRecordTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateRecordTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpdateUserDeviceOutcome IssClient::UpdateUserDevice(const UpdateUserDeviceRequest &request)
@@ -4562,32 +3932,25 @@ IssClient::UpdateUserDeviceOutcome IssClient::UpdateUserDevice(const UpdateUserD
 
 void IssClient::UpdateUserDeviceAsync(const UpdateUserDeviceRequest& request, const UpdateUserDeviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateUserDeviceRequest&;
-    using Resp = UpdateUserDeviceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateUserDevice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateUserDevice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpdateUserDeviceOutcomeCallable IssClient::UpdateUserDeviceCallable(const UpdateUserDeviceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateUserDeviceOutcome>>();
-    UpdateUserDeviceAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpdateUserDeviceRequest&,
-        UpdateUserDeviceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateUserDeviceOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateUserDevice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IssClient::UpgradeGatewayOutcome IssClient::UpgradeGateway(const UpgradeGatewayRequest &request)
@@ -4612,31 +3975,24 @@ IssClient::UpgradeGatewayOutcome IssClient::UpgradeGateway(const UpgradeGatewayR
 
 void IssClient::UpgradeGatewayAsync(const UpgradeGatewayRequest& request, const UpgradeGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeGatewayRequest&;
-    using Resp = UpgradeGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IssClient::UpgradeGatewayOutcomeCallable IssClient::UpgradeGatewayCallable(const UpgradeGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeGatewayOutcome>>();
-    UpgradeGatewayAsync(
-    request,
-    [prom](
-        const IssClient*,
-        const UpgradeGatewayRequest&,
-        UpgradeGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

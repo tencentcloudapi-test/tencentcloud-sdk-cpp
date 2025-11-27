@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OriginGroupInLoadBalancer;
+                class HealthChecker;
+
                 /**
                 * ModifyLoadBalancer请求参数结构体
                 */

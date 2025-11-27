@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BindRealServerInfo;
+
                 /**
                 * DescribeRealServers返回参数结构体
                 */

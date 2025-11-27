@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VirtualNode;
+
                 /**
                 * DescribeClusterVirtualNode返回参数结构体
                 */

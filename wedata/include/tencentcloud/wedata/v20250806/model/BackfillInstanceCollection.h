@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackfillInstance;
+
                 /**
                 * 补录计划的所有实例
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BackfillInstanceCollection();
-                    ~BackfillInstanceCollection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

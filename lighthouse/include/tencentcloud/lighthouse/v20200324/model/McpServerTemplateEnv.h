@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * MCP Server模板环境变量
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     McpServerTemplateEnv();
-                    ~McpServerTemplateEnv() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -62,32 +62,25 @@ ConfigClient::DescribeAggregateDiscoveredResourceOutcome ConfigClient::DescribeA
 
 void ConfigClient::DescribeAggregateDiscoveredResourceAsync(const DescribeAggregateDiscoveredResourceRequest& request, const DescribeAggregateDiscoveredResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAggregateDiscoveredResourceRequest&;
-    using Resp = DescribeAggregateDiscoveredResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAggregateDiscoveredResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAggregateDiscoveredResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ConfigClient::DescribeAggregateDiscoveredResourceOutcomeCallable ConfigClient::DescribeAggregateDiscoveredResourceCallable(const DescribeAggregateDiscoveredResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAggregateDiscoveredResourceOutcome>>();
-    DescribeAggregateDiscoveredResourceAsync(
-    request,
-    [prom](
-        const ConfigClient*,
-        const DescribeAggregateDiscoveredResourceRequest&,
-        DescribeAggregateDiscoveredResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAggregateDiscoveredResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAggregateDiscoveredResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ConfigClient::DescribeDiscoveredResourceOutcome ConfigClient::DescribeDiscoveredResource(const DescribeDiscoveredResourceRequest &request)
@@ -112,32 +105,25 @@ ConfigClient::DescribeDiscoveredResourceOutcome ConfigClient::DescribeDiscovered
 
 void ConfigClient::DescribeDiscoveredResourceAsync(const DescribeDiscoveredResourceRequest& request, const DescribeDiscoveredResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDiscoveredResourceRequest&;
-    using Resp = DescribeDiscoveredResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDiscoveredResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDiscoveredResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ConfigClient::DescribeDiscoveredResourceOutcomeCallable ConfigClient::DescribeDiscoveredResourceCallable(const DescribeDiscoveredResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDiscoveredResourceOutcome>>();
-    DescribeDiscoveredResourceAsync(
-    request,
-    [prom](
-        const ConfigClient*,
-        const DescribeDiscoveredResourceRequest&,
-        DescribeDiscoveredResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDiscoveredResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDiscoveredResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ConfigClient::ListAggregateConfigRulesOutcome ConfigClient::ListAggregateConfigRules(const ListAggregateConfigRulesRequest &request)
@@ -162,32 +148,25 @@ ConfigClient::ListAggregateConfigRulesOutcome ConfigClient::ListAggregateConfigR
 
 void ConfigClient::ListAggregateConfigRulesAsync(const ListAggregateConfigRulesRequest& request, const ListAggregateConfigRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListAggregateConfigRulesRequest&;
-    using Resp = ListAggregateConfigRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListAggregateConfigRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListAggregateConfigRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ConfigClient::ListAggregateConfigRulesOutcomeCallable ConfigClient::ListAggregateConfigRulesCallable(const ListAggregateConfigRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListAggregateConfigRulesOutcome>>();
-    ListAggregateConfigRulesAsync(
-    request,
-    [prom](
-        const ConfigClient*,
-        const ListAggregateConfigRulesRequest&,
-        ListAggregateConfigRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListAggregateConfigRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListAggregateConfigRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ConfigClient::ListAggregateDiscoveredResourcesOutcome ConfigClient::ListAggregateDiscoveredResources(const ListAggregateDiscoveredResourcesRequest &request)
@@ -212,32 +191,25 @@ ConfigClient::ListAggregateDiscoveredResourcesOutcome ConfigClient::ListAggregat
 
 void ConfigClient::ListAggregateDiscoveredResourcesAsync(const ListAggregateDiscoveredResourcesRequest& request, const ListAggregateDiscoveredResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListAggregateDiscoveredResourcesRequest&;
-    using Resp = ListAggregateDiscoveredResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListAggregateDiscoveredResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListAggregateDiscoveredResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ConfigClient::ListAggregateDiscoveredResourcesOutcomeCallable ConfigClient::ListAggregateDiscoveredResourcesCallable(const ListAggregateDiscoveredResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListAggregateDiscoveredResourcesOutcome>>();
-    ListAggregateDiscoveredResourcesAsync(
-    request,
-    [prom](
-        const ConfigClient*,
-        const ListAggregateDiscoveredResourcesRequest&,
-        ListAggregateDiscoveredResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListAggregateDiscoveredResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListAggregateDiscoveredResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ConfigClient::ListConfigRulesOutcome ConfigClient::ListConfigRules(const ListConfigRulesRequest &request)
@@ -262,32 +234,25 @@ ConfigClient::ListConfigRulesOutcome ConfigClient::ListConfigRules(const ListCon
 
 void ConfigClient::ListConfigRulesAsync(const ListConfigRulesRequest& request, const ListConfigRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListConfigRulesRequest&;
-    using Resp = ListConfigRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListConfigRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListConfigRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ConfigClient::ListConfigRulesOutcomeCallable ConfigClient::ListConfigRulesCallable(const ListConfigRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListConfigRulesOutcome>>();
-    ListConfigRulesAsync(
-    request,
-    [prom](
-        const ConfigClient*,
-        const ListConfigRulesRequest&,
-        ListConfigRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListConfigRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListConfigRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ConfigClient::ListDiscoveredResourcesOutcome ConfigClient::ListDiscoveredResources(const ListDiscoveredResourcesRequest &request)
@@ -312,32 +277,25 @@ ConfigClient::ListDiscoveredResourcesOutcome ConfigClient::ListDiscoveredResourc
 
 void ConfigClient::ListDiscoveredResourcesAsync(const ListDiscoveredResourcesRequest& request, const ListDiscoveredResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListDiscoveredResourcesRequest&;
-    using Resp = ListDiscoveredResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListDiscoveredResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListDiscoveredResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ConfigClient::ListDiscoveredResourcesOutcomeCallable ConfigClient::ListDiscoveredResourcesCallable(const ListDiscoveredResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListDiscoveredResourcesOutcome>>();
-    ListDiscoveredResourcesAsync(
-    request,
-    [prom](
-        const ConfigClient*,
-        const ListDiscoveredResourcesRequest&,
-        ListDiscoveredResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListDiscoveredResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->ListDiscoveredResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 ConfigClient::PutEvaluationsOutcome ConfigClient::PutEvaluations(const PutEvaluationsRequest &request)
@@ -362,31 +320,24 @@ ConfigClient::PutEvaluationsOutcome ConfigClient::PutEvaluations(const PutEvalua
 
 void ConfigClient::PutEvaluationsAsync(const PutEvaluationsRequest& request, const PutEvaluationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const PutEvaluationsRequest&;
-    using Resp = PutEvaluationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->PutEvaluations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "PutEvaluations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 ConfigClient::PutEvaluationsOutcomeCallable ConfigClient::PutEvaluationsCallable(const PutEvaluationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<PutEvaluationsOutcome>>();
-    PutEvaluationsAsync(
-    request,
-    [prom](
-        const ConfigClient*,
-        const PutEvaluationsRequest&,
-        PutEvaluationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<PutEvaluationsOutcome()>>(
+        [this, request]()
+        {
+            return this->PutEvaluations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

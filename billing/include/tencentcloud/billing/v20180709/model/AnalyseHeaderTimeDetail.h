@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 成本分析header表头数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AnalyseHeaderTimeDetail();
-                    ~AnalyseHeaderTimeDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

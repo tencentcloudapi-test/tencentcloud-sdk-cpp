@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TsfPageNamespace;
+
                 /**
                 * DescribeSimpleNamespaces返回参数结构体
                 */

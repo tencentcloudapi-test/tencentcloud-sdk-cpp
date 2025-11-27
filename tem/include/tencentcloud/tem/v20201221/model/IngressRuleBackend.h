@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Ingress 规则 backend 配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IngressRuleBackend();
-                    ~IngressRuleBackend() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

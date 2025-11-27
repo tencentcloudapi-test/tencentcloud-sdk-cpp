@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CDN回源节点IP信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OriginIp();
-                    ~OriginIp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

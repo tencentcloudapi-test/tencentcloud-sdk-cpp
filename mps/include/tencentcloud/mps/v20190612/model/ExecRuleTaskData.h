@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 条件判断输出
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ExecRuleTaskData();
-                    ~ExecRuleTaskData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

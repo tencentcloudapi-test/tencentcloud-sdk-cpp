@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NodeSpecDiskV2;
+
                 /**
                 * AttachDisks请求参数结构体
                 */

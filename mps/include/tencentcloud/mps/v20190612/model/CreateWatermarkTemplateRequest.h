@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageWatermarkInput;
+                class TextWatermarkTemplateInput;
+                class SvgWatermarkInput;
+
                 /**
                 * CreateWatermarkTemplate请求参数结构体
                 */

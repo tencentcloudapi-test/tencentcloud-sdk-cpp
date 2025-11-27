@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SuccessCode;
+
                 /**
                 * CreateBoundIP返回参数结构体
                 */

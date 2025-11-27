@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FuseFaceReviewResult;
+
                 /**
                 * FuseFace返回参数结构体
                 */

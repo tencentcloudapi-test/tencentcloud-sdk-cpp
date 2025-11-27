@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulIgnoreRegistryImage;
+
                 /**
                 * DescribeVulIgnoreRegistryImageList返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Cluster;
+
                 /**
                 * Tsf分页集群对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageCluster();
-                    ~TsfPageCluster() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

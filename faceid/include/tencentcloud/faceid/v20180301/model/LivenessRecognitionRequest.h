@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Encryption;
+
                 /**
                 * LivenessRecognition请求参数结构体
                 */

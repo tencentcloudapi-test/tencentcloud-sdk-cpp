@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RulesItems;
+                class LbRsTargets;
+
                 /**
                 * 反查监听器类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ListenerItem();
-                    ~ListenerItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

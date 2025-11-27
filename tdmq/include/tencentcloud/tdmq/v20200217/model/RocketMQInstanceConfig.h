@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceNodeDistribution;
+                class RocketMQTopicDistribution;
+
                 /**
                 * RocketMQ专享集群实例配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     RocketMQInstanceConfig();
-                    ~RocketMQInstanceConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

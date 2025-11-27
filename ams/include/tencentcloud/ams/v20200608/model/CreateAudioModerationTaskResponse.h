@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskResult;
+
                 /**
                 * CreateAudioModerationTask返回参数结构体
                 */

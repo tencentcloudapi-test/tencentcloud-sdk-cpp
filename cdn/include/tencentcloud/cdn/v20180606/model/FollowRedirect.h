@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RedirectConfig;
+
                 /**
                 * 回源 301/302 状态码自动跟随配置，默认为关闭状态
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FollowRedirect();
-                    ~FollowRedirect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

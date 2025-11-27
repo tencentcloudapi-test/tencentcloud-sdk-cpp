@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleEngineItem;
+
                 /**
                 * ModifyL7AccRule请求参数结构体
                 */

@@ -62,32 +62,25 @@ CdwpgClient::CreateInstanceByApiOutcome CdwpgClient::CreateInstanceByApi(const C
 
 void CdwpgClient::CreateInstanceByApiAsync(const CreateInstanceByApiRequest& request, const CreateInstanceByApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateInstanceByApiRequest&;
-    using Resp = CreateInstanceByApiResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateInstanceByApi(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateInstanceByApi", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::CreateInstanceByApiOutcomeCallable CdwpgClient::CreateInstanceByApiCallable(const CreateInstanceByApiRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateInstanceByApiOutcome>>();
-    CreateInstanceByApiAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const CreateInstanceByApiRequest&,
-        CreateInstanceByApiOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateInstanceByApiOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateInstanceByApi(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeAccountsOutcome CdwpgClient::DescribeAccounts(const DescribeAccountsRequest &request)
@@ -112,32 +105,25 @@ CdwpgClient::DescribeAccountsOutcome CdwpgClient::DescribeAccounts(const Describ
 
 void CdwpgClient::DescribeAccountsAsync(const DescribeAccountsRequest& request, const DescribeAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccountsRequest&;
-    using Resp = DescribeAccountsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccounts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccounts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeAccountsOutcomeCallable CdwpgClient::DescribeAccountsCallable(const DescribeAccountsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccountsOutcome>>();
-    DescribeAccountsAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeAccountsRequest&,
-        DescribeAccountsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccountsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccounts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeDBConfigHistoryOutcome CdwpgClient::DescribeDBConfigHistory(const DescribeDBConfigHistoryRequest &request)
@@ -162,32 +148,25 @@ CdwpgClient::DescribeDBConfigHistoryOutcome CdwpgClient::DescribeDBConfigHistory
 
 void CdwpgClient::DescribeDBConfigHistoryAsync(const DescribeDBConfigHistoryRequest& request, const DescribeDBConfigHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBConfigHistoryRequest&;
-    using Resp = DescribeDBConfigHistoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBConfigHistory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBConfigHistory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeDBConfigHistoryOutcomeCallable CdwpgClient::DescribeDBConfigHistoryCallable(const DescribeDBConfigHistoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBConfigHistoryOutcome>>();
-    DescribeDBConfigHistoryAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeDBConfigHistoryRequest&,
-        DescribeDBConfigHistoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBConfigHistoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBConfigHistory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeDBParamsOutcome CdwpgClient::DescribeDBParams(const DescribeDBParamsRequest &request)
@@ -212,32 +191,25 @@ CdwpgClient::DescribeDBParamsOutcome CdwpgClient::DescribeDBParams(const Describ
 
 void CdwpgClient::DescribeDBParamsAsync(const DescribeDBParamsRequest& request, const DescribeDBParamsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBParamsRequest&;
-    using Resp = DescribeDBParamsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBParams(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBParams", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeDBParamsOutcomeCallable CdwpgClient::DescribeDBParamsCallable(const DescribeDBParamsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBParamsOutcome>>();
-    DescribeDBParamsAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeDBParamsRequest&,
-        DescribeDBParamsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBParamsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBParams(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeErrorLogOutcome CdwpgClient::DescribeErrorLog(const DescribeErrorLogRequest &request)
@@ -262,32 +234,25 @@ CdwpgClient::DescribeErrorLogOutcome CdwpgClient::DescribeErrorLog(const Describ
 
 void CdwpgClient::DescribeErrorLogAsync(const DescribeErrorLogRequest& request, const DescribeErrorLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeErrorLogRequest&;
-    using Resp = DescribeErrorLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeErrorLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeErrorLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeErrorLogOutcomeCallable CdwpgClient::DescribeErrorLogCallable(const DescribeErrorLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeErrorLogOutcome>>();
-    DescribeErrorLogAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeErrorLogRequest&,
-        DescribeErrorLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeErrorLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeErrorLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeInstanceOutcome CdwpgClient::DescribeInstance(const DescribeInstanceRequest &request)
@@ -312,32 +277,25 @@ CdwpgClient::DescribeInstanceOutcome CdwpgClient::DescribeInstance(const Describ
 
 void CdwpgClient::DescribeInstanceAsync(const DescribeInstanceRequest& request, const DescribeInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceRequest&;
-    using Resp = DescribeInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeInstanceOutcomeCallable CdwpgClient::DescribeInstanceCallable(const DescribeInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceOutcome>>();
-    DescribeInstanceAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeInstanceRequest&,
-        DescribeInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeInstanceInfoOutcome CdwpgClient::DescribeInstanceInfo(const DescribeInstanceInfoRequest &request)
@@ -362,32 +320,25 @@ CdwpgClient::DescribeInstanceInfoOutcome CdwpgClient::DescribeInstanceInfo(const
 
 void CdwpgClient::DescribeInstanceInfoAsync(const DescribeInstanceInfoRequest& request, const DescribeInstanceInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceInfoRequest&;
-    using Resp = DescribeInstanceInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeInstanceInfoOutcomeCallable CdwpgClient::DescribeInstanceInfoCallable(const DescribeInstanceInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceInfoOutcome>>();
-    DescribeInstanceInfoAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeInstanceInfoRequest&,
-        DescribeInstanceInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeInstanceNodesOutcome CdwpgClient::DescribeInstanceNodes(const DescribeInstanceNodesRequest &request)
@@ -412,32 +363,25 @@ CdwpgClient::DescribeInstanceNodesOutcome CdwpgClient::DescribeInstanceNodes(con
 
 void CdwpgClient::DescribeInstanceNodesAsync(const DescribeInstanceNodesRequest& request, const DescribeInstanceNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceNodesRequest&;
-    using Resp = DescribeInstanceNodesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceNodes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceNodes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeInstanceNodesOutcomeCallable CdwpgClient::DescribeInstanceNodesCallable(const DescribeInstanceNodesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceNodesOutcome>>();
-    DescribeInstanceNodesAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeInstanceNodesRequest&,
-        DescribeInstanceNodesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceNodesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceNodes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeInstanceOperationsOutcome CdwpgClient::DescribeInstanceOperations(const DescribeInstanceOperationsRequest &request)
@@ -462,32 +406,25 @@ CdwpgClient::DescribeInstanceOperationsOutcome CdwpgClient::DescribeInstanceOper
 
 void CdwpgClient::DescribeInstanceOperationsAsync(const DescribeInstanceOperationsRequest& request, const DescribeInstanceOperationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceOperationsRequest&;
-    using Resp = DescribeInstanceOperationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceOperations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceOperations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeInstanceOperationsOutcomeCallable CdwpgClient::DescribeInstanceOperationsCallable(const DescribeInstanceOperationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceOperationsOutcome>>();
-    DescribeInstanceOperationsAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeInstanceOperationsRequest&,
-        DescribeInstanceOperationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceOperationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceOperations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeInstanceStateOutcome CdwpgClient::DescribeInstanceState(const DescribeInstanceStateRequest &request)
@@ -512,32 +449,25 @@ CdwpgClient::DescribeInstanceStateOutcome CdwpgClient::DescribeInstanceState(con
 
 void CdwpgClient::DescribeInstanceStateAsync(const DescribeInstanceStateRequest& request, const DescribeInstanceStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceStateRequest&;
-    using Resp = DescribeInstanceStateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceState(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceState", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeInstanceStateOutcomeCallable CdwpgClient::DescribeInstanceStateCallable(const DescribeInstanceStateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceStateOutcome>>();
-    DescribeInstanceStateAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeInstanceStateRequest&,
-        DescribeInstanceStateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceStateOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceState(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeInstancesOutcome CdwpgClient::DescribeInstances(const DescribeInstancesRequest &request)
@@ -562,32 +492,25 @@ CdwpgClient::DescribeInstancesOutcome CdwpgClient::DescribeInstances(const Descr
 
 void CdwpgClient::DescribeInstancesAsync(const DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesRequest&;
-    using Resp = DescribeInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeInstancesOutcomeCallable CdwpgClient::DescribeInstancesCallable(const DescribeInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesOutcome>>();
-    DescribeInstancesAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeInstancesRequest&,
-        DescribeInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeSimpleInstancesOutcome CdwpgClient::DescribeSimpleInstances(const DescribeSimpleInstancesRequest &request)
@@ -612,32 +535,25 @@ CdwpgClient::DescribeSimpleInstancesOutcome CdwpgClient::DescribeSimpleInstances
 
 void CdwpgClient::DescribeSimpleInstancesAsync(const DescribeSimpleInstancesRequest& request, const DescribeSimpleInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSimpleInstancesRequest&;
-    using Resp = DescribeSimpleInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSimpleInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSimpleInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeSimpleInstancesOutcomeCallable CdwpgClient::DescribeSimpleInstancesCallable(const DescribeSimpleInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSimpleInstancesOutcome>>();
-    DescribeSimpleInstancesAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeSimpleInstancesRequest&,
-        DescribeSimpleInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSimpleInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSimpleInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeSlowLogOutcome CdwpgClient::DescribeSlowLog(const DescribeSlowLogRequest &request)
@@ -662,32 +578,25 @@ CdwpgClient::DescribeSlowLogOutcome CdwpgClient::DescribeSlowLog(const DescribeS
 
 void CdwpgClient::DescribeSlowLogAsync(const DescribeSlowLogRequest& request, const DescribeSlowLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSlowLogRequest&;
-    using Resp = DescribeSlowLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSlowLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSlowLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeSlowLogOutcomeCallable CdwpgClient::DescribeSlowLogCallable(const DescribeSlowLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSlowLogOutcome>>();
-    DescribeSlowLogAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeSlowLogRequest&,
-        DescribeSlowLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSlowLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSlowLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeUpgradeListOutcome CdwpgClient::DescribeUpgradeList(const DescribeUpgradeListRequest &request)
@@ -712,32 +621,25 @@ CdwpgClient::DescribeUpgradeListOutcome CdwpgClient::DescribeUpgradeList(const D
 
 void CdwpgClient::DescribeUpgradeListAsync(const DescribeUpgradeListRequest& request, const DescribeUpgradeListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUpgradeListRequest&;
-    using Resp = DescribeUpgradeListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUpgradeList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUpgradeList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeUpgradeListOutcomeCallable CdwpgClient::DescribeUpgradeListCallable(const DescribeUpgradeListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUpgradeListOutcome>>();
-    DescribeUpgradeListAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeUpgradeListRequest&,
-        DescribeUpgradeListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUpgradeListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUpgradeList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DescribeUserHbaConfigOutcome CdwpgClient::DescribeUserHbaConfig(const DescribeUserHbaConfigRequest &request)
@@ -762,32 +664,25 @@ CdwpgClient::DescribeUserHbaConfigOutcome CdwpgClient::DescribeUserHbaConfig(con
 
 void CdwpgClient::DescribeUserHbaConfigAsync(const DescribeUserHbaConfigRequest& request, const DescribeUserHbaConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserHbaConfigRequest&;
-    using Resp = DescribeUserHbaConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserHbaConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserHbaConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DescribeUserHbaConfigOutcomeCallable CdwpgClient::DescribeUserHbaConfigCallable(const DescribeUserHbaConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserHbaConfigOutcome>>();
-    DescribeUserHbaConfigAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DescribeUserHbaConfigRequest&,
-        DescribeUserHbaConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserHbaConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserHbaConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::DestroyInstanceByApiOutcome CdwpgClient::DestroyInstanceByApi(const DestroyInstanceByApiRequest &request)
@@ -812,32 +707,25 @@ CdwpgClient::DestroyInstanceByApiOutcome CdwpgClient::DestroyInstanceByApi(const
 
 void CdwpgClient::DestroyInstanceByApiAsync(const DestroyInstanceByApiRequest& request, const DestroyInstanceByApiAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyInstanceByApiRequest&;
-    using Resp = DestroyInstanceByApiResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyInstanceByApi(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyInstanceByApi", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::DestroyInstanceByApiOutcomeCallable CdwpgClient::DestroyInstanceByApiCallable(const DestroyInstanceByApiRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyInstanceByApiOutcome>>();
-    DestroyInstanceByApiAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const DestroyInstanceByApiRequest&,
-        DestroyInstanceByApiOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyInstanceByApiOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyInstanceByApi(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::ModifyDBParametersOutcome CdwpgClient::ModifyDBParameters(const ModifyDBParametersRequest &request)
@@ -862,32 +750,25 @@ CdwpgClient::ModifyDBParametersOutcome CdwpgClient::ModifyDBParameters(const Mod
 
 void CdwpgClient::ModifyDBParametersAsync(const ModifyDBParametersRequest& request, const ModifyDBParametersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBParametersRequest&;
-    using Resp = ModifyDBParametersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBParameters(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBParameters", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::ModifyDBParametersOutcomeCallable CdwpgClient::ModifyDBParametersCallable(const ModifyDBParametersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBParametersOutcome>>();
-    ModifyDBParametersAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const ModifyDBParametersRequest&,
-        ModifyDBParametersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBParametersOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBParameters(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::ModifyInstanceOutcome CdwpgClient::ModifyInstance(const ModifyInstanceRequest &request)
@@ -912,32 +793,25 @@ CdwpgClient::ModifyInstanceOutcome CdwpgClient::ModifyInstance(const ModifyInsta
 
 void CdwpgClient::ModifyInstanceAsync(const ModifyInstanceRequest& request, const ModifyInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceRequest&;
-    using Resp = ModifyInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::ModifyInstanceOutcomeCallable CdwpgClient::ModifyInstanceCallable(const ModifyInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceOutcome>>();
-    ModifyInstanceAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const ModifyInstanceRequest&,
-        ModifyInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::ModifyUserHbaOutcome CdwpgClient::ModifyUserHba(const ModifyUserHbaRequest &request)
@@ -962,32 +836,25 @@ CdwpgClient::ModifyUserHbaOutcome CdwpgClient::ModifyUserHba(const ModifyUserHba
 
 void CdwpgClient::ModifyUserHbaAsync(const ModifyUserHbaRequest& request, const ModifyUserHbaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserHbaRequest&;
-    using Resp = ModifyUserHbaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserHba(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserHba", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::ModifyUserHbaOutcomeCallable CdwpgClient::ModifyUserHbaCallable(const ModifyUserHbaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserHbaOutcome>>();
-    ModifyUserHbaAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const ModifyUserHbaRequest&,
-        ModifyUserHbaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserHbaOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserHba(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::ResetAccountPasswordOutcome CdwpgClient::ResetAccountPassword(const ResetAccountPasswordRequest &request)
@@ -1012,32 +879,25 @@ CdwpgClient::ResetAccountPasswordOutcome CdwpgClient::ResetAccountPassword(const
 
 void CdwpgClient::ResetAccountPasswordAsync(const ResetAccountPasswordRequest& request, const ResetAccountPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetAccountPasswordRequest&;
-    using Resp = ResetAccountPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetAccountPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetAccountPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::ResetAccountPasswordOutcomeCallable CdwpgClient::ResetAccountPasswordCallable(const ResetAccountPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetAccountPasswordOutcome>>();
-    ResetAccountPasswordAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const ResetAccountPasswordRequest&,
-        ResetAccountPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetAccountPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetAccountPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::RestartInstanceOutcome CdwpgClient::RestartInstance(const RestartInstanceRequest &request)
@@ -1062,32 +922,25 @@ CdwpgClient::RestartInstanceOutcome CdwpgClient::RestartInstance(const RestartIn
 
 void CdwpgClient::RestartInstanceAsync(const RestartInstanceRequest& request, const RestartInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestartInstanceRequest&;
-    using Resp = RestartInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestartInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestartInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::RestartInstanceOutcomeCallable CdwpgClient::RestartInstanceCallable(const RestartInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestartInstanceOutcome>>();
-    RestartInstanceAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const RestartInstanceRequest&,
-        RestartInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestartInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RestartInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::ScaleOutInstanceOutcome CdwpgClient::ScaleOutInstance(const ScaleOutInstanceRequest &request)
@@ -1112,32 +965,25 @@ CdwpgClient::ScaleOutInstanceOutcome CdwpgClient::ScaleOutInstance(const ScaleOu
 
 void CdwpgClient::ScaleOutInstanceAsync(const ScaleOutInstanceRequest& request, const ScaleOutInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleOutInstanceRequest&;
-    using Resp = ScaleOutInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleOutInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleOutInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::ScaleOutInstanceOutcomeCallable CdwpgClient::ScaleOutInstanceCallable(const ScaleOutInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleOutInstanceOutcome>>();
-    ScaleOutInstanceAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const ScaleOutInstanceRequest&,
-        ScaleOutInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleOutInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleOutInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::ScaleUpInstanceOutcome CdwpgClient::ScaleUpInstance(const ScaleUpInstanceRequest &request)
@@ -1162,32 +1008,25 @@ CdwpgClient::ScaleUpInstanceOutcome CdwpgClient::ScaleUpInstance(const ScaleUpIn
 
 void CdwpgClient::ScaleUpInstanceAsync(const ScaleUpInstanceRequest& request, const ScaleUpInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleUpInstanceRequest&;
-    using Resp = ScaleUpInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleUpInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleUpInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::ScaleUpInstanceOutcomeCallable CdwpgClient::ScaleUpInstanceCallable(const ScaleUpInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleUpInstanceOutcome>>();
-    ScaleUpInstanceAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const ScaleUpInstanceRequest&,
-        ScaleUpInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleUpInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleUpInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CdwpgClient::UpgradeInstanceOutcome CdwpgClient::UpgradeInstance(const UpgradeInstanceRequest &request)
@@ -1212,31 +1051,24 @@ CdwpgClient::UpgradeInstanceOutcome CdwpgClient::UpgradeInstance(const UpgradeIn
 
 void CdwpgClient::UpgradeInstanceAsync(const UpgradeInstanceRequest& request, const UpgradeInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeInstanceRequest&;
-    using Resp = UpgradeInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CdwpgClient::UpgradeInstanceOutcomeCallable CdwpgClient::UpgradeInstanceCallable(const UpgradeInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeInstanceOutcome>>();
-    UpgradeInstanceAsync(
-    request,
-    [prom](
-        const CdwpgClient*,
-        const UpgradeInstanceRequest&,
-        UpgradeInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

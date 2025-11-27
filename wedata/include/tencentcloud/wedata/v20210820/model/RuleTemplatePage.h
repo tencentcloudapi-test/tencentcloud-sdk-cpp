@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleTemplate;
+
                 /**
                 * RuleTemplatePage 结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleTemplatePage();
-                    ~RuleTemplatePage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

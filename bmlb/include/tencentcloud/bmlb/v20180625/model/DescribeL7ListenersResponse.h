@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class L7Listener;
+
                 /**
                 * DescribeL7Listeners返回参数结构体
                 */

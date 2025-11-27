@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RedisCmdInfo;
+
                 /**
                 * DescribeRedisCommandOverview返回参数结构体
                 */

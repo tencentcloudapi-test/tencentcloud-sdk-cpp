@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyIgnoreVul;
+
                 /**
                 * DeleteIgnoreVul请求参数结构体
                 */

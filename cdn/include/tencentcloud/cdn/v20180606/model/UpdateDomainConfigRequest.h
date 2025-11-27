@@ -76,6 +76,52 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Origin;
+                class IpFilter;
+                class IpFreqLimit;
+                class StatusCodeCache;
+                class Compression;
+                class BandwidthAlert;
+                class RangeOriginPull;
+                class FollowRedirect;
+                class ErrorPage;
+                class RequestHeader;
+                class ResponseHeader;
+                class DownstreamCapping;
+                class CacheKey;
+                class ResponseHeaderCache;
+                class VideoSeek;
+                class Cache;
+                class OriginPullOptimization;
+                class Https;
+                class Authentication;
+                class Seo;
+                class ForceRedirect;
+                class Referer;
+                class MaxAge;
+                class SpecificConfig;
+                class OriginPullTimeout;
+                class AwsPrivateAccess;
+                class UserAgentFilter;
+                class AccessControl;
+                class UrlRedirect;
+                class AdvancedAuthentication;
+                class OriginAuthentication;
+                class Ipv6Access;
+                class OfflineCache;
+                class OriginCombine;
+                class PostSize;
+                class Quic;
+                class OssPrivateAccess;
+                class WebSocket;
+                class RemoteAuthentication;
+                class ShareCname;
+                class HwPrivateAccess;
+                class QnPrivateAccess;
+                class OthersPrivateAccess;
+                class HttpsBilling;
+                class ParamFilter;
+
                 /**
                 * UpdateDomainConfig请求参数结构体
                 */

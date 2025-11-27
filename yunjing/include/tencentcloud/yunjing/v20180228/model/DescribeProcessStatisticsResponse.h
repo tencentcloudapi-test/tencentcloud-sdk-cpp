@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProcessStatistics;
+
                 /**
                 * DescribeProcessStatistics返回参数结构体
                 */

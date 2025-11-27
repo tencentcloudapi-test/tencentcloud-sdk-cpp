@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Paging;
+
                 /**
                 * DescribeIpUnBlockList请求参数结构体
                 */

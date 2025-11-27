@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Asset;
+                class DMSSds;
+                class DMSColumn;
+                class DMSPartition;
+
                 /**
                 * AlterDMSTable请求参数结构体
                 */

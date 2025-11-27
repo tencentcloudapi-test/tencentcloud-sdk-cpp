@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExpertServiceOrderInfo;
+
                 /**
                 * DescribeExpertServiceOrderList返回参数结构体
                 */

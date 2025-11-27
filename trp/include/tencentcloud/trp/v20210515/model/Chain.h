@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChainValue;
+
                 /**
                 * 上链数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Chain();
-                    ~Chain() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

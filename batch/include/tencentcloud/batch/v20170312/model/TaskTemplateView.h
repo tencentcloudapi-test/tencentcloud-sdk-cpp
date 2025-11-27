@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Task;
+                class Tag;
+
                 /**
                 * 任务模板信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskTemplateView();
-                    ~TaskTemplateView() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

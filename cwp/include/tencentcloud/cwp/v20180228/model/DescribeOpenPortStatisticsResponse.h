@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpenPortStatistics;
+
                 /**
                 * DescribeOpenPortStatistics返回参数结构体
                 */

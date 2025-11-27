@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClassicalTargetInfo;
+
                 /**
                 * RegisterTargetsWithClassicalLB请求参数结构体
                 */

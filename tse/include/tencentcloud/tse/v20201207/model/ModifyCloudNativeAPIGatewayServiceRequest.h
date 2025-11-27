@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KongUpstreamInfo;
+
                 /**
                 * ModifyCloudNativeAPIGatewayService请求参数结构体
                 */

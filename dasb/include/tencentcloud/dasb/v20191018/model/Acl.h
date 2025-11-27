@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class User;
+                class Group;
+                class Device;
+                class CmdTemplate;
+                class Department;
+                class ACTemplate;
+
                 /**
                 * 访问权限
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     Acl();
-                    ~Acl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

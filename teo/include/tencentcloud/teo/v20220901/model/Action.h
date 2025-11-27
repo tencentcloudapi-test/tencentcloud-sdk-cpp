@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NormalAction;
+                class RewriteAction;
+                class CodeAction;
+
                 /**
                 * 规则引擎功能项操作，对于一种功能只对应下面三种类型的其中一种，RuleAction 数组中的每一项只能是其中一个类型，更多功能项的填写规范可调用接口 [查询规则引擎的设置参数](https://cloud.tencent.com/document/product/1552/80618) 查看。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     Action();
-                    ~Action() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

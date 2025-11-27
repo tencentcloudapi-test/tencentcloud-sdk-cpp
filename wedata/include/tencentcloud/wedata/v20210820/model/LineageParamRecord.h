@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 血缘参数记录
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LineageParamRecord();
-                    ~LineageParamRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

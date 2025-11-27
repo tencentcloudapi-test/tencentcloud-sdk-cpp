@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RouteECMPAlgorithm;
+
                 /**
                 * ModifyHighPriorityRouteECMPAlgorithm请求参数结构体
                 */

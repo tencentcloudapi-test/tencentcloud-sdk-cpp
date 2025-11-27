@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 音画质检测任务的输入。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     QualityInspectTaskInput();
-                    ~QualityInspectTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

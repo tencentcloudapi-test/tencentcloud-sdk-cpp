@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulOverview;
+
                 /**
                 * DescribeVulOverview返回参数结构体
                 */

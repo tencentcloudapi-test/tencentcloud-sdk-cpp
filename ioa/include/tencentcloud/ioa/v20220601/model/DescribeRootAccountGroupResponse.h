@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GetAccountGroupData;
+
                 /**
                 * DescribeRootAccountGroup返回参数结构体
                 */

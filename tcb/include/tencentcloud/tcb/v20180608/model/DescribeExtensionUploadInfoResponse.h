@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExtensionFileInfo;
+
                 /**
                 * DescribeExtensionUploadInfo返回参数结构体
                 */

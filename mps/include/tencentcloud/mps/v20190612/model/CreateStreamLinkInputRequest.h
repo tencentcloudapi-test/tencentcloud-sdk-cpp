@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateInput;
+
                 /**
                 * CreateStreamLinkInput请求参数结构体
                 */

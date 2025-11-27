@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RealtimeSpeechConf;
+                class VoiceMessageConf;
+                class VoiceFilterConf;
+                class AsrConf;
+                class Tag;
+
                 /**
                 * CreateApp请求参数结构体
                 */

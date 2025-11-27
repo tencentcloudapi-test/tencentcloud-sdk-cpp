@@ -44,6 +44,17 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageHotDetect;
+                class CodeDetect;
+                class ImagePolityDetect;
+                class ImageIllegalDetect;
+                class ImagePornDetect;
+                class ImageTerrorDetect;
+                class OCRDetect;
+                class LogoDetail;
+                class Similar;
+                class PhoneDetect;
+
                 /**
                 * 图片识别结果详情
                 */
@@ -51,7 +62,6 @@ namespace TencentCloud
                 {
                 public:
                     ImageData();
-                    ~ImageData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

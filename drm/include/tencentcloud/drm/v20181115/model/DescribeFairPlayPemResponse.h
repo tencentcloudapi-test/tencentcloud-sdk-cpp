@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FairPlayPemDigestInfo;
+
                 /**
                 * DescribeFairPlayPem返回参数结构体
                 */

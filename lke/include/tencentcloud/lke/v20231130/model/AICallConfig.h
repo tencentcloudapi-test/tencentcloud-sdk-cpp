@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VoiceConfig;
+                class DigitalHumanConfig;
+
                 /**
                 * 智能通话
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AICallConfig();
-                    ~AICallConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

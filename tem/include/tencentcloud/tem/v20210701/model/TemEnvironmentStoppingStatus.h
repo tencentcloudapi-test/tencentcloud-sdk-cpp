@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 环境停止进程（只统计由环境停止操作触发的应用数量）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TemEnvironmentStoppingStatus();
-                    ~TemEnvironmentStoppingStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

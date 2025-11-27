@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 小程序加固配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AppletPlan();
-                    ~AppletPlan() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

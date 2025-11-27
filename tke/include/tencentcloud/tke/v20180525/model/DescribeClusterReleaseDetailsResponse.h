@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReleaseDetails;
+
                 /**
                 * DescribeClusterReleaseDetails返回参数结构体
                 */

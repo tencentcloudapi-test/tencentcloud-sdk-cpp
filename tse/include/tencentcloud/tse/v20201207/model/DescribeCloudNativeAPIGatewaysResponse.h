@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListCloudNativeAPIGatewayResult;
+
                 /**
                 * DescribeCloudNativeAPIGateways返回参数结构体
                 */

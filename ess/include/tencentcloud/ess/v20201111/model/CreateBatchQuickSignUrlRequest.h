@@ -37,6 +37,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlowCreateApprover;
+                class Agent;
+                class UserInfo;
+                class FlowBatchUrlInfo;
+                class Intention;
+                class PresetApproverInfo;
+
                 /**
                 * CreateBatchQuickSignUrl请求参数结构体
                 */

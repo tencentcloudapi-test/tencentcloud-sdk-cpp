@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数据集成大屏趋势图统计结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IntegrationStatisticsTrendResult();
-                    ~IntegrationStatisticsTrendResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

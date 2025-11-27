@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcInfo;
+
                 /**
                 * 环境具体信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     EnvInfo();
-                    ~EnvInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

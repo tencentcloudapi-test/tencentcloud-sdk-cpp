@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CcnAttachedInstance;
+
                 /**
                 * DescribeCcnAttachedInstances返回参数结构体
                 */

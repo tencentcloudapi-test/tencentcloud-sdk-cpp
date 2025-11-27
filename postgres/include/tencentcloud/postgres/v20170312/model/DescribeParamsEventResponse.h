@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EventItem;
+
                 /**
                 * DescribeParamsEvent返回参数结构体
                 */

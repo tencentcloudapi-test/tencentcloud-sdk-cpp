@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SLARule;
+                class AlertChannel;
+
                 /**
                 * SLA 策略
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SLAPolicy();
-                    ~SLAPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

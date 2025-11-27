@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 限速值类型，例如：包速率pps、带宽bps
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpeedValue();
-                    ~SpeedValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BgpPeer;
+                class RouteFilterPrefix;
+                class BFDInfo;
+                class NQAInfo;
+
                 /**
                 * ModifyDirectConnectTunnelExtra请求参数结构体
                 */

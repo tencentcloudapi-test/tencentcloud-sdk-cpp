@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StrategyInfo;
+
                 /**
                 * ListPolicies返回参数结构体
                 */

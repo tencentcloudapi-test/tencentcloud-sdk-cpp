@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommonRspData;
+
                 /**
                 * UpdateProtectionModes返回参数结构体
                 */

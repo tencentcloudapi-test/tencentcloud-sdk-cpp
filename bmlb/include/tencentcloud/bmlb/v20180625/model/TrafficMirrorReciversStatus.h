@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TrafficMirrorPortStatus;
+
                 /**
                 * 流量镜像健康检查返回的接收机状态信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TrafficMirrorReciversStatus();
-                    ~TrafficMirrorReciversStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

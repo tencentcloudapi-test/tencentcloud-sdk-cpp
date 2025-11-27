@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigFileGroup;
+
                 /**
                 * CreateConfigFileGroup请求参数结构体
                 */

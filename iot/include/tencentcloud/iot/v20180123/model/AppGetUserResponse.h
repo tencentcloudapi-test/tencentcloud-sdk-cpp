@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppUser;
+
                 /**
                 * AppGetUser返回参数结构体
                 */

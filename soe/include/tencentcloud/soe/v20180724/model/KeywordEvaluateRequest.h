@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Keyword;
+
                 /**
                 * KeywordEvaluate请求参数结构体
                 */

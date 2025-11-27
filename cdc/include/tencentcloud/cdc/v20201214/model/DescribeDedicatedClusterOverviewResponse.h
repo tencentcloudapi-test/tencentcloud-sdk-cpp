@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpngwBandwidthData;
+                class LocalNetInfo;
+                class HostDetailInfo;
+
                 /**
                 * DescribeDedicatedClusterOverview返回参数结构体
                 */

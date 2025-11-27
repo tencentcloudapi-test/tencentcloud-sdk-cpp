@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SdkAppIdTrtcMcuTranscodeTimeUsage;
+
                 /**
                 * 旁路转码时长的查询结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OneSdkAppIdTranscodeTimeUsagesInfo();
-                    ~OneSdkAppIdTranscodeTimeUsagesInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

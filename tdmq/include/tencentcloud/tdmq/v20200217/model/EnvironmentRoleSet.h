@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 批量绑定名字空间和角色权限关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EnvironmentRoleSet();
-                    ~EnvironmentRoleSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

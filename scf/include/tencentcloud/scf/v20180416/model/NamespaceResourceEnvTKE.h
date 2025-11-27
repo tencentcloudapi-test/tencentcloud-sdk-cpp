@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class K8SLabel;
+                class K8SToleration;
+
                 /**
                 * 基于TKE的资源池选项
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     NamespaceResourceEnvTKE();
-                    ~NamespaceResourceEnvTKE() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

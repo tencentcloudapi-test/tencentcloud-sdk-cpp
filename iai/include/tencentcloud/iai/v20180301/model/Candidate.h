@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PersonGroupInfo;
+
                 /**
                 * 识别出的最相似候选人
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Candidate();
-                    ~Candidate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

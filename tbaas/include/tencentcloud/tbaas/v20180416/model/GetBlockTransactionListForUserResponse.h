@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TransactionItem;
+
                 /**
                 * GetBlockTransactionListForUser返回参数结构体
                 */

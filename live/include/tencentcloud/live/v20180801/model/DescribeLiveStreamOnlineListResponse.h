@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StreamOnlineInfo;
+
                 /**
                 * DescribeLiveStreamOnlineList返回参数结构体
                 */

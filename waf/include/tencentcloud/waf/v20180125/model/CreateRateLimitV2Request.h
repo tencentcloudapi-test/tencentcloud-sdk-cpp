@@ -39,6 +39,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LimitWindow;
+                class LimitMethod;
+                class LimitPath;
+                class LimitHeader;
+                class LimitHeaderName;
+                class MatchOption;
+                class RedirectInfo;
+                class PathItem;
+
                 /**
                 * CreateRateLimitV2请求参数结构体
                 */

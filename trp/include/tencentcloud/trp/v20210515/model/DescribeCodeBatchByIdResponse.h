@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CodeBatch;
+
                 /**
                 * DescribeCodeBatchById返回参数结构体
                 */

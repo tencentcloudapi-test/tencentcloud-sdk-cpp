@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateMakeDatetimeInfo;
+                class StrToStrMap;
+
                 /**
                 * CreateOpsMakePlan请求参数结构体
                 */

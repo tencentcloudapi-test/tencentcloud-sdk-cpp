@@ -62,32 +62,25 @@ VdbClient::AssociateSecurityGroupsOutcome VdbClient::AssociateSecurityGroups(con
 
 void VdbClient::AssociateSecurityGroupsAsync(const AssociateSecurityGroupsRequest& request, const AssociateSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateSecurityGroupsRequest&;
-    using Resp = AssociateSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::AssociateSecurityGroupsOutcomeCallable VdbClient::AssociateSecurityGroupsCallable(const AssociateSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateSecurityGroupsOutcome>>();
-    AssociateSecurityGroupsAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const AssociateSecurityGroupsRequest&,
-        AssociateSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::CreateInstanceOutcome VdbClient::CreateInstance(const CreateInstanceRequest &request)
@@ -112,32 +105,25 @@ VdbClient::CreateInstanceOutcome VdbClient::CreateInstance(const CreateInstanceR
 
 void VdbClient::CreateInstanceAsync(const CreateInstanceRequest& request, const CreateInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateInstanceRequest&;
-    using Resp = CreateInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::CreateInstanceOutcomeCallable VdbClient::CreateInstanceCallable(const CreateInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateInstanceOutcome>>();
-    CreateInstanceAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const CreateInstanceRequest&,
-        CreateInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::DescribeDBSecurityGroupsOutcome VdbClient::DescribeDBSecurityGroups(const DescribeDBSecurityGroupsRequest &request)
@@ -162,32 +148,25 @@ VdbClient::DescribeDBSecurityGroupsOutcome VdbClient::DescribeDBSecurityGroups(c
 
 void VdbClient::DescribeDBSecurityGroupsAsync(const DescribeDBSecurityGroupsRequest& request, const DescribeDBSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBSecurityGroupsRequest&;
-    using Resp = DescribeDBSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::DescribeDBSecurityGroupsOutcomeCallable VdbClient::DescribeDBSecurityGroupsCallable(const DescribeDBSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBSecurityGroupsOutcome>>();
-    DescribeDBSecurityGroupsAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const DescribeDBSecurityGroupsRequest&,
-        DescribeDBSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::DescribeInstanceMaintenanceWindowOutcome VdbClient::DescribeInstanceMaintenanceWindow(const DescribeInstanceMaintenanceWindowRequest &request)
@@ -212,32 +191,25 @@ VdbClient::DescribeInstanceMaintenanceWindowOutcome VdbClient::DescribeInstanceM
 
 void VdbClient::DescribeInstanceMaintenanceWindowAsync(const DescribeInstanceMaintenanceWindowRequest& request, const DescribeInstanceMaintenanceWindowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMaintenanceWindowRequest&;
-    using Resp = DescribeInstanceMaintenanceWindowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMaintenanceWindow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMaintenanceWindow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::DescribeInstanceMaintenanceWindowOutcomeCallable VdbClient::DescribeInstanceMaintenanceWindowCallable(const DescribeInstanceMaintenanceWindowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMaintenanceWindowOutcome>>();
-    DescribeInstanceMaintenanceWindowAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const DescribeInstanceMaintenanceWindowRequest&,
-        DescribeInstanceMaintenanceWindowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMaintenanceWindowOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMaintenanceWindow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::DescribeInstanceNodesOutcome VdbClient::DescribeInstanceNodes(const DescribeInstanceNodesRequest &request)
@@ -262,32 +234,25 @@ VdbClient::DescribeInstanceNodesOutcome VdbClient::DescribeInstanceNodes(const D
 
 void VdbClient::DescribeInstanceNodesAsync(const DescribeInstanceNodesRequest& request, const DescribeInstanceNodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceNodesRequest&;
-    using Resp = DescribeInstanceNodesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceNodes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceNodes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::DescribeInstanceNodesOutcomeCallable VdbClient::DescribeInstanceNodesCallable(const DescribeInstanceNodesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceNodesOutcome>>();
-    DescribeInstanceNodesAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const DescribeInstanceNodesRequest&,
-        DescribeInstanceNodesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceNodesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceNodes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::DescribeInstancesOutcome VdbClient::DescribeInstances(const DescribeInstancesRequest &request)
@@ -312,32 +277,25 @@ VdbClient::DescribeInstancesOutcome VdbClient::DescribeInstances(const DescribeI
 
 void VdbClient::DescribeInstancesAsync(const DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesRequest&;
-    using Resp = DescribeInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::DescribeInstancesOutcomeCallable VdbClient::DescribeInstancesCallable(const DescribeInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesOutcome>>();
-    DescribeInstancesAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const DescribeInstancesRequest&,
-        DescribeInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::DestroyInstancesOutcome VdbClient::DestroyInstances(const DestroyInstancesRequest &request)
@@ -362,32 +320,25 @@ VdbClient::DestroyInstancesOutcome VdbClient::DestroyInstances(const DestroyInst
 
 void VdbClient::DestroyInstancesAsync(const DestroyInstancesRequest& request, const DestroyInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyInstancesRequest&;
-    using Resp = DestroyInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::DestroyInstancesOutcomeCallable VdbClient::DestroyInstancesCallable(const DestroyInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyInstancesOutcome>>();
-    DestroyInstancesAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const DestroyInstancesRequest&,
-        DestroyInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::DisassociateSecurityGroupsOutcome VdbClient::DisassociateSecurityGroups(const DisassociateSecurityGroupsRequest &request)
@@ -412,32 +363,25 @@ VdbClient::DisassociateSecurityGroupsOutcome VdbClient::DisassociateSecurityGrou
 
 void VdbClient::DisassociateSecurityGroupsAsync(const DisassociateSecurityGroupsRequest& request, const DisassociateSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateSecurityGroupsRequest&;
-    using Resp = DisassociateSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::DisassociateSecurityGroupsOutcomeCallable VdbClient::DisassociateSecurityGroupsCallable(const DisassociateSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateSecurityGroupsOutcome>>();
-    DisassociateSecurityGroupsAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const DisassociateSecurityGroupsRequest&,
-        DisassociateSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::IsolateInstanceOutcome VdbClient::IsolateInstance(const IsolateInstanceRequest &request)
@@ -462,32 +406,25 @@ VdbClient::IsolateInstanceOutcome VdbClient::IsolateInstance(const IsolateInstan
 
 void VdbClient::IsolateInstanceAsync(const IsolateInstanceRequest& request, const IsolateInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const IsolateInstanceRequest&;
-    using Resp = IsolateInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->IsolateInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "IsolateInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::IsolateInstanceOutcomeCallable VdbClient::IsolateInstanceCallable(const IsolateInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<IsolateInstanceOutcome>>();
-    IsolateInstanceAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const IsolateInstanceRequest&,
-        IsolateInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<IsolateInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->IsolateInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::ModifyDBInstanceSecurityGroupsOutcome VdbClient::ModifyDBInstanceSecurityGroups(const ModifyDBInstanceSecurityGroupsRequest &request)
@@ -512,32 +449,25 @@ VdbClient::ModifyDBInstanceSecurityGroupsOutcome VdbClient::ModifyDBInstanceSecu
 
 void VdbClient::ModifyDBInstanceSecurityGroupsAsync(const ModifyDBInstanceSecurityGroupsRequest& request, const ModifyDBInstanceSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceSecurityGroupsRequest&;
-    using Resp = ModifyDBInstanceSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::ModifyDBInstanceSecurityGroupsOutcomeCallable VdbClient::ModifyDBInstanceSecurityGroupsCallable(const ModifyDBInstanceSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceSecurityGroupsOutcome>>();
-    ModifyDBInstanceSecurityGroupsAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const ModifyDBInstanceSecurityGroupsRequest&,
-        ModifyDBInstanceSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::ModifyInstanceMaintenanceWindowOutcome VdbClient::ModifyInstanceMaintenanceWindow(const ModifyInstanceMaintenanceWindowRequest &request)
@@ -562,32 +492,25 @@ VdbClient::ModifyInstanceMaintenanceWindowOutcome VdbClient::ModifyInstanceMaint
 
 void VdbClient::ModifyInstanceMaintenanceWindowAsync(const ModifyInstanceMaintenanceWindowRequest& request, const ModifyInstanceMaintenanceWindowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceMaintenanceWindowRequest&;
-    using Resp = ModifyInstanceMaintenanceWindowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceMaintenanceWindow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceMaintenanceWindow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::ModifyInstanceMaintenanceWindowOutcomeCallable VdbClient::ModifyInstanceMaintenanceWindowCallable(const ModifyInstanceMaintenanceWindowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceMaintenanceWindowOutcome>>();
-    ModifyInstanceMaintenanceWindowAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const ModifyInstanceMaintenanceWindowRequest&,
-        ModifyInstanceMaintenanceWindowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceMaintenanceWindowOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceMaintenanceWindow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::RecoverInstanceOutcome VdbClient::RecoverInstance(const RecoverInstanceRequest &request)
@@ -612,32 +535,25 @@ VdbClient::RecoverInstanceOutcome VdbClient::RecoverInstance(const RecoverInstan
 
 void VdbClient::RecoverInstanceAsync(const RecoverInstanceRequest& request, const RecoverInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RecoverInstanceRequest&;
-    using Resp = RecoverInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RecoverInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RecoverInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::RecoverInstanceOutcomeCallable VdbClient::RecoverInstanceCallable(const RecoverInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RecoverInstanceOutcome>>();
-    RecoverInstanceAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const RecoverInstanceRequest&,
-        RecoverInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RecoverInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RecoverInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::ScaleOutInstanceOutcome VdbClient::ScaleOutInstance(const ScaleOutInstanceRequest &request)
@@ -662,32 +578,25 @@ VdbClient::ScaleOutInstanceOutcome VdbClient::ScaleOutInstance(const ScaleOutIns
 
 void VdbClient::ScaleOutInstanceAsync(const ScaleOutInstanceRequest& request, const ScaleOutInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleOutInstanceRequest&;
-    using Resp = ScaleOutInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleOutInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleOutInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::ScaleOutInstanceOutcomeCallable VdbClient::ScaleOutInstanceCallable(const ScaleOutInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleOutInstanceOutcome>>();
-    ScaleOutInstanceAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const ScaleOutInstanceRequest&,
-        ScaleOutInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleOutInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleOutInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VdbClient::ScaleUpInstanceOutcome VdbClient::ScaleUpInstance(const ScaleUpInstanceRequest &request)
@@ -712,31 +621,24 @@ VdbClient::ScaleUpInstanceOutcome VdbClient::ScaleUpInstance(const ScaleUpInstan
 
 void VdbClient::ScaleUpInstanceAsync(const ScaleUpInstanceRequest& request, const ScaleUpInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ScaleUpInstanceRequest&;
-    using Resp = ScaleUpInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ScaleUpInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ScaleUpInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VdbClient::ScaleUpInstanceOutcomeCallable VdbClient::ScaleUpInstanceCallable(const ScaleUpInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ScaleUpInstanceOutcome>>();
-    ScaleUpInstanceAsync(
-    request,
-    [prom](
-        const VdbClient*,
-        const ScaleUpInstanceRequest&,
-        ScaleUpInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ScaleUpInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ScaleUpInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

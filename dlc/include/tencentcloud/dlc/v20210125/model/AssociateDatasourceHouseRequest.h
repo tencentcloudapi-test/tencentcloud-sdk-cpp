@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatasourceConnectionConfig;
+
                 /**
                 * AssociateDatasourceHouse请求参数结构体
                 */

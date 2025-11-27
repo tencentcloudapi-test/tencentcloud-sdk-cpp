@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClientIpPlaySumInfo;
+
                 /**
                 * DescribeTopClientIpSumInfoList返回参数结构体
                 */

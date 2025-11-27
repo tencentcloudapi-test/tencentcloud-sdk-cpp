@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 配置发布删除
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ConfigFileReleaseDeletion();
-                    ~ConfigFileReleaseDeletion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

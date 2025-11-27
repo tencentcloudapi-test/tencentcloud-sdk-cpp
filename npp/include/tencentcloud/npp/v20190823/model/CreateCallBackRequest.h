@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RreCallerHandle;
+
                 /**
                 * CreateCallBack请求参数结构体
                 */

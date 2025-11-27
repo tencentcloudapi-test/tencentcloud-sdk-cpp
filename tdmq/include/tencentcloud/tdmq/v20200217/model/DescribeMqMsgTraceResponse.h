@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TraceResult;
+
                 /**
                 * DescribeMqMsgTrace返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BinlogItem;
+
                 /**
                 * DescribeBinlogs返回参数结构体
                 */

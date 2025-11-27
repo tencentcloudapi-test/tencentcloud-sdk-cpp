@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 创建定时发送邮件任务时，设置的定时参数，比如开始时间之类
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TimedEmailParam();
-                    ~TimedEmailParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

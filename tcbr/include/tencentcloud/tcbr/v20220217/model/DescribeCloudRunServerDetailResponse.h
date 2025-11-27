@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServerBaseInfo;
+                class ServerBaseConfig;
+                class OnlineVersionInfo;
+
                 /**
                 * DescribeCloudRunServerDetail返回参数结构体
                 */

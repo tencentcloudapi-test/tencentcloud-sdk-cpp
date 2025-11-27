@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AbnormalEvent;
+
                 /**
                 * 用户的异常体验及可能的原因
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AbnormalExperience();
-                    ~AbnormalExperience() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

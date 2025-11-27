@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KTVTagGroupInfo;
+
                 /**
                 * DescribeKTVTags返回参数结构体
                 */

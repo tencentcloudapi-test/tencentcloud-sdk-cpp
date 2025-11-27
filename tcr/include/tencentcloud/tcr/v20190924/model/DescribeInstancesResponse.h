@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Registry;
+
                 /**
                 * DescribeInstances返回参数结构体
                 */

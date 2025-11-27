@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityPolicy;
+
                 /**
                 * ModifyWebSecurityTemplate请求参数结构体
                 */

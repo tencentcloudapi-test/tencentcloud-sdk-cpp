@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AbnormalProcessEventTendencyInfo;
+
                 /**
                 * DescribeAbnormalProcessEventTendency返回参数结构体
                 */

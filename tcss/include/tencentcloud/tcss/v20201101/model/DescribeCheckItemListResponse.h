@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClusterCheckItem;
+
                 /**
                 * DescribeCheckItemList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ShareUnitResource;
+
                 /**
                 * DescribeShareUnitResources返回参数结构体
                 */

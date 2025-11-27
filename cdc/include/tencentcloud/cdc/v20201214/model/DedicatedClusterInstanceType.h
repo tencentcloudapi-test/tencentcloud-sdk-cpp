@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 专用宿主机支持的实例规格列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DedicatedClusterInstanceType();
-                    ~DedicatedClusterInstanceType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

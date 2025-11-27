@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UnbindL7Backend;
+
                 /**
                 * UnbindL7Backends请求参数结构体
                 */

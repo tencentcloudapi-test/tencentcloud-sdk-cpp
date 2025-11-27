@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 变配类型查询出参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DescModifyType();
-                    ~DescModifyType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

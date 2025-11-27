@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReceiverDetail;
+
                 /**
                 * ListReceiverDetails返回参数结构体
                 */

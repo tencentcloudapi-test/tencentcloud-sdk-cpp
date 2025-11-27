@@ -62,32 +62,25 @@ BdaClient::CreateSegmentationTaskOutcome BdaClient::CreateSegmentationTask(const
 
 void BdaClient::CreateSegmentationTaskAsync(const CreateSegmentationTaskRequest& request, const CreateSegmentationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSegmentationTaskRequest&;
-    using Resp = CreateSegmentationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSegmentationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSegmentationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BdaClient::CreateSegmentationTaskOutcomeCallable BdaClient::CreateSegmentationTaskCallable(const CreateSegmentationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSegmentationTaskOutcome>>();
-    CreateSegmentationTaskAsync(
-    request,
-    [prom](
-        const BdaClient*,
-        const CreateSegmentationTaskRequest&,
-        CreateSegmentationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSegmentationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSegmentationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BdaClient::DescribeSegmentationTaskOutcome BdaClient::DescribeSegmentationTask(const DescribeSegmentationTaskRequest &request)
@@ -112,32 +105,25 @@ BdaClient::DescribeSegmentationTaskOutcome BdaClient::DescribeSegmentationTask(c
 
 void BdaClient::DescribeSegmentationTaskAsync(const DescribeSegmentationTaskRequest& request, const DescribeSegmentationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSegmentationTaskRequest&;
-    using Resp = DescribeSegmentationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSegmentationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSegmentationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BdaClient::DescribeSegmentationTaskOutcomeCallable BdaClient::DescribeSegmentationTaskCallable(const DescribeSegmentationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSegmentationTaskOutcome>>();
-    DescribeSegmentationTaskAsync(
-    request,
-    [prom](
-        const BdaClient*,
-        const DescribeSegmentationTaskRequest&,
-        DescribeSegmentationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSegmentationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSegmentationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BdaClient::SegmentCustomizedPortraitPicOutcome BdaClient::SegmentCustomizedPortraitPic(const SegmentCustomizedPortraitPicRequest &request)
@@ -162,32 +148,25 @@ BdaClient::SegmentCustomizedPortraitPicOutcome BdaClient::SegmentCustomizedPortr
 
 void BdaClient::SegmentCustomizedPortraitPicAsync(const SegmentCustomizedPortraitPicRequest& request, const SegmentCustomizedPortraitPicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SegmentCustomizedPortraitPicRequest&;
-    using Resp = SegmentCustomizedPortraitPicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SegmentCustomizedPortraitPic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SegmentCustomizedPortraitPic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BdaClient::SegmentCustomizedPortraitPicOutcomeCallable BdaClient::SegmentCustomizedPortraitPicCallable(const SegmentCustomizedPortraitPicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SegmentCustomizedPortraitPicOutcome>>();
-    SegmentCustomizedPortraitPicAsync(
-    request,
-    [prom](
-        const BdaClient*,
-        const SegmentCustomizedPortraitPicRequest&,
-        SegmentCustomizedPortraitPicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SegmentCustomizedPortraitPicOutcome()>>(
+        [this, request]()
+        {
+            return this->SegmentCustomizedPortraitPic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BdaClient::SegmentPortraitPicOutcome BdaClient::SegmentPortraitPic(const SegmentPortraitPicRequest &request)
@@ -212,32 +191,25 @@ BdaClient::SegmentPortraitPicOutcome BdaClient::SegmentPortraitPic(const Segment
 
 void BdaClient::SegmentPortraitPicAsync(const SegmentPortraitPicRequest& request, const SegmentPortraitPicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SegmentPortraitPicRequest&;
-    using Resp = SegmentPortraitPicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SegmentPortraitPic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SegmentPortraitPic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BdaClient::SegmentPortraitPicOutcomeCallable BdaClient::SegmentPortraitPicCallable(const SegmentPortraitPicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SegmentPortraitPicOutcome>>();
-    SegmentPortraitPicAsync(
-    request,
-    [prom](
-        const BdaClient*,
-        const SegmentPortraitPicRequest&,
-        SegmentPortraitPicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SegmentPortraitPicOutcome()>>(
+        [this, request]()
+        {
+            return this->SegmentPortraitPic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BdaClient::TerminateSegmentationTaskOutcome BdaClient::TerminateSegmentationTask(const TerminateSegmentationTaskRequest &request)
@@ -262,31 +234,24 @@ BdaClient::TerminateSegmentationTaskOutcome BdaClient::TerminateSegmentationTask
 
 void BdaClient::TerminateSegmentationTaskAsync(const TerminateSegmentationTaskRequest& request, const TerminateSegmentationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminateSegmentationTaskRequest&;
-    using Resp = TerminateSegmentationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminateSegmentationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminateSegmentationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BdaClient::TerminateSegmentationTaskOutcomeCallable BdaClient::TerminateSegmentationTaskCallable(const TerminateSegmentationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminateSegmentationTaskOutcome>>();
-    TerminateSegmentationTaskAsync(
-    request,
-    [prom](
-        const BdaClient*,
-        const TerminateSegmentationTaskRequest&,
-        TerminateSegmentationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminateSegmentationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminateSegmentationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

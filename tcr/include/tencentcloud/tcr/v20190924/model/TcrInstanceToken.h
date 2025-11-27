@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实例登录令牌
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TcrInstanceToken();
-                    ~TcrInstanceToken() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Paging;
+                class DeviceDetail;
+
                 /**
                 * 返回的具体Data数据
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeVirtualDevicesPageRsp();
-                    ~DescribeVirtualDevicesPageRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

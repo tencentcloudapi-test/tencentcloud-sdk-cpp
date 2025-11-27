@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 同步员工失败原因
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SyncFailReason();
-                    ~SyncFailReason() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

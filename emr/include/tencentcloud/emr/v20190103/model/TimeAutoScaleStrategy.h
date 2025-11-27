@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RepeatStrategy;
+                class Tag;
+                class TkeLabel;
+
                 /**
                 * 时间扩缩容规则
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     TimeAutoScaleStrategy();
-                    ~TimeAutoScaleStrategy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

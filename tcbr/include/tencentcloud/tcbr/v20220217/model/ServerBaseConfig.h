@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HpaPolicy;
+                class TimerScale;
+                class VpcConf;
+                class VolumeConf;
+
                 /**
                 * 服务基础配置信息
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     ServerBaseConfig();
-                    ~ServerBaseConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

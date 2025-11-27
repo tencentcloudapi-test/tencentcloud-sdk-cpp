@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * cc配置项。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CC();
-                    ~CC() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

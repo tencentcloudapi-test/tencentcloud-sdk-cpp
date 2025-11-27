@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AdvanceCacheRule;
+
                 /**
                 * 缓存过期配置高级版，注意：此字段已经弃用，请使用RuleCache
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AdvancedCache();
-                    ~AdvancedCache() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

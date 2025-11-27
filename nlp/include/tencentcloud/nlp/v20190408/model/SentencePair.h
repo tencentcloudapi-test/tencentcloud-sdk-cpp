@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 待分析的句子对
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SentencePair();
-                    ~SentencePair() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SparkApplicationsList;
+
                 /**
                 * DescribeSparkApplications返回参数结构体
                 */

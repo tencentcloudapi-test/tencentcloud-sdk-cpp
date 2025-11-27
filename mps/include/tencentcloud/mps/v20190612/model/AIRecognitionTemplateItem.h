@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FaceConfigureInfo;
+                class OcrFullTextConfigureInfo;
+                class OcrWordsConfigureInfo;
+                class AsrFullTextConfigureInfo;
+                class AsrWordsConfigureInfo;
+                class TranslateConfigureInfo;
+
                 /**
                 * 视频内容识别模板详情
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     AIRecognitionTemplateItem();
-                    ~AIRecognitionTemplateItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

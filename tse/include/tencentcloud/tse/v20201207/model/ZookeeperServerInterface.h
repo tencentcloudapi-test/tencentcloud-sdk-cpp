@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Zookeeper服务端接口列表，用于云监控
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ZookeeperServerInterface();
-                    ~ZookeeperServerInterface() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 机器审核详情列表数据项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AmsDetailInfo();
-                    ~AmsDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

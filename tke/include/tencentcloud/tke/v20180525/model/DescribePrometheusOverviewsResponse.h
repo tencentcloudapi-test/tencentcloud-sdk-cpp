@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusInstanceOverview;
+
                 /**
                 * DescribePrometheusOverviews返回参数结构体
                 */

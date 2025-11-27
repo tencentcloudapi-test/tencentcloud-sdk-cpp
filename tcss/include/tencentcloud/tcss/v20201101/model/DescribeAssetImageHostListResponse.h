@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageHost;
+
                 /**
                 * DescribeAssetImageHostList返回参数结构体
                 */

@@ -62,32 +62,25 @@ IeClient::CreateEditingTaskOutcome IeClient::CreateEditingTask(const CreateEditi
 
 void IeClient::CreateEditingTaskAsync(const CreateEditingTaskRequest& request, const CreateEditingTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateEditingTaskRequest&;
-    using Resp = CreateEditingTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateEditingTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateEditingTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::CreateEditingTaskOutcomeCallable IeClient::CreateEditingTaskCallable(const CreateEditingTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateEditingTaskOutcome>>();
-    CreateEditingTaskAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const CreateEditingTaskRequest&,
-        CreateEditingTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateEditingTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateEditingTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::CreateMediaProcessTaskOutcome IeClient::CreateMediaProcessTask(const CreateMediaProcessTaskRequest &request)
@@ -112,32 +105,25 @@ IeClient::CreateMediaProcessTaskOutcome IeClient::CreateMediaProcessTask(const C
 
 void IeClient::CreateMediaProcessTaskAsync(const CreateMediaProcessTaskRequest& request, const CreateMediaProcessTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMediaProcessTaskRequest&;
-    using Resp = CreateMediaProcessTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMediaProcessTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMediaProcessTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::CreateMediaProcessTaskOutcomeCallable IeClient::CreateMediaProcessTaskCallable(const CreateMediaProcessTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMediaProcessTaskOutcome>>();
-    CreateMediaProcessTaskAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const CreateMediaProcessTaskRequest&,
-        CreateMediaProcessTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMediaProcessTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMediaProcessTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::CreateMediaQualityRestorationTaskOutcome IeClient::CreateMediaQualityRestorationTask(const CreateMediaQualityRestorationTaskRequest &request)
@@ -162,32 +148,25 @@ IeClient::CreateMediaQualityRestorationTaskOutcome IeClient::CreateMediaQualityR
 
 void IeClient::CreateMediaQualityRestorationTaskAsync(const CreateMediaQualityRestorationTaskRequest& request, const CreateMediaQualityRestorationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMediaQualityRestorationTaskRequest&;
-    using Resp = CreateMediaQualityRestorationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMediaQualityRestorationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMediaQualityRestorationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::CreateMediaQualityRestorationTaskOutcomeCallable IeClient::CreateMediaQualityRestorationTaskCallable(const CreateMediaQualityRestorationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMediaQualityRestorationTaskOutcome>>();
-    CreateMediaQualityRestorationTaskAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const CreateMediaQualityRestorationTaskRequest&,
-        CreateMediaQualityRestorationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMediaQualityRestorationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMediaQualityRestorationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::CreateQualityControlTaskOutcome IeClient::CreateQualityControlTask(const CreateQualityControlTaskRequest &request)
@@ -212,32 +191,25 @@ IeClient::CreateQualityControlTaskOutcome IeClient::CreateQualityControlTask(con
 
 void IeClient::CreateQualityControlTaskAsync(const CreateQualityControlTaskRequest& request, const CreateQualityControlTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateQualityControlTaskRequest&;
-    using Resp = CreateQualityControlTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateQualityControlTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateQualityControlTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::CreateQualityControlTaskOutcomeCallable IeClient::CreateQualityControlTaskCallable(const CreateQualityControlTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateQualityControlTaskOutcome>>();
-    CreateQualityControlTaskAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const CreateQualityControlTaskRequest&,
-        CreateQualityControlTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateQualityControlTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateQualityControlTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::DescribeEditingTaskResultOutcome IeClient::DescribeEditingTaskResult(const DescribeEditingTaskResultRequest &request)
@@ -262,32 +234,25 @@ IeClient::DescribeEditingTaskResultOutcome IeClient::DescribeEditingTaskResult(c
 
 void IeClient::DescribeEditingTaskResultAsync(const DescribeEditingTaskResultRequest& request, const DescribeEditingTaskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEditingTaskResultRequest&;
-    using Resp = DescribeEditingTaskResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEditingTaskResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEditingTaskResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::DescribeEditingTaskResultOutcomeCallable IeClient::DescribeEditingTaskResultCallable(const DescribeEditingTaskResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEditingTaskResultOutcome>>();
-    DescribeEditingTaskResultAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const DescribeEditingTaskResultRequest&,
-        DescribeEditingTaskResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEditingTaskResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEditingTaskResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::DescribeMediaProcessTaskResultOutcome IeClient::DescribeMediaProcessTaskResult(const DescribeMediaProcessTaskResultRequest &request)
@@ -312,32 +277,25 @@ IeClient::DescribeMediaProcessTaskResultOutcome IeClient::DescribeMediaProcessTa
 
 void IeClient::DescribeMediaProcessTaskResultAsync(const DescribeMediaProcessTaskResultRequest& request, const DescribeMediaProcessTaskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMediaProcessTaskResultRequest&;
-    using Resp = DescribeMediaProcessTaskResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMediaProcessTaskResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMediaProcessTaskResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::DescribeMediaProcessTaskResultOutcomeCallable IeClient::DescribeMediaProcessTaskResultCallable(const DescribeMediaProcessTaskResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMediaProcessTaskResultOutcome>>();
-    DescribeMediaProcessTaskResultAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const DescribeMediaProcessTaskResultRequest&,
-        DescribeMediaProcessTaskResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMediaProcessTaskResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMediaProcessTaskResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::DescribeMediaQualityRestorationTaskRusultOutcome IeClient::DescribeMediaQualityRestorationTaskRusult(const DescribeMediaQualityRestorationTaskRusultRequest &request)
@@ -362,32 +320,25 @@ IeClient::DescribeMediaQualityRestorationTaskRusultOutcome IeClient::DescribeMed
 
 void IeClient::DescribeMediaQualityRestorationTaskRusultAsync(const DescribeMediaQualityRestorationTaskRusultRequest& request, const DescribeMediaQualityRestorationTaskRusultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMediaQualityRestorationTaskRusultRequest&;
-    using Resp = DescribeMediaQualityRestorationTaskRusultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMediaQualityRestorationTaskRusult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMediaQualityRestorationTaskRusult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::DescribeMediaQualityRestorationTaskRusultOutcomeCallable IeClient::DescribeMediaQualityRestorationTaskRusultCallable(const DescribeMediaQualityRestorationTaskRusultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMediaQualityRestorationTaskRusultOutcome>>();
-    DescribeMediaQualityRestorationTaskRusultAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const DescribeMediaQualityRestorationTaskRusultRequest&,
-        DescribeMediaQualityRestorationTaskRusultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMediaQualityRestorationTaskRusultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMediaQualityRestorationTaskRusult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::DescribeQualityControlTaskResultOutcome IeClient::DescribeQualityControlTaskResult(const DescribeQualityControlTaskResultRequest &request)
@@ -412,32 +363,25 @@ IeClient::DescribeQualityControlTaskResultOutcome IeClient::DescribeQualityContr
 
 void IeClient::DescribeQualityControlTaskResultAsync(const DescribeQualityControlTaskResultRequest& request, const DescribeQualityControlTaskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeQualityControlTaskResultRequest&;
-    using Resp = DescribeQualityControlTaskResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeQualityControlTaskResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeQualityControlTaskResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::DescribeQualityControlTaskResultOutcomeCallable IeClient::DescribeQualityControlTaskResultCallable(const DescribeQualityControlTaskResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeQualityControlTaskResultOutcome>>();
-    DescribeQualityControlTaskResultAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const DescribeQualityControlTaskResultRequest&,
-        DescribeQualityControlTaskResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeQualityControlTaskResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeQualityControlTaskResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::StopMediaProcessTaskOutcome IeClient::StopMediaProcessTask(const StopMediaProcessTaskRequest &request)
@@ -462,32 +406,25 @@ IeClient::StopMediaProcessTaskOutcome IeClient::StopMediaProcessTask(const StopM
 
 void IeClient::StopMediaProcessTaskAsync(const StopMediaProcessTaskRequest& request, const StopMediaProcessTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopMediaProcessTaskRequest&;
-    using Resp = StopMediaProcessTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopMediaProcessTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopMediaProcessTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::StopMediaProcessTaskOutcomeCallable IeClient::StopMediaProcessTaskCallable(const StopMediaProcessTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopMediaProcessTaskOutcome>>();
-    StopMediaProcessTaskAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const StopMediaProcessTaskRequest&,
-        StopMediaProcessTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopMediaProcessTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->StopMediaProcessTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IeClient::StopMediaQualityRestorationTaskOutcome IeClient::StopMediaQualityRestorationTask(const StopMediaQualityRestorationTaskRequest &request)
@@ -512,31 +449,24 @@ IeClient::StopMediaQualityRestorationTaskOutcome IeClient::StopMediaQualityResto
 
 void IeClient::StopMediaQualityRestorationTaskAsync(const StopMediaQualityRestorationTaskRequest& request, const StopMediaQualityRestorationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopMediaQualityRestorationTaskRequest&;
-    using Resp = StopMediaQualityRestorationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopMediaQualityRestorationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopMediaQualityRestorationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IeClient::StopMediaQualityRestorationTaskOutcomeCallable IeClient::StopMediaQualityRestorationTaskCallable(const StopMediaQualityRestorationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopMediaQualityRestorationTaskOutcome>>();
-    StopMediaQualityRestorationTaskAsync(
-    request,
-    [prom](
-        const IeClient*,
-        const StopMediaQualityRestorationTaskRequest&,
-        StopMediaQualityRestorationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopMediaQualityRestorationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->StopMediaQualityRestorationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

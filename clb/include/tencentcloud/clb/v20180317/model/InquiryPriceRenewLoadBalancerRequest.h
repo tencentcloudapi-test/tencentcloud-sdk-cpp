@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LBChargePrepaid;
+
                 /**
                 * InquiryPriceRenewLoadBalancer请求参数结构体
                 */

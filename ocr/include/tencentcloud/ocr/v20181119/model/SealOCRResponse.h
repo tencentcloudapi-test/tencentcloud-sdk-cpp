@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Rect;
+                class SealInfo;
+
                 /**
                 * SealOCR返回参数结构体
                 */

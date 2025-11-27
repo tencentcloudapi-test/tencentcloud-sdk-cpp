@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DomainSimpleInfo;
+
                 /**
                 * DescribeDomainSimpleInfo返回参数结构体
                 */

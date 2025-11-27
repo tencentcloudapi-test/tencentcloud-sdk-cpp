@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 高优路由表条目修改属性。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HighPriorityModifyItem();
-                    ~HighPriorityModifyItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

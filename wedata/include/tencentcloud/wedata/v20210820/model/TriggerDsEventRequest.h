@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EventCaseDTO;
+                class EventBatchCaseDTO;
+
                 /**
                 * TriggerDsEvent请求参数结构体
                 */

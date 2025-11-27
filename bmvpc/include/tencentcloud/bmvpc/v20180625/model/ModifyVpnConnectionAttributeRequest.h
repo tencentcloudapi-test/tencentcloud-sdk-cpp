@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityPolicyDatabase;
+                class IKEOptionsSpecification;
+                class IPSECOptionsSpecification;
+
                 /**
                 * ModifyVpnConnectionAttribute请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourcePoolInfo;
+
                 /**
                 * ModifyProject请求参数结构体
                 */

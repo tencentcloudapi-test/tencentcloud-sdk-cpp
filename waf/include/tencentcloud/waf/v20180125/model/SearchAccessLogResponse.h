@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccessLogInfo;
+                class AccessLogItems;
+
                 /**
                 * SearchAccessLog返回参数结构体
                 */

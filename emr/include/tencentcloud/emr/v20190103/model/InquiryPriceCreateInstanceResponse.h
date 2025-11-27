@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ZoneDetailPriceResult;
+
                 /**
                 * InquiryPriceCreateInstance返回参数结构体
                 */

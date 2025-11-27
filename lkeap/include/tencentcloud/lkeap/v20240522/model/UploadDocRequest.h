@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttributeLabelReferItem;
+                class SegmentationConfig;
+
                 /**
                 * UploadDoc请求参数结构体
                 */

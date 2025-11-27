@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourcePathTree;
+
                 /**
                 * DescribeResourceManagePathTrees返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Topic_Simplification;
+
                 /**
                 * GetTopicList返回参数结构体
                 */

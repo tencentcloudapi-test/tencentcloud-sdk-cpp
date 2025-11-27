@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StartTaskInfo;
+
                 /**
                 * BatchStartIntegrationTasks请求参数结构体
                 */

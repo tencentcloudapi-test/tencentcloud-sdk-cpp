@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 表示商品 SKU 的单个售卖参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SaleParam();
-                    ~SaleParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

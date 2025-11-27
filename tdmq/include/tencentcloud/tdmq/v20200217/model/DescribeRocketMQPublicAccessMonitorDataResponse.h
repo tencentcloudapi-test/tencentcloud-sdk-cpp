@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RocketMQDataPoint;
+
                 /**
                 * DescribeRocketMQPublicAccessMonitorData返回参数结构体
                 */

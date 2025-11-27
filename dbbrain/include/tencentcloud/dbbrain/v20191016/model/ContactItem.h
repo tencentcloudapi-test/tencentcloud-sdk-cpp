@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 联系人contact描述。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ContactItem();
-                    ~ContactItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComplianceAssetPolicySetItem;
+
                 /**
                 * AddComplianceAssetPolicySetToWhitelist请求参数结构体
                 */

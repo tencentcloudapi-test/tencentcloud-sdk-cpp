@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DlcDataGovernPolicy;
+
                 /**
                 * 建dlc表所需信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TableBaseInfo();
-                    ~TableBaseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

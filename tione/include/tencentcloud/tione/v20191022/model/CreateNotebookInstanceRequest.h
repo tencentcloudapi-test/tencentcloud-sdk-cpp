@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StoppingCondition;
+                class ClsConfig;
+
                 /**
                 * CreateNotebookInstance请求参数结构体
                 */

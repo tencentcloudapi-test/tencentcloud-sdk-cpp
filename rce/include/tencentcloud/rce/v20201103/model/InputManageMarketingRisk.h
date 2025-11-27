@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccountInfo;
+                class InputDetails;
+                class SponsorInfo;
+                class OnlineScamInfo;
+                class DataAuthorizationInfo;
+
                 /**
                 * 全栈式风控引擎入参
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     InputManageMarketingRisk();
-                    ~InputManageMarketingRisk() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpgradeJobInfo;
+
                 /**
                 * GetUpgradeGroupFaceModelVersionJobList返回参数结构体
                 */

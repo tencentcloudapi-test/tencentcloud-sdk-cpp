@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MultiPathGatewayLine;
+
                 /**
                 * 多通道安全网关详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MultiPathGateway();
-                    ~MultiPathGateway() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

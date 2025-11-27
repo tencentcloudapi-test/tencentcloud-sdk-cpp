@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimingDataItem;
+
                 /**
                 * 安全数据维度值信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SecEntryValue();
-                    ~SecEntryValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

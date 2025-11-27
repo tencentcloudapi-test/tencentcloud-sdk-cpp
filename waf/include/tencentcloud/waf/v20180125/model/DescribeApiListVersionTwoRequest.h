@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiDataFilter;
+
                 /**
                 * DescribeApiListVersionTwo请求参数结构体
                 */

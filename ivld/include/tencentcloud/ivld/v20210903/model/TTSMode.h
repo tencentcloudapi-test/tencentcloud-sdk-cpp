@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * TTS 的参数模式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TTSMode();
-                    ~TTSMode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

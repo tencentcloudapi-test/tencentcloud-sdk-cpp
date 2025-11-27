@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NumberInfo;
+
                 /**
                 * DescribeNumbers返回参数结构体
                 */

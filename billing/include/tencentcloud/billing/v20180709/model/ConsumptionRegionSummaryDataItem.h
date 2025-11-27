@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConsumptionSummaryTrend;
+                class ConsumptionBusinessSummaryDataItem;
+
                 /**
                 * 消耗按地域汇总详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ConsumptionRegionSummaryDataItem();
-                    ~ConsumptionRegionSummaryDataItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

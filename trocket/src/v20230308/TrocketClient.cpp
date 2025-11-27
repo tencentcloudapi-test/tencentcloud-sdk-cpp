@@ -62,32 +62,25 @@ TrocketClient::ChangeMigratingTopicToNextStageOutcome TrocketClient::ChangeMigra
 
 void TrocketClient::ChangeMigratingTopicToNextStageAsync(const ChangeMigratingTopicToNextStageRequest& request, const ChangeMigratingTopicToNextStageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChangeMigratingTopicToNextStageRequest&;
-    using Resp = ChangeMigratingTopicToNextStageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChangeMigratingTopicToNextStage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChangeMigratingTopicToNextStage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ChangeMigratingTopicToNextStageOutcomeCallable TrocketClient::ChangeMigratingTopicToNextStageCallable(const ChangeMigratingTopicToNextStageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChangeMigratingTopicToNextStageOutcome>>();
-    ChangeMigratingTopicToNextStageAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ChangeMigratingTopicToNextStageRequest&,
-        ChangeMigratingTopicToNextStageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChangeMigratingTopicToNextStageOutcome()>>(
+        [this, request]()
+        {
+            return this->ChangeMigratingTopicToNextStage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::CreateConsumerGroupOutcome TrocketClient::CreateConsumerGroup(const CreateConsumerGroupRequest &request)
@@ -112,32 +105,25 @@ TrocketClient::CreateConsumerGroupOutcome TrocketClient::CreateConsumerGroup(con
 
 void TrocketClient::CreateConsumerGroupAsync(const CreateConsumerGroupRequest& request, const CreateConsumerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConsumerGroupRequest&;
-    using Resp = CreateConsumerGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConsumerGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConsumerGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::CreateConsumerGroupOutcomeCallable TrocketClient::CreateConsumerGroupCallable(const CreateConsumerGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConsumerGroupOutcome>>();
-    CreateConsumerGroupAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const CreateConsumerGroupRequest&,
-        CreateConsumerGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConsumerGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConsumerGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::CreateInstanceOutcome TrocketClient::CreateInstance(const CreateInstanceRequest &request)
@@ -162,32 +148,25 @@ TrocketClient::CreateInstanceOutcome TrocketClient::CreateInstance(const CreateI
 
 void TrocketClient::CreateInstanceAsync(const CreateInstanceRequest& request, const CreateInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateInstanceRequest&;
-    using Resp = CreateInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::CreateInstanceOutcomeCallable TrocketClient::CreateInstanceCallable(const CreateInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateInstanceOutcome>>();
-    CreateInstanceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const CreateInstanceRequest&,
-        CreateInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::CreateMQTTInsPublicEndpointOutcome TrocketClient::CreateMQTTInsPublicEndpoint(const CreateMQTTInsPublicEndpointRequest &request)
@@ -212,32 +191,25 @@ TrocketClient::CreateMQTTInsPublicEndpointOutcome TrocketClient::CreateMQTTInsPu
 
 void TrocketClient::CreateMQTTInsPublicEndpointAsync(const CreateMQTTInsPublicEndpointRequest& request, const CreateMQTTInsPublicEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMQTTInsPublicEndpointRequest&;
-    using Resp = CreateMQTTInsPublicEndpointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMQTTInsPublicEndpoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMQTTInsPublicEndpoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::CreateMQTTInsPublicEndpointOutcomeCallable TrocketClient::CreateMQTTInsPublicEndpointCallable(const CreateMQTTInsPublicEndpointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMQTTInsPublicEndpointOutcome>>();
-    CreateMQTTInsPublicEndpointAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const CreateMQTTInsPublicEndpointRequest&,
-        CreateMQTTInsPublicEndpointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMQTTInsPublicEndpointOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMQTTInsPublicEndpoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::CreateMQTTInstanceOutcome TrocketClient::CreateMQTTInstance(const CreateMQTTInstanceRequest &request)
@@ -262,32 +234,25 @@ TrocketClient::CreateMQTTInstanceOutcome TrocketClient::CreateMQTTInstance(const
 
 void TrocketClient::CreateMQTTInstanceAsync(const CreateMQTTInstanceRequest& request, const CreateMQTTInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMQTTInstanceRequest&;
-    using Resp = CreateMQTTInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMQTTInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMQTTInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::CreateMQTTInstanceOutcomeCallable TrocketClient::CreateMQTTInstanceCallable(const CreateMQTTInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMQTTInstanceOutcome>>();
-    CreateMQTTInstanceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const CreateMQTTInstanceRequest&,
-        CreateMQTTInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMQTTInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMQTTInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::CreateMQTTTopicOutcome TrocketClient::CreateMQTTTopic(const CreateMQTTTopicRequest &request)
@@ -312,32 +277,25 @@ TrocketClient::CreateMQTTTopicOutcome TrocketClient::CreateMQTTTopic(const Creat
 
 void TrocketClient::CreateMQTTTopicAsync(const CreateMQTTTopicRequest& request, const CreateMQTTTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMQTTTopicRequest&;
-    using Resp = CreateMQTTTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMQTTTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMQTTTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::CreateMQTTTopicOutcomeCallable TrocketClient::CreateMQTTTopicCallable(const CreateMQTTTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMQTTTopicOutcome>>();
-    CreateMQTTTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const CreateMQTTTopicRequest&,
-        CreateMQTTTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMQTTTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMQTTTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::CreateMQTTUserOutcome TrocketClient::CreateMQTTUser(const CreateMQTTUserRequest &request)
@@ -362,32 +320,25 @@ TrocketClient::CreateMQTTUserOutcome TrocketClient::CreateMQTTUser(const CreateM
 
 void TrocketClient::CreateMQTTUserAsync(const CreateMQTTUserRequest& request, const CreateMQTTUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMQTTUserRequest&;
-    using Resp = CreateMQTTUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMQTTUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMQTTUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::CreateMQTTUserOutcomeCallable TrocketClient::CreateMQTTUserCallable(const CreateMQTTUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMQTTUserOutcome>>();
-    CreateMQTTUserAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const CreateMQTTUserRequest&,
-        CreateMQTTUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMQTTUserOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMQTTUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::CreateRoleOutcome TrocketClient::CreateRole(const CreateRoleRequest &request)
@@ -412,32 +363,25 @@ TrocketClient::CreateRoleOutcome TrocketClient::CreateRole(const CreateRoleReque
 
 void TrocketClient::CreateRoleAsync(const CreateRoleRequest& request, const CreateRoleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoleRequest&;
-    using Resp = CreateRoleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRole(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRole", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::CreateRoleOutcomeCallable TrocketClient::CreateRoleCallable(const CreateRoleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoleOutcome>>();
-    CreateRoleAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const CreateRoleRequest&,
-        CreateRoleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRole(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::CreateTopicOutcome TrocketClient::CreateTopic(const CreateTopicRequest &request)
@@ -462,32 +406,25 @@ TrocketClient::CreateTopicOutcome TrocketClient::CreateTopic(const CreateTopicRe
 
 void TrocketClient::CreateTopicAsync(const CreateTopicRequest& request, const CreateTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTopicRequest&;
-    using Resp = CreateTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::CreateTopicOutcomeCallable TrocketClient::CreateTopicCallable(const CreateTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTopicOutcome>>();
-    CreateTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const CreateTopicRequest&,
-        CreateTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteConsumerGroupOutcome TrocketClient::DeleteConsumerGroup(const DeleteConsumerGroupRequest &request)
@@ -512,32 +449,25 @@ TrocketClient::DeleteConsumerGroupOutcome TrocketClient::DeleteConsumerGroup(con
 
 void TrocketClient::DeleteConsumerGroupAsync(const DeleteConsumerGroupRequest& request, const DeleteConsumerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteConsumerGroupRequest&;
-    using Resp = DeleteConsumerGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteConsumerGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteConsumerGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteConsumerGroupOutcomeCallable TrocketClient::DeleteConsumerGroupCallable(const DeleteConsumerGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteConsumerGroupOutcome>>();
-    DeleteConsumerGroupAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteConsumerGroupRequest&,
-        DeleteConsumerGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteConsumerGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteConsumerGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteInstanceOutcome TrocketClient::DeleteInstance(const DeleteInstanceRequest &request)
@@ -562,32 +492,25 @@ TrocketClient::DeleteInstanceOutcome TrocketClient::DeleteInstance(const DeleteI
 
 void TrocketClient::DeleteInstanceAsync(const DeleteInstanceRequest& request, const DeleteInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteInstanceRequest&;
-    using Resp = DeleteInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteInstanceOutcomeCallable TrocketClient::DeleteInstanceCallable(const DeleteInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteInstanceOutcome>>();
-    DeleteInstanceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteInstanceRequest&,
-        DeleteInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteMQTTInsPublicEndpointOutcome TrocketClient::DeleteMQTTInsPublicEndpoint(const DeleteMQTTInsPublicEndpointRequest &request)
@@ -612,32 +535,25 @@ TrocketClient::DeleteMQTTInsPublicEndpointOutcome TrocketClient::DeleteMQTTInsPu
 
 void TrocketClient::DeleteMQTTInsPublicEndpointAsync(const DeleteMQTTInsPublicEndpointRequest& request, const DeleteMQTTInsPublicEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteMQTTInsPublicEndpointRequest&;
-    using Resp = DeleteMQTTInsPublicEndpointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteMQTTInsPublicEndpoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteMQTTInsPublicEndpoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteMQTTInsPublicEndpointOutcomeCallable TrocketClient::DeleteMQTTInsPublicEndpointCallable(const DeleteMQTTInsPublicEndpointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteMQTTInsPublicEndpointOutcome>>();
-    DeleteMQTTInsPublicEndpointAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteMQTTInsPublicEndpointRequest&,
-        DeleteMQTTInsPublicEndpointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteMQTTInsPublicEndpointOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteMQTTInsPublicEndpoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteMQTTInstanceOutcome TrocketClient::DeleteMQTTInstance(const DeleteMQTTInstanceRequest &request)
@@ -662,32 +578,25 @@ TrocketClient::DeleteMQTTInstanceOutcome TrocketClient::DeleteMQTTInstance(const
 
 void TrocketClient::DeleteMQTTInstanceAsync(const DeleteMQTTInstanceRequest& request, const DeleteMQTTInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteMQTTInstanceRequest&;
-    using Resp = DeleteMQTTInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteMQTTInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteMQTTInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteMQTTInstanceOutcomeCallable TrocketClient::DeleteMQTTInstanceCallable(const DeleteMQTTInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteMQTTInstanceOutcome>>();
-    DeleteMQTTInstanceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteMQTTInstanceRequest&,
-        DeleteMQTTInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteMQTTInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteMQTTInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteMQTTTopicOutcome TrocketClient::DeleteMQTTTopic(const DeleteMQTTTopicRequest &request)
@@ -712,32 +621,25 @@ TrocketClient::DeleteMQTTTopicOutcome TrocketClient::DeleteMQTTTopic(const Delet
 
 void TrocketClient::DeleteMQTTTopicAsync(const DeleteMQTTTopicRequest& request, const DeleteMQTTTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteMQTTTopicRequest&;
-    using Resp = DeleteMQTTTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteMQTTTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteMQTTTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteMQTTTopicOutcomeCallable TrocketClient::DeleteMQTTTopicCallable(const DeleteMQTTTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteMQTTTopicOutcome>>();
-    DeleteMQTTTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteMQTTTopicRequest&,
-        DeleteMQTTTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteMQTTTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteMQTTTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteMQTTUserOutcome TrocketClient::DeleteMQTTUser(const DeleteMQTTUserRequest &request)
@@ -762,32 +664,25 @@ TrocketClient::DeleteMQTTUserOutcome TrocketClient::DeleteMQTTUser(const DeleteM
 
 void TrocketClient::DeleteMQTTUserAsync(const DeleteMQTTUserRequest& request, const DeleteMQTTUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteMQTTUserRequest&;
-    using Resp = DeleteMQTTUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteMQTTUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteMQTTUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteMQTTUserOutcomeCallable TrocketClient::DeleteMQTTUserCallable(const DeleteMQTTUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteMQTTUserOutcome>>();
-    DeleteMQTTUserAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteMQTTUserRequest&,
-        DeleteMQTTUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteMQTTUserOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteMQTTUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteRoleOutcome TrocketClient::DeleteRole(const DeleteRoleRequest &request)
@@ -812,32 +707,25 @@ TrocketClient::DeleteRoleOutcome TrocketClient::DeleteRole(const DeleteRoleReque
 
 void TrocketClient::DeleteRoleAsync(const DeleteRoleRequest& request, const DeleteRoleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRoleRequest&;
-    using Resp = DeleteRoleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRole(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRole", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteRoleOutcomeCallable TrocketClient::DeleteRoleCallable(const DeleteRoleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRoleOutcome>>();
-    DeleteRoleAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteRoleRequest&,
-        DeleteRoleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRoleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRole(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteSmoothMigrationTaskOutcome TrocketClient::DeleteSmoothMigrationTask(const DeleteSmoothMigrationTaskRequest &request)
@@ -862,32 +750,25 @@ TrocketClient::DeleteSmoothMigrationTaskOutcome TrocketClient::DeleteSmoothMigra
 
 void TrocketClient::DeleteSmoothMigrationTaskAsync(const DeleteSmoothMigrationTaskRequest& request, const DeleteSmoothMigrationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSmoothMigrationTaskRequest&;
-    using Resp = DeleteSmoothMigrationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSmoothMigrationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSmoothMigrationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteSmoothMigrationTaskOutcomeCallable TrocketClient::DeleteSmoothMigrationTaskCallable(const DeleteSmoothMigrationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSmoothMigrationTaskOutcome>>();
-    DeleteSmoothMigrationTaskAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteSmoothMigrationTaskRequest&,
-        DeleteSmoothMigrationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSmoothMigrationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSmoothMigrationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DeleteTopicOutcome TrocketClient::DeleteTopic(const DeleteTopicRequest &request)
@@ -912,32 +793,25 @@ TrocketClient::DeleteTopicOutcome TrocketClient::DeleteTopic(const DeleteTopicRe
 
 void TrocketClient::DeleteTopicAsync(const DeleteTopicRequest& request, const DeleteTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTopicRequest&;
-    using Resp = DeleteTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DeleteTopicOutcomeCallable TrocketClient::DeleteTopicCallable(const DeleteTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTopicOutcome>>();
-    DeleteTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DeleteTopicRequest&,
-        DeleteTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeConsumerClientOutcome TrocketClient::DescribeConsumerClient(const DescribeConsumerClientRequest &request)
@@ -962,32 +836,25 @@ TrocketClient::DescribeConsumerClientOutcome TrocketClient::DescribeConsumerClie
 
 void TrocketClient::DescribeConsumerClientAsync(const DescribeConsumerClientRequest& request, const DescribeConsumerClientAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConsumerClientRequest&;
-    using Resp = DescribeConsumerClientResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConsumerClient(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConsumerClient", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeConsumerClientOutcomeCallable TrocketClient::DescribeConsumerClientCallable(const DescribeConsumerClientRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConsumerClientOutcome>>();
-    DescribeConsumerClientAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeConsumerClientRequest&,
-        DescribeConsumerClientOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConsumerClientOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConsumerClient(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeConsumerClientListOutcome TrocketClient::DescribeConsumerClientList(const DescribeConsumerClientListRequest &request)
@@ -1012,32 +879,25 @@ TrocketClient::DescribeConsumerClientListOutcome TrocketClient::DescribeConsumer
 
 void TrocketClient::DescribeConsumerClientListAsync(const DescribeConsumerClientListRequest& request, const DescribeConsumerClientListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConsumerClientListRequest&;
-    using Resp = DescribeConsumerClientListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConsumerClientList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConsumerClientList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeConsumerClientListOutcomeCallable TrocketClient::DescribeConsumerClientListCallable(const DescribeConsumerClientListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConsumerClientListOutcome>>();
-    DescribeConsumerClientListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeConsumerClientListRequest&,
-        DescribeConsumerClientListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConsumerClientListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConsumerClientList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeConsumerGroupOutcome TrocketClient::DescribeConsumerGroup(const DescribeConsumerGroupRequest &request)
@@ -1062,32 +922,25 @@ TrocketClient::DescribeConsumerGroupOutcome TrocketClient::DescribeConsumerGroup
 
 void TrocketClient::DescribeConsumerGroupAsync(const DescribeConsumerGroupRequest& request, const DescribeConsumerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConsumerGroupRequest&;
-    using Resp = DescribeConsumerGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConsumerGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConsumerGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeConsumerGroupOutcomeCallable TrocketClient::DescribeConsumerGroupCallable(const DescribeConsumerGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConsumerGroupOutcome>>();
-    DescribeConsumerGroupAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeConsumerGroupRequest&,
-        DescribeConsumerGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConsumerGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConsumerGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeConsumerGroupListOutcome TrocketClient::DescribeConsumerGroupList(const DescribeConsumerGroupListRequest &request)
@@ -1112,32 +965,25 @@ TrocketClient::DescribeConsumerGroupListOutcome TrocketClient::DescribeConsumerG
 
 void TrocketClient::DescribeConsumerGroupListAsync(const DescribeConsumerGroupListRequest& request, const DescribeConsumerGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConsumerGroupListRequest&;
-    using Resp = DescribeConsumerGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConsumerGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConsumerGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeConsumerGroupListOutcomeCallable TrocketClient::DescribeConsumerGroupListCallable(const DescribeConsumerGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConsumerGroupListOutcome>>();
-    DescribeConsumerGroupListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeConsumerGroupListRequest&,
-        DescribeConsumerGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConsumerGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConsumerGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeConsumerLagOutcome TrocketClient::DescribeConsumerLag(const DescribeConsumerLagRequest &request)
@@ -1162,32 +1008,25 @@ TrocketClient::DescribeConsumerLagOutcome TrocketClient::DescribeConsumerLag(con
 
 void TrocketClient::DescribeConsumerLagAsync(const DescribeConsumerLagRequest& request, const DescribeConsumerLagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConsumerLagRequest&;
-    using Resp = DescribeConsumerLagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConsumerLag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConsumerLag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeConsumerLagOutcomeCallable TrocketClient::DescribeConsumerLagCallable(const DescribeConsumerLagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConsumerLagOutcome>>();
-    DescribeConsumerLagAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeConsumerLagRequest&,
-        DescribeConsumerLagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConsumerLagOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConsumerLag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeFusionInstanceListOutcome TrocketClient::DescribeFusionInstanceList(const DescribeFusionInstanceListRequest &request)
@@ -1212,32 +1051,25 @@ TrocketClient::DescribeFusionInstanceListOutcome TrocketClient::DescribeFusionIn
 
 void TrocketClient::DescribeFusionInstanceListAsync(const DescribeFusionInstanceListRequest& request, const DescribeFusionInstanceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFusionInstanceListRequest&;
-    using Resp = DescribeFusionInstanceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFusionInstanceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFusionInstanceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeFusionInstanceListOutcomeCallable TrocketClient::DescribeFusionInstanceListCallable(const DescribeFusionInstanceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFusionInstanceListOutcome>>();
-    DescribeFusionInstanceListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeFusionInstanceListRequest&,
-        DescribeFusionInstanceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFusionInstanceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFusionInstanceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeInstanceOutcome TrocketClient::DescribeInstance(const DescribeInstanceRequest &request)
@@ -1262,32 +1094,25 @@ TrocketClient::DescribeInstanceOutcome TrocketClient::DescribeInstance(const Des
 
 void TrocketClient::DescribeInstanceAsync(const DescribeInstanceRequest& request, const DescribeInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceRequest&;
-    using Resp = DescribeInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeInstanceOutcomeCallable TrocketClient::DescribeInstanceCallable(const DescribeInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceOutcome>>();
-    DescribeInstanceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeInstanceRequest&,
-        DescribeInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeInstanceListOutcome TrocketClient::DescribeInstanceList(const DescribeInstanceListRequest &request)
@@ -1312,32 +1137,25 @@ TrocketClient::DescribeInstanceListOutcome TrocketClient::DescribeInstanceList(c
 
 void TrocketClient::DescribeInstanceListAsync(const DescribeInstanceListRequest& request, const DescribeInstanceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceListRequest&;
-    using Resp = DescribeInstanceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeInstanceListOutcomeCallable TrocketClient::DescribeInstanceListCallable(const DescribeInstanceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceListOutcome>>();
-    DescribeInstanceListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeInstanceListRequest&,
-        DescribeInstanceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTClientOutcome TrocketClient::DescribeMQTTClient(const DescribeMQTTClientRequest &request)
@@ -1362,32 +1180,25 @@ TrocketClient::DescribeMQTTClientOutcome TrocketClient::DescribeMQTTClient(const
 
 void TrocketClient::DescribeMQTTClientAsync(const DescribeMQTTClientRequest& request, const DescribeMQTTClientAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTClientRequest&;
-    using Resp = DescribeMQTTClientResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTClient(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTClient", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTClientOutcomeCallable TrocketClient::DescribeMQTTClientCallable(const DescribeMQTTClientRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTClientOutcome>>();
-    DescribeMQTTClientAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTClientRequest&,
-        DescribeMQTTClientOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTClientOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTClient(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTInsPublicEndpointsOutcome TrocketClient::DescribeMQTTInsPublicEndpoints(const DescribeMQTTInsPublicEndpointsRequest &request)
@@ -1412,32 +1223,25 @@ TrocketClient::DescribeMQTTInsPublicEndpointsOutcome TrocketClient::DescribeMQTT
 
 void TrocketClient::DescribeMQTTInsPublicEndpointsAsync(const DescribeMQTTInsPublicEndpointsRequest& request, const DescribeMQTTInsPublicEndpointsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTInsPublicEndpointsRequest&;
-    using Resp = DescribeMQTTInsPublicEndpointsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTInsPublicEndpoints(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTInsPublicEndpoints", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTInsPublicEndpointsOutcomeCallable TrocketClient::DescribeMQTTInsPublicEndpointsCallable(const DescribeMQTTInsPublicEndpointsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTInsPublicEndpointsOutcome>>();
-    DescribeMQTTInsPublicEndpointsAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTInsPublicEndpointsRequest&,
-        DescribeMQTTInsPublicEndpointsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTInsPublicEndpointsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTInsPublicEndpoints(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTInsVPCEndpointsOutcome TrocketClient::DescribeMQTTInsVPCEndpoints(const DescribeMQTTInsVPCEndpointsRequest &request)
@@ -1462,32 +1266,25 @@ TrocketClient::DescribeMQTTInsVPCEndpointsOutcome TrocketClient::DescribeMQTTIns
 
 void TrocketClient::DescribeMQTTInsVPCEndpointsAsync(const DescribeMQTTInsVPCEndpointsRequest& request, const DescribeMQTTInsVPCEndpointsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTInsVPCEndpointsRequest&;
-    using Resp = DescribeMQTTInsVPCEndpointsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTInsVPCEndpoints(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTInsVPCEndpoints", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTInsVPCEndpointsOutcomeCallable TrocketClient::DescribeMQTTInsVPCEndpointsCallable(const DescribeMQTTInsVPCEndpointsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTInsVPCEndpointsOutcome>>();
-    DescribeMQTTInsVPCEndpointsAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTInsVPCEndpointsRequest&,
-        DescribeMQTTInsVPCEndpointsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTInsVPCEndpointsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTInsVPCEndpoints(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTInstanceOutcome TrocketClient::DescribeMQTTInstance(const DescribeMQTTInstanceRequest &request)
@@ -1512,32 +1309,25 @@ TrocketClient::DescribeMQTTInstanceOutcome TrocketClient::DescribeMQTTInstance(c
 
 void TrocketClient::DescribeMQTTInstanceAsync(const DescribeMQTTInstanceRequest& request, const DescribeMQTTInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTInstanceRequest&;
-    using Resp = DescribeMQTTInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTInstanceOutcomeCallable TrocketClient::DescribeMQTTInstanceCallable(const DescribeMQTTInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTInstanceOutcome>>();
-    DescribeMQTTInstanceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTInstanceRequest&,
-        DescribeMQTTInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTInstanceCertOutcome TrocketClient::DescribeMQTTInstanceCert(const DescribeMQTTInstanceCertRequest &request)
@@ -1562,32 +1352,25 @@ TrocketClient::DescribeMQTTInstanceCertOutcome TrocketClient::DescribeMQTTInstan
 
 void TrocketClient::DescribeMQTTInstanceCertAsync(const DescribeMQTTInstanceCertRequest& request, const DescribeMQTTInstanceCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTInstanceCertRequest&;
-    using Resp = DescribeMQTTInstanceCertResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTInstanceCert(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTInstanceCert", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTInstanceCertOutcomeCallable TrocketClient::DescribeMQTTInstanceCertCallable(const DescribeMQTTInstanceCertRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTInstanceCertOutcome>>();
-    DescribeMQTTInstanceCertAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTInstanceCertRequest&,
-        DescribeMQTTInstanceCertOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTInstanceCertOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTInstanceCert(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTInstanceListOutcome TrocketClient::DescribeMQTTInstanceList(const DescribeMQTTInstanceListRequest &request)
@@ -1612,32 +1395,25 @@ TrocketClient::DescribeMQTTInstanceListOutcome TrocketClient::DescribeMQTTInstan
 
 void TrocketClient::DescribeMQTTInstanceListAsync(const DescribeMQTTInstanceListRequest& request, const DescribeMQTTInstanceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTInstanceListRequest&;
-    using Resp = DescribeMQTTInstanceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTInstanceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTInstanceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTInstanceListOutcomeCallable TrocketClient::DescribeMQTTInstanceListCallable(const DescribeMQTTInstanceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTInstanceListOutcome>>();
-    DescribeMQTTInstanceListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTInstanceListRequest&,
-        DescribeMQTTInstanceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTInstanceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTInstanceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTMessageOutcome TrocketClient::DescribeMQTTMessage(const DescribeMQTTMessageRequest &request)
@@ -1662,32 +1438,25 @@ TrocketClient::DescribeMQTTMessageOutcome TrocketClient::DescribeMQTTMessage(con
 
 void TrocketClient::DescribeMQTTMessageAsync(const DescribeMQTTMessageRequest& request, const DescribeMQTTMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTMessageRequest&;
-    using Resp = DescribeMQTTMessageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTMessage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTMessage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTMessageOutcomeCallable TrocketClient::DescribeMQTTMessageCallable(const DescribeMQTTMessageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTMessageOutcome>>();
-    DescribeMQTTMessageAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTMessageRequest&,
-        DescribeMQTTMessageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTMessageOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTMessage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTMessageListOutcome TrocketClient::DescribeMQTTMessageList(const DescribeMQTTMessageListRequest &request)
@@ -1712,32 +1481,25 @@ TrocketClient::DescribeMQTTMessageListOutcome TrocketClient::DescribeMQTTMessage
 
 void TrocketClient::DescribeMQTTMessageListAsync(const DescribeMQTTMessageListRequest& request, const DescribeMQTTMessageListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTMessageListRequest&;
-    using Resp = DescribeMQTTMessageListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTMessageList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTMessageList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTMessageListOutcomeCallable TrocketClient::DescribeMQTTMessageListCallable(const DescribeMQTTMessageListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTMessageListOutcome>>();
-    DescribeMQTTMessageListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTMessageListRequest&,
-        DescribeMQTTMessageListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTMessageListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTMessageList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTProductSKUListOutcome TrocketClient::DescribeMQTTProductSKUList(const DescribeMQTTProductSKUListRequest &request)
@@ -1762,32 +1524,25 @@ TrocketClient::DescribeMQTTProductSKUListOutcome TrocketClient::DescribeMQTTProd
 
 void TrocketClient::DescribeMQTTProductSKUListAsync(const DescribeMQTTProductSKUListRequest& request, const DescribeMQTTProductSKUListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTProductSKUListRequest&;
-    using Resp = DescribeMQTTProductSKUListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTProductSKUList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTProductSKUList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTProductSKUListOutcomeCallable TrocketClient::DescribeMQTTProductSKUListCallable(const DescribeMQTTProductSKUListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTProductSKUListOutcome>>();
-    DescribeMQTTProductSKUListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTProductSKUListRequest&,
-        DescribeMQTTProductSKUListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTProductSKUListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTProductSKUList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTTopicOutcome TrocketClient::DescribeMQTTTopic(const DescribeMQTTTopicRequest &request)
@@ -1812,32 +1567,25 @@ TrocketClient::DescribeMQTTTopicOutcome TrocketClient::DescribeMQTTTopic(const D
 
 void TrocketClient::DescribeMQTTTopicAsync(const DescribeMQTTTopicRequest& request, const DescribeMQTTTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTTopicRequest&;
-    using Resp = DescribeMQTTTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTTopicOutcomeCallable TrocketClient::DescribeMQTTTopicCallable(const DescribeMQTTTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTTopicOutcome>>();
-    DescribeMQTTTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTTopicRequest&,
-        DescribeMQTTTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTTopicListOutcome TrocketClient::DescribeMQTTTopicList(const DescribeMQTTTopicListRequest &request)
@@ -1862,32 +1610,25 @@ TrocketClient::DescribeMQTTTopicListOutcome TrocketClient::DescribeMQTTTopicList
 
 void TrocketClient::DescribeMQTTTopicListAsync(const DescribeMQTTTopicListRequest& request, const DescribeMQTTTopicListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTTopicListRequest&;
-    using Resp = DescribeMQTTTopicListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTTopicList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTTopicList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTTopicListOutcomeCallable TrocketClient::DescribeMQTTTopicListCallable(const DescribeMQTTTopicListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTTopicListOutcome>>();
-    DescribeMQTTTopicListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTTopicListRequest&,
-        DescribeMQTTTopicListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTTopicListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTTopicList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMQTTUserListOutcome TrocketClient::DescribeMQTTUserList(const DescribeMQTTUserListRequest &request)
@@ -1912,32 +1653,25 @@ TrocketClient::DescribeMQTTUserListOutcome TrocketClient::DescribeMQTTUserList(c
 
 void TrocketClient::DescribeMQTTUserListAsync(const DescribeMQTTUserListRequest& request, const DescribeMQTTUserListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMQTTUserListRequest&;
-    using Resp = DescribeMQTTUserListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMQTTUserList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMQTTUserList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMQTTUserListOutcomeCallable TrocketClient::DescribeMQTTUserListCallable(const DescribeMQTTUserListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMQTTUserListOutcome>>();
-    DescribeMQTTUserListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMQTTUserListRequest&,
-        DescribeMQTTUserListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMQTTUserListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMQTTUserList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMessageOutcome TrocketClient::DescribeMessage(const DescribeMessageRequest &request)
@@ -1962,32 +1696,25 @@ TrocketClient::DescribeMessageOutcome TrocketClient::DescribeMessage(const Descr
 
 void TrocketClient::DescribeMessageAsync(const DescribeMessageRequest& request, const DescribeMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMessageRequest&;
-    using Resp = DescribeMessageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMessage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMessage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMessageOutcomeCallable TrocketClient::DescribeMessageCallable(const DescribeMessageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMessageOutcome>>();
-    DescribeMessageAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMessageRequest&,
-        DescribeMessageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMessageOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMessage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMessageListOutcome TrocketClient::DescribeMessageList(const DescribeMessageListRequest &request)
@@ -2012,32 +1739,25 @@ TrocketClient::DescribeMessageListOutcome TrocketClient::DescribeMessageList(con
 
 void TrocketClient::DescribeMessageListAsync(const DescribeMessageListRequest& request, const DescribeMessageListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMessageListRequest&;
-    using Resp = DescribeMessageListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMessageList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMessageList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMessageListOutcomeCallable TrocketClient::DescribeMessageListCallable(const DescribeMessageListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMessageListOutcome>>();
-    DescribeMessageListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMessageListRequest&,
-        DescribeMessageListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMessageListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMessageList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMessageTraceOutcome TrocketClient::DescribeMessageTrace(const DescribeMessageTraceRequest &request)
@@ -2062,32 +1782,25 @@ TrocketClient::DescribeMessageTraceOutcome TrocketClient::DescribeMessageTrace(c
 
 void TrocketClient::DescribeMessageTraceAsync(const DescribeMessageTraceRequest& request, const DescribeMessageTraceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMessageTraceRequest&;
-    using Resp = DescribeMessageTraceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMessageTrace(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMessageTrace", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMessageTraceOutcomeCallable TrocketClient::DescribeMessageTraceCallable(const DescribeMessageTraceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMessageTraceOutcome>>();
-    DescribeMessageTraceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMessageTraceRequest&,
-        DescribeMessageTraceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMessageTraceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMessageTrace(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMigratingGroupStatsOutcome TrocketClient::DescribeMigratingGroupStats(const DescribeMigratingGroupStatsRequest &request)
@@ -2112,32 +1825,25 @@ TrocketClient::DescribeMigratingGroupStatsOutcome TrocketClient::DescribeMigrati
 
 void TrocketClient::DescribeMigratingGroupStatsAsync(const DescribeMigratingGroupStatsRequest& request, const DescribeMigratingGroupStatsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMigratingGroupStatsRequest&;
-    using Resp = DescribeMigratingGroupStatsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMigratingGroupStats(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMigratingGroupStats", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMigratingGroupStatsOutcomeCallable TrocketClient::DescribeMigratingGroupStatsCallable(const DescribeMigratingGroupStatsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMigratingGroupStatsOutcome>>();
-    DescribeMigratingGroupStatsAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMigratingGroupStatsRequest&,
-        DescribeMigratingGroupStatsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMigratingGroupStatsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMigratingGroupStats(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMigratingTopicListOutcome TrocketClient::DescribeMigratingTopicList(const DescribeMigratingTopicListRequest &request)
@@ -2162,32 +1868,25 @@ TrocketClient::DescribeMigratingTopicListOutcome TrocketClient::DescribeMigratin
 
 void TrocketClient::DescribeMigratingTopicListAsync(const DescribeMigratingTopicListRequest& request, const DescribeMigratingTopicListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMigratingTopicListRequest&;
-    using Resp = DescribeMigratingTopicListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMigratingTopicList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMigratingTopicList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMigratingTopicListOutcomeCallable TrocketClient::DescribeMigratingTopicListCallable(const DescribeMigratingTopicListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMigratingTopicListOutcome>>();
-    DescribeMigratingTopicListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMigratingTopicListRequest&,
-        DescribeMigratingTopicListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMigratingTopicListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMigratingTopicList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMigratingTopicStatsOutcome TrocketClient::DescribeMigratingTopicStats(const DescribeMigratingTopicStatsRequest &request)
@@ -2212,32 +1911,25 @@ TrocketClient::DescribeMigratingTopicStatsOutcome TrocketClient::DescribeMigrati
 
 void TrocketClient::DescribeMigratingTopicStatsAsync(const DescribeMigratingTopicStatsRequest& request, const DescribeMigratingTopicStatsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMigratingTopicStatsRequest&;
-    using Resp = DescribeMigratingTopicStatsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMigratingTopicStats(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMigratingTopicStats", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMigratingTopicStatsOutcomeCallable TrocketClient::DescribeMigratingTopicStatsCallable(const DescribeMigratingTopicStatsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMigratingTopicStatsOutcome>>();
-    DescribeMigratingTopicStatsAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMigratingTopicStatsRequest&,
-        DescribeMigratingTopicStatsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMigratingTopicStatsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMigratingTopicStats(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeMigrationTaskListOutcome TrocketClient::DescribeMigrationTaskList(const DescribeMigrationTaskListRequest &request)
@@ -2262,32 +1954,25 @@ TrocketClient::DescribeMigrationTaskListOutcome TrocketClient::DescribeMigration
 
 void TrocketClient::DescribeMigrationTaskListAsync(const DescribeMigrationTaskListRequest& request, const DescribeMigrationTaskListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMigrationTaskListRequest&;
-    using Resp = DescribeMigrationTaskListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMigrationTaskList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMigrationTaskList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeMigrationTaskListOutcomeCallable TrocketClient::DescribeMigrationTaskListCallable(const DescribeMigrationTaskListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMigrationTaskListOutcome>>();
-    DescribeMigrationTaskListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeMigrationTaskListRequest&,
-        DescribeMigrationTaskListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMigrationTaskListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMigrationTaskList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeProducerListOutcome TrocketClient::DescribeProducerList(const DescribeProducerListRequest &request)
@@ -2312,32 +1997,25 @@ TrocketClient::DescribeProducerListOutcome TrocketClient::DescribeProducerList(c
 
 void TrocketClient::DescribeProducerListAsync(const DescribeProducerListRequest& request, const DescribeProducerListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProducerListRequest&;
-    using Resp = DescribeProducerListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProducerList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProducerList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeProducerListOutcomeCallable TrocketClient::DescribeProducerListCallable(const DescribeProducerListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProducerListOutcome>>();
-    DescribeProducerListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeProducerListRequest&,
-        DescribeProducerListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProducerListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProducerList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeProductSKUsOutcome TrocketClient::DescribeProductSKUs(const DescribeProductSKUsRequest &request)
@@ -2362,32 +2040,25 @@ TrocketClient::DescribeProductSKUsOutcome TrocketClient::DescribeProductSKUs(con
 
 void TrocketClient::DescribeProductSKUsAsync(const DescribeProductSKUsRequest& request, const DescribeProductSKUsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProductSKUsRequest&;
-    using Resp = DescribeProductSKUsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProductSKUs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProductSKUs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeProductSKUsOutcomeCallable TrocketClient::DescribeProductSKUsCallable(const DescribeProductSKUsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProductSKUsOutcome>>();
-    DescribeProductSKUsAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeProductSKUsRequest&,
-        DescribeProductSKUsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProductSKUsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProductSKUs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeRoleListOutcome TrocketClient::DescribeRoleList(const DescribeRoleListRequest &request)
@@ -2412,32 +2083,25 @@ TrocketClient::DescribeRoleListOutcome TrocketClient::DescribeRoleList(const Des
 
 void TrocketClient::DescribeRoleListAsync(const DescribeRoleListRequest& request, const DescribeRoleListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRoleListRequest&;
-    using Resp = DescribeRoleListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoleList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoleList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeRoleListOutcomeCallable TrocketClient::DescribeRoleListCallable(const DescribeRoleListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRoleListOutcome>>();
-    DescribeRoleListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeRoleListRequest&,
-        DescribeRoleListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRoleListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoleList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeSmoothMigrationTaskListOutcome TrocketClient::DescribeSmoothMigrationTaskList(const DescribeSmoothMigrationTaskListRequest &request)
@@ -2462,32 +2126,25 @@ TrocketClient::DescribeSmoothMigrationTaskListOutcome TrocketClient::DescribeSmo
 
 void TrocketClient::DescribeSmoothMigrationTaskListAsync(const DescribeSmoothMigrationTaskListRequest& request, const DescribeSmoothMigrationTaskListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSmoothMigrationTaskListRequest&;
-    using Resp = DescribeSmoothMigrationTaskListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSmoothMigrationTaskList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSmoothMigrationTaskList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeSmoothMigrationTaskListOutcomeCallable TrocketClient::DescribeSmoothMigrationTaskListCallable(const DescribeSmoothMigrationTaskListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSmoothMigrationTaskListOutcome>>();
-    DescribeSmoothMigrationTaskListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeSmoothMigrationTaskListRequest&,
-        DescribeSmoothMigrationTaskListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSmoothMigrationTaskListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSmoothMigrationTaskList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeSourceClusterGroupListOutcome TrocketClient::DescribeSourceClusterGroupList(const DescribeSourceClusterGroupListRequest &request)
@@ -2512,32 +2169,25 @@ TrocketClient::DescribeSourceClusterGroupListOutcome TrocketClient::DescribeSour
 
 void TrocketClient::DescribeSourceClusterGroupListAsync(const DescribeSourceClusterGroupListRequest& request, const DescribeSourceClusterGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSourceClusterGroupListRequest&;
-    using Resp = DescribeSourceClusterGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSourceClusterGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSourceClusterGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeSourceClusterGroupListOutcomeCallable TrocketClient::DescribeSourceClusterGroupListCallable(const DescribeSourceClusterGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSourceClusterGroupListOutcome>>();
-    DescribeSourceClusterGroupListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeSourceClusterGroupListRequest&,
-        DescribeSourceClusterGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSourceClusterGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSourceClusterGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeTopicOutcome TrocketClient::DescribeTopic(const DescribeTopicRequest &request)
@@ -2562,32 +2212,25 @@ TrocketClient::DescribeTopicOutcome TrocketClient::DescribeTopic(const DescribeT
 
 void TrocketClient::DescribeTopicAsync(const DescribeTopicRequest& request, const DescribeTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicRequest&;
-    using Resp = DescribeTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeTopicOutcomeCallable TrocketClient::DescribeTopicCallable(const DescribeTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicOutcome>>();
-    DescribeTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeTopicRequest&,
-        DescribeTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeTopicListOutcome TrocketClient::DescribeTopicList(const DescribeTopicListRequest &request)
@@ -2612,32 +2255,25 @@ TrocketClient::DescribeTopicListOutcome TrocketClient::DescribeTopicList(const D
 
 void TrocketClient::DescribeTopicListAsync(const DescribeTopicListRequest& request, const DescribeTopicListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicListRequest&;
-    using Resp = DescribeTopicListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeTopicListOutcomeCallable TrocketClient::DescribeTopicListCallable(const DescribeTopicListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicListOutcome>>();
-    DescribeTopicListAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeTopicListRequest&,
-        DescribeTopicListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DescribeTopicListByGroupOutcome TrocketClient::DescribeTopicListByGroup(const DescribeTopicListByGroupRequest &request)
@@ -2662,32 +2298,25 @@ TrocketClient::DescribeTopicListByGroupOutcome TrocketClient::DescribeTopicListB
 
 void TrocketClient::DescribeTopicListByGroupAsync(const DescribeTopicListByGroupRequest& request, const DescribeTopicListByGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicListByGroupRequest&;
-    using Resp = DescribeTopicListByGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicListByGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicListByGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DescribeTopicListByGroupOutcomeCallable TrocketClient::DescribeTopicListByGroupCallable(const DescribeTopicListByGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicListByGroupOutcome>>();
-    DescribeTopicListByGroupAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DescribeTopicListByGroupRequest&,
-        DescribeTopicListByGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicListByGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicListByGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::DoHealthCheckOnMigratingTopicOutcome TrocketClient::DoHealthCheckOnMigratingTopic(const DoHealthCheckOnMigratingTopicRequest &request)
@@ -2712,32 +2341,25 @@ TrocketClient::DoHealthCheckOnMigratingTopicOutcome TrocketClient::DoHealthCheck
 
 void TrocketClient::DoHealthCheckOnMigratingTopicAsync(const DoHealthCheckOnMigratingTopicRequest& request, const DoHealthCheckOnMigratingTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DoHealthCheckOnMigratingTopicRequest&;
-    using Resp = DoHealthCheckOnMigratingTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DoHealthCheckOnMigratingTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DoHealthCheckOnMigratingTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::DoHealthCheckOnMigratingTopicOutcomeCallable TrocketClient::DoHealthCheckOnMigratingTopicCallable(const DoHealthCheckOnMigratingTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DoHealthCheckOnMigratingTopicOutcome>>();
-    DoHealthCheckOnMigratingTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const DoHealthCheckOnMigratingTopicRequest&,
-        DoHealthCheckOnMigratingTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DoHealthCheckOnMigratingTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->DoHealthCheckOnMigratingTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ImportSourceClusterConsumerGroupsOutcome TrocketClient::ImportSourceClusterConsumerGroups(const ImportSourceClusterConsumerGroupsRequest &request)
@@ -2762,32 +2384,25 @@ TrocketClient::ImportSourceClusterConsumerGroupsOutcome TrocketClient::ImportSou
 
 void TrocketClient::ImportSourceClusterConsumerGroupsAsync(const ImportSourceClusterConsumerGroupsRequest& request, const ImportSourceClusterConsumerGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportSourceClusterConsumerGroupsRequest&;
-    using Resp = ImportSourceClusterConsumerGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportSourceClusterConsumerGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportSourceClusterConsumerGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ImportSourceClusterConsumerGroupsOutcomeCallable TrocketClient::ImportSourceClusterConsumerGroupsCallable(const ImportSourceClusterConsumerGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportSourceClusterConsumerGroupsOutcome>>();
-    ImportSourceClusterConsumerGroupsAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ImportSourceClusterConsumerGroupsRequest&,
-        ImportSourceClusterConsumerGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportSourceClusterConsumerGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportSourceClusterConsumerGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ImportSourceClusterTopicsOutcome TrocketClient::ImportSourceClusterTopics(const ImportSourceClusterTopicsRequest &request)
@@ -2812,32 +2427,25 @@ TrocketClient::ImportSourceClusterTopicsOutcome TrocketClient::ImportSourceClust
 
 void TrocketClient::ImportSourceClusterTopicsAsync(const ImportSourceClusterTopicsRequest& request, const ImportSourceClusterTopicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportSourceClusterTopicsRequest&;
-    using Resp = ImportSourceClusterTopicsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportSourceClusterTopics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportSourceClusterTopics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ImportSourceClusterTopicsOutcomeCallable TrocketClient::ImportSourceClusterTopicsCallable(const ImportSourceClusterTopicsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportSourceClusterTopicsOutcome>>();
-    ImportSourceClusterTopicsAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ImportSourceClusterTopicsRequest&,
-        ImportSourceClusterTopicsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportSourceClusterTopicsOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportSourceClusterTopics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyConsumerGroupOutcome TrocketClient::ModifyConsumerGroup(const ModifyConsumerGroupRequest &request)
@@ -2862,32 +2470,25 @@ TrocketClient::ModifyConsumerGroupOutcome TrocketClient::ModifyConsumerGroup(con
 
 void TrocketClient::ModifyConsumerGroupAsync(const ModifyConsumerGroupRequest& request, const ModifyConsumerGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConsumerGroupRequest&;
-    using Resp = ModifyConsumerGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConsumerGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConsumerGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyConsumerGroupOutcomeCallable TrocketClient::ModifyConsumerGroupCallable(const ModifyConsumerGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConsumerGroupOutcome>>();
-    ModifyConsumerGroupAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyConsumerGroupRequest&,
-        ModifyConsumerGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConsumerGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConsumerGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyInstanceOutcome TrocketClient::ModifyInstance(const ModifyInstanceRequest &request)
@@ -2912,32 +2513,25 @@ TrocketClient::ModifyInstanceOutcome TrocketClient::ModifyInstance(const ModifyI
 
 void TrocketClient::ModifyInstanceAsync(const ModifyInstanceRequest& request, const ModifyInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceRequest&;
-    using Resp = ModifyInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyInstanceOutcomeCallable TrocketClient::ModifyInstanceCallable(const ModifyInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceOutcome>>();
-    ModifyInstanceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyInstanceRequest&,
-        ModifyInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyInstanceEndpointOutcome TrocketClient::ModifyInstanceEndpoint(const ModifyInstanceEndpointRequest &request)
@@ -2962,32 +2556,25 @@ TrocketClient::ModifyInstanceEndpointOutcome TrocketClient::ModifyInstanceEndpoi
 
 void TrocketClient::ModifyInstanceEndpointAsync(const ModifyInstanceEndpointRequest& request, const ModifyInstanceEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceEndpointRequest&;
-    using Resp = ModifyInstanceEndpointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceEndpoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceEndpoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyInstanceEndpointOutcomeCallable TrocketClient::ModifyInstanceEndpointCallable(const ModifyInstanceEndpointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceEndpointOutcome>>();
-    ModifyInstanceEndpointAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyInstanceEndpointRequest&,
-        ModifyInstanceEndpointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceEndpointOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceEndpoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyMQTTInsPublicEndpointOutcome TrocketClient::ModifyMQTTInsPublicEndpoint(const ModifyMQTTInsPublicEndpointRequest &request)
@@ -3012,32 +2599,25 @@ TrocketClient::ModifyMQTTInsPublicEndpointOutcome TrocketClient::ModifyMQTTInsPu
 
 void TrocketClient::ModifyMQTTInsPublicEndpointAsync(const ModifyMQTTInsPublicEndpointRequest& request, const ModifyMQTTInsPublicEndpointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMQTTInsPublicEndpointRequest&;
-    using Resp = ModifyMQTTInsPublicEndpointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMQTTInsPublicEndpoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMQTTInsPublicEndpoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyMQTTInsPublicEndpointOutcomeCallable TrocketClient::ModifyMQTTInsPublicEndpointCallable(const ModifyMQTTInsPublicEndpointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMQTTInsPublicEndpointOutcome>>();
-    ModifyMQTTInsPublicEndpointAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyMQTTInsPublicEndpointRequest&,
-        ModifyMQTTInsPublicEndpointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMQTTInsPublicEndpointOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMQTTInsPublicEndpoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyMQTTInstanceOutcome TrocketClient::ModifyMQTTInstance(const ModifyMQTTInstanceRequest &request)
@@ -3062,32 +2642,25 @@ TrocketClient::ModifyMQTTInstanceOutcome TrocketClient::ModifyMQTTInstance(const
 
 void TrocketClient::ModifyMQTTInstanceAsync(const ModifyMQTTInstanceRequest& request, const ModifyMQTTInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMQTTInstanceRequest&;
-    using Resp = ModifyMQTTInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMQTTInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMQTTInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyMQTTInstanceOutcomeCallable TrocketClient::ModifyMQTTInstanceCallable(const ModifyMQTTInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMQTTInstanceOutcome>>();
-    ModifyMQTTInstanceAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyMQTTInstanceRequest&,
-        ModifyMQTTInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMQTTInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMQTTInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyMQTTInstanceCertBindingOutcome TrocketClient::ModifyMQTTInstanceCertBinding(const ModifyMQTTInstanceCertBindingRequest &request)
@@ -3112,32 +2685,25 @@ TrocketClient::ModifyMQTTInstanceCertBindingOutcome TrocketClient::ModifyMQTTIns
 
 void TrocketClient::ModifyMQTTInstanceCertBindingAsync(const ModifyMQTTInstanceCertBindingRequest& request, const ModifyMQTTInstanceCertBindingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMQTTInstanceCertBindingRequest&;
-    using Resp = ModifyMQTTInstanceCertBindingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMQTTInstanceCertBinding(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMQTTInstanceCertBinding", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyMQTTInstanceCertBindingOutcomeCallable TrocketClient::ModifyMQTTInstanceCertBindingCallable(const ModifyMQTTInstanceCertBindingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMQTTInstanceCertBindingOutcome>>();
-    ModifyMQTTInstanceCertBindingAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyMQTTInstanceCertBindingRequest&,
-        ModifyMQTTInstanceCertBindingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMQTTInstanceCertBindingOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMQTTInstanceCertBinding(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyMQTTTopicOutcome TrocketClient::ModifyMQTTTopic(const ModifyMQTTTopicRequest &request)
@@ -3162,32 +2728,25 @@ TrocketClient::ModifyMQTTTopicOutcome TrocketClient::ModifyMQTTTopic(const Modif
 
 void TrocketClient::ModifyMQTTTopicAsync(const ModifyMQTTTopicRequest& request, const ModifyMQTTTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMQTTTopicRequest&;
-    using Resp = ModifyMQTTTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMQTTTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMQTTTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyMQTTTopicOutcomeCallable TrocketClient::ModifyMQTTTopicCallable(const ModifyMQTTTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMQTTTopicOutcome>>();
-    ModifyMQTTTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyMQTTTopicRequest&,
-        ModifyMQTTTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMQTTTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMQTTTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyMQTTUserOutcome TrocketClient::ModifyMQTTUser(const ModifyMQTTUserRequest &request)
@@ -3212,32 +2771,25 @@ TrocketClient::ModifyMQTTUserOutcome TrocketClient::ModifyMQTTUser(const ModifyM
 
 void TrocketClient::ModifyMQTTUserAsync(const ModifyMQTTUserRequest& request, const ModifyMQTTUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMQTTUserRequest&;
-    using Resp = ModifyMQTTUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMQTTUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMQTTUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyMQTTUserOutcomeCallable TrocketClient::ModifyMQTTUserCallable(const ModifyMQTTUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMQTTUserOutcome>>();
-    ModifyMQTTUserAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyMQTTUserRequest&,
-        ModifyMQTTUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMQTTUserOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMQTTUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyRoleOutcome TrocketClient::ModifyRole(const ModifyRoleRequest &request)
@@ -3262,32 +2814,25 @@ TrocketClient::ModifyRoleOutcome TrocketClient::ModifyRole(const ModifyRoleReque
 
 void TrocketClient::ModifyRoleAsync(const ModifyRoleRequest& request, const ModifyRoleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRoleRequest&;
-    using Resp = ModifyRoleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRole(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRole", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyRoleOutcomeCallable TrocketClient::ModifyRoleCallable(const ModifyRoleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRoleOutcome>>();
-    ModifyRoleAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyRoleRequest&,
-        ModifyRoleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRoleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRole(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ModifyTopicOutcome TrocketClient::ModifyTopic(const ModifyTopicRequest &request)
@@ -3312,32 +2857,25 @@ TrocketClient::ModifyTopicOutcome TrocketClient::ModifyTopic(const ModifyTopicRe
 
 void TrocketClient::ModifyTopicAsync(const ModifyTopicRequest& request, const ModifyTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTopicRequest&;
-    using Resp = ModifyTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ModifyTopicOutcomeCallable TrocketClient::ModifyTopicCallable(const ModifyTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTopicOutcome>>();
-    ModifyTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ModifyTopicRequest&,
-        ModifyTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::RemoveMigratingTopicOutcome TrocketClient::RemoveMigratingTopic(const RemoveMigratingTopicRequest &request)
@@ -3362,32 +2900,25 @@ TrocketClient::RemoveMigratingTopicOutcome TrocketClient::RemoveMigratingTopic(c
 
 void TrocketClient::RemoveMigratingTopicAsync(const RemoveMigratingTopicRequest& request, const RemoveMigratingTopicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveMigratingTopicRequest&;
-    using Resp = RemoveMigratingTopicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveMigratingTopic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveMigratingTopic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::RemoveMigratingTopicOutcomeCallable TrocketClient::RemoveMigratingTopicCallable(const RemoveMigratingTopicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveMigratingTopicOutcome>>();
-    RemoveMigratingTopicAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const RemoveMigratingTopicRequest&,
-        RemoveMigratingTopicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveMigratingTopicOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveMigratingTopic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ResendDeadLetterMessageOutcome TrocketClient::ResendDeadLetterMessage(const ResendDeadLetterMessageRequest &request)
@@ -3412,32 +2943,25 @@ TrocketClient::ResendDeadLetterMessageOutcome TrocketClient::ResendDeadLetterMes
 
 void TrocketClient::ResendDeadLetterMessageAsync(const ResendDeadLetterMessageRequest& request, const ResendDeadLetterMessageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResendDeadLetterMessageRequest&;
-    using Resp = ResendDeadLetterMessageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResendDeadLetterMessage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResendDeadLetterMessage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ResendDeadLetterMessageOutcomeCallable TrocketClient::ResendDeadLetterMessageCallable(const ResendDeadLetterMessageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResendDeadLetterMessageOutcome>>();
-    ResendDeadLetterMessageAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ResendDeadLetterMessageRequest&,
-        ResendDeadLetterMessageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResendDeadLetterMessageOutcome()>>(
+        [this, request]()
+        {
+            return this->ResendDeadLetterMessage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::ResetConsumerGroupOffsetOutcome TrocketClient::ResetConsumerGroupOffset(const ResetConsumerGroupOffsetRequest &request)
@@ -3462,32 +2986,25 @@ TrocketClient::ResetConsumerGroupOffsetOutcome TrocketClient::ResetConsumerGroup
 
 void TrocketClient::ResetConsumerGroupOffsetAsync(const ResetConsumerGroupOffsetRequest& request, const ResetConsumerGroupOffsetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetConsumerGroupOffsetRequest&;
-    using Resp = ResetConsumerGroupOffsetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetConsumerGroupOffset(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetConsumerGroupOffset", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::ResetConsumerGroupOffsetOutcomeCallable TrocketClient::ResetConsumerGroupOffsetCallable(const ResetConsumerGroupOffsetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetConsumerGroupOffsetOutcome>>();
-    ResetConsumerGroupOffsetAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const ResetConsumerGroupOffsetRequest&,
-        ResetConsumerGroupOffsetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetConsumerGroupOffsetOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetConsumerGroupOffset(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TrocketClient::RollbackMigratingTopicStageOutcome TrocketClient::RollbackMigratingTopicStage(const RollbackMigratingTopicStageRequest &request)
@@ -3512,31 +3029,24 @@ TrocketClient::RollbackMigratingTopicStageOutcome TrocketClient::RollbackMigrati
 
 void TrocketClient::RollbackMigratingTopicStageAsync(const RollbackMigratingTopicStageRequest& request, const RollbackMigratingTopicStageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RollbackMigratingTopicStageRequest&;
-    using Resp = RollbackMigratingTopicStageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RollbackMigratingTopicStage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RollbackMigratingTopicStage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TrocketClient::RollbackMigratingTopicStageOutcomeCallable TrocketClient::RollbackMigratingTopicStageCallable(const RollbackMigratingTopicStageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RollbackMigratingTopicStageOutcome>>();
-    RollbackMigratingTopicStageAsync(
-    request,
-    [prom](
-        const TrocketClient*,
-        const RollbackMigratingTopicStageRequest&,
-        RollbackMigratingTopicStageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RollbackMigratingTopicStageOutcome()>>(
+        [this, request]()
+        {
+            return this->RollbackMigratingTopicStage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

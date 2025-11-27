@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TriggerAction;
+
                 /**
                 * 函数版本的预置并发信息，包括设置预置并发数、已完成预置的并发数和预置任务状态。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VersionProvisionedConcurrencyInfo();
-                    ~VersionProvisionedConcurrencyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -41,6 +41,17 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JitterConfigureInfoForUpdate;
+                class BlurConfigureInfoForUpdate;
+                class AbnormalLightingConfigureInfoForUpdate;
+                class CrashScreenConfigureInfoForUpdate;
+                class BlackWhiteEdgeConfigureInfoForUpdate;
+                class NoiseConfigureInfoForUpdate;
+                class MosaicConfigureInfoForUpdate;
+                class QRCodeConfigureInfoForUpdate;
+                class VoiceConfigureInfoForUpdate;
+                class QualityEvaluationConfigureInfoForUpdate;
+
                 /**
                 * ModifyQualityInspectTemplate请求参数结构体
                 */

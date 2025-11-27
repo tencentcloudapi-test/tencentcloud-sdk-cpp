@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PortViewPortRisk;
+                class FilterDataObject;
+
                 /**
                 * DescribeRiskCenterPortViewPortRiskList返回参数结构体
                 */

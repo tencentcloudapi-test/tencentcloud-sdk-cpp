@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * MariaDB类型入参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MariaDBParam();
-                    ~MariaDBParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

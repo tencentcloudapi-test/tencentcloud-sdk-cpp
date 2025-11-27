@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeleteCloudNativeAPIGatewayResult;
+
                 /**
                 * DeleteCloudNativeAPIGateway返回参数结构体
                 */

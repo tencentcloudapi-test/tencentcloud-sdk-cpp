@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IstioConfig;
+                class AccessLogConfig;
+                class PrometheusConfig;
+                class InjectConfig;
+                class TracingConfig;
+                class ResourceRequirements;
+
                 /**
                 * 网格配置项
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     MeshConfig();
-                    ~MeshConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

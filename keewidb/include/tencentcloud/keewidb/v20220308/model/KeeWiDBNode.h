@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * KeeWiDB节点的运行信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     KeeWiDBNode();
-                    ~KeeWiDBNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetInitServiceBaseInfo;
+
                 /**
                 * DescribeAssetInitServiceList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GatewayVersionItem;
+
                 /**
                 * ModifyGatewayVersionTraffic请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * AI分析的时间段配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OperTimeSlot();
-                    ~OperTimeSlot() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

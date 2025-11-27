@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视频拼接源文件信息（2017 版）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ConcatFileInfo2017();
-                    ~ConcatFileInfo2017() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

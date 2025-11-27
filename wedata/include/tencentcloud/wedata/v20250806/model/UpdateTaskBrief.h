@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpdateTaskBaseAttribute;
+                class TaskConfiguration;
+                class TaskSchedulerConfiguration;
+
                 /**
                 * 更新任务对象入参
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     UpdateTaskBrief();
-                    ~UpdateTaskBrief() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

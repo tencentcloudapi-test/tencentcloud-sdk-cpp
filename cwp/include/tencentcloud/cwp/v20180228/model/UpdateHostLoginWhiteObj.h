@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Place;
+
                 /**
                 * 编辑白名单实体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     UpdateHostLoginWhiteObj();
-                    ~UpdateHostLoginWhiteObj() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RocketMQMsgLog;
+
                 /**
                 * DescribeRocketMQTopicMsgs返回参数结构体
                 */

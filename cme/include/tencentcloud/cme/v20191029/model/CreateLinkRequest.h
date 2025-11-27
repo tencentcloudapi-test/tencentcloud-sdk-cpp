@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Entity;
+
                 /**
                 * CreateLink请求参数结构体
                 */

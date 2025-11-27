@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagsInfoOfInstance;
+
                 /**
                 * DescribeTagsOfInstanceIds返回参数结构体
                 */

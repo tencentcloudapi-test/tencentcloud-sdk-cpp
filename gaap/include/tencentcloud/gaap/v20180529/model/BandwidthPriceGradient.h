@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 带宽梯度价格
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BandwidthPriceGradient();
-                    ~BandwidthPriceGradient() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

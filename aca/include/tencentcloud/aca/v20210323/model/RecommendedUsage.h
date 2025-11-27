@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 推荐用法
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RecommendedUsage();
-                    ~RecommendedUsage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

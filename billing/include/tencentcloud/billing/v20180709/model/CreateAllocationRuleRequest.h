@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AllocationRulesSummary;
+
                 /**
                 * CreateAllocationRule请求参数结构体
                 */

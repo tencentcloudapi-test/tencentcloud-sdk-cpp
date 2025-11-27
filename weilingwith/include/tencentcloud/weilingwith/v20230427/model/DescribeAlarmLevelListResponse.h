@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeAlarmLevelListRes;
+
                 /**
                 * DescribeAlarmLevelList返回参数结构体
                 */

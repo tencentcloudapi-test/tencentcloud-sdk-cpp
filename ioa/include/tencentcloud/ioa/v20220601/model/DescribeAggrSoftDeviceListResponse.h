@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeAggrSoftDeviceListData;
+
                 /**
                 * DescribeAggrSoftDeviceList返回参数结构体
                 */

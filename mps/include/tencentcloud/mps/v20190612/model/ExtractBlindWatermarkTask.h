@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaInputInfo;
+                class ExtractBlindWatermarkTaskConfig;
+
                 /**
                 * 提取视频数字水印任务信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ExtractBlindWatermarkTask();
-                    ~ExtractBlindWatermarkTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

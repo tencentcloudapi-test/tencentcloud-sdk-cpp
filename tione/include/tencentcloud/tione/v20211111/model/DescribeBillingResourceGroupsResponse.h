@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceGroup;
+
                 /**
                 * DescribeBillingResourceGroups返回参数结构体
                 */

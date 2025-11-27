@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 标准pod对象类型下拉数据的解析
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ObjectTypeJsonParse();
-                    ~ObjectTypeJsonParse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

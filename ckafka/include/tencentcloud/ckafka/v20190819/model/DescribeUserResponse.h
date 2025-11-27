@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserResponse;
+
                 /**
                 * DescribeUser返回参数结构体
                 */

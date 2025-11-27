@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Filter;
+                class AssetTag;
+
                 /**
                 * DescribeRiskCenterAssetViewPortRiskList请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpaceDeviceIdListRes;
+
                 /**
                 * DescribeSpaceDeviceIdList返回参数结构体
                 */

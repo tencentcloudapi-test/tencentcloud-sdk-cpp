@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatabaseTupleStatus;
+
                 /**
                 * 发布订阅对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PublishSubscribe();
-                    ~PublishSubscribe() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

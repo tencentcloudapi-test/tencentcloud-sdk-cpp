@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视频检索的检索结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SearchTaskResult();
-                    ~SearchTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

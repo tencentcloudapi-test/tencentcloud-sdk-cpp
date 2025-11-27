@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateDomainBatchRecord;
+
                 /**
                 * 批量添加域名返回结构
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CreateDomainBatchDetail();
-                    ~CreateDomainBatchDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

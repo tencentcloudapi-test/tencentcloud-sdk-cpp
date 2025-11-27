@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RocketMQClusterInfo;
+                class RocketMQClusterConfig;
+                class RocketMQClusterRecentStats;
+
                 /**
                 * DescribeRocketMQCluster返回参数结构体
                 */

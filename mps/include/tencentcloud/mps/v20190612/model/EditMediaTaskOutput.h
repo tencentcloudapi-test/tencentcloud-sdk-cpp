@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskOutputStorage;
+                class MediaMetaData;
+
                 /**
                 * 编辑视频任务的输出
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     EditMediaTaskOutput();
-                    ~EditMediaTaskOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

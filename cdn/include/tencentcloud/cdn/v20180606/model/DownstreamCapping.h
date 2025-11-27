@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CappingRule;
+
                 /**
                 * 单链接下行限速配置，默认为关闭状态
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DownstreamCapping();
-                    ~DownstreamCapping() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

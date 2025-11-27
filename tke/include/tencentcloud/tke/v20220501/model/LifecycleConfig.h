@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 节点池自定义脚本
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LifecycleConfig();
-                    ~LifecycleConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

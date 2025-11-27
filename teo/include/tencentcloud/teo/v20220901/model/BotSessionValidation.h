@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MaxNewSessionTriggerConfig;
+                class SecurityAction;
+                class SessionRateControl;
+
                 /**
                 * Cookie 校验和会话跟踪行为具体配置。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     BotSessionValidation();
-                    ~BotSessionValidation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

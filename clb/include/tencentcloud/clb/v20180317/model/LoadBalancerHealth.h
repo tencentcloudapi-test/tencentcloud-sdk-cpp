@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListenerHealth;
+
                 /**
                 * 负载均衡实例的健康检查状态
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     LoadBalancerHealth();
-                    ~LoadBalancerHealth() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

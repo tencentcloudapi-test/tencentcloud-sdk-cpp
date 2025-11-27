@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AsrHotwordsSetItem;
+
                 /**
                 * DescribeAsrHotwords返回参数结构体
                 */

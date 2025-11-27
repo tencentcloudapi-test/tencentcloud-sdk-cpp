@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 素材信息响应体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MaterialInfo();
-                    ~MaterialInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

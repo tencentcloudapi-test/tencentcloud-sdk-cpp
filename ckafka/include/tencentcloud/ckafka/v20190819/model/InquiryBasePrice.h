@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 询价返回参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InquiryBasePrice();
-                    ~InquiryBasePrice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

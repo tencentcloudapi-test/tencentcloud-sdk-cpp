@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KongUpstreamInfo;
+
                 /**
                 * 云原生网关服务详细信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     KongServiceDetail();
-                    ~KongServiceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LabelRequirement;
+                class Filter;
+
                 /**
                 * DescribeAndroidInstances请求参数结构体
                 */

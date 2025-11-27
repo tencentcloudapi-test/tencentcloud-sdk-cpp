@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordInfo;
+
                 /**
                 * 云录像接口结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VideoCloudRecordRes();
-                    ~VideoCloudRecordRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

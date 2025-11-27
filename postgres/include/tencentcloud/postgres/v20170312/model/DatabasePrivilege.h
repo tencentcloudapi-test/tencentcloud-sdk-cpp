@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatabaseObject;
+
                 /**
                 * 指定账号对数据库对象拥有的权限列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DatabasePrivilege();
-                    ~DatabasePrivilege() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

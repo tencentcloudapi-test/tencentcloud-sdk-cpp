@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tags;
+
                 /**
                 * 授权订单列表对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     LicenseDetail();
-                    ~LicenseDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

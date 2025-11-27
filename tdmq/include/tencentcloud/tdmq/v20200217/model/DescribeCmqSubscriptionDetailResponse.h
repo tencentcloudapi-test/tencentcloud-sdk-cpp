@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CmqSubscription;
+
                 /**
                 * DescribeCmqSubscriptionDetail返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 音频去除混响
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RemoveReverb();
-                    ~RemoveReverb() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

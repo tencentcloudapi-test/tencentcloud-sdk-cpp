@@ -30,7 +30,6 @@
 #include <tencentcloud/oceanus/v20190422/model/ExpertModeConfiguration.h>
 #include <tencentcloud/oceanus/v20190422/model/TraceModeConfiguration.h>
 #include <tencentcloud/oceanus/v20190422/model/JobGraph.h>
-#include <tencentcloud/oceanus/v20190422/model/JobConfig.h>
 
 
 namespace TencentCloud
@@ -41,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Property;
+                class ResourceRefDetail;
+                class ClazzLevel;
+                class ExpertModeConfiguration;
+                class TraceModeConfiguration;
+                class JobGraph;
+
                 /**
                 * 作业配置详情
                 */
@@ -48,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     JobConfig();
-                    ~JobConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

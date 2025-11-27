@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiSampleFaceOperation;
+                class AiSampleTagOperation;
+
                 /**
                 * ModifyPersonSample请求参数结构体
                 */

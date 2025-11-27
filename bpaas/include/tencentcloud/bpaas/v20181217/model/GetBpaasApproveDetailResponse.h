@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApplyParam;
+                class StatusNode;
+
                 /**
                 * GetBpaasApproveDetail返回参数结构体
                 */

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExtractionField;
+                class ExtractionTaskResult;
+
                 /**
                 * DescribeInformationExtractionTask返回参数结构体
                 */

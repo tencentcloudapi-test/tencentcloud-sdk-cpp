@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrganizationInfo;
+
                 /**
                 * CreateAcct请求参数结构体
                 */

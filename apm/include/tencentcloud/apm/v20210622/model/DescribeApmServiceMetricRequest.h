@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrderBy;
+                class ApmTag;
+                class Filter;
+
                 /**
                 * DescribeApmServiceMetric请求参数结构体
                 */

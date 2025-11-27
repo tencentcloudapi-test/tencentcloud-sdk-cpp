@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IngressInfo;
+
                 /**
                 * ModifyIngress请求参数结构体
                 */

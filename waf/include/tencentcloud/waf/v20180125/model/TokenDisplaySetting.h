@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * JWT显示设置（只有当校验方式为JWS/JWE的时候才会有该配置信息）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TokenDisplaySetting();
-                    ~TokenDisplaySetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

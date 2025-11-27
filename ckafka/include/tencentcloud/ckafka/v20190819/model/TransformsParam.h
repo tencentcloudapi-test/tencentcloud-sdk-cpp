@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FieldParam;
+                class FilterMapParam;
+                class FailureParam;
+                class RowParam;
+                class BatchAnalyseParam;
+
                 /**
                 * 数据处理参数
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     TransformsParam();
-                    ~TransformsParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

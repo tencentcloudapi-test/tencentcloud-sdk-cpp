@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RebateInfoElemNew;
+
                 /**
                 * DescribeRebateInfosNew返回参数结构体
                 */

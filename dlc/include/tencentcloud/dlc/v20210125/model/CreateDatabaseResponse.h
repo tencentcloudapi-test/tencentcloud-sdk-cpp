@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Execution;
+
                 /**
                 * CreateDatabase返回参数结构体
                 */

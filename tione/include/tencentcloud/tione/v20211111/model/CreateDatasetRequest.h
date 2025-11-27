@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosPathInfo;
+                class Tag;
+                class SchemaInfo;
+                class CFSConfig;
+
                 /**
                 * CreateDataset请求参数结构体
                 */

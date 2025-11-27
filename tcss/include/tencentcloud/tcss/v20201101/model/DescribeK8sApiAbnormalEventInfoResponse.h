@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class K8sApiAbnormalEventInfo;
+
                 /**
                 * DescribeK8sApiAbnormalEventInfo返回参数结构体
                 */

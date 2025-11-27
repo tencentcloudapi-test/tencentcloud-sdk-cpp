@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 企业微信子用户
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WeChatWorkSubAccount();
-                    ~WeChatWorkSubAccount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

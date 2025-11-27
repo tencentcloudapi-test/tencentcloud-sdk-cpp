@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SharePermission;
+
                 /**
                 * DescribeImageSharePermission返回参数结构体
                 */

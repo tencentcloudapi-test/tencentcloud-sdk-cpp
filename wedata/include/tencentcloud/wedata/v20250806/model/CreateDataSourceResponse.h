@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataSourceResult;
+
                 /**
                 * CreateDataSource返回参数结构体
                 */

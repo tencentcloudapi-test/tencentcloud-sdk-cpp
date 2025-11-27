@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class NoticeReceiver;
+                class WebCallback;
+                class NoticeRule;
+                class DeliverConfig;
+
                 /**
                 * CreateAlarmNotice请求参数结构体
                 */

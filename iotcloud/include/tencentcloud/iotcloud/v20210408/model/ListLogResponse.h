@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CLSLogItem;
+
                 /**
                 * ListLog返回参数结构体
                 */

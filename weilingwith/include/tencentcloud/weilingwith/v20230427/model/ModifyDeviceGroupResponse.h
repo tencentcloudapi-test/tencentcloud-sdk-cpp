@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EmptyRes;
+
                 /**
                 * ModifyDeviceGroup返回参数结构体
                 */

@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Placement;
+                class InstanceChargePrepaid;
+                class VirtualPrivateCloud;
+
                 /**
                 * 弹性扩容节点配置信息。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     ExpansionNodeConfig();
-                    ~ExpansionNodeConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

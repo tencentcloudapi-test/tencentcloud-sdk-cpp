@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PushAuthKeyInfo;
+
                 /**
                 * DescribeLivePushAuthKey返回参数结构体
                 */

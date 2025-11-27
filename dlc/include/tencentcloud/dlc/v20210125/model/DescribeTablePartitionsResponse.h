@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MixedTablePartitions;
+
                 /**
                 * DescribeTablePartitions返回参数结构体
                 */

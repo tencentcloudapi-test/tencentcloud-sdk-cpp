@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TranslateResult;
+                class AsrTimestamps;
+
                 /**
                 * DescribeVideoTranslateJob返回参数结构体
                 */

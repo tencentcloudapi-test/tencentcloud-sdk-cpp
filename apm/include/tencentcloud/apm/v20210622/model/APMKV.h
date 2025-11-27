@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * APM 浮点数类型键值对
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     APMKV();
-                    ~APMKV() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

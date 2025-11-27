@@ -62,32 +62,25 @@ IvldClient::AddCustomPersonImageOutcome IvldClient::AddCustomPersonImage(const A
 
 void IvldClient::AddCustomPersonImageAsync(const AddCustomPersonImageRequest& request, const AddCustomPersonImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddCustomPersonImageRequest&;
-    using Resp = AddCustomPersonImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddCustomPersonImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddCustomPersonImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::AddCustomPersonImageOutcomeCallable IvldClient::AddCustomPersonImageCallable(const AddCustomPersonImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddCustomPersonImageOutcome>>();
-    AddCustomPersonImageAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const AddCustomPersonImageRequest&,
-        AddCustomPersonImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddCustomPersonImageOutcome()>>(
+        [this, request]()
+        {
+            return this->AddCustomPersonImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::CreateCustomCategoryOutcome IvldClient::CreateCustomCategory(const CreateCustomCategoryRequest &request)
@@ -112,32 +105,25 @@ IvldClient::CreateCustomCategoryOutcome IvldClient::CreateCustomCategory(const C
 
 void IvldClient::CreateCustomCategoryAsync(const CreateCustomCategoryRequest& request, const CreateCustomCategoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCustomCategoryRequest&;
-    using Resp = CreateCustomCategoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCustomCategory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCustomCategory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::CreateCustomCategoryOutcomeCallable IvldClient::CreateCustomCategoryCallable(const CreateCustomCategoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCustomCategoryOutcome>>();
-    CreateCustomCategoryAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const CreateCustomCategoryRequest&,
-        CreateCustomCategoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCustomCategoryOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCustomCategory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::CreateCustomGroupOutcome IvldClient::CreateCustomGroup(const CreateCustomGroupRequest &request)
@@ -162,32 +148,25 @@ IvldClient::CreateCustomGroupOutcome IvldClient::CreateCustomGroup(const CreateC
 
 void IvldClient::CreateCustomGroupAsync(const CreateCustomGroupRequest& request, const CreateCustomGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCustomGroupRequest&;
-    using Resp = CreateCustomGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCustomGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCustomGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::CreateCustomGroupOutcomeCallable IvldClient::CreateCustomGroupCallable(const CreateCustomGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCustomGroupOutcome>>();
-    CreateCustomGroupAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const CreateCustomGroupRequest&,
-        CreateCustomGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCustomGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCustomGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::CreateCustomPersonOutcome IvldClient::CreateCustomPerson(const CreateCustomPersonRequest &request)
@@ -212,32 +191,25 @@ IvldClient::CreateCustomPersonOutcome IvldClient::CreateCustomPerson(const Creat
 
 void IvldClient::CreateCustomPersonAsync(const CreateCustomPersonRequest& request, const CreateCustomPersonAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCustomPersonRequest&;
-    using Resp = CreateCustomPersonResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCustomPerson(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCustomPerson", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::CreateCustomPersonOutcomeCallable IvldClient::CreateCustomPersonCallable(const CreateCustomPersonRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCustomPersonOutcome>>();
-    CreateCustomPersonAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const CreateCustomPersonRequest&,
-        CreateCustomPersonOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCustomPersonOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCustomPerson(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::CreateDefaultCategoriesOutcome IvldClient::CreateDefaultCategories(const CreateDefaultCategoriesRequest &request)
@@ -262,32 +234,25 @@ IvldClient::CreateDefaultCategoriesOutcome IvldClient::CreateDefaultCategories(c
 
 void IvldClient::CreateDefaultCategoriesAsync(const CreateDefaultCategoriesRequest& request, const CreateDefaultCategoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDefaultCategoriesRequest&;
-    using Resp = CreateDefaultCategoriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDefaultCategories(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDefaultCategories", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::CreateDefaultCategoriesOutcomeCallable IvldClient::CreateDefaultCategoriesCallable(const CreateDefaultCategoriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDefaultCategoriesOutcome>>();
-    CreateDefaultCategoriesAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const CreateDefaultCategoriesRequest&,
-        CreateDefaultCategoriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDefaultCategoriesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDefaultCategories(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::CreateTaskOutcome IvldClient::CreateTask(const CreateTaskRequest &request)
@@ -312,32 +277,25 @@ IvldClient::CreateTaskOutcome IvldClient::CreateTask(const CreateTaskRequest &re
 
 void IvldClient::CreateTaskAsync(const CreateTaskRequest& request, const CreateTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTaskRequest&;
-    using Resp = CreateTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::CreateTaskOutcomeCallable IvldClient::CreateTaskCallable(const CreateTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTaskOutcome>>();
-    CreateTaskAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const CreateTaskRequest&,
-        CreateTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::CreateVideoSummaryTaskOutcome IvldClient::CreateVideoSummaryTask(const CreateVideoSummaryTaskRequest &request)
@@ -362,32 +320,25 @@ IvldClient::CreateVideoSummaryTaskOutcome IvldClient::CreateVideoSummaryTask(con
 
 void IvldClient::CreateVideoSummaryTaskAsync(const CreateVideoSummaryTaskRequest& request, const CreateVideoSummaryTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVideoSummaryTaskRequest&;
-    using Resp = CreateVideoSummaryTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVideoSummaryTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoSummaryTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::CreateVideoSummaryTaskOutcomeCallable IvldClient::CreateVideoSummaryTaskCallable(const CreateVideoSummaryTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVideoSummaryTaskOutcome>>();
-    CreateVideoSummaryTaskAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const CreateVideoSummaryTaskRequest&,
-        CreateVideoSummaryTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVideoSummaryTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVideoSummaryTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DeleteCustomCategoryOutcome IvldClient::DeleteCustomCategory(const DeleteCustomCategoryRequest &request)
@@ -412,32 +363,25 @@ IvldClient::DeleteCustomCategoryOutcome IvldClient::DeleteCustomCategory(const D
 
 void IvldClient::DeleteCustomCategoryAsync(const DeleteCustomCategoryRequest& request, const DeleteCustomCategoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCustomCategoryRequest&;
-    using Resp = DeleteCustomCategoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCustomCategory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCustomCategory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DeleteCustomCategoryOutcomeCallable IvldClient::DeleteCustomCategoryCallable(const DeleteCustomCategoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCustomCategoryOutcome>>();
-    DeleteCustomCategoryAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DeleteCustomCategoryRequest&,
-        DeleteCustomCategoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCustomCategoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCustomCategory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DeleteCustomPersonOutcome IvldClient::DeleteCustomPerson(const DeleteCustomPersonRequest &request)
@@ -462,32 +406,25 @@ IvldClient::DeleteCustomPersonOutcome IvldClient::DeleteCustomPerson(const Delet
 
 void IvldClient::DeleteCustomPersonAsync(const DeleteCustomPersonRequest& request, const DeleteCustomPersonAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCustomPersonRequest&;
-    using Resp = DeleteCustomPersonResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCustomPerson(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCustomPerson", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DeleteCustomPersonOutcomeCallable IvldClient::DeleteCustomPersonCallable(const DeleteCustomPersonRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCustomPersonOutcome>>();
-    DeleteCustomPersonAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DeleteCustomPersonRequest&,
-        DeleteCustomPersonOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCustomPersonOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCustomPerson(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DeleteCustomPersonImageOutcome IvldClient::DeleteCustomPersonImage(const DeleteCustomPersonImageRequest &request)
@@ -512,32 +449,25 @@ IvldClient::DeleteCustomPersonImageOutcome IvldClient::DeleteCustomPersonImage(c
 
 void IvldClient::DeleteCustomPersonImageAsync(const DeleteCustomPersonImageRequest& request, const DeleteCustomPersonImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCustomPersonImageRequest&;
-    using Resp = DeleteCustomPersonImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCustomPersonImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCustomPersonImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DeleteCustomPersonImageOutcomeCallable IvldClient::DeleteCustomPersonImageCallable(const DeleteCustomPersonImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCustomPersonImageOutcome>>();
-    DeleteCustomPersonImageAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DeleteCustomPersonImageRequest&,
-        DeleteCustomPersonImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCustomPersonImageOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCustomPersonImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DeleteMediaOutcome IvldClient::DeleteMedia(const DeleteMediaRequest &request)
@@ -562,32 +492,25 @@ IvldClient::DeleteMediaOutcome IvldClient::DeleteMedia(const DeleteMediaRequest 
 
 void IvldClient::DeleteMediaAsync(const DeleteMediaRequest& request, const DeleteMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteMediaRequest&;
-    using Resp = DeleteMediaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteMedia(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteMedia", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DeleteMediaOutcomeCallable IvldClient::DeleteMediaCallable(const DeleteMediaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteMediaOutcome>>();
-    DeleteMediaAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DeleteMediaRequest&,
-        DeleteMediaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteMediaOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteMedia(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DeleteTaskOutcome IvldClient::DeleteTask(const DeleteTaskRequest &request)
@@ -612,32 +535,25 @@ IvldClient::DeleteTaskOutcome IvldClient::DeleteTask(const DeleteTaskRequest &re
 
 void IvldClient::DeleteTaskAsync(const DeleteTaskRequest& request, const DeleteTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTaskRequest&;
-    using Resp = DeleteTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DeleteTaskOutcomeCallable IvldClient::DeleteTaskCallable(const DeleteTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTaskOutcome>>();
-    DeleteTaskAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DeleteTaskRequest&,
-        DeleteTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeCustomCategoriesOutcome IvldClient::DescribeCustomCategories(const DescribeCustomCategoriesRequest &request)
@@ -662,32 +578,25 @@ IvldClient::DescribeCustomCategoriesOutcome IvldClient::DescribeCustomCategories
 
 void IvldClient::DescribeCustomCategoriesAsync(const DescribeCustomCategoriesRequest& request, const DescribeCustomCategoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomCategoriesRequest&;
-    using Resp = DescribeCustomCategoriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomCategories(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomCategories", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeCustomCategoriesOutcomeCallable IvldClient::DescribeCustomCategoriesCallable(const DescribeCustomCategoriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomCategoriesOutcome>>();
-    DescribeCustomCategoriesAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeCustomCategoriesRequest&,
-        DescribeCustomCategoriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomCategoriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomCategories(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeCustomGroupOutcome IvldClient::DescribeCustomGroup(const DescribeCustomGroupRequest &request)
@@ -712,32 +621,25 @@ IvldClient::DescribeCustomGroupOutcome IvldClient::DescribeCustomGroup(const Des
 
 void IvldClient::DescribeCustomGroupAsync(const DescribeCustomGroupRequest& request, const DescribeCustomGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomGroupRequest&;
-    using Resp = DescribeCustomGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeCustomGroupOutcomeCallable IvldClient::DescribeCustomGroupCallable(const DescribeCustomGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomGroupOutcome>>();
-    DescribeCustomGroupAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeCustomGroupRequest&,
-        DescribeCustomGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeCustomPersonDetailOutcome IvldClient::DescribeCustomPersonDetail(const DescribeCustomPersonDetailRequest &request)
@@ -762,32 +664,25 @@ IvldClient::DescribeCustomPersonDetailOutcome IvldClient::DescribeCustomPersonDe
 
 void IvldClient::DescribeCustomPersonDetailAsync(const DescribeCustomPersonDetailRequest& request, const DescribeCustomPersonDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomPersonDetailRequest&;
-    using Resp = DescribeCustomPersonDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomPersonDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomPersonDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeCustomPersonDetailOutcomeCallable IvldClient::DescribeCustomPersonDetailCallable(const DescribeCustomPersonDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomPersonDetailOutcome>>();
-    DescribeCustomPersonDetailAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeCustomPersonDetailRequest&,
-        DescribeCustomPersonDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomPersonDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomPersonDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeCustomPersonsOutcome IvldClient::DescribeCustomPersons(const DescribeCustomPersonsRequest &request)
@@ -812,32 +707,25 @@ IvldClient::DescribeCustomPersonsOutcome IvldClient::DescribeCustomPersons(const
 
 void IvldClient::DescribeCustomPersonsAsync(const DescribeCustomPersonsRequest& request, const DescribeCustomPersonsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomPersonsRequest&;
-    using Resp = DescribeCustomPersonsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomPersons(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomPersons", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeCustomPersonsOutcomeCallable IvldClient::DescribeCustomPersonsCallable(const DescribeCustomPersonsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomPersonsOutcome>>();
-    DescribeCustomPersonsAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeCustomPersonsRequest&,
-        DescribeCustomPersonsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomPersonsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomPersons(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeMediaOutcome IvldClient::DescribeMedia(const DescribeMediaRequest &request)
@@ -862,32 +750,25 @@ IvldClient::DescribeMediaOutcome IvldClient::DescribeMedia(const DescribeMediaRe
 
 void IvldClient::DescribeMediaAsync(const DescribeMediaRequest& request, const DescribeMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMediaRequest&;
-    using Resp = DescribeMediaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMedia(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMedia", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeMediaOutcomeCallable IvldClient::DescribeMediaCallable(const DescribeMediaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMediaOutcome>>();
-    DescribeMediaAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeMediaRequest&,
-        DescribeMediaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMediaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMedia(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeMediasOutcome IvldClient::DescribeMedias(const DescribeMediasRequest &request)
@@ -912,32 +793,25 @@ IvldClient::DescribeMediasOutcome IvldClient::DescribeMedias(const DescribeMedia
 
 void IvldClient::DescribeMediasAsync(const DescribeMediasRequest& request, const DescribeMediasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMediasRequest&;
-    using Resp = DescribeMediasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMedias(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMedias", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeMediasOutcomeCallable IvldClient::DescribeMediasCallable(const DescribeMediasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMediasOutcome>>();
-    DescribeMediasAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeMediasRequest&,
-        DescribeMediasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMediasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMedias(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeTaskOutcome IvldClient::DescribeTask(const DescribeTaskRequest &request)
@@ -962,32 +836,25 @@ IvldClient::DescribeTaskOutcome IvldClient::DescribeTask(const DescribeTaskReque
 
 void IvldClient::DescribeTaskAsync(const DescribeTaskRequest& request, const DescribeTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskRequest&;
-    using Resp = DescribeTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeTaskOutcomeCallable IvldClient::DescribeTaskCallable(const DescribeTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskOutcome>>();
-    DescribeTaskAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeTaskRequest&,
-        DescribeTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeTaskDetailOutcome IvldClient::DescribeTaskDetail(const DescribeTaskDetailRequest &request)
@@ -1012,32 +879,25 @@ IvldClient::DescribeTaskDetailOutcome IvldClient::DescribeTaskDetail(const Descr
 
 void IvldClient::DescribeTaskDetailAsync(const DescribeTaskDetailRequest& request, const DescribeTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskDetailRequest&;
-    using Resp = DescribeTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeTaskDetailOutcomeCallable IvldClient::DescribeTaskDetailCallable(const DescribeTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskDetailOutcome>>();
-    DescribeTaskDetailAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeTaskDetailRequest&,
-        DescribeTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeTasksOutcome IvldClient::DescribeTasks(const DescribeTasksRequest &request)
@@ -1062,32 +922,25 @@ IvldClient::DescribeTasksOutcome IvldClient::DescribeTasks(const DescribeTasksRe
 
 void IvldClient::DescribeTasksAsync(const DescribeTasksRequest& request, const DescribeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTasksRequest&;
-    using Resp = DescribeTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeTasksOutcomeCallable IvldClient::DescribeTasksCallable(const DescribeTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTasksOutcome>>();
-    DescribeTasksAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeTasksRequest&,
-        DescribeTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeUsageAmountOutcome IvldClient::DescribeUsageAmount(const DescribeUsageAmountRequest &request)
@@ -1112,32 +965,25 @@ IvldClient::DescribeUsageAmountOutcome IvldClient::DescribeUsageAmount(const Des
 
 void IvldClient::DescribeUsageAmountAsync(const DescribeUsageAmountRequest& request, const DescribeUsageAmountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUsageAmountRequest&;
-    using Resp = DescribeUsageAmountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUsageAmount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUsageAmount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeUsageAmountOutcomeCallable IvldClient::DescribeUsageAmountCallable(const DescribeUsageAmountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUsageAmountOutcome>>();
-    DescribeUsageAmountAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeUsageAmountRequest&,
-        DescribeUsageAmountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUsageAmountOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUsageAmount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::DescribeVideoSummaryDetailOutcome IvldClient::DescribeVideoSummaryDetail(const DescribeVideoSummaryDetailRequest &request)
@@ -1162,32 +1008,25 @@ IvldClient::DescribeVideoSummaryDetailOutcome IvldClient::DescribeVideoSummaryDe
 
 void IvldClient::DescribeVideoSummaryDetailAsync(const DescribeVideoSummaryDetailRequest& request, const DescribeVideoSummaryDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoSummaryDetailRequest&;
-    using Resp = DescribeVideoSummaryDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoSummaryDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoSummaryDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::DescribeVideoSummaryDetailOutcomeCallable IvldClient::DescribeVideoSummaryDetailCallable(const DescribeVideoSummaryDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoSummaryDetailOutcome>>();
-    DescribeVideoSummaryDetailAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const DescribeVideoSummaryDetailRequest&,
-        DescribeVideoSummaryDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoSummaryDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoSummaryDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::ImportMediaOutcome IvldClient::ImportMedia(const ImportMediaRequest &request)
@@ -1212,32 +1051,25 @@ IvldClient::ImportMediaOutcome IvldClient::ImportMedia(const ImportMediaRequest 
 
 void IvldClient::ImportMediaAsync(const ImportMediaRequest& request, const ImportMediaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportMediaRequest&;
-    using Resp = ImportMediaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportMedia(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportMedia", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::ImportMediaOutcomeCallable IvldClient::ImportMediaCallable(const ImportMediaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportMediaOutcome>>();
-    ImportMediaAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const ImportMediaRequest&,
-        ImportMediaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportMediaOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportMedia(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::ModifyCallbackOutcome IvldClient::ModifyCallback(const ModifyCallbackRequest &request)
@@ -1262,32 +1094,25 @@ IvldClient::ModifyCallbackOutcome IvldClient::ModifyCallback(const ModifyCallbac
 
 void IvldClient::ModifyCallbackAsync(const ModifyCallbackRequest& request, const ModifyCallbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCallbackRequest&;
-    using Resp = ModifyCallbackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCallback(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCallback", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::ModifyCallbackOutcomeCallable IvldClient::ModifyCallbackCallable(const ModifyCallbackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCallbackOutcome>>();
-    ModifyCallbackAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const ModifyCallbackRequest&,
-        ModifyCallbackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCallbackOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCallback(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::QueryCallbackOutcome IvldClient::QueryCallback(const QueryCallbackRequest &request)
@@ -1312,32 +1137,25 @@ IvldClient::QueryCallbackOutcome IvldClient::QueryCallback(const QueryCallbackRe
 
 void IvldClient::QueryCallbackAsync(const QueryCallbackRequest& request, const QueryCallbackAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryCallbackRequest&;
-    using Resp = QueryCallbackResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryCallback(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryCallback", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::QueryCallbackOutcomeCallable IvldClient::QueryCallbackCallable(const QueryCallbackRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryCallbackOutcome>>();
-    QueryCallbackAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const QueryCallbackRequest&,
-        QueryCallbackOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryCallbackOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryCallback(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::UpdateCustomCategoryOutcome IvldClient::UpdateCustomCategory(const UpdateCustomCategoryRequest &request)
@@ -1362,32 +1180,25 @@ IvldClient::UpdateCustomCategoryOutcome IvldClient::UpdateCustomCategory(const U
 
 void IvldClient::UpdateCustomCategoryAsync(const UpdateCustomCategoryRequest& request, const UpdateCustomCategoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCustomCategoryRequest&;
-    using Resp = UpdateCustomCategoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCustomCategory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCustomCategory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::UpdateCustomCategoryOutcomeCallable IvldClient::UpdateCustomCategoryCallable(const UpdateCustomCategoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCustomCategoryOutcome>>();
-    UpdateCustomCategoryAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const UpdateCustomCategoryRequest&,
-        UpdateCustomCategoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCustomCategoryOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCustomCategory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 IvldClient::UpdateCustomPersonOutcome IvldClient::UpdateCustomPerson(const UpdateCustomPersonRequest &request)
@@ -1412,31 +1223,24 @@ IvldClient::UpdateCustomPersonOutcome IvldClient::UpdateCustomPerson(const Updat
 
 void IvldClient::UpdateCustomPersonAsync(const UpdateCustomPersonRequest& request, const UpdateCustomPersonAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCustomPersonRequest&;
-    using Resp = UpdateCustomPersonResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCustomPerson(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCustomPerson", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IvldClient::UpdateCustomPersonOutcomeCallable IvldClient::UpdateCustomPersonCallable(const UpdateCustomPersonRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCustomPersonOutcome>>();
-    UpdateCustomPersonAsync(
-    request,
-    [prom](
-        const IvldClient*,
-        const UpdateCustomPersonRequest&,
-        UpdateCustomPersonOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCustomPersonOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCustomPerson(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

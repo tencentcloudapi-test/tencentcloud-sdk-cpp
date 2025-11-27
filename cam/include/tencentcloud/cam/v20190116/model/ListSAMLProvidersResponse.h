@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SAMLProviderInfo;
+
                 /**
                 * ListSAMLProviders返回参数结构体
                 */

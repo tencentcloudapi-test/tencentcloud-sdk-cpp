@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 日志投递类型细节
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DeliverTypeDetails();
-                    ~DeliverTypeDetails() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

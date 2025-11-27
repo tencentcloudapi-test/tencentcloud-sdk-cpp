@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Coord;
+
                 /**
                 * 活检部位
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BiopsyPart();
-                    ~BiopsyPart() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

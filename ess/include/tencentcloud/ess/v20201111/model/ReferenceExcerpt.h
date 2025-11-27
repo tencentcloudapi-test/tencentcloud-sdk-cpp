@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PositionInfo;
+
                 /**
                 * 引用的资料
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ReferenceExcerpt();
-                    ~ReferenceExcerpt() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

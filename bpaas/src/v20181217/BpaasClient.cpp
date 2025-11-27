@@ -62,32 +62,25 @@ BpaasClient::GetBpaasApproveDetailOutcome BpaasClient::GetBpaasApproveDetail(con
 
 void BpaasClient::GetBpaasApproveDetailAsync(const GetBpaasApproveDetailRequest& request, const GetBpaasApproveDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetBpaasApproveDetailRequest&;
-    using Resp = GetBpaasApproveDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetBpaasApproveDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetBpaasApproveDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BpaasClient::GetBpaasApproveDetailOutcomeCallable BpaasClient::GetBpaasApproveDetailCallable(const GetBpaasApproveDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetBpaasApproveDetailOutcome>>();
-    GetBpaasApproveDetailAsync(
-    request,
-    [prom](
-        const BpaasClient*,
-        const GetBpaasApproveDetailRequest&,
-        GetBpaasApproveDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetBpaasApproveDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->GetBpaasApproveDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BpaasClient::OutApproveBpaasApplicationOutcome BpaasClient::OutApproveBpaasApplication(const OutApproveBpaasApplicationRequest &request)
@@ -112,31 +105,24 @@ BpaasClient::OutApproveBpaasApplicationOutcome BpaasClient::OutApproveBpaasAppli
 
 void BpaasClient::OutApproveBpaasApplicationAsync(const OutApproveBpaasApplicationRequest& request, const OutApproveBpaasApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OutApproveBpaasApplicationRequest&;
-    using Resp = OutApproveBpaasApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OutApproveBpaasApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OutApproveBpaasApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BpaasClient::OutApproveBpaasApplicationOutcomeCallable BpaasClient::OutApproveBpaasApplicationCallable(const OutApproveBpaasApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OutApproveBpaasApplicationOutcome>>();
-    OutApproveBpaasApplicationAsync(
-    request,
-    [prom](
-        const BpaasClient*,
-        const OutApproveBpaasApplicationRequest&,
-        OutApproveBpaasApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OutApproveBpaasApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->OutApproveBpaasApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

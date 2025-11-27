@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NewBackupConfig;
+
                 /**
                 * ModifyBackupConfigs请求参数结构体
                 */

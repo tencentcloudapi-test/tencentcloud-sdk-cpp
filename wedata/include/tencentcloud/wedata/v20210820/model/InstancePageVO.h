@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceVO;
+
                 /**
                 * 实例列表分页实体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InstancePageVO();
-                    ~InstancePageVO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

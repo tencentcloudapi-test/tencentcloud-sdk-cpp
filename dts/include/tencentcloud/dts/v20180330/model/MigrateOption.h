@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConsistencyParams;
+
                 /**
                 * 迁移任务配置选项
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MigrateOption();
-                    ~MigrateOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

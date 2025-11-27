@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResultItem;
+
                 /**
                 * CreateGroupsSTD返回参数结构体
                 */

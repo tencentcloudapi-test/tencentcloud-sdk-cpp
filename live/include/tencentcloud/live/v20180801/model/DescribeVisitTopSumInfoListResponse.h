@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PlaySumStatInfo;
+
                 /**
                 * DescribeVisitTopSumInfoList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskCollectionParamDTO;
+
                 /**
                 * DescribeFormVersionParam返回参数结构体
                 */

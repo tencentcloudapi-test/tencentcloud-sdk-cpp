@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusRegionItem;
+
                 /**
                 * DescribePrometheusRegions返回参数结构体
                 */

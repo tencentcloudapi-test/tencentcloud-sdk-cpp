@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DMSPartition;
+
                 /**
                 * AlterDMSPartition请求参数结构体
                 */

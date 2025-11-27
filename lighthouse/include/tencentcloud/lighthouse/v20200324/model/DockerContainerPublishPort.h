@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Docker容器映射的端口
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DockerContainerPublishPort();
-                    ~DockerContainerPublishPort() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

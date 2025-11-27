@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ZoneSetting;
+                class Tag;
+                class PrePaySetting;
+
                 /**
                 * CreateSLInstance请求参数结构体
                 */

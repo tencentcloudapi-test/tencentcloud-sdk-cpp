@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 参数传递-输出参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OutTaskParameter();
-                    ~OutTaskParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StaffInfo;
+
                 /**
                 * DescribeStaffInfoList返回参数结构体
                 */

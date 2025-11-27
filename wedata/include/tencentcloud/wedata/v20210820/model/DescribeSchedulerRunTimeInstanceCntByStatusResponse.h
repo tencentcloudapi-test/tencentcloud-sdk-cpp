@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuntimeInstanceCntTop;
+
                 /**
                 * DescribeSchedulerRunTimeInstanceCntByStatus返回参数结构体
                 */

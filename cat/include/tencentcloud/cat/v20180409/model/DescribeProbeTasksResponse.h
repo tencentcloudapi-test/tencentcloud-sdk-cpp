@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProbeTask;
+
                 /**
                 * DescribeProbeTasks返回参数结构体
                 */

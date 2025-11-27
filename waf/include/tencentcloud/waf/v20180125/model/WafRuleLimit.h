@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * waf模块的规格
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WafRuleLimit();
-                    ~WafRuleLimit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

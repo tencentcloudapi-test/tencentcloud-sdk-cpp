@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Autoscaler;
+
                 /**
                 * CreateApplicationAutoscaler请求参数结构体
                 */

@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Warehouse;
+                class SetatsCvmInfo;
+                class Tag;
+
                 /**
                 * setats类型
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     Setats();
-                    ~Setats() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

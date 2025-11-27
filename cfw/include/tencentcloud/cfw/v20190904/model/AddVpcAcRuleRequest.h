@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcRuleItem;
+
                 /**
                 * AddVpcAcRule请求参数结构体
                 */

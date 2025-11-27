@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CDN 节点上下线历史记录
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CdnIpHistory();
-                    ~CdnIpHistory() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

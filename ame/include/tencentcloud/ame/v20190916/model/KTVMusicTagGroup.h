@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KTVMusicTagInfo;
+
                 /**
                 * 即使广播曲库歌曲标签分组信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     KTVMusicTagGroup();
-                    ~KTVMusicTagGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

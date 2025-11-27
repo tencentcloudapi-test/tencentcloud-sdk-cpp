@@ -62,32 +62,25 @@ VcubeClient::CreateActivityLicenseOutcome VcubeClient::CreateActivityLicense(con
 
 void VcubeClient::CreateActivityLicenseAsync(const CreateActivityLicenseRequest& request, const CreateActivityLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateActivityLicenseRequest&;
-    using Resp = CreateActivityLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateActivityLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateActivityLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateActivityLicenseOutcomeCallable VcubeClient::CreateActivityLicenseCallable(const CreateActivityLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateActivityLicenseOutcome>>();
-    CreateActivityLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateActivityLicenseRequest&,
-        CreateActivityLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateActivityLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateActivityLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::CreateApplicationAndBindLicenseOutcome VcubeClient::CreateApplicationAndBindLicense(const CreateApplicationAndBindLicenseRequest &request)
@@ -112,32 +105,25 @@ VcubeClient::CreateApplicationAndBindLicenseOutcome VcubeClient::CreateApplicati
 
 void VcubeClient::CreateApplicationAndBindLicenseAsync(const CreateApplicationAndBindLicenseRequest& request, const CreateApplicationAndBindLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateApplicationAndBindLicenseRequest&;
-    using Resp = CreateApplicationAndBindLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateApplicationAndBindLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateApplicationAndBindLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateApplicationAndBindLicenseOutcomeCallable VcubeClient::CreateApplicationAndBindLicenseCallable(const CreateApplicationAndBindLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateApplicationAndBindLicenseOutcome>>();
-    CreateApplicationAndBindLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateApplicationAndBindLicenseRequest&,
-        CreateApplicationAndBindLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateApplicationAndBindLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateApplicationAndBindLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::CreateApplicationAndVideoOutcome VcubeClient::CreateApplicationAndVideo(const CreateApplicationAndVideoRequest &request)
@@ -162,32 +148,25 @@ VcubeClient::CreateApplicationAndVideoOutcome VcubeClient::CreateApplicationAndV
 
 void VcubeClient::CreateApplicationAndVideoAsync(const CreateApplicationAndVideoRequest& request, const CreateApplicationAndVideoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateApplicationAndVideoRequest&;
-    using Resp = CreateApplicationAndVideoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateApplicationAndVideo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateApplicationAndVideo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateApplicationAndVideoOutcomeCallable VcubeClient::CreateApplicationAndVideoCallable(const CreateApplicationAndVideoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateApplicationAndVideoOutcome>>();
-    CreateApplicationAndVideoAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateApplicationAndVideoRequest&,
-        CreateApplicationAndVideoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateApplicationAndVideoOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateApplicationAndVideo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::CreateApplicationAndWebPlayerLicenseOutcome VcubeClient::CreateApplicationAndWebPlayerLicense(const CreateApplicationAndWebPlayerLicenseRequest &request)
@@ -212,32 +191,25 @@ VcubeClient::CreateApplicationAndWebPlayerLicenseOutcome VcubeClient::CreateAppl
 
 void VcubeClient::CreateApplicationAndWebPlayerLicenseAsync(const CreateApplicationAndWebPlayerLicenseRequest& request, const CreateApplicationAndWebPlayerLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateApplicationAndWebPlayerLicenseRequest&;
-    using Resp = CreateApplicationAndWebPlayerLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateApplicationAndWebPlayerLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateApplicationAndWebPlayerLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateApplicationAndWebPlayerLicenseOutcomeCallable VcubeClient::CreateApplicationAndWebPlayerLicenseCallable(const CreateApplicationAndWebPlayerLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateApplicationAndWebPlayerLicenseOutcome>>();
-    CreateApplicationAndWebPlayerLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateApplicationAndWebPlayerLicenseRequest&,
-        CreateApplicationAndWebPlayerLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateApplicationAndWebPlayerLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateApplicationAndWebPlayerLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::CreateLicenseOutcome VcubeClient::CreateLicense(const CreateLicenseRequest &request)
@@ -262,32 +234,25 @@ VcubeClient::CreateLicenseOutcome VcubeClient::CreateLicense(const CreateLicense
 
 void VcubeClient::CreateLicenseAsync(const CreateLicenseRequest& request, const CreateLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLicenseRequest&;
-    using Resp = CreateLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateLicenseOutcomeCallable VcubeClient::CreateLicenseCallable(const CreateLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLicenseOutcome>>();
-    CreateLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateLicenseRequest&,
-        CreateLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::CreateTestXMagicOutcome VcubeClient::CreateTestXMagic(const CreateTestXMagicRequest &request)
@@ -312,32 +277,25 @@ VcubeClient::CreateTestXMagicOutcome VcubeClient::CreateTestXMagic(const CreateT
 
 void VcubeClient::CreateTestXMagicAsync(const CreateTestXMagicRequest& request, const CreateTestXMagicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTestXMagicRequest&;
-    using Resp = CreateTestXMagicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTestXMagic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTestXMagic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateTestXMagicOutcomeCallable VcubeClient::CreateTestXMagicCallable(const CreateTestXMagicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTestXMagicOutcome>>();
-    CreateTestXMagicAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateTestXMagicRequest&,
-        CreateTestXMagicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTestXMagicOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTestXMagic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::CreateTrialApplicationAndLicenseOutcome VcubeClient::CreateTrialApplicationAndLicense(const CreateTrialApplicationAndLicenseRequest &request)
@@ -362,32 +320,25 @@ VcubeClient::CreateTrialApplicationAndLicenseOutcome VcubeClient::CreateTrialApp
 
 void VcubeClient::CreateTrialApplicationAndLicenseAsync(const CreateTrialApplicationAndLicenseRequest& request, const CreateTrialApplicationAndLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTrialApplicationAndLicenseRequest&;
-    using Resp = CreateTrialApplicationAndLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTrialApplicationAndLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTrialApplicationAndLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateTrialApplicationAndLicenseOutcomeCallable VcubeClient::CreateTrialApplicationAndLicenseCallable(const CreateTrialApplicationAndLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTrialApplicationAndLicenseOutcome>>();
-    CreateTrialApplicationAndLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateTrialApplicationAndLicenseRequest&,
-        CreateTrialApplicationAndLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTrialApplicationAndLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTrialApplicationAndLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::CreateTrialLicenseOutcome VcubeClient::CreateTrialLicense(const CreateTrialLicenseRequest &request)
@@ -412,32 +363,25 @@ VcubeClient::CreateTrialLicenseOutcome VcubeClient::CreateTrialLicense(const Cre
 
 void VcubeClient::CreateTrialLicenseAsync(const CreateTrialLicenseRequest& request, const CreateTrialLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTrialLicenseRequest&;
-    using Resp = CreateTrialLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTrialLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTrialLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateTrialLicenseOutcomeCallable VcubeClient::CreateTrialLicenseCallable(const CreateTrialLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTrialLicenseOutcome>>();
-    CreateTrialLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateTrialLicenseRequest&,
-        CreateTrialLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTrialLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTrialLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::CreateXMagicOutcome VcubeClient::CreateXMagic(const CreateXMagicRequest &request)
@@ -462,32 +406,25 @@ VcubeClient::CreateXMagicOutcome VcubeClient::CreateXMagic(const CreateXMagicReq
 
 void VcubeClient::CreateXMagicAsync(const CreateXMagicRequest& request, const CreateXMagicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateXMagicRequest&;
-    using Resp = CreateXMagicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateXMagic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateXMagic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::CreateXMagicOutcomeCallable VcubeClient::CreateXMagicCallable(const CreateXMagicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateXMagicOutcome>>();
-    CreateXMagicAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const CreateXMagicRequest&,
-        CreateXMagicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateXMagicOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateXMagic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DeleteApplicationAndVideoLicenseOutcome VcubeClient::DeleteApplicationAndVideoLicense(const DeleteApplicationAndVideoLicenseRequest &request)
@@ -512,32 +449,25 @@ VcubeClient::DeleteApplicationAndVideoLicenseOutcome VcubeClient::DeleteApplicat
 
 void VcubeClient::DeleteApplicationAndVideoLicenseAsync(const DeleteApplicationAndVideoLicenseRequest& request, const DeleteApplicationAndVideoLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteApplicationAndVideoLicenseRequest&;
-    using Resp = DeleteApplicationAndVideoLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteApplicationAndVideoLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteApplicationAndVideoLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DeleteApplicationAndVideoLicenseOutcomeCallable VcubeClient::DeleteApplicationAndVideoLicenseCallable(const DeleteApplicationAndVideoLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteApplicationAndVideoLicenseOutcome>>();
-    DeleteApplicationAndVideoLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DeleteApplicationAndVideoLicenseRequest&,
-        DeleteApplicationAndVideoLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteApplicationAndVideoLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteApplicationAndVideoLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DeleteApplicationAndWebPlayerLicenseOutcome VcubeClient::DeleteApplicationAndWebPlayerLicense(const DeleteApplicationAndWebPlayerLicenseRequest &request)
@@ -562,32 +492,25 @@ VcubeClient::DeleteApplicationAndWebPlayerLicenseOutcome VcubeClient::DeleteAppl
 
 void VcubeClient::DeleteApplicationAndWebPlayerLicenseAsync(const DeleteApplicationAndWebPlayerLicenseRequest& request, const DeleteApplicationAndWebPlayerLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteApplicationAndWebPlayerLicenseRequest&;
-    using Resp = DeleteApplicationAndWebPlayerLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteApplicationAndWebPlayerLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteApplicationAndWebPlayerLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DeleteApplicationAndWebPlayerLicenseOutcomeCallable VcubeClient::DeleteApplicationAndWebPlayerLicenseCallable(const DeleteApplicationAndWebPlayerLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteApplicationAndWebPlayerLicenseOutcome>>();
-    DeleteApplicationAndWebPlayerLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DeleteApplicationAndWebPlayerLicenseRequest&,
-        DeleteApplicationAndWebPlayerLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteApplicationAndWebPlayerLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteApplicationAndWebPlayerLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeFeatureListOutcome VcubeClient::DescribeFeatureList(const DescribeFeatureListRequest &request)
@@ -612,32 +535,25 @@ VcubeClient::DescribeFeatureListOutcome VcubeClient::DescribeFeatureList(const D
 
 void VcubeClient::DescribeFeatureListAsync(const DescribeFeatureListRequest& request, const DescribeFeatureListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFeatureListRequest&;
-    using Resp = DescribeFeatureListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFeatureList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFeatureList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeFeatureListOutcomeCallable VcubeClient::DescribeFeatureListCallable(const DescribeFeatureListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFeatureListOutcome>>();
-    DescribeFeatureListAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeFeatureListRequest&,
-        DescribeFeatureListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFeatureListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFeatureList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeLicenseListOutcome VcubeClient::DescribeLicenseList(const DescribeLicenseListRequest &request)
@@ -662,32 +578,25 @@ VcubeClient::DescribeLicenseListOutcome VcubeClient::DescribeLicenseList(const D
 
 void VcubeClient::DescribeLicenseListAsync(const DescribeLicenseListRequest& request, const DescribeLicenseListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLicenseListRequest&;
-    using Resp = DescribeLicenseListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLicenseList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLicenseList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeLicenseListOutcomeCallable VcubeClient::DescribeLicenseListCallable(const DescribeLicenseListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLicenseListOutcome>>();
-    DescribeLicenseListAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeLicenseListRequest&,
-        DescribeLicenseListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLicenseListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLicenseList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeNewsOutcome VcubeClient::DescribeNews(const DescribeNewsRequest &request)
@@ -712,32 +621,25 @@ VcubeClient::DescribeNewsOutcome VcubeClient::DescribeNews(const DescribeNewsReq
 
 void VcubeClient::DescribeNewsAsync(const DescribeNewsRequest& request, const DescribeNewsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNewsRequest&;
-    using Resp = DescribeNewsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNews(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNews", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeNewsOutcomeCallable VcubeClient::DescribeNewsCallable(const DescribeNewsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNewsOutcome>>();
-    DescribeNewsAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeNewsRequest&,
-        DescribeNewsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNewsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNews(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeSTSOutcome VcubeClient::DescribeSTS(const DescribeSTSRequest &request)
@@ -762,32 +664,25 @@ VcubeClient::DescribeSTSOutcome VcubeClient::DescribeSTS(const DescribeSTSReques
 
 void VcubeClient::DescribeSTSAsync(const DescribeSTSRequest& request, const DescribeSTSAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSTSRequest&;
-    using Resp = DescribeSTSResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSTS(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSTS", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeSTSOutcomeCallable VcubeClient::DescribeSTSCallable(const DescribeSTSRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSTSOutcome>>();
-    DescribeSTSAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeSTSRequest&,
-        DescribeSTSOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSTSOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSTS(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeTrialFeatureOutcome VcubeClient::DescribeTrialFeature(const DescribeTrialFeatureRequest &request)
@@ -812,32 +707,25 @@ VcubeClient::DescribeTrialFeatureOutcome VcubeClient::DescribeTrialFeature(const
 
 void VcubeClient::DescribeTrialFeatureAsync(const DescribeTrialFeatureRequest& request, const DescribeTrialFeatureAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrialFeatureRequest&;
-    using Resp = DescribeTrialFeatureResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrialFeature(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrialFeature", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeTrialFeatureOutcomeCallable VcubeClient::DescribeTrialFeatureCallable(const DescribeTrialFeatureRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrialFeatureOutcome>>();
-    DescribeTrialFeatureAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeTrialFeatureRequest&,
-        DescribeTrialFeatureOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrialFeatureOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrialFeature(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeUserConfigOutcome VcubeClient::DescribeUserConfig(const DescribeUserConfigRequest &request)
@@ -862,32 +750,25 @@ VcubeClient::DescribeUserConfigOutcome VcubeClient::DescribeUserConfig(const Des
 
 void VcubeClient::DescribeUserConfigAsync(const DescribeUserConfigRequest& request, const DescribeUserConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserConfigRequest&;
-    using Resp = DescribeUserConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeUserConfigOutcomeCallable VcubeClient::DescribeUserConfigCallable(const DescribeUserConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserConfigOutcome>>();
-    DescribeUserConfigAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeUserConfigRequest&,
-        DescribeUserConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeVcubeApplicationAndLicenseOutcome VcubeClient::DescribeVcubeApplicationAndLicense(const DescribeVcubeApplicationAndLicenseRequest &request)
@@ -912,32 +793,25 @@ VcubeClient::DescribeVcubeApplicationAndLicenseOutcome VcubeClient::DescribeVcub
 
 void VcubeClient::DescribeVcubeApplicationAndLicenseAsync(const DescribeVcubeApplicationAndLicenseRequest& request, const DescribeVcubeApplicationAndLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVcubeApplicationAndLicenseRequest&;
-    using Resp = DescribeVcubeApplicationAndLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVcubeApplicationAndLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVcubeApplicationAndLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeVcubeApplicationAndLicenseOutcomeCallable VcubeClient::DescribeVcubeApplicationAndLicenseCallable(const DescribeVcubeApplicationAndLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVcubeApplicationAndLicenseOutcome>>();
-    DescribeVcubeApplicationAndLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeVcubeApplicationAndLicenseRequest&,
-        DescribeVcubeApplicationAndLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVcubeApplicationAndLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVcubeApplicationAndLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeVcubeApplicationAndPlayListOutcome VcubeClient::DescribeVcubeApplicationAndPlayList(const DescribeVcubeApplicationAndPlayListRequest &request)
@@ -962,32 +836,25 @@ VcubeClient::DescribeVcubeApplicationAndPlayListOutcome VcubeClient::DescribeVcu
 
 void VcubeClient::DescribeVcubeApplicationAndPlayListAsync(const DescribeVcubeApplicationAndPlayListRequest& request, const DescribeVcubeApplicationAndPlayListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVcubeApplicationAndPlayListRequest&;
-    using Resp = DescribeVcubeApplicationAndPlayListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVcubeApplicationAndPlayList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVcubeApplicationAndPlayList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeVcubeApplicationAndPlayListOutcomeCallable VcubeClient::DescribeVcubeApplicationAndPlayListCallable(const DescribeVcubeApplicationAndPlayListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVcubeApplicationAndPlayListOutcome>>();
-    DescribeVcubeApplicationAndPlayListAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeVcubeApplicationAndPlayListRequest&,
-        DescribeVcubeApplicationAndPlayListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVcubeApplicationAndPlayListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVcubeApplicationAndPlayList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeVcubeApplicationAndXMagicListOutcome VcubeClient::DescribeVcubeApplicationAndXMagicList(const DescribeVcubeApplicationAndXMagicListRequest &request)
@@ -1012,32 +879,25 @@ VcubeClient::DescribeVcubeApplicationAndXMagicListOutcome VcubeClient::DescribeV
 
 void VcubeClient::DescribeVcubeApplicationAndXMagicListAsync(const DescribeVcubeApplicationAndXMagicListRequest& request, const DescribeVcubeApplicationAndXMagicListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVcubeApplicationAndXMagicListRequest&;
-    using Resp = DescribeVcubeApplicationAndXMagicListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVcubeApplicationAndXMagicList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVcubeApplicationAndXMagicList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeVcubeApplicationAndXMagicListOutcomeCallable VcubeClient::DescribeVcubeApplicationAndXMagicListCallable(const DescribeVcubeApplicationAndXMagicListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVcubeApplicationAndXMagicListOutcome>>();
-    DescribeVcubeApplicationAndXMagicListAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeVcubeApplicationAndXMagicListRequest&,
-        DescribeVcubeApplicationAndXMagicListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVcubeApplicationAndXMagicListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVcubeApplicationAndXMagicList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeVcubeResourcesOutcome VcubeClient::DescribeVcubeResources(const DescribeVcubeResourcesRequest &request)
@@ -1062,32 +922,25 @@ VcubeClient::DescribeVcubeResourcesOutcome VcubeClient::DescribeVcubeResources(c
 
 void VcubeClient::DescribeVcubeResourcesAsync(const DescribeVcubeResourcesRequest& request, const DescribeVcubeResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVcubeResourcesRequest&;
-    using Resp = DescribeVcubeResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVcubeResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVcubeResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeVcubeResourcesOutcomeCallable VcubeClient::DescribeVcubeResourcesCallable(const DescribeVcubeResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVcubeResourcesOutcome>>();
-    DescribeVcubeResourcesAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeVcubeResourcesRequest&,
-        DescribeVcubeResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVcubeResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVcubeResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeVcubeResourcesListOutcome VcubeClient::DescribeVcubeResourcesList(const DescribeVcubeResourcesListRequest &request)
@@ -1112,32 +965,25 @@ VcubeClient::DescribeVcubeResourcesListOutcome VcubeClient::DescribeVcubeResourc
 
 void VcubeClient::DescribeVcubeResourcesListAsync(const DescribeVcubeResourcesListRequest& request, const DescribeVcubeResourcesListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVcubeResourcesListRequest&;
-    using Resp = DescribeVcubeResourcesListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVcubeResourcesList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVcubeResourcesList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeVcubeResourcesListOutcomeCallable VcubeClient::DescribeVcubeResourcesListCallable(const DescribeVcubeResourcesListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVcubeResourcesListOutcome>>();
-    DescribeVcubeResourcesListAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeVcubeResourcesListRequest&,
-        DescribeVcubeResourcesListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVcubeResourcesListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVcubeResourcesList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeXMagicResourceOutcome VcubeClient::DescribeXMagicResource(const DescribeXMagicResourceRequest &request)
@@ -1162,32 +1008,25 @@ VcubeClient::DescribeXMagicResourceOutcome VcubeClient::DescribeXMagicResource(c
 
 void VcubeClient::DescribeXMagicResourceAsync(const DescribeXMagicResourceRequest& request, const DescribeXMagicResourceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeXMagicResourceRequest&;
-    using Resp = DescribeXMagicResourceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeXMagicResource(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeXMagicResource", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeXMagicResourceOutcomeCallable VcubeClient::DescribeXMagicResourceCallable(const DescribeXMagicResourceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeXMagicResourceOutcome>>();
-    DescribeXMagicResourceAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeXMagicResourceRequest&,
-        DescribeXMagicResourceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeXMagicResourceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeXMagicResource(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::DescribeXMagicResourceListOutcome VcubeClient::DescribeXMagicResourceList(const DescribeXMagicResourceListRequest &request)
@@ -1212,32 +1051,25 @@ VcubeClient::DescribeXMagicResourceListOutcome VcubeClient::DescribeXMagicResour
 
 void VcubeClient::DescribeXMagicResourceListAsync(const DescribeXMagicResourceListRequest& request, const DescribeXMagicResourceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeXMagicResourceListRequest&;
-    using Resp = DescribeXMagicResourceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeXMagicResourceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeXMagicResourceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::DescribeXMagicResourceListOutcomeCallable VcubeClient::DescribeXMagicResourceListCallable(const DescribeXMagicResourceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeXMagicResourceListOutcome>>();
-    DescribeXMagicResourceListAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const DescribeXMagicResourceListRequest&,
-        DescribeXMagicResourceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeXMagicResourceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeXMagicResourceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::ModifyApplicationOutcome VcubeClient::ModifyApplication(const ModifyApplicationRequest &request)
@@ -1262,32 +1094,25 @@ VcubeClient::ModifyApplicationOutcome VcubeClient::ModifyApplication(const Modif
 
 void VcubeClient::ModifyApplicationAsync(const ModifyApplicationRequest& request, const ModifyApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyApplicationRequest&;
-    using Resp = ModifyApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::ModifyApplicationOutcomeCallable VcubeClient::ModifyApplicationCallable(const ModifyApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyApplicationOutcome>>();
-    ModifyApplicationAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const ModifyApplicationRequest&,
-        ModifyApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::ModifyFormalApplicationOutcome VcubeClient::ModifyFormalApplication(const ModifyFormalApplicationRequest &request)
@@ -1312,32 +1137,25 @@ VcubeClient::ModifyFormalApplicationOutcome VcubeClient::ModifyFormalApplication
 
 void VcubeClient::ModifyFormalApplicationAsync(const ModifyFormalApplicationRequest& request, const ModifyFormalApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyFormalApplicationRequest&;
-    using Resp = ModifyFormalApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyFormalApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyFormalApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::ModifyFormalApplicationOutcomeCallable VcubeClient::ModifyFormalApplicationCallable(const ModifyFormalApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyFormalApplicationOutcome>>();
-    ModifyFormalApplicationAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const ModifyFormalApplicationRequest&,
-        ModifyFormalApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyFormalApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyFormalApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::ModifyLicenseOutcome VcubeClient::ModifyLicense(const ModifyLicenseRequest &request)
@@ -1362,32 +1180,25 @@ VcubeClient::ModifyLicenseOutcome VcubeClient::ModifyLicense(const ModifyLicense
 
 void VcubeClient::ModifyLicenseAsync(const ModifyLicenseRequest& request, const ModifyLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLicenseRequest&;
-    using Resp = ModifyLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::ModifyLicenseOutcomeCallable VcubeClient::ModifyLicenseCallable(const ModifyLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLicenseOutcome>>();
-    ModifyLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const ModifyLicenseRequest&,
-        ModifyLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::ModifyPresetApplicationOutcome VcubeClient::ModifyPresetApplication(const ModifyPresetApplicationRequest &request)
@@ -1412,32 +1223,25 @@ VcubeClient::ModifyPresetApplicationOutcome VcubeClient::ModifyPresetApplication
 
 void VcubeClient::ModifyPresetApplicationAsync(const ModifyPresetApplicationRequest& request, const ModifyPresetApplicationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPresetApplicationRequest&;
-    using Resp = ModifyPresetApplicationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPresetApplication(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPresetApplication", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::ModifyPresetApplicationOutcomeCallable VcubeClient::ModifyPresetApplicationCallable(const ModifyPresetApplicationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPresetApplicationOutcome>>();
-    ModifyPresetApplicationAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const ModifyPresetApplicationRequest&,
-        ModifyPresetApplicationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPresetApplicationOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPresetApplication(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::ModifyTrialLicenseOutcome VcubeClient::ModifyTrialLicense(const ModifyTrialLicenseRequest &request)
@@ -1462,32 +1266,25 @@ VcubeClient::ModifyTrialLicenseOutcome VcubeClient::ModifyTrialLicense(const Mod
 
 void VcubeClient::ModifyTrialLicenseAsync(const ModifyTrialLicenseRequest& request, const ModifyTrialLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTrialLicenseRequest&;
-    using Resp = ModifyTrialLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTrialLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTrialLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::ModifyTrialLicenseOutcomeCallable VcubeClient::ModifyTrialLicenseCallable(const ModifyTrialLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTrialLicenseOutcome>>();
-    ModifyTrialLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const ModifyTrialLicenseRequest&,
-        ModifyTrialLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTrialLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTrialLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::ModifyXMagicOutcome VcubeClient::ModifyXMagic(const ModifyXMagicRequest &request)
@@ -1512,32 +1309,25 @@ VcubeClient::ModifyXMagicOutcome VcubeClient::ModifyXMagic(const ModifyXMagicReq
 
 void VcubeClient::ModifyXMagicAsync(const ModifyXMagicRequest& request, const ModifyXMagicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyXMagicRequest&;
-    using Resp = ModifyXMagicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyXMagic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyXMagic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::ModifyXMagicOutcomeCallable VcubeClient::ModifyXMagicCallable(const ModifyXMagicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyXMagicOutcome>>();
-    ModifyXMagicAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const ModifyXMagicRequest&,
-        ModifyXMagicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyXMagicOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyXMagic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::RenewLicenseOutcome VcubeClient::RenewLicense(const RenewLicenseRequest &request)
@@ -1562,32 +1352,25 @@ VcubeClient::RenewLicenseOutcome VcubeClient::RenewLicense(const RenewLicenseReq
 
 void VcubeClient::RenewLicenseAsync(const RenewLicenseRequest& request, const RenewLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewLicenseRequest&;
-    using Resp = RenewLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::RenewLicenseOutcomeCallable VcubeClient::RenewLicenseCallable(const RenewLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewLicenseOutcome>>();
-    RenewLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const RenewLicenseRequest&,
-        RenewLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::RenewTestXMagicOutcome VcubeClient::RenewTestXMagic(const RenewTestXMagicRequest &request)
@@ -1612,32 +1395,25 @@ VcubeClient::RenewTestXMagicOutcome VcubeClient::RenewTestXMagic(const RenewTest
 
 void VcubeClient::RenewTestXMagicAsync(const RenewTestXMagicRequest& request, const RenewTestXMagicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewTestXMagicRequest&;
-    using Resp = RenewTestXMagicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewTestXMagic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewTestXMagic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::RenewTestXMagicOutcomeCallable VcubeClient::RenewTestXMagicCallable(const RenewTestXMagicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewTestXMagicOutcome>>();
-    RenewTestXMagicAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const RenewTestXMagicRequest&,
-        RenewTestXMagicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewTestXMagicOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewTestXMagic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::RenewVideoOutcome VcubeClient::RenewVideo(const RenewVideoRequest &request)
@@ -1662,32 +1438,25 @@ VcubeClient::RenewVideoOutcome VcubeClient::RenewVideo(const RenewVideoRequest &
 
 void VcubeClient::RenewVideoAsync(const RenewVideoRequest& request, const RenewVideoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewVideoRequest&;
-    using Resp = RenewVideoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewVideo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewVideo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::RenewVideoOutcomeCallable VcubeClient::RenewVideoCallable(const RenewVideoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewVideoOutcome>>();
-    RenewVideoAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const RenewVideoRequest&,
-        RenewVideoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewVideoOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewVideo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::UpdateTestXMagicOutcome VcubeClient::UpdateTestXMagic(const UpdateTestXMagicRequest &request)
@@ -1712,32 +1481,25 @@ VcubeClient::UpdateTestXMagicOutcome VcubeClient::UpdateTestXMagic(const UpdateT
 
 void VcubeClient::UpdateTestXMagicAsync(const UpdateTestXMagicRequest& request, const UpdateTestXMagicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateTestXMagicRequest&;
-    using Resp = UpdateTestXMagicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateTestXMagic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateTestXMagic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::UpdateTestXMagicOutcomeCallable VcubeClient::UpdateTestXMagicCallable(const UpdateTestXMagicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateTestXMagicOutcome>>();
-    UpdateTestXMagicAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const UpdateTestXMagicRequest&,
-        UpdateTestXMagicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateTestXMagicOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateTestXMagic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::UpdateTrialLicenseOutcome VcubeClient::UpdateTrialLicense(const UpdateTrialLicenseRequest &request)
@@ -1762,32 +1524,25 @@ VcubeClient::UpdateTrialLicenseOutcome VcubeClient::UpdateTrialLicense(const Upd
 
 void VcubeClient::UpdateTrialLicenseAsync(const UpdateTrialLicenseRequest& request, const UpdateTrialLicenseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateTrialLicenseRequest&;
-    using Resp = UpdateTrialLicenseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateTrialLicense(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateTrialLicense", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::UpdateTrialLicenseOutcomeCallable VcubeClient::UpdateTrialLicenseCallable(const UpdateTrialLicenseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateTrialLicenseOutcome>>();
-    UpdateTrialLicenseAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const UpdateTrialLicenseRequest&,
-        UpdateTrialLicenseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateTrialLicenseOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateTrialLicense(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VcubeClient::UpdateXMagicOutcome VcubeClient::UpdateXMagic(const UpdateXMagicRequest &request)
@@ -1812,31 +1567,24 @@ VcubeClient::UpdateXMagicOutcome VcubeClient::UpdateXMagic(const UpdateXMagicReq
 
 void VcubeClient::UpdateXMagicAsync(const UpdateXMagicRequest& request, const UpdateXMagicAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateXMagicRequest&;
-    using Resp = UpdateXMagicResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateXMagic(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateXMagic", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VcubeClient::UpdateXMagicOutcomeCallable VcubeClient::UpdateXMagicCallable(const UpdateXMagicRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateXMagicOutcome>>();
-    UpdateXMagicAsync(
-    request,
-    [prom](
-        const VcubeClient*,
-        const UpdateXMagicRequest&,
-        UpdateXMagicOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateXMagicOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateXMagic(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

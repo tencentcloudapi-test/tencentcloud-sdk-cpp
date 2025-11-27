@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FunctionVersion;
+
                 /**
                 * 包含层级信息的函数
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OrganizationalFunction();
-                    ~OrganizationalFunction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

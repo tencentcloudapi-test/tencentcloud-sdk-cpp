@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleCacheConfig;
+
                 /**
                 * 缓存配置分路径版本。
 默认情况下所有文件缓存过期时间为 30 天 
@@ -44,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleCache();
-                    ~RuleCache() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 服务开关状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StatusInfo();
-                    ~StatusInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

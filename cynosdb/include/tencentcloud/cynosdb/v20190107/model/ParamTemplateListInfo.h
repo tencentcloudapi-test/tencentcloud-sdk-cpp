@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TemplateParamInfo;
+
                 /**
                 * 参数模板信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ParamTemplateListInfo();
-                    ~ParamTemplateListInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateVRSTaskRespData;
+
                 /**
                 * CreateVRSTask返回参数结构体
                 */

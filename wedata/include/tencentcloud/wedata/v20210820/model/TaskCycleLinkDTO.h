@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskDsDTO;
+
                 /**
                 * 循环依赖响应体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskCycleLinkDTO();
-                    ~TaskCycleLinkDTO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 日志投递kafka配置描述的缩简版
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SimpleKafkaDeliveryConfig();
-                    ~SimpleKafkaDeliveryConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

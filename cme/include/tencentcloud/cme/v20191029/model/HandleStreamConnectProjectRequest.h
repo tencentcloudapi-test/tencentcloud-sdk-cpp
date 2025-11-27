@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StreamInputInfo;
+                class StreamConnectOutput;
+
                 /**
                 * HandleStreamConnectProject请求参数结构体
                 */

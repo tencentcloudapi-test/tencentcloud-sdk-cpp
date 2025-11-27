@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KafkaConsumerContent;
+
                 /**
                 * DescribeKafkaConsumer返回参数结构体
                 */

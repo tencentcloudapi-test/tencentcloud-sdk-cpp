@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DomainRuleSet;
+
                 /**
                 * DescribeRules返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityAction;
+
                 /**
                 * 智能客户端过滤
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ClientFiltering();
-                    ~ClientFiltering() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GovernanceServiceContract;
+
                 /**
                 * DescribeGovernanceServiceContracts返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 添加的用户信息列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UserInfoForUserManager();
-                    ~UserInfoForUserManager() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

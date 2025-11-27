@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MsgQueueData;
+
                 /**
                 * DescribeMessageQueue返回参数结构体
                 */

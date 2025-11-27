@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DocSegment;
+
                 /**
                 * DescribeSegments返回参数结构体
                 */

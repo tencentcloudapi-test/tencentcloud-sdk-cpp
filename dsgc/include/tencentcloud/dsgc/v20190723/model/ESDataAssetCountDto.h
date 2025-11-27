@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SensitiveLevel;
+                class DspaDataCategoryDistributed;
+
                 /**
                 * ES的概览页统计数据
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ESDataAssetCountDto();
-                    ~ESDataAssetCountDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

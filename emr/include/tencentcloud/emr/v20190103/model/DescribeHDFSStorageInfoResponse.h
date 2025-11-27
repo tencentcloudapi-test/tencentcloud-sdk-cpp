@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StorageSummaryDistribution;
+
                 /**
                 * DescribeHDFSStorageInfo返回参数结构体
                 */

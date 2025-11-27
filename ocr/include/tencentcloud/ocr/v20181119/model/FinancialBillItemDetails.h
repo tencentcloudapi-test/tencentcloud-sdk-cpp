@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 财务票据查验返回结果-项目清单
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FinancialBillItemDetails();
-                    ~FinancialBillItemDetails() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

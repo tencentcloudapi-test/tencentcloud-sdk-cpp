@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RackUsage;
+
                 /**
                 * 机架用量分布
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Distribution();
-                    ~Distribution() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

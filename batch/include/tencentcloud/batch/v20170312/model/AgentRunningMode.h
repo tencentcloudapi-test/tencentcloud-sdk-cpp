@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * agent运行模式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AgentRunningMode();
-                    ~AgentRunningMode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

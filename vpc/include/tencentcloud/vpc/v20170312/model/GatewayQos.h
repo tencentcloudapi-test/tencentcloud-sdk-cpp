@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网关流控带宽信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GatewayQos();
-                    ~GatewayQos() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

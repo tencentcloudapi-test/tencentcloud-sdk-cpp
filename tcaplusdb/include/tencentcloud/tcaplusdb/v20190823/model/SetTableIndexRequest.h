@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SelectedTableWithField;
+
                 /**
                 * SetTableIndex请求参数结构体
                 */

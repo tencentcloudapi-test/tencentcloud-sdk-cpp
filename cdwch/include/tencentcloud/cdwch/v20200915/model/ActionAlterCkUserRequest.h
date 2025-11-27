@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CkUserAlterInfo;
+
                 /**
                 * ActionAlterCkUser请求参数结构体
                 */

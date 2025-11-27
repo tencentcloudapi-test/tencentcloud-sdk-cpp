@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 批量修改任务负责人结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UpdateTasksOwner();
-                    ~UpdateTasksOwner() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

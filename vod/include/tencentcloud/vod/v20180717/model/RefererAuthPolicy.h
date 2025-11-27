@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Referer 防盗链配置
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RefererAuthPolicy();
-                    ~RefererAuthPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

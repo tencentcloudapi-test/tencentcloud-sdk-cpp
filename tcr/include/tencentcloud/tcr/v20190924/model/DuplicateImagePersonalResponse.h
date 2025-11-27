@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DupImageTagResp;
+
                 /**
                 * DuplicateImagePersonal返回参数结构体
                 */

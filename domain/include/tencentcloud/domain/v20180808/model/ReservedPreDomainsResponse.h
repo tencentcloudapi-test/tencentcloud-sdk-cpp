@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FailReservedDomainInfo;
+                class SucDomainInfo;
+
                 /**
                 * ReservedPreDomains返回参数结构体
                 */

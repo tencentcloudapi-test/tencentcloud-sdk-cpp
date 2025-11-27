@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 后付费共享带宽包的当前计费用量
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BandwidthPackageBillBandwidth();
-                    ~BandwidthPackageBillBandwidth() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

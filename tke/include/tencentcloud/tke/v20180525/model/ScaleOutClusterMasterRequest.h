@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunInstancesForNode;
+                class ExistedInstancesForNode;
+                class InstanceAdvancedSettings;
+                class ClusterExtraArgs;
+
                 /**
                 * ScaleOutClusterMaster请求参数结构体
                 */

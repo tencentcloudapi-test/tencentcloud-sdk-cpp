@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupMessage;
+                class GroupChatConfig;
+
                 /**
                 * GroupChatCompletions请求参数结构体
                 */

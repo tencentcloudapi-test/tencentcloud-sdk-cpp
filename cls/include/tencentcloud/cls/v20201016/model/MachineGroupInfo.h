@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MachineGroupTypeInfo;
+                class Tag;
+                class MetaTagInfo;
+
                 /**
                 * 机器组信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     MachineGroupInfo();
-                    ~MachineGroupInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

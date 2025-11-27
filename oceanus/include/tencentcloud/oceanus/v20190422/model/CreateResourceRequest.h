@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceLoc;
+
                 /**
                 * CreateResource请求参数结构体
                 */

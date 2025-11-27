@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpScope;
+                class StrategyConfig;
+                class StopParams;
+
                 /**
                 * StartStopServiceOrMonitor请求参数结构体
                 */

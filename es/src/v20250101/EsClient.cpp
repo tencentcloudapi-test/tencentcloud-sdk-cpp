@@ -62,32 +62,25 @@ EsClient::ChatCompletionsOutcome EsClient::ChatCompletions(const ChatCompletions
 
 void EsClient::ChatCompletionsAsync(const ChatCompletionsRequest& request, const ChatCompletionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChatCompletionsRequest&;
-    using Resp = ChatCompletionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChatCompletions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChatCompletions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::ChatCompletionsOutcomeCallable EsClient::ChatCompletionsCallable(const ChatCompletionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChatCompletionsOutcome>>();
-    ChatCompletionsAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const ChatCompletionsRequest&,
-        ChatCompletionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChatCompletionsOutcome()>>(
+        [this, request]()
+        {
+            return this->ChatCompletions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::ChunkDocumentOutcome EsClient::ChunkDocument(const ChunkDocumentRequest &request)
@@ -112,32 +105,25 @@ EsClient::ChunkDocumentOutcome EsClient::ChunkDocument(const ChunkDocumentReques
 
 void EsClient::ChunkDocumentAsync(const ChunkDocumentRequest& request, const ChunkDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChunkDocumentRequest&;
-    using Resp = ChunkDocumentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChunkDocument(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChunkDocument", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::ChunkDocumentOutcomeCallable EsClient::ChunkDocumentCallable(const ChunkDocumentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChunkDocumentOutcome>>();
-    ChunkDocumentAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const ChunkDocumentRequest&,
-        ChunkDocumentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChunkDocumentOutcome()>>(
+        [this, request]()
+        {
+            return this->ChunkDocument(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::ChunkDocumentAsyncOutcome EsClient::ChunkDocumentAsync(const ChunkDocumentAsyncRequest &request)
@@ -162,32 +148,25 @@ EsClient::ChunkDocumentAsyncOutcome EsClient::ChunkDocumentAsync(const ChunkDocu
 
 void EsClient::ChunkDocumentAsyncAsync(const ChunkDocumentAsyncRequest& request, const ChunkDocumentAsyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChunkDocumentAsyncRequest&;
-    using Resp = ChunkDocumentAsyncResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChunkDocumentAsync(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChunkDocumentAsync", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::ChunkDocumentAsyncOutcomeCallable EsClient::ChunkDocumentAsyncCallable(const ChunkDocumentAsyncRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChunkDocumentAsyncOutcome>>();
-    ChunkDocumentAsyncAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const ChunkDocumentAsyncRequest&,
-        ChunkDocumentAsyncOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChunkDocumentAsyncOutcome()>>(
+        [this, request]()
+        {
+            return this->ChunkDocumentAsync(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::GetDocumentChunkResultOutcome EsClient::GetDocumentChunkResult(const GetDocumentChunkResultRequest &request)
@@ -212,32 +191,25 @@ EsClient::GetDocumentChunkResultOutcome EsClient::GetDocumentChunkResult(const G
 
 void EsClient::GetDocumentChunkResultAsync(const GetDocumentChunkResultRequest& request, const GetDocumentChunkResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetDocumentChunkResultRequest&;
-    using Resp = GetDocumentChunkResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetDocumentChunkResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetDocumentChunkResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::GetDocumentChunkResultOutcomeCallable EsClient::GetDocumentChunkResultCallable(const GetDocumentChunkResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetDocumentChunkResultOutcome>>();
-    GetDocumentChunkResultAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const GetDocumentChunkResultRequest&,
-        GetDocumentChunkResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetDocumentChunkResultOutcome()>>(
+        [this, request]()
+        {
+            return this->GetDocumentChunkResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::GetDocumentParseResultOutcome EsClient::GetDocumentParseResult(const GetDocumentParseResultRequest &request)
@@ -262,32 +234,25 @@ EsClient::GetDocumentParseResultOutcome EsClient::GetDocumentParseResult(const G
 
 void EsClient::GetDocumentParseResultAsync(const GetDocumentParseResultRequest& request, const GetDocumentParseResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetDocumentParseResultRequest&;
-    using Resp = GetDocumentParseResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetDocumentParseResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetDocumentParseResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::GetDocumentParseResultOutcomeCallable EsClient::GetDocumentParseResultCallable(const GetDocumentParseResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetDocumentParseResultOutcome>>();
-    GetDocumentParseResultAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const GetDocumentParseResultRequest&,
-        GetDocumentParseResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetDocumentParseResultOutcome()>>(
+        [this, request]()
+        {
+            return this->GetDocumentParseResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::GetMultiModalEmbeddingOutcome EsClient::GetMultiModalEmbedding(const GetMultiModalEmbeddingRequest &request)
@@ -312,32 +277,25 @@ EsClient::GetMultiModalEmbeddingOutcome EsClient::GetMultiModalEmbedding(const G
 
 void EsClient::GetMultiModalEmbeddingAsync(const GetMultiModalEmbeddingRequest& request, const GetMultiModalEmbeddingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetMultiModalEmbeddingRequest&;
-    using Resp = GetMultiModalEmbeddingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetMultiModalEmbedding(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetMultiModalEmbedding", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::GetMultiModalEmbeddingOutcomeCallable EsClient::GetMultiModalEmbeddingCallable(const GetMultiModalEmbeddingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetMultiModalEmbeddingOutcome>>();
-    GetMultiModalEmbeddingAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const GetMultiModalEmbeddingRequest&,
-        GetMultiModalEmbeddingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetMultiModalEmbeddingOutcome()>>(
+        [this, request]()
+        {
+            return this->GetMultiModalEmbedding(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::GetTextEmbeddingOutcome EsClient::GetTextEmbedding(const GetTextEmbeddingRequest &request)
@@ -362,32 +320,25 @@ EsClient::GetTextEmbeddingOutcome EsClient::GetTextEmbedding(const GetTextEmbedd
 
 void EsClient::GetTextEmbeddingAsync(const GetTextEmbeddingRequest& request, const GetTextEmbeddingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTextEmbeddingRequest&;
-    using Resp = GetTextEmbeddingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTextEmbedding(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTextEmbedding", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::GetTextEmbeddingOutcomeCallable EsClient::GetTextEmbeddingCallable(const GetTextEmbeddingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTextEmbeddingOutcome>>();
-    GetTextEmbeddingAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const GetTextEmbeddingRequest&,
-        GetTextEmbeddingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTextEmbeddingOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTextEmbedding(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::ParseDocumentOutcome EsClient::ParseDocument(const ParseDocumentRequest &request)
@@ -412,32 +363,25 @@ EsClient::ParseDocumentOutcome EsClient::ParseDocument(const ParseDocumentReques
 
 void EsClient::ParseDocumentAsync(const ParseDocumentRequest& request, const ParseDocumentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ParseDocumentRequest&;
-    using Resp = ParseDocumentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ParseDocument(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ParseDocument", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::ParseDocumentOutcomeCallable EsClient::ParseDocumentCallable(const ParseDocumentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ParseDocumentOutcome>>();
-    ParseDocumentAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const ParseDocumentRequest&,
-        ParseDocumentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ParseDocumentOutcome()>>(
+        [this, request]()
+        {
+            return this->ParseDocument(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::ParseDocumentAsyncOutcome EsClient::ParseDocumentAsync(const ParseDocumentAsyncRequest &request)
@@ -462,32 +406,25 @@ EsClient::ParseDocumentAsyncOutcome EsClient::ParseDocumentAsync(const ParseDocu
 
 void EsClient::ParseDocumentAsyncAsync(const ParseDocumentAsyncRequest& request, const ParseDocumentAsyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ParseDocumentAsyncRequest&;
-    using Resp = ParseDocumentAsyncResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ParseDocumentAsync(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ParseDocumentAsync", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::ParseDocumentAsyncOutcomeCallable EsClient::ParseDocumentAsyncCallable(const ParseDocumentAsyncRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ParseDocumentAsyncOutcome>>();
-    ParseDocumentAsyncAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const ParseDocumentAsyncRequest&,
-        ParseDocumentAsyncOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ParseDocumentAsyncOutcome()>>(
+        [this, request]()
+        {
+            return this->ParseDocumentAsync(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EsClient::RunRerankOutcome EsClient::RunRerank(const RunRerankRequest &request)
@@ -512,31 +449,24 @@ EsClient::RunRerankOutcome EsClient::RunRerank(const RunRerankRequest &request)
 
 void EsClient::RunRerankAsync(const RunRerankRequest& request, const RunRerankAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunRerankRequest&;
-    using Resp = RunRerankResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunRerank(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunRerank", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EsClient::RunRerankOutcomeCallable EsClient::RunRerankCallable(const RunRerankRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunRerankOutcome>>();
-    RunRerankAsync(
-    request,
-    [prom](
-        const EsClient*,
-        const RunRerankRequest&,
-        RunRerankOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunRerankOutcome()>>(
+        [this, request]()
+        {
+            return this->RunRerank(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

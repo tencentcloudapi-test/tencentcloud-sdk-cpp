@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataEngineConfigPair;
+
                 /**
                 * CheckDataEngineConfigPairsValidity请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 立即执行改密任务的入参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RunChangePwdTaskDetail();
-                    ~RunChangePwdTaskDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

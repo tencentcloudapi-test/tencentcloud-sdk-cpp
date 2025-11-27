@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MountPoint;
+
                 /**
                 * CreateMountPoint返回参数结构体
                 */

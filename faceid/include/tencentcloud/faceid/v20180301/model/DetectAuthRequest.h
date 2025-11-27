@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Encryption;
+                class IntentionQuestion;
+                class IntentionActionConfig;
+                class RuleIdConfig;
+
                 /**
                 * DetectAuth请求参数结构体
                 */

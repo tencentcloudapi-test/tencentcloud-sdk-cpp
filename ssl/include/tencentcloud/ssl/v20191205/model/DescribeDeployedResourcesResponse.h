@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeployedResources;
+
                 /**
                 * DescribeDeployedResources返回参数结构体
                 */

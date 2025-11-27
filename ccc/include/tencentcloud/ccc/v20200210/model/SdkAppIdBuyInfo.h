@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StaffBuyInfo;
+                class PhoneNumBuyInfo;
+
                 /**
                 * 应用购买信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SdkAppIdBuyInfo();
-                    ~SdkAppIdBuyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

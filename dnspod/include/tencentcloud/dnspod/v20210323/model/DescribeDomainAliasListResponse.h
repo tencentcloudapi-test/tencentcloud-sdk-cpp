@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DomainAliasInfo;
+
                 /**
                 * DescribeDomainAliasList返回参数结构体
                 */

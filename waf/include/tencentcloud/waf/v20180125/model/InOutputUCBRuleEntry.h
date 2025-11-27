@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UCBEntryValue;
+                class Area;
+                class ParamCompareList;
+
                 /**
                 * 自定义规则UCB的Rule生效条件
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     InOutputUCBRuleEntry();
-                    ~InOutputUCBRuleEntry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

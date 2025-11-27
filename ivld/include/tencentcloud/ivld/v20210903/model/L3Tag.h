@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppearIndexPair;
+
                 /**
                 * 三级标签信息。
 
@@ -44,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     L3Tag();
-                    ~L3Tag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

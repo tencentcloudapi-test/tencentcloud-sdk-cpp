@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 翼扬诊断小程序的诊断报告风险数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FlySecMiniAppRiskItems();
-                    ~FlySecMiniAppRiskItems() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

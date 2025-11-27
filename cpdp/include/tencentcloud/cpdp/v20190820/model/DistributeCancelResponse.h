@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DistributeCancelResult;
+
                 /**
                 * DistributeCancel返回参数结构体
                 */

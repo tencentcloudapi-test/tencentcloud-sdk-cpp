@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述对象存储类敏感识别扫描人元数据条件。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DspaDiscoveryTaskCOSCondition();
-                    ~DspaDiscoveryTaskCOSCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

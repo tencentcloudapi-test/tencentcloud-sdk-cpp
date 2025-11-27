@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KTVMusicDetailInfo;
+
                 /**
                 * BatchDescribeKTVMusicDetails返回参数结构体
                 */

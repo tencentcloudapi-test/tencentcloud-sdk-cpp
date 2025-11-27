@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceUpdateStatus;
+
                 /**
                 * DescribeFirmwareTaskDevices返回参数结构体
                 */

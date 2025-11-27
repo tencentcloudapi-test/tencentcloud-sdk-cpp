@@ -62,32 +62,25 @@ CbsClient::ApplyDiskBackupOutcome CbsClient::ApplyDiskBackup(const ApplyDiskBack
 
 void CbsClient::ApplyDiskBackupAsync(const ApplyDiskBackupRequest& request, const ApplyDiskBackupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ApplyDiskBackupRequest&;
-    using Resp = ApplyDiskBackupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ApplyDiskBackup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ApplyDiskBackup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ApplyDiskBackupOutcomeCallable CbsClient::ApplyDiskBackupCallable(const ApplyDiskBackupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ApplyDiskBackupOutcome>>();
-    ApplyDiskBackupAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ApplyDiskBackupRequest&,
-        ApplyDiskBackupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ApplyDiskBackupOutcome()>>(
+        [this, request]()
+        {
+            return this->ApplyDiskBackup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ApplySnapshotOutcome CbsClient::ApplySnapshot(const ApplySnapshotRequest &request)
@@ -112,32 +105,25 @@ CbsClient::ApplySnapshotOutcome CbsClient::ApplySnapshot(const ApplySnapshotRequ
 
 void CbsClient::ApplySnapshotAsync(const ApplySnapshotRequest& request, const ApplySnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ApplySnapshotRequest&;
-    using Resp = ApplySnapshotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ApplySnapshot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ApplySnapshot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ApplySnapshotOutcomeCallable CbsClient::ApplySnapshotCallable(const ApplySnapshotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ApplySnapshotOutcome>>();
-    ApplySnapshotAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ApplySnapshotRequest&,
-        ApplySnapshotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ApplySnapshotOutcome()>>(
+        [this, request]()
+        {
+            return this->ApplySnapshot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ApplySnapshotGroupOutcome CbsClient::ApplySnapshotGroup(const ApplySnapshotGroupRequest &request)
@@ -162,32 +148,25 @@ CbsClient::ApplySnapshotGroupOutcome CbsClient::ApplySnapshotGroup(const ApplySn
 
 void CbsClient::ApplySnapshotGroupAsync(const ApplySnapshotGroupRequest& request, const ApplySnapshotGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ApplySnapshotGroupRequest&;
-    using Resp = ApplySnapshotGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ApplySnapshotGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ApplySnapshotGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ApplySnapshotGroupOutcomeCallable CbsClient::ApplySnapshotGroupCallable(const ApplySnapshotGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ApplySnapshotGroupOutcome>>();
-    ApplySnapshotGroupAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ApplySnapshotGroupRequest&,
-        ApplySnapshotGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ApplySnapshotGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ApplySnapshotGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::AttachDisksOutcome CbsClient::AttachDisks(const AttachDisksRequest &request)
@@ -212,32 +191,25 @@ CbsClient::AttachDisksOutcome CbsClient::AttachDisks(const AttachDisksRequest &r
 
 void CbsClient::AttachDisksAsync(const AttachDisksRequest& request, const AttachDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachDisksRequest&;
-    using Resp = AttachDisksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachDisks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachDisks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::AttachDisksOutcomeCallable CbsClient::AttachDisksCallable(const AttachDisksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachDisksOutcome>>();
-    AttachDisksAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const AttachDisksRequest&,
-        AttachDisksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachDisksOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachDisks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::BindAutoSnapshotPolicyOutcome CbsClient::BindAutoSnapshotPolicy(const BindAutoSnapshotPolicyRequest &request)
@@ -262,32 +234,25 @@ CbsClient::BindAutoSnapshotPolicyOutcome CbsClient::BindAutoSnapshotPolicy(const
 
 void CbsClient::BindAutoSnapshotPolicyAsync(const BindAutoSnapshotPolicyRequest& request, const BindAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindAutoSnapshotPolicyRequest&;
-    using Resp = BindAutoSnapshotPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindAutoSnapshotPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindAutoSnapshotPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::BindAutoSnapshotPolicyOutcomeCallable CbsClient::BindAutoSnapshotPolicyCallable(const BindAutoSnapshotPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindAutoSnapshotPolicyOutcome>>();
-    BindAutoSnapshotPolicyAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const BindAutoSnapshotPolicyRequest&,
-        BindAutoSnapshotPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindAutoSnapshotPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->BindAutoSnapshotPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::CopySnapshotCrossRegionsOutcome CbsClient::CopySnapshotCrossRegions(const CopySnapshotCrossRegionsRequest &request)
@@ -312,32 +277,25 @@ CbsClient::CopySnapshotCrossRegionsOutcome CbsClient::CopySnapshotCrossRegions(c
 
 void CbsClient::CopySnapshotCrossRegionsAsync(const CopySnapshotCrossRegionsRequest& request, const CopySnapshotCrossRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CopySnapshotCrossRegionsRequest&;
-    using Resp = CopySnapshotCrossRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CopySnapshotCrossRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CopySnapshotCrossRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::CopySnapshotCrossRegionsOutcomeCallable CbsClient::CopySnapshotCrossRegionsCallable(const CopySnapshotCrossRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CopySnapshotCrossRegionsOutcome>>();
-    CopySnapshotCrossRegionsAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const CopySnapshotCrossRegionsRequest&,
-        CopySnapshotCrossRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CopySnapshotCrossRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->CopySnapshotCrossRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::CreateAutoSnapshotPolicyOutcome CbsClient::CreateAutoSnapshotPolicy(const CreateAutoSnapshotPolicyRequest &request)
@@ -362,32 +320,25 @@ CbsClient::CreateAutoSnapshotPolicyOutcome CbsClient::CreateAutoSnapshotPolicy(c
 
 void CbsClient::CreateAutoSnapshotPolicyAsync(const CreateAutoSnapshotPolicyRequest& request, const CreateAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAutoSnapshotPolicyRequest&;
-    using Resp = CreateAutoSnapshotPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAutoSnapshotPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAutoSnapshotPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::CreateAutoSnapshotPolicyOutcomeCallable CbsClient::CreateAutoSnapshotPolicyCallable(const CreateAutoSnapshotPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAutoSnapshotPolicyOutcome>>();
-    CreateAutoSnapshotPolicyAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const CreateAutoSnapshotPolicyRequest&,
-        CreateAutoSnapshotPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAutoSnapshotPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAutoSnapshotPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::CreateDiskBackupOutcome CbsClient::CreateDiskBackup(const CreateDiskBackupRequest &request)
@@ -412,32 +363,25 @@ CbsClient::CreateDiskBackupOutcome CbsClient::CreateDiskBackup(const CreateDiskB
 
 void CbsClient::CreateDiskBackupAsync(const CreateDiskBackupRequest& request, const CreateDiskBackupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDiskBackupRequest&;
-    using Resp = CreateDiskBackupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDiskBackup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDiskBackup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::CreateDiskBackupOutcomeCallable CbsClient::CreateDiskBackupCallable(const CreateDiskBackupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDiskBackupOutcome>>();
-    CreateDiskBackupAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const CreateDiskBackupRequest&,
-        CreateDiskBackupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDiskBackupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDiskBackup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::CreateDisksOutcome CbsClient::CreateDisks(const CreateDisksRequest &request)
@@ -462,32 +406,25 @@ CbsClient::CreateDisksOutcome CbsClient::CreateDisks(const CreateDisksRequest &r
 
 void CbsClient::CreateDisksAsync(const CreateDisksRequest& request, const CreateDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDisksRequest&;
-    using Resp = CreateDisksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDisks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDisks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::CreateDisksOutcomeCallable CbsClient::CreateDisksCallable(const CreateDisksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDisksOutcome>>();
-    CreateDisksAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const CreateDisksRequest&,
-        CreateDisksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDisksOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDisks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::CreateSnapshotOutcome CbsClient::CreateSnapshot(const CreateSnapshotRequest &request)
@@ -512,32 +449,25 @@ CbsClient::CreateSnapshotOutcome CbsClient::CreateSnapshot(const CreateSnapshotR
 
 void CbsClient::CreateSnapshotAsync(const CreateSnapshotRequest& request, const CreateSnapshotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSnapshotRequest&;
-    using Resp = CreateSnapshotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSnapshot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSnapshot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::CreateSnapshotOutcomeCallable CbsClient::CreateSnapshotCallable(const CreateSnapshotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSnapshotOutcome>>();
-    CreateSnapshotAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const CreateSnapshotRequest&,
-        CreateSnapshotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSnapshotOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSnapshot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::CreateSnapshotGroupOutcome CbsClient::CreateSnapshotGroup(const CreateSnapshotGroupRequest &request)
@@ -562,32 +492,25 @@ CbsClient::CreateSnapshotGroupOutcome CbsClient::CreateSnapshotGroup(const Creat
 
 void CbsClient::CreateSnapshotGroupAsync(const CreateSnapshotGroupRequest& request, const CreateSnapshotGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSnapshotGroupRequest&;
-    using Resp = CreateSnapshotGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSnapshotGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSnapshotGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::CreateSnapshotGroupOutcomeCallable CbsClient::CreateSnapshotGroupCallable(const CreateSnapshotGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSnapshotGroupOutcome>>();
-    CreateSnapshotGroupAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const CreateSnapshotGroupRequest&,
-        CreateSnapshotGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSnapshotGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSnapshotGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DeleteAutoSnapshotPoliciesOutcome CbsClient::DeleteAutoSnapshotPolicies(const DeleteAutoSnapshotPoliciesRequest &request)
@@ -612,32 +535,25 @@ CbsClient::DeleteAutoSnapshotPoliciesOutcome CbsClient::DeleteAutoSnapshotPolici
 
 void CbsClient::DeleteAutoSnapshotPoliciesAsync(const DeleteAutoSnapshotPoliciesRequest& request, const DeleteAutoSnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAutoSnapshotPoliciesRequest&;
-    using Resp = DeleteAutoSnapshotPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAutoSnapshotPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAutoSnapshotPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DeleteAutoSnapshotPoliciesOutcomeCallable CbsClient::DeleteAutoSnapshotPoliciesCallable(const DeleteAutoSnapshotPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAutoSnapshotPoliciesOutcome>>();
-    DeleteAutoSnapshotPoliciesAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DeleteAutoSnapshotPoliciesRequest&,
-        DeleteAutoSnapshotPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAutoSnapshotPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAutoSnapshotPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DeleteDiskBackupsOutcome CbsClient::DeleteDiskBackups(const DeleteDiskBackupsRequest &request)
@@ -662,32 +578,25 @@ CbsClient::DeleteDiskBackupsOutcome CbsClient::DeleteDiskBackups(const DeleteDis
 
 void CbsClient::DeleteDiskBackupsAsync(const DeleteDiskBackupsRequest& request, const DeleteDiskBackupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDiskBackupsRequest&;
-    using Resp = DeleteDiskBackupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDiskBackups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDiskBackups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DeleteDiskBackupsOutcomeCallable CbsClient::DeleteDiskBackupsCallable(const DeleteDiskBackupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDiskBackupsOutcome>>();
-    DeleteDiskBackupsAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DeleteDiskBackupsRequest&,
-        DeleteDiskBackupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDiskBackupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDiskBackups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DeleteSnapshotGroupOutcome CbsClient::DeleteSnapshotGroup(const DeleteSnapshotGroupRequest &request)
@@ -712,32 +621,25 @@ CbsClient::DeleteSnapshotGroupOutcome CbsClient::DeleteSnapshotGroup(const Delet
 
 void CbsClient::DeleteSnapshotGroupAsync(const DeleteSnapshotGroupRequest& request, const DeleteSnapshotGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSnapshotGroupRequest&;
-    using Resp = DeleteSnapshotGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSnapshotGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSnapshotGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DeleteSnapshotGroupOutcomeCallable CbsClient::DeleteSnapshotGroupCallable(const DeleteSnapshotGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSnapshotGroupOutcome>>();
-    DeleteSnapshotGroupAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DeleteSnapshotGroupRequest&,
-        DeleteSnapshotGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSnapshotGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSnapshotGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DeleteSnapshotsOutcome CbsClient::DeleteSnapshots(const DeleteSnapshotsRequest &request)
@@ -762,32 +664,25 @@ CbsClient::DeleteSnapshotsOutcome CbsClient::DeleteSnapshots(const DeleteSnapsho
 
 void CbsClient::DeleteSnapshotsAsync(const DeleteSnapshotsRequest& request, const DeleteSnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSnapshotsRequest&;
-    using Resp = DeleteSnapshotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSnapshots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSnapshots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DeleteSnapshotsOutcomeCallable CbsClient::DeleteSnapshotsCallable(const DeleteSnapshotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSnapshotsOutcome>>();
-    DeleteSnapshotsAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DeleteSnapshotsRequest&,
-        DeleteSnapshotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSnapshotsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSnapshots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeAutoSnapshotPoliciesOutcome CbsClient::DescribeAutoSnapshotPolicies(const DescribeAutoSnapshotPoliciesRequest &request)
@@ -812,32 +707,25 @@ CbsClient::DescribeAutoSnapshotPoliciesOutcome CbsClient::DescribeAutoSnapshotPo
 
 void CbsClient::DescribeAutoSnapshotPoliciesAsync(const DescribeAutoSnapshotPoliciesRequest& request, const DescribeAutoSnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoSnapshotPoliciesRequest&;
-    using Resp = DescribeAutoSnapshotPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoSnapshotPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoSnapshotPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeAutoSnapshotPoliciesOutcomeCallable CbsClient::DescribeAutoSnapshotPoliciesCallable(const DescribeAutoSnapshotPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoSnapshotPoliciesOutcome>>();
-    DescribeAutoSnapshotPoliciesAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeAutoSnapshotPoliciesRequest&,
-        DescribeAutoSnapshotPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoSnapshotPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoSnapshotPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeDiskAssociatedAutoSnapshotPolicyOutcome CbsClient::DescribeDiskAssociatedAutoSnapshotPolicy(const DescribeDiskAssociatedAutoSnapshotPolicyRequest &request)
@@ -862,32 +750,25 @@ CbsClient::DescribeDiskAssociatedAutoSnapshotPolicyOutcome CbsClient::DescribeDi
 
 void CbsClient::DescribeDiskAssociatedAutoSnapshotPolicyAsync(const DescribeDiskAssociatedAutoSnapshotPolicyRequest& request, const DescribeDiskAssociatedAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDiskAssociatedAutoSnapshotPolicyRequest&;
-    using Resp = DescribeDiskAssociatedAutoSnapshotPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDiskAssociatedAutoSnapshotPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDiskAssociatedAutoSnapshotPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeDiskAssociatedAutoSnapshotPolicyOutcomeCallable CbsClient::DescribeDiskAssociatedAutoSnapshotPolicyCallable(const DescribeDiskAssociatedAutoSnapshotPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDiskAssociatedAutoSnapshotPolicyOutcome>>();
-    DescribeDiskAssociatedAutoSnapshotPolicyAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeDiskAssociatedAutoSnapshotPolicyRequest&,
-        DescribeDiskAssociatedAutoSnapshotPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDiskAssociatedAutoSnapshotPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDiskAssociatedAutoSnapshotPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeDiskBackupsOutcome CbsClient::DescribeDiskBackups(const DescribeDiskBackupsRequest &request)
@@ -912,32 +793,25 @@ CbsClient::DescribeDiskBackupsOutcome CbsClient::DescribeDiskBackups(const Descr
 
 void CbsClient::DescribeDiskBackupsAsync(const DescribeDiskBackupsRequest& request, const DescribeDiskBackupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDiskBackupsRequest&;
-    using Resp = DescribeDiskBackupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDiskBackups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDiskBackups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeDiskBackupsOutcomeCallable CbsClient::DescribeDiskBackupsCallable(const DescribeDiskBackupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDiskBackupsOutcome>>();
-    DescribeDiskBackupsAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeDiskBackupsRequest&,
-        DescribeDiskBackupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDiskBackupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDiskBackups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeDiskConfigQuotaOutcome CbsClient::DescribeDiskConfigQuota(const DescribeDiskConfigQuotaRequest &request)
@@ -962,32 +836,25 @@ CbsClient::DescribeDiskConfigQuotaOutcome CbsClient::DescribeDiskConfigQuota(con
 
 void CbsClient::DescribeDiskConfigQuotaAsync(const DescribeDiskConfigQuotaRequest& request, const DescribeDiskConfigQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDiskConfigQuotaRequest&;
-    using Resp = DescribeDiskConfigQuotaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDiskConfigQuota(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDiskConfigQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeDiskConfigQuotaOutcomeCallable CbsClient::DescribeDiskConfigQuotaCallable(const DescribeDiskConfigQuotaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDiskConfigQuotaOutcome>>();
-    DescribeDiskConfigQuotaAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeDiskConfigQuotaRequest&,
-        DescribeDiskConfigQuotaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDiskConfigQuotaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDiskConfigQuota(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeDiskStoragePoolOutcome CbsClient::DescribeDiskStoragePool(const DescribeDiskStoragePoolRequest &request)
@@ -1012,32 +879,25 @@ CbsClient::DescribeDiskStoragePoolOutcome CbsClient::DescribeDiskStoragePool(con
 
 void CbsClient::DescribeDiskStoragePoolAsync(const DescribeDiskStoragePoolRequest& request, const DescribeDiskStoragePoolAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDiskStoragePoolRequest&;
-    using Resp = DescribeDiskStoragePoolResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDiskStoragePool(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDiskStoragePool", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeDiskStoragePoolOutcomeCallable CbsClient::DescribeDiskStoragePoolCallable(const DescribeDiskStoragePoolRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDiskStoragePoolOutcome>>();
-    DescribeDiskStoragePoolAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeDiskStoragePoolRequest&,
-        DescribeDiskStoragePoolOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDiskStoragePoolOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDiskStoragePool(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeDisksOutcome CbsClient::DescribeDisks(const DescribeDisksRequest &request)
@@ -1062,32 +922,25 @@ CbsClient::DescribeDisksOutcome CbsClient::DescribeDisks(const DescribeDisksRequ
 
 void CbsClient::DescribeDisksAsync(const DescribeDisksRequest& request, const DescribeDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDisksRequest&;
-    using Resp = DescribeDisksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDisks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDisks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeDisksOutcomeCallable CbsClient::DescribeDisksCallable(const DescribeDisksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDisksOutcome>>();
-    DescribeDisksAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeDisksRequest&,
-        DescribeDisksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDisksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDisks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeInstancesDiskNumOutcome CbsClient::DescribeInstancesDiskNum(const DescribeInstancesDiskNumRequest &request)
@@ -1112,32 +965,25 @@ CbsClient::DescribeInstancesDiskNumOutcome CbsClient::DescribeInstancesDiskNum(c
 
 void CbsClient::DescribeInstancesDiskNumAsync(const DescribeInstancesDiskNumRequest& request, const DescribeInstancesDiskNumAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesDiskNumRequest&;
-    using Resp = DescribeInstancesDiskNumResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstancesDiskNum(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstancesDiskNum", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeInstancesDiskNumOutcomeCallable CbsClient::DescribeInstancesDiskNumCallable(const DescribeInstancesDiskNumRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesDiskNumOutcome>>();
-    DescribeInstancesDiskNumAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeInstancesDiskNumRequest&,
-        DescribeInstancesDiskNumOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesDiskNumOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstancesDiskNum(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeSnapshotGroupsOutcome CbsClient::DescribeSnapshotGroups(const DescribeSnapshotGroupsRequest &request)
@@ -1162,32 +1008,25 @@ CbsClient::DescribeSnapshotGroupsOutcome CbsClient::DescribeSnapshotGroups(const
 
 void CbsClient::DescribeSnapshotGroupsAsync(const DescribeSnapshotGroupsRequest& request, const DescribeSnapshotGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotGroupsRequest&;
-    using Resp = DescribeSnapshotGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshotGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshotGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeSnapshotGroupsOutcomeCallable CbsClient::DescribeSnapshotGroupsCallable(const DescribeSnapshotGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotGroupsOutcome>>();
-    DescribeSnapshotGroupsAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeSnapshotGroupsRequest&,
-        DescribeSnapshotGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshotGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeSnapshotOverviewOutcome CbsClient::DescribeSnapshotOverview(const DescribeSnapshotOverviewRequest &request)
@@ -1212,32 +1051,25 @@ CbsClient::DescribeSnapshotOverviewOutcome CbsClient::DescribeSnapshotOverview(c
 
 void CbsClient::DescribeSnapshotOverviewAsync(const DescribeSnapshotOverviewRequest& request, const DescribeSnapshotOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotOverviewRequest&;
-    using Resp = DescribeSnapshotOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshotOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshotOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeSnapshotOverviewOutcomeCallable CbsClient::DescribeSnapshotOverviewCallable(const DescribeSnapshotOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotOverviewOutcome>>();
-    DescribeSnapshotOverviewAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeSnapshotOverviewRequest&,
-        DescribeSnapshotOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshotOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeSnapshotSharePermissionOutcome CbsClient::DescribeSnapshotSharePermission(const DescribeSnapshotSharePermissionRequest &request)
@@ -1262,32 +1094,25 @@ CbsClient::DescribeSnapshotSharePermissionOutcome CbsClient::DescribeSnapshotSha
 
 void CbsClient::DescribeSnapshotSharePermissionAsync(const DescribeSnapshotSharePermissionRequest& request, const DescribeSnapshotSharePermissionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotSharePermissionRequest&;
-    using Resp = DescribeSnapshotSharePermissionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshotSharePermission(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshotSharePermission", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeSnapshotSharePermissionOutcomeCallable CbsClient::DescribeSnapshotSharePermissionCallable(const DescribeSnapshotSharePermissionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotSharePermissionOutcome>>();
-    DescribeSnapshotSharePermissionAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeSnapshotSharePermissionRequest&,
-        DescribeSnapshotSharePermissionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotSharePermissionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshotSharePermission(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DescribeSnapshotsOutcome CbsClient::DescribeSnapshots(const DescribeSnapshotsRequest &request)
@@ -1312,32 +1137,25 @@ CbsClient::DescribeSnapshotsOutcome CbsClient::DescribeSnapshots(const DescribeS
 
 void CbsClient::DescribeSnapshotsAsync(const DescribeSnapshotsRequest& request, const DescribeSnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotsRequest&;
-    using Resp = DescribeSnapshotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DescribeSnapshotsOutcomeCallable CbsClient::DescribeSnapshotsCallable(const DescribeSnapshotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotsOutcome>>();
-    DescribeSnapshotsAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DescribeSnapshotsRequest&,
-        DescribeSnapshotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::DetachDisksOutcome CbsClient::DetachDisks(const DetachDisksRequest &request)
@@ -1362,32 +1180,25 @@ CbsClient::DetachDisksOutcome CbsClient::DetachDisks(const DetachDisksRequest &r
 
 void CbsClient::DetachDisksAsync(const DetachDisksRequest& request, const DetachDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachDisksRequest&;
-    using Resp = DetachDisksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachDisks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachDisks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::DetachDisksOutcomeCallable CbsClient::DetachDisksCallable(const DetachDisksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachDisksOutcome>>();
-    DetachDisksAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const DetachDisksRequest&,
-        DetachDisksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachDisksOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachDisks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::GetSnapOverviewOutcome CbsClient::GetSnapOverview(const GetSnapOverviewRequest &request)
@@ -1412,32 +1223,25 @@ CbsClient::GetSnapOverviewOutcome CbsClient::GetSnapOverview(const GetSnapOvervi
 
 void CbsClient::GetSnapOverviewAsync(const GetSnapOverviewRequest& request, const GetSnapOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetSnapOverviewRequest&;
-    using Resp = GetSnapOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetSnapOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetSnapOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::GetSnapOverviewOutcomeCallable CbsClient::GetSnapOverviewCallable(const GetSnapOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetSnapOverviewOutcome>>();
-    GetSnapOverviewAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const GetSnapOverviewRequest&,
-        GetSnapOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetSnapOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->GetSnapOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::InitializeDisksOutcome CbsClient::InitializeDisks(const InitializeDisksRequest &request)
@@ -1462,32 +1266,25 @@ CbsClient::InitializeDisksOutcome CbsClient::InitializeDisks(const InitializeDis
 
 void CbsClient::InitializeDisksAsync(const InitializeDisksRequest& request, const InitializeDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InitializeDisksRequest&;
-    using Resp = InitializeDisksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InitializeDisks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InitializeDisks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::InitializeDisksOutcomeCallable CbsClient::InitializeDisksCallable(const InitializeDisksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InitializeDisksOutcome>>();
-    InitializeDisksAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const InitializeDisksRequest&,
-        InitializeDisksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InitializeDisksOutcome()>>(
+        [this, request]()
+        {
+            return this->InitializeDisks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::InquirePriceModifyDiskBackupQuotaOutcome CbsClient::InquirePriceModifyDiskBackupQuota(const InquirePriceModifyDiskBackupQuotaRequest &request)
@@ -1512,32 +1309,25 @@ CbsClient::InquirePriceModifyDiskBackupQuotaOutcome CbsClient::InquirePriceModif
 
 void CbsClient::InquirePriceModifyDiskBackupQuotaAsync(const InquirePriceModifyDiskBackupQuotaRequest& request, const InquirePriceModifyDiskBackupQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquirePriceModifyDiskBackupQuotaRequest&;
-    using Resp = InquirePriceModifyDiskBackupQuotaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquirePriceModifyDiskBackupQuota(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquirePriceModifyDiskBackupQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::InquirePriceModifyDiskBackupQuotaOutcomeCallable CbsClient::InquirePriceModifyDiskBackupQuotaCallable(const InquirePriceModifyDiskBackupQuotaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquirePriceModifyDiskBackupQuotaOutcome>>();
-    InquirePriceModifyDiskBackupQuotaAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const InquirePriceModifyDiskBackupQuotaRequest&,
-        InquirePriceModifyDiskBackupQuotaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquirePriceModifyDiskBackupQuotaOutcome()>>(
+        [this, request]()
+        {
+            return this->InquirePriceModifyDiskBackupQuota(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::InquirePriceModifyDiskExtraPerformanceOutcome CbsClient::InquirePriceModifyDiskExtraPerformance(const InquirePriceModifyDiskExtraPerformanceRequest &request)
@@ -1562,32 +1352,25 @@ CbsClient::InquirePriceModifyDiskExtraPerformanceOutcome CbsClient::InquirePrice
 
 void CbsClient::InquirePriceModifyDiskExtraPerformanceAsync(const InquirePriceModifyDiskExtraPerformanceRequest& request, const InquirePriceModifyDiskExtraPerformanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquirePriceModifyDiskExtraPerformanceRequest&;
-    using Resp = InquirePriceModifyDiskExtraPerformanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquirePriceModifyDiskExtraPerformance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquirePriceModifyDiskExtraPerformance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::InquirePriceModifyDiskExtraPerformanceOutcomeCallable CbsClient::InquirePriceModifyDiskExtraPerformanceCallable(const InquirePriceModifyDiskExtraPerformanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquirePriceModifyDiskExtraPerformanceOutcome>>();
-    InquirePriceModifyDiskExtraPerformanceAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const InquirePriceModifyDiskExtraPerformanceRequest&,
-        InquirePriceModifyDiskExtraPerformanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquirePriceModifyDiskExtraPerformanceOutcome()>>(
+        [this, request]()
+        {
+            return this->InquirePriceModifyDiskExtraPerformance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::InquiryPriceCreateDisksOutcome CbsClient::InquiryPriceCreateDisks(const InquiryPriceCreateDisksRequest &request)
@@ -1612,32 +1395,25 @@ CbsClient::InquiryPriceCreateDisksOutcome CbsClient::InquiryPriceCreateDisks(con
 
 void CbsClient::InquiryPriceCreateDisksAsync(const InquiryPriceCreateDisksRequest& request, const InquiryPriceCreateDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceCreateDisksRequest&;
-    using Resp = InquiryPriceCreateDisksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceCreateDisks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceCreateDisks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::InquiryPriceCreateDisksOutcomeCallable CbsClient::InquiryPriceCreateDisksCallable(const InquiryPriceCreateDisksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceCreateDisksOutcome>>();
-    InquiryPriceCreateDisksAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const InquiryPriceCreateDisksRequest&,
-        InquiryPriceCreateDisksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceCreateDisksOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceCreateDisks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::InquiryPriceRenewDisksOutcome CbsClient::InquiryPriceRenewDisks(const InquiryPriceRenewDisksRequest &request)
@@ -1662,32 +1438,25 @@ CbsClient::InquiryPriceRenewDisksOutcome CbsClient::InquiryPriceRenewDisks(const
 
 void CbsClient::InquiryPriceRenewDisksAsync(const InquiryPriceRenewDisksRequest& request, const InquiryPriceRenewDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceRenewDisksRequest&;
-    using Resp = InquiryPriceRenewDisksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceRenewDisks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceRenewDisks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::InquiryPriceRenewDisksOutcomeCallable CbsClient::InquiryPriceRenewDisksCallable(const InquiryPriceRenewDisksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceRenewDisksOutcome>>();
-    InquiryPriceRenewDisksAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const InquiryPriceRenewDisksRequest&,
-        InquiryPriceRenewDisksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceRenewDisksOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceRenewDisks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::InquiryPriceResizeDiskOutcome CbsClient::InquiryPriceResizeDisk(const InquiryPriceResizeDiskRequest &request)
@@ -1712,32 +1481,25 @@ CbsClient::InquiryPriceResizeDiskOutcome CbsClient::InquiryPriceResizeDisk(const
 
 void CbsClient::InquiryPriceResizeDiskAsync(const InquiryPriceResizeDiskRequest& request, const InquiryPriceResizeDiskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceResizeDiskRequest&;
-    using Resp = InquiryPriceResizeDiskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceResizeDisk(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceResizeDisk", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::InquiryPriceResizeDiskOutcomeCallable CbsClient::InquiryPriceResizeDiskCallable(const InquiryPriceResizeDiskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceResizeDiskOutcome>>();
-    InquiryPriceResizeDiskAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const InquiryPriceResizeDiskRequest&,
-        InquiryPriceResizeDiskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceResizeDiskOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceResizeDisk(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ModifyAutoSnapshotPolicyAttributeOutcome CbsClient::ModifyAutoSnapshotPolicyAttribute(const ModifyAutoSnapshotPolicyAttributeRequest &request)
@@ -1762,32 +1524,25 @@ CbsClient::ModifyAutoSnapshotPolicyAttributeOutcome CbsClient::ModifyAutoSnapsho
 
 void CbsClient::ModifyAutoSnapshotPolicyAttributeAsync(const ModifyAutoSnapshotPolicyAttributeRequest& request, const ModifyAutoSnapshotPolicyAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAutoSnapshotPolicyAttributeRequest&;
-    using Resp = ModifyAutoSnapshotPolicyAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAutoSnapshotPolicyAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAutoSnapshotPolicyAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ModifyAutoSnapshotPolicyAttributeOutcomeCallable CbsClient::ModifyAutoSnapshotPolicyAttributeCallable(const ModifyAutoSnapshotPolicyAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAutoSnapshotPolicyAttributeOutcome>>();
-    ModifyAutoSnapshotPolicyAttributeAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ModifyAutoSnapshotPolicyAttributeRequest&,
-        ModifyAutoSnapshotPolicyAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAutoSnapshotPolicyAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAutoSnapshotPolicyAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ModifyDiskAttributesOutcome CbsClient::ModifyDiskAttributes(const ModifyDiskAttributesRequest &request)
@@ -1812,32 +1567,25 @@ CbsClient::ModifyDiskAttributesOutcome CbsClient::ModifyDiskAttributes(const Mod
 
 void CbsClient::ModifyDiskAttributesAsync(const ModifyDiskAttributesRequest& request, const ModifyDiskAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDiskAttributesRequest&;
-    using Resp = ModifyDiskAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDiskAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDiskAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ModifyDiskAttributesOutcomeCallable CbsClient::ModifyDiskAttributesCallable(const ModifyDiskAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDiskAttributesOutcome>>();
-    ModifyDiskAttributesAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ModifyDiskAttributesRequest&,
-        ModifyDiskAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDiskAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDiskAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ModifyDiskBackupQuotaOutcome CbsClient::ModifyDiskBackupQuota(const ModifyDiskBackupQuotaRequest &request)
@@ -1862,32 +1610,25 @@ CbsClient::ModifyDiskBackupQuotaOutcome CbsClient::ModifyDiskBackupQuota(const M
 
 void CbsClient::ModifyDiskBackupQuotaAsync(const ModifyDiskBackupQuotaRequest& request, const ModifyDiskBackupQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDiskBackupQuotaRequest&;
-    using Resp = ModifyDiskBackupQuotaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDiskBackupQuota(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDiskBackupQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ModifyDiskBackupQuotaOutcomeCallable CbsClient::ModifyDiskBackupQuotaCallable(const ModifyDiskBackupQuotaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDiskBackupQuotaOutcome>>();
-    ModifyDiskBackupQuotaAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ModifyDiskBackupQuotaRequest&,
-        ModifyDiskBackupQuotaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDiskBackupQuotaOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDiskBackupQuota(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ModifyDiskExtraPerformanceOutcome CbsClient::ModifyDiskExtraPerformance(const ModifyDiskExtraPerformanceRequest &request)
@@ -1912,32 +1653,25 @@ CbsClient::ModifyDiskExtraPerformanceOutcome CbsClient::ModifyDiskExtraPerforman
 
 void CbsClient::ModifyDiskExtraPerformanceAsync(const ModifyDiskExtraPerformanceRequest& request, const ModifyDiskExtraPerformanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDiskExtraPerformanceRequest&;
-    using Resp = ModifyDiskExtraPerformanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDiskExtraPerformance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDiskExtraPerformance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ModifyDiskExtraPerformanceOutcomeCallable CbsClient::ModifyDiskExtraPerformanceCallable(const ModifyDiskExtraPerformanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDiskExtraPerformanceOutcome>>();
-    ModifyDiskExtraPerformanceAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ModifyDiskExtraPerformanceRequest&,
-        ModifyDiskExtraPerformanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDiskExtraPerformanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDiskExtraPerformance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ModifyDisksChargeTypeOutcome CbsClient::ModifyDisksChargeType(const ModifyDisksChargeTypeRequest &request)
@@ -1962,32 +1696,25 @@ CbsClient::ModifyDisksChargeTypeOutcome CbsClient::ModifyDisksChargeType(const M
 
 void CbsClient::ModifyDisksChargeTypeAsync(const ModifyDisksChargeTypeRequest& request, const ModifyDisksChargeTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDisksChargeTypeRequest&;
-    using Resp = ModifyDisksChargeTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDisksChargeType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDisksChargeType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ModifyDisksChargeTypeOutcomeCallable CbsClient::ModifyDisksChargeTypeCallable(const ModifyDisksChargeTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDisksChargeTypeOutcome>>();
-    ModifyDisksChargeTypeAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ModifyDisksChargeTypeRequest&,
-        ModifyDisksChargeTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDisksChargeTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDisksChargeType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ModifyDisksRenewFlagOutcome CbsClient::ModifyDisksRenewFlag(const ModifyDisksRenewFlagRequest &request)
@@ -2012,32 +1739,25 @@ CbsClient::ModifyDisksRenewFlagOutcome CbsClient::ModifyDisksRenewFlag(const Mod
 
 void CbsClient::ModifyDisksRenewFlagAsync(const ModifyDisksRenewFlagRequest& request, const ModifyDisksRenewFlagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDisksRenewFlagRequest&;
-    using Resp = ModifyDisksRenewFlagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDisksRenewFlag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDisksRenewFlag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ModifyDisksRenewFlagOutcomeCallable CbsClient::ModifyDisksRenewFlagCallable(const ModifyDisksRenewFlagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDisksRenewFlagOutcome>>();
-    ModifyDisksRenewFlagAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ModifyDisksRenewFlagRequest&,
-        ModifyDisksRenewFlagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDisksRenewFlagOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDisksRenewFlag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ModifySnapshotAttributeOutcome CbsClient::ModifySnapshotAttribute(const ModifySnapshotAttributeRequest &request)
@@ -2062,32 +1782,25 @@ CbsClient::ModifySnapshotAttributeOutcome CbsClient::ModifySnapshotAttribute(con
 
 void CbsClient::ModifySnapshotAttributeAsync(const ModifySnapshotAttributeRequest& request, const ModifySnapshotAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySnapshotAttributeRequest&;
-    using Resp = ModifySnapshotAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySnapshotAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySnapshotAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ModifySnapshotAttributeOutcomeCallable CbsClient::ModifySnapshotAttributeCallable(const ModifySnapshotAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySnapshotAttributeOutcome>>();
-    ModifySnapshotAttributeAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ModifySnapshotAttributeRequest&,
-        ModifySnapshotAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySnapshotAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySnapshotAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ModifySnapshotsSharePermissionOutcome CbsClient::ModifySnapshotsSharePermission(const ModifySnapshotsSharePermissionRequest &request)
@@ -2112,32 +1825,25 @@ CbsClient::ModifySnapshotsSharePermissionOutcome CbsClient::ModifySnapshotsShare
 
 void CbsClient::ModifySnapshotsSharePermissionAsync(const ModifySnapshotsSharePermissionRequest& request, const ModifySnapshotsSharePermissionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySnapshotsSharePermissionRequest&;
-    using Resp = ModifySnapshotsSharePermissionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySnapshotsSharePermission(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySnapshotsSharePermission", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ModifySnapshotsSharePermissionOutcomeCallable CbsClient::ModifySnapshotsSharePermissionCallable(const ModifySnapshotsSharePermissionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySnapshotsSharePermissionOutcome>>();
-    ModifySnapshotsSharePermissionAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ModifySnapshotsSharePermissionRequest&,
-        ModifySnapshotsSharePermissionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySnapshotsSharePermissionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySnapshotsSharePermission(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::RenewDiskOutcome CbsClient::RenewDisk(const RenewDiskRequest &request)
@@ -2162,32 +1868,25 @@ CbsClient::RenewDiskOutcome CbsClient::RenewDisk(const RenewDiskRequest &request
 
 void CbsClient::RenewDiskAsync(const RenewDiskRequest& request, const RenewDiskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewDiskRequest&;
-    using Resp = RenewDiskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewDisk(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewDisk", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::RenewDiskOutcomeCallable CbsClient::RenewDiskCallable(const RenewDiskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewDiskOutcome>>();
-    RenewDiskAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const RenewDiskRequest&,
-        RenewDiskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewDiskOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewDisk(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::ResizeDiskOutcome CbsClient::ResizeDisk(const ResizeDiskRequest &request)
@@ -2212,32 +1911,25 @@ CbsClient::ResizeDiskOutcome CbsClient::ResizeDisk(const ResizeDiskRequest &requ
 
 void CbsClient::ResizeDiskAsync(const ResizeDiskRequest& request, const ResizeDiskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResizeDiskRequest&;
-    using Resp = ResizeDiskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResizeDisk(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResizeDisk", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::ResizeDiskOutcomeCallable CbsClient::ResizeDiskCallable(const ResizeDiskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResizeDiskOutcome>>();
-    ResizeDiskAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const ResizeDiskRequest&,
-        ResizeDiskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResizeDiskOutcome()>>(
+        [this, request]()
+        {
+            return this->ResizeDisk(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::TerminateDisksOutcome CbsClient::TerminateDisks(const TerminateDisksRequest &request)
@@ -2262,32 +1954,25 @@ CbsClient::TerminateDisksOutcome CbsClient::TerminateDisks(const TerminateDisksR
 
 void CbsClient::TerminateDisksAsync(const TerminateDisksRequest& request, const TerminateDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminateDisksRequest&;
-    using Resp = TerminateDisksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminateDisks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminateDisks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::TerminateDisksOutcomeCallable CbsClient::TerminateDisksCallable(const TerminateDisksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminateDisksOutcome>>();
-    TerminateDisksAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const TerminateDisksRequest&,
-        TerminateDisksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminateDisksOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminateDisks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CbsClient::UnbindAutoSnapshotPolicyOutcome CbsClient::UnbindAutoSnapshotPolicy(const UnbindAutoSnapshotPolicyRequest &request)
@@ -2312,31 +1997,24 @@ CbsClient::UnbindAutoSnapshotPolicyOutcome CbsClient::UnbindAutoSnapshotPolicy(c
 
 void CbsClient::UnbindAutoSnapshotPolicyAsync(const UnbindAutoSnapshotPolicyRequest& request, const UnbindAutoSnapshotPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnbindAutoSnapshotPolicyRequest&;
-    using Resp = UnbindAutoSnapshotPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnbindAutoSnapshotPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnbindAutoSnapshotPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CbsClient::UnbindAutoSnapshotPolicyOutcomeCallable CbsClient::UnbindAutoSnapshotPolicyCallable(const UnbindAutoSnapshotPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnbindAutoSnapshotPolicyOutcome>>();
-    UnbindAutoSnapshotPolicyAsync(
-    request,
-    [prom](
-        const CbsClient*,
-        const UnbindAutoSnapshotPolicyRequest&,
-        UnbindAutoSnapshotPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnbindAutoSnapshotPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->UnbindAutoSnapshotPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

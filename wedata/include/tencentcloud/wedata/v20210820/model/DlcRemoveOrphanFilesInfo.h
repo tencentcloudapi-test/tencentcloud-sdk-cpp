@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 移除孤立文件治理项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DlcRemoveOrphanFilesInfo();
-                    ~DlcRemoveOrphanFilesInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 镜像仓库联通性检测结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RegistryConnDetectResult();
-                    ~RegistryConnDetectResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

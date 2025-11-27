@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcEndPointServiceUser;
+
                 /**
                 * DescribeVpcEndPointServiceWhiteList返回参数结构体
                 */

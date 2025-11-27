@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 主机列表查询接口相应数据HostList的TagList节点
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RansomDefenseStrategyDetail();
-                    ~RansomDefenseStrategyDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

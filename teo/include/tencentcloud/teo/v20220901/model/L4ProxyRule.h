@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class L4ProxyRemoteAuth;
+
                 /**
                 * 四层代理转发规则详情。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     L4ProxyRule();
-                    ~L4ProxyRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

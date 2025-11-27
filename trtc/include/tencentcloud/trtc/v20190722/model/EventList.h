@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EventMessage;
+
                 /**
                 * sdk或webrtc的事件列表。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     EventList();
-                    ~EventList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

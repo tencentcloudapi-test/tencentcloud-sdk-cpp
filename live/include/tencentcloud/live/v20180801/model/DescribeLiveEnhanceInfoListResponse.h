@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LiveEnhanceInfo;
+
                 /**
                 * DescribeLiveEnhanceInfoList返回参数结构体
                 */

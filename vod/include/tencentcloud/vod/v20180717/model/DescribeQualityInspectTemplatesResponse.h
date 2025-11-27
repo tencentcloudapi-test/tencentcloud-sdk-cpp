@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QualityInspectTemplateItem;
+
                 /**
                 * DescribeQualityInspectTemplates返回参数结构体
                 */

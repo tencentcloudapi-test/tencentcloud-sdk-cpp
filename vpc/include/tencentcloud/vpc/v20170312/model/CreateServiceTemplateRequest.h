@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServicesInfo;
+                class Tag;
+
                 /**
                 * CreateServiceTemplate请求参数结构体
                 */

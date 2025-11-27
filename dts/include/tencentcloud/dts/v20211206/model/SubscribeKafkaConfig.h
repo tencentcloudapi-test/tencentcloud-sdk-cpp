@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DistributeRule;
+
                 /**
                 * 订阅的kafka分区数和分区规则。mariadb，percona，tdsqlmysql，tdpg不支持自定义分区，所以DistributeRules和DefaultRuleType可以不填，但是NumberOfPartitions是必填。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SubscribeKafkaConfig();
-                    ~SubscribeKafkaConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 自定义 nameservers
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VanityNameServers();
-                    ~VanityNameServers() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

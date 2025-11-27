@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommonIdOpsDto;
+
                 /**
                 * CreateOpsMakePlan返回参数结构体
                 */

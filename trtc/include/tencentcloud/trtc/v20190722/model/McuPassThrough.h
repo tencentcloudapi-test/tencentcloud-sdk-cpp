@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 自定义透传SEI
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     McuPassThrough();
-                    ~McuPassThrough() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

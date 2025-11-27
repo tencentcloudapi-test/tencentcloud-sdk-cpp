@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IdlFileInfo;
+                class ParsedTableInfoNew;
+
                 /**
                 * VerifyIdlFiles返回参数结构体
                 */

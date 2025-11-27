@@ -62,32 +62,25 @@ TcaplusdbClient::ClearTablesOutcome TcaplusdbClient::ClearTables(const ClearTabl
 
 void TcaplusdbClient::ClearTablesAsync(const ClearTablesRequest& request, const ClearTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ClearTablesRequest&;
-    using Resp = ClearTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ClearTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ClearTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ClearTablesOutcomeCallable TcaplusdbClient::ClearTablesCallable(const ClearTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ClearTablesOutcome>>();
-    ClearTablesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ClearTablesRequest&,
-        ClearTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ClearTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->ClearTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::CompareIdlFilesOutcome TcaplusdbClient::CompareIdlFiles(const CompareIdlFilesRequest &request)
@@ -112,32 +105,25 @@ TcaplusdbClient::CompareIdlFilesOutcome TcaplusdbClient::CompareIdlFiles(const C
 
 void TcaplusdbClient::CompareIdlFilesAsync(const CompareIdlFilesRequest& request, const CompareIdlFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CompareIdlFilesRequest&;
-    using Resp = CompareIdlFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CompareIdlFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CompareIdlFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::CompareIdlFilesOutcomeCallable TcaplusdbClient::CompareIdlFilesCallable(const CompareIdlFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CompareIdlFilesOutcome>>();
-    CompareIdlFilesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const CompareIdlFilesRequest&,
-        CompareIdlFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CompareIdlFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->CompareIdlFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::CreateBackupOutcome TcaplusdbClient::CreateBackup(const CreateBackupRequest &request)
@@ -162,32 +148,25 @@ TcaplusdbClient::CreateBackupOutcome TcaplusdbClient::CreateBackup(const CreateB
 
 void TcaplusdbClient::CreateBackupAsync(const CreateBackupRequest& request, const CreateBackupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBackupRequest&;
-    using Resp = CreateBackupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBackup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBackup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::CreateBackupOutcomeCallable TcaplusdbClient::CreateBackupCallable(const CreateBackupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBackupOutcome>>();
-    CreateBackupAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const CreateBackupRequest&,
-        CreateBackupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBackupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBackup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::CreateClusterOutcome TcaplusdbClient::CreateCluster(const CreateClusterRequest &request)
@@ -212,32 +191,25 @@ TcaplusdbClient::CreateClusterOutcome TcaplusdbClient::CreateCluster(const Creat
 
 void TcaplusdbClient::CreateClusterAsync(const CreateClusterRequest& request, const CreateClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateClusterRequest&;
-    using Resp = CreateClusterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCluster(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCluster", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::CreateClusterOutcomeCallable TcaplusdbClient::CreateClusterCallable(const CreateClusterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateClusterOutcome>>();
-    CreateClusterAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const CreateClusterRequest&,
-        CreateClusterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateClusterOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCluster(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::CreateSnapshotsOutcome TcaplusdbClient::CreateSnapshots(const CreateSnapshotsRequest &request)
@@ -262,32 +234,25 @@ TcaplusdbClient::CreateSnapshotsOutcome TcaplusdbClient::CreateSnapshots(const C
 
 void TcaplusdbClient::CreateSnapshotsAsync(const CreateSnapshotsRequest& request, const CreateSnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSnapshotsRequest&;
-    using Resp = CreateSnapshotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSnapshots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSnapshots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::CreateSnapshotsOutcomeCallable TcaplusdbClient::CreateSnapshotsCallable(const CreateSnapshotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSnapshotsOutcome>>();
-    CreateSnapshotsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const CreateSnapshotsRequest&,
-        CreateSnapshotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSnapshotsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSnapshots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::CreateTableGroupOutcome TcaplusdbClient::CreateTableGroup(const CreateTableGroupRequest &request)
@@ -312,32 +277,25 @@ TcaplusdbClient::CreateTableGroupOutcome TcaplusdbClient::CreateTableGroup(const
 
 void TcaplusdbClient::CreateTableGroupAsync(const CreateTableGroupRequest& request, const CreateTableGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTableGroupRequest&;
-    using Resp = CreateTableGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTableGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTableGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::CreateTableGroupOutcomeCallable TcaplusdbClient::CreateTableGroupCallable(const CreateTableGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTableGroupOutcome>>();
-    CreateTableGroupAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const CreateTableGroupRequest&,
-        CreateTableGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTableGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTableGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::CreateTablesOutcome TcaplusdbClient::CreateTables(const CreateTablesRequest &request)
@@ -362,32 +320,25 @@ TcaplusdbClient::CreateTablesOutcome TcaplusdbClient::CreateTables(const CreateT
 
 void TcaplusdbClient::CreateTablesAsync(const CreateTablesRequest& request, const CreateTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTablesRequest&;
-    using Resp = CreateTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::CreateTablesOutcomeCallable TcaplusdbClient::CreateTablesCallable(const CreateTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTablesOutcome>>();
-    CreateTablesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const CreateTablesRequest&,
-        CreateTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DeleteBackupRecordsOutcome TcaplusdbClient::DeleteBackupRecords(const DeleteBackupRecordsRequest &request)
@@ -412,32 +363,25 @@ TcaplusdbClient::DeleteBackupRecordsOutcome TcaplusdbClient::DeleteBackupRecords
 
 void TcaplusdbClient::DeleteBackupRecordsAsync(const DeleteBackupRecordsRequest& request, const DeleteBackupRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteBackupRecordsRequest&;
-    using Resp = DeleteBackupRecordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteBackupRecords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteBackupRecords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DeleteBackupRecordsOutcomeCallable TcaplusdbClient::DeleteBackupRecordsCallable(const DeleteBackupRecordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteBackupRecordsOutcome>>();
-    DeleteBackupRecordsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DeleteBackupRecordsRequest&,
-        DeleteBackupRecordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteBackupRecordsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteBackupRecords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DeleteClusterOutcome TcaplusdbClient::DeleteCluster(const DeleteClusterRequest &request)
@@ -462,32 +406,25 @@ TcaplusdbClient::DeleteClusterOutcome TcaplusdbClient::DeleteCluster(const Delet
 
 void TcaplusdbClient::DeleteClusterAsync(const DeleteClusterRequest& request, const DeleteClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteClusterRequest&;
-    using Resp = DeleteClusterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCluster(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCluster", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DeleteClusterOutcomeCallable TcaplusdbClient::DeleteClusterCallable(const DeleteClusterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteClusterOutcome>>();
-    DeleteClusterAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DeleteClusterRequest&,
-        DeleteClusterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteClusterOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCluster(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DeleteIdlFilesOutcome TcaplusdbClient::DeleteIdlFiles(const DeleteIdlFilesRequest &request)
@@ -512,32 +449,25 @@ TcaplusdbClient::DeleteIdlFilesOutcome TcaplusdbClient::DeleteIdlFiles(const Del
 
 void TcaplusdbClient::DeleteIdlFilesAsync(const DeleteIdlFilesRequest& request, const DeleteIdlFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteIdlFilesRequest&;
-    using Resp = DeleteIdlFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteIdlFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteIdlFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DeleteIdlFilesOutcomeCallable TcaplusdbClient::DeleteIdlFilesCallable(const DeleteIdlFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteIdlFilesOutcome>>();
-    DeleteIdlFilesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DeleteIdlFilesRequest&,
-        DeleteIdlFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteIdlFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteIdlFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DeleteSnapshotsOutcome TcaplusdbClient::DeleteSnapshots(const DeleteSnapshotsRequest &request)
@@ -562,32 +492,25 @@ TcaplusdbClient::DeleteSnapshotsOutcome TcaplusdbClient::DeleteSnapshots(const D
 
 void TcaplusdbClient::DeleteSnapshotsAsync(const DeleteSnapshotsRequest& request, const DeleteSnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSnapshotsRequest&;
-    using Resp = DeleteSnapshotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSnapshots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSnapshots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DeleteSnapshotsOutcomeCallable TcaplusdbClient::DeleteSnapshotsCallable(const DeleteSnapshotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSnapshotsOutcome>>();
-    DeleteSnapshotsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DeleteSnapshotsRequest&,
-        DeleteSnapshotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSnapshotsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSnapshots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DeleteTableDataFlowOutcome TcaplusdbClient::DeleteTableDataFlow(const DeleteTableDataFlowRequest &request)
@@ -612,32 +535,25 @@ TcaplusdbClient::DeleteTableDataFlowOutcome TcaplusdbClient::DeleteTableDataFlow
 
 void TcaplusdbClient::DeleteTableDataFlowAsync(const DeleteTableDataFlowRequest& request, const DeleteTableDataFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTableDataFlowRequest&;
-    using Resp = DeleteTableDataFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTableDataFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTableDataFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DeleteTableDataFlowOutcomeCallable TcaplusdbClient::DeleteTableDataFlowCallable(const DeleteTableDataFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTableDataFlowOutcome>>();
-    DeleteTableDataFlowAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DeleteTableDataFlowRequest&,
-        DeleteTableDataFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTableDataFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTableDataFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DeleteTableGroupOutcome TcaplusdbClient::DeleteTableGroup(const DeleteTableGroupRequest &request)
@@ -662,32 +578,25 @@ TcaplusdbClient::DeleteTableGroupOutcome TcaplusdbClient::DeleteTableGroup(const
 
 void TcaplusdbClient::DeleteTableGroupAsync(const DeleteTableGroupRequest& request, const DeleteTableGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTableGroupRequest&;
-    using Resp = DeleteTableGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTableGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTableGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DeleteTableGroupOutcomeCallable TcaplusdbClient::DeleteTableGroupCallable(const DeleteTableGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTableGroupOutcome>>();
-    DeleteTableGroupAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DeleteTableGroupRequest&,
-        DeleteTableGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTableGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTableGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DeleteTableIndexOutcome TcaplusdbClient::DeleteTableIndex(const DeleteTableIndexRequest &request)
@@ -712,32 +621,25 @@ TcaplusdbClient::DeleteTableIndexOutcome TcaplusdbClient::DeleteTableIndex(const
 
 void TcaplusdbClient::DeleteTableIndexAsync(const DeleteTableIndexRequest& request, const DeleteTableIndexAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTableIndexRequest&;
-    using Resp = DeleteTableIndexResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTableIndex(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTableIndex", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DeleteTableIndexOutcomeCallable TcaplusdbClient::DeleteTableIndexCallable(const DeleteTableIndexRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTableIndexOutcome>>();
-    DeleteTableIndexAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DeleteTableIndexRequest&,
-        DeleteTableIndexOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTableIndexOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTableIndex(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DeleteTablesOutcome TcaplusdbClient::DeleteTables(const DeleteTablesRequest &request)
@@ -762,32 +664,25 @@ TcaplusdbClient::DeleteTablesOutcome TcaplusdbClient::DeleteTables(const DeleteT
 
 void TcaplusdbClient::DeleteTablesAsync(const DeleteTablesRequest& request, const DeleteTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTablesRequest&;
-    using Resp = DeleteTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DeleteTablesOutcomeCallable TcaplusdbClient::DeleteTablesCallable(const DeleteTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTablesOutcome>>();
-    DeleteTablesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DeleteTablesRequest&,
-        DeleteTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeApplicationsOutcome TcaplusdbClient::DescribeApplications(const DescribeApplicationsRequest &request)
@@ -812,32 +707,25 @@ TcaplusdbClient::DescribeApplicationsOutcome TcaplusdbClient::DescribeApplicatio
 
 void TcaplusdbClient::DescribeApplicationsAsync(const DescribeApplicationsRequest& request, const DescribeApplicationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeApplicationsRequest&;
-    using Resp = DescribeApplicationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeApplications(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeApplications", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeApplicationsOutcomeCallable TcaplusdbClient::DescribeApplicationsCallable(const DescribeApplicationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeApplicationsOutcome>>();
-    DescribeApplicationsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeApplicationsRequest&,
-        DescribeApplicationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeApplicationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeApplications(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeBackupRecordsOutcome TcaplusdbClient::DescribeBackupRecords(const DescribeBackupRecordsRequest &request)
@@ -862,32 +750,25 @@ TcaplusdbClient::DescribeBackupRecordsOutcome TcaplusdbClient::DescribeBackupRec
 
 void TcaplusdbClient::DescribeBackupRecordsAsync(const DescribeBackupRecordsRequest& request, const DescribeBackupRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupRecordsRequest&;
-    using Resp = DescribeBackupRecordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupRecords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupRecords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeBackupRecordsOutcomeCallable TcaplusdbClient::DescribeBackupRecordsCallable(const DescribeBackupRecordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupRecordsOutcome>>();
-    DescribeBackupRecordsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeBackupRecordsRequest&,
-        DescribeBackupRecordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupRecordsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupRecords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeClusterTagsOutcome TcaplusdbClient::DescribeClusterTags(const DescribeClusterTagsRequest &request)
@@ -912,32 +793,25 @@ TcaplusdbClient::DescribeClusterTagsOutcome TcaplusdbClient::DescribeClusterTags
 
 void TcaplusdbClient::DescribeClusterTagsAsync(const DescribeClusterTagsRequest& request, const DescribeClusterTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeClusterTagsRequest&;
-    using Resp = DescribeClusterTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeClusterTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeClusterTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeClusterTagsOutcomeCallable TcaplusdbClient::DescribeClusterTagsCallable(const DescribeClusterTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeClusterTagsOutcome>>();
-    DescribeClusterTagsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeClusterTagsRequest&,
-        DescribeClusterTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeClusterTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeClusterTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeClustersOutcome TcaplusdbClient::DescribeClusters(const DescribeClustersRequest &request)
@@ -962,32 +836,25 @@ TcaplusdbClient::DescribeClustersOutcome TcaplusdbClient::DescribeClusters(const
 
 void TcaplusdbClient::DescribeClustersAsync(const DescribeClustersRequest& request, const DescribeClustersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeClustersRequest&;
-    using Resp = DescribeClustersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeClusters(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeClusters", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeClustersOutcomeCallable TcaplusdbClient::DescribeClustersCallable(const DescribeClustersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeClustersOutcome>>();
-    DescribeClustersAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeClustersRequest&,
-        DescribeClustersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeClustersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeClusters(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeIdlFileInfosOutcome TcaplusdbClient::DescribeIdlFileInfos(const DescribeIdlFileInfosRequest &request)
@@ -1012,32 +879,25 @@ TcaplusdbClient::DescribeIdlFileInfosOutcome TcaplusdbClient::DescribeIdlFileInf
 
 void TcaplusdbClient::DescribeIdlFileInfosAsync(const DescribeIdlFileInfosRequest& request, const DescribeIdlFileInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIdlFileInfosRequest&;
-    using Resp = DescribeIdlFileInfosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIdlFileInfos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIdlFileInfos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeIdlFileInfosOutcomeCallable TcaplusdbClient::DescribeIdlFileInfosCallable(const DescribeIdlFileInfosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIdlFileInfosOutcome>>();
-    DescribeIdlFileInfosAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeIdlFileInfosRequest&,
-        DescribeIdlFileInfosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIdlFileInfosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIdlFileInfos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeMachineOutcome TcaplusdbClient::DescribeMachine(const DescribeMachineRequest &request)
@@ -1062,32 +922,25 @@ TcaplusdbClient::DescribeMachineOutcome TcaplusdbClient::DescribeMachine(const D
 
 void TcaplusdbClient::DescribeMachineAsync(const DescribeMachineRequest& request, const DescribeMachineAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMachineRequest&;
-    using Resp = DescribeMachineResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMachine(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMachine", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeMachineOutcomeCallable TcaplusdbClient::DescribeMachineCallable(const DescribeMachineRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMachineOutcome>>();
-    DescribeMachineAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeMachineRequest&,
-        DescribeMachineOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMachineOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMachine(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeRegionsOutcome TcaplusdbClient::DescribeRegions(const DescribeRegionsRequest &request)
@@ -1112,32 +965,25 @@ TcaplusdbClient::DescribeRegionsOutcome TcaplusdbClient::DescribeRegions(const D
 
 void TcaplusdbClient::DescribeRegionsAsync(const DescribeRegionsRequest& request, const DescribeRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRegionsRequest&;
-    using Resp = DescribeRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeRegionsOutcomeCallable TcaplusdbClient::DescribeRegionsCallable(const DescribeRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRegionsOutcome>>();
-    DescribeRegionsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeRegionsRequest&,
-        DescribeRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeSnapshotsOutcome TcaplusdbClient::DescribeSnapshots(const DescribeSnapshotsRequest &request)
@@ -1162,32 +1008,25 @@ TcaplusdbClient::DescribeSnapshotsOutcome TcaplusdbClient::DescribeSnapshots(con
 
 void TcaplusdbClient::DescribeSnapshotsAsync(const DescribeSnapshotsRequest& request, const DescribeSnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotsRequest&;
-    using Resp = DescribeSnapshotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeSnapshotsOutcomeCallable TcaplusdbClient::DescribeSnapshotsCallable(const DescribeSnapshotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotsOutcome>>();
-    DescribeSnapshotsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeSnapshotsRequest&,
-        DescribeSnapshotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeTableGroupTagsOutcome TcaplusdbClient::DescribeTableGroupTags(const DescribeTableGroupTagsRequest &request)
@@ -1212,32 +1051,25 @@ TcaplusdbClient::DescribeTableGroupTagsOutcome TcaplusdbClient::DescribeTableGro
 
 void TcaplusdbClient::DescribeTableGroupTagsAsync(const DescribeTableGroupTagsRequest& request, const DescribeTableGroupTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTableGroupTagsRequest&;
-    using Resp = DescribeTableGroupTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTableGroupTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTableGroupTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeTableGroupTagsOutcomeCallable TcaplusdbClient::DescribeTableGroupTagsCallable(const DescribeTableGroupTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTableGroupTagsOutcome>>();
-    DescribeTableGroupTagsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeTableGroupTagsRequest&,
-        DescribeTableGroupTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTableGroupTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTableGroupTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeTableGroupsOutcome TcaplusdbClient::DescribeTableGroups(const DescribeTableGroupsRequest &request)
@@ -1262,32 +1094,25 @@ TcaplusdbClient::DescribeTableGroupsOutcome TcaplusdbClient::DescribeTableGroups
 
 void TcaplusdbClient::DescribeTableGroupsAsync(const DescribeTableGroupsRequest& request, const DescribeTableGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTableGroupsRequest&;
-    using Resp = DescribeTableGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTableGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTableGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeTableGroupsOutcomeCallable TcaplusdbClient::DescribeTableGroupsCallable(const DescribeTableGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTableGroupsOutcome>>();
-    DescribeTableGroupsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeTableGroupsRequest&,
-        DescribeTableGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTableGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTableGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeTableTagsOutcome TcaplusdbClient::DescribeTableTags(const DescribeTableTagsRequest &request)
@@ -1312,32 +1137,25 @@ TcaplusdbClient::DescribeTableTagsOutcome TcaplusdbClient::DescribeTableTags(con
 
 void TcaplusdbClient::DescribeTableTagsAsync(const DescribeTableTagsRequest& request, const DescribeTableTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTableTagsRequest&;
-    using Resp = DescribeTableTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTableTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTableTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeTableTagsOutcomeCallable TcaplusdbClient::DescribeTableTagsCallable(const DescribeTableTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTableTagsOutcome>>();
-    DescribeTableTagsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeTableTagsRequest&,
-        DescribeTableTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTableTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTableTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeTablesOutcome TcaplusdbClient::DescribeTables(const DescribeTablesRequest &request)
@@ -1362,32 +1180,25 @@ TcaplusdbClient::DescribeTablesOutcome TcaplusdbClient::DescribeTables(const Des
 
 void TcaplusdbClient::DescribeTablesAsync(const DescribeTablesRequest& request, const DescribeTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTablesRequest&;
-    using Resp = DescribeTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeTablesOutcomeCallable TcaplusdbClient::DescribeTablesCallable(const DescribeTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTablesOutcome>>();
-    DescribeTablesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeTablesRequest&,
-        DescribeTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeTablesInRecycleOutcome TcaplusdbClient::DescribeTablesInRecycle(const DescribeTablesInRecycleRequest &request)
@@ -1412,32 +1223,25 @@ TcaplusdbClient::DescribeTablesInRecycleOutcome TcaplusdbClient::DescribeTablesI
 
 void TcaplusdbClient::DescribeTablesInRecycleAsync(const DescribeTablesInRecycleRequest& request, const DescribeTablesInRecycleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTablesInRecycleRequest&;
-    using Resp = DescribeTablesInRecycleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTablesInRecycle(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTablesInRecycle", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeTablesInRecycleOutcomeCallable TcaplusdbClient::DescribeTablesInRecycleCallable(const DescribeTablesInRecycleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTablesInRecycleOutcome>>();
-    DescribeTablesInRecycleAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeTablesInRecycleRequest&,
-        DescribeTablesInRecycleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTablesInRecycleOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTablesInRecycle(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeTasksOutcome TcaplusdbClient::DescribeTasks(const DescribeTasksRequest &request)
@@ -1462,32 +1266,25 @@ TcaplusdbClient::DescribeTasksOutcome TcaplusdbClient::DescribeTasks(const Descr
 
 void TcaplusdbClient::DescribeTasksAsync(const DescribeTasksRequest& request, const DescribeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTasksRequest&;
-    using Resp = DescribeTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeTasksOutcomeCallable TcaplusdbClient::DescribeTasksCallable(const DescribeTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTasksOutcome>>();
-    DescribeTasksAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeTasksRequest&,
-        DescribeTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DescribeUinInWhitelistOutcome TcaplusdbClient::DescribeUinInWhitelist(const DescribeUinInWhitelistRequest &request)
@@ -1512,32 +1309,25 @@ TcaplusdbClient::DescribeUinInWhitelistOutcome TcaplusdbClient::DescribeUinInWhi
 
 void TcaplusdbClient::DescribeUinInWhitelistAsync(const DescribeUinInWhitelistRequest& request, const DescribeUinInWhitelistAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUinInWhitelistRequest&;
-    using Resp = DescribeUinInWhitelistResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUinInWhitelist(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUinInWhitelist", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DescribeUinInWhitelistOutcomeCallable TcaplusdbClient::DescribeUinInWhitelistCallable(const DescribeUinInWhitelistRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUinInWhitelistOutcome>>();
-    DescribeUinInWhitelistAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DescribeUinInWhitelistRequest&,
-        DescribeUinInWhitelistOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUinInWhitelistOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUinInWhitelist(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::DisableRestProxyOutcome TcaplusdbClient::DisableRestProxy(const DisableRestProxyRequest &request)
@@ -1562,32 +1352,25 @@ TcaplusdbClient::DisableRestProxyOutcome TcaplusdbClient::DisableRestProxy(const
 
 void TcaplusdbClient::DisableRestProxyAsync(const DisableRestProxyRequest& request, const DisableRestProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableRestProxyRequest&;
-    using Resp = DisableRestProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableRestProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableRestProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::DisableRestProxyOutcomeCallable TcaplusdbClient::DisableRestProxyCallable(const DisableRestProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableRestProxyOutcome>>();
-    DisableRestProxyAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const DisableRestProxyRequest&,
-        DisableRestProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableRestProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableRestProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::EnableRestProxyOutcome TcaplusdbClient::EnableRestProxy(const EnableRestProxyRequest &request)
@@ -1612,32 +1395,25 @@ TcaplusdbClient::EnableRestProxyOutcome TcaplusdbClient::EnableRestProxy(const E
 
 void TcaplusdbClient::EnableRestProxyAsync(const EnableRestProxyRequest& request, const EnableRestProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableRestProxyRequest&;
-    using Resp = EnableRestProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableRestProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableRestProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::EnableRestProxyOutcomeCallable TcaplusdbClient::EnableRestProxyCallable(const EnableRestProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableRestProxyOutcome>>();
-    EnableRestProxyAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const EnableRestProxyRequest&,
-        EnableRestProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableRestProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableRestProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ImportSnapshotsOutcome TcaplusdbClient::ImportSnapshots(const ImportSnapshotsRequest &request)
@@ -1662,32 +1438,25 @@ TcaplusdbClient::ImportSnapshotsOutcome TcaplusdbClient::ImportSnapshots(const I
 
 void TcaplusdbClient::ImportSnapshotsAsync(const ImportSnapshotsRequest& request, const ImportSnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportSnapshotsRequest&;
-    using Resp = ImportSnapshotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportSnapshots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportSnapshots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ImportSnapshotsOutcomeCallable TcaplusdbClient::ImportSnapshotsCallable(const ImportSnapshotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportSnapshotsOutcome>>();
-    ImportSnapshotsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ImportSnapshotsRequest&,
-        ImportSnapshotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportSnapshotsOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportSnapshots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::MergeTablesDataOutcome TcaplusdbClient::MergeTablesData(const MergeTablesDataRequest &request)
@@ -1712,32 +1481,25 @@ TcaplusdbClient::MergeTablesDataOutcome TcaplusdbClient::MergeTablesData(const M
 
 void TcaplusdbClient::MergeTablesDataAsync(const MergeTablesDataRequest& request, const MergeTablesDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const MergeTablesDataRequest&;
-    using Resp = MergeTablesDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->MergeTablesData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "MergeTablesData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::MergeTablesDataOutcomeCallable TcaplusdbClient::MergeTablesDataCallable(const MergeTablesDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<MergeTablesDataOutcome>>();
-    MergeTablesDataAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const MergeTablesDataRequest&,
-        MergeTablesDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<MergeTablesDataOutcome()>>(
+        [this, request]()
+        {
+            return this->MergeTablesData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyCensorshipOutcome TcaplusdbClient::ModifyCensorship(const ModifyCensorshipRequest &request)
@@ -1762,32 +1524,25 @@ TcaplusdbClient::ModifyCensorshipOutcome TcaplusdbClient::ModifyCensorship(const
 
 void TcaplusdbClient::ModifyCensorshipAsync(const ModifyCensorshipRequest& request, const ModifyCensorshipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCensorshipRequest&;
-    using Resp = ModifyCensorshipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCensorship(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCensorship", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyCensorshipOutcomeCallable TcaplusdbClient::ModifyCensorshipCallable(const ModifyCensorshipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCensorshipOutcome>>();
-    ModifyCensorshipAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyCensorshipRequest&,
-        ModifyCensorshipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCensorshipOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCensorship(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyClusterMachineOutcome TcaplusdbClient::ModifyClusterMachine(const ModifyClusterMachineRequest &request)
@@ -1812,32 +1567,25 @@ TcaplusdbClient::ModifyClusterMachineOutcome TcaplusdbClient::ModifyClusterMachi
 
 void TcaplusdbClient::ModifyClusterMachineAsync(const ModifyClusterMachineRequest& request, const ModifyClusterMachineAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyClusterMachineRequest&;
-    using Resp = ModifyClusterMachineResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyClusterMachine(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyClusterMachine", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyClusterMachineOutcomeCallable TcaplusdbClient::ModifyClusterMachineCallable(const ModifyClusterMachineRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyClusterMachineOutcome>>();
-    ModifyClusterMachineAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyClusterMachineRequest&,
-        ModifyClusterMachineOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyClusterMachineOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyClusterMachine(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyClusterNameOutcome TcaplusdbClient::ModifyClusterName(const ModifyClusterNameRequest &request)
@@ -1862,32 +1610,25 @@ TcaplusdbClient::ModifyClusterNameOutcome TcaplusdbClient::ModifyClusterName(con
 
 void TcaplusdbClient::ModifyClusterNameAsync(const ModifyClusterNameRequest& request, const ModifyClusterNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyClusterNameRequest&;
-    using Resp = ModifyClusterNameResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyClusterName(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyClusterName", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyClusterNameOutcomeCallable TcaplusdbClient::ModifyClusterNameCallable(const ModifyClusterNameRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyClusterNameOutcome>>();
-    ModifyClusterNameAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyClusterNameRequest&,
-        ModifyClusterNameOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyClusterNameOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyClusterName(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyClusterPasswordOutcome TcaplusdbClient::ModifyClusterPassword(const ModifyClusterPasswordRequest &request)
@@ -1912,32 +1653,25 @@ TcaplusdbClient::ModifyClusterPasswordOutcome TcaplusdbClient::ModifyClusterPass
 
 void TcaplusdbClient::ModifyClusterPasswordAsync(const ModifyClusterPasswordRequest& request, const ModifyClusterPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyClusterPasswordRequest&;
-    using Resp = ModifyClusterPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyClusterPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyClusterPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyClusterPasswordOutcomeCallable TcaplusdbClient::ModifyClusterPasswordCallable(const ModifyClusterPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyClusterPasswordOutcome>>();
-    ModifyClusterPasswordAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyClusterPasswordRequest&,
-        ModifyClusterPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyClusterPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyClusterPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyClusterTagsOutcome TcaplusdbClient::ModifyClusterTags(const ModifyClusterTagsRequest &request)
@@ -1962,32 +1696,25 @@ TcaplusdbClient::ModifyClusterTagsOutcome TcaplusdbClient::ModifyClusterTags(con
 
 void TcaplusdbClient::ModifyClusterTagsAsync(const ModifyClusterTagsRequest& request, const ModifyClusterTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyClusterTagsRequest&;
-    using Resp = ModifyClusterTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyClusterTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyClusterTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyClusterTagsOutcomeCallable TcaplusdbClient::ModifyClusterTagsCallable(const ModifyClusterTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyClusterTagsOutcome>>();
-    ModifyClusterTagsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyClusterTagsRequest&,
-        ModifyClusterTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyClusterTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyClusterTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifySnapshotsOutcome TcaplusdbClient::ModifySnapshots(const ModifySnapshotsRequest &request)
@@ -2012,32 +1739,25 @@ TcaplusdbClient::ModifySnapshotsOutcome TcaplusdbClient::ModifySnapshots(const M
 
 void TcaplusdbClient::ModifySnapshotsAsync(const ModifySnapshotsRequest& request, const ModifySnapshotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySnapshotsRequest&;
-    using Resp = ModifySnapshotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySnapshots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySnapshots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifySnapshotsOutcomeCallable TcaplusdbClient::ModifySnapshotsCallable(const ModifySnapshotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySnapshotsOutcome>>();
-    ModifySnapshotsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifySnapshotsRequest&,
-        ModifySnapshotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySnapshotsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySnapshots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyTableGroupNameOutcome TcaplusdbClient::ModifyTableGroupName(const ModifyTableGroupNameRequest &request)
@@ -2062,32 +1782,25 @@ TcaplusdbClient::ModifyTableGroupNameOutcome TcaplusdbClient::ModifyTableGroupNa
 
 void TcaplusdbClient::ModifyTableGroupNameAsync(const ModifyTableGroupNameRequest& request, const ModifyTableGroupNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTableGroupNameRequest&;
-    using Resp = ModifyTableGroupNameResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTableGroupName(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTableGroupName", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyTableGroupNameOutcomeCallable TcaplusdbClient::ModifyTableGroupNameCallable(const ModifyTableGroupNameRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTableGroupNameOutcome>>();
-    ModifyTableGroupNameAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyTableGroupNameRequest&,
-        ModifyTableGroupNameOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTableGroupNameOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTableGroupName(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyTableGroupTagsOutcome TcaplusdbClient::ModifyTableGroupTags(const ModifyTableGroupTagsRequest &request)
@@ -2112,32 +1825,25 @@ TcaplusdbClient::ModifyTableGroupTagsOutcome TcaplusdbClient::ModifyTableGroupTa
 
 void TcaplusdbClient::ModifyTableGroupTagsAsync(const ModifyTableGroupTagsRequest& request, const ModifyTableGroupTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTableGroupTagsRequest&;
-    using Resp = ModifyTableGroupTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTableGroupTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTableGroupTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyTableGroupTagsOutcomeCallable TcaplusdbClient::ModifyTableGroupTagsCallable(const ModifyTableGroupTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTableGroupTagsOutcome>>();
-    ModifyTableGroupTagsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyTableGroupTagsRequest&,
-        ModifyTableGroupTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTableGroupTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTableGroupTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyTableMemosOutcome TcaplusdbClient::ModifyTableMemos(const ModifyTableMemosRequest &request)
@@ -2162,32 +1868,25 @@ TcaplusdbClient::ModifyTableMemosOutcome TcaplusdbClient::ModifyTableMemos(const
 
 void TcaplusdbClient::ModifyTableMemosAsync(const ModifyTableMemosRequest& request, const ModifyTableMemosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTableMemosRequest&;
-    using Resp = ModifyTableMemosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTableMemos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTableMemos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyTableMemosOutcomeCallable TcaplusdbClient::ModifyTableMemosCallable(const ModifyTableMemosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTableMemosOutcome>>();
-    ModifyTableMemosAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyTableMemosRequest&,
-        ModifyTableMemosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTableMemosOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTableMemos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyTableQuotasOutcome TcaplusdbClient::ModifyTableQuotas(const ModifyTableQuotasRequest &request)
@@ -2212,32 +1911,25 @@ TcaplusdbClient::ModifyTableQuotasOutcome TcaplusdbClient::ModifyTableQuotas(con
 
 void TcaplusdbClient::ModifyTableQuotasAsync(const ModifyTableQuotasRequest& request, const ModifyTableQuotasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTableQuotasRequest&;
-    using Resp = ModifyTableQuotasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTableQuotas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTableQuotas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyTableQuotasOutcomeCallable TcaplusdbClient::ModifyTableQuotasCallable(const ModifyTableQuotasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTableQuotasOutcome>>();
-    ModifyTableQuotasAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyTableQuotasRequest&,
-        ModifyTableQuotasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTableQuotasOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTableQuotas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyTableTagsOutcome TcaplusdbClient::ModifyTableTags(const ModifyTableTagsRequest &request)
@@ -2262,32 +1954,25 @@ TcaplusdbClient::ModifyTableTagsOutcome TcaplusdbClient::ModifyTableTags(const M
 
 void TcaplusdbClient::ModifyTableTagsAsync(const ModifyTableTagsRequest& request, const ModifyTableTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTableTagsRequest&;
-    using Resp = ModifyTableTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTableTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTableTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyTableTagsOutcomeCallable TcaplusdbClient::ModifyTableTagsCallable(const ModifyTableTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTableTagsOutcome>>();
-    ModifyTableTagsAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyTableTagsRequest&,
-        ModifyTableTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTableTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTableTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::ModifyTablesOutcome TcaplusdbClient::ModifyTables(const ModifyTablesRequest &request)
@@ -2312,32 +1997,25 @@ TcaplusdbClient::ModifyTablesOutcome TcaplusdbClient::ModifyTables(const ModifyT
 
 void TcaplusdbClient::ModifyTablesAsync(const ModifyTablesRequest& request, const ModifyTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTablesRequest&;
-    using Resp = ModifyTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::ModifyTablesOutcomeCallable TcaplusdbClient::ModifyTablesCallable(const ModifyTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTablesOutcome>>();
-    ModifyTablesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const ModifyTablesRequest&,
-        ModifyTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::RecoverRecycleTablesOutcome TcaplusdbClient::RecoverRecycleTables(const RecoverRecycleTablesRequest &request)
@@ -2362,32 +2040,25 @@ TcaplusdbClient::RecoverRecycleTablesOutcome TcaplusdbClient::RecoverRecycleTabl
 
 void TcaplusdbClient::RecoverRecycleTablesAsync(const RecoverRecycleTablesRequest& request, const RecoverRecycleTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RecoverRecycleTablesRequest&;
-    using Resp = RecoverRecycleTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RecoverRecycleTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RecoverRecycleTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::RecoverRecycleTablesOutcomeCallable TcaplusdbClient::RecoverRecycleTablesCallable(const RecoverRecycleTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RecoverRecycleTablesOutcome>>();
-    RecoverRecycleTablesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const RecoverRecycleTablesRequest&,
-        RecoverRecycleTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RecoverRecycleTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->RecoverRecycleTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::RollbackTablesOutcome TcaplusdbClient::RollbackTables(const RollbackTablesRequest &request)
@@ -2412,32 +2083,25 @@ TcaplusdbClient::RollbackTablesOutcome TcaplusdbClient::RollbackTables(const Rol
 
 void TcaplusdbClient::RollbackTablesAsync(const RollbackTablesRequest& request, const RollbackTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RollbackTablesRequest&;
-    using Resp = RollbackTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RollbackTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RollbackTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::RollbackTablesOutcomeCallable TcaplusdbClient::RollbackTablesCallable(const RollbackTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RollbackTablesOutcome>>();
-    RollbackTablesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const RollbackTablesRequest&,
-        RollbackTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RollbackTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->RollbackTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::SetBackupExpireRuleOutcome TcaplusdbClient::SetBackupExpireRule(const SetBackupExpireRuleRequest &request)
@@ -2462,32 +2126,25 @@ TcaplusdbClient::SetBackupExpireRuleOutcome TcaplusdbClient::SetBackupExpireRule
 
 void TcaplusdbClient::SetBackupExpireRuleAsync(const SetBackupExpireRuleRequest& request, const SetBackupExpireRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetBackupExpireRuleRequest&;
-    using Resp = SetBackupExpireRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetBackupExpireRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetBackupExpireRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::SetBackupExpireRuleOutcomeCallable TcaplusdbClient::SetBackupExpireRuleCallable(const SetBackupExpireRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetBackupExpireRuleOutcome>>();
-    SetBackupExpireRuleAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const SetBackupExpireRuleRequest&,
-        SetBackupExpireRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetBackupExpireRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->SetBackupExpireRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::SetTableDataFlowOutcome TcaplusdbClient::SetTableDataFlow(const SetTableDataFlowRequest &request)
@@ -2512,32 +2169,25 @@ TcaplusdbClient::SetTableDataFlowOutcome TcaplusdbClient::SetTableDataFlow(const
 
 void TcaplusdbClient::SetTableDataFlowAsync(const SetTableDataFlowRequest& request, const SetTableDataFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetTableDataFlowRequest&;
-    using Resp = SetTableDataFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetTableDataFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetTableDataFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::SetTableDataFlowOutcomeCallable TcaplusdbClient::SetTableDataFlowCallable(const SetTableDataFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetTableDataFlowOutcome>>();
-    SetTableDataFlowAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const SetTableDataFlowRequest&,
-        SetTableDataFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetTableDataFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->SetTableDataFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::SetTableIndexOutcome TcaplusdbClient::SetTableIndex(const SetTableIndexRequest &request)
@@ -2562,32 +2212,25 @@ TcaplusdbClient::SetTableIndexOutcome TcaplusdbClient::SetTableIndex(const SetTa
 
 void TcaplusdbClient::SetTableIndexAsync(const SetTableIndexRequest& request, const SetTableIndexAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetTableIndexRequest&;
-    using Resp = SetTableIndexResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetTableIndex(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetTableIndex", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::SetTableIndexOutcomeCallable TcaplusdbClient::SetTableIndexCallable(const SetTableIndexRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetTableIndexOutcome>>();
-    SetTableIndexAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const SetTableIndexRequest&,
-        SetTableIndexOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetTableIndexOutcome()>>(
+        [this, request]()
+        {
+            return this->SetTableIndex(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::UpdateApplyOutcome TcaplusdbClient::UpdateApply(const UpdateApplyRequest &request)
@@ -2612,32 +2255,25 @@ TcaplusdbClient::UpdateApplyOutcome TcaplusdbClient::UpdateApply(const UpdateApp
 
 void TcaplusdbClient::UpdateApplyAsync(const UpdateApplyRequest& request, const UpdateApplyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateApplyRequest&;
-    using Resp = UpdateApplyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateApply(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateApply", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::UpdateApplyOutcomeCallable TcaplusdbClient::UpdateApplyCallable(const UpdateApplyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateApplyOutcome>>();
-    UpdateApplyAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const UpdateApplyRequest&,
-        UpdateApplyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateApplyOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateApply(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TcaplusdbClient::VerifyIdlFilesOutcome TcaplusdbClient::VerifyIdlFiles(const VerifyIdlFilesRequest &request)
@@ -2662,31 +2298,24 @@ TcaplusdbClient::VerifyIdlFilesOutcome TcaplusdbClient::VerifyIdlFiles(const Ver
 
 void TcaplusdbClient::VerifyIdlFilesAsync(const VerifyIdlFilesRequest& request, const VerifyIdlFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const VerifyIdlFilesRequest&;
-    using Resp = VerifyIdlFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->VerifyIdlFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "VerifyIdlFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TcaplusdbClient::VerifyIdlFilesOutcomeCallable TcaplusdbClient::VerifyIdlFilesCallable(const VerifyIdlFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<VerifyIdlFilesOutcome>>();
-    VerifyIdlFilesAsync(
-    request,
-    [prom](
-        const TcaplusdbClient*,
-        const VerifyIdlFilesRequest&,
-        VerifyIdlFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<VerifyIdlFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->VerifyIdlFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

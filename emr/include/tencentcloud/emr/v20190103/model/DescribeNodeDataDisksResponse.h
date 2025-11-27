@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CBSInstance;
+
                 /**
                 * DescribeNodeDataDisks返回参数结构体
                 */

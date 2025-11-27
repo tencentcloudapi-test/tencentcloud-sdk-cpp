@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 基于端口的acl策略
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AclConfig();
-                    ~AclConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * AI 通话提取配置项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AICallExtractConfigElement();
-                    ~AICallExtractConfigElement() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

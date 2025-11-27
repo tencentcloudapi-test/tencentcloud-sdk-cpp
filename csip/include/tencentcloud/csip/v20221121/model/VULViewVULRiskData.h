@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 漏洞视角的漏洞风险对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VULViewVULRiskData();
-                    ~VULViewVULRiskData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

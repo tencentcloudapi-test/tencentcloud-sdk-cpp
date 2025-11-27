@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AgentInstance;
+
                 /**
                 * DescribeAgentInstances返回参数结构体
                 */

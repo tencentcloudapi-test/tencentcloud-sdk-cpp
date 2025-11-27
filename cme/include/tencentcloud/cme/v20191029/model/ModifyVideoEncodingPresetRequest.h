@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoEncodingPresetVideoSettingForUpdate;
+                class VideoEncodingPresetAudioSettingForUpdate;
+
                 /**
                 * ModifyVideoEncodingPreset请求参数结构体
                 */

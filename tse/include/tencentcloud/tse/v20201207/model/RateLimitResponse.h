@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KVMapping;
+
                 /**
                 * 云原生网关限流插件自定义响应
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RateLimitResponse();
-                    ~RateLimitResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

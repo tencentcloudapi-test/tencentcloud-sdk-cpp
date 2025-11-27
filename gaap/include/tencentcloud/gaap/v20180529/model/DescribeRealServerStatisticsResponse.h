@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StatisticsDataInfo;
+                class MetricStatisticsInfo;
+
                 /**
                 * DescribeRealServerStatistics返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SlotSharingGroup的规格描述
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SlotSharingGroupSpec();
-                    ~SlotSharingGroupSpec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OptionValueItem;
+
                 /**
                 * 型号模板的选项
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TemplateOption();
-                    ~TemplateOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

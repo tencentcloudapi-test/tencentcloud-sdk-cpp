@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExternalMediaInfo;
+
                 /**
                 * ImportMediaToProject请求参数结构体
                 */

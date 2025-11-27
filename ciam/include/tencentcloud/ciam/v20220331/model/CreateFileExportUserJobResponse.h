@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Job;
+
                 /**
                 * CreateFileExportUserJob返回参数结构体
                 */

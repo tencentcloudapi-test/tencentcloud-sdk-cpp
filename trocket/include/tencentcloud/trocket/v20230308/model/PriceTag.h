@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 价格标签信息，一个完整的价格标签包含计价类别和计费项标签。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PriceTag();
-                    ~PriceTag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

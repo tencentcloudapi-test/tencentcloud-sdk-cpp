@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchTemplate;
+
                 /**
                 * CreateSearchTemplate请求参数结构体
                 */

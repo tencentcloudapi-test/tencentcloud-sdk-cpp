@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssessmentTask;
+
                 /**
                 * DescribeDSPAAssessmentTasks返回参数结构体
                 */

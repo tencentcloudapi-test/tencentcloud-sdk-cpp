@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VodPullInputPlayInfo;
+
                 /**
                 * HandleStreamConnectProject返回参数结构体
                 */

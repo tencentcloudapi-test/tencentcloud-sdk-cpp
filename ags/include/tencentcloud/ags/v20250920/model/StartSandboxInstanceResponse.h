@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SandboxInstance;
+
                 /**
                 * StartSandboxInstance返回参数结构体
                 */

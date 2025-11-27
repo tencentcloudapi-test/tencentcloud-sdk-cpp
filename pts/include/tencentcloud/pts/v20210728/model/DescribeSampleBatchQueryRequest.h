@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InternalMetricQuery;
+
                 /**
                 * DescribeSampleBatchQuery请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttackLogInfo;
+
                 /**
                 * SearchAttackLog返回参数结构体
                 */

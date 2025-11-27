@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 订单子产品价格详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SubProductPriceDetail();
-                    ~SubProductPriceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

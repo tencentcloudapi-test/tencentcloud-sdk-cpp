@@ -37,6 +37,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceRef;
+                class Property;
+                class ClazzLevel;
+                class ExpertModeConfiguration;
+                class TraceModeConfiguration;
+                class JobGraph;
+
                 /**
                 * CreateJobConfig请求参数结构体
                 */

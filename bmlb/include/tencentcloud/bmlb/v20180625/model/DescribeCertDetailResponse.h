@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertDetailLoadBalancer;
+
                 /**
                 * DescribeCertDetail返回参数结构体
                 */

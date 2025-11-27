@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribePendingSubmitTaskInfo;
+
                 /**
                 * DescribePendingSubmitTaskList返回参数结构体
                 */

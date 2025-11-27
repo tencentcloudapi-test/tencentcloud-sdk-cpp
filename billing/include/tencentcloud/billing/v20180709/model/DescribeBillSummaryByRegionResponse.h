@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RegionSummaryOverviewItem;
+
                 /**
                 * DescribeBillSummaryByRegion返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AdvancedFilter;
+
                 /**
                 * DescribePrefetchTasks请求参数结构体
                 */

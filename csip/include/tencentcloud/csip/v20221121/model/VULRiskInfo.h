@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulImpactComponentInfo;
+
                 /**
                 * 漏洞风险信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VULRiskInfo();
-                    ~VULRiskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

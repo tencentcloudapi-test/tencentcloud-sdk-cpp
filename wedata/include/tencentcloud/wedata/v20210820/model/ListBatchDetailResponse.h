@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AsyncResourceVO;
+
                 /**
                 * ListBatchDetail返回参数结构体
                 */

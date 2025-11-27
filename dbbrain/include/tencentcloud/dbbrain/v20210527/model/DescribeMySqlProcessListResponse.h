@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MySqlProcess;
+                class StatisticInfo;
+
                 /**
                 * DescribeMySqlProcessList返回参数结构体
                 */

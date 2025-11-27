@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RollbackTask;
+
                 /**
                 * DescribeRollbackTaskDetail返回参数结构体
                 */

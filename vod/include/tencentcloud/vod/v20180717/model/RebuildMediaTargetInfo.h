@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RebuildMediaTargetVideoStream;
+                class RebuildMediaTargetAudioStream;
+
                 /**
                 * 画质重生目标参数
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     RebuildMediaTargetInfo();
-                    ~RebuildMediaTargetInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

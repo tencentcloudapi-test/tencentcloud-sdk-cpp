@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EntityStatus;
+
                 /**
                 * 安全模板绑定域名状态
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TemplateScope();
-                    ~TemplateScope() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

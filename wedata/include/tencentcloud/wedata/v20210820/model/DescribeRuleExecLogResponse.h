@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleExecLog;
+
                 /**
                 * DescribeRuleExecLog返回参数结构体
                 */

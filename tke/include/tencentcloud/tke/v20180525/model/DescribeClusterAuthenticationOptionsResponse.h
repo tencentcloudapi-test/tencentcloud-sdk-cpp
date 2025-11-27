@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServiceAccountAuthenticationOptions;
+                class OIDCConfigAuthenticationOptions;
+
                 /**
                 * DescribeClusterAuthenticationOptions返回参数结构体
                 */

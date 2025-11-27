@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 返回的质量数据，时间:值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TimeValue();
-                    ~TimeValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

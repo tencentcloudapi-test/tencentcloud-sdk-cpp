@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Option;
+
                 /**
                 * hpa的描述
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HorizontalPodAutoscaler();
-                    ~HorizontalPodAutoscaler() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

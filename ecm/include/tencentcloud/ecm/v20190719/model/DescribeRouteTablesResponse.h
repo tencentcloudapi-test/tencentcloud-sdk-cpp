@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RouteTable;
+
                 /**
                 * DescribeRouteTables返回参数结构体
                 */

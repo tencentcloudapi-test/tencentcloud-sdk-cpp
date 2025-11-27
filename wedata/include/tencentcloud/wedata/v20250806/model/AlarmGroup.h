@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NotificationFatigue;
+                class AlarmWayWebHook;
+
                 /**
                 * 告警规则接收人配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AlarmGroup();
-                    ~AlarmGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

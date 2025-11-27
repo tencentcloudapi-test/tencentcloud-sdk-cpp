@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HighBaseLineRiskItem;
+
                 /**
                 * DescribeHighBaseLineRiskList返回参数结构体
                 */

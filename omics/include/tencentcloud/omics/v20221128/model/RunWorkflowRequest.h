@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GitInfo;
+                class NFOption;
+
                 /**
                 * RunWorkflow请求参数结构体
                 */

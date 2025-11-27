@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实时日志投递任务中的自定义日志字段。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CustomField();
-                    ~CustomField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

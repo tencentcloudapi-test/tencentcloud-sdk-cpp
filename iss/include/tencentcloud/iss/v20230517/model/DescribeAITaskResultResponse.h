@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AITaskResultData;
+
                 /**
                 * DescribeAITaskResult返回参数结构体
                 */

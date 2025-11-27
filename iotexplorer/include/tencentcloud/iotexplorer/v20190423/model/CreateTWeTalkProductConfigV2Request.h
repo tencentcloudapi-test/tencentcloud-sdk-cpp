@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TalkBasicConfigInfo;
+                class TalkSTTConfigInfo;
+                class TalkLLMConfigInfo;
+                class TalkTTSConfigInfo;
+                class TalkConversationConfigInfo;
+
                 /**
                 * CreateTWeTalkProductConfigV2请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceChargePrepaid;
+
                 /**
                 * RenewInstances请求参数结构体
                 */

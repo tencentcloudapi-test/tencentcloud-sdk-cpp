@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Invocation;
+
                 /**
                 * DescribeInvocations返回参数结构体
                 */

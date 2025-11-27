@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 合同审查个性化参数，用于控制页面的展示内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ContractReviewWebUrlOption();
-                    ~ContractReviewWebUrlOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

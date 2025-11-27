@@ -62,32 +62,25 @@ DbbrainClient::AddUserContactOutcome DbbrainClient::AddUserContact(const AddUser
 
 void DbbrainClient::AddUserContactAsync(const AddUserContactRequest& request, const AddUserContactAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddUserContactRequest&;
-    using Resp = AddUserContactResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddUserContact(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddUserContact", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::AddUserContactOutcomeCallable DbbrainClient::AddUserContactCallable(const AddUserContactRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddUserContactOutcome>>();
-    AddUserContactAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const AddUserContactRequest&,
-        AddUserContactOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddUserContactOutcome()>>(
+        [this, request]()
+        {
+            return this->AddUserContact(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::CreateDBDiagReportTaskOutcome DbbrainClient::CreateDBDiagReportTask(const CreateDBDiagReportTaskRequest &request)
@@ -112,32 +105,25 @@ DbbrainClient::CreateDBDiagReportTaskOutcome DbbrainClient::CreateDBDiagReportTa
 
 void DbbrainClient::CreateDBDiagReportTaskAsync(const CreateDBDiagReportTaskRequest& request, const CreateDBDiagReportTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDBDiagReportTaskRequest&;
-    using Resp = CreateDBDiagReportTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDBDiagReportTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDBDiagReportTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::CreateDBDiagReportTaskOutcomeCallable DbbrainClient::CreateDBDiagReportTaskCallable(const CreateDBDiagReportTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDBDiagReportTaskOutcome>>();
-    CreateDBDiagReportTaskAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const CreateDBDiagReportTaskRequest&,
-        CreateDBDiagReportTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDBDiagReportTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDBDiagReportTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::CreateDBDiagReportUrlOutcome DbbrainClient::CreateDBDiagReportUrl(const CreateDBDiagReportUrlRequest &request)
@@ -162,32 +148,25 @@ DbbrainClient::CreateDBDiagReportUrlOutcome DbbrainClient::CreateDBDiagReportUrl
 
 void DbbrainClient::CreateDBDiagReportUrlAsync(const CreateDBDiagReportUrlRequest& request, const CreateDBDiagReportUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDBDiagReportUrlRequest&;
-    using Resp = CreateDBDiagReportUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDBDiagReportUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDBDiagReportUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::CreateDBDiagReportUrlOutcomeCallable DbbrainClient::CreateDBDiagReportUrlCallable(const CreateDBDiagReportUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDBDiagReportUrlOutcome>>();
-    CreateDBDiagReportUrlAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const CreateDBDiagReportUrlRequest&,
-        CreateDBDiagReportUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDBDiagReportUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDBDiagReportUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::CreateMailProfileOutcome DbbrainClient::CreateMailProfile(const CreateMailProfileRequest &request)
@@ -212,32 +191,25 @@ DbbrainClient::CreateMailProfileOutcome DbbrainClient::CreateMailProfile(const C
 
 void DbbrainClient::CreateMailProfileAsync(const CreateMailProfileRequest& request, const CreateMailProfileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateMailProfileRequest&;
-    using Resp = CreateMailProfileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateMailProfile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateMailProfile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::CreateMailProfileOutcomeCallable DbbrainClient::CreateMailProfileCallable(const CreateMailProfileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateMailProfileOutcome>>();
-    CreateMailProfileAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const CreateMailProfileRequest&,
-        CreateMailProfileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateMailProfileOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateMailProfile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::CreateSchedulerMailProfileOutcome DbbrainClient::CreateSchedulerMailProfile(const CreateSchedulerMailProfileRequest &request)
@@ -262,32 +234,25 @@ DbbrainClient::CreateSchedulerMailProfileOutcome DbbrainClient::CreateSchedulerM
 
 void DbbrainClient::CreateSchedulerMailProfileAsync(const CreateSchedulerMailProfileRequest& request, const CreateSchedulerMailProfileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSchedulerMailProfileRequest&;
-    using Resp = CreateSchedulerMailProfileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSchedulerMailProfile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSchedulerMailProfile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::CreateSchedulerMailProfileOutcomeCallable DbbrainClient::CreateSchedulerMailProfileCallable(const CreateSchedulerMailProfileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSchedulerMailProfileOutcome>>();
-    CreateSchedulerMailProfileAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const CreateSchedulerMailProfileRequest&,
-        CreateSchedulerMailProfileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSchedulerMailProfileOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSchedulerMailProfile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::CreateSecurityAuditLogExportTaskOutcome DbbrainClient::CreateSecurityAuditLogExportTask(const CreateSecurityAuditLogExportTaskRequest &request)
@@ -312,32 +277,25 @@ DbbrainClient::CreateSecurityAuditLogExportTaskOutcome DbbrainClient::CreateSecu
 
 void DbbrainClient::CreateSecurityAuditLogExportTaskAsync(const CreateSecurityAuditLogExportTaskRequest& request, const CreateSecurityAuditLogExportTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSecurityAuditLogExportTaskRequest&;
-    using Resp = CreateSecurityAuditLogExportTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSecurityAuditLogExportTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSecurityAuditLogExportTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::CreateSecurityAuditLogExportTaskOutcomeCallable DbbrainClient::CreateSecurityAuditLogExportTaskCallable(const CreateSecurityAuditLogExportTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSecurityAuditLogExportTaskOutcome>>();
-    CreateSecurityAuditLogExportTaskAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const CreateSecurityAuditLogExportTaskRequest&,
-        CreateSecurityAuditLogExportTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSecurityAuditLogExportTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSecurityAuditLogExportTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DeleteSecurityAuditLogExportTasksOutcome DbbrainClient::DeleteSecurityAuditLogExportTasks(const DeleteSecurityAuditLogExportTasksRequest &request)
@@ -362,32 +320,25 @@ DbbrainClient::DeleteSecurityAuditLogExportTasksOutcome DbbrainClient::DeleteSec
 
 void DbbrainClient::DeleteSecurityAuditLogExportTasksAsync(const DeleteSecurityAuditLogExportTasksRequest& request, const DeleteSecurityAuditLogExportTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSecurityAuditLogExportTasksRequest&;
-    using Resp = DeleteSecurityAuditLogExportTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSecurityAuditLogExportTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSecurityAuditLogExportTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DeleteSecurityAuditLogExportTasksOutcomeCallable DbbrainClient::DeleteSecurityAuditLogExportTasksCallable(const DeleteSecurityAuditLogExportTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSecurityAuditLogExportTasksOutcome>>();
-    DeleteSecurityAuditLogExportTasksAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DeleteSecurityAuditLogExportTasksRequest&,
-        DeleteSecurityAuditLogExportTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSecurityAuditLogExportTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSecurityAuditLogExportTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeAllUserContactOutcome DbbrainClient::DescribeAllUserContact(const DescribeAllUserContactRequest &request)
@@ -412,32 +363,25 @@ DbbrainClient::DescribeAllUserContactOutcome DbbrainClient::DescribeAllUserConta
 
 void DbbrainClient::DescribeAllUserContactAsync(const DescribeAllUserContactRequest& request, const DescribeAllUserContactAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAllUserContactRequest&;
-    using Resp = DescribeAllUserContactResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAllUserContact(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAllUserContact", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeAllUserContactOutcomeCallable DbbrainClient::DescribeAllUserContactCallable(const DescribeAllUserContactRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAllUserContactOutcome>>();
-    DescribeAllUserContactAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeAllUserContactRequest&,
-        DescribeAllUserContactOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAllUserContactOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAllUserContact(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeAllUserGroupOutcome DbbrainClient::DescribeAllUserGroup(const DescribeAllUserGroupRequest &request)
@@ -462,32 +406,25 @@ DbbrainClient::DescribeAllUserGroupOutcome DbbrainClient::DescribeAllUserGroup(c
 
 void DbbrainClient::DescribeAllUserGroupAsync(const DescribeAllUserGroupRequest& request, const DescribeAllUserGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAllUserGroupRequest&;
-    using Resp = DescribeAllUserGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAllUserGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAllUserGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeAllUserGroupOutcomeCallable DbbrainClient::DescribeAllUserGroupCallable(const DescribeAllUserGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAllUserGroupOutcome>>();
-    DescribeAllUserGroupAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeAllUserGroupRequest&,
-        DescribeAllUserGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAllUserGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAllUserGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeDBDiagEventOutcome DbbrainClient::DescribeDBDiagEvent(const DescribeDBDiagEventRequest &request)
@@ -512,32 +449,25 @@ DbbrainClient::DescribeDBDiagEventOutcome DbbrainClient::DescribeDBDiagEvent(con
 
 void DbbrainClient::DescribeDBDiagEventAsync(const DescribeDBDiagEventRequest& request, const DescribeDBDiagEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBDiagEventRequest&;
-    using Resp = DescribeDBDiagEventResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBDiagEvent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBDiagEvent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeDBDiagEventOutcomeCallable DbbrainClient::DescribeDBDiagEventCallable(const DescribeDBDiagEventRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBDiagEventOutcome>>();
-    DescribeDBDiagEventAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeDBDiagEventRequest&,
-        DescribeDBDiagEventOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBDiagEventOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBDiagEvent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeDBDiagHistoryOutcome DbbrainClient::DescribeDBDiagHistory(const DescribeDBDiagHistoryRequest &request)
@@ -562,32 +492,25 @@ DbbrainClient::DescribeDBDiagHistoryOutcome DbbrainClient::DescribeDBDiagHistory
 
 void DbbrainClient::DescribeDBDiagHistoryAsync(const DescribeDBDiagHistoryRequest& request, const DescribeDBDiagHistoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBDiagHistoryRequest&;
-    using Resp = DescribeDBDiagHistoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBDiagHistory(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBDiagHistory", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeDBDiagHistoryOutcomeCallable DbbrainClient::DescribeDBDiagHistoryCallable(const DescribeDBDiagHistoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBDiagHistoryOutcome>>();
-    DescribeDBDiagHistoryAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeDBDiagHistoryRequest&,
-        DescribeDBDiagHistoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBDiagHistoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBDiagHistory(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeDBDiagReportTasksOutcome DbbrainClient::DescribeDBDiagReportTasks(const DescribeDBDiagReportTasksRequest &request)
@@ -612,32 +535,25 @@ DbbrainClient::DescribeDBDiagReportTasksOutcome DbbrainClient::DescribeDBDiagRep
 
 void DbbrainClient::DescribeDBDiagReportTasksAsync(const DescribeDBDiagReportTasksRequest& request, const DescribeDBDiagReportTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBDiagReportTasksRequest&;
-    using Resp = DescribeDBDiagReportTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBDiagReportTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBDiagReportTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeDBDiagReportTasksOutcomeCallable DbbrainClient::DescribeDBDiagReportTasksCallable(const DescribeDBDiagReportTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBDiagReportTasksOutcome>>();
-    DescribeDBDiagReportTasksAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeDBDiagReportTasksRequest&,
-        DescribeDBDiagReportTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBDiagReportTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBDiagReportTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeDBSpaceStatusOutcome DbbrainClient::DescribeDBSpaceStatus(const DescribeDBSpaceStatusRequest &request)
@@ -662,32 +578,25 @@ DbbrainClient::DescribeDBSpaceStatusOutcome DbbrainClient::DescribeDBSpaceStatus
 
 void DbbrainClient::DescribeDBSpaceStatusAsync(const DescribeDBSpaceStatusRequest& request, const DescribeDBSpaceStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBSpaceStatusRequest&;
-    using Resp = DescribeDBSpaceStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBSpaceStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBSpaceStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeDBSpaceStatusOutcomeCallable DbbrainClient::DescribeDBSpaceStatusCallable(const DescribeDBSpaceStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBSpaceStatusOutcome>>();
-    DescribeDBSpaceStatusAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeDBSpaceStatusRequest&,
-        DescribeDBSpaceStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBSpaceStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBSpaceStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeDiagDBInstancesOutcome DbbrainClient::DescribeDiagDBInstances(const DescribeDiagDBInstancesRequest &request)
@@ -712,32 +621,25 @@ DbbrainClient::DescribeDiagDBInstancesOutcome DbbrainClient::DescribeDiagDBInsta
 
 void DbbrainClient::DescribeDiagDBInstancesAsync(const DescribeDiagDBInstancesRequest& request, const DescribeDiagDBInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDiagDBInstancesRequest&;
-    using Resp = DescribeDiagDBInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDiagDBInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDiagDBInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeDiagDBInstancesOutcomeCallable DbbrainClient::DescribeDiagDBInstancesCallable(const DescribeDiagDBInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDiagDBInstancesOutcome>>();
-    DescribeDiagDBInstancesAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeDiagDBInstancesRequest&,
-        DescribeDiagDBInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDiagDBInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDiagDBInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeHealthScoreOutcome DbbrainClient::DescribeHealthScore(const DescribeHealthScoreRequest &request)
@@ -762,32 +664,25 @@ DbbrainClient::DescribeHealthScoreOutcome DbbrainClient::DescribeHealthScore(con
 
 void DbbrainClient::DescribeHealthScoreAsync(const DescribeHealthScoreRequest& request, const DescribeHealthScoreAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHealthScoreRequest&;
-    using Resp = DescribeHealthScoreResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHealthScore(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHealthScore", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeHealthScoreOutcomeCallable DbbrainClient::DescribeHealthScoreCallable(const DescribeHealthScoreRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHealthScoreOutcome>>();
-    DescribeHealthScoreAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeHealthScoreRequest&,
-        DescribeHealthScoreOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHealthScoreOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHealthScore(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeMailProfileOutcome DbbrainClient::DescribeMailProfile(const DescribeMailProfileRequest &request)
@@ -812,32 +707,25 @@ DbbrainClient::DescribeMailProfileOutcome DbbrainClient::DescribeMailProfile(con
 
 void DbbrainClient::DescribeMailProfileAsync(const DescribeMailProfileRequest& request, const DescribeMailProfileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMailProfileRequest&;
-    using Resp = DescribeMailProfileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMailProfile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMailProfile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeMailProfileOutcomeCallable DbbrainClient::DescribeMailProfileCallable(const DescribeMailProfileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMailProfileOutcome>>();
-    DescribeMailProfileAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeMailProfileRequest&,
-        DescribeMailProfileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMailProfileOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMailProfile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeMySqlProcessListOutcome DbbrainClient::DescribeMySqlProcessList(const DescribeMySqlProcessListRequest &request)
@@ -862,32 +750,25 @@ DbbrainClient::DescribeMySqlProcessListOutcome DbbrainClient::DescribeMySqlProce
 
 void DbbrainClient::DescribeMySqlProcessListAsync(const DescribeMySqlProcessListRequest& request, const DescribeMySqlProcessListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMySqlProcessListRequest&;
-    using Resp = DescribeMySqlProcessListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMySqlProcessList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMySqlProcessList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeMySqlProcessListOutcomeCallable DbbrainClient::DescribeMySqlProcessListCallable(const DescribeMySqlProcessListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMySqlProcessListOutcome>>();
-    DescribeMySqlProcessListAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeMySqlProcessListRequest&,
-        DescribeMySqlProcessListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMySqlProcessListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMySqlProcessList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeSecurityAuditLogDownloadUrlsOutcome DbbrainClient::DescribeSecurityAuditLogDownloadUrls(const DescribeSecurityAuditLogDownloadUrlsRequest &request)
@@ -912,32 +793,25 @@ DbbrainClient::DescribeSecurityAuditLogDownloadUrlsOutcome DbbrainClient::Descri
 
 void DbbrainClient::DescribeSecurityAuditLogDownloadUrlsAsync(const DescribeSecurityAuditLogDownloadUrlsRequest& request, const DescribeSecurityAuditLogDownloadUrlsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityAuditLogDownloadUrlsRequest&;
-    using Resp = DescribeSecurityAuditLogDownloadUrlsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityAuditLogDownloadUrls(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityAuditLogDownloadUrls", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeSecurityAuditLogDownloadUrlsOutcomeCallable DbbrainClient::DescribeSecurityAuditLogDownloadUrlsCallable(const DescribeSecurityAuditLogDownloadUrlsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityAuditLogDownloadUrlsOutcome>>();
-    DescribeSecurityAuditLogDownloadUrlsAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeSecurityAuditLogDownloadUrlsRequest&,
-        DescribeSecurityAuditLogDownloadUrlsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityAuditLogDownloadUrlsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityAuditLogDownloadUrls(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeSecurityAuditLogExportTasksOutcome DbbrainClient::DescribeSecurityAuditLogExportTasks(const DescribeSecurityAuditLogExportTasksRequest &request)
@@ -962,32 +836,25 @@ DbbrainClient::DescribeSecurityAuditLogExportTasksOutcome DbbrainClient::Describ
 
 void DbbrainClient::DescribeSecurityAuditLogExportTasksAsync(const DescribeSecurityAuditLogExportTasksRequest& request, const DescribeSecurityAuditLogExportTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityAuditLogExportTasksRequest&;
-    using Resp = DescribeSecurityAuditLogExportTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityAuditLogExportTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityAuditLogExportTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeSecurityAuditLogExportTasksOutcomeCallable DbbrainClient::DescribeSecurityAuditLogExportTasksCallable(const DescribeSecurityAuditLogExportTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityAuditLogExportTasksOutcome>>();
-    DescribeSecurityAuditLogExportTasksAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeSecurityAuditLogExportTasksRequest&,
-        DescribeSecurityAuditLogExportTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityAuditLogExportTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityAuditLogExportTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeSlowLogTimeSeriesStatsOutcome DbbrainClient::DescribeSlowLogTimeSeriesStats(const DescribeSlowLogTimeSeriesStatsRequest &request)
@@ -1012,32 +879,25 @@ DbbrainClient::DescribeSlowLogTimeSeriesStatsOutcome DbbrainClient::DescribeSlow
 
 void DbbrainClient::DescribeSlowLogTimeSeriesStatsAsync(const DescribeSlowLogTimeSeriesStatsRequest& request, const DescribeSlowLogTimeSeriesStatsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSlowLogTimeSeriesStatsRequest&;
-    using Resp = DescribeSlowLogTimeSeriesStatsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSlowLogTimeSeriesStats(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSlowLogTimeSeriesStats", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeSlowLogTimeSeriesStatsOutcomeCallable DbbrainClient::DescribeSlowLogTimeSeriesStatsCallable(const DescribeSlowLogTimeSeriesStatsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSlowLogTimeSeriesStatsOutcome>>();
-    DescribeSlowLogTimeSeriesStatsAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeSlowLogTimeSeriesStatsRequest&,
-        DescribeSlowLogTimeSeriesStatsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSlowLogTimeSeriesStatsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSlowLogTimeSeriesStats(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeSlowLogTopSqlsOutcome DbbrainClient::DescribeSlowLogTopSqls(const DescribeSlowLogTopSqlsRequest &request)
@@ -1062,32 +922,25 @@ DbbrainClient::DescribeSlowLogTopSqlsOutcome DbbrainClient::DescribeSlowLogTopSq
 
 void DbbrainClient::DescribeSlowLogTopSqlsAsync(const DescribeSlowLogTopSqlsRequest& request, const DescribeSlowLogTopSqlsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSlowLogTopSqlsRequest&;
-    using Resp = DescribeSlowLogTopSqlsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSlowLogTopSqls(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSlowLogTopSqls", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeSlowLogTopSqlsOutcomeCallable DbbrainClient::DescribeSlowLogTopSqlsCallable(const DescribeSlowLogTopSqlsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSlowLogTopSqlsOutcome>>();
-    DescribeSlowLogTopSqlsAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeSlowLogTopSqlsRequest&,
-        DescribeSlowLogTopSqlsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSlowLogTopSqlsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSlowLogTopSqls(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeSlowLogUserHostStatsOutcome DbbrainClient::DescribeSlowLogUserHostStats(const DescribeSlowLogUserHostStatsRequest &request)
@@ -1112,32 +965,25 @@ DbbrainClient::DescribeSlowLogUserHostStatsOutcome DbbrainClient::DescribeSlowLo
 
 void DbbrainClient::DescribeSlowLogUserHostStatsAsync(const DescribeSlowLogUserHostStatsRequest& request, const DescribeSlowLogUserHostStatsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSlowLogUserHostStatsRequest&;
-    using Resp = DescribeSlowLogUserHostStatsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSlowLogUserHostStats(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSlowLogUserHostStats", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeSlowLogUserHostStatsOutcomeCallable DbbrainClient::DescribeSlowLogUserHostStatsCallable(const DescribeSlowLogUserHostStatsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSlowLogUserHostStatsOutcome>>();
-    DescribeSlowLogUserHostStatsAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeSlowLogUserHostStatsRequest&,
-        DescribeSlowLogUserHostStatsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSlowLogUserHostStatsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSlowLogUserHostStats(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeTopSpaceSchemaTimeSeriesOutcome DbbrainClient::DescribeTopSpaceSchemaTimeSeries(const DescribeTopSpaceSchemaTimeSeriesRequest &request)
@@ -1162,32 +1008,25 @@ DbbrainClient::DescribeTopSpaceSchemaTimeSeriesOutcome DbbrainClient::DescribeTo
 
 void DbbrainClient::DescribeTopSpaceSchemaTimeSeriesAsync(const DescribeTopSpaceSchemaTimeSeriesRequest& request, const DescribeTopSpaceSchemaTimeSeriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopSpaceSchemaTimeSeriesRequest&;
-    using Resp = DescribeTopSpaceSchemaTimeSeriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopSpaceSchemaTimeSeries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopSpaceSchemaTimeSeries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeTopSpaceSchemaTimeSeriesOutcomeCallable DbbrainClient::DescribeTopSpaceSchemaTimeSeriesCallable(const DescribeTopSpaceSchemaTimeSeriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopSpaceSchemaTimeSeriesOutcome>>();
-    DescribeTopSpaceSchemaTimeSeriesAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeTopSpaceSchemaTimeSeriesRequest&,
-        DescribeTopSpaceSchemaTimeSeriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopSpaceSchemaTimeSeriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopSpaceSchemaTimeSeries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeTopSpaceSchemasOutcome DbbrainClient::DescribeTopSpaceSchemas(const DescribeTopSpaceSchemasRequest &request)
@@ -1212,32 +1051,25 @@ DbbrainClient::DescribeTopSpaceSchemasOutcome DbbrainClient::DescribeTopSpaceSch
 
 void DbbrainClient::DescribeTopSpaceSchemasAsync(const DescribeTopSpaceSchemasRequest& request, const DescribeTopSpaceSchemasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopSpaceSchemasRequest&;
-    using Resp = DescribeTopSpaceSchemasResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopSpaceSchemas(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopSpaceSchemas", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeTopSpaceSchemasOutcomeCallable DbbrainClient::DescribeTopSpaceSchemasCallable(const DescribeTopSpaceSchemasRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopSpaceSchemasOutcome>>();
-    DescribeTopSpaceSchemasAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeTopSpaceSchemasRequest&,
-        DescribeTopSpaceSchemasOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopSpaceSchemasOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopSpaceSchemas(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeTopSpaceTableTimeSeriesOutcome DbbrainClient::DescribeTopSpaceTableTimeSeries(const DescribeTopSpaceTableTimeSeriesRequest &request)
@@ -1262,32 +1094,25 @@ DbbrainClient::DescribeTopSpaceTableTimeSeriesOutcome DbbrainClient::DescribeTop
 
 void DbbrainClient::DescribeTopSpaceTableTimeSeriesAsync(const DescribeTopSpaceTableTimeSeriesRequest& request, const DescribeTopSpaceTableTimeSeriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopSpaceTableTimeSeriesRequest&;
-    using Resp = DescribeTopSpaceTableTimeSeriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopSpaceTableTimeSeries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopSpaceTableTimeSeries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeTopSpaceTableTimeSeriesOutcomeCallable DbbrainClient::DescribeTopSpaceTableTimeSeriesCallable(const DescribeTopSpaceTableTimeSeriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopSpaceTableTimeSeriesOutcome>>();
-    DescribeTopSpaceTableTimeSeriesAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeTopSpaceTableTimeSeriesRequest&,
-        DescribeTopSpaceTableTimeSeriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopSpaceTableTimeSeriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopSpaceTableTimeSeries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeTopSpaceTablesOutcome DbbrainClient::DescribeTopSpaceTables(const DescribeTopSpaceTablesRequest &request)
@@ -1312,32 +1137,25 @@ DbbrainClient::DescribeTopSpaceTablesOutcome DbbrainClient::DescribeTopSpaceTabl
 
 void DbbrainClient::DescribeTopSpaceTablesAsync(const DescribeTopSpaceTablesRequest& request, const DescribeTopSpaceTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopSpaceTablesRequest&;
-    using Resp = DescribeTopSpaceTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopSpaceTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopSpaceTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeTopSpaceTablesOutcomeCallable DbbrainClient::DescribeTopSpaceTablesCallable(const DescribeTopSpaceTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopSpaceTablesOutcome>>();
-    DescribeTopSpaceTablesAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeTopSpaceTablesRequest&,
-        DescribeTopSpaceTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopSpaceTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopSpaceTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::DescribeUserSqlAdviceOutcome DbbrainClient::DescribeUserSqlAdvice(const DescribeUserSqlAdviceRequest &request)
@@ -1362,32 +1180,25 @@ DbbrainClient::DescribeUserSqlAdviceOutcome DbbrainClient::DescribeUserSqlAdvice
 
 void DbbrainClient::DescribeUserSqlAdviceAsync(const DescribeUserSqlAdviceRequest& request, const DescribeUserSqlAdviceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserSqlAdviceRequest&;
-    using Resp = DescribeUserSqlAdviceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserSqlAdvice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserSqlAdvice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::DescribeUserSqlAdviceOutcomeCallable DbbrainClient::DescribeUserSqlAdviceCallable(const DescribeUserSqlAdviceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserSqlAdviceOutcome>>();
-    DescribeUserSqlAdviceAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const DescribeUserSqlAdviceRequest&,
-        DescribeUserSqlAdviceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserSqlAdviceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserSqlAdvice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DbbrainClient::ModifyDiagDBInstanceConfOutcome DbbrainClient::ModifyDiagDBInstanceConf(const ModifyDiagDBInstanceConfRequest &request)
@@ -1412,31 +1223,24 @@ DbbrainClient::ModifyDiagDBInstanceConfOutcome DbbrainClient::ModifyDiagDBInstan
 
 void DbbrainClient::ModifyDiagDBInstanceConfAsync(const ModifyDiagDBInstanceConfRequest& request, const ModifyDiagDBInstanceConfAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDiagDBInstanceConfRequest&;
-    using Resp = ModifyDiagDBInstanceConfResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDiagDBInstanceConf(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDiagDBInstanceConf", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DbbrainClient::ModifyDiagDBInstanceConfOutcomeCallable DbbrainClient::ModifyDiagDBInstanceConfCallable(const ModifyDiagDBInstanceConfRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDiagDBInstanceConfOutcome>>();
-    ModifyDiagDBInstanceConfAsync(
-    request,
-    [prom](
-        const DbbrainClient*,
-        const ModifyDiagDBInstanceConfRequest&,
-        ModifyDiagDBInstanceConfOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDiagDBInstanceConfOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDiagDBInstanceConf(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

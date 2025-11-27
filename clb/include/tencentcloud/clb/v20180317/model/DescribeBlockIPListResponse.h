@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BlockedIP;
+
                 /**
                 * DescribeBlockIPList返回参数结构体
                 */

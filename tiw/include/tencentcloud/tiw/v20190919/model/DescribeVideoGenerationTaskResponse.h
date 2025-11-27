@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoInfo;
+
                 /**
                 * DescribeVideoGenerationTask返回参数结构体
                 */

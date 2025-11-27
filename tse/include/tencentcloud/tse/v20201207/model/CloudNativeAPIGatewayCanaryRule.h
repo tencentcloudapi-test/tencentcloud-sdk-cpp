@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudNativeAPIGatewayCanaryRuleCondition;
+                class CloudNativeAPIGatewayBalancedService;
+
                 /**
                 * 灰度规则
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudNativeAPIGatewayCanaryRule();
-                    ~CloudNativeAPIGatewayCanaryRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

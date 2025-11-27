@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DockerActivity;
+
                 /**
                 * DescribeDockerActivities返回参数结构体
                 */

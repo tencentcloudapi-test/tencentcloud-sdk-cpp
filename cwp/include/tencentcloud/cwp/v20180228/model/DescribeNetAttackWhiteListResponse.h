@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetAttackWhiteRule;
+
                 /**
                 * DescribeNetAttackWhiteList返回参数结构体
                 */

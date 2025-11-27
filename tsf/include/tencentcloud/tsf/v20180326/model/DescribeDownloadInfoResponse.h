@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosDownloadInfo;
+
                 /**
                 * DescribeDownloadInfo返回参数结构体
                 */

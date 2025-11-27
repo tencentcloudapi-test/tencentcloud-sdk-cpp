@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class SingleSignOnEmployees;
+                class Agent;
+
                 /**
                 * CreateSingleSignOnEmployees请求参数结构体
                 */

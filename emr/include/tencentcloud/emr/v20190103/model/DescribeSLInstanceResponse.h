@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ZoneSetting;
+                class Tag;
+                class SLInstance;
+
                 /**
                 * DescribeSLInstance返回参数结构体
                 */

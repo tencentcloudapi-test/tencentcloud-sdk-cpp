@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 同步任务的目标地域列表，包括地域和集群信息。如果集群为空，表示公有云共享集群，如果集群不为空，表示独享集群。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DestinationSyncConfig();
-                    ~DestinationSyncConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

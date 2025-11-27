@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实例操作记录流程任务中的子任务信息（如升级检查任务中的各个检查项）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SubTaskDetail();
-                    ~SubTaskDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

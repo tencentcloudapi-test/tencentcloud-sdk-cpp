@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FaceRect;
+
                 /**
                 * CreatePerson返回参数结构体
                 */

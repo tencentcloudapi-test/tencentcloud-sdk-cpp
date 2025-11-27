@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EksCluster;
+
                 /**
                 * DescribeEKSClusters返回参数结构体
                 */

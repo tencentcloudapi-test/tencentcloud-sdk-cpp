@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TargetRegionInfo;
+                class InternetAccessible;
+
                 /**
                 * ModifyLoadBalancerAttributes请求参数结构体
                 */

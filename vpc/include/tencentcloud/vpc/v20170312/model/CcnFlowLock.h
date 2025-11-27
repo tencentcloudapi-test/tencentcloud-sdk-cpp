@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 云联网限速实例锁对象，该对象特用于运营端使用，用于封禁实例流量。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CcnFlowLock();
-                    ~CcnFlowLock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

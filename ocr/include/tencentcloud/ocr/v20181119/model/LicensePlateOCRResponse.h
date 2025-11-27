@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Rect;
+                class LicensePlateInfo;
+
                 /**
                 * LicensePlateOCR返回参数结构体
                 */

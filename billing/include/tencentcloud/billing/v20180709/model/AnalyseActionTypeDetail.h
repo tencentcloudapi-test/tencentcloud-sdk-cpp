@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 成本分析交易类型复杂类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AnalyseActionTypeDetail();
-                    ~AnalyseActionTypeDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

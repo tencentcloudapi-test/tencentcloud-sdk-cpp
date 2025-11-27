@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * FetchSqlGatewayStatementResult请求参数结构体
                 */

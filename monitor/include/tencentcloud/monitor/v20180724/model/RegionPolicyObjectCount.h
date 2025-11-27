@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribePolicyObjectCount接口返回的地域统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RegionPolicyObjectCount();
-                    ~RegionPolicyObjectCount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DrmStreamingsInfo;
+                class ResolutionNameInfo;
+
                 /**
                 * CreateSuperPlayerConfig请求参数结构体
                 */

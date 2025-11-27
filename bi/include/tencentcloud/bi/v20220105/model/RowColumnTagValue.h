@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 行列权限标签出入参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RowColumnTagValue();
-                    ~RowColumnTagValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Position;
+                class TagInfo;
+                class LoadBalancerInternetAccessible;
+
                 /**
                 * 负载均衡实例信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     LoadBalancer();
-                    ~LoadBalancer() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

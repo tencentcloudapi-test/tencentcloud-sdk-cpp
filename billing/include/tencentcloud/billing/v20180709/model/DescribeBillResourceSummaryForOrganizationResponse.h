@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BillDistributionResourceSummary;
+
                 /**
                 * DescribeBillResourceSummaryForOrganization返回参数结构体
                 */

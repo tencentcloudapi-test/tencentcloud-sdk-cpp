@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Origin;
+                class Tag;
+
                 /**
                 * CDN域名简要信息。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DomainBriefInfo();
-                    ~DomainBriefInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

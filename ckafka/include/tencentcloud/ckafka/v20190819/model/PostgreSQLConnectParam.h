@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * PostgreSQL连接源参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PostgreSQLConnectParam();
-                    ~PostgreSQLConnectParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

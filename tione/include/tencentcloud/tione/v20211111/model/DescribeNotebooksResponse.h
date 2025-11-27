@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NotebookSetItem;
+
                 /**
                 * DescribeNotebooks返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpstreamHealthCheckerReqHeaders;
+
                 /**
                 * 后端通道健康检查参数配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     UpstreamHealthChecker();
-                    ~UpstreamHealthChecker() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

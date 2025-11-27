@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataRules;
+
                 /**
                 * 敏感识别任务RDB数据规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ScanTaskRDBRules();
-                    ~ScanTaskRDBRules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Limit;
+
                 /**
                 * 用户配额返回值
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RespLimit();
-                    ~RespLimit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

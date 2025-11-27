@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Environment;
+
                 /**
                 * DescribeEnvironments返回参数结构体
                 */

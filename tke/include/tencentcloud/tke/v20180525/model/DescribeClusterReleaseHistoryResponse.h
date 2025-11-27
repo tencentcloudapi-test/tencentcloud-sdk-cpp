@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReleaseHistory;
+
                 /**
                 * DescribeClusterReleaseHistory返回参数结构体
                 */

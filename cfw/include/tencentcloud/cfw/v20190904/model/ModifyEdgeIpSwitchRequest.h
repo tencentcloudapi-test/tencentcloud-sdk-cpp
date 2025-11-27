@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EdgeIpSwitch;
+
                 /**
                 * ModifyEdgeIpSwitch请求参数结构体
                 */

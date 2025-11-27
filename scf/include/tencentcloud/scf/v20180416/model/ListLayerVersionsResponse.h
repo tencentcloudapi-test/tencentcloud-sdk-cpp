@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LayerVersionInfo;
+
                 /**
                 * ListLayerVersions返回参数结构体
                 */

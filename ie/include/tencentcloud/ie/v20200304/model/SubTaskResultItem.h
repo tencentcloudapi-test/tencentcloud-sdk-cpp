@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FileInfo;
+
                 /**
                 * 画质重生子任务结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SubTaskResultItem();
-                    ~SubTaskResultItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

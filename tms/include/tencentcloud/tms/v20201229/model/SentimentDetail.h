@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 情感分析明细
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SentimentDetail();
-                    ~SentimentDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

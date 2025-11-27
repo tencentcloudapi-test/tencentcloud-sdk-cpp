@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosFileUploadTrigger;
+                class AwsS3FileUploadTrigger;
+
                 /**
                 * 输入规则，当上传视频命中该规则时，即触发工作流。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowTrigger();
-                    ~WorkflowTrigger() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

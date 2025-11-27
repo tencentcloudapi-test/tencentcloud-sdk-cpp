@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BalanceTransaction;
+
                 /**
                 * DescribeBalanceTransactions返回参数结构体
                 */

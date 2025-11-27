@@ -53,6 +53,29 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CacheConfig;
+                class CacheKey;
+                class MaxAge;
+                class OfflineCache;
+                class Quic;
+                class PostMaxSize;
+                class Compression;
+                class UpstreamHttp2;
+                class ForceRedirect;
+                class Https;
+                class Origin;
+                class SmartRouting;
+                class WebSocket;
+                class ClientIpHeader;
+                class CachePrefresh;
+                class Ipv6;
+                class ClientIpCountry;
+                class Grpc;
+                class NetworkErrorLogging;
+                class ImageOptimize;
+                class StandardDebug;
+                class JITVideoProcess;
+
                 /**
                 * ModifyZoneSetting请求参数结构体
                 */

@@ -62,32 +62,25 @@ VmClient::CancelTaskOutcome VmClient::CancelTask(const CancelTaskRequest &reques
 
 void VmClient::CancelTaskAsync(const CancelTaskRequest& request, const CancelTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CancelTaskRequest&;
-    using Resp = CancelTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CancelTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CancelTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::CancelTaskOutcomeCallable VmClient::CancelTaskCallable(const CancelTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CancelTaskOutcome>>();
-    CancelTaskAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const CancelTaskRequest&,
-        CancelTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CancelTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CancelTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VmClient::CreateVideoModerationTaskOutcome VmClient::CreateVideoModerationTask(const CreateVideoModerationTaskRequest &request)
@@ -112,32 +105,25 @@ VmClient::CreateVideoModerationTaskOutcome VmClient::CreateVideoModerationTask(c
 
 void VmClient::CreateVideoModerationTaskAsync(const CreateVideoModerationTaskRequest& request, const CreateVideoModerationTaskAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVideoModerationTaskRequest&;
-    using Resp = CreateVideoModerationTaskResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVideoModerationTask(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVideoModerationTask", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::CreateVideoModerationTaskOutcomeCallable VmClient::CreateVideoModerationTaskCallable(const CreateVideoModerationTaskRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVideoModerationTaskOutcome>>();
-    CreateVideoModerationTaskAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const CreateVideoModerationTaskRequest&,
-        CreateVideoModerationTaskOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVideoModerationTaskOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVideoModerationTask(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VmClient::DescribeTaskDetailOutcome VmClient::DescribeTaskDetail(const DescribeTaskDetailRequest &request)
@@ -162,32 +148,25 @@ VmClient::DescribeTaskDetailOutcome VmClient::DescribeTaskDetail(const DescribeT
 
 void VmClient::DescribeTaskDetailAsync(const DescribeTaskDetailRequest& request, const DescribeTaskDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskDetailRequest&;
-    using Resp = DescribeTaskDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::DescribeTaskDetailOutcomeCallable VmClient::DescribeTaskDetailCallable(const DescribeTaskDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskDetailOutcome>>();
-    DescribeTaskDetailAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const DescribeTaskDetailRequest&,
-        DescribeTaskDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VmClient::DescribeTasksOutcome VmClient::DescribeTasks(const DescribeTasksRequest &request)
@@ -212,31 +191,24 @@ VmClient::DescribeTasksOutcome VmClient::DescribeTasks(const DescribeTasksReques
 
 void VmClient::DescribeTasksAsync(const DescribeTasksRequest& request, const DescribeTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTasksRequest&;
-    using Resp = DescribeTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VmClient::DescribeTasksOutcomeCallable VmClient::DescribeTasksCallable(const DescribeTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTasksOutcome>>();
-    DescribeTasksAsync(
-    request,
-    [prom](
-        const VmClient*,
-        const DescribeTasksRequest&,
-        DescribeTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

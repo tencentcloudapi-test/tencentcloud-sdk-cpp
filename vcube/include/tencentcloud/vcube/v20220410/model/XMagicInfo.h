@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RenewResource;
+
                 /**
                 * 查询返回的优图信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     XMagicInfo();
-                    ~XMagicInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

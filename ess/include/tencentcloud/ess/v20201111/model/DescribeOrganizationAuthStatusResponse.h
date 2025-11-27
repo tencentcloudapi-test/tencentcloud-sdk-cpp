@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuthRecord;
+
                 /**
                 * DescribeOrganizationAuthStatus返回参数结构体
                 */

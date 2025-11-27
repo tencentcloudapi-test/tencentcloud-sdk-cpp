@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpdateFolderResult;
+
                 /**
                 * UpdateResourceFolder返回参数结构体
                 */

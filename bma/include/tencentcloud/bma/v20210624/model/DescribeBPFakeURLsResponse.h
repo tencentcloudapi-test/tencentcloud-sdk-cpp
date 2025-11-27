@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FakeURLInfo;
+
                 /**
                 * DescribeBPFakeURLs返回参数结构体
                 */

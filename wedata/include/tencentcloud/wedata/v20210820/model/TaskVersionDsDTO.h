@@ -43,6 +43,16 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskDsDTO;
+                class ParameterTaskDsDto;
+                class ParameterTaskInDsDto;
+                class ParameterTaskOutDsDto;
+                class TaskLinkDsDTO;
+                class EventPublisherDTO;
+                class TaskDataRegistryDTO;
+                class TaskCycleLinkDTO;
+                class EventListenerDTO;
+
                 /**
                 * TaskVersionVO
                 */
@@ -50,7 +60,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskVersionDsDTO();
-                    ~TaskVersionDsDTO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

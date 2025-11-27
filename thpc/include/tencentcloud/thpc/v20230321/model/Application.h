@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CommandItem;
+                class StorageMount;
+                class EnvVar;
+                class Docker;
+                class OutputRedirect;
+
                 /**
                 * 任务的应用环境配置信息。
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     Application();
-                    ~Application() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

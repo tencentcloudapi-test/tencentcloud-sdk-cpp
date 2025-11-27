@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 可用区属性项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SlaveZoneAttrItem();
-                    ~SlaveZoneAttrItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

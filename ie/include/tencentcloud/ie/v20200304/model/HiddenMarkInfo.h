@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosInfo;
+
                 /**
                 * 数字水印
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HiddenMarkInfo();
-                    ~HiddenMarkInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

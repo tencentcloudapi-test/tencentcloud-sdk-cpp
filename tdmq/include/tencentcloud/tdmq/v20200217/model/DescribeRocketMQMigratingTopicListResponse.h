@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MigrateTopic;
+
                 /**
                 * DescribeRocketMQMigratingTopicList返回参数结构体
                 */

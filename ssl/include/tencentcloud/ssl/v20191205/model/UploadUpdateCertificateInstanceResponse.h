@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpdateSyncProgress;
+
                 /**
                 * UploadUpdateCertificateInstance返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DrZoneInfo;
+
                 /**
                 * UpgradeDBInstance请求参数结构体
                 */

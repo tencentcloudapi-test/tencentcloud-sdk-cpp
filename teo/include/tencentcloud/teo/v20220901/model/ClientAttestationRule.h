@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceProfile;
+                class SecurityAction;
+
                 /**
                 * 客户端认证规则
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ClientAttestationRule();
-                    ~ClientAttestationRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

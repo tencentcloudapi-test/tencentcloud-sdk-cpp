@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeleteResult;
+
                 /**
                 * DeleteRoomMember返回参数结构体
                 */

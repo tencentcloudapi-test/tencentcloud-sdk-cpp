@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigReleaseLog;
+
                 /**
                 * TSF配置项发布日志分页对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageConfigReleaseLog();
-                    ~TsfPageConfigReleaseLog() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

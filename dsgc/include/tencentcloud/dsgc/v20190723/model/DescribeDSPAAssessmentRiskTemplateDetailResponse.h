@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssessmentRiskItem;
+
                 /**
                 * DescribeDSPAAssessmentRiskTemplateDetail返回参数结构体
                 */

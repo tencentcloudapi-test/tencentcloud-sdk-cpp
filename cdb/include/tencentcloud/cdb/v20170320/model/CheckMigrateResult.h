@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 迁移云盘版校验结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CheckMigrateResult();
-                    ~CheckMigrateResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageInfo;
+                class HandleParam;
+
                 /**
                 * ImageToClass请求参数结构体
                 */

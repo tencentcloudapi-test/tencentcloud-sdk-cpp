@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 竞价相关选项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpotMarketOptions();
-                    ~SpotMarketOptions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

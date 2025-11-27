@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulHostTopInfo;
+
                 /**
                 * DescribeVulHostTop返回参数结构体
                 */

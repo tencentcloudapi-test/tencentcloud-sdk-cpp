@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TranslationNatRuleDiff;
+
                 /**
                 * ModifyPrivateNatGatewayTranslationNatRule请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskSet;
+
                 /**
                 * DescribeTasks返回参数结构体
                 */

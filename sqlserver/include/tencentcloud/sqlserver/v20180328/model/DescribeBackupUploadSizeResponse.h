@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CosUploadBackupFile;
+
                 /**
                 * DescribeBackupUploadSize返回参数结构体
                 */

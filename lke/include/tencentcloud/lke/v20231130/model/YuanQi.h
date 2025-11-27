@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * //智能体应用可见范围，public-所有人可见 private-仅自己可见 share-通过分享可见
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     YuanQi();
-                    ~YuanQi() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

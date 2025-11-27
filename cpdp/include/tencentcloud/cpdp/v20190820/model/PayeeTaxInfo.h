@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PayeeTaxTemplateInfo;
+
                 /**
                 * 计税信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PayeeTaxInfo();
-                    ~PayeeTaxInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

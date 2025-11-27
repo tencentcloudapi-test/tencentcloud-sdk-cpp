@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateInstanceSpec;
+                class ChargeProperties;
+                class Tag;
+                class NetworkInfo;
+
                 /**
                 * CreateInstanceNew请求参数结构体
                 */

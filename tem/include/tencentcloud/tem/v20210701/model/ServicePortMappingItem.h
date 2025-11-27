@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 服务端口映射条目
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ServicePortMappingItem();
-                    ~ServicePortMappingItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

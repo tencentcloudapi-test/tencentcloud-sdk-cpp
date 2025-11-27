@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QueryExceedingInfoResult;
+
                 /**
                 * QueryExceedingInfo返回参数结构体
                 */

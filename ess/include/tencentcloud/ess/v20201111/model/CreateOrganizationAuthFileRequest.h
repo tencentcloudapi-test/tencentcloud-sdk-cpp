@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrganizationCommonInfo;
+                class Agent;
+                class UserInfo;
+
                 /**
                 * CreateOrganizationAuthFile请求参数结构体
                 */

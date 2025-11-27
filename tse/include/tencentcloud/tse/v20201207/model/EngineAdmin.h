@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 引擎的初始管理账号，当前仅支持Apollo引擎
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EngineAdmin();
-                    ~EngineAdmin() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

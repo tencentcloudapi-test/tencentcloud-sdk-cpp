@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HistoryAccount;
+
                 /**
                 * DescribeHistoryAccounts返回参数结构体
                 */

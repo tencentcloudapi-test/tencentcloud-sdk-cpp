@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateRecordBatchDetail;
+
                 /**
                 * CreateRecordBatch返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BusinessCertificateInfo;
+
                 /**
                 * BizLicenseOCR返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网关实例协议端口列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GatewayInstanceSchemeAndPorts();
-                    ~GatewayInstanceSchemeAndPorts() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

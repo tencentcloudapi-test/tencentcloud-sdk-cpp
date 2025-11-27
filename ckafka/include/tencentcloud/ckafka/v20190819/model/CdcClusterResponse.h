@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 创建CDC 标准版共享集群出参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CdcClusterResponse();
-                    ~CdcClusterResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

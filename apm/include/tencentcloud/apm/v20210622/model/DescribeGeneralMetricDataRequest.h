@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GeneralFilter;
+                class OrderBy;
+
                 /**
                 * DescribeGeneralMetricData请求参数结构体
                 */

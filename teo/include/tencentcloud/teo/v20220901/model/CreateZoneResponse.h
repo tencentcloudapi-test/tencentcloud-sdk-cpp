@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OwnershipVerification;
+
                 /**
                 * CreateZone返回参数结构体
                 */

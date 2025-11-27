@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 片头片尾模板详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HeadTailTemplate();
-                    ~HeadTailTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

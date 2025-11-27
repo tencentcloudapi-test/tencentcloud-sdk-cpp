@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetSyncStatus;
+
                 /**
                 * DescribeUserSyncStatus返回参数结构体
                 */

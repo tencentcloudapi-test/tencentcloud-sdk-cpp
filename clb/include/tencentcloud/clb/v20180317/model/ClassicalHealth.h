@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 传统型负载均衡后端服务的健康状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClassicalHealth();
-                    ~ClassicalHealth() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

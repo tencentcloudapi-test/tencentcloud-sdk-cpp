@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 危疾重症
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CriticalInfo();
-                    ~CriticalInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class COSOptions;
+                class S3Options;
+
                 /**
                 * DeleteAndroidInstanceBackupFiles请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SessionCommand;
+
                 /**
                 * SearchSessionCommand返回参数结构体
                 */

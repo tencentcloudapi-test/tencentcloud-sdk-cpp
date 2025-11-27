@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LaneRules;
+
                 /**
                 * DescribeLaneRules返回参数结构体
                 */

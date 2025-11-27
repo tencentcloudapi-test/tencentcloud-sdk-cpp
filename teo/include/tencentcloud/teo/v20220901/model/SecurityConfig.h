@@ -45,6 +45,18 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WafConfig;
+                class RateLimitConfig;
+                class AclConfig;
+                class BotConfig;
+                class SwitchConfig;
+                class IpTableConfig;
+                class ExceptConfig;
+                class DropPageConfig;
+                class TemplateConfig;
+                class SlowPostConfig;
+                class DetectLengthLimitConfig;
+
                 /**
                 * Web安全配置
                 */
@@ -52,7 +64,6 @@ namespace TencentCloud
                 {
                 public:
                     SecurityConfig();
-                    ~SecurityConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

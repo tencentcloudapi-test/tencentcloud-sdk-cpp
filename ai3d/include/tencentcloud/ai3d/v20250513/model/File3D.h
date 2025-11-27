@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 3D文件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     File3D();
-                    ~File3D() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

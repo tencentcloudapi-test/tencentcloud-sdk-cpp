@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuthDomain;
+
                 /**
                 * DescribeAuthDomains返回参数结构体
                 */

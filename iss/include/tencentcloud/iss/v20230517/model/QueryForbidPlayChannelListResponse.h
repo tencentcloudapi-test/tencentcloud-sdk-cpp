@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListForbidplayChannelsData;
+
                 /**
                 * QueryForbidPlayChannelList返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KubeJarvisStateStatistic;
+
                 /**
                 * 集群巡检结果历史列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     KubeJarvisStateInspectionResultsItem();
-                    ~KubeJarvisStateInspectionResultsItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

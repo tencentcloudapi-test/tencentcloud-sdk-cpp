@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlgDetectResult;
+
                 /**
                 * Cookie校验与会话跟踪。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AlgDetectSession();
-                    ~AlgDetectSession() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

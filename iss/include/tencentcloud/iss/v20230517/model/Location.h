@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * AI识别结果在画面中坐标
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Location();
-                    ~Location() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

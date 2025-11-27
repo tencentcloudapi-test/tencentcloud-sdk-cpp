@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityAction;
+                class BotManagementActionOverrides;
+
                 /**
                 * IDC 规则配置的具体内容。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SourceIDC();
-                    ~SourceIDC() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,6 +37,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VPCSettings;
+                class CloudResource;
+                class CustomMetaDBInfo;
+                class Tag;
+                class LoginSettings;
+                class ExternalService;
+
                 /**
                 * CreateCloudInstance请求参数结构体
                 */

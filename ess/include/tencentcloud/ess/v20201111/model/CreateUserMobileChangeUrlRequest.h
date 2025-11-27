@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class Agent;
+
                 /**
                 * CreateUserMobileChangeUrl请求参数结构体
                 */

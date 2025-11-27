@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ViewShopResult;
+
                 /**
                 * ViewShop返回参数结构体
                 */

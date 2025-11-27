@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 互联网公网地址统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InternetAddressStatistics();
-                    ~InternetAddressStatistics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

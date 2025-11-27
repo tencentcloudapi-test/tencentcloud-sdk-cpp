@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AllocationTree;
+
                 /**
                 * DescribeAllocationTree返回参数结构体
                 */

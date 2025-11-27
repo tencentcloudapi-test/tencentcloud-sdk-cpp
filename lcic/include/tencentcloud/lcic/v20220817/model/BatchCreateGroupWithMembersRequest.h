@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupBaseInfo;
+
                 /**
                 * BatchCreateGroupWithMembers请求参数结构体
                 */

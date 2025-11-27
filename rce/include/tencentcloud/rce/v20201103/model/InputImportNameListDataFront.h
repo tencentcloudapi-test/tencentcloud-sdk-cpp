@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataContentInfo;
+
                 /**
                 * 添加名单数据入参
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InputImportNameListDataFront();
-                    ~InputImportNameListDataFront() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

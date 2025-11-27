@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowRef;
+
                 /**
                 * 标签值引用的工作流详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AttributeLabelRefByWorkflow();
-                    ~AttributeLabelRefByWorkflow() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

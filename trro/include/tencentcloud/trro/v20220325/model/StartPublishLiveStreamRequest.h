@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoParams;
+                class PublishParams;
+
                 /**
                 * StartPublishLiveStream请求参数结构体
                 */

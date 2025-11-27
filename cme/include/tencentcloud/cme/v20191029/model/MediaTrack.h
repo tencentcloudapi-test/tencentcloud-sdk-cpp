@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaTrackItem;
+
                 /**
                 * 轨道信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaTrack();
-                    ~MediaTrack() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

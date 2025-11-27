@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NationCountryInnerInfo;
+                class ProxyIdDict;
+
                 /**
                 * 域名解析就近访问配置详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DomainAccessRegionDict();
-                    ~DomainAccessRegionDict() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 体格检查
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PhysicalExam();
-                    ~PhysicalExam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

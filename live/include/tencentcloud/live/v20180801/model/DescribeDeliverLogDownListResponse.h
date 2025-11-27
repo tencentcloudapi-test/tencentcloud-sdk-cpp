@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PushLogInfo;
+
                 /**
                 * DescribeDeliverLogDownList返回参数结构体
                 */

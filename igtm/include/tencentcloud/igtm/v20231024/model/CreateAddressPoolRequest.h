@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Address;
+
                 /**
                 * CreateAddressPool请求参数结构体
                 */

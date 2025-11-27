@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateInstancePreData;
+
                 /**
                 * 预付费实例相关接口返回结构
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CreateInstancePreResp();
-                    ~CreateInstancePreResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

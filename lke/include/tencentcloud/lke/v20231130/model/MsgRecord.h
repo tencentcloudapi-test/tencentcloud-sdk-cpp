@@ -42,6 +42,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MsgRecordReference;
+                class TokenStat;
+                class TaskFlowInfo;
+                class FileInfo;
+                class QuoteInfo;
+                class AgentThought;
+                class ExtraInfo;
+                class WorkflowInfo;
+
                 /**
                 * 消息详情
                 */
@@ -49,7 +58,6 @@ namespace TencentCloud
                 {
                 public:
                     MsgRecord();
-                    ~MsgRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

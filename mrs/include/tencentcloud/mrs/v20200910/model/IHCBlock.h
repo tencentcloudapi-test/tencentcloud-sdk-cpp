@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ValueBlock;
+                class Coord;
+
                 /**
                 * IHC块
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     IHCBlock();
-                    ~IHCBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

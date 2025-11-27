@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SlotInfo;
+
                 /**
                 * TextReset返回参数结构体
                 */

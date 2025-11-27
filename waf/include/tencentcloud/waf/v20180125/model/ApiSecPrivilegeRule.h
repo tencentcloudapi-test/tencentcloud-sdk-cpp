@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiNameOp;
+
                 /**
                 * 自定义api鉴权规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ApiSecPrivilegeRule();
-                    ~ApiSecPrivilegeRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

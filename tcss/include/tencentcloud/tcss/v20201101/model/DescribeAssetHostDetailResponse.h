@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProjectInfo;
+                class TagInfo;
+
                 /**
                 * DescribeAssetHostDetail返回参数结构体
                 */

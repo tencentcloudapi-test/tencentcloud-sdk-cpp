@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaselineCategory;
+
                 /**
                 * DescribeBaselineRuleCategoryList返回参数结构体
                 */

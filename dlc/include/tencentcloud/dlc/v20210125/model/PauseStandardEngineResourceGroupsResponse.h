@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OperateEngineResourceGroupFailMessage;
+
                 /**
                 * PauseStandardEngineResourceGroups返回参数结构体
                 */

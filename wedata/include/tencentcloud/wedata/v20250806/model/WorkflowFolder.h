@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 文件夹信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowFolder();
-                    ~WorkflowFolder() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

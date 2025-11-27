@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class L4RuleSource;
+
                 /**
                 * 四层规则结构体
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     NewL4RuleEntry();
-                    ~NewL4RuleEntry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

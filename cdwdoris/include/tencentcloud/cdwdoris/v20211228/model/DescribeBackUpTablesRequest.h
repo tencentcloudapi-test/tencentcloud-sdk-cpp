@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DorisSourceInfo;
+                class CosSourceInfo;
+
                 /**
                 * DescribeBackUpTables请求参数结构体
                 */

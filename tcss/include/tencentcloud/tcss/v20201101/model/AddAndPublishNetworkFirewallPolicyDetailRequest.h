@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetworkCustomPolicy;
+
                 /**
                 * AddAndPublishNetworkFirewallPolicyDetail请求参数结构体
                 */

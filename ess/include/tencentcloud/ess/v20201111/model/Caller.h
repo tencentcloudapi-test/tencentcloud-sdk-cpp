@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 此结构体 (Caller) 用于描述调用方属性。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Caller();
-                    ~Caller() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

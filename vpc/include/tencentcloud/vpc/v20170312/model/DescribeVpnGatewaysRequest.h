@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FilterObject;
+
                 /**
                 * DescribeVpnGateways请求参数结构体
                 */

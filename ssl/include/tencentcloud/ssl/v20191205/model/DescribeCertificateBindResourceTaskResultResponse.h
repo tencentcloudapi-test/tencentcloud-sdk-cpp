@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SyncTaskBindResourceResult;
+
                 /**
                 * DescribeCertificateBindResourceTaskResult返回参数结构体
                 */

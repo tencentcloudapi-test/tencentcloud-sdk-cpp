@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiNameMethod;
+
                 /**
                 * 带有匹配方式的apiname列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ApiNameOp();
-                    ~ApiNameOp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

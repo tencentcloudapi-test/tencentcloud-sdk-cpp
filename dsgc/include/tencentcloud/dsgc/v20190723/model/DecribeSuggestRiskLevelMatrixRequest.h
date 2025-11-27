@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RiskMatrixLevel;
+
                 /**
                 * DecribeSuggestRiskLevelMatrix请求参数结构体
                 */

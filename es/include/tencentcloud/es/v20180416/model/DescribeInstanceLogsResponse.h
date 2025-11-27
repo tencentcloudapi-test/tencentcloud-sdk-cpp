@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceLog;
+
                 /**
                 * DescribeInstanceLogs返回参数结构体
                 */

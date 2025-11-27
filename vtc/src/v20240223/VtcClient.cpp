@@ -62,32 +62,25 @@ VtcClient::ConfirmVideoTranslateJobOutcome VtcClient::ConfirmVideoTranslateJob(c
 
 void VtcClient::ConfirmVideoTranslateJobAsync(const ConfirmVideoTranslateJobRequest& request, const ConfirmVideoTranslateJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ConfirmVideoTranslateJobRequest&;
-    using Resp = ConfirmVideoTranslateJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ConfirmVideoTranslateJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ConfirmVideoTranslateJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VtcClient::ConfirmVideoTranslateJobOutcomeCallable VtcClient::ConfirmVideoTranslateJobCallable(const ConfirmVideoTranslateJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ConfirmVideoTranslateJobOutcome>>();
-    ConfirmVideoTranslateJobAsync(
-    request,
-    [prom](
-        const VtcClient*,
-        const ConfirmVideoTranslateJobRequest&,
-        ConfirmVideoTranslateJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ConfirmVideoTranslateJobOutcome()>>(
+        [this, request]()
+        {
+            return this->ConfirmVideoTranslateJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VtcClient::DescribeVideoTranslateJobOutcome VtcClient::DescribeVideoTranslateJob(const DescribeVideoTranslateJobRequest &request)
@@ -112,32 +105,25 @@ VtcClient::DescribeVideoTranslateJobOutcome VtcClient::DescribeVideoTranslateJob
 
 void VtcClient::DescribeVideoTranslateJobAsync(const DescribeVideoTranslateJobRequest& request, const DescribeVideoTranslateJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVideoTranslateJobRequest&;
-    using Resp = DescribeVideoTranslateJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVideoTranslateJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVideoTranslateJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VtcClient::DescribeVideoTranslateJobOutcomeCallable VtcClient::DescribeVideoTranslateJobCallable(const DescribeVideoTranslateJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVideoTranslateJobOutcome>>();
-    DescribeVideoTranslateJobAsync(
-    request,
-    [prom](
-        const VtcClient*,
-        const DescribeVideoTranslateJobRequest&,
-        DescribeVideoTranslateJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVideoTranslateJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVideoTranslateJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VtcClient::SubmitVideoTranslateJobOutcome VtcClient::SubmitVideoTranslateJob(const SubmitVideoTranslateJobRequest &request)
@@ -162,31 +148,24 @@ VtcClient::SubmitVideoTranslateJobOutcome VtcClient::SubmitVideoTranslateJob(con
 
 void VtcClient::SubmitVideoTranslateJobAsync(const SubmitVideoTranslateJobRequest& request, const SubmitVideoTranslateJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SubmitVideoTranslateJobRequest&;
-    using Resp = SubmitVideoTranslateJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SubmitVideoTranslateJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SubmitVideoTranslateJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VtcClient::SubmitVideoTranslateJobOutcomeCallable VtcClient::SubmitVideoTranslateJobCallable(const SubmitVideoTranslateJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SubmitVideoTranslateJobOutcome>>();
-    SubmitVideoTranslateJobAsync(
-    request,
-    [prom](
-        const VtcClient*,
-        const SubmitVideoTranslateJobRequest&,
-        SubmitVideoTranslateJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SubmitVideoTranslateJobOutcome()>>(
+        [this, request]()
+        {
+            return this->SubmitVideoTranslateJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

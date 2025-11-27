@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TsfPageConfigReleaseLog;
+
                 /**
                 * DescribeConfigReleaseLogs返回参数结构体
                 */

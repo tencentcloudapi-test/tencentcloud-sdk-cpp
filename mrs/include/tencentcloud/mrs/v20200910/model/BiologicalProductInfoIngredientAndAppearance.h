@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 成份和性状
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BiologicalProductInfoIngredientAndAppearance();
-                    ~BiologicalProductInfoIngredientAndAppearance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

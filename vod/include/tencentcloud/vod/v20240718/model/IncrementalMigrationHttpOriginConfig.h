@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IncrementalMigrationHttpOriginInfo;
+                class IncrementalMigrationHttpOriginParameter;
+                class IncrementalMigrationHttpOriginCondition;
+
                 /**
                 * 增量迁移回源源站配置。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     IncrementalMigrationHttpOriginConfig();
-                    ~IncrementalMigrationHttpOriginConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

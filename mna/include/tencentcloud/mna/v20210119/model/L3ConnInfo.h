@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 三层互通规则信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     L3ConnInfo();
-                    ~L3ConnInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskOpsDto;
+                class LinkOpsDto;
+
                 /**
                 * 工作流画布详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowCanvasOpsDto();
-                    ~WorkflowCanvasOpsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

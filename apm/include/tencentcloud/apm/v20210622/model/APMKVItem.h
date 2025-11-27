@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * APM 通用 KV 结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     APMKVItem();
-                    ~APMKVItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

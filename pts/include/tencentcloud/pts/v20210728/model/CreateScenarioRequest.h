@@ -38,6 +38,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Load;
+                class TestData;
+                class ScriptInfo;
+                class ProtocolInfo;
+                class FileInfo;
+                class SLAPolicy;
+                class DomainNameConfig;
+
                 /**
                 * CreateScenario请求参数结构体
                 */

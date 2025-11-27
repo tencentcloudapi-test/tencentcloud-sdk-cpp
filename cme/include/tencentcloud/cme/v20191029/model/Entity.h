@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用于描述资源的归属，归属者为个人或者团队。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Entity();
-                    ~Entity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

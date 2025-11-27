@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Address;
+
                 /**
                 * DescribeIp6Addresses返回参数结构体
                 */

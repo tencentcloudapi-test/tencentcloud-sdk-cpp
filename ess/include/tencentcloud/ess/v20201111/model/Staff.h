@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StaffRole;
+                class Department;
+
                 /**
                 * 企业员工信息。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Staff();
-                    ~Staff() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

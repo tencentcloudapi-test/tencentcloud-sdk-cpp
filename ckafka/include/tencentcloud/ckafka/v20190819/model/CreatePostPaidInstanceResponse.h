@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateInstancePostResp;
+
                 /**
                 * CreatePostPaidInstance返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IpAccessControlParam;
+
                 /**
                 * ImportIpAccessControl请求参数结构体
                 */

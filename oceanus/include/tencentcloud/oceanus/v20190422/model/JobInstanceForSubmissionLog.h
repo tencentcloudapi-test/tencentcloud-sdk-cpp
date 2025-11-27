@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 搜索启动日志时返回的作业实例
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     JobInstanceForSubmissionLog();
-                    ~JobInstanceForSubmissionLog() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

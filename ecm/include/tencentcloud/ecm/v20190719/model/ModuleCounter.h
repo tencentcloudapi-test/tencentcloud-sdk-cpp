@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ISPCounter;
+
                 /**
                 * 节点统计数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ModuleCounter();
-                    ~ModuleCounter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

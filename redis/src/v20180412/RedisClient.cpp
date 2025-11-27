@@ -62,32 +62,25 @@ RedisClient::AddReplicationInstanceOutcome RedisClient::AddReplicationInstance(c
 
 void RedisClient::AddReplicationInstanceAsync(const AddReplicationInstanceRequest& request, const AddReplicationInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddReplicationInstanceRequest&;
-    using Resp = AddReplicationInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddReplicationInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddReplicationInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::AddReplicationInstanceOutcomeCallable RedisClient::AddReplicationInstanceCallable(const AddReplicationInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddReplicationInstanceOutcome>>();
-    AddReplicationInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const AddReplicationInstanceRequest&,
-        AddReplicationInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddReplicationInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->AddReplicationInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::AllocateWanAddressOutcome RedisClient::AllocateWanAddress(const AllocateWanAddressRequest &request)
@@ -112,32 +105,25 @@ RedisClient::AllocateWanAddressOutcome RedisClient::AllocateWanAddress(const All
 
 void RedisClient::AllocateWanAddressAsync(const AllocateWanAddressRequest& request, const AllocateWanAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AllocateWanAddressRequest&;
-    using Resp = AllocateWanAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AllocateWanAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AllocateWanAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::AllocateWanAddressOutcomeCallable RedisClient::AllocateWanAddressCallable(const AllocateWanAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AllocateWanAddressOutcome>>();
-    AllocateWanAddressAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const AllocateWanAddressRequest&,
-        AllocateWanAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AllocateWanAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->AllocateWanAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ApplyParamsTemplateOutcome RedisClient::ApplyParamsTemplate(const ApplyParamsTemplateRequest &request)
@@ -162,32 +148,25 @@ RedisClient::ApplyParamsTemplateOutcome RedisClient::ApplyParamsTemplate(const A
 
 void RedisClient::ApplyParamsTemplateAsync(const ApplyParamsTemplateRequest& request, const ApplyParamsTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ApplyParamsTemplateRequest&;
-    using Resp = ApplyParamsTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ApplyParamsTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ApplyParamsTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ApplyParamsTemplateOutcomeCallable RedisClient::ApplyParamsTemplateCallable(const ApplyParamsTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ApplyParamsTemplateOutcome>>();
-    ApplyParamsTemplateAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ApplyParamsTemplateRequest&,
-        ApplyParamsTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ApplyParamsTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ApplyParamsTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::AssociateSecurityGroupsOutcome RedisClient::AssociateSecurityGroups(const AssociateSecurityGroupsRequest &request)
@@ -212,32 +191,25 @@ RedisClient::AssociateSecurityGroupsOutcome RedisClient::AssociateSecurityGroups
 
 void RedisClient::AssociateSecurityGroupsAsync(const AssociateSecurityGroupsRequest& request, const AssociateSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateSecurityGroupsRequest&;
-    using Resp = AssociateSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::AssociateSecurityGroupsOutcomeCallable RedisClient::AssociateSecurityGroupsCallable(const AssociateSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateSecurityGroupsOutcome>>();
-    AssociateSecurityGroupsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const AssociateSecurityGroupsRequest&,
-        AssociateSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ChangeInstanceRoleOutcome RedisClient::ChangeInstanceRole(const ChangeInstanceRoleRequest &request)
@@ -262,32 +234,25 @@ RedisClient::ChangeInstanceRoleOutcome RedisClient::ChangeInstanceRole(const Cha
 
 void RedisClient::ChangeInstanceRoleAsync(const ChangeInstanceRoleRequest& request, const ChangeInstanceRoleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChangeInstanceRoleRequest&;
-    using Resp = ChangeInstanceRoleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChangeInstanceRole(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChangeInstanceRole", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ChangeInstanceRoleOutcomeCallable RedisClient::ChangeInstanceRoleCallable(const ChangeInstanceRoleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChangeInstanceRoleOutcome>>();
-    ChangeInstanceRoleAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ChangeInstanceRoleRequest&,
-        ChangeInstanceRoleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChangeInstanceRoleOutcome()>>(
+        [this, request]()
+        {
+            return this->ChangeInstanceRole(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ChangeMasterInstanceOutcome RedisClient::ChangeMasterInstance(const ChangeMasterInstanceRequest &request)
@@ -312,32 +277,25 @@ RedisClient::ChangeMasterInstanceOutcome RedisClient::ChangeMasterInstance(const
 
 void RedisClient::ChangeMasterInstanceAsync(const ChangeMasterInstanceRequest& request, const ChangeMasterInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChangeMasterInstanceRequest&;
-    using Resp = ChangeMasterInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChangeMasterInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChangeMasterInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ChangeMasterInstanceOutcomeCallable RedisClient::ChangeMasterInstanceCallable(const ChangeMasterInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChangeMasterInstanceOutcome>>();
-    ChangeMasterInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ChangeMasterInstanceRequest&,
-        ChangeMasterInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChangeMasterInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ChangeMasterInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ChangeReplicaToMasterOutcome RedisClient::ChangeReplicaToMaster(const ChangeReplicaToMasterRequest &request)
@@ -362,32 +320,25 @@ RedisClient::ChangeReplicaToMasterOutcome RedisClient::ChangeReplicaToMaster(con
 
 void RedisClient::ChangeReplicaToMasterAsync(const ChangeReplicaToMasterRequest& request, const ChangeReplicaToMasterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChangeReplicaToMasterRequest&;
-    using Resp = ChangeReplicaToMasterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChangeReplicaToMaster(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChangeReplicaToMaster", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ChangeReplicaToMasterOutcomeCallable RedisClient::ChangeReplicaToMasterCallable(const ChangeReplicaToMasterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChangeReplicaToMasterOutcome>>();
-    ChangeReplicaToMasterAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ChangeReplicaToMasterRequest&,
-        ChangeReplicaToMasterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChangeReplicaToMasterOutcome()>>(
+        [this, request]()
+        {
+            return this->ChangeReplicaToMaster(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::CleanUpInstanceOutcome RedisClient::CleanUpInstance(const CleanUpInstanceRequest &request)
@@ -412,32 +363,25 @@ RedisClient::CleanUpInstanceOutcome RedisClient::CleanUpInstance(const CleanUpIn
 
 void RedisClient::CleanUpInstanceAsync(const CleanUpInstanceRequest& request, const CleanUpInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CleanUpInstanceRequest&;
-    using Resp = CleanUpInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CleanUpInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CleanUpInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::CleanUpInstanceOutcomeCallable RedisClient::CleanUpInstanceCallable(const CleanUpInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CleanUpInstanceOutcome>>();
-    CleanUpInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const CleanUpInstanceRequest&,
-        CleanUpInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CleanUpInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CleanUpInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ClearInstanceOutcome RedisClient::ClearInstance(const ClearInstanceRequest &request)
@@ -462,32 +406,25 @@ RedisClient::ClearInstanceOutcome RedisClient::ClearInstance(const ClearInstance
 
 void RedisClient::ClearInstanceAsync(const ClearInstanceRequest& request, const ClearInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ClearInstanceRequest&;
-    using Resp = ClearInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ClearInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ClearInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ClearInstanceOutcomeCallable RedisClient::ClearInstanceCallable(const ClearInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ClearInstanceOutcome>>();
-    ClearInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ClearInstanceRequest&,
-        ClearInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ClearInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ClearInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::CloneInstancesOutcome RedisClient::CloneInstances(const CloneInstancesRequest &request)
@@ -512,32 +449,25 @@ RedisClient::CloneInstancesOutcome RedisClient::CloneInstances(const CloneInstan
 
 void RedisClient::CloneInstancesAsync(const CloneInstancesRequest& request, const CloneInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloneInstancesRequest&;
-    using Resp = CloneInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloneInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloneInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::CloneInstancesOutcomeCallable RedisClient::CloneInstancesCallable(const CloneInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloneInstancesOutcome>>();
-    CloneInstancesAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const CloneInstancesRequest&,
-        CloneInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloneInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->CloneInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::CloseSSLOutcome RedisClient::CloseSSL(const CloseSSLRequest &request)
@@ -562,32 +492,25 @@ RedisClient::CloseSSLOutcome RedisClient::CloseSSL(const CloseSSLRequest &reques
 
 void RedisClient::CloseSSLAsync(const CloseSSLRequest& request, const CloseSSLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloseSSLRequest&;
-    using Resp = CloseSSLResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloseSSL(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloseSSL", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::CloseSSLOutcomeCallable RedisClient::CloseSSLCallable(const CloseSSLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloseSSLOutcome>>();
-    CloseSSLAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const CloseSSLRequest&,
-        CloseSSLOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloseSSLOutcome()>>(
+        [this, request]()
+        {
+            return this->CloseSSL(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::CreateInstanceAccountOutcome RedisClient::CreateInstanceAccount(const CreateInstanceAccountRequest &request)
@@ -612,32 +535,25 @@ RedisClient::CreateInstanceAccountOutcome RedisClient::CreateInstanceAccount(con
 
 void RedisClient::CreateInstanceAccountAsync(const CreateInstanceAccountRequest& request, const CreateInstanceAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateInstanceAccountRequest&;
-    using Resp = CreateInstanceAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateInstanceAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateInstanceAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::CreateInstanceAccountOutcomeCallable RedisClient::CreateInstanceAccountCallable(const CreateInstanceAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateInstanceAccountOutcome>>();
-    CreateInstanceAccountAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const CreateInstanceAccountRequest&,
-        CreateInstanceAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateInstanceAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateInstanceAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::CreateInstancesOutcome RedisClient::CreateInstances(const CreateInstancesRequest &request)
@@ -662,32 +578,25 @@ RedisClient::CreateInstancesOutcome RedisClient::CreateInstances(const CreateIns
 
 void RedisClient::CreateInstancesAsync(const CreateInstancesRequest& request, const CreateInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateInstancesRequest&;
-    using Resp = CreateInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::CreateInstancesOutcomeCallable RedisClient::CreateInstancesCallable(const CreateInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateInstancesOutcome>>();
-    CreateInstancesAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const CreateInstancesRequest&,
-        CreateInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::CreateParamTemplateOutcome RedisClient::CreateParamTemplate(const CreateParamTemplateRequest &request)
@@ -712,32 +621,25 @@ RedisClient::CreateParamTemplateOutcome RedisClient::CreateParamTemplate(const C
 
 void RedisClient::CreateParamTemplateAsync(const CreateParamTemplateRequest& request, const CreateParamTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateParamTemplateRequest&;
-    using Resp = CreateParamTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateParamTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateParamTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::CreateParamTemplateOutcomeCallable RedisClient::CreateParamTemplateCallable(const CreateParamTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateParamTemplateOutcome>>();
-    CreateParamTemplateAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const CreateParamTemplateRequest&,
-        CreateParamTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateParamTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateParamTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::CreateReplicationGroupOutcome RedisClient::CreateReplicationGroup(const CreateReplicationGroupRequest &request)
@@ -762,32 +664,25 @@ RedisClient::CreateReplicationGroupOutcome RedisClient::CreateReplicationGroup(c
 
 void RedisClient::CreateReplicationGroupAsync(const CreateReplicationGroupRequest& request, const CreateReplicationGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateReplicationGroupRequest&;
-    using Resp = CreateReplicationGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateReplicationGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateReplicationGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::CreateReplicationGroupOutcomeCallable RedisClient::CreateReplicationGroupCallable(const CreateReplicationGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateReplicationGroupOutcome>>();
-    CreateReplicationGroupAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const CreateReplicationGroupRequest&,
-        CreateReplicationGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateReplicationGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateReplicationGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DeleteInstanceAccountOutcome RedisClient::DeleteInstanceAccount(const DeleteInstanceAccountRequest &request)
@@ -812,32 +707,25 @@ RedisClient::DeleteInstanceAccountOutcome RedisClient::DeleteInstanceAccount(con
 
 void RedisClient::DeleteInstanceAccountAsync(const DeleteInstanceAccountRequest& request, const DeleteInstanceAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteInstanceAccountRequest&;
-    using Resp = DeleteInstanceAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteInstanceAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteInstanceAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DeleteInstanceAccountOutcomeCallable RedisClient::DeleteInstanceAccountCallable(const DeleteInstanceAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteInstanceAccountOutcome>>();
-    DeleteInstanceAccountAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DeleteInstanceAccountRequest&,
-        DeleteInstanceAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteInstanceAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteInstanceAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DeleteParamTemplateOutcome RedisClient::DeleteParamTemplate(const DeleteParamTemplateRequest &request)
@@ -862,32 +750,25 @@ RedisClient::DeleteParamTemplateOutcome RedisClient::DeleteParamTemplate(const D
 
 void RedisClient::DeleteParamTemplateAsync(const DeleteParamTemplateRequest& request, const DeleteParamTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteParamTemplateRequest&;
-    using Resp = DeleteParamTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteParamTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteParamTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DeleteParamTemplateOutcomeCallable RedisClient::DeleteParamTemplateCallable(const DeleteParamTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteParamTemplateOutcome>>();
-    DeleteParamTemplateAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DeleteParamTemplateRequest&,
-        DeleteParamTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteParamTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteParamTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DeleteReplicationInstanceOutcome RedisClient::DeleteReplicationInstance(const DeleteReplicationInstanceRequest &request)
@@ -912,32 +793,25 @@ RedisClient::DeleteReplicationInstanceOutcome RedisClient::DeleteReplicationInst
 
 void RedisClient::DeleteReplicationInstanceAsync(const DeleteReplicationInstanceRequest& request, const DeleteReplicationInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteReplicationInstanceRequest&;
-    using Resp = DeleteReplicationInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteReplicationInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteReplicationInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DeleteReplicationInstanceOutcomeCallable RedisClient::DeleteReplicationInstanceCallable(const DeleteReplicationInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteReplicationInstanceOutcome>>();
-    DeleteReplicationInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DeleteReplicationInstanceRequest&,
-        DeleteReplicationInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteReplicationInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteReplicationInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeAutoBackupConfigOutcome RedisClient::DescribeAutoBackupConfig(const DescribeAutoBackupConfigRequest &request)
@@ -962,32 +836,25 @@ RedisClient::DescribeAutoBackupConfigOutcome RedisClient::DescribeAutoBackupConf
 
 void RedisClient::DescribeAutoBackupConfigAsync(const DescribeAutoBackupConfigRequest& request, const DescribeAutoBackupConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAutoBackupConfigRequest&;
-    using Resp = DescribeAutoBackupConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAutoBackupConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAutoBackupConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeAutoBackupConfigOutcomeCallable RedisClient::DescribeAutoBackupConfigCallable(const DescribeAutoBackupConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAutoBackupConfigOutcome>>();
-    DescribeAutoBackupConfigAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeAutoBackupConfigRequest&,
-        DescribeAutoBackupConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAutoBackupConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAutoBackupConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeBackupDetailOutcome RedisClient::DescribeBackupDetail(const DescribeBackupDetailRequest &request)
@@ -1012,32 +879,25 @@ RedisClient::DescribeBackupDetailOutcome RedisClient::DescribeBackupDetail(const
 
 void RedisClient::DescribeBackupDetailAsync(const DescribeBackupDetailRequest& request, const DescribeBackupDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupDetailRequest&;
-    using Resp = DescribeBackupDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeBackupDetailOutcomeCallable RedisClient::DescribeBackupDetailCallable(const DescribeBackupDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupDetailOutcome>>();
-    DescribeBackupDetailAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeBackupDetailRequest&,
-        DescribeBackupDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeBackupDownloadRestrictionOutcome RedisClient::DescribeBackupDownloadRestriction(const DescribeBackupDownloadRestrictionRequest &request)
@@ -1062,32 +922,25 @@ RedisClient::DescribeBackupDownloadRestrictionOutcome RedisClient::DescribeBacku
 
 void RedisClient::DescribeBackupDownloadRestrictionAsync(const DescribeBackupDownloadRestrictionRequest& request, const DescribeBackupDownloadRestrictionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupDownloadRestrictionRequest&;
-    using Resp = DescribeBackupDownloadRestrictionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupDownloadRestriction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupDownloadRestriction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeBackupDownloadRestrictionOutcomeCallable RedisClient::DescribeBackupDownloadRestrictionCallable(const DescribeBackupDownloadRestrictionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupDownloadRestrictionOutcome>>();
-    DescribeBackupDownloadRestrictionAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeBackupDownloadRestrictionRequest&,
-        DescribeBackupDownloadRestrictionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupDownloadRestrictionOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupDownloadRestriction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeBackupUrlOutcome RedisClient::DescribeBackupUrl(const DescribeBackupUrlRequest &request)
@@ -1112,32 +965,25 @@ RedisClient::DescribeBackupUrlOutcome RedisClient::DescribeBackupUrl(const Descr
 
 void RedisClient::DescribeBackupUrlAsync(const DescribeBackupUrlRequest& request, const DescribeBackupUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBackupUrlRequest&;
-    using Resp = DescribeBackupUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBackupUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBackupUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeBackupUrlOutcomeCallable RedisClient::DescribeBackupUrlCallable(const DescribeBackupUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBackupUrlOutcome>>();
-    DescribeBackupUrlAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeBackupUrlRequest&,
-        DescribeBackupUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBackupUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBackupUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeBandwidthRangeOutcome RedisClient::DescribeBandwidthRange(const DescribeBandwidthRangeRequest &request)
@@ -1162,32 +1008,25 @@ RedisClient::DescribeBandwidthRangeOutcome RedisClient::DescribeBandwidthRange(c
 
 void RedisClient::DescribeBandwidthRangeAsync(const DescribeBandwidthRangeRequest& request, const DescribeBandwidthRangeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBandwidthRangeRequest&;
-    using Resp = DescribeBandwidthRangeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBandwidthRange(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBandwidthRange", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeBandwidthRangeOutcomeCallable RedisClient::DescribeBandwidthRangeCallable(const DescribeBandwidthRangeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBandwidthRangeOutcome>>();
-    DescribeBandwidthRangeAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeBandwidthRangeRequest&,
-        DescribeBandwidthRangeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBandwidthRangeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBandwidthRange(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeCommonDBInstancesOutcome RedisClient::DescribeCommonDBInstances(const DescribeCommonDBInstancesRequest &request)
@@ -1212,32 +1051,25 @@ RedisClient::DescribeCommonDBInstancesOutcome RedisClient::DescribeCommonDBInsta
 
 void RedisClient::DescribeCommonDBInstancesAsync(const DescribeCommonDBInstancesRequest& request, const DescribeCommonDBInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCommonDBInstancesRequest&;
-    using Resp = DescribeCommonDBInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCommonDBInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCommonDBInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeCommonDBInstancesOutcomeCallable RedisClient::DescribeCommonDBInstancesCallable(const DescribeCommonDBInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCommonDBInstancesOutcome>>();
-    DescribeCommonDBInstancesAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeCommonDBInstancesRequest&,
-        DescribeCommonDBInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCommonDBInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCommonDBInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeDBSecurityGroupsOutcome RedisClient::DescribeDBSecurityGroups(const DescribeDBSecurityGroupsRequest &request)
@@ -1262,32 +1094,25 @@ RedisClient::DescribeDBSecurityGroupsOutcome RedisClient::DescribeDBSecurityGrou
 
 void RedisClient::DescribeDBSecurityGroupsAsync(const DescribeDBSecurityGroupsRequest& request, const DescribeDBSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDBSecurityGroupsRequest&;
-    using Resp = DescribeDBSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDBSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDBSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeDBSecurityGroupsOutcomeCallable RedisClient::DescribeDBSecurityGroupsCallable(const DescribeDBSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDBSecurityGroupsOutcome>>();
-    DescribeDBSecurityGroupsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeDBSecurityGroupsRequest&,
-        DescribeDBSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDBSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDBSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeGlobalReplicationAreaOutcome RedisClient::DescribeGlobalReplicationArea(const DescribeGlobalReplicationAreaRequest &request)
@@ -1312,32 +1137,25 @@ RedisClient::DescribeGlobalReplicationAreaOutcome RedisClient::DescribeGlobalRep
 
 void RedisClient::DescribeGlobalReplicationAreaAsync(const DescribeGlobalReplicationAreaRequest& request, const DescribeGlobalReplicationAreaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGlobalReplicationAreaRequest&;
-    using Resp = DescribeGlobalReplicationAreaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGlobalReplicationArea(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGlobalReplicationArea", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeGlobalReplicationAreaOutcomeCallable RedisClient::DescribeGlobalReplicationAreaCallable(const DescribeGlobalReplicationAreaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGlobalReplicationAreaOutcome>>();
-    DescribeGlobalReplicationAreaAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeGlobalReplicationAreaRequest&,
-        DescribeGlobalReplicationAreaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGlobalReplicationAreaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGlobalReplicationArea(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceAccountOutcome RedisClient::DescribeInstanceAccount(const DescribeInstanceAccountRequest &request)
@@ -1362,32 +1180,25 @@ RedisClient::DescribeInstanceAccountOutcome RedisClient::DescribeInstanceAccount
 
 void RedisClient::DescribeInstanceAccountAsync(const DescribeInstanceAccountRequest& request, const DescribeInstanceAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceAccountRequest&;
-    using Resp = DescribeInstanceAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceAccountOutcomeCallable RedisClient::DescribeInstanceAccountCallable(const DescribeInstanceAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceAccountOutcome>>();
-    DescribeInstanceAccountAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceAccountRequest&,
-        DescribeInstanceAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceBackupsOutcome RedisClient::DescribeInstanceBackups(const DescribeInstanceBackupsRequest &request)
@@ -1412,32 +1223,25 @@ RedisClient::DescribeInstanceBackupsOutcome RedisClient::DescribeInstanceBackups
 
 void RedisClient::DescribeInstanceBackupsAsync(const DescribeInstanceBackupsRequest& request, const DescribeInstanceBackupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceBackupsRequest&;
-    using Resp = DescribeInstanceBackupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceBackups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceBackups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceBackupsOutcomeCallable RedisClient::DescribeInstanceBackupsCallable(const DescribeInstanceBackupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceBackupsOutcome>>();
-    DescribeInstanceBackupsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceBackupsRequest&,
-        DescribeInstanceBackupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceBackupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceBackups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceDTSInfoOutcome RedisClient::DescribeInstanceDTSInfo(const DescribeInstanceDTSInfoRequest &request)
@@ -1462,32 +1266,25 @@ RedisClient::DescribeInstanceDTSInfoOutcome RedisClient::DescribeInstanceDTSInfo
 
 void RedisClient::DescribeInstanceDTSInfoAsync(const DescribeInstanceDTSInfoRequest& request, const DescribeInstanceDTSInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceDTSInfoRequest&;
-    using Resp = DescribeInstanceDTSInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceDTSInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceDTSInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceDTSInfoOutcomeCallable RedisClient::DescribeInstanceDTSInfoCallable(const DescribeInstanceDTSInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceDTSInfoOutcome>>();
-    DescribeInstanceDTSInfoAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceDTSInfoRequest&,
-        DescribeInstanceDTSInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceDTSInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceDTSInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceDealDetailOutcome RedisClient::DescribeInstanceDealDetail(const DescribeInstanceDealDetailRequest &request)
@@ -1512,32 +1309,25 @@ RedisClient::DescribeInstanceDealDetailOutcome RedisClient::DescribeInstanceDeal
 
 void RedisClient::DescribeInstanceDealDetailAsync(const DescribeInstanceDealDetailRequest& request, const DescribeInstanceDealDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceDealDetailRequest&;
-    using Resp = DescribeInstanceDealDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceDealDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceDealDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceDealDetailOutcomeCallable RedisClient::DescribeInstanceDealDetailCallable(const DescribeInstanceDealDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceDealDetailOutcome>>();
-    DescribeInstanceDealDetailAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceDealDetailRequest&,
-        DescribeInstanceDealDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceDealDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceDealDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceEventsOutcome RedisClient::DescribeInstanceEvents(const DescribeInstanceEventsRequest &request)
@@ -1562,32 +1352,25 @@ RedisClient::DescribeInstanceEventsOutcome RedisClient::DescribeInstanceEvents(c
 
 void RedisClient::DescribeInstanceEventsAsync(const DescribeInstanceEventsRequest& request, const DescribeInstanceEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceEventsRequest&;
-    using Resp = DescribeInstanceEventsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceEvents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceEvents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceEventsOutcomeCallable RedisClient::DescribeInstanceEventsCallable(const DescribeInstanceEventsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceEventsOutcome>>();
-    DescribeInstanceEventsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceEventsRequest&,
-        DescribeInstanceEventsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceEventsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceEvents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceLogDeliveryOutcome RedisClient::DescribeInstanceLogDelivery(const DescribeInstanceLogDeliveryRequest &request)
@@ -1612,32 +1395,25 @@ RedisClient::DescribeInstanceLogDeliveryOutcome RedisClient::DescribeInstanceLog
 
 void RedisClient::DescribeInstanceLogDeliveryAsync(const DescribeInstanceLogDeliveryRequest& request, const DescribeInstanceLogDeliveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceLogDeliveryRequest&;
-    using Resp = DescribeInstanceLogDeliveryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceLogDelivery(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceLogDelivery", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceLogDeliveryOutcomeCallable RedisClient::DescribeInstanceLogDeliveryCallable(const DescribeInstanceLogDeliveryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceLogDeliveryOutcome>>();
-    DescribeInstanceLogDeliveryAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceLogDeliveryRequest&,
-        DescribeInstanceLogDeliveryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceLogDeliveryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceLogDelivery(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceMonitorBigKeyOutcome RedisClient::DescribeInstanceMonitorBigKey(const DescribeInstanceMonitorBigKeyRequest &request)
@@ -1662,32 +1438,25 @@ RedisClient::DescribeInstanceMonitorBigKeyOutcome RedisClient::DescribeInstanceM
 
 void RedisClient::DescribeInstanceMonitorBigKeyAsync(const DescribeInstanceMonitorBigKeyRequest& request, const DescribeInstanceMonitorBigKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMonitorBigKeyRequest&;
-    using Resp = DescribeInstanceMonitorBigKeyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMonitorBigKey(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMonitorBigKey", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceMonitorBigKeyOutcomeCallable RedisClient::DescribeInstanceMonitorBigKeyCallable(const DescribeInstanceMonitorBigKeyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMonitorBigKeyOutcome>>();
-    DescribeInstanceMonitorBigKeyAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceMonitorBigKeyRequest&,
-        DescribeInstanceMonitorBigKeyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMonitorBigKeyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMonitorBigKey(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceMonitorBigKeySizeDistOutcome RedisClient::DescribeInstanceMonitorBigKeySizeDist(const DescribeInstanceMonitorBigKeySizeDistRequest &request)
@@ -1712,32 +1481,25 @@ RedisClient::DescribeInstanceMonitorBigKeySizeDistOutcome RedisClient::DescribeI
 
 void RedisClient::DescribeInstanceMonitorBigKeySizeDistAsync(const DescribeInstanceMonitorBigKeySizeDistRequest& request, const DescribeInstanceMonitorBigKeySizeDistAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMonitorBigKeySizeDistRequest&;
-    using Resp = DescribeInstanceMonitorBigKeySizeDistResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMonitorBigKeySizeDist(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMonitorBigKeySizeDist", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceMonitorBigKeySizeDistOutcomeCallable RedisClient::DescribeInstanceMonitorBigKeySizeDistCallable(const DescribeInstanceMonitorBigKeySizeDistRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMonitorBigKeySizeDistOutcome>>();
-    DescribeInstanceMonitorBigKeySizeDistAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceMonitorBigKeySizeDistRequest&,
-        DescribeInstanceMonitorBigKeySizeDistOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMonitorBigKeySizeDistOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMonitorBigKeySizeDist(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceMonitorBigKeyTypeDistOutcome RedisClient::DescribeInstanceMonitorBigKeyTypeDist(const DescribeInstanceMonitorBigKeyTypeDistRequest &request)
@@ -1762,32 +1524,25 @@ RedisClient::DescribeInstanceMonitorBigKeyTypeDistOutcome RedisClient::DescribeI
 
 void RedisClient::DescribeInstanceMonitorBigKeyTypeDistAsync(const DescribeInstanceMonitorBigKeyTypeDistRequest& request, const DescribeInstanceMonitorBigKeyTypeDistAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMonitorBigKeyTypeDistRequest&;
-    using Resp = DescribeInstanceMonitorBigKeyTypeDistResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMonitorBigKeyTypeDist(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMonitorBigKeyTypeDist", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceMonitorBigKeyTypeDistOutcomeCallable RedisClient::DescribeInstanceMonitorBigKeyTypeDistCallable(const DescribeInstanceMonitorBigKeyTypeDistRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMonitorBigKeyTypeDistOutcome>>();
-    DescribeInstanceMonitorBigKeyTypeDistAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceMonitorBigKeyTypeDistRequest&,
-        DescribeInstanceMonitorBigKeyTypeDistOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMonitorBigKeyTypeDistOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMonitorBigKeyTypeDist(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceMonitorHotKeyOutcome RedisClient::DescribeInstanceMonitorHotKey(const DescribeInstanceMonitorHotKeyRequest &request)
@@ -1812,32 +1567,25 @@ RedisClient::DescribeInstanceMonitorHotKeyOutcome RedisClient::DescribeInstanceM
 
 void RedisClient::DescribeInstanceMonitorHotKeyAsync(const DescribeInstanceMonitorHotKeyRequest& request, const DescribeInstanceMonitorHotKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMonitorHotKeyRequest&;
-    using Resp = DescribeInstanceMonitorHotKeyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMonitorHotKey(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMonitorHotKey", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceMonitorHotKeyOutcomeCallable RedisClient::DescribeInstanceMonitorHotKeyCallable(const DescribeInstanceMonitorHotKeyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMonitorHotKeyOutcome>>();
-    DescribeInstanceMonitorHotKeyAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceMonitorHotKeyRequest&,
-        DescribeInstanceMonitorHotKeyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMonitorHotKeyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMonitorHotKey(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceMonitorSIPOutcome RedisClient::DescribeInstanceMonitorSIP(const DescribeInstanceMonitorSIPRequest &request)
@@ -1862,32 +1610,25 @@ RedisClient::DescribeInstanceMonitorSIPOutcome RedisClient::DescribeInstanceMoni
 
 void RedisClient::DescribeInstanceMonitorSIPAsync(const DescribeInstanceMonitorSIPRequest& request, const DescribeInstanceMonitorSIPAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMonitorSIPRequest&;
-    using Resp = DescribeInstanceMonitorSIPResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMonitorSIP(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMonitorSIP", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceMonitorSIPOutcomeCallable RedisClient::DescribeInstanceMonitorSIPCallable(const DescribeInstanceMonitorSIPRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMonitorSIPOutcome>>();
-    DescribeInstanceMonitorSIPAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceMonitorSIPRequest&,
-        DescribeInstanceMonitorSIPOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMonitorSIPOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMonitorSIP(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceMonitorTookDistOutcome RedisClient::DescribeInstanceMonitorTookDist(const DescribeInstanceMonitorTookDistRequest &request)
@@ -1912,32 +1653,25 @@ RedisClient::DescribeInstanceMonitorTookDistOutcome RedisClient::DescribeInstanc
 
 void RedisClient::DescribeInstanceMonitorTookDistAsync(const DescribeInstanceMonitorTookDistRequest& request, const DescribeInstanceMonitorTookDistAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMonitorTookDistRequest&;
-    using Resp = DescribeInstanceMonitorTookDistResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMonitorTookDist(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMonitorTookDist", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceMonitorTookDistOutcomeCallable RedisClient::DescribeInstanceMonitorTookDistCallable(const DescribeInstanceMonitorTookDistRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMonitorTookDistOutcome>>();
-    DescribeInstanceMonitorTookDistAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceMonitorTookDistRequest&,
-        DescribeInstanceMonitorTookDistOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMonitorTookDistOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMonitorTookDist(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceMonitorTopNCmdOutcome RedisClient::DescribeInstanceMonitorTopNCmd(const DescribeInstanceMonitorTopNCmdRequest &request)
@@ -1962,32 +1696,25 @@ RedisClient::DescribeInstanceMonitorTopNCmdOutcome RedisClient::DescribeInstance
 
 void RedisClient::DescribeInstanceMonitorTopNCmdAsync(const DescribeInstanceMonitorTopNCmdRequest& request, const DescribeInstanceMonitorTopNCmdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMonitorTopNCmdRequest&;
-    using Resp = DescribeInstanceMonitorTopNCmdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMonitorTopNCmd(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMonitorTopNCmd", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceMonitorTopNCmdOutcomeCallable RedisClient::DescribeInstanceMonitorTopNCmdCallable(const DescribeInstanceMonitorTopNCmdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMonitorTopNCmdOutcome>>();
-    DescribeInstanceMonitorTopNCmdAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceMonitorTopNCmdRequest&,
-        DescribeInstanceMonitorTopNCmdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMonitorTopNCmdOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMonitorTopNCmd(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceMonitorTopNCmdTookOutcome RedisClient::DescribeInstanceMonitorTopNCmdTook(const DescribeInstanceMonitorTopNCmdTookRequest &request)
@@ -2012,32 +1739,25 @@ RedisClient::DescribeInstanceMonitorTopNCmdTookOutcome RedisClient::DescribeInst
 
 void RedisClient::DescribeInstanceMonitorTopNCmdTookAsync(const DescribeInstanceMonitorTopNCmdTookRequest& request, const DescribeInstanceMonitorTopNCmdTookAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceMonitorTopNCmdTookRequest&;
-    using Resp = DescribeInstanceMonitorTopNCmdTookResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceMonitorTopNCmdTook(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceMonitorTopNCmdTook", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceMonitorTopNCmdTookOutcomeCallable RedisClient::DescribeInstanceMonitorTopNCmdTookCallable(const DescribeInstanceMonitorTopNCmdTookRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceMonitorTopNCmdTookOutcome>>();
-    DescribeInstanceMonitorTopNCmdTookAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceMonitorTopNCmdTookRequest&,
-        DescribeInstanceMonitorTopNCmdTookOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceMonitorTopNCmdTookOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceMonitorTopNCmdTook(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceNodeInfoOutcome RedisClient::DescribeInstanceNodeInfo(const DescribeInstanceNodeInfoRequest &request)
@@ -2062,32 +1782,25 @@ RedisClient::DescribeInstanceNodeInfoOutcome RedisClient::DescribeInstanceNodeIn
 
 void RedisClient::DescribeInstanceNodeInfoAsync(const DescribeInstanceNodeInfoRequest& request, const DescribeInstanceNodeInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceNodeInfoRequest&;
-    using Resp = DescribeInstanceNodeInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceNodeInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceNodeInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceNodeInfoOutcomeCallable RedisClient::DescribeInstanceNodeInfoCallable(const DescribeInstanceNodeInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceNodeInfoOutcome>>();
-    DescribeInstanceNodeInfoAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceNodeInfoRequest&,
-        DescribeInstanceNodeInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceNodeInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceNodeInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceParamRecordsOutcome RedisClient::DescribeInstanceParamRecords(const DescribeInstanceParamRecordsRequest &request)
@@ -2112,32 +1825,25 @@ RedisClient::DescribeInstanceParamRecordsOutcome RedisClient::DescribeInstancePa
 
 void RedisClient::DescribeInstanceParamRecordsAsync(const DescribeInstanceParamRecordsRequest& request, const DescribeInstanceParamRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceParamRecordsRequest&;
-    using Resp = DescribeInstanceParamRecordsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceParamRecords(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceParamRecords", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceParamRecordsOutcomeCallable RedisClient::DescribeInstanceParamRecordsCallable(const DescribeInstanceParamRecordsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceParamRecordsOutcome>>();
-    DescribeInstanceParamRecordsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceParamRecordsRequest&,
-        DescribeInstanceParamRecordsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceParamRecordsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceParamRecords(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceParamsOutcome RedisClient::DescribeInstanceParams(const DescribeInstanceParamsRequest &request)
@@ -2162,32 +1868,25 @@ RedisClient::DescribeInstanceParamsOutcome RedisClient::DescribeInstanceParams(c
 
 void RedisClient::DescribeInstanceParamsAsync(const DescribeInstanceParamsRequest& request, const DescribeInstanceParamsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceParamsRequest&;
-    using Resp = DescribeInstanceParamsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceParams(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceParams", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceParamsOutcomeCallable RedisClient::DescribeInstanceParamsCallable(const DescribeInstanceParamsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceParamsOutcome>>();
-    DescribeInstanceParamsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceParamsRequest&,
-        DescribeInstanceParamsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceParamsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceParams(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceSecurityGroupOutcome RedisClient::DescribeInstanceSecurityGroup(const DescribeInstanceSecurityGroupRequest &request)
@@ -2212,32 +1911,25 @@ RedisClient::DescribeInstanceSecurityGroupOutcome RedisClient::DescribeInstanceS
 
 void RedisClient::DescribeInstanceSecurityGroupAsync(const DescribeInstanceSecurityGroupRequest& request, const DescribeInstanceSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceSecurityGroupRequest&;
-    using Resp = DescribeInstanceSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceSecurityGroupOutcomeCallable RedisClient::DescribeInstanceSecurityGroupCallable(const DescribeInstanceSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceSecurityGroupOutcome>>();
-    DescribeInstanceSecurityGroupAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceSecurityGroupRequest&,
-        DescribeInstanceSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceShardsOutcome RedisClient::DescribeInstanceShards(const DescribeInstanceShardsRequest &request)
@@ -2262,32 +1954,25 @@ RedisClient::DescribeInstanceShardsOutcome RedisClient::DescribeInstanceShards(c
 
 void RedisClient::DescribeInstanceShardsAsync(const DescribeInstanceShardsRequest& request, const DescribeInstanceShardsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceShardsRequest&;
-    using Resp = DescribeInstanceShardsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceShards(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceShards", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceShardsOutcomeCallable RedisClient::DescribeInstanceShardsCallable(const DescribeInstanceShardsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceShardsOutcome>>();
-    DescribeInstanceShardsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceShardsRequest&,
-        DescribeInstanceShardsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceShardsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceShards(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceSpecBandwidthOutcome RedisClient::DescribeInstanceSpecBandwidth(const DescribeInstanceSpecBandwidthRequest &request)
@@ -2312,32 +1997,25 @@ RedisClient::DescribeInstanceSpecBandwidthOutcome RedisClient::DescribeInstanceS
 
 void RedisClient::DescribeInstanceSpecBandwidthAsync(const DescribeInstanceSpecBandwidthRequest& request, const DescribeInstanceSpecBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceSpecBandwidthRequest&;
-    using Resp = DescribeInstanceSpecBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceSpecBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceSpecBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceSpecBandwidthOutcomeCallable RedisClient::DescribeInstanceSpecBandwidthCallable(const DescribeInstanceSpecBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceSpecBandwidthOutcome>>();
-    DescribeInstanceSpecBandwidthAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceSpecBandwidthRequest&,
-        DescribeInstanceSpecBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceSpecBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceSpecBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceSupportFeatureOutcome RedisClient::DescribeInstanceSupportFeature(const DescribeInstanceSupportFeatureRequest &request)
@@ -2362,32 +2040,25 @@ RedisClient::DescribeInstanceSupportFeatureOutcome RedisClient::DescribeInstance
 
 void RedisClient::DescribeInstanceSupportFeatureAsync(const DescribeInstanceSupportFeatureRequest& request, const DescribeInstanceSupportFeatureAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceSupportFeatureRequest&;
-    using Resp = DescribeInstanceSupportFeatureResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceSupportFeature(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceSupportFeature", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceSupportFeatureOutcomeCallable RedisClient::DescribeInstanceSupportFeatureCallable(const DescribeInstanceSupportFeatureRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceSupportFeatureOutcome>>();
-    DescribeInstanceSupportFeatureAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceSupportFeatureRequest&,
-        DescribeInstanceSupportFeatureOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceSupportFeatureOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceSupportFeature(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstanceZoneInfoOutcome RedisClient::DescribeInstanceZoneInfo(const DescribeInstanceZoneInfoRequest &request)
@@ -2412,32 +2083,25 @@ RedisClient::DescribeInstanceZoneInfoOutcome RedisClient::DescribeInstanceZoneIn
 
 void RedisClient::DescribeInstanceZoneInfoAsync(const DescribeInstanceZoneInfoRequest& request, const DescribeInstanceZoneInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceZoneInfoRequest&;
-    using Resp = DescribeInstanceZoneInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceZoneInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceZoneInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstanceZoneInfoOutcomeCallable RedisClient::DescribeInstanceZoneInfoCallable(const DescribeInstanceZoneInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceZoneInfoOutcome>>();
-    DescribeInstanceZoneInfoAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstanceZoneInfoRequest&,
-        DescribeInstanceZoneInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceZoneInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceZoneInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeInstancesOutcome RedisClient::DescribeInstances(const DescribeInstancesRequest &request)
@@ -2462,32 +2126,25 @@ RedisClient::DescribeInstancesOutcome RedisClient::DescribeInstances(const Descr
 
 void RedisClient::DescribeInstancesAsync(const DescribeInstancesRequest& request, const DescribeInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstancesRequest&;
-    using Resp = DescribeInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeInstancesOutcomeCallable RedisClient::DescribeInstancesCallable(const DescribeInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstancesOutcome>>();
-    DescribeInstancesAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeInstancesRequest&,
-        DescribeInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeMaintenanceWindowOutcome RedisClient::DescribeMaintenanceWindow(const DescribeMaintenanceWindowRequest &request)
@@ -2512,32 +2169,25 @@ RedisClient::DescribeMaintenanceWindowOutcome RedisClient::DescribeMaintenanceWi
 
 void RedisClient::DescribeMaintenanceWindowAsync(const DescribeMaintenanceWindowRequest& request, const DescribeMaintenanceWindowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMaintenanceWindowRequest&;
-    using Resp = DescribeMaintenanceWindowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMaintenanceWindow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMaintenanceWindow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeMaintenanceWindowOutcomeCallable RedisClient::DescribeMaintenanceWindowCallable(const DescribeMaintenanceWindowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMaintenanceWindowOutcome>>();
-    DescribeMaintenanceWindowAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeMaintenanceWindowRequest&,
-        DescribeMaintenanceWindowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMaintenanceWindowOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMaintenanceWindow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeParamTemplateInfoOutcome RedisClient::DescribeParamTemplateInfo(const DescribeParamTemplateInfoRequest &request)
@@ -2562,32 +2212,25 @@ RedisClient::DescribeParamTemplateInfoOutcome RedisClient::DescribeParamTemplate
 
 void RedisClient::DescribeParamTemplateInfoAsync(const DescribeParamTemplateInfoRequest& request, const DescribeParamTemplateInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeParamTemplateInfoRequest&;
-    using Resp = DescribeParamTemplateInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeParamTemplateInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeParamTemplateInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeParamTemplateInfoOutcomeCallable RedisClient::DescribeParamTemplateInfoCallable(const DescribeParamTemplateInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeParamTemplateInfoOutcome>>();
-    DescribeParamTemplateInfoAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeParamTemplateInfoRequest&,
-        DescribeParamTemplateInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeParamTemplateInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeParamTemplateInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeParamTemplatesOutcome RedisClient::DescribeParamTemplates(const DescribeParamTemplatesRequest &request)
@@ -2612,32 +2255,25 @@ RedisClient::DescribeParamTemplatesOutcome RedisClient::DescribeParamTemplates(c
 
 void RedisClient::DescribeParamTemplatesAsync(const DescribeParamTemplatesRequest& request, const DescribeParamTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeParamTemplatesRequest&;
-    using Resp = DescribeParamTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeParamTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeParamTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeParamTemplatesOutcomeCallable RedisClient::DescribeParamTemplatesCallable(const DescribeParamTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeParamTemplatesOutcome>>();
-    DescribeParamTemplatesAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeParamTemplatesRequest&,
-        DescribeParamTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeParamTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeParamTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeProductInfoOutcome RedisClient::DescribeProductInfo(const DescribeProductInfoRequest &request)
@@ -2662,32 +2298,25 @@ RedisClient::DescribeProductInfoOutcome RedisClient::DescribeProductInfo(const D
 
 void RedisClient::DescribeProductInfoAsync(const DescribeProductInfoRequest& request, const DescribeProductInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProductInfoRequest&;
-    using Resp = DescribeProductInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProductInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProductInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeProductInfoOutcomeCallable RedisClient::DescribeProductInfoCallable(const DescribeProductInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProductInfoOutcome>>();
-    DescribeProductInfoAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeProductInfoRequest&,
-        DescribeProductInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProductInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProductInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeProjectSecurityGroupOutcome RedisClient::DescribeProjectSecurityGroup(const DescribeProjectSecurityGroupRequest &request)
@@ -2712,32 +2341,25 @@ RedisClient::DescribeProjectSecurityGroupOutcome RedisClient::DescribeProjectSec
 
 void RedisClient::DescribeProjectSecurityGroupAsync(const DescribeProjectSecurityGroupRequest& request, const DescribeProjectSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProjectSecurityGroupRequest&;
-    using Resp = DescribeProjectSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProjectSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProjectSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeProjectSecurityGroupOutcomeCallable RedisClient::DescribeProjectSecurityGroupCallable(const DescribeProjectSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProjectSecurityGroupOutcome>>();
-    DescribeProjectSecurityGroupAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeProjectSecurityGroupRequest&,
-        DescribeProjectSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProjectSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProjectSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeProjectSecurityGroupsOutcome RedisClient::DescribeProjectSecurityGroups(const DescribeProjectSecurityGroupsRequest &request)
@@ -2762,32 +2384,25 @@ RedisClient::DescribeProjectSecurityGroupsOutcome RedisClient::DescribeProjectSe
 
 void RedisClient::DescribeProjectSecurityGroupsAsync(const DescribeProjectSecurityGroupsRequest& request, const DescribeProjectSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProjectSecurityGroupsRequest&;
-    using Resp = DescribeProjectSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProjectSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProjectSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeProjectSecurityGroupsOutcomeCallable RedisClient::DescribeProjectSecurityGroupsCallable(const DescribeProjectSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProjectSecurityGroupsOutcome>>();
-    DescribeProjectSecurityGroupsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeProjectSecurityGroupsRequest&,
-        DescribeProjectSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProjectSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProjectSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeProxySlowLogOutcome RedisClient::DescribeProxySlowLog(const DescribeProxySlowLogRequest &request)
@@ -2812,32 +2427,25 @@ RedisClient::DescribeProxySlowLogOutcome RedisClient::DescribeProxySlowLog(const
 
 void RedisClient::DescribeProxySlowLogAsync(const DescribeProxySlowLogRequest& request, const DescribeProxySlowLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProxySlowLogRequest&;
-    using Resp = DescribeProxySlowLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProxySlowLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProxySlowLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeProxySlowLogOutcomeCallable RedisClient::DescribeProxySlowLogCallable(const DescribeProxySlowLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProxySlowLogOutcome>>();
-    DescribeProxySlowLogAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeProxySlowLogRequest&,
-        DescribeProxySlowLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProxySlowLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProxySlowLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeRedisClusterOverviewOutcome RedisClient::DescribeRedisClusterOverview(const DescribeRedisClusterOverviewRequest &request)
@@ -2862,32 +2470,25 @@ RedisClient::DescribeRedisClusterOverviewOutcome RedisClient::DescribeRedisClust
 
 void RedisClient::DescribeRedisClusterOverviewAsync(const DescribeRedisClusterOverviewRequest& request, const DescribeRedisClusterOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRedisClusterOverviewRequest&;
-    using Resp = DescribeRedisClusterOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRedisClusterOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRedisClusterOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeRedisClusterOverviewOutcomeCallable RedisClient::DescribeRedisClusterOverviewCallable(const DescribeRedisClusterOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRedisClusterOverviewOutcome>>();
-    DescribeRedisClusterOverviewAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeRedisClusterOverviewRequest&,
-        DescribeRedisClusterOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRedisClusterOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRedisClusterOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeRedisClustersOutcome RedisClient::DescribeRedisClusters(const DescribeRedisClustersRequest &request)
@@ -2912,32 +2513,25 @@ RedisClient::DescribeRedisClustersOutcome RedisClient::DescribeRedisClusters(con
 
 void RedisClient::DescribeRedisClustersAsync(const DescribeRedisClustersRequest& request, const DescribeRedisClustersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRedisClustersRequest&;
-    using Resp = DescribeRedisClustersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRedisClusters(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRedisClusters", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeRedisClustersOutcomeCallable RedisClient::DescribeRedisClustersCallable(const DescribeRedisClustersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRedisClustersOutcome>>();
-    DescribeRedisClustersAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeRedisClustersRequest&,
-        DescribeRedisClustersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRedisClustersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRedisClusters(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeReplicationGroupOutcome RedisClient::DescribeReplicationGroup(const DescribeReplicationGroupRequest &request)
@@ -2962,32 +2556,25 @@ RedisClient::DescribeReplicationGroupOutcome RedisClient::DescribeReplicationGro
 
 void RedisClient::DescribeReplicationGroupAsync(const DescribeReplicationGroupRequest& request, const DescribeReplicationGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeReplicationGroupRequest&;
-    using Resp = DescribeReplicationGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeReplicationGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeReplicationGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeReplicationGroupOutcomeCallable RedisClient::DescribeReplicationGroupCallable(const DescribeReplicationGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeReplicationGroupOutcome>>();
-    DescribeReplicationGroupAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeReplicationGroupRequest&,
-        DescribeReplicationGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeReplicationGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeReplicationGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeReplicationGroupInstanceOutcome RedisClient::DescribeReplicationGroupInstance(const DescribeReplicationGroupInstanceRequest &request)
@@ -3012,32 +2599,25 @@ RedisClient::DescribeReplicationGroupInstanceOutcome RedisClient::DescribeReplic
 
 void RedisClient::DescribeReplicationGroupInstanceAsync(const DescribeReplicationGroupInstanceRequest& request, const DescribeReplicationGroupInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeReplicationGroupInstanceRequest&;
-    using Resp = DescribeReplicationGroupInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeReplicationGroupInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeReplicationGroupInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeReplicationGroupInstanceOutcomeCallable RedisClient::DescribeReplicationGroupInstanceCallable(const DescribeReplicationGroupInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeReplicationGroupInstanceOutcome>>();
-    DescribeReplicationGroupInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeReplicationGroupInstanceRequest&,
-        DescribeReplicationGroupInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeReplicationGroupInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeReplicationGroupInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeSSLStatusOutcome RedisClient::DescribeSSLStatus(const DescribeSSLStatusRequest &request)
@@ -3062,32 +2642,25 @@ RedisClient::DescribeSSLStatusOutcome RedisClient::DescribeSSLStatus(const Descr
 
 void RedisClient::DescribeSSLStatusAsync(const DescribeSSLStatusRequest& request, const DescribeSSLStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSSLStatusRequest&;
-    using Resp = DescribeSSLStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSSLStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSSLStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeSSLStatusOutcomeCallable RedisClient::DescribeSSLStatusCallable(const DescribeSSLStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSSLStatusOutcome>>();
-    DescribeSSLStatusAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeSSLStatusRequest&,
-        DescribeSSLStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSSLStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSSLStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeSecondLevelBackupInfoOutcome RedisClient::DescribeSecondLevelBackupInfo(const DescribeSecondLevelBackupInfoRequest &request)
@@ -3112,32 +2685,25 @@ RedisClient::DescribeSecondLevelBackupInfoOutcome RedisClient::DescribeSecondLev
 
 void RedisClient::DescribeSecondLevelBackupInfoAsync(const DescribeSecondLevelBackupInfoRequest& request, const DescribeSecondLevelBackupInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecondLevelBackupInfoRequest&;
-    using Resp = DescribeSecondLevelBackupInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecondLevelBackupInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecondLevelBackupInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeSecondLevelBackupInfoOutcomeCallable RedisClient::DescribeSecondLevelBackupInfoCallable(const DescribeSecondLevelBackupInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecondLevelBackupInfoOutcome>>();
-    DescribeSecondLevelBackupInfoAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeSecondLevelBackupInfoRequest&,
-        DescribeSecondLevelBackupInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecondLevelBackupInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecondLevelBackupInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeSlowLogOutcome RedisClient::DescribeSlowLog(const DescribeSlowLogRequest &request)
@@ -3162,32 +2728,25 @@ RedisClient::DescribeSlowLogOutcome RedisClient::DescribeSlowLog(const DescribeS
 
 void RedisClient::DescribeSlowLogAsync(const DescribeSlowLogRequest& request, const DescribeSlowLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSlowLogRequest&;
-    using Resp = DescribeSlowLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSlowLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSlowLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeSlowLogOutcomeCallable RedisClient::DescribeSlowLogCallable(const DescribeSlowLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSlowLogOutcome>>();
-    DescribeSlowLogAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeSlowLogRequest&,
-        DescribeSlowLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSlowLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSlowLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeTaskInfoOutcome RedisClient::DescribeTaskInfo(const DescribeTaskInfoRequest &request)
@@ -3212,32 +2771,25 @@ RedisClient::DescribeTaskInfoOutcome RedisClient::DescribeTaskInfo(const Describ
 
 void RedisClient::DescribeTaskInfoAsync(const DescribeTaskInfoRequest& request, const DescribeTaskInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskInfoRequest&;
-    using Resp = DescribeTaskInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeTaskInfoOutcomeCallable RedisClient::DescribeTaskInfoCallable(const DescribeTaskInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskInfoOutcome>>();
-    DescribeTaskInfoAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeTaskInfoRequest&,
-        DescribeTaskInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeTaskListOutcome RedisClient::DescribeTaskList(const DescribeTaskListRequest &request)
@@ -3262,32 +2814,25 @@ RedisClient::DescribeTaskListOutcome RedisClient::DescribeTaskList(const Describ
 
 void RedisClient::DescribeTaskListAsync(const DescribeTaskListRequest& request, const DescribeTaskListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskListRequest&;
-    using Resp = DescribeTaskListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeTaskListOutcomeCallable RedisClient::DescribeTaskListCallable(const DescribeTaskListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskListOutcome>>();
-    DescribeTaskListAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeTaskListRequest&,
-        DescribeTaskListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DescribeTendisSlowLogOutcome RedisClient::DescribeTendisSlowLog(const DescribeTendisSlowLogRequest &request)
@@ -3312,32 +2857,25 @@ RedisClient::DescribeTendisSlowLogOutcome RedisClient::DescribeTendisSlowLog(con
 
 void RedisClient::DescribeTendisSlowLogAsync(const DescribeTendisSlowLogRequest& request, const DescribeTendisSlowLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTendisSlowLogRequest&;
-    using Resp = DescribeTendisSlowLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTendisSlowLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTendisSlowLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DescribeTendisSlowLogOutcomeCallable RedisClient::DescribeTendisSlowLogCallable(const DescribeTendisSlowLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTendisSlowLogOutcome>>();
-    DescribeTendisSlowLogAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DescribeTendisSlowLogRequest&,
-        DescribeTendisSlowLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTendisSlowLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTendisSlowLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DestroyPostpaidInstanceOutcome RedisClient::DestroyPostpaidInstance(const DestroyPostpaidInstanceRequest &request)
@@ -3362,32 +2900,25 @@ RedisClient::DestroyPostpaidInstanceOutcome RedisClient::DestroyPostpaidInstance
 
 void RedisClient::DestroyPostpaidInstanceAsync(const DestroyPostpaidInstanceRequest& request, const DestroyPostpaidInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyPostpaidInstanceRequest&;
-    using Resp = DestroyPostpaidInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyPostpaidInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyPostpaidInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DestroyPostpaidInstanceOutcomeCallable RedisClient::DestroyPostpaidInstanceCallable(const DestroyPostpaidInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyPostpaidInstanceOutcome>>();
-    DestroyPostpaidInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DestroyPostpaidInstanceRequest&,
-        DestroyPostpaidInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyPostpaidInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyPostpaidInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DestroyPrepaidInstanceOutcome RedisClient::DestroyPrepaidInstance(const DestroyPrepaidInstanceRequest &request)
@@ -3412,32 +2943,25 @@ RedisClient::DestroyPrepaidInstanceOutcome RedisClient::DestroyPrepaidInstance(c
 
 void RedisClient::DestroyPrepaidInstanceAsync(const DestroyPrepaidInstanceRequest& request, const DestroyPrepaidInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyPrepaidInstanceRequest&;
-    using Resp = DestroyPrepaidInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyPrepaidInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyPrepaidInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DestroyPrepaidInstanceOutcomeCallable RedisClient::DestroyPrepaidInstanceCallable(const DestroyPrepaidInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyPrepaidInstanceOutcome>>();
-    DestroyPrepaidInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DestroyPrepaidInstanceRequest&,
-        DestroyPrepaidInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyPrepaidInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyPrepaidInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DisableReplicaReadonlyOutcome RedisClient::DisableReplicaReadonly(const DisableReplicaReadonlyRequest &request)
@@ -3462,32 +2986,25 @@ RedisClient::DisableReplicaReadonlyOutcome RedisClient::DisableReplicaReadonly(c
 
 void RedisClient::DisableReplicaReadonlyAsync(const DisableReplicaReadonlyRequest& request, const DisableReplicaReadonlyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableReplicaReadonlyRequest&;
-    using Resp = DisableReplicaReadonlyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableReplicaReadonly(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableReplicaReadonly", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DisableReplicaReadonlyOutcomeCallable RedisClient::DisableReplicaReadonlyCallable(const DisableReplicaReadonlyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableReplicaReadonlyOutcome>>();
-    DisableReplicaReadonlyAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DisableReplicaReadonlyRequest&,
-        DisableReplicaReadonlyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableReplicaReadonlyOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableReplicaReadonly(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::DisassociateSecurityGroupsOutcome RedisClient::DisassociateSecurityGroups(const DisassociateSecurityGroupsRequest &request)
@@ -3512,32 +3029,25 @@ RedisClient::DisassociateSecurityGroupsOutcome RedisClient::DisassociateSecurity
 
 void RedisClient::DisassociateSecurityGroupsAsync(const DisassociateSecurityGroupsRequest& request, const DisassociateSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateSecurityGroupsRequest&;
-    using Resp = DisassociateSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::DisassociateSecurityGroupsOutcomeCallable RedisClient::DisassociateSecurityGroupsCallable(const DisassociateSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateSecurityGroupsOutcome>>();
-    DisassociateSecurityGroupsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const DisassociateSecurityGroupsRequest&,
-        DisassociateSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::EnableReplicaReadonlyOutcome RedisClient::EnableReplicaReadonly(const EnableReplicaReadonlyRequest &request)
@@ -3562,32 +3072,25 @@ RedisClient::EnableReplicaReadonlyOutcome RedisClient::EnableReplicaReadonly(con
 
 void RedisClient::EnableReplicaReadonlyAsync(const EnableReplicaReadonlyRequest& request, const EnableReplicaReadonlyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableReplicaReadonlyRequest&;
-    using Resp = EnableReplicaReadonlyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableReplicaReadonly(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableReplicaReadonly", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::EnableReplicaReadonlyOutcomeCallable RedisClient::EnableReplicaReadonlyCallable(const EnableReplicaReadonlyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableReplicaReadonlyOutcome>>();
-    EnableReplicaReadonlyAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const EnableReplicaReadonlyRequest&,
-        EnableReplicaReadonlyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableReplicaReadonlyOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableReplicaReadonly(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::InquiryPriceCreateInstanceOutcome RedisClient::InquiryPriceCreateInstance(const InquiryPriceCreateInstanceRequest &request)
@@ -3612,32 +3115,25 @@ RedisClient::InquiryPriceCreateInstanceOutcome RedisClient::InquiryPriceCreateIn
 
 void RedisClient::InquiryPriceCreateInstanceAsync(const InquiryPriceCreateInstanceRequest& request, const InquiryPriceCreateInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceCreateInstanceRequest&;
-    using Resp = InquiryPriceCreateInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceCreateInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceCreateInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::InquiryPriceCreateInstanceOutcomeCallable RedisClient::InquiryPriceCreateInstanceCallable(const InquiryPriceCreateInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceCreateInstanceOutcome>>();
-    InquiryPriceCreateInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const InquiryPriceCreateInstanceRequest&,
-        InquiryPriceCreateInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceCreateInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceCreateInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::InquiryPriceRenewInstanceOutcome RedisClient::InquiryPriceRenewInstance(const InquiryPriceRenewInstanceRequest &request)
@@ -3662,32 +3158,25 @@ RedisClient::InquiryPriceRenewInstanceOutcome RedisClient::InquiryPriceRenewInst
 
 void RedisClient::InquiryPriceRenewInstanceAsync(const InquiryPriceRenewInstanceRequest& request, const InquiryPriceRenewInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceRenewInstanceRequest&;
-    using Resp = InquiryPriceRenewInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceRenewInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceRenewInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::InquiryPriceRenewInstanceOutcomeCallable RedisClient::InquiryPriceRenewInstanceCallable(const InquiryPriceRenewInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceRenewInstanceOutcome>>();
-    InquiryPriceRenewInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const InquiryPriceRenewInstanceRequest&,
-        InquiryPriceRenewInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceRenewInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceRenewInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::InquiryPriceUpgradeInstanceOutcome RedisClient::InquiryPriceUpgradeInstance(const InquiryPriceUpgradeInstanceRequest &request)
@@ -3712,32 +3201,25 @@ RedisClient::InquiryPriceUpgradeInstanceOutcome RedisClient::InquiryPriceUpgrade
 
 void RedisClient::InquiryPriceUpgradeInstanceAsync(const InquiryPriceUpgradeInstanceRequest& request, const InquiryPriceUpgradeInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceUpgradeInstanceRequest&;
-    using Resp = InquiryPriceUpgradeInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceUpgradeInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceUpgradeInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::InquiryPriceUpgradeInstanceOutcomeCallable RedisClient::InquiryPriceUpgradeInstanceCallable(const InquiryPriceUpgradeInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceUpgradeInstanceOutcome>>();
-    InquiryPriceUpgradeInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const InquiryPriceUpgradeInstanceRequest&,
-        InquiryPriceUpgradeInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceUpgradeInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceUpgradeInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::KillMasterGroupOutcome RedisClient::KillMasterGroup(const KillMasterGroupRequest &request)
@@ -3762,32 +3244,25 @@ RedisClient::KillMasterGroupOutcome RedisClient::KillMasterGroup(const KillMaste
 
 void RedisClient::KillMasterGroupAsync(const KillMasterGroupRequest& request, const KillMasterGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const KillMasterGroupRequest&;
-    using Resp = KillMasterGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->KillMasterGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "KillMasterGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::KillMasterGroupOutcomeCallable RedisClient::KillMasterGroupCallable(const KillMasterGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<KillMasterGroupOutcome>>();
-    KillMasterGroupAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const KillMasterGroupRequest&,
-        KillMasterGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<KillMasterGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->KillMasterGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ManualBackupInstanceOutcome RedisClient::ManualBackupInstance(const ManualBackupInstanceRequest &request)
@@ -3812,32 +3287,25 @@ RedisClient::ManualBackupInstanceOutcome RedisClient::ManualBackupInstance(const
 
 void RedisClient::ManualBackupInstanceAsync(const ManualBackupInstanceRequest& request, const ManualBackupInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ManualBackupInstanceRequest&;
-    using Resp = ManualBackupInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ManualBackupInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ManualBackupInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ManualBackupInstanceOutcomeCallable RedisClient::ManualBackupInstanceCallable(const ManualBackupInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ManualBackupInstanceOutcome>>();
-    ManualBackupInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ManualBackupInstanceRequest&,
-        ManualBackupInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ManualBackupInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ManualBackupInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModfiyInstancePasswordOutcome RedisClient::ModfiyInstancePassword(const ModfiyInstancePasswordRequest &request)
@@ -3862,32 +3330,25 @@ RedisClient::ModfiyInstancePasswordOutcome RedisClient::ModfiyInstancePassword(c
 
 void RedisClient::ModfiyInstancePasswordAsync(const ModfiyInstancePasswordRequest& request, const ModfiyInstancePasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModfiyInstancePasswordRequest&;
-    using Resp = ModfiyInstancePasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModfiyInstancePassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModfiyInstancePassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModfiyInstancePasswordOutcomeCallable RedisClient::ModfiyInstancePasswordCallable(const ModfiyInstancePasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModfiyInstancePasswordOutcome>>();
-    ModfiyInstancePasswordAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModfiyInstancePasswordRequest&,
-        ModfiyInstancePasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModfiyInstancePasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ModfiyInstancePassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyAutoBackupConfigOutcome RedisClient::ModifyAutoBackupConfig(const ModifyAutoBackupConfigRequest &request)
@@ -3912,32 +3373,25 @@ RedisClient::ModifyAutoBackupConfigOutcome RedisClient::ModifyAutoBackupConfig(c
 
 void RedisClient::ModifyAutoBackupConfigAsync(const ModifyAutoBackupConfigRequest& request, const ModifyAutoBackupConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAutoBackupConfigRequest&;
-    using Resp = ModifyAutoBackupConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAutoBackupConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAutoBackupConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyAutoBackupConfigOutcomeCallable RedisClient::ModifyAutoBackupConfigCallable(const ModifyAutoBackupConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAutoBackupConfigOutcome>>();
-    ModifyAutoBackupConfigAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyAutoBackupConfigRequest&,
-        ModifyAutoBackupConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAutoBackupConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAutoBackupConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyBackupDownloadRestrictionOutcome RedisClient::ModifyBackupDownloadRestriction(const ModifyBackupDownloadRestrictionRequest &request)
@@ -3962,32 +3416,25 @@ RedisClient::ModifyBackupDownloadRestrictionOutcome RedisClient::ModifyBackupDow
 
 void RedisClient::ModifyBackupDownloadRestrictionAsync(const ModifyBackupDownloadRestrictionRequest& request, const ModifyBackupDownloadRestrictionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBackupDownloadRestrictionRequest&;
-    using Resp = ModifyBackupDownloadRestrictionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBackupDownloadRestriction(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBackupDownloadRestriction", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyBackupDownloadRestrictionOutcomeCallable RedisClient::ModifyBackupDownloadRestrictionCallable(const ModifyBackupDownloadRestrictionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBackupDownloadRestrictionOutcome>>();
-    ModifyBackupDownloadRestrictionAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyBackupDownloadRestrictionRequest&,
-        ModifyBackupDownloadRestrictionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBackupDownloadRestrictionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBackupDownloadRestriction(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyConnectionConfigOutcome RedisClient::ModifyConnectionConfig(const ModifyConnectionConfigRequest &request)
@@ -4012,32 +3459,25 @@ RedisClient::ModifyConnectionConfigOutcome RedisClient::ModifyConnectionConfig(c
 
 void RedisClient::ModifyConnectionConfigAsync(const ModifyConnectionConfigRequest& request, const ModifyConnectionConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyConnectionConfigRequest&;
-    using Resp = ModifyConnectionConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyConnectionConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyConnectionConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyConnectionConfigOutcomeCallable RedisClient::ModifyConnectionConfigCallable(const ModifyConnectionConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyConnectionConfigOutcome>>();
-    ModifyConnectionConfigAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyConnectionConfigRequest&,
-        ModifyConnectionConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyConnectionConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyConnectionConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyDBInstanceSecurityGroupsOutcome RedisClient::ModifyDBInstanceSecurityGroups(const ModifyDBInstanceSecurityGroupsRequest &request)
@@ -4062,32 +3502,25 @@ RedisClient::ModifyDBInstanceSecurityGroupsOutcome RedisClient::ModifyDBInstance
 
 void RedisClient::ModifyDBInstanceSecurityGroupsAsync(const ModifyDBInstanceSecurityGroupsRequest& request, const ModifyDBInstanceSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDBInstanceSecurityGroupsRequest&;
-    using Resp = ModifyDBInstanceSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDBInstanceSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDBInstanceSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyDBInstanceSecurityGroupsOutcomeCallable RedisClient::ModifyDBInstanceSecurityGroupsCallable(const ModifyDBInstanceSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDBInstanceSecurityGroupsOutcome>>();
-    ModifyDBInstanceSecurityGroupsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyDBInstanceSecurityGroupsRequest&,
-        ModifyDBInstanceSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDBInstanceSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDBInstanceSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstanceOutcome RedisClient::ModifyInstance(const ModifyInstanceRequest &request)
@@ -4112,32 +3545,25 @@ RedisClient::ModifyInstanceOutcome RedisClient::ModifyInstance(const ModifyInsta
 
 void RedisClient::ModifyInstanceAsync(const ModifyInstanceRequest& request, const ModifyInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceRequest&;
-    using Resp = ModifyInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstanceOutcomeCallable RedisClient::ModifyInstanceCallable(const ModifyInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceOutcome>>();
-    ModifyInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstanceRequest&,
-        ModifyInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstanceAccountOutcome RedisClient::ModifyInstanceAccount(const ModifyInstanceAccountRequest &request)
@@ -4162,32 +3588,25 @@ RedisClient::ModifyInstanceAccountOutcome RedisClient::ModifyInstanceAccount(con
 
 void RedisClient::ModifyInstanceAccountAsync(const ModifyInstanceAccountRequest& request, const ModifyInstanceAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceAccountRequest&;
-    using Resp = ModifyInstanceAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstanceAccountOutcomeCallable RedisClient::ModifyInstanceAccountCallable(const ModifyInstanceAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceAccountOutcome>>();
-    ModifyInstanceAccountAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstanceAccountRequest&,
-        ModifyInstanceAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstanceAvailabilityZonesOutcome RedisClient::ModifyInstanceAvailabilityZones(const ModifyInstanceAvailabilityZonesRequest &request)
@@ -4212,32 +3631,25 @@ RedisClient::ModifyInstanceAvailabilityZonesOutcome RedisClient::ModifyInstanceA
 
 void RedisClient::ModifyInstanceAvailabilityZonesAsync(const ModifyInstanceAvailabilityZonesRequest& request, const ModifyInstanceAvailabilityZonesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceAvailabilityZonesRequest&;
-    using Resp = ModifyInstanceAvailabilityZonesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceAvailabilityZones(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceAvailabilityZones", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstanceAvailabilityZonesOutcomeCallable RedisClient::ModifyInstanceAvailabilityZonesCallable(const ModifyInstanceAvailabilityZonesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceAvailabilityZonesOutcome>>();
-    ModifyInstanceAvailabilityZonesAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstanceAvailabilityZonesRequest&,
-        ModifyInstanceAvailabilityZonesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceAvailabilityZonesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceAvailabilityZones(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstanceBackupModeOutcome RedisClient::ModifyInstanceBackupMode(const ModifyInstanceBackupModeRequest &request)
@@ -4262,32 +3674,25 @@ RedisClient::ModifyInstanceBackupModeOutcome RedisClient::ModifyInstanceBackupMo
 
 void RedisClient::ModifyInstanceBackupModeAsync(const ModifyInstanceBackupModeRequest& request, const ModifyInstanceBackupModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceBackupModeRequest&;
-    using Resp = ModifyInstanceBackupModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceBackupMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceBackupMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstanceBackupModeOutcomeCallable RedisClient::ModifyInstanceBackupModeCallable(const ModifyInstanceBackupModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceBackupModeOutcome>>();
-    ModifyInstanceBackupModeAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstanceBackupModeRequest&,
-        ModifyInstanceBackupModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceBackupModeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceBackupMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstanceEventOutcome RedisClient::ModifyInstanceEvent(const ModifyInstanceEventRequest &request)
@@ -4312,32 +3717,25 @@ RedisClient::ModifyInstanceEventOutcome RedisClient::ModifyInstanceEvent(const M
 
 void RedisClient::ModifyInstanceEventAsync(const ModifyInstanceEventRequest& request, const ModifyInstanceEventAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceEventRequest&;
-    using Resp = ModifyInstanceEventResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceEvent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceEvent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstanceEventOutcomeCallable RedisClient::ModifyInstanceEventCallable(const ModifyInstanceEventRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceEventOutcome>>();
-    ModifyInstanceEventAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstanceEventRequest&,
-        ModifyInstanceEventOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceEventOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceEvent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstanceLogDeliveryOutcome RedisClient::ModifyInstanceLogDelivery(const ModifyInstanceLogDeliveryRequest &request)
@@ -4362,32 +3760,25 @@ RedisClient::ModifyInstanceLogDeliveryOutcome RedisClient::ModifyInstanceLogDeli
 
 void RedisClient::ModifyInstanceLogDeliveryAsync(const ModifyInstanceLogDeliveryRequest& request, const ModifyInstanceLogDeliveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceLogDeliveryRequest&;
-    using Resp = ModifyInstanceLogDeliveryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceLogDelivery(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceLogDelivery", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstanceLogDeliveryOutcomeCallable RedisClient::ModifyInstanceLogDeliveryCallable(const ModifyInstanceLogDeliveryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceLogDeliveryOutcome>>();
-    ModifyInstanceLogDeliveryAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstanceLogDeliveryRequest&,
-        ModifyInstanceLogDeliveryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceLogDeliveryOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceLogDelivery(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstanceParamsOutcome RedisClient::ModifyInstanceParams(const ModifyInstanceParamsRequest &request)
@@ -4412,32 +3803,25 @@ RedisClient::ModifyInstanceParamsOutcome RedisClient::ModifyInstanceParams(const
 
 void RedisClient::ModifyInstanceParamsAsync(const ModifyInstanceParamsRequest& request, const ModifyInstanceParamsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceParamsRequest&;
-    using Resp = ModifyInstanceParamsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceParams(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceParams", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstanceParamsOutcomeCallable RedisClient::ModifyInstanceParamsCallable(const ModifyInstanceParamsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceParamsOutcome>>();
-    ModifyInstanceParamsAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstanceParamsRequest&,
-        ModifyInstanceParamsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceParamsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceParams(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstancePasswordOutcome RedisClient::ModifyInstancePassword(const ModifyInstancePasswordRequest &request)
@@ -4462,32 +3846,25 @@ RedisClient::ModifyInstancePasswordOutcome RedisClient::ModifyInstancePassword(c
 
 void RedisClient::ModifyInstancePasswordAsync(const ModifyInstancePasswordRequest& request, const ModifyInstancePasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstancePasswordRequest&;
-    using Resp = ModifyInstancePasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstancePassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstancePassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstancePasswordOutcomeCallable RedisClient::ModifyInstancePasswordCallable(const ModifyInstancePasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstancePasswordOutcome>>();
-    ModifyInstancePasswordAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstancePasswordRequest&,
-        ModifyInstancePasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstancePasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstancePassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyInstanceReadOnlyOutcome RedisClient::ModifyInstanceReadOnly(const ModifyInstanceReadOnlyRequest &request)
@@ -4512,32 +3889,25 @@ RedisClient::ModifyInstanceReadOnlyOutcome RedisClient::ModifyInstanceReadOnly(c
 
 void RedisClient::ModifyInstanceReadOnlyAsync(const ModifyInstanceReadOnlyRequest& request, const ModifyInstanceReadOnlyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyInstanceReadOnlyRequest&;
-    using Resp = ModifyInstanceReadOnlyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyInstanceReadOnly(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyInstanceReadOnly", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyInstanceReadOnlyOutcomeCallable RedisClient::ModifyInstanceReadOnlyCallable(const ModifyInstanceReadOnlyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyInstanceReadOnlyOutcome>>();
-    ModifyInstanceReadOnlyAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyInstanceReadOnlyRequest&,
-        ModifyInstanceReadOnlyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyInstanceReadOnlyOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyInstanceReadOnly(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyMaintenanceWindowOutcome RedisClient::ModifyMaintenanceWindow(const ModifyMaintenanceWindowRequest &request)
@@ -4562,32 +3932,25 @@ RedisClient::ModifyMaintenanceWindowOutcome RedisClient::ModifyMaintenanceWindow
 
 void RedisClient::ModifyMaintenanceWindowAsync(const ModifyMaintenanceWindowRequest& request, const ModifyMaintenanceWindowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyMaintenanceWindowRequest&;
-    using Resp = ModifyMaintenanceWindowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyMaintenanceWindow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyMaintenanceWindow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyMaintenanceWindowOutcomeCallable RedisClient::ModifyMaintenanceWindowCallable(const ModifyMaintenanceWindowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyMaintenanceWindowOutcome>>();
-    ModifyMaintenanceWindowAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyMaintenanceWindowRequest&,
-        ModifyMaintenanceWindowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyMaintenanceWindowOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyMaintenanceWindow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyNetworkConfigOutcome RedisClient::ModifyNetworkConfig(const ModifyNetworkConfigRequest &request)
@@ -4612,32 +3975,25 @@ RedisClient::ModifyNetworkConfigOutcome RedisClient::ModifyNetworkConfig(const M
 
 void RedisClient::ModifyNetworkConfigAsync(const ModifyNetworkConfigRequest& request, const ModifyNetworkConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetworkConfigRequest&;
-    using Resp = ModifyNetworkConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetworkConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetworkConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyNetworkConfigOutcomeCallable RedisClient::ModifyNetworkConfigCallable(const ModifyNetworkConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetworkConfigOutcome>>();
-    ModifyNetworkConfigAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyNetworkConfigRequest&,
-        ModifyNetworkConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetworkConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetworkConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyParamTemplateOutcome RedisClient::ModifyParamTemplate(const ModifyParamTemplateRequest &request)
@@ -4662,32 +4018,25 @@ RedisClient::ModifyParamTemplateOutcome RedisClient::ModifyParamTemplate(const M
 
 void RedisClient::ModifyParamTemplateAsync(const ModifyParamTemplateRequest& request, const ModifyParamTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyParamTemplateRequest&;
-    using Resp = ModifyParamTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyParamTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyParamTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyParamTemplateOutcomeCallable RedisClient::ModifyParamTemplateCallable(const ModifyParamTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyParamTemplateOutcome>>();
-    ModifyParamTemplateAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyParamTemplateRequest&,
-        ModifyParamTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyParamTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyParamTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ModifyReplicationGroupOutcome RedisClient::ModifyReplicationGroup(const ModifyReplicationGroupRequest &request)
@@ -4712,32 +4061,25 @@ RedisClient::ModifyReplicationGroupOutcome RedisClient::ModifyReplicationGroup(c
 
 void RedisClient::ModifyReplicationGroupAsync(const ModifyReplicationGroupRequest& request, const ModifyReplicationGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyReplicationGroupRequest&;
-    using Resp = ModifyReplicationGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyReplicationGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyReplicationGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ModifyReplicationGroupOutcomeCallable RedisClient::ModifyReplicationGroupCallable(const ModifyReplicationGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyReplicationGroupOutcome>>();
-    ModifyReplicationGroupAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ModifyReplicationGroupRequest&,
-        ModifyReplicationGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyReplicationGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyReplicationGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::OpenSSLOutcome RedisClient::OpenSSL(const OpenSSLRequest &request)
@@ -4762,32 +4104,25 @@ RedisClient::OpenSSLOutcome RedisClient::OpenSSL(const OpenSSLRequest &request)
 
 void RedisClient::OpenSSLAsync(const OpenSSLRequest& request, const OpenSSLAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const OpenSSLRequest&;
-    using Resp = OpenSSLResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->OpenSSL(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "OpenSSL", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::OpenSSLOutcomeCallable RedisClient::OpenSSLCallable(const OpenSSLRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<OpenSSLOutcome>>();
-    OpenSSLAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const OpenSSLRequest&,
-        OpenSSLOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<OpenSSLOutcome()>>(
+        [this, request]()
+        {
+            return this->OpenSSL(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ReleaseWanAddressOutcome RedisClient::ReleaseWanAddress(const ReleaseWanAddressRequest &request)
@@ -4812,32 +4147,25 @@ RedisClient::ReleaseWanAddressOutcome RedisClient::ReleaseWanAddress(const Relea
 
 void RedisClient::ReleaseWanAddressAsync(const ReleaseWanAddressRequest& request, const ReleaseWanAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReleaseWanAddressRequest&;
-    using Resp = ReleaseWanAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReleaseWanAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReleaseWanAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ReleaseWanAddressOutcomeCallable RedisClient::ReleaseWanAddressCallable(const ReleaseWanAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReleaseWanAddressOutcome>>();
-    ReleaseWanAddressAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ReleaseWanAddressRequest&,
-        ReleaseWanAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReleaseWanAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->ReleaseWanAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::RemoveReplicationGroupOutcome RedisClient::RemoveReplicationGroup(const RemoveReplicationGroupRequest &request)
@@ -4862,32 +4190,25 @@ RedisClient::RemoveReplicationGroupOutcome RedisClient::RemoveReplicationGroup(c
 
 void RedisClient::RemoveReplicationGroupAsync(const RemoveReplicationGroupRequest& request, const RemoveReplicationGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveReplicationGroupRequest&;
-    using Resp = RemoveReplicationGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveReplicationGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveReplicationGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::RemoveReplicationGroupOutcomeCallable RedisClient::RemoveReplicationGroupCallable(const RemoveReplicationGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveReplicationGroupOutcome>>();
-    RemoveReplicationGroupAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const RemoveReplicationGroupRequest&,
-        RemoveReplicationGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveReplicationGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveReplicationGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::RemoveReplicationInstanceOutcome RedisClient::RemoveReplicationInstance(const RemoveReplicationInstanceRequest &request)
@@ -4912,32 +4233,25 @@ RedisClient::RemoveReplicationInstanceOutcome RedisClient::RemoveReplicationInst
 
 void RedisClient::RemoveReplicationInstanceAsync(const RemoveReplicationInstanceRequest& request, const RemoveReplicationInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveReplicationInstanceRequest&;
-    using Resp = RemoveReplicationInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveReplicationInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveReplicationInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::RemoveReplicationInstanceOutcomeCallable RedisClient::RemoveReplicationInstanceCallable(const RemoveReplicationInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveReplicationInstanceOutcome>>();
-    RemoveReplicationInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const RemoveReplicationInstanceRequest&,
-        RemoveReplicationInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveReplicationInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveReplicationInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::RenewInstanceOutcome RedisClient::RenewInstance(const RenewInstanceRequest &request)
@@ -4962,32 +4276,25 @@ RedisClient::RenewInstanceOutcome RedisClient::RenewInstance(const RenewInstance
 
 void RedisClient::RenewInstanceAsync(const RenewInstanceRequest& request, const RenewInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewInstanceRequest&;
-    using Resp = RenewInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::RenewInstanceOutcomeCallable RedisClient::RenewInstanceCallable(const RenewInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewInstanceOutcome>>();
-    RenewInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const RenewInstanceRequest&,
-        RenewInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::ResetPasswordOutcome RedisClient::ResetPassword(const ResetPasswordRequest &request)
@@ -5012,32 +4319,25 @@ RedisClient::ResetPasswordOutcome RedisClient::ResetPassword(const ResetPassword
 
 void RedisClient::ResetPasswordAsync(const ResetPasswordRequest& request, const ResetPasswordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetPasswordRequest&;
-    using Resp = ResetPasswordResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetPassword(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetPassword", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::ResetPasswordOutcomeCallable RedisClient::ResetPasswordCallable(const ResetPasswordRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetPasswordOutcome>>();
-    ResetPasswordAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const ResetPasswordRequest&,
-        ResetPasswordOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetPasswordOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetPassword(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::RestoreInstanceOutcome RedisClient::RestoreInstance(const RestoreInstanceRequest &request)
@@ -5062,32 +4362,25 @@ RedisClient::RestoreInstanceOutcome RedisClient::RestoreInstance(const RestoreIn
 
 void RedisClient::RestoreInstanceAsync(const RestoreInstanceRequest& request, const RestoreInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RestoreInstanceRequest&;
-    using Resp = RestoreInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RestoreInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RestoreInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::RestoreInstanceOutcomeCallable RedisClient::RestoreInstanceCallable(const RestoreInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RestoreInstanceOutcome>>();
-    RestoreInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const RestoreInstanceRequest&,
-        RestoreInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RestoreInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RestoreInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::StartupInstanceOutcome RedisClient::StartupInstance(const StartupInstanceRequest &request)
@@ -5112,32 +4405,25 @@ RedisClient::StartupInstanceOutcome RedisClient::StartupInstance(const StartupIn
 
 void RedisClient::StartupInstanceAsync(const StartupInstanceRequest& request, const StartupInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartupInstanceRequest&;
-    using Resp = StartupInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartupInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartupInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::StartupInstanceOutcomeCallable RedisClient::StartupInstanceCallable(const StartupInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartupInstanceOutcome>>();
-    StartupInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const StartupInstanceRequest&,
-        StartupInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartupInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->StartupInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::SwitchAccessNewInstanceOutcome RedisClient::SwitchAccessNewInstance(const SwitchAccessNewInstanceRequest &request)
@@ -5162,32 +4448,25 @@ RedisClient::SwitchAccessNewInstanceOutcome RedisClient::SwitchAccessNewInstance
 
 void RedisClient::SwitchAccessNewInstanceAsync(const SwitchAccessNewInstanceRequest& request, const SwitchAccessNewInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchAccessNewInstanceRequest&;
-    using Resp = SwitchAccessNewInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchAccessNewInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchAccessNewInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::SwitchAccessNewInstanceOutcomeCallable RedisClient::SwitchAccessNewInstanceCallable(const SwitchAccessNewInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchAccessNewInstanceOutcome>>();
-    SwitchAccessNewInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const SwitchAccessNewInstanceRequest&,
-        SwitchAccessNewInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchAccessNewInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchAccessNewInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::SwitchInstanceVipOutcome RedisClient::SwitchInstanceVip(const SwitchInstanceVipRequest &request)
@@ -5212,32 +4491,25 @@ RedisClient::SwitchInstanceVipOutcome RedisClient::SwitchInstanceVip(const Switc
 
 void RedisClient::SwitchInstanceVipAsync(const SwitchInstanceVipRequest& request, const SwitchInstanceVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchInstanceVipRequest&;
-    using Resp = SwitchInstanceVipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchInstanceVip(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchInstanceVip", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::SwitchInstanceVipOutcomeCallable RedisClient::SwitchInstanceVipCallable(const SwitchInstanceVipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchInstanceVipOutcome>>();
-    SwitchInstanceVipAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const SwitchInstanceVipRequest&,
-        SwitchInstanceVipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchInstanceVipOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchInstanceVip(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::SwitchProxyOutcome RedisClient::SwitchProxy(const SwitchProxyRequest &request)
@@ -5262,32 +4534,25 @@ RedisClient::SwitchProxyOutcome RedisClient::SwitchProxy(const SwitchProxyReques
 
 void RedisClient::SwitchProxyAsync(const SwitchProxyRequest& request, const SwitchProxyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SwitchProxyRequest&;
-    using Resp = SwitchProxyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SwitchProxy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SwitchProxy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::SwitchProxyOutcomeCallable RedisClient::SwitchProxyCallable(const SwitchProxyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SwitchProxyOutcome>>();
-    SwitchProxyAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const SwitchProxyRequest&,
-        SwitchProxyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SwitchProxyOutcome()>>(
+        [this, request]()
+        {
+            return this->SwitchProxy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::UpgradeInstanceOutcome RedisClient::UpgradeInstance(const UpgradeInstanceRequest &request)
@@ -5312,32 +4577,25 @@ RedisClient::UpgradeInstanceOutcome RedisClient::UpgradeInstance(const UpgradeIn
 
 void RedisClient::UpgradeInstanceAsync(const UpgradeInstanceRequest& request, const UpgradeInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeInstanceRequest&;
-    using Resp = UpgradeInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::UpgradeInstanceOutcomeCallable RedisClient::UpgradeInstanceCallable(const UpgradeInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeInstanceOutcome>>();
-    UpgradeInstanceAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const UpgradeInstanceRequest&,
-        UpgradeInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::UpgradeInstanceVersionOutcome RedisClient::UpgradeInstanceVersion(const UpgradeInstanceVersionRequest &request)
@@ -5362,32 +4620,25 @@ RedisClient::UpgradeInstanceVersionOutcome RedisClient::UpgradeInstanceVersion(c
 
 void RedisClient::UpgradeInstanceVersionAsync(const UpgradeInstanceVersionRequest& request, const UpgradeInstanceVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeInstanceVersionRequest&;
-    using Resp = UpgradeInstanceVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeInstanceVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeInstanceVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::UpgradeInstanceVersionOutcomeCallable RedisClient::UpgradeInstanceVersionCallable(const UpgradeInstanceVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeInstanceVersionOutcome>>();
-    UpgradeInstanceVersionAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const UpgradeInstanceVersionRequest&,
-        UpgradeInstanceVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeInstanceVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeInstanceVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::UpgradeProxyVersionOutcome RedisClient::UpgradeProxyVersion(const UpgradeProxyVersionRequest &request)
@@ -5412,32 +4663,25 @@ RedisClient::UpgradeProxyVersionOutcome RedisClient::UpgradeProxyVersion(const U
 
 void RedisClient::UpgradeProxyVersionAsync(const UpgradeProxyVersionRequest& request, const UpgradeProxyVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeProxyVersionRequest&;
-    using Resp = UpgradeProxyVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeProxyVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeProxyVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::UpgradeProxyVersionOutcomeCallable RedisClient::UpgradeProxyVersionCallable(const UpgradeProxyVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeProxyVersionOutcome>>();
-    UpgradeProxyVersionAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const UpgradeProxyVersionRequest&,
-        UpgradeProxyVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeProxyVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeProxyVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::UpgradeSmallVersionOutcome RedisClient::UpgradeSmallVersion(const UpgradeSmallVersionRequest &request)
@@ -5462,32 +4706,25 @@ RedisClient::UpgradeSmallVersionOutcome RedisClient::UpgradeSmallVersion(const U
 
 void RedisClient::UpgradeSmallVersionAsync(const UpgradeSmallVersionRequest& request, const UpgradeSmallVersionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeSmallVersionRequest&;
-    using Resp = UpgradeSmallVersionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeSmallVersion(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeSmallVersion", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::UpgradeSmallVersionOutcomeCallable RedisClient::UpgradeSmallVersionCallable(const UpgradeSmallVersionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeSmallVersionOutcome>>();
-    UpgradeSmallVersionAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const UpgradeSmallVersionRequest&,
-        UpgradeSmallVersionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeSmallVersionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeSmallVersion(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 RedisClient::UpgradeVersionToMultiAvailabilityZonesOutcome RedisClient::UpgradeVersionToMultiAvailabilityZones(const UpgradeVersionToMultiAvailabilityZonesRequest &request)
@@ -5512,31 +4749,24 @@ RedisClient::UpgradeVersionToMultiAvailabilityZonesOutcome RedisClient::UpgradeV
 
 void RedisClient::UpgradeVersionToMultiAvailabilityZonesAsync(const UpgradeVersionToMultiAvailabilityZonesRequest& request, const UpgradeVersionToMultiAvailabilityZonesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeVersionToMultiAvailabilityZonesRequest&;
-    using Resp = UpgradeVersionToMultiAvailabilityZonesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeVersionToMultiAvailabilityZones(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeVersionToMultiAvailabilityZones", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 RedisClient::UpgradeVersionToMultiAvailabilityZonesOutcomeCallable RedisClient::UpgradeVersionToMultiAvailabilityZonesCallable(const UpgradeVersionToMultiAvailabilityZonesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeVersionToMultiAvailabilityZonesOutcome>>();
-    UpgradeVersionToMultiAvailabilityZonesAsync(
-    request,
-    [prom](
-        const RedisClient*,
-        const UpgradeVersionToMultiAvailabilityZonesRequest&,
-        UpgradeVersionToMultiAvailabilityZonesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeVersionToMultiAvailabilityZonesOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeVersionToMultiAvailabilityZones(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

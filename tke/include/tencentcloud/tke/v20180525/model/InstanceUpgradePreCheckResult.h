@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceUpgradePreCheckResultItem;
+
                 /**
                 * 某个节点升级前检查结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceUpgradePreCheckResult();
-                    ~InstanceUpgradePreCheckResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

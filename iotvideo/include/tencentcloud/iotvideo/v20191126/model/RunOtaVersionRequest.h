@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Contents;
+
                 /**
                 * RunOtaVersion请求参数结构体
                 */

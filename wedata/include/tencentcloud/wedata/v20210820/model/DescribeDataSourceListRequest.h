@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrderField;
+                class Filter;
+
                 /**
                 * DescribeDataSourceList请求参数结构体
                 */

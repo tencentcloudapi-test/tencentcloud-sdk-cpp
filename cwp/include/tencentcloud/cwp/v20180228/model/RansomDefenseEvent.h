@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 防勒索诱饵篡改事件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RansomDefenseEvent();
-                    ~RansomDefenseEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

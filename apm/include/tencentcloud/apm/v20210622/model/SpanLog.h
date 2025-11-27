@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpanTag;
+
                 /**
                 * Span日志部分
 
@@ -44,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SpanLog();
-                    ~SpanLog() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

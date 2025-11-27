@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComplianceScanFailedAsset;
+
                 /**
                 * DescribeComplianceScanFailedAssetList返回参数结构体
                 */

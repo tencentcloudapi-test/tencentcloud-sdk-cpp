@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JobRuntimeInfo;
+
                 /**
                 * DescribeJobRuntimeInfo返回参数结构体
                 */

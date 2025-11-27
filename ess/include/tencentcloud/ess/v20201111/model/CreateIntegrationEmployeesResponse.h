@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateStaffResult;
+
                 /**
                 * CreateIntegrationEmployees返回参数结构体
                 */

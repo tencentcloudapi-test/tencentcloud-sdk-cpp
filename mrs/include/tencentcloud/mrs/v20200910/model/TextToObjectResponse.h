@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Template;
+
                 /**
                 * TextToObject返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class COSDataRule;
+
                 /**
                 * 敏感识别任务COS识别规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ScanTaskCOSRules();
-                    ~ScanTaskCOSRules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

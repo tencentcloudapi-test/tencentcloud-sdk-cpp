@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiscountDetail;
+
                 /**
                 * DescribeDiskDiscount返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 例外规则的跳过匹配条件，即在例外时根据本匹配条件，略过指定字段及内容。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SkipCondition();
-                    ~SkipCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

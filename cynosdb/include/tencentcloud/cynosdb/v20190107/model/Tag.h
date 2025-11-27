@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 集群绑定的标签信息，包含标签键TagKey和标签值TagValue
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Tag();
-                    ~Tag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

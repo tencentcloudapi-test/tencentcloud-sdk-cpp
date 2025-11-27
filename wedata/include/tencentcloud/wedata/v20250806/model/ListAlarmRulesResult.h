@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmRuleData;
+
                 /**
                 * 查询告警规则列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ListAlarmRulesResult();
-                    ~ListAlarmRulesResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

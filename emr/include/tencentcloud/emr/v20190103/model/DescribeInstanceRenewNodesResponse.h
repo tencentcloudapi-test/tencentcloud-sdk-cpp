@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RenewInstancesInfo;
+
                 /**
                 * DescribeInstanceRenewNodes返回参数结构体
                 */

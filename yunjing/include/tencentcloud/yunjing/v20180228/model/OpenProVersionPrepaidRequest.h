@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChargePrepaid;
+                class ProVersionMachine;
+
                 /**
                 * OpenProVersionPrepaid请求参数结构体
                 */

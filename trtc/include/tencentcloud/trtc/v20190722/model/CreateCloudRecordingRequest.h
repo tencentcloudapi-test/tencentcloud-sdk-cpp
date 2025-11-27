@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordParams;
+                class StorageParams;
+                class MixTranscodeParams;
+                class MixLayoutParams;
+
                 /**
                 * CreateCloudRecording请求参数结构体
                 */

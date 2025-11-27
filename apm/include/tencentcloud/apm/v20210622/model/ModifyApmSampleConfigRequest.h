@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class APMKVItem;
+
                 /**
                 * ModifyApmSampleConfig请求参数结构体
                 */

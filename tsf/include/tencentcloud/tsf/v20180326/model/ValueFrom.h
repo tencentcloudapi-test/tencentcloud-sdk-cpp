@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FieldRef;
+                class ResourceFieldRef;
+                class CommonRef;
+
                 /**
                 * k8s env 的 ValueFrom
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     ValueFrom();
-                    ~ValueFrom() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

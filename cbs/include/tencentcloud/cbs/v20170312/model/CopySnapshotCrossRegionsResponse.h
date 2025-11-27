@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SnapshotCopyResult;
+
                 /**
                 * CopySnapshotCrossRegions返回参数结构体
                 */

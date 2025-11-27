@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListRecordBackupPlanDevicesData;
+
                 /**
                 * ListRecordBackupPlanDevices返回参数结构体
                 */

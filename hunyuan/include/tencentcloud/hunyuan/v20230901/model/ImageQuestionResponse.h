@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Usage;
+                class Choice;
+                class ErrorMsg;
+
                 /**
                 * ImageQuestion返回参数结构体
                 */

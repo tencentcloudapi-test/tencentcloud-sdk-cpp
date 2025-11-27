@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubnetInfo;
+
                 /**
                 * QueryCrossVpcSubnetSupportForClientNode返回参数结构体
                 */

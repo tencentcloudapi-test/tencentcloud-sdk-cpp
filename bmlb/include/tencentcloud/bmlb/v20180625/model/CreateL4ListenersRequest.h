@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateL4Listener;
+
                 /**
                 * CreateL4Listeners请求参数结构体
                 */

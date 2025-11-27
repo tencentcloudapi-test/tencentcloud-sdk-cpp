@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 机器清理记录对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MachineClearHistory();
-                    ~MachineClearHistory() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

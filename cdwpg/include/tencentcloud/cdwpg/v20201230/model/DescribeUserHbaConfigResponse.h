@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HbaConfig;
+
                 /**
                 * DescribeUserHbaConfig返回参数结构体
                 */

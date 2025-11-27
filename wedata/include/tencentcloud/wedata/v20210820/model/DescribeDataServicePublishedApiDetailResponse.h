@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeDataServicePublishedApiDetailResp;
+
                 /**
                 * DescribeDataServicePublishedApiDetail返回参数结构体
                 */

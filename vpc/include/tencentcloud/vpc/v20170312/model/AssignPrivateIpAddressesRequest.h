@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrivateIpAddressSpecification;
+
                 /**
                 * AssignPrivateIpAddresses请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * IPV6转换规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Ip6RuleInfo();
-                    ~Ip6RuleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

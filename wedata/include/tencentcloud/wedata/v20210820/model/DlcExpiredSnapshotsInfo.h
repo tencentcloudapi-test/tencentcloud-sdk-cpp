@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 快照过期治理项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DlcExpiredSnapshotsInfo();
-                    ~DlcExpiredSnapshotsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

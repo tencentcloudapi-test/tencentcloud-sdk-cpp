@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * SceneInfo场景信息
 'RealTime','实时语音分析',
@@ -44,7 +45,6 @@ namespace TencentCloud
                 {
                 public:
                     SceneInfo();
-                    ~SceneInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

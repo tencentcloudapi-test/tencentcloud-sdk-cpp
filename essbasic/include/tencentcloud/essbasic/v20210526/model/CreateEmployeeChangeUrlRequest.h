@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+
                 /**
                 * CreateEmployeeChangeUrl请求参数结构体
                 */

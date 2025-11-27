@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * sample采样值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SamplePair();
-                    ~SamplePair() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

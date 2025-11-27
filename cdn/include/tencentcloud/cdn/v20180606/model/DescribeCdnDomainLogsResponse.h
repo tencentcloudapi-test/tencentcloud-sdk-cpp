@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DomainLog;
+
                 /**
                 * DescribeCdnDomainLogs返回参数结构体
                 */

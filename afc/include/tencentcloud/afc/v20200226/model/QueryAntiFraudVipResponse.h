@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RiskDetail;
+
                 /**
                 * QueryAntiFraudVip返回参数结构体
                 */

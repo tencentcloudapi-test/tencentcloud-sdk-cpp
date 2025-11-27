@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SyncFailReason;
+
                 /**
                 * SyncProxyOrganizationOperators返回参数结构体
                 */

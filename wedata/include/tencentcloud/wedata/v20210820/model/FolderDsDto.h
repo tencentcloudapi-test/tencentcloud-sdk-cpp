@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/wedata/v20210820/model/WorkflowCanvasOpsDto.h>
-#include <tencentcloud/wedata/v20210820/model/FolderDsDto.h>
 
 
 namespace TencentCloud
@@ -36,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowCanvasOpsDto;
+
                 /**
                 * 文件夹属性
                 */
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FolderDsDto();
-                    ~FolderDsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

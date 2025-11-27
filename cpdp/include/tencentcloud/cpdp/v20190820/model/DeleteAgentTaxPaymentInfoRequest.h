@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DeleteAgentTaxPaymentInfo请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JgwOperateResponse;
+
                 /**
                 * CreatePartition返回参数结构体
                 */

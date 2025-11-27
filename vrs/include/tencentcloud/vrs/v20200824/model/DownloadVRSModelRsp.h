@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 离线声音复刻模型下载响应
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DownloadVRSModelRsp();
-                    ~DownloadVRSModelRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

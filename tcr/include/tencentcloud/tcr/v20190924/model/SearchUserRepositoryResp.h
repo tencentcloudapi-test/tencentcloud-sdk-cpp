@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RepoInfo;
+
                 /**
                 * 获取满足输入搜索条件的用户镜像仓库
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SearchUserRepositoryResp();
-                    ~SearchUserRepositoryResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

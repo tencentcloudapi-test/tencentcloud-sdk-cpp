@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskStatDataItem;
+                class SpecificationDataItem;
+
                 /**
                 * 任务统计数据。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskStatData();
-                    ~TaskStatData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

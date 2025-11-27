@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TccCatalogSet;
+
                 /**
                 * DescribeTccCatalogs返回参数结构体
                 */

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BasicParticiple;
+                class CompoundParticiple;
+                class Entity;
+
                 /**
                 * ParseWords返回参数结构体
                 */

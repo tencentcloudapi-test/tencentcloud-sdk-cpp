@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * RO 实例的权重值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RoWeightValue();
-                    ~RoWeightValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

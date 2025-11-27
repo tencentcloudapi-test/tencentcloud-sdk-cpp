@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TTSConfig;
+                class Terminology;
+
                 /**
                 * 翻译相关配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TranslationConfig();
-                    ~TranslationConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

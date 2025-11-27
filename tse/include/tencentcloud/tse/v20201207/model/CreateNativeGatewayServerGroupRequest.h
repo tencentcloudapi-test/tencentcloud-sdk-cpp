@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudNativeAPIGatewayNodeConfig;
+                class InternetConfig;
+
                 /**
                 * CreateNativeGatewayServerGroup请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 老年用药
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ChemicalProductInfoGeriatricUse();
-                    ~ChemicalProductInfoGeriatricUse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

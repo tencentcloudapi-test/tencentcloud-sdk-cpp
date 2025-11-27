@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 配置信息。包含配置项Config，配置值Value
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ConfigValue();
-                    ~ConfigValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

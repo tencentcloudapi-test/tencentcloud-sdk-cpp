@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IcebergTablePartition;
+                class HiveTablePartition;
+
                 /**
                 * DLC分区信息查询返回数据结构
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MixedTablePartitions();
-                    ~MixedTablePartitions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

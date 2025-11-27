@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OnlineTaxiItineraryInfo;
+
                 /**
                 * 网约车行程单
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OnlineTaxiItinerary();
-                    ~OnlineTaxiItinerary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

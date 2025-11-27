@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述配额信息，所有配额均指当前地域下的配额。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Quota();
-                    ~Quota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

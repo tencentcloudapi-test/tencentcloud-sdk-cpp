@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TLSCiphers;
+
                 /**
                 * DescribeCiphersDetail返回参数结构体
                 */

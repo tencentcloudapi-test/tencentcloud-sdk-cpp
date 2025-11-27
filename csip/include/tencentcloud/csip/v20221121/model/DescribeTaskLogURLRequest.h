@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReportItemKey;
+                class ReportTaskIdList;
+
                 /**
                 * DescribeTaskLogURL请求参数结构体
                 */

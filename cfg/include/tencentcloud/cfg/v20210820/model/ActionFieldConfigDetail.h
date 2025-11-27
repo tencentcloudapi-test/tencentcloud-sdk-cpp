@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 动作动态参数返回格式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ActionFieldConfigDetail();
-                    ~ActionFieldConfigDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

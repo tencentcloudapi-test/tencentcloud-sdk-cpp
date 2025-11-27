@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 超级节点上的资源统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SuperNodeResource();
-                    ~SuperNodeResource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -43,6 +43,19 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DtsModifyConnectParam;
+                class MongoDBModifyConnectParam;
+                class EsModifyConnectParam;
+                class ClickHouseModifyConnectParam;
+                class MySQLModifyConnectParam;
+                class PostgreSQLModifyConnectParam;
+                class MariaDBModifyConnectParam;
+                class SQLServerModifyConnectParam;
+                class CtsdbModifyConnectParam;
+                class DorisModifyConnectParam;
+                class KafkaConnectParam;
+                class MqttConnectParam;
+
                 /**
                 * ModifyConnectResource请求参数结构体
                 */

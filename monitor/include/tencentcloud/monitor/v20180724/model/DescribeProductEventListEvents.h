@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeProductEventListEventsDimensions;
+                class DescribeProductEventListEventsGroupInfo;
+
                 /**
                 * DescribeProductEventList返回的Events
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeProductEventListEvents();
-                    ~DescribeProductEventListEvents() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

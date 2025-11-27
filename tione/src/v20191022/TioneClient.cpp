@@ -62,32 +62,25 @@ TioneClient::CreateCodeRepositoryOutcome TioneClient::CreateCodeRepository(const
 
 void TioneClient::CreateCodeRepositoryAsync(const CreateCodeRepositoryRequest& request, const CreateCodeRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCodeRepositoryRequest&;
-    using Resp = CreateCodeRepositoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCodeRepository(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCodeRepository", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateCodeRepositoryOutcomeCallable TioneClient::CreateCodeRepositoryCallable(const CreateCodeRepositoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCodeRepositoryOutcome>>();
-    CreateCodeRepositoryAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateCodeRepositoryRequest&,
-        CreateCodeRepositoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCodeRepositoryOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCodeRepository(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateNotebookInstanceOutcome TioneClient::CreateNotebookInstance(const CreateNotebookInstanceRequest &request)
@@ -112,32 +105,25 @@ TioneClient::CreateNotebookInstanceOutcome TioneClient::CreateNotebookInstance(c
 
 void TioneClient::CreateNotebookInstanceAsync(const CreateNotebookInstanceRequest& request, const CreateNotebookInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNotebookInstanceRequest&;
-    using Resp = CreateNotebookInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNotebookInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNotebookInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateNotebookInstanceOutcomeCallable TioneClient::CreateNotebookInstanceCallable(const CreateNotebookInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNotebookInstanceOutcome>>();
-    CreateNotebookInstanceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateNotebookInstanceRequest&,
-        CreateNotebookInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNotebookInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNotebookInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateNotebookLifecycleScriptOutcome TioneClient::CreateNotebookLifecycleScript(const CreateNotebookLifecycleScriptRequest &request)
@@ -162,32 +148,25 @@ TioneClient::CreateNotebookLifecycleScriptOutcome TioneClient::CreateNotebookLif
 
 void TioneClient::CreateNotebookLifecycleScriptAsync(const CreateNotebookLifecycleScriptRequest& request, const CreateNotebookLifecycleScriptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNotebookLifecycleScriptRequest&;
-    using Resp = CreateNotebookLifecycleScriptResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNotebookLifecycleScript(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNotebookLifecycleScript", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateNotebookLifecycleScriptOutcomeCallable TioneClient::CreateNotebookLifecycleScriptCallable(const CreateNotebookLifecycleScriptRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNotebookLifecycleScriptOutcome>>();
-    CreateNotebookLifecycleScriptAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateNotebookLifecycleScriptRequest&,
-        CreateNotebookLifecycleScriptOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNotebookLifecycleScriptOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNotebookLifecycleScript(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreatePresignedNotebookInstanceUrlOutcome TioneClient::CreatePresignedNotebookInstanceUrl(const CreatePresignedNotebookInstanceUrlRequest &request)
@@ -212,32 +191,25 @@ TioneClient::CreatePresignedNotebookInstanceUrlOutcome TioneClient::CreatePresig
 
 void TioneClient::CreatePresignedNotebookInstanceUrlAsync(const CreatePresignedNotebookInstanceUrlRequest& request, const CreatePresignedNotebookInstanceUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePresignedNotebookInstanceUrlRequest&;
-    using Resp = CreatePresignedNotebookInstanceUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePresignedNotebookInstanceUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePresignedNotebookInstanceUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreatePresignedNotebookInstanceUrlOutcomeCallable TioneClient::CreatePresignedNotebookInstanceUrlCallable(const CreatePresignedNotebookInstanceUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePresignedNotebookInstanceUrlOutcome>>();
-    CreatePresignedNotebookInstanceUrlAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreatePresignedNotebookInstanceUrlRequest&,
-        CreatePresignedNotebookInstanceUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePresignedNotebookInstanceUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePresignedNotebookInstanceUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::CreateTrainingJobOutcome TioneClient::CreateTrainingJob(const CreateTrainingJobRequest &request)
@@ -262,32 +234,25 @@ TioneClient::CreateTrainingJobOutcome TioneClient::CreateTrainingJob(const Creat
 
 void TioneClient::CreateTrainingJobAsync(const CreateTrainingJobRequest& request, const CreateTrainingJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTrainingJobRequest&;
-    using Resp = CreateTrainingJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTrainingJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTrainingJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::CreateTrainingJobOutcomeCallable TioneClient::CreateTrainingJobCallable(const CreateTrainingJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTrainingJobOutcome>>();
-    CreateTrainingJobAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const CreateTrainingJobRequest&,
-        CreateTrainingJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTrainingJobOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTrainingJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteCodeRepositoryOutcome TioneClient::DeleteCodeRepository(const DeleteCodeRepositoryRequest &request)
@@ -312,32 +277,25 @@ TioneClient::DeleteCodeRepositoryOutcome TioneClient::DeleteCodeRepository(const
 
 void TioneClient::DeleteCodeRepositoryAsync(const DeleteCodeRepositoryRequest& request, const DeleteCodeRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCodeRepositoryRequest&;
-    using Resp = DeleteCodeRepositoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCodeRepository(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCodeRepository", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteCodeRepositoryOutcomeCallable TioneClient::DeleteCodeRepositoryCallable(const DeleteCodeRepositoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCodeRepositoryOutcome>>();
-    DeleteCodeRepositoryAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteCodeRepositoryRequest&,
-        DeleteCodeRepositoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCodeRepositoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCodeRepository(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteNotebookInstanceOutcome TioneClient::DeleteNotebookInstance(const DeleteNotebookInstanceRequest &request)
@@ -362,32 +320,25 @@ TioneClient::DeleteNotebookInstanceOutcome TioneClient::DeleteNotebookInstance(c
 
 void TioneClient::DeleteNotebookInstanceAsync(const DeleteNotebookInstanceRequest& request, const DeleteNotebookInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNotebookInstanceRequest&;
-    using Resp = DeleteNotebookInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNotebookInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNotebookInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteNotebookInstanceOutcomeCallable TioneClient::DeleteNotebookInstanceCallable(const DeleteNotebookInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNotebookInstanceOutcome>>();
-    DeleteNotebookInstanceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteNotebookInstanceRequest&,
-        DeleteNotebookInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNotebookInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNotebookInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DeleteNotebookLifecycleScriptOutcome TioneClient::DeleteNotebookLifecycleScript(const DeleteNotebookLifecycleScriptRequest &request)
@@ -412,32 +363,25 @@ TioneClient::DeleteNotebookLifecycleScriptOutcome TioneClient::DeleteNotebookLif
 
 void TioneClient::DeleteNotebookLifecycleScriptAsync(const DeleteNotebookLifecycleScriptRequest& request, const DeleteNotebookLifecycleScriptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNotebookLifecycleScriptRequest&;
-    using Resp = DeleteNotebookLifecycleScriptResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNotebookLifecycleScript(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNotebookLifecycleScript", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DeleteNotebookLifecycleScriptOutcomeCallable TioneClient::DeleteNotebookLifecycleScriptCallable(const DeleteNotebookLifecycleScriptRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNotebookLifecycleScriptOutcome>>();
-    DeleteNotebookLifecycleScriptAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DeleteNotebookLifecycleScriptRequest&,
-        DeleteNotebookLifecycleScriptOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNotebookLifecycleScriptOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNotebookLifecycleScript(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeCodeRepositoriesOutcome TioneClient::DescribeCodeRepositories(const DescribeCodeRepositoriesRequest &request)
@@ -462,32 +406,25 @@ TioneClient::DescribeCodeRepositoriesOutcome TioneClient::DescribeCodeRepositori
 
 void TioneClient::DescribeCodeRepositoriesAsync(const DescribeCodeRepositoriesRequest& request, const DescribeCodeRepositoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCodeRepositoriesRequest&;
-    using Resp = DescribeCodeRepositoriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCodeRepositories(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCodeRepositories", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeCodeRepositoriesOutcomeCallable TioneClient::DescribeCodeRepositoriesCallable(const DescribeCodeRepositoriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCodeRepositoriesOutcome>>();
-    DescribeCodeRepositoriesAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeCodeRepositoriesRequest&,
-        DescribeCodeRepositoriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCodeRepositoriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCodeRepositories(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeCodeRepositoryOutcome TioneClient::DescribeCodeRepository(const DescribeCodeRepositoryRequest &request)
@@ -512,32 +449,25 @@ TioneClient::DescribeCodeRepositoryOutcome TioneClient::DescribeCodeRepository(c
 
 void TioneClient::DescribeCodeRepositoryAsync(const DescribeCodeRepositoryRequest& request, const DescribeCodeRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCodeRepositoryRequest&;
-    using Resp = DescribeCodeRepositoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCodeRepository(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCodeRepository", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeCodeRepositoryOutcomeCallable TioneClient::DescribeCodeRepositoryCallable(const DescribeCodeRepositoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCodeRepositoryOutcome>>();
-    DescribeCodeRepositoryAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeCodeRepositoryRequest&,
-        DescribeCodeRepositoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCodeRepositoryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCodeRepository(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeNotebookInstanceOutcome TioneClient::DescribeNotebookInstance(const DescribeNotebookInstanceRequest &request)
@@ -562,32 +492,25 @@ TioneClient::DescribeNotebookInstanceOutcome TioneClient::DescribeNotebookInstan
 
 void TioneClient::DescribeNotebookInstanceAsync(const DescribeNotebookInstanceRequest& request, const DescribeNotebookInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNotebookInstanceRequest&;
-    using Resp = DescribeNotebookInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNotebookInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotebookInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeNotebookInstanceOutcomeCallable TioneClient::DescribeNotebookInstanceCallable(const DescribeNotebookInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNotebookInstanceOutcome>>();
-    DescribeNotebookInstanceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeNotebookInstanceRequest&,
-        DescribeNotebookInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNotebookInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNotebookInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeNotebookInstancesOutcome TioneClient::DescribeNotebookInstances(const DescribeNotebookInstancesRequest &request)
@@ -612,32 +535,25 @@ TioneClient::DescribeNotebookInstancesOutcome TioneClient::DescribeNotebookInsta
 
 void TioneClient::DescribeNotebookInstancesAsync(const DescribeNotebookInstancesRequest& request, const DescribeNotebookInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNotebookInstancesRequest&;
-    using Resp = DescribeNotebookInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNotebookInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotebookInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeNotebookInstancesOutcomeCallable TioneClient::DescribeNotebookInstancesCallable(const DescribeNotebookInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNotebookInstancesOutcome>>();
-    DescribeNotebookInstancesAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeNotebookInstancesRequest&,
-        DescribeNotebookInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNotebookInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNotebookInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeNotebookLifecycleScriptOutcome TioneClient::DescribeNotebookLifecycleScript(const DescribeNotebookLifecycleScriptRequest &request)
@@ -662,32 +578,25 @@ TioneClient::DescribeNotebookLifecycleScriptOutcome TioneClient::DescribeNoteboo
 
 void TioneClient::DescribeNotebookLifecycleScriptAsync(const DescribeNotebookLifecycleScriptRequest& request, const DescribeNotebookLifecycleScriptAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNotebookLifecycleScriptRequest&;
-    using Resp = DescribeNotebookLifecycleScriptResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNotebookLifecycleScript(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotebookLifecycleScript", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeNotebookLifecycleScriptOutcomeCallable TioneClient::DescribeNotebookLifecycleScriptCallable(const DescribeNotebookLifecycleScriptRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNotebookLifecycleScriptOutcome>>();
-    DescribeNotebookLifecycleScriptAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeNotebookLifecycleScriptRequest&,
-        DescribeNotebookLifecycleScriptOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNotebookLifecycleScriptOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNotebookLifecycleScript(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeNotebookLifecycleScriptsOutcome TioneClient::DescribeNotebookLifecycleScripts(const DescribeNotebookLifecycleScriptsRequest &request)
@@ -712,32 +621,25 @@ TioneClient::DescribeNotebookLifecycleScriptsOutcome TioneClient::DescribeNotebo
 
 void TioneClient::DescribeNotebookLifecycleScriptsAsync(const DescribeNotebookLifecycleScriptsRequest& request, const DescribeNotebookLifecycleScriptsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNotebookLifecycleScriptsRequest&;
-    using Resp = DescribeNotebookLifecycleScriptsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNotebookLifecycleScripts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotebookLifecycleScripts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeNotebookLifecycleScriptsOutcomeCallable TioneClient::DescribeNotebookLifecycleScriptsCallable(const DescribeNotebookLifecycleScriptsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNotebookLifecycleScriptsOutcome>>();
-    DescribeNotebookLifecycleScriptsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeNotebookLifecycleScriptsRequest&,
-        DescribeNotebookLifecycleScriptsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNotebookLifecycleScriptsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNotebookLifecycleScripts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeNotebookSummaryOutcome TioneClient::DescribeNotebookSummary(const DescribeNotebookSummaryRequest &request)
@@ -762,32 +664,25 @@ TioneClient::DescribeNotebookSummaryOutcome TioneClient::DescribeNotebookSummary
 
 void TioneClient::DescribeNotebookSummaryAsync(const DescribeNotebookSummaryRequest& request, const DescribeNotebookSummaryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNotebookSummaryRequest&;
-    using Resp = DescribeNotebookSummaryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNotebookSummary(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNotebookSummary", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeNotebookSummaryOutcomeCallable TioneClient::DescribeNotebookSummaryCallable(const DescribeNotebookSummaryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNotebookSummaryOutcome>>();
-    DescribeNotebookSummaryAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeNotebookSummaryRequest&,
-        DescribeNotebookSummaryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNotebookSummaryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNotebookSummary(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeTrainingJobOutcome TioneClient::DescribeTrainingJob(const DescribeTrainingJobRequest &request)
@@ -812,32 +707,25 @@ TioneClient::DescribeTrainingJobOutcome TioneClient::DescribeTrainingJob(const D
 
 void TioneClient::DescribeTrainingJobAsync(const DescribeTrainingJobRequest& request, const DescribeTrainingJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrainingJobRequest&;
-    using Resp = DescribeTrainingJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrainingJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrainingJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeTrainingJobOutcomeCallable TioneClient::DescribeTrainingJobCallable(const DescribeTrainingJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrainingJobOutcome>>();
-    DescribeTrainingJobAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeTrainingJobRequest&,
-        DescribeTrainingJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrainingJobOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrainingJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::DescribeTrainingJobsOutcome TioneClient::DescribeTrainingJobs(const DescribeTrainingJobsRequest &request)
@@ -862,32 +750,25 @@ TioneClient::DescribeTrainingJobsOutcome TioneClient::DescribeTrainingJobs(const
 
 void TioneClient::DescribeTrainingJobsAsync(const DescribeTrainingJobsRequest& request, const DescribeTrainingJobsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrainingJobsRequest&;
-    using Resp = DescribeTrainingJobsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrainingJobs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrainingJobs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::DescribeTrainingJobsOutcomeCallable TioneClient::DescribeTrainingJobsCallable(const DescribeTrainingJobsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrainingJobsOutcome>>();
-    DescribeTrainingJobsAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const DescribeTrainingJobsRequest&,
-        DescribeTrainingJobsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrainingJobsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrainingJobs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::StartNotebookInstanceOutcome TioneClient::StartNotebookInstance(const StartNotebookInstanceRequest &request)
@@ -912,32 +793,25 @@ TioneClient::StartNotebookInstanceOutcome TioneClient::StartNotebookInstance(con
 
 void TioneClient::StartNotebookInstanceAsync(const StartNotebookInstanceRequest& request, const StartNotebookInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartNotebookInstanceRequest&;
-    using Resp = StartNotebookInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartNotebookInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartNotebookInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::StartNotebookInstanceOutcomeCallable TioneClient::StartNotebookInstanceCallable(const StartNotebookInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartNotebookInstanceOutcome>>();
-    StartNotebookInstanceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const StartNotebookInstanceRequest&,
-        StartNotebookInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartNotebookInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->StartNotebookInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::StopNotebookInstanceOutcome TioneClient::StopNotebookInstance(const StopNotebookInstanceRequest &request)
@@ -962,32 +836,25 @@ TioneClient::StopNotebookInstanceOutcome TioneClient::StopNotebookInstance(const
 
 void TioneClient::StopNotebookInstanceAsync(const StopNotebookInstanceRequest& request, const StopNotebookInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopNotebookInstanceRequest&;
-    using Resp = StopNotebookInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopNotebookInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopNotebookInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::StopNotebookInstanceOutcomeCallable TioneClient::StopNotebookInstanceCallable(const StopNotebookInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopNotebookInstanceOutcome>>();
-    StopNotebookInstanceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const StopNotebookInstanceRequest&,
-        StopNotebookInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopNotebookInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->StopNotebookInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::StopTrainingJobOutcome TioneClient::StopTrainingJob(const StopTrainingJobRequest &request)
@@ -1012,32 +879,25 @@ TioneClient::StopTrainingJobOutcome TioneClient::StopTrainingJob(const StopTrain
 
 void TioneClient::StopTrainingJobAsync(const StopTrainingJobRequest& request, const StopTrainingJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopTrainingJobRequest&;
-    using Resp = StopTrainingJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopTrainingJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopTrainingJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::StopTrainingJobOutcomeCallable TioneClient::StopTrainingJobCallable(const StopTrainingJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopTrainingJobOutcome>>();
-    StopTrainingJobAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const StopTrainingJobRequest&,
-        StopTrainingJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopTrainingJobOutcome()>>(
+        [this, request]()
+        {
+            return this->StopTrainingJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::UpdateCodeRepositoryOutcome TioneClient::UpdateCodeRepository(const UpdateCodeRepositoryRequest &request)
@@ -1062,32 +922,25 @@ TioneClient::UpdateCodeRepositoryOutcome TioneClient::UpdateCodeRepository(const
 
 void TioneClient::UpdateCodeRepositoryAsync(const UpdateCodeRepositoryRequest& request, const UpdateCodeRepositoryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCodeRepositoryRequest&;
-    using Resp = UpdateCodeRepositoryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCodeRepository(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCodeRepository", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::UpdateCodeRepositoryOutcomeCallable TioneClient::UpdateCodeRepositoryCallable(const UpdateCodeRepositoryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCodeRepositoryOutcome>>();
-    UpdateCodeRepositoryAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const UpdateCodeRepositoryRequest&,
-        UpdateCodeRepositoryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCodeRepositoryOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCodeRepository(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TioneClient::UpdateNotebookInstanceOutcome TioneClient::UpdateNotebookInstance(const UpdateNotebookInstanceRequest &request)
@@ -1112,31 +965,24 @@ TioneClient::UpdateNotebookInstanceOutcome TioneClient::UpdateNotebookInstance(c
 
 void TioneClient::UpdateNotebookInstanceAsync(const UpdateNotebookInstanceRequest& request, const UpdateNotebookInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateNotebookInstanceRequest&;
-    using Resp = UpdateNotebookInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateNotebookInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateNotebookInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TioneClient::UpdateNotebookInstanceOutcomeCallable TioneClient::UpdateNotebookInstanceCallable(const UpdateNotebookInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateNotebookInstanceOutcome>>();
-    UpdateNotebookInstanceAsync(
-    request,
-    [prom](
-        const TioneClient*,
-        const UpdateNotebookInstanceRequest&,
-        UpdateNotebookInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateNotebookInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateNotebookInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

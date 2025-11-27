@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscriptionUserProperty;
+
                 /**
                 * MQTT 订阅关系
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MQTTClientSubscription();
-                    ~MQTTClientSubscription() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

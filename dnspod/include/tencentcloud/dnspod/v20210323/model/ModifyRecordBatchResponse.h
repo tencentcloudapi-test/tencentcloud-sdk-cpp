@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyRecordBatchDetail;
+
                 /**
                 * ModifyRecordBatch返回参数结构体
                 */

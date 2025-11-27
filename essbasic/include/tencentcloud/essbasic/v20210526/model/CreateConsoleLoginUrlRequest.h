@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+                class OrganizationAuthorizationOptions;
+                class UserInfo;
+                class JumpEvent;
+
                 /**
                 * CreateConsoleLoginUrl请求参数结构体
                 */

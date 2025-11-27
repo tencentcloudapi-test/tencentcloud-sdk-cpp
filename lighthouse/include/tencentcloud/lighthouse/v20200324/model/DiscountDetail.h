@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PolicyDetail;
+
                 /**
                 * 套餐折扣详情（仅用于控制台调用询价相关接口返回）。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DiscountDetail();
-                    ~DiscountDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

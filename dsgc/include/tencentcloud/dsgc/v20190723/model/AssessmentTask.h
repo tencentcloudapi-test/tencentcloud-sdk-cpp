@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RiskCountInfo;
+                class DiscoveryCondition;
+
                 /**
                 * DSPA评估任务
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AssessmentTask();
-                    ~AssessmentTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

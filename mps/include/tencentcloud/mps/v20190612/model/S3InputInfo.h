@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * AWS S3存储输入
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     S3InputInfo();
-                    ~S3InputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

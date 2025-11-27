@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户安全组配额限制。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SecurityGroupLimitSet();
-                    ~SecurityGroupLimitSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

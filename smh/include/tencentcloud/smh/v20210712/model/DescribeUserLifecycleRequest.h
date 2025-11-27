@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserFilter;
+
                 /**
                 * DescribeUserLifecycle请求参数结构体
                 */

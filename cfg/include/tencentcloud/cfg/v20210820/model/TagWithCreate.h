@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用于传入创建、编辑标签
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TagWithCreate();
-                    ~TagWithCreate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

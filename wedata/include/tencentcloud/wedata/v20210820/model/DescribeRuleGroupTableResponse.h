@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleGroupTable;
+
                 /**
                 * DescribeRuleGroupTable返回参数结构体
                 */

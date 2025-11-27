@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SourceClusterTopicConfig;
+
                 /**
                 * ImportSourceClusterTopics请求参数结构体
                 */

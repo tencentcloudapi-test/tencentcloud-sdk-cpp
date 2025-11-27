@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PdfInfo;
+
                 /**
                 * DrugInstructionObject请求参数结构体
                 */

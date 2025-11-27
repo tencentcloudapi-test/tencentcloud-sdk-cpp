@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 复制镜像tag返回值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DupImageTagResp();
-                    ~DupImageTagResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

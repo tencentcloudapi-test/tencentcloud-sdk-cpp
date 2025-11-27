@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 分位数据模型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     QuantileEntity();
-                    ~QuantileEntity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

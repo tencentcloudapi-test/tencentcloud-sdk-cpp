@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusRuleKV;
+
                 /**
                 * CreateAlertRule请求参数结构体
                 */

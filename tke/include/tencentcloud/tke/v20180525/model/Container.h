@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ContainerState;
+                class EnvironmentVariable;
+                class LivenessOrReadinessProbe;
+                class SecurityContext;
+                class VolumeMount;
+
                 /**
                 * EKS Instance Container容器
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     Container();
-                    ~Container() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

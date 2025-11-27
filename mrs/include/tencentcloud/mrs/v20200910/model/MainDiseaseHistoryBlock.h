@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NeglistBlock;
+                class PoslistBlock;
+
                 /**
                 * 既往史
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MainDiseaseHistoryBlock();
-                    ~MainDiseaseHistoryBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

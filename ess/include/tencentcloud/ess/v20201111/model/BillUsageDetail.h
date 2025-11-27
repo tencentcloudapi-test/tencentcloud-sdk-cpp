@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户计费使用情况详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BillUsageDetail();
-                    ~BillUsageDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

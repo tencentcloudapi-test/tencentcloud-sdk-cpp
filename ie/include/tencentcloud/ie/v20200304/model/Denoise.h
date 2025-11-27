@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 音频降噪
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Denoise();
-                    ~Denoise() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

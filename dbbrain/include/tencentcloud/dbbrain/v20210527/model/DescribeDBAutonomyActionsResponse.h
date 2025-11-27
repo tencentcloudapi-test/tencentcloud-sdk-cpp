@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AutonomyActionVo;
+
                 /**
                 * DescribeDBAutonomyActions返回参数结构体
                 */

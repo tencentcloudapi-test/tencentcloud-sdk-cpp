@@ -43,6 +43,19 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClbInstanceList;
+                class CdnInstanceList;
+                class WafInstanceList;
+                class DdosInstanceList;
+                class LiveInstanceList;
+                class VODInstanceList;
+                class TkeInstanceList;
+                class ApiGatewayInstanceList;
+                class TCBInstanceList;
+                class TeoInstanceList;
+                class TSEInstanceList;
+                class COSInstanceList;
+
                 /**
                 * DescribeCertificateBindResourceTaskDetail返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceField;
+
                 /**
                 * 跟踪集数据投递筛选条件
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Filter();
-                    ~Filter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

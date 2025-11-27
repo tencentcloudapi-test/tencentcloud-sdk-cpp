@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 资源的标签，通过标签对资源进行划分用于支持细粒度的鉴权、分账等场景
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Tag();
-                    ~Tag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

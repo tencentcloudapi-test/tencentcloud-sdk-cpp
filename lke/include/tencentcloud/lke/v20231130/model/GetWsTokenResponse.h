@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KnowledgeQaSingleWorkflow;
+
                 /**
                 * GetWsToken返回参数结构体
                 */

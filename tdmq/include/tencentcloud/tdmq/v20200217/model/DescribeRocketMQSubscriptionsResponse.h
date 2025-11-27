@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RocketMQSubscription;
+
                 /**
                 * DescribeRocketMQSubscriptions返回参数结构体
                 */

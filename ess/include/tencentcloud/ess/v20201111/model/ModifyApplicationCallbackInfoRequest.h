@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class CallbackInfo;
+                class Agent;
+
                 /**
                 * ModifyApplicationCallbackInfo请求参数结构体
                 */

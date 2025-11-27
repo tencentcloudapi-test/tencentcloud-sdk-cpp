@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SchemaInfo;
+
                 /**
                 * ListSchemaPage
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ListSchemaPage();
-                    ~ListSchemaPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

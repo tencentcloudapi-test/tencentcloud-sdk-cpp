@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FunctionTarget;
+
                 /**
                 * ModifyFunctionTargets请求参数结构体
                 */

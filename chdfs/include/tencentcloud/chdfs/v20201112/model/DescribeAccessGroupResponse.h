@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccessGroup;
+
                 /**
                 * DescribeAccessGroup返回参数结构体
                 */

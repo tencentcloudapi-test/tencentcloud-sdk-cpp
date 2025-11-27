@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 自定义变量和标签关系数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ApiVarAttrInfo();
-                    ~ApiVarAttrInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeliverTypeDetails;
+
                 /**
                 * ModifyLogKafkaAccess请求参数结构体
                 */

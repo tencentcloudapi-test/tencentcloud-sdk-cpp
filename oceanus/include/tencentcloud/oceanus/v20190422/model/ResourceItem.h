@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceLoc;
+                class RefJobStatusCountItem;
+
                 /**
                 * 资源详细描述
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ResourceItem();
-                    ~ResourceItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

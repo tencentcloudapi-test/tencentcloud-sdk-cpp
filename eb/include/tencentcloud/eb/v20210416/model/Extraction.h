@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TextParams;
+
                 /**
                 * 描述如何提取数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Extraction();
-                    ~Extraction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

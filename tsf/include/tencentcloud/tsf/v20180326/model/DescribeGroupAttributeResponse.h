@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VmGroupOther;
+
                 /**
                 * DescribeGroupAttribute返回参数结构体
                 */

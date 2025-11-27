@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordTemplateTimeSections;
+
                 /**
                 * AddRecordBackupTemplate请求参数结构体
                 */

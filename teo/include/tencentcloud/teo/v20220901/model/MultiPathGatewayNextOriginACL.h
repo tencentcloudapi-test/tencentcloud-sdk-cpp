@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Addresses;
+
                 /**
                 * 当回源 IP 网段发生更新时，该字段会返回下一个版本将要生效的回源 IP 网段，包含与当前生效的回源 IP 网段的对比。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MultiPathGatewayNextOriginACL();
-                    ~MultiPathGatewayNextOriginACL() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

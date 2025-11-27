@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 添加引导操作
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ScriptBootstrapActionConfig();
-                    ~ScriptBootstrapActionConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

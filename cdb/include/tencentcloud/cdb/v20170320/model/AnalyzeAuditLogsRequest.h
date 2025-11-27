@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AggregationCondition;
+                class AuditLogFilter;
+                class InstanceAuditLogFilters;
+
                 /**
                 * AnalyzeAuditLogs请求参数结构体
                 */

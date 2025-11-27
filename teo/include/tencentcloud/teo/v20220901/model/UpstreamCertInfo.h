@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MutualTLS;
+                class OriginCertificateVerify;
+
                 /**
                 * 用于分别开启/关闭回源双向认证和源站证书校验。回源双向认证的证书用于 EO 回源时携带，源站可选择校验该证书用于确保请求来源于受信任的 EO 节点。源站证书校验开启时，证书配置用于 EO 节点校验源站证书是否可信。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     UpstreamCertInfo();
-                    ~UpstreamCertInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

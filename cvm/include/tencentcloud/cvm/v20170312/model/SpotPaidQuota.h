@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 竞价实例配额
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SpotPaidQuota();
-                    ~SpotPaidQuota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

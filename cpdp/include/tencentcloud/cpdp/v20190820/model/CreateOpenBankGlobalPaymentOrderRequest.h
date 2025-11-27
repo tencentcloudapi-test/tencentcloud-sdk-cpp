@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpenBankGoodsInfo;
+                class OpenBankShippingInfo;
+                class OpenBankBillingInfo;
+
                 /**
                 * CreateOpenBankGlobalPaymentOrder请求参数结构体
                 */

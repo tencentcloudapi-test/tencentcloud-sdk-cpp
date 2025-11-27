@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SiteDetail;
+
                 /**
                 * DescribeSitesDetail返回参数结构体
                 */

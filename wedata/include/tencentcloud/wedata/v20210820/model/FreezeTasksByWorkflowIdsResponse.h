@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OperationOpsDto;
+
                 /**
                 * FreezeTasksByWorkflowIds返回参数结构体
                 */

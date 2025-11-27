@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 根据源站查询的可用加速区域信息及对应的可选带宽和并发量。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AccessRegionDetial();
-                    ~AccessRegionDetial() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

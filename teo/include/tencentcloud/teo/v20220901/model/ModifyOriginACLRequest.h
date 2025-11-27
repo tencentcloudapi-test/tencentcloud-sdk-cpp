@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OriginACLEntity;
+
                 /**
                 * ModifyOriginACL请求参数结构体
                 */

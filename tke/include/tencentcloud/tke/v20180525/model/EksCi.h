@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Container;
+                class EksCiVolume;
+                class SecurityContext;
+
                 /**
                 * EksContainerInstance实例类型
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     EksCi();
-                    ~EksCi() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

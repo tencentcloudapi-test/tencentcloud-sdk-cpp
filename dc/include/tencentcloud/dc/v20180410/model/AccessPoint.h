@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Coordinate;
+                class PortSpecification;
+
                 /**
                 * 接入点信息。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AccessPoint();
-                    ~AccessPoint() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

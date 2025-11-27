@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpstreamNode;
+                class Tag;
+                class UpstreamHealthChecker;
+                class K8sService;
+
                 /**
                 * CreateUpstream请求参数结构体
                 */

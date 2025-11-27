@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UsageRecords;
+
                 /**
                 * DescribeVoucherUsageDetails返回参数结构体
                 */

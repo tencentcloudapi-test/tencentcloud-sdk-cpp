@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClbInstanceDetail;
+
                 /**
                 * clb实例详情 - 异步关联云资源数据结构
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ClbInstanceList();
-                    ~ClbInstanceList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

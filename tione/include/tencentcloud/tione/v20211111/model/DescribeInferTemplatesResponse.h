@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InferTemplateGroup;
+
                 /**
                 * DescribeInferTemplates返回参数结构体
                 */

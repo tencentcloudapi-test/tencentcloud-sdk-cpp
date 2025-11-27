@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SlaUpdateParam;
+
                 /**
                 * ModifyLoadBalancerSla请求参数结构体
                 */

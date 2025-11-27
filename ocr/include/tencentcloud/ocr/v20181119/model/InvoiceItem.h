@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Polygon;
+                class SingleInvoiceItem;
+                class ItemPolygonInfo;
+                class InvoiceSealInfo;
+
                 /**
                 * 混贴票据单张发票识别信息
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     InvoiceItem();
-                    ~InvoiceItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

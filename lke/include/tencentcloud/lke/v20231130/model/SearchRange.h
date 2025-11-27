@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiVarAttrInfo;
+
                 /**
                 * 检索范围配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SearchRange();
-                    ~SearchRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

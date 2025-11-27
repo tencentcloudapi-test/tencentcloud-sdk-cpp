@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoleInfo;
+
                 /**
                 * GetRole返回参数结构体
                 */

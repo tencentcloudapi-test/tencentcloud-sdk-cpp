@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CmdCostGroup;
+
                 /**
                 * DescribeRedisCommandCostStatistics返回参数结构体
                 */

@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TopicFlowRanking;
+                class ConsumerGroupSpeed;
+                class TopicMessageHeapRanking;
+                class BrokerTopicData;
+                class BrokerTopicFlowData;
+
                 /**
                 * topic 生产消息数据，消费者数据
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     TopicFlowRankingResult();
-                    ~TopicFlowRankingResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

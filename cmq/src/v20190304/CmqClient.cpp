@@ -62,32 +62,25 @@ CmqClient::DescribeQueueDetailOutcome CmqClient::DescribeQueueDetail(const Descr
 
 void CmqClient::DescribeQueueDetailAsync(const DescribeQueueDetailRequest& request, const DescribeQueueDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeQueueDetailRequest&;
-    using Resp = DescribeQueueDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeQueueDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeQueueDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmqClient::DescribeQueueDetailOutcomeCallable CmqClient::DescribeQueueDetailCallable(const DescribeQueueDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeQueueDetailOutcome>>();
-    DescribeQueueDetailAsync(
-    request,
-    [prom](
-        const CmqClient*,
-        const DescribeQueueDetailRequest&,
-        DescribeQueueDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeQueueDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeQueueDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CmqClient::DescribeTopicDetailOutcome CmqClient::DescribeTopicDetail(const DescribeTopicDetailRequest &request)
@@ -112,31 +105,24 @@ CmqClient::DescribeTopicDetailOutcome CmqClient::DescribeTopicDetail(const Descr
 
 void CmqClient::DescribeTopicDetailAsync(const DescribeTopicDetailRequest& request, const DescribeTopicDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTopicDetailRequest&;
-    using Resp = DescribeTopicDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTopicDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTopicDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CmqClient::DescribeTopicDetailOutcomeCallable CmqClient::DescribeTopicDetailCallable(const DescribeTopicDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTopicDetailOutcome>>();
-    DescribeTopicDetailAsync(
-    request,
-    [prom](
-        const CmqClient*,
-        const DescribeTopicDetailRequest&,
-        DescribeTopicDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTopicDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTopicDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

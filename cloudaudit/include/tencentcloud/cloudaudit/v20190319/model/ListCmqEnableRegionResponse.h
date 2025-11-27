@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CmqRegionInfo;
+
                 /**
                 * ListCmqEnableRegion返回参数结构体
                 */

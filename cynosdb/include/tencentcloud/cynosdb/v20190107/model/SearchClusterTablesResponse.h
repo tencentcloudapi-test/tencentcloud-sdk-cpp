@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatabaseTables;
+
                 /**
                 * SearchClusterTables返回参数结构体
                 */

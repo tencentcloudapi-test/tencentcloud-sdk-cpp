@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CFSOptionOverview;
+                class GooseFSOptionOverview;
+                class GooseFSxOptionOverview;
+
                 /**
                 * 集群存储选项概览信息。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     StorageOptionOverview();
-                    ~StorageOptionOverview() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

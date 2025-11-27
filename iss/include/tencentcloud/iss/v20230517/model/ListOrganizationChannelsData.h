@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrganizationChannelInfo;
+
                 /**
                 * 查询组织目录下的通道列表返回数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ListOrganizationChannelsData();
-                    ~ListOrganizationChannelsData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImpactedHost;
+
                 /**
                 * DescribeImpactedHosts返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LockComponentInfo;
+
                 /**
                 * LockMetaData请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 规则顺序变更项，由原始id值变为新的id值。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleChangeItem();
-                    ~RuleChangeItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PositionStatusItem;
+
                 /**
                 * DescribePositionStatusSummary返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuthorizationPolicyPriority;
+
                 /**
                 * UpdateAuthorizationPolicyPriority请求参数结构体
                 */

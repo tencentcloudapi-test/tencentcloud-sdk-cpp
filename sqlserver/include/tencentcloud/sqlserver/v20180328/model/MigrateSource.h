@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 迁移任务的源类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MigrateSource();
-                    ~MigrateSource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

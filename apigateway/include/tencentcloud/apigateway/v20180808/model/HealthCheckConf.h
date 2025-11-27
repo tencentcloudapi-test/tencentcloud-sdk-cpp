@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 健康检查配置，包括TsfHealthCheckConf和TargetServicesHealthCheckConf
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HealthCheckConf();
-                    ~HealthCheckConf() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 统计分析维度下的统计数据详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StatisticDataInfo();
-                    ~StatisticDataInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

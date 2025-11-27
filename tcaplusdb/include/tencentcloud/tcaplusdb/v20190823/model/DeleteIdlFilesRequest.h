@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IdlFileInfo;
+
                 /**
                 * DeleteIdlFiles请求参数结构体
                 */

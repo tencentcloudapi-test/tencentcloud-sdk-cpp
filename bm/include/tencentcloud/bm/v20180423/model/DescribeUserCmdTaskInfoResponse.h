@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserCmdTaskInfo;
+
                 /**
                 * DescribeUserCmdTaskInfo返回参数结构体
                 */

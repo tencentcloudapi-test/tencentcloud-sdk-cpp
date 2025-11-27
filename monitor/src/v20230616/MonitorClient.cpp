@@ -62,31 +62,24 @@ MonitorClient::DescribeAlarmNotifyHistoriesOutcome MonitorClient::DescribeAlarmN
 
 void MonitorClient::DescribeAlarmNotifyHistoriesAsync(const DescribeAlarmNotifyHistoriesRequest& request, const DescribeAlarmNotifyHistoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmNotifyHistoriesRequest&;
-    using Resp = DescribeAlarmNotifyHistoriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmNotifyHistories(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmNotifyHistories", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmNotifyHistoriesOutcomeCallable MonitorClient::DescribeAlarmNotifyHistoriesCallable(const DescribeAlarmNotifyHistoriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmNotifyHistoriesOutcome>>();
-    DescribeAlarmNotifyHistoriesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmNotifyHistoriesRequest&,
-        DescribeAlarmNotifyHistoriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmNotifyHistoriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmNotifyHistories(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

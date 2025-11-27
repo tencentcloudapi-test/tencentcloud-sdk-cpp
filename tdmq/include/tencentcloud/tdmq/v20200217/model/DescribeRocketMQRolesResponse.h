@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Role;
+
                 /**
                 * DescribeRocketMQRoles返回参数结构体
                 */

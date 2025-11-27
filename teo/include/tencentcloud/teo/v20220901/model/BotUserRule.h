@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AclCondition;
+                class BotExtendAction;
+
                 /**
                 * Bot自定义规则
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     BotUserRule();
-                    ~BotUserRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

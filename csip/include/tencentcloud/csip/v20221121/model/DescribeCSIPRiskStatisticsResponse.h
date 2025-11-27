@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CsipRiskCenterStatistics;
+
                 /**
                 * DescribeCSIPRiskStatistics返回参数结构体
                 */

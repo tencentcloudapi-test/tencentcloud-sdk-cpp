@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 镜像 tag 不可变规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ImmutableTagRule();
-                    ~ImmutableTagRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

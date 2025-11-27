@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagFilter;
+
                 /**
                 * DescribeListBGPInstances请求参数结构体
                 */

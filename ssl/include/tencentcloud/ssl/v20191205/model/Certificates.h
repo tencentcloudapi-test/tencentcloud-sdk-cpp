@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertificateExtra;
+                class ProjectInfo;
+                class Tags;
+                class PreAuditInfo;
+                class SupportDownloadType;
+                class HostingConfig;
+
                 /**
                 * 获取证书列表（DescribeCertificates）返回参数键为 Certificates 的内容。
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     Certificates();
-                    ~Certificates() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

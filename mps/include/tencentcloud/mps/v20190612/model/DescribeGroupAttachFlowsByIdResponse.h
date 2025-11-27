@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlowInOutResp;
+
                 /**
                 * DescribeGroupAttachFlowsById返回参数结构体
                 */

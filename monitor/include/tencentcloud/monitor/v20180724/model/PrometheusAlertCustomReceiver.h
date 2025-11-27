@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusAlertAllowTimeRange;
+
                 /**
                 * Prometheus告警自定义通知模板
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusAlertCustomReceiver();
-                    ~PrometheusAlertCustomReceiver() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

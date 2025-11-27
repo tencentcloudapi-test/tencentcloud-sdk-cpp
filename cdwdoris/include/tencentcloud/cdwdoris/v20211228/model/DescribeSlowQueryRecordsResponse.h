@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SlowQueryRecord;
+
                 /**
                 * DescribeSlowQueryRecords返回参数结构体
                 */

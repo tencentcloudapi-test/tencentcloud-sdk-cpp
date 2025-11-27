@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceBillingData;
+
                 /**
                 * DescribeBillingData返回参数结构体
                 */

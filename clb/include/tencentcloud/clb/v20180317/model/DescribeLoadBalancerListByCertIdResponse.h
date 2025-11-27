@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertIdRelatedWithLoadBalancers;
+
                 /**
                 * DescribeLoadBalancerListByCertId返回参数结构体
                 */

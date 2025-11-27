@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 翻译接口会话内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TranslationMessage();
-                    ~TranslationMessage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

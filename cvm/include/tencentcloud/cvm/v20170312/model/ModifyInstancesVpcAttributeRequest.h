@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VirtualPrivateCloud;
+
                 /**
                 * ModifyInstancesVpcAttribute请求参数结构体
                 */

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StageInfoDetail;
+                class FlowParamsDesc;
+                class FlowExtraDetail;
+
                 /**
                 * DescribeClusterFlowStatusDetail返回参数结构体
                 */

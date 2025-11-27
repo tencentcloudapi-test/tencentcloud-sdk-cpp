@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoginHeader;
+                class LoginData;
+
                 /**
                 * LoginHisTool请求参数结构体
                 */

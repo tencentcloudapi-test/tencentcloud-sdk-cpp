@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class TagKeyObject;
+
                 /**
                 * ModifyResourceTags请求参数结构体
                 */

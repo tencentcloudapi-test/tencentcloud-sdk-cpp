@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 预付费套餐自动续费配置项。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RenewFlag();
-                    ~RenewFlag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

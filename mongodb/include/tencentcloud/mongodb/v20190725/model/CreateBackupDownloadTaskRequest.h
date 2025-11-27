@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReplicaSetInfo;
+
                 /**
                 * CreateBackupDownloadTask请求参数结构体
                 */

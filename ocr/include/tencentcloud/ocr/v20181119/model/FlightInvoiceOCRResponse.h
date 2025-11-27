@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlightInvoiceInfo;
+
                 /**
                 * FlightInvoiceOCR返回参数结构体
                 */

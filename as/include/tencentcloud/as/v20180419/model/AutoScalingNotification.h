@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 弹性伸缩事件通知
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AutoScalingNotification();
-                    ~AutoScalingNotification() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

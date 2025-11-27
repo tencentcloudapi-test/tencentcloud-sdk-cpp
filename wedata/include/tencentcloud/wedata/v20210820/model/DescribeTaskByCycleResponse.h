@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskByCycle;
+
                 /**
                 * DescribeTaskByCycle返回参数结构体
                 */

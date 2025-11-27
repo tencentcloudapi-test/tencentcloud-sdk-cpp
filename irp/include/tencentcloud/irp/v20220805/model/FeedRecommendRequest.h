@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserIdInfo;
+
                 /**
                 * FeedRecommend请求参数结构体
                 */

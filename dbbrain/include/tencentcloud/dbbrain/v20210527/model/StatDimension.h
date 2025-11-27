@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 会话统计的维度信息,可以多个维度
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StatDimension();
-                    ~StatDimension() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

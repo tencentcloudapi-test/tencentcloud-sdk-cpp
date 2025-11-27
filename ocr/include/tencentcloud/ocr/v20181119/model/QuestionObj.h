@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Rect;
+
                 /**
                 * 试题识别结构化信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     QuestionObj();
-                    ~QuestionObj() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

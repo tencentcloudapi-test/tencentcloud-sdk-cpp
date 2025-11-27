@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupInfoTopics;
+
                 /**
                 * 存储着分配给该消费者的 partition 信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Assignment();
-                    ~Assignment() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

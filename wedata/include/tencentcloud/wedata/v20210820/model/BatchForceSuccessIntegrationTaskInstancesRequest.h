@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SchedulerTaskInstanceInfo;
+
                 /**
                 * BatchForceSuccessIntegrationTaskInstances请求参数结构体
                 */

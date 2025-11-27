@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WSParams;
+
                 /**
                 * HTTP函数支持其他访问协议的参数
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ProtocolParams();
-                    ~ProtocolParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

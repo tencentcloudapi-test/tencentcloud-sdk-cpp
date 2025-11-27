@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SurgeryHistory;
+                class OtherInfo;
+
                 /**
                 * 手术记录
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Surgery();
-                    ~Surgery() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

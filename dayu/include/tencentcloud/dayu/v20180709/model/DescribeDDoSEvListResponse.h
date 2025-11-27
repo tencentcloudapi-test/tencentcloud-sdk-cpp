@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DDoSEventRecord;
+
                 /**
                 * DescribeDDoSEvList返回参数结构体
                 */

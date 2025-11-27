@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 链路详情扫描目标和ID
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IdndValue();
-                    ~IdndValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

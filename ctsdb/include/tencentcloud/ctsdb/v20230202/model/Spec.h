@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实例规格信息(influxdb)
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Spec();
-                    ~Spec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

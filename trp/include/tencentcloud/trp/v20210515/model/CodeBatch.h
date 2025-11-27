@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Ext;
+                class Job;
+                class AttrItem;
+
                 /**
                 * 批次
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     CodeBatch();
-                    ~CodeBatch() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

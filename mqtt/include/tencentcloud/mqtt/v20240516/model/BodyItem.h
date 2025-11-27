@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * HTTP 认证器body
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BodyItem();
-                    ~BodyItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 就近接入的国家地区详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NationCountryInnerInfo();
-                    ~NationCountryInnerInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

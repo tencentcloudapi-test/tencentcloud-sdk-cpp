@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 修改审批单状态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ApproveModify();
-                    ~ApproveModify() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

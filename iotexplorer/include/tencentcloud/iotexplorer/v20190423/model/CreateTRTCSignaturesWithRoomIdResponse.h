@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TRTCParams;
+
                 /**
                 * CreateTRTCSignaturesWithRoomId返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 访问控制列表对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AcListsData();
-                    ~AcListsData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

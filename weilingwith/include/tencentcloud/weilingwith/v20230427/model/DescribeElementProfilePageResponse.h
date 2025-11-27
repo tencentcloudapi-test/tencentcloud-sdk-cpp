@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ElementProfilePageRes;
+
                 /**
                 * DescribeElementProfilePage返回参数结构体
                 */

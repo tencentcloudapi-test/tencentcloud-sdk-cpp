@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TTS;
+
                 /**
                 * TongChuanSync请求参数结构体
                 */

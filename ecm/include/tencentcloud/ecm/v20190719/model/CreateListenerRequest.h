@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthCheck;
+
                 /**
                 * CreateListener请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceRollbackRangeTime;
+
                 /**
                 * DescribeRollbackRangeTime返回参数结构体
                 */

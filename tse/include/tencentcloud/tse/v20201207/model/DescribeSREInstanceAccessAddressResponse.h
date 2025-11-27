@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EnvAddressInfo;
+                class PolarisLimiterAddress;
+                class CLBMultiRegion;
+
                 /**
                 * DescribeSREInstanceAccessAddress返回参数结构体
                 */

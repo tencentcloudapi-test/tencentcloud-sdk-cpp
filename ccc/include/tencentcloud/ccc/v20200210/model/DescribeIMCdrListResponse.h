@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IMCdrInfo;
+
                 /**
                 * DescribeIMCdrList返回参数结构体
                 */

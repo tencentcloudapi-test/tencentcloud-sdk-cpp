@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RedisInstanceEvent;
+
                 /**
                 * DescribeInstanceEvents返回参数结构体
                 */

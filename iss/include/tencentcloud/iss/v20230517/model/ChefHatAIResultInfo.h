@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaseAIResultInfo;
+
                 /**
                 * 厨师帽识别结果详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ChefHatAIResultInfo();
-                    ~ChefHatAIResultInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RegionDetail;
+                class TagPair;
+
                 /**
                 * 通道组详情列表
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ProxyGroupInfo();
-                    ~ProxyGroupInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

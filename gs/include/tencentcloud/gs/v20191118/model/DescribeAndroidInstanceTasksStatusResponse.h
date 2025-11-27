@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AndroidInstanceTaskStatus;
+
                 /**
                 * DescribeAndroidInstanceTasksStatus返回参数结构体
                 */

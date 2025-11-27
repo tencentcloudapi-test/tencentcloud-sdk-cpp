@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomField;
+                class DeliveryCondition;
+                class LogFormat;
+                class CLSTopic;
+                class CustomEndpoint;
+                class S3;
+
                 /**
                 * 实时日志投递任务。
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     RealtimeLogDeliveryTask();
-                    ~RealtimeLogDeliveryTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

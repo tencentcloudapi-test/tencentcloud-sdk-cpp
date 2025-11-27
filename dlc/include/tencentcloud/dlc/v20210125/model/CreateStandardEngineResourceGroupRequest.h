@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EngineResourceGroupConfigPair;
+
                 /**
                 * CreateStandardEngineResourceGroup请求参数结构体
                 */

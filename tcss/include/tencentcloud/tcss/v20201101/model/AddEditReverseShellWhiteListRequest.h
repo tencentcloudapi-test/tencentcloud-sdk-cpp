@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReverseShellWhiteListInfo;
+
                 /**
                 * AddEditReverseShellWhiteList请求参数结构体
                 */

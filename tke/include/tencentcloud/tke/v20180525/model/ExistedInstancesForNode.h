@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExistedInstancesPara;
+                class InstanceAdvancedSettings;
+
                 /**
                 * 不同角色的已存在节点配置参数
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ExistedInstancesForNode();
-                    ~ExistedInstancesForNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

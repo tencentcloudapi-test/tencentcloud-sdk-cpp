@@ -24,7 +24,6 @@
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
-#include <tencentcloud/lke/v20231130/model/AgentToolReqParam.h>
 #include <tencentcloud/lke/v20231130/model/AgentInput.h>
 
 
@@ -36,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AgentInput;
+
                 /**
                 * Agent工具的请求参数定义
                 */
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AgentToolReqParam();
-                    ~AgentToolReqParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

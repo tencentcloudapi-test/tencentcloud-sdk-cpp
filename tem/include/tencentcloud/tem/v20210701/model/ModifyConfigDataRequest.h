@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Pair;
+
                 /**
                 * ModifyConfigData请求参数结构体
                 */

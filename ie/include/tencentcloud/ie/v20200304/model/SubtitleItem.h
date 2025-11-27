@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 语音字幕识别项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SubtitleItem();
-                    ~SubtitleItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

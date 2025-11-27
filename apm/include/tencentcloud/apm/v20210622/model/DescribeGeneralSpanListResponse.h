@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Span;
+
                 /**
                 * DescribeGeneralSpanList返回参数结构体
                 */

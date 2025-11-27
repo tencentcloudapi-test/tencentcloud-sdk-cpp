@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModelVersion;
+
                 /**
                 * CreateModelEvaluationWorkOrder请求参数结构体
                 */

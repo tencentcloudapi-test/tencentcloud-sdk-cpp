@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConnectLimitConfig;
+                class InstanceRelation;
+
                 /**
                 * 连接抑制列表
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ConnectLimitRelation();
-                    ~ConnectLimitRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

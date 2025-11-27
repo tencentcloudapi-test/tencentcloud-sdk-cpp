@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 告警处理人列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HandlerPersonInfo();
-                    ~HandlerPersonInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

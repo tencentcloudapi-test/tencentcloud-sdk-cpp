@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 规则关联的beta任务
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BetaInfoByACL();
-                    ~BetaInfoByACL() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

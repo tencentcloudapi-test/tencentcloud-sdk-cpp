@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Image;
+                class LogoParam;
+
                 /**
                 * TextToImageRapid请求参数结构体
                 */

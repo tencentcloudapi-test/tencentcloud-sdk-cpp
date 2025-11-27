@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttributeLabelReferItem;
+
                 /**
                 * CreateQA请求参数结构体
                 */

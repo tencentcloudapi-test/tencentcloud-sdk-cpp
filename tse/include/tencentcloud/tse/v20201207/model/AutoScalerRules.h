@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AutoScalerPolicy;
+
                 /**
                 * 指标伸缩的规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AutoScalerRules();
-                    ~AutoScalerRules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

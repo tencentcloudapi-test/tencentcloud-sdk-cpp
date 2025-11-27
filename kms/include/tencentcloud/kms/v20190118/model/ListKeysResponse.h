@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Key;
+
                 /**
                 * ListKeys返回参数结构体
                 */

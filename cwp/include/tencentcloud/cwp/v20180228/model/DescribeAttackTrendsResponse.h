@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetAttackTrend;
+
                 /**
                 * DescribeAttackTrends返回参数结构体
                 */

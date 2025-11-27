@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 云存套餐包消耗统计
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PackageConsumeStat();
-                    ~PackageConsumeStat() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

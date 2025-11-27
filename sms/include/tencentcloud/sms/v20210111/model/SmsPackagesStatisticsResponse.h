@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SmsPackagesStatistics;
+
                 /**
                 * SmsPackagesStatistics返回参数结构体
                 */

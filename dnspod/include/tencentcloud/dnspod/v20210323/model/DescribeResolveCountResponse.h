@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResolveCountDataItem;
+                class ResolveCountInfo;
+                class ResolveCountAliasItem;
+
                 /**
                 * DescribeResolveCount返回参数结构体
                 */

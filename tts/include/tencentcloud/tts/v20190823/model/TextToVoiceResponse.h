@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Subtitle;
+
                 /**
                 * TextToVoice返回参数结构体
                 */

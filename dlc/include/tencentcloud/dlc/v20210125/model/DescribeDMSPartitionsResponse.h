@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DMSPartition;
+
                 /**
                 * DescribeDMSPartitions返回参数结构体
                 */

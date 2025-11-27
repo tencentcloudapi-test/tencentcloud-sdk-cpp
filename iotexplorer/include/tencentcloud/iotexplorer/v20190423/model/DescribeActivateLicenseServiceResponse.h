@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LicenseServiceNumInfo;
+
                 /**
                 * DescribeActivateLicenseService返回参数结构体
                 */

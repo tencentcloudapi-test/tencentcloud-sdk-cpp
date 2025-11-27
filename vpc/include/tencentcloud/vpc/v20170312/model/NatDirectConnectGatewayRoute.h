@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询nat路由的返回路由对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NatDirectConnectGatewayRoute();
-                    ~NatDirectConnectGatewayRoute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

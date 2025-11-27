@@ -37,6 +37,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomField;
+                class DeliveryCondition;
+                class LogFormat;
+                class CLSTopic;
+                class CustomEndpoint;
+                class S3;
+
                 /**
                 * CreateRealtimeLogDeliveryTask请求参数结构体
                 */

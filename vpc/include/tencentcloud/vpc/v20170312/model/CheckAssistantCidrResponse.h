@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConflictSource;
+
                 /**
                 * CheckAssistantCidr返回参数结构体
                 */

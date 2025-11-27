@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateApiRspSet;
+
                 /**
                 * ImportOpenApi返回参数结构体
                 */

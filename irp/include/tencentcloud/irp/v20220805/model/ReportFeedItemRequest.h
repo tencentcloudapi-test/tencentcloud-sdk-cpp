@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DocItem;
+
                 /**
                 * ReportFeedItem请求参数结构体
                 */

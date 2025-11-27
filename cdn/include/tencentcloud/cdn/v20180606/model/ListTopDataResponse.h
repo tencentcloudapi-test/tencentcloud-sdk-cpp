@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TopData;
+
                 /**
                 * ListTopData返回参数结构体
                 */

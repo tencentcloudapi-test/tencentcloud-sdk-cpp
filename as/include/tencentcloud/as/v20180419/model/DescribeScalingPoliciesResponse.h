@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScalingPolicy;
+
                 /**
                 * DescribeScalingPolicies返回参数结构体
                 */

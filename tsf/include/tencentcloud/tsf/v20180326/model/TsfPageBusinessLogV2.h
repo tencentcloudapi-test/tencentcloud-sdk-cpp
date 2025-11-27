@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BusinessLogV2;
+
                 /**
                 * 业务日志列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageBusinessLogV2();
-                    ~TsfPageBusinessLogV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

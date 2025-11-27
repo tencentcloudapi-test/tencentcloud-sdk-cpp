@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeLocalAccountAccountGroupsData;
+
                 /**
                 * 获取账号列表响应的单个对象
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeLocalAccountsData();
-                    ~DescribeLocalAccountsData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 混流自定义渲染参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     McuBackgroundCustomRender();
-                    ~McuBackgroundCustomRender() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

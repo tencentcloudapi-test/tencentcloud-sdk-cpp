@@ -62,31 +62,24 @@ IgClient::DescribeIgOrderListOutcome IgClient::DescribeIgOrderList(const Describ
 
 void IgClient::DescribeIgOrderListAsync(const DescribeIgOrderListRequest& request, const DescribeIgOrderListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIgOrderListRequest&;
-    using Resp = DescribeIgOrderListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIgOrderList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIgOrderList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 IgClient::DescribeIgOrderListOutcomeCallable IgClient::DescribeIgOrderListCallable(const DescribeIgOrderListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIgOrderListOutcome>>();
-    DescribeIgOrderListAsync(
-    request,
-    [prom](
-        const IgClient*,
-        const DescribeIgOrderListRequest&,
-        DescribeIgOrderListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIgOrderListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIgOrderList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

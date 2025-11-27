@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GetEidTokenConfig;
+                class Encryption;
+
                 /**
                 * GetEidToken请求参数结构体
                 */

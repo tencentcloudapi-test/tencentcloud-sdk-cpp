@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CaptchaUserAllAppId;
+
                 /**
                 * DescribeCaptchaUserAllAppId返回参数结构体
                 */

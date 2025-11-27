@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FiltersItemNew;
+
                 /**
                 * DescribeRateLimitsV2请求参数结构体
                 */

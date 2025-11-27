@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数据源模糊查询参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DataSourceQueryOption();
-                    ~DataSourceQueryOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

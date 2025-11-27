@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SceneListRes;
+
                 /**
                 * DescribeSceneList返回参数结构体
                 */

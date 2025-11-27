@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmInfoRsp;
+
                 /**
                 * DescribeAlarmStat返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * 内网保留IP数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ReserveIpAddressInfo();
-                    ~ReserveIpAddressInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

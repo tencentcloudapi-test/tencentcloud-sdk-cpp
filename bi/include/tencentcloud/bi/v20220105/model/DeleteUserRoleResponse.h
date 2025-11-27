@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ErrorInfo;
+
                 /**
                 * DeleteUserRole返回参数结构体
                 */

@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunTimeEventBaseInfo;
+                class ProcessDetailInfo;
+                class ProcessDetailBaseInfo;
+                class ReverseShellEventDescription;
+                class ProcessBaseInfo;
+
                 /**
                 * DescribeReverseShellDetail返回参数结构体
                 */

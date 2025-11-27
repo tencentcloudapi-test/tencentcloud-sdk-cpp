@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageUrl;
+
                 /**
                 * 多模态对话内容,支持图片与文字信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MultiModalContent();
-                    ~MultiModalContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

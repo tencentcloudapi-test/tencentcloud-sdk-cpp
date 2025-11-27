@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchLogErrors;
+                class SearchLogInfos;
+
                 /**
                 * 多主题检索返回信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SearchLogTopics();
-                    ~SearchLogTopics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

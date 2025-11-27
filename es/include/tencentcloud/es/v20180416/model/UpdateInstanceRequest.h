@@ -42,6 +42,18 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EsAcl;
+                class CosBackup;
+                class NodeInfo;
+                class EsPublicAcl;
+                class ZoneDetail;
+                class WebNodeTypeInfo;
+                class EsConfigSetInfo;
+                class OperationDurationUpdated;
+                class OutboundPublicAcl;
+                class EnableScheduleOperationDuration;
+                class AutoScaleDiskInfo;
+
                 /**
                 * UpdateInstance请求参数结构体
                 */

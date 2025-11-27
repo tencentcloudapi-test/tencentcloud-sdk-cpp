@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Config;
+                class TopicPartitionDO;
+                class AclRule;
+                class InstanceQuotaConfigResp;
+
                 /**
                 * 主题属性返回结果实体
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     TopicAttributesResponse();
-                    ~TopicAttributesResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

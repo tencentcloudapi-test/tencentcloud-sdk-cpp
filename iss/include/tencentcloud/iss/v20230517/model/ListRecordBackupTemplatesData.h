@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordTemplateTimeSections;
+
                 /**
                 * 查询录像上云模板列表返回数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ListRecordBackupTemplatesData();
-                    ~ListRecordBackupTemplatesData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

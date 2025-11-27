@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiskSpecInfo;
+                class Tag;
+
                 /**
                 * 资源详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     NodeResourceSpec();
-                    ~NodeResourceSpec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

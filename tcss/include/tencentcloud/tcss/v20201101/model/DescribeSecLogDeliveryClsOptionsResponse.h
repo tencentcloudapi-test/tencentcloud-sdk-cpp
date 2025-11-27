@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClsLogsetInfo;
+                class RegionInfo;
+
                 /**
                 * DescribeSecLogDeliveryClsOptions返回参数结构体
                 */

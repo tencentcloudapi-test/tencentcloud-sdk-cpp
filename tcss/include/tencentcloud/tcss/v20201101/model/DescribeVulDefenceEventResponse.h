@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulDefenceEvent;
+
                 /**
                 * DescribeVulDefenceEvent返回参数结构体
                 */

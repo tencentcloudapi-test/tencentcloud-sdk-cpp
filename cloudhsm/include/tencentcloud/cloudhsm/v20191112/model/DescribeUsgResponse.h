@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SgUnit;
+
                 /**
                 * DescribeUsg返回参数结构体
                 */

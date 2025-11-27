@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 明细账单配置描述结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BillDetailComponentConfig();
-                    ~BillDetailComponentConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

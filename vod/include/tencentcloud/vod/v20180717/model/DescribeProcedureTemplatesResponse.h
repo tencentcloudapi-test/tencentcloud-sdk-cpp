@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProcedureTemplate;
+
                 /**
                 * DescribeProcedureTemplates返回参数结构体
                 */

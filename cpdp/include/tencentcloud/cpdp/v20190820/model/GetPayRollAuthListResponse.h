@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PayRollAuthResult;
+
                 /**
                 * GetPayRollAuthList返回参数结构体
                 */

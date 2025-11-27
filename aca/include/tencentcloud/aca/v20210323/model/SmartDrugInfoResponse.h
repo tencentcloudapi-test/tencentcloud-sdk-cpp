@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SmartDrugInfoResp;
+
                 /**
                 * SmartDrugInfo返回参数结构体
                 */

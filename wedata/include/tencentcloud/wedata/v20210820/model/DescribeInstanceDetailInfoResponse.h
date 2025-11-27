@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceLifeCycleOpsDto;
+
                 /**
                 * DescribeInstanceDetailInfo返回参数结构体
                 */

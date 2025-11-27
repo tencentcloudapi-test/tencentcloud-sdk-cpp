@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 修改黑白名单数据出参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OutputModifyNameListFront();
-                    ~OutputModifyNameListFront() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

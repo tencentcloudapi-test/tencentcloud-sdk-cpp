@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IpAddressStates;
+
                 /**
                 * DescribeUsedIpAddress返回参数结构体
                 */

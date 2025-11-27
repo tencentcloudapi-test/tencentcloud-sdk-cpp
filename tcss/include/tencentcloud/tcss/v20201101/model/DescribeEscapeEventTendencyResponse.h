@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EscapeEventTendencyInfo;
+
                 /**
                 * DescribeEscapeEventTendency返回参数结构体
                 */

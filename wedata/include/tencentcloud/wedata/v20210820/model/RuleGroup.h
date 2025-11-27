@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleGroupExecStrategy;
+                class RuleGroupSubscribe;
+
                 /**
                 * 数据质量规则组
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleGroup();
-                    ~RuleGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

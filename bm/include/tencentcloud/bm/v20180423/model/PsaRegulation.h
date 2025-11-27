@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+
                 /**
                 * 一条预授权规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PsaRegulation();
-                    ~PsaRegulation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

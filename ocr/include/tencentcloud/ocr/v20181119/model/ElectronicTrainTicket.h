@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 全电发票（铁路电子客票）
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ElectronicTrainTicket();
-                    ~ElectronicTrainTicket() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

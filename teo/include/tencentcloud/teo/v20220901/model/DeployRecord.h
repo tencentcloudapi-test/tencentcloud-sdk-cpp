@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigGroupVersionInfo;
+
                 /**
                 * 配置组版本发布记录详情。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DeployRecord();
-                    ~DeployRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

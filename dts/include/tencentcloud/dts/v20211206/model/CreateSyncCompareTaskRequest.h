@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompareObject;
+                class CompareOptions;
+
                 /**
                 * CreateSyncCompareTask请求参数结构体
                 */

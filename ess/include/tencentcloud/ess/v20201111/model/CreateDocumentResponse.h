@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApproverItem;
+
                 /**
                 * CreateDocument返回参数结构体
                 */

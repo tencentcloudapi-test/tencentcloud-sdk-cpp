@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JgwOperateResponse;
+
                 /**
                 * DeleteRoute返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValueRecord;
+
                 /**
                 * DescribeResourceList返回参数结构体
                 */

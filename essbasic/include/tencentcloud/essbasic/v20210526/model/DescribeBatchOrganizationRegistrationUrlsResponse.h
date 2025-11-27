@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrganizationAuthUrl;
+
                 /**
                 * DescribeBatchOrganizationRegistrationUrls返回参数结构体
                 */

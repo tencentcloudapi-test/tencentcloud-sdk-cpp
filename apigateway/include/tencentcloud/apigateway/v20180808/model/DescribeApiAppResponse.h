@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiAppInfos;
+
                 /**
                 * DescribeApiApp返回参数结构体
                 */

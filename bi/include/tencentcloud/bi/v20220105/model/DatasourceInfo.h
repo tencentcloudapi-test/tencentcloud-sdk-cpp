@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaseStateAction;
+                class PermissionGroup;
+
                 /**
                 * 数据源详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DatasourceInfo();
-                    ~DatasourceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

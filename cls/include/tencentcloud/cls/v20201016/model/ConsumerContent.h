@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 投递任务出入参 Content
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ConsumerContent();
-                    ~ConsumerContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

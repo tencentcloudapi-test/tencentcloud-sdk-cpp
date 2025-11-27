@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Document;
+
                 /**
                 * ParseDocumentAsync请求参数结构体
                 */

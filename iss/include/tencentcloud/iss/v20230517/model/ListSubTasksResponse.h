@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListSubTasksData;
+
                 /**
                 * ListSubTasks返回参数结构体
                 */

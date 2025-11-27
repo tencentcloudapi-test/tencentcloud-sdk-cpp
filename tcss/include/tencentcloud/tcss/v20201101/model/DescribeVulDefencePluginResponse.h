@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VulDefencePlugin;
+
                 /**
                 * DescribeVulDefencePlugin返回参数结构体
                 */

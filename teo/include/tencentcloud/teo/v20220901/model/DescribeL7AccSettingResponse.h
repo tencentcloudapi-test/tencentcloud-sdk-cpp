@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ZoneConfigParameters;
+
                 /**
                 * DescribeL7AccSetting返回参数结构体
                 */

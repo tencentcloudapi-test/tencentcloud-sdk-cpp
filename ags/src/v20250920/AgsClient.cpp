@@ -62,32 +62,25 @@ AgsClient::AcquireSandboxInstanceTokenOutcome AgsClient::AcquireSandboxInstanceT
 
 void AgsClient::AcquireSandboxInstanceTokenAsync(const AcquireSandboxInstanceTokenRequest& request, const AcquireSandboxInstanceTokenAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AcquireSandboxInstanceTokenRequest&;
-    using Resp = AcquireSandboxInstanceTokenResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AcquireSandboxInstanceToken(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AcquireSandboxInstanceToken", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::AcquireSandboxInstanceTokenOutcomeCallable AgsClient::AcquireSandboxInstanceTokenCallable(const AcquireSandboxInstanceTokenRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AcquireSandboxInstanceTokenOutcome>>();
-    AcquireSandboxInstanceTokenAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const AcquireSandboxInstanceTokenRequest&,
-        AcquireSandboxInstanceTokenOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AcquireSandboxInstanceTokenOutcome()>>(
+        [this, request]()
+        {
+            return this->AcquireSandboxInstanceToken(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::CreateAPIKeyOutcome AgsClient::CreateAPIKey(const CreateAPIKeyRequest &request)
@@ -112,32 +105,25 @@ AgsClient::CreateAPIKeyOutcome AgsClient::CreateAPIKey(const CreateAPIKeyRequest
 
 void AgsClient::CreateAPIKeyAsync(const CreateAPIKeyRequest& request, const CreateAPIKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAPIKeyRequest&;
-    using Resp = CreateAPIKeyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAPIKey(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAPIKey", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::CreateAPIKeyOutcomeCallable AgsClient::CreateAPIKeyCallable(const CreateAPIKeyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAPIKeyOutcome>>();
-    CreateAPIKeyAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const CreateAPIKeyRequest&,
-        CreateAPIKeyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAPIKeyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAPIKey(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::CreateSandboxToolOutcome AgsClient::CreateSandboxTool(const CreateSandboxToolRequest &request)
@@ -162,32 +148,25 @@ AgsClient::CreateSandboxToolOutcome AgsClient::CreateSandboxTool(const CreateSan
 
 void AgsClient::CreateSandboxToolAsync(const CreateSandboxToolRequest& request, const CreateSandboxToolAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSandboxToolRequest&;
-    using Resp = CreateSandboxToolResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSandboxTool(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSandboxTool", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::CreateSandboxToolOutcomeCallable AgsClient::CreateSandboxToolCallable(const CreateSandboxToolRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSandboxToolOutcome>>();
-    CreateSandboxToolAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const CreateSandboxToolRequest&,
-        CreateSandboxToolOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSandboxToolOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSandboxTool(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::DeleteAPIKeyOutcome AgsClient::DeleteAPIKey(const DeleteAPIKeyRequest &request)
@@ -212,32 +191,25 @@ AgsClient::DeleteAPIKeyOutcome AgsClient::DeleteAPIKey(const DeleteAPIKeyRequest
 
 void AgsClient::DeleteAPIKeyAsync(const DeleteAPIKeyRequest& request, const DeleteAPIKeyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAPIKeyRequest&;
-    using Resp = DeleteAPIKeyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAPIKey(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAPIKey", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::DeleteAPIKeyOutcomeCallable AgsClient::DeleteAPIKeyCallable(const DeleteAPIKeyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAPIKeyOutcome>>();
-    DeleteAPIKeyAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const DeleteAPIKeyRequest&,
-        DeleteAPIKeyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAPIKeyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAPIKey(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::DeleteSandboxToolOutcome AgsClient::DeleteSandboxTool(const DeleteSandboxToolRequest &request)
@@ -262,32 +234,25 @@ AgsClient::DeleteSandboxToolOutcome AgsClient::DeleteSandboxTool(const DeleteSan
 
 void AgsClient::DeleteSandboxToolAsync(const DeleteSandboxToolRequest& request, const DeleteSandboxToolAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSandboxToolRequest&;
-    using Resp = DeleteSandboxToolResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSandboxTool(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSandboxTool", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::DeleteSandboxToolOutcomeCallable AgsClient::DeleteSandboxToolCallable(const DeleteSandboxToolRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSandboxToolOutcome>>();
-    DeleteSandboxToolAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const DeleteSandboxToolRequest&,
-        DeleteSandboxToolOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSandboxToolOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSandboxTool(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::DescribeAPIKeyListOutcome AgsClient::DescribeAPIKeyList(const DescribeAPIKeyListRequest &request)
@@ -312,32 +277,25 @@ AgsClient::DescribeAPIKeyListOutcome AgsClient::DescribeAPIKeyList(const Describ
 
 void AgsClient::DescribeAPIKeyListAsync(const DescribeAPIKeyListRequest& request, const DescribeAPIKeyListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAPIKeyListRequest&;
-    using Resp = DescribeAPIKeyListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAPIKeyList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAPIKeyList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::DescribeAPIKeyListOutcomeCallable AgsClient::DescribeAPIKeyListCallable(const DescribeAPIKeyListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAPIKeyListOutcome>>();
-    DescribeAPIKeyListAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const DescribeAPIKeyListRequest&,
-        DescribeAPIKeyListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAPIKeyListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAPIKeyList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::DescribeSandboxInstanceListOutcome AgsClient::DescribeSandboxInstanceList(const DescribeSandboxInstanceListRequest &request)
@@ -362,32 +320,25 @@ AgsClient::DescribeSandboxInstanceListOutcome AgsClient::DescribeSandboxInstance
 
 void AgsClient::DescribeSandboxInstanceListAsync(const DescribeSandboxInstanceListRequest& request, const DescribeSandboxInstanceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSandboxInstanceListRequest&;
-    using Resp = DescribeSandboxInstanceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSandboxInstanceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSandboxInstanceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::DescribeSandboxInstanceListOutcomeCallable AgsClient::DescribeSandboxInstanceListCallable(const DescribeSandboxInstanceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSandboxInstanceListOutcome>>();
-    DescribeSandboxInstanceListAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const DescribeSandboxInstanceListRequest&,
-        DescribeSandboxInstanceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSandboxInstanceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSandboxInstanceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::DescribeSandboxToolListOutcome AgsClient::DescribeSandboxToolList(const DescribeSandboxToolListRequest &request)
@@ -412,32 +363,25 @@ AgsClient::DescribeSandboxToolListOutcome AgsClient::DescribeSandboxToolList(con
 
 void AgsClient::DescribeSandboxToolListAsync(const DescribeSandboxToolListRequest& request, const DescribeSandboxToolListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSandboxToolListRequest&;
-    using Resp = DescribeSandboxToolListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSandboxToolList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSandboxToolList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::DescribeSandboxToolListOutcomeCallable AgsClient::DescribeSandboxToolListCallable(const DescribeSandboxToolListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSandboxToolListOutcome>>();
-    DescribeSandboxToolListAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const DescribeSandboxToolListRequest&,
-        DescribeSandboxToolListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSandboxToolListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSandboxToolList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::StartSandboxInstanceOutcome AgsClient::StartSandboxInstance(const StartSandboxInstanceRequest &request)
@@ -462,32 +406,25 @@ AgsClient::StartSandboxInstanceOutcome AgsClient::StartSandboxInstance(const Sta
 
 void AgsClient::StartSandboxInstanceAsync(const StartSandboxInstanceRequest& request, const StartSandboxInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartSandboxInstanceRequest&;
-    using Resp = StartSandboxInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartSandboxInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartSandboxInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::StartSandboxInstanceOutcomeCallable AgsClient::StartSandboxInstanceCallable(const StartSandboxInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartSandboxInstanceOutcome>>();
-    StartSandboxInstanceAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const StartSandboxInstanceRequest&,
-        StartSandboxInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartSandboxInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->StartSandboxInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::StopSandboxInstanceOutcome AgsClient::StopSandboxInstance(const StopSandboxInstanceRequest &request)
@@ -512,32 +449,25 @@ AgsClient::StopSandboxInstanceOutcome AgsClient::StopSandboxInstance(const StopS
 
 void AgsClient::StopSandboxInstanceAsync(const StopSandboxInstanceRequest& request, const StopSandboxInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopSandboxInstanceRequest&;
-    using Resp = StopSandboxInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopSandboxInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopSandboxInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::StopSandboxInstanceOutcomeCallable AgsClient::StopSandboxInstanceCallable(const StopSandboxInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopSandboxInstanceOutcome>>();
-    StopSandboxInstanceAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const StopSandboxInstanceRequest&,
-        StopSandboxInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopSandboxInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->StopSandboxInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::UpdateSandboxInstanceOutcome AgsClient::UpdateSandboxInstance(const UpdateSandboxInstanceRequest &request)
@@ -562,32 +492,25 @@ AgsClient::UpdateSandboxInstanceOutcome AgsClient::UpdateSandboxInstance(const U
 
 void AgsClient::UpdateSandboxInstanceAsync(const UpdateSandboxInstanceRequest& request, const UpdateSandboxInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateSandboxInstanceRequest&;
-    using Resp = UpdateSandboxInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateSandboxInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateSandboxInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::UpdateSandboxInstanceOutcomeCallable AgsClient::UpdateSandboxInstanceCallable(const UpdateSandboxInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateSandboxInstanceOutcome>>();
-    UpdateSandboxInstanceAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const UpdateSandboxInstanceRequest&,
-        UpdateSandboxInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateSandboxInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateSandboxInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AgsClient::UpdateSandboxToolOutcome AgsClient::UpdateSandboxTool(const UpdateSandboxToolRequest &request)
@@ -612,31 +535,24 @@ AgsClient::UpdateSandboxToolOutcome AgsClient::UpdateSandboxTool(const UpdateSan
 
 void AgsClient::UpdateSandboxToolAsync(const UpdateSandboxToolRequest& request, const UpdateSandboxToolAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateSandboxToolRequest&;
-    using Resp = UpdateSandboxToolResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateSandboxTool(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateSandboxTool", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AgsClient::UpdateSandboxToolOutcomeCallable AgsClient::UpdateSandboxToolCallable(const UpdateSandboxToolRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateSandboxToolOutcome>>();
-    UpdateSandboxToolAsync(
-    request,
-    [prom](
-        const AgsClient*,
-        const UpdateSandboxToolRequest&,
-        UpdateSandboxToolOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateSandboxToolOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateSandboxTool(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

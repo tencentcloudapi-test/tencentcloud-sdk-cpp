@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateCasInput;
+
                 /**
                 * CreateCloudAttachService请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WechatPreAuthResult;
+
                 /**
                 * ApplyFlexWechatPreAuth返回参数结构体
                 */

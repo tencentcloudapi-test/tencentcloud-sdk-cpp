@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceRefund;
+
                 /**
                 * InquiryPriceTerminateInstances返回参数结构体
                 */

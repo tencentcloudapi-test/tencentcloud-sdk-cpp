@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProtectStat;
+
                 /**
                 * DescribeWebPageProtectStat返回参数结构体
                 */

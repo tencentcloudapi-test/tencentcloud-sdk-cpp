@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OperationCountLimit;
+
                 /**
                 * DescribeInstancesOperationLimit返回参数结构体
                 */

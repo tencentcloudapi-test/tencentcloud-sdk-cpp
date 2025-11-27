@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 基线弱口令
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BaselineWeakPassword();
-                    ~BaselineWeakPassword() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

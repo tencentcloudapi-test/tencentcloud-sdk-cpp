@@ -38,6 +38,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EditMediaTask;
+                class WorkflowTask;
+                class LiveStreamProcessTask;
+                class ExtractBlindWatermarkTask;
+                class TaskNotifyConfig;
+                class ScheduleTask;
+                class LiveScheduleTask;
+
                 /**
                 * DescribeTaskDetail返回参数结构体
                 */

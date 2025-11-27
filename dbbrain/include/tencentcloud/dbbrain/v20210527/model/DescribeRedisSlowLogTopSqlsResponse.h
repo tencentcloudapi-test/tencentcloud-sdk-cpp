@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SlowLogAgg;
+
                 /**
                 * DescribeRedisSlowLogTopSqls返回参数结构体
                 */

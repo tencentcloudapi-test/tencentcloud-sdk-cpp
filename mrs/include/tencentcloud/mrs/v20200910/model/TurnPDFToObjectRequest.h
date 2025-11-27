@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PdfInfo;
+
                 /**
                 * TurnPDFToObject请求参数结构体
                 */

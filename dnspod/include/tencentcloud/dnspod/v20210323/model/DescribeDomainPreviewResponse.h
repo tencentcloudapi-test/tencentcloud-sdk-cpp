@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PreviewDetail;
+
                 /**
                 * DescribeDomainPreview返回参数结构体
                 */

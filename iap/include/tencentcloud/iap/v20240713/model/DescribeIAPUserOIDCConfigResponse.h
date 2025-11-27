@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeIAPUserOIDCConfig返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImmutableTagRule;
+
                 /**
                 * ModifyImmutableTagRules请求参数结构体
                 */

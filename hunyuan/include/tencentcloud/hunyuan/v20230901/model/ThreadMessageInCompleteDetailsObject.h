@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 会话消息未完成原因
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ThreadMessageInCompleteDetailsObject();
-                    ~ThreadMessageInCompleteDetailsObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

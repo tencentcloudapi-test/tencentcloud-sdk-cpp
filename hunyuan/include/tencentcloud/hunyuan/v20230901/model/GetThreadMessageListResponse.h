@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ThreadMessage;
+
                 /**
                 * GetThreadMessageList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StrategyForAntiInfoLeak;
+
                 /**
                 * AddAntiInfoLeakRules请求参数结构体
                 */

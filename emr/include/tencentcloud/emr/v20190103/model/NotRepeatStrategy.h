@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 弹性扩缩容执行一次规则上下文
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NotRepeatStrategy();
-                    ~NotRepeatStrategy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

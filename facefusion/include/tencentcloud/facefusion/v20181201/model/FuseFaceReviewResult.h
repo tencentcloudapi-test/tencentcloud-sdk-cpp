@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FuseFaceReviewDetail;
+
                 /**
                 * 人脸融合不适宜内容识别返回参数item
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FuseFaceReviewResult();
-                    ~FuseFaceReviewResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackingIndexMetaField;
+                class IndexPolicyField;
+                class IndexOptionsField;
+                class IndexSettingsField;
+
                 /**
                 * 索引元数据字段
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     IndexMetaField();
-                    ~IndexMetaField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

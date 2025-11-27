@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CMEExportInfo;
+                class VODExportInfo;
+                class VideoExportExtensionArgs;
+
                 /**
                 * ExportVideoByEditorTrackData请求参数结构体
                 */

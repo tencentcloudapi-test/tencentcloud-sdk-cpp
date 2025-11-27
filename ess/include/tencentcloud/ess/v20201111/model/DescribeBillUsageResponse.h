@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrgBillSummary;
+                class SubOrgBillSummary;
+
                 /**
                 * DescribeBillUsage返回参数结构体
                 */

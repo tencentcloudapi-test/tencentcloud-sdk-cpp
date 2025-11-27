@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SliceParams;
+                class SliceStorageParams;
+
                 /**
                 * CreateCloudSliceTask请求参数结构体
                 */

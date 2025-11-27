@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OutputCreateNameListFront;
+
                 /**
                 * CreateNameList返回参数结构体
                 */

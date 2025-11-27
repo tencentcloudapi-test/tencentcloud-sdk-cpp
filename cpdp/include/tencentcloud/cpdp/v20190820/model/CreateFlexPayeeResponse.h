@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateFlexPayeeResult;
+
                 /**
                 * CreateFlexPayee返回参数结构体
                 */

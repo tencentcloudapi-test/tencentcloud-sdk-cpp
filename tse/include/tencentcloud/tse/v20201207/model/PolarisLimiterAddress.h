@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 查询Limiter的接入地址
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PolarisLimiterAddress();
-                    ~PolarisLimiterAddress() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

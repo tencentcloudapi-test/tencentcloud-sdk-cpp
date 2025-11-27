@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunVersionPod;
+
                 /**
                 * 版本pod列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeRunPodPage();
-                    ~DescribeRunPodPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

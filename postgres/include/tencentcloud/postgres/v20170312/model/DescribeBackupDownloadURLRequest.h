@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackupDownloadRestriction;
+
                 /**
                 * DescribeBackupDownloadURL请求参数结构体
                 */

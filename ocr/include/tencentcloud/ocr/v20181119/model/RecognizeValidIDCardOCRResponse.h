@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IDCardInfo;
+                class TemporaryIDCardInfo;
+                class ResidencePermitInfo;
+                class PermanentResidencePermitInfo;
+
                 /**
                 * RecognizeValidIDCardOCR返回参数结构体
                 */

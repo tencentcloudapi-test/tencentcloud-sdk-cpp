@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 预付费 后付费 总数显示接口出参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OutputDescribeUserUsageCnt();
-                    ~OutputDescribeUserUsageCnt() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeDLPEdgeNodeGroupsRspData;
+
                 /**
                 * DescribeDLPEdgeNodeGroups返回参数结构体
                 */

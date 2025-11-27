@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EmptyRes;
+
                 /**
                 * UpdateWorkspaceParkAttributes返回参数结构体
                 */

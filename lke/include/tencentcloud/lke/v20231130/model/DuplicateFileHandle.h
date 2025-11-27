@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 重复文档处理方式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DuplicateFileHandle();
-                    ~DuplicateFileHandle() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

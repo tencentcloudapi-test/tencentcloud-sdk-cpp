@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视频（音频）理解任务输入
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AiAnalysisTaskVideoComprehensionInput();
-                    ~AiAnalysisTaskVideoComprehensionInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

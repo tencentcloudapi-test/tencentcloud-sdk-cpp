@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageMarshal;
+
                 /**
                 * DescribeImage返回参数结构体
                 */

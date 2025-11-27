@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CC的访问频率控制规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CCFrequencyRule();
-                    ~CCFrequencyRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

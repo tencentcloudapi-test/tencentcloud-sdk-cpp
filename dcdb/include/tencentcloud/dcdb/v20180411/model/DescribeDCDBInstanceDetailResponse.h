@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ShardBriefInfo;
+                class ResourceTag;
+                class ReservedNetResource;
+
                 /**
                 * DescribeDCDBInstanceDetail返回参数结构体
                 */

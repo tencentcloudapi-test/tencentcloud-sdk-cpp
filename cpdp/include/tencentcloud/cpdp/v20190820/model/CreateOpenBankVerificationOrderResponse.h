@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateOpenBankVerificationResult;
+
                 /**
                 * CreateOpenBankVerificationOrder返回参数结构体
                 */

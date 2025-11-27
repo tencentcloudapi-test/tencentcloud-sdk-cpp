@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProducerLog;
+                class ServerLog;
+                class ConsumerLogs;
+
                 /**
                 * DescribeMsgTrace返回参数结构体
                 */

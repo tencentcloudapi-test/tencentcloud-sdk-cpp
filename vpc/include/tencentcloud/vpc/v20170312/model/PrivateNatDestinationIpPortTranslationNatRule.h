@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 本端目的IP端口转换复杂结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PrivateNatDestinationIpPortTranslationNatRule();
-                    ~PrivateNatDestinationIpPortTranslationNatRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ValueInfo;
+                class RunNodeInfo;
+
                 /**
                 * 任务流程调试信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskFlowSummary();
-                    ~TaskFlowSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class L4DelRule;
+
                 /**
                 * DeleteNewL7Rules请求参数结构体
                 */

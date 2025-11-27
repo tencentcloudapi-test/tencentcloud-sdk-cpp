@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComplianceAssetDetailInfo;
+                class ComplianceContainerDetailInfo;
+                class ComplianceImageDetailInfo;
+                class ComplianceHostDetailInfo;
+                class ComplianceK8SDetailInfo;
+
                 /**
                 * DescribeComplianceAssetDetailInfo返回参数结构体
                 */

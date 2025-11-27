@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlowResourceUrlInfo;
+
                 /**
                 * DescribeResourceUrlsByFlows返回参数结构体
                 */

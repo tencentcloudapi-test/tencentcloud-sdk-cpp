@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 策略规则优先级
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AuthorizationPolicyPriority();
-                    ~AuthorizationPolicyPriority() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

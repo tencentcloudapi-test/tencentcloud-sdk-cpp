@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskVersionDsDTO;
+
                 /**
                 * DescribeDsTaskVersionList返回参数结构体
                 */

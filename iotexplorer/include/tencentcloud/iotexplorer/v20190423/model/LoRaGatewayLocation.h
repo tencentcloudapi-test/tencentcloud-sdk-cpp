@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 网关坐标
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LoRaGatewayLocation();
-                    ~LoRaGatewayLocation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

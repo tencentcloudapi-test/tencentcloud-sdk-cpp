@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FaceInfo;
+                class LogoParam;
+
                 /**
                 * SubmitGlamPicJob请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SuccessCode;
+
                 /**
                 * CreateL4Rules返回参数结构体
                 */

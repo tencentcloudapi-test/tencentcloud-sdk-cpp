@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PulsarProInstance;
+
                 /**
                 * DescribePulsarProInstances返回参数结构体
                 */

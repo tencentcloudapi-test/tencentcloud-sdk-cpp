@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomWhiteRule;
+
                 /**
                 * 入侵防御放通封禁规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BlockIgnoreRule();
-                    ~BlockIgnoreRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

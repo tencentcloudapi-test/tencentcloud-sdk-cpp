@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * FetchMessageListByOffset请求参数结构体
                 */

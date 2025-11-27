@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 扩容指定配置组
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ScaleOutServiceConfGroupsInfo();
-                    ~ScaleOutServiceConfGroupsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

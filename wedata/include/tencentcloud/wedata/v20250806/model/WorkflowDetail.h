@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ParamInfo;
+                class WorkflowSchedulerConfiguration;
+
                 /**
                 * 查询工作流详细信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowDetail();
-                    ~WorkflowDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

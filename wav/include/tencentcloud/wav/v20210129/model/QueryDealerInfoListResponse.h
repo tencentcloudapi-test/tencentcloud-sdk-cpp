@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DealerInfo;
+
                 /**
                 * QueryDealerInfoList返回参数结构体
                 */

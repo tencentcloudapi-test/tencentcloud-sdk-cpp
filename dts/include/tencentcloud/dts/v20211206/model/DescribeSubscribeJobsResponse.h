@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscribeInfo;
+
                 /**
                 * DescribeSubscribeJobs返回参数结构体
                 */

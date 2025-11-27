@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateApiResultInfo;
+
                 /**
                 * CreateApi返回参数结构体
                 */

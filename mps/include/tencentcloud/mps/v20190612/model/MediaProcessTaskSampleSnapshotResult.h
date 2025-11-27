@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SampleSnapshotTaskInput;
+                class MediaSampleSnapshotItem;
+
                 /**
                 * 对视频做采样截图任务结果类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaProcessTaskSampleSnapshotResult();
-                    ~MediaProcessTaskSampleSnapshotResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

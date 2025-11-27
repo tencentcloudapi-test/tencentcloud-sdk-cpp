@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowCanvasOpsDto;
+
                 /**
                 * DescribeWorkflowListByProjectId返回参数结构体
                 */

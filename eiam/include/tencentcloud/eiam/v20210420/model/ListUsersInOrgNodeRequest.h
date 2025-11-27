@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListUsersInOrgNodeSearchCriteria;
+                class SortCondition;
+
                 /**
                 * ListUsersInOrgNode请求参数结构体
                 */

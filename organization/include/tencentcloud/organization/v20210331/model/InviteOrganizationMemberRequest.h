@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuthRelationFile;
+                class Tag;
+
                 /**
                 * InviteOrganizationMember请求参数结构体
                 */

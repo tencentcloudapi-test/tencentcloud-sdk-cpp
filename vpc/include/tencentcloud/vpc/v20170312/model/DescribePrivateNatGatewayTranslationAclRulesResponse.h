@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TranslationAclRule;
+
                 /**
                 * DescribePrivateNatGatewayTranslationAclRules返回参数结构体
                 */

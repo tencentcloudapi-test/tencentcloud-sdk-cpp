@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetViewWeakPassRisk;
+                class FilterDataObject;
+
                 /**
                 * DescribeRiskCenterAssetViewWeakPasswordRiskList返回参数结构体
                 */

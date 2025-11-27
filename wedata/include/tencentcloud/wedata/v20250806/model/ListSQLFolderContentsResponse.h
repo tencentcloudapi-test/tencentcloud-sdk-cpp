@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SQLFolderNode;
+
                 /**
                 * ListSQLFolderContents返回参数结构体
                 */

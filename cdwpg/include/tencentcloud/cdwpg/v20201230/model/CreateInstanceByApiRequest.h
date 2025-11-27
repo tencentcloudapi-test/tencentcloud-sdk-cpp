@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChargeProperties;
+                class ResourceSpecNew;
+                class Tag;
+
                 /**
                 * CreateInstanceByApi请求参数结构体
                 */

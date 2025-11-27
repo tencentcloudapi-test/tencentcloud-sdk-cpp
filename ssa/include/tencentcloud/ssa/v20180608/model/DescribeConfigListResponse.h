@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataCheck;
+
                 /**
                 * DescribeConfigList返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthCheckPolicyRule;
+
                 /**
                 * 健康检测规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HealthCheckPolicy();
-                    ~HealthCheckPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

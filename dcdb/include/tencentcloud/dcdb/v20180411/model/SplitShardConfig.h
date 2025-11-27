@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 升级实例 -- 切分分片类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SplitShardConfig();
-                    ~SplitShardConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NetworkAccessControl;
+
                 /**
                 * ModifyNetworkAccessStrategy请求参数结构体
                 */

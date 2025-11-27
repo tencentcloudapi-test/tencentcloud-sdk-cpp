@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpriteImageInfo;
+                class DynamicImageInfo;
+
                 /**
                 * 编辑处理/剪切任务/输出形式信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaCuttingOutForm();
-                    ~MediaCuttingOutForm() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

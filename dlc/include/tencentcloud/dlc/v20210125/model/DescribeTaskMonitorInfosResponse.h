@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskMonitorInfo;
+
                 /**
                 * DescribeTaskMonitorInfos返回参数结构体
                 */

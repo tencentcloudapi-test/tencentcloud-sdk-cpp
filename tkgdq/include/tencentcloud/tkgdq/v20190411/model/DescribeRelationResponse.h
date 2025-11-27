@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EntityRelationContent;
+
                 /**
                 * DescribeRelation返回参数结构体
                 */

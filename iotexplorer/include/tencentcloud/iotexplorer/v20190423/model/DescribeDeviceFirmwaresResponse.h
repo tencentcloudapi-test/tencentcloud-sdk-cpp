@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceFirmwareInfo;
+
                 /**
                 * DescribeDeviceFirmwares返回参数结构体
                 */

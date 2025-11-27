@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReservedInstanceScope;
+
                 /**
                 * ModifyReservedInstanceScope请求参数结构体
                 */

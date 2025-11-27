@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 操作返回码，只用于返回成功的情况
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SuccessCode();
-                    ~SuccessCode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

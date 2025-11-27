@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GetIndustryV1HomeMembersReqPayload;
+                class ReqMetadata;
+
                 /**
                 * GetIndustryV1HomeMembers请求参数结构体
                 */

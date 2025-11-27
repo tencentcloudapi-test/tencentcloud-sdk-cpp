@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MessageProfile;
+
                 /**
                 * 单条消息上报请求
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ReportAppMessage();
-                    ~ReportAppMessage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

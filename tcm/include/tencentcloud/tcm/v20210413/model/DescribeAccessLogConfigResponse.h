@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SelectedRange;
+                class CLS;
+
                 /**
                 * DescribeAccessLogConfig返回参数结构体
                 */

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttrLabelRefer;
+                class DuplicateFileHandle;
+                class UpdatePeriodInfo;
+
                 /**
                 * SaveDoc请求参数结构体
                 */

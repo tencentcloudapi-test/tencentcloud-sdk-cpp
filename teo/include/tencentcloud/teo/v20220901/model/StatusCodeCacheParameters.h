@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StatusCodeCacheParam;
+
                 /**
                 * 状态码缓存 TTL 配置参数。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     StatusCodeCacheParameters();
-                    ~StatusCodeCacheParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

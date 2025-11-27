@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 药品名称，包括通用名和商品名
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BiologicalProductInfoName();
-                    ~BiologicalProductInfoName() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

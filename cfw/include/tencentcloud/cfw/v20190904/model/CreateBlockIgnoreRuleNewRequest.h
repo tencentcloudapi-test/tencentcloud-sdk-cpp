@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BanAndAllowRule;
+
                 /**
                 * CreateBlockIgnoreRuleNew请求参数结构体
                 */

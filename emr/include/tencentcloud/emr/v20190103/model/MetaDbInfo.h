@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomMetaInfo;
+
                 /**
                 * 元数据库信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MetaDbInfo();
-                    ~MetaDbInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

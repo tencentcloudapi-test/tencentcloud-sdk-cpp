@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CasterDisplayInfo;
+
                 /**
                 * CreateCasterPgm请求参数结构体
                 */

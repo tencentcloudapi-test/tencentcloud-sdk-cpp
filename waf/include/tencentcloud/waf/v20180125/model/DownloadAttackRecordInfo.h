@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 下载攻击日志记录数据项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DownloadAttackRecordInfo();
-                    ~DownloadAttackRecordInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

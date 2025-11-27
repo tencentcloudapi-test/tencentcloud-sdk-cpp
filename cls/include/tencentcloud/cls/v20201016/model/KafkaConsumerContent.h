@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * kafka协议消费内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     KafkaConsumerContent();
-                    ~KafkaConsumerContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceStatus;
+
                 /**
                 * AssociateResourceGroupToProject返回参数结构体
                 */

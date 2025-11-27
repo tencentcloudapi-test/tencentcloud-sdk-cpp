@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 获取用户工作空间返回信息
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkspaceStatusInfo();
-                    ~WorkspaceStatusInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

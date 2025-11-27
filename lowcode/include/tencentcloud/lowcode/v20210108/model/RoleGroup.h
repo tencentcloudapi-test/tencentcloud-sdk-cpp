@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WedaRole;
+
                 /**
                 * 权限组
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RoleGroup();
-                    ~RoleGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

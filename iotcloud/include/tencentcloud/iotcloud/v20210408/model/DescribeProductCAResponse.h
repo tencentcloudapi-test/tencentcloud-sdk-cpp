@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertInfo;
+
                 /**
                 * DescribeProductCA返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NoticeBindPolicys;
+
                 /**
                 * DeleteAlarmNotices请求参数结构体
                 */

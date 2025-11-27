@@ -43,6 +43,16 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Label;
+                class Taint;
+                class AnnotationValue;
+                class NodeCountSummary;
+                class RuntimeConfig;
+                class Tag;
+                class InstanceExtraArgs;
+                class GPUArgs;
+                class DataDisk;
+
                 /**
                 * 节点池描述
                 */
@@ -50,7 +60,6 @@ namespace TencentCloud
                 {
                 public:
                     NodePool();
-                    ~NodePool() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

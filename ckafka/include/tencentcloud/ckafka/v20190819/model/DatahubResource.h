@@ -51,6 +51,24 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KafkaParam;
+                class EventBusParam;
+                class MongoDBParam;
+                class EsParam;
+                class TdwParam;
+                class DtsParam;
+                class ClickHouseParam;
+                class ClsParam;
+                class CosParam;
+                class MySQLParam;
+                class PostgreSQLParam;
+                class TopicParam;
+                class MariaDBParam;
+                class SQLServerParam;
+                class CtsdbParam;
+                class ScfParam;
+                class MqttParam;
+
                 /**
                 * Datahub资源配置
                 */
@@ -58,7 +76,6 @@ namespace TencentCloud
                 {
                 public:
                     DatahubResource();
-                    ~DatahubResource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

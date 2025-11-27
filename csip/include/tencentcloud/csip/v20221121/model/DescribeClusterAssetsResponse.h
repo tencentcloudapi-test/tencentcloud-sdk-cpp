@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetCluster;
+                class FilterDataObject;
+
                 /**
                 * DescribeClusterAssets返回参数结构体
                 */

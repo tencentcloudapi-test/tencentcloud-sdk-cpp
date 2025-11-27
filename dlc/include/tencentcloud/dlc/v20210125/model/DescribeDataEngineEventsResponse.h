@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HouseEventsInfo;
+
                 /**
                 * DescribeDataEngineEvents返回参数结构体
                 */

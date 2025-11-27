@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 预算计算复杂数据类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BudgetPlan();
-                    ~BudgetPlan() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

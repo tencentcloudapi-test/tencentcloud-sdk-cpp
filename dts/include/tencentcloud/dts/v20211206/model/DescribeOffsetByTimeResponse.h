@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OffsetTimeMap;
+
                 /**
                 * DescribeOffsetByTime返回参数结构体
                 */

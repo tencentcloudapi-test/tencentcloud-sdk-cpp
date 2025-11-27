@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OpsWorkflow;
+
                 /**
                 * 查询工作流分页列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OpsWorkflows();
-                    ~OpsWorkflows() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

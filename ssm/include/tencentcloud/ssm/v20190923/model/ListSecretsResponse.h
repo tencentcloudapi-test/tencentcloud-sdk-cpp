@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecretMetadata;
+
                 /**
                 * ListSecrets返回参数结构体
                 */

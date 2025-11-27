@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Paging;
+
                 /**
                 * QueryFlexFreezeOrderList请求参数结构体
                 */

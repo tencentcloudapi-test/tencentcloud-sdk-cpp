@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SessionItem;
+
                 /**
                 * 实时会话统计详情。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ProcessStatistic();
-                    ~ProcessStatistic() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

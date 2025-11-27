@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomerGatewayVendor;
+
                 /**
                 * DownloadCustomerGatewayConfiguration请求参数结构体
                 */

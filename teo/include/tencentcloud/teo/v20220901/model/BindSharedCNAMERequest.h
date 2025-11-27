@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BindSharedCNAMEMap;
+
                 /**
                 * BindSharedCNAME请求参数结构体
                 */

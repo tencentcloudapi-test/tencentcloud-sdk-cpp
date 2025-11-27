@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class L7RuleEntry;
+
                 /**
                 * CreateNewL7RulesUpload请求参数结构体
                 */

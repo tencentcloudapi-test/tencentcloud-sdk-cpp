@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PodLimitsByType;
+
                 /**
                 * 机型信息和其可支持的最大VPC-CNI模式Pod数量信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PodLimitsInstance();
-                    ~PodLimitsInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

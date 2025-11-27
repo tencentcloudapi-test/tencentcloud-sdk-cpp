@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Condition;
+
                 /**
                 * DescribeDLPEdgeNodeGroups请求参数结构体
                 */

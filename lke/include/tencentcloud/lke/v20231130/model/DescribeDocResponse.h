@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttrLabel;
+                class UpdatePeriodInfo;
+
                 /**
                 * DescribeDoc返回参数结构体
                 */

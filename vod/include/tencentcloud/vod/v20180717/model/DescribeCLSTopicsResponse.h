@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CLSTopicInfo;
+
                 /**
                 * DescribeCLSTopics返回参数结构体
                 */

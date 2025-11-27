@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaBasicInfo;
+                class MediaMetaData;
+
                 /**
                 * 拉取上传任务信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     PullUploadTask();
-                    ~PullUploadTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

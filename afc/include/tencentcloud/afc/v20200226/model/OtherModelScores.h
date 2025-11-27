@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 扩展字段，包含多个模型的结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OtherModelScores();
-                    ~OtherModelScores() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

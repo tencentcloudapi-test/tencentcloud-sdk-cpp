@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchProductionInfo;
+
                 /**
                 * GetBatchProductionsList返回参数结构体
                 */

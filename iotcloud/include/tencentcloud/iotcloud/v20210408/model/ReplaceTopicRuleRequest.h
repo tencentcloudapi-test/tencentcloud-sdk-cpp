@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TopicRulePayload;
+
                 /**
                 * ReplaceTopicRule请求参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceInfos;
+                class CodeRepo;
+
                 /**
                 * 风险SQL智能体参数
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SqlAgentParameter();
-                    ~SqlAgentParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * did自定义属性
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DidAttribute();
-                    ~DidAttribute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

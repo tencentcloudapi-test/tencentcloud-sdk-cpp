@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowTrigger;
+                class Activity;
+                class TaskOutputStorage;
+                class TaskNotifyConfig;
+
                 /**
                 * 编排详情。
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     SchedulesInfo();
-                    ~SchedulesInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

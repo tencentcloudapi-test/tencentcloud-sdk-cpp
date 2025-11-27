@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TemplateLimit;
+
                 /**
                 * DescribeTemplateLimits返回参数结构体
                 */

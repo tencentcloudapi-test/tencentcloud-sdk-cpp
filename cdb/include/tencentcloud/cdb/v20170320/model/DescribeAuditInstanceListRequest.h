@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuditInstanceFilters;
+
                 /**
                 * DescribeAuditInstanceList请求参数结构体
                 */

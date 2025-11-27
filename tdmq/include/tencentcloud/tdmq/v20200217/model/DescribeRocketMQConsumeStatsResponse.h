@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConsumerStats;
+
                 /**
                 * DescribeRocketMQConsumeStats返回参数结构体
                 */

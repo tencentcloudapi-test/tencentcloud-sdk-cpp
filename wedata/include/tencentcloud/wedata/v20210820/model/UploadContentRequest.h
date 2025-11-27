@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScriptRequestInfo;
+
                 /**
                 * UploadContent请求参数结构体
                 */

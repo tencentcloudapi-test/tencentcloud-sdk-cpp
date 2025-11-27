@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 维度分页
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageDimension();
-                    ~TsfPageDimension() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

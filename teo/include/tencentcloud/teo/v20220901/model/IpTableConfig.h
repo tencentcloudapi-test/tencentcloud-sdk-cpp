@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IpTableRule;
+
                 /**
                 * IP黑白名单及IP区域控制配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     IpTableConfig();
-                    ~IpTableConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

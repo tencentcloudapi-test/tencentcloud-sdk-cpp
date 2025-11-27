@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlexFundingAccountInfo;
+
                 /**
                 * ApplyFlexPayment请求参数结构体
                 */

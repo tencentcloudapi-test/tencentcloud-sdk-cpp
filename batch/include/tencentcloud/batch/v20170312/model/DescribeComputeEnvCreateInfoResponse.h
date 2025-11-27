@@ -37,6 +37,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EnvData;
+                class MountDataDisk;
+                class InputMapping;
+                class Authentication;
+                class Notification;
+                class Tag;
+
                 /**
                 * DescribeComputeEnvCreateInfo返回参数结构体
                 */

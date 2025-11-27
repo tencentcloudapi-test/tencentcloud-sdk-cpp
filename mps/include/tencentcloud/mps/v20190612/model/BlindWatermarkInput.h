@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 媒体处理任务中的数字水印参数类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BlindWatermarkInput();
-                    ~BlindWatermarkInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

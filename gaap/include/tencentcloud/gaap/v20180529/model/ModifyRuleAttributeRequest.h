@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleCheckParams;
+
                 /**
                 * ModifyRuleAttribute请求参数结构体
                 */

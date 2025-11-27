@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudSettleInfo;
+                class CloudAttachmentInfo;
+
                 /**
                 * 子订单详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudSubOrderReturn();
-                    ~CloudSubOrderReturn() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

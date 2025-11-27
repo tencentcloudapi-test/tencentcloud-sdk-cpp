@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ColumnBasicInfo;
+
                 /**
                 * DescribeFieldBasicInfo返回参数结构体
                 */

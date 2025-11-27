@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IdlFileInfo;
+                class SelectedTableInfoNew;
+                class TagInfoUnit;
+
                 /**
                 * CreateTables请求参数结构体
                 */

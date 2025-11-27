@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CountryAreaMap;
+
                 /**
                 * DescribeCountryAreaMapping返回参数结构体
                 */

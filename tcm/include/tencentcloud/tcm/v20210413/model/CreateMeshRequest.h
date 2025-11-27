@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MeshConfig;
+                class Cluster;
+                class Tag;
+
                 /**
                 * CreateMesh请求参数结构体
                 */

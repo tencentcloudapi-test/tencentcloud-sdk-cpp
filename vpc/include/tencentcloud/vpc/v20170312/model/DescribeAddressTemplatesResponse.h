@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AddressTemplate;
+
                 /**
                 * DescribeAddressTemplates返回参数结构体
                 */

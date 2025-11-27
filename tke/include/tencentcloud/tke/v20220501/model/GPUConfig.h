@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GPUParams;
+
                 /**
                 * 机型名称与GPU相关的参数，包括驱动版本，CUDA版本，cuDNN版本，是否开启MIG以及是否开启Fabric等相关配置信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     GPUConfig();
-                    ~GPUConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

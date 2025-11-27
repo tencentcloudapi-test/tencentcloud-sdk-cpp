@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleConfig;
+                class RuleExecConfig;
+
                 /**
                 * CommitRuleGroupTask请求参数结构体
                 */

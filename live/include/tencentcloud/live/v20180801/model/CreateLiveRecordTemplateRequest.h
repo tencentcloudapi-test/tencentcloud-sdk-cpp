@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordParam;
+                class HlsSpecialParam;
+                class FlvSpecialParam;
+
                 /**
                 * CreateLiveRecordTemplate请求参数结构体
                 */

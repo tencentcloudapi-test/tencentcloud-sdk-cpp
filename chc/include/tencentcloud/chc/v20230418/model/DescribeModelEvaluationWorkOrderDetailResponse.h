@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrderStep;
+                class ModelEvaluationBaseInfo;
+                class ModelVersionDetail;
+
                 /**
                 * DescribeModelEvaluationWorkOrderDetail返回参数结构体
                 */

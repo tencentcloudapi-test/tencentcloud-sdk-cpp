@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DimensionScoreInfo;
+
                 /**
                 * 维度评分
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DimensionScore();
-                    ~DimensionScore() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

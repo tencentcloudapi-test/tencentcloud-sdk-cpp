@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProductResource;
+
                 /**
                 * AddShareUnitResources请求参数结构体
                 */

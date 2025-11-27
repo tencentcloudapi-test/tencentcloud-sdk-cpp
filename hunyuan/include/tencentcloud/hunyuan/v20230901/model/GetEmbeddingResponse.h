@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EmbeddingData;
+                class EmbeddingUsage;
+
                 /**
                 * GetEmbedding返回参数结构体
                 */

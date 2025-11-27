@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MaliciousRequest;
+
                 /**
                 * DescribeMaliciousRequests返回参数结构体
                 */

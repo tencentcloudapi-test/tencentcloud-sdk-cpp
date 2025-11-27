@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BlackWhiteIpRelation;
+
                 /**
                 * DescribeListBlackWhiteIpList返回参数结构体
                 */

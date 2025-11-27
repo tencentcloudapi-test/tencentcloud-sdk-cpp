@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeleteSignStatus;
+
                 /**
                 * DeleteSmsSign返回参数结构体
                 */

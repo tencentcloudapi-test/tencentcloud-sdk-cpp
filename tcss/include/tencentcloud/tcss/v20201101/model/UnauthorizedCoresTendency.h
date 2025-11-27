@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 未授权核数趋势
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UnauthorizedCoresTendency();
-                    ~UnauthorizedCoresTendency() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

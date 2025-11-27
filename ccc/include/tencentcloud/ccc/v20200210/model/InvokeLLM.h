@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 调用服务端主动发起请求到LLM
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InvokeLLM();
-                    ~InvokeLLM() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

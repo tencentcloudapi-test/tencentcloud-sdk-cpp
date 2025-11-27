@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyValue;
+
                 /**
                 * 告警数据攻击者或受害者信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RoleInfo();
-                    ~RoleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApmField;
+                class ApmTag;
+
                 /**
                 * 指标列表单元
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ApmMetricRecord();
-                    ~ApmMetricRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

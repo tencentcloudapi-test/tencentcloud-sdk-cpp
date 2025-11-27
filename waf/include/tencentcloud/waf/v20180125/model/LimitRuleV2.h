@@ -42,6 +42,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LimitMethod;
+                class LimitPath;
+                class LimitHeader;
+                class LimitWindow;
+                class LimitHeaderName;
+                class MatchOption;
+                class RedirectInfo;
+                class PathItem;
+
                 /**
                 * 自研版限流规则数据结构
                 */
@@ -49,7 +58,6 @@ namespace TencentCloud
                 {
                 public:
                     LimitRuleV2();
-                    ~LimitRuleV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

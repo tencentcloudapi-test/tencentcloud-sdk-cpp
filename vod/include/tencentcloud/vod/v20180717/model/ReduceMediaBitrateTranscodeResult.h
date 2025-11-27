@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TranscodeTaskInput;
+                class MediaTranscodeItem;
+
                 /**
                 * 降码率任务转码结果类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ReduceMediaBitrateTranscodeResult();
-                    ~ReduceMediaBitrateTranscodeResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

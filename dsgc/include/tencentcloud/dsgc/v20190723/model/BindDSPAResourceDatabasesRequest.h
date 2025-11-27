@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DbResourceItem;
+
                 /**
                 * BindDSPAResourceDatabases请求参数结构体
                 */

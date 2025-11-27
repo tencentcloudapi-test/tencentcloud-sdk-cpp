@@ -62,32 +62,25 @@ DomainClient::BatchModifyDomainInfoOutcome DomainClient::BatchModifyDomainInfo(c
 
 void DomainClient::BatchModifyDomainInfoAsync(const BatchModifyDomainInfoRequest& request, const BatchModifyDomainInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchModifyDomainInfoRequest&;
-    using Resp = BatchModifyDomainInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchModifyDomainInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchModifyDomainInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::BatchModifyDomainInfoOutcomeCallable DomainClient::BatchModifyDomainInfoCallable(const BatchModifyDomainInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchModifyDomainInfoOutcome>>();
-    BatchModifyDomainInfoAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const BatchModifyDomainInfoRequest&,
-        BatchModifyDomainInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchModifyDomainInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchModifyDomainInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::BidDetailPageOutcome DomainClient::BidDetailPage(const BidDetailPageRequest &request)
@@ -112,32 +105,25 @@ DomainClient::BidDetailPageOutcome DomainClient::BidDetailPage(const BidDetailPa
 
 void DomainClient::BidDetailPageAsync(const BidDetailPageRequest& request, const BidDetailPageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BidDetailPageRequest&;
-    using Resp = BidDetailPageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BidDetailPage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BidDetailPage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::BidDetailPageOutcomeCallable DomainClient::BidDetailPageCallable(const BidDetailPageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BidDetailPageOutcome>>();
-    BidDetailPageAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const BidDetailPageRequest&,
-        BidDetailPageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BidDetailPageOutcome()>>(
+        [this, request]()
+        {
+            return this->BidDetailPage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::BidPreDomainsOutcome DomainClient::BidPreDomains(const BidPreDomainsRequest &request)
@@ -162,32 +148,25 @@ DomainClient::BidPreDomainsOutcome DomainClient::BidPreDomains(const BidPreDomai
 
 void DomainClient::BidPreDomainsAsync(const BidPreDomainsRequest& request, const BidPreDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BidPreDomainsRequest&;
-    using Resp = BidPreDomainsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BidPreDomains(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BidPreDomains", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::BidPreDomainsOutcomeCallable DomainClient::BidPreDomainsCallable(const BidPreDomainsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BidPreDomainsOutcome>>();
-    BidPreDomainsAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const BidPreDomainsRequest&,
-        BidPreDomainsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BidPreDomainsOutcome()>>(
+        [this, request]()
+        {
+            return this->BidPreDomains(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::BiddingPreReleaseOutcome DomainClient::BiddingPreRelease(const BiddingPreReleaseRequest &request)
@@ -212,32 +191,25 @@ DomainClient::BiddingPreReleaseOutcome DomainClient::BiddingPreRelease(const Bid
 
 void DomainClient::BiddingPreReleaseAsync(const BiddingPreReleaseRequest& request, const BiddingPreReleaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BiddingPreReleaseRequest&;
-    using Resp = BiddingPreReleaseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BiddingPreRelease(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BiddingPreRelease", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::BiddingPreReleaseOutcomeCallable DomainClient::BiddingPreReleaseCallable(const BiddingPreReleaseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BiddingPreReleaseOutcome>>();
-    BiddingPreReleaseAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const BiddingPreReleaseRequest&,
-        BiddingPreReleaseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BiddingPreReleaseOutcome()>>(
+        [this, request]()
+        {
+            return this->BiddingPreRelease(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::CheckBatchStatusOutcome DomainClient::CheckBatchStatus(const CheckBatchStatusRequest &request)
@@ -262,32 +234,25 @@ DomainClient::CheckBatchStatusOutcome DomainClient::CheckBatchStatus(const Check
 
 void DomainClient::CheckBatchStatusAsync(const CheckBatchStatusRequest& request, const CheckBatchStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckBatchStatusRequest&;
-    using Resp = CheckBatchStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckBatchStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckBatchStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::CheckBatchStatusOutcomeCallable DomainClient::CheckBatchStatusCallable(const CheckBatchStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckBatchStatusOutcome>>();
-    CheckBatchStatusAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const CheckBatchStatusRequest&,
-        CheckBatchStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckBatchStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckBatchStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::CheckDomainOutcome DomainClient::CheckDomain(const CheckDomainRequest &request)
@@ -312,32 +277,25 @@ DomainClient::CheckDomainOutcome DomainClient::CheckDomain(const CheckDomainRequ
 
 void DomainClient::CheckDomainAsync(const CheckDomainRequest& request, const CheckDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckDomainRequest&;
-    using Resp = CheckDomainResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckDomain(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckDomain", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::CheckDomainOutcomeCallable DomainClient::CheckDomainCallable(const CheckDomainRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckDomainOutcome>>();
-    CheckDomainAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const CheckDomainRequest&,
-        CheckDomainOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckDomainOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckDomain(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::CreateCustomDnsHostOutcome DomainClient::CreateCustomDnsHost(const CreateCustomDnsHostRequest &request)
@@ -362,32 +320,25 @@ DomainClient::CreateCustomDnsHostOutcome DomainClient::CreateCustomDnsHost(const
 
 void DomainClient::CreateCustomDnsHostAsync(const CreateCustomDnsHostRequest& request, const CreateCustomDnsHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCustomDnsHostRequest&;
-    using Resp = CreateCustomDnsHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCustomDnsHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCustomDnsHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::CreateCustomDnsHostOutcomeCallable DomainClient::CreateCustomDnsHostCallable(const CreateCustomDnsHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCustomDnsHostOutcome>>();
-    CreateCustomDnsHostAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const CreateCustomDnsHostRequest&,
-        CreateCustomDnsHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCustomDnsHostOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCustomDnsHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::CreateDomainBatchOutcome DomainClient::CreateDomainBatch(const CreateDomainBatchRequest &request)
@@ -412,32 +363,25 @@ DomainClient::CreateDomainBatchOutcome DomainClient::CreateDomainBatch(const Cre
 
 void DomainClient::CreateDomainBatchAsync(const CreateDomainBatchRequest& request, const CreateDomainBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDomainBatchRequest&;
-    using Resp = CreateDomainBatchResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDomainBatch(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDomainBatch", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::CreateDomainBatchOutcomeCallable DomainClient::CreateDomainBatchCallable(const CreateDomainBatchRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDomainBatchOutcome>>();
-    CreateDomainBatchAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const CreateDomainBatchRequest&,
-        CreateDomainBatchOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDomainBatchOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDomainBatch(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::CreateDomainRedemptionOutcome DomainClient::CreateDomainRedemption(const CreateDomainRedemptionRequest &request)
@@ -462,32 +406,25 @@ DomainClient::CreateDomainRedemptionOutcome DomainClient::CreateDomainRedemption
 
 void DomainClient::CreateDomainRedemptionAsync(const CreateDomainRedemptionRequest& request, const CreateDomainRedemptionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDomainRedemptionRequest&;
-    using Resp = CreateDomainRedemptionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDomainRedemption(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDomainRedemption", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::CreateDomainRedemptionOutcomeCallable DomainClient::CreateDomainRedemptionCallable(const CreateDomainRedemptionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDomainRedemptionOutcome>>();
-    CreateDomainRedemptionAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const CreateDomainRedemptionRequest&,
-        CreateDomainRedemptionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDomainRedemptionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDomainRedemption(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::CreatePhoneEmailOutcome DomainClient::CreatePhoneEmail(const CreatePhoneEmailRequest &request)
@@ -512,32 +449,25 @@ DomainClient::CreatePhoneEmailOutcome DomainClient::CreatePhoneEmail(const Creat
 
 void DomainClient::CreatePhoneEmailAsync(const CreatePhoneEmailRequest& request, const CreatePhoneEmailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePhoneEmailRequest&;
-    using Resp = CreatePhoneEmailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePhoneEmail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePhoneEmail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::CreatePhoneEmailOutcomeCallable DomainClient::CreatePhoneEmailCallable(const CreatePhoneEmailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePhoneEmailOutcome>>();
-    CreatePhoneEmailAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const CreatePhoneEmailRequest&,
-        CreatePhoneEmailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePhoneEmailOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePhoneEmail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::CreateTemplateOutcome DomainClient::CreateTemplate(const CreateTemplateRequest &request)
@@ -562,32 +492,25 @@ DomainClient::CreateTemplateOutcome DomainClient::CreateTemplate(const CreateTem
 
 void DomainClient::CreateTemplateAsync(const CreateTemplateRequest& request, const CreateTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTemplateRequest&;
-    using Resp = CreateTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::CreateTemplateOutcomeCallable DomainClient::CreateTemplateCallable(const CreateTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTemplateOutcome>>();
-    CreateTemplateAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const CreateTemplateRequest&,
-        CreateTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DeleteBiddingOutcome DomainClient::DeleteBidding(const DeleteBiddingRequest &request)
@@ -612,32 +535,25 @@ DomainClient::DeleteBiddingOutcome DomainClient::DeleteBidding(const DeleteBiddi
 
 void DomainClient::DeleteBiddingAsync(const DeleteBiddingRequest& request, const DeleteBiddingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteBiddingRequest&;
-    using Resp = DeleteBiddingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteBidding(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteBidding", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DeleteBiddingOutcomeCallable DomainClient::DeleteBiddingCallable(const DeleteBiddingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteBiddingOutcome>>();
-    DeleteBiddingAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DeleteBiddingRequest&,
-        DeleteBiddingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteBiddingOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteBidding(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DeleteCustomDnsHostOutcome DomainClient::DeleteCustomDnsHost(const DeleteCustomDnsHostRequest &request)
@@ -662,32 +578,25 @@ DomainClient::DeleteCustomDnsHostOutcome DomainClient::DeleteCustomDnsHost(const
 
 void DomainClient::DeleteCustomDnsHostAsync(const DeleteCustomDnsHostRequest& request, const DeleteCustomDnsHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCustomDnsHostRequest&;
-    using Resp = DeleteCustomDnsHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCustomDnsHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCustomDnsHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DeleteCustomDnsHostOutcomeCallable DomainClient::DeleteCustomDnsHostCallable(const DeleteCustomDnsHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCustomDnsHostOutcome>>();
-    DeleteCustomDnsHostAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DeleteCustomDnsHostRequest&,
-        DeleteCustomDnsHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCustomDnsHostOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCustomDnsHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DeletePhoneEmailOutcome DomainClient::DeletePhoneEmail(const DeletePhoneEmailRequest &request)
@@ -712,32 +621,25 @@ DomainClient::DeletePhoneEmailOutcome DomainClient::DeletePhoneEmail(const Delet
 
 void DomainClient::DeletePhoneEmailAsync(const DeletePhoneEmailRequest& request, const DeletePhoneEmailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePhoneEmailRequest&;
-    using Resp = DeletePhoneEmailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePhoneEmail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePhoneEmail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DeletePhoneEmailOutcomeCallable DomainClient::DeletePhoneEmailCallable(const DeletePhoneEmailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePhoneEmailOutcome>>();
-    DeletePhoneEmailAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DeletePhoneEmailRequest&,
-        DeletePhoneEmailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePhoneEmailOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePhoneEmail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DeleteReservedPreDomainInfoOutcome DomainClient::DeleteReservedPreDomainInfo(const DeleteReservedPreDomainInfoRequest &request)
@@ -762,32 +664,25 @@ DomainClient::DeleteReservedPreDomainInfoOutcome DomainClient::DeleteReservedPre
 
 void DomainClient::DeleteReservedPreDomainInfoAsync(const DeleteReservedPreDomainInfoRequest& request, const DeleteReservedPreDomainInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteReservedPreDomainInfoRequest&;
-    using Resp = DeleteReservedPreDomainInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteReservedPreDomainInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteReservedPreDomainInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DeleteReservedPreDomainInfoOutcomeCallable DomainClient::DeleteReservedPreDomainInfoCallable(const DeleteReservedPreDomainInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteReservedPreDomainInfoOutcome>>();
-    DeleteReservedPreDomainInfoAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DeleteReservedPreDomainInfoRequest&,
-        DeleteReservedPreDomainInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteReservedPreDomainInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteReservedPreDomainInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DeleteTemplateOutcome DomainClient::DeleteTemplate(const DeleteTemplateRequest &request)
@@ -812,32 +707,25 @@ DomainClient::DeleteTemplateOutcome DomainClient::DeleteTemplate(const DeleteTem
 
 void DomainClient::DeleteTemplateAsync(const DeleteTemplateRequest& request, const DeleteTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTemplateRequest&;
-    using Resp = DeleteTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DeleteTemplateOutcomeCallable DomainClient::DeleteTemplateCallable(const DeleteTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTemplateOutcome>>();
-    DeleteTemplateAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DeleteTemplateRequest&,
-        DeleteTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeAuctionListOutcome DomainClient::DescribeAuctionList(const DescribeAuctionListRequest &request)
@@ -862,32 +750,25 @@ DomainClient::DescribeAuctionListOutcome DomainClient::DescribeAuctionList(const
 
 void DomainClient::DescribeAuctionListAsync(const DescribeAuctionListRequest& request, const DescribeAuctionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAuctionListRequest&;
-    using Resp = DescribeAuctionListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAuctionList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAuctionList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeAuctionListOutcomeCallable DomainClient::DescribeAuctionListCallable(const DescribeAuctionListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAuctionListOutcome>>();
-    DescribeAuctionListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeAuctionListRequest&,
-        DescribeAuctionListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAuctionListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAuctionList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeBatchOperationLogDetailsOutcome DomainClient::DescribeBatchOperationLogDetails(const DescribeBatchOperationLogDetailsRequest &request)
@@ -912,32 +793,25 @@ DomainClient::DescribeBatchOperationLogDetailsOutcome DomainClient::DescribeBatc
 
 void DomainClient::DescribeBatchOperationLogDetailsAsync(const DescribeBatchOperationLogDetailsRequest& request, const DescribeBatchOperationLogDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBatchOperationLogDetailsRequest&;
-    using Resp = DescribeBatchOperationLogDetailsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBatchOperationLogDetails(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBatchOperationLogDetails", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeBatchOperationLogDetailsOutcomeCallable DomainClient::DescribeBatchOperationLogDetailsCallable(const DescribeBatchOperationLogDetailsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBatchOperationLogDetailsOutcome>>();
-    DescribeBatchOperationLogDetailsAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeBatchOperationLogDetailsRequest&,
-        DescribeBatchOperationLogDetailsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBatchOperationLogDetailsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBatchOperationLogDetails(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeBatchOperationLogsOutcome DomainClient::DescribeBatchOperationLogs(const DescribeBatchOperationLogsRequest &request)
@@ -962,32 +836,25 @@ DomainClient::DescribeBatchOperationLogsOutcome DomainClient::DescribeBatchOpera
 
 void DomainClient::DescribeBatchOperationLogsAsync(const DescribeBatchOperationLogsRequest& request, const DescribeBatchOperationLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBatchOperationLogsRequest&;
-    using Resp = DescribeBatchOperationLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBatchOperationLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBatchOperationLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeBatchOperationLogsOutcomeCallable DomainClient::DescribeBatchOperationLogsCallable(const DescribeBatchOperationLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBatchOperationLogsOutcome>>();
-    DescribeBatchOperationLogsAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeBatchOperationLogsRequest&,
-        DescribeBatchOperationLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBatchOperationLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBatchOperationLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeBiddingAppointDetailOutcome DomainClient::DescribeBiddingAppointDetail(const DescribeBiddingAppointDetailRequest &request)
@@ -1012,32 +879,25 @@ DomainClient::DescribeBiddingAppointDetailOutcome DomainClient::DescribeBiddingA
 
 void DomainClient::DescribeBiddingAppointDetailAsync(const DescribeBiddingAppointDetailRequest& request, const DescribeBiddingAppointDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBiddingAppointDetailRequest&;
-    using Resp = DescribeBiddingAppointDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBiddingAppointDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBiddingAppointDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeBiddingAppointDetailOutcomeCallable DomainClient::DescribeBiddingAppointDetailCallable(const DescribeBiddingAppointDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBiddingAppointDetailOutcome>>();
-    DescribeBiddingAppointDetailAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeBiddingAppointDetailRequest&,
-        DescribeBiddingAppointDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBiddingAppointDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBiddingAppointDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeBiddingAppointListOutcome DomainClient::DescribeBiddingAppointList(const DescribeBiddingAppointListRequest &request)
@@ -1062,32 +922,25 @@ DomainClient::DescribeBiddingAppointListOutcome DomainClient::DescribeBiddingApp
 
 void DomainClient::DescribeBiddingAppointListAsync(const DescribeBiddingAppointListRequest& request, const DescribeBiddingAppointListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBiddingAppointListRequest&;
-    using Resp = DescribeBiddingAppointListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBiddingAppointList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBiddingAppointList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeBiddingAppointListOutcomeCallable DomainClient::DescribeBiddingAppointListCallable(const DescribeBiddingAppointListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBiddingAppointListOutcome>>();
-    DescribeBiddingAppointListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeBiddingAppointListRequest&,
-        DescribeBiddingAppointListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBiddingAppointListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBiddingAppointList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeBiddingDetailOutcome DomainClient::DescribeBiddingDetail(const DescribeBiddingDetailRequest &request)
@@ -1112,32 +965,25 @@ DomainClient::DescribeBiddingDetailOutcome DomainClient::DescribeBiddingDetail(c
 
 void DomainClient::DescribeBiddingDetailAsync(const DescribeBiddingDetailRequest& request, const DescribeBiddingDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBiddingDetailRequest&;
-    using Resp = DescribeBiddingDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBiddingDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBiddingDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeBiddingDetailOutcomeCallable DomainClient::DescribeBiddingDetailCallable(const DescribeBiddingDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBiddingDetailOutcome>>();
-    DescribeBiddingDetailAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeBiddingDetailRequest&,
-        DescribeBiddingDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBiddingDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBiddingDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeBiddingListOutcome DomainClient::DescribeBiddingList(const DescribeBiddingListRequest &request)
@@ -1162,32 +1008,25 @@ DomainClient::DescribeBiddingListOutcome DomainClient::DescribeBiddingList(const
 
 void DomainClient::DescribeBiddingListAsync(const DescribeBiddingListRequest& request, const DescribeBiddingListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBiddingListRequest&;
-    using Resp = DescribeBiddingListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBiddingList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBiddingList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeBiddingListOutcomeCallable DomainClient::DescribeBiddingListCallable(const DescribeBiddingListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBiddingListOutcome>>();
-    DescribeBiddingListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeBiddingListRequest&,
-        DescribeBiddingListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBiddingListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBiddingList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeBiddingSuccessfulDetailOutcome DomainClient::DescribeBiddingSuccessfulDetail(const DescribeBiddingSuccessfulDetailRequest &request)
@@ -1212,32 +1051,25 @@ DomainClient::DescribeBiddingSuccessfulDetailOutcome DomainClient::DescribeBiddi
 
 void DomainClient::DescribeBiddingSuccessfulDetailAsync(const DescribeBiddingSuccessfulDetailRequest& request, const DescribeBiddingSuccessfulDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBiddingSuccessfulDetailRequest&;
-    using Resp = DescribeBiddingSuccessfulDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBiddingSuccessfulDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBiddingSuccessfulDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeBiddingSuccessfulDetailOutcomeCallable DomainClient::DescribeBiddingSuccessfulDetailCallable(const DescribeBiddingSuccessfulDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBiddingSuccessfulDetailOutcome>>();
-    DescribeBiddingSuccessfulDetailAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeBiddingSuccessfulDetailRequest&,
-        DescribeBiddingSuccessfulDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBiddingSuccessfulDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBiddingSuccessfulDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeBiddingSuccessfulListOutcome DomainClient::DescribeBiddingSuccessfulList(const DescribeBiddingSuccessfulListRequest &request)
@@ -1262,32 +1094,25 @@ DomainClient::DescribeBiddingSuccessfulListOutcome DomainClient::DescribeBidding
 
 void DomainClient::DescribeBiddingSuccessfulListAsync(const DescribeBiddingSuccessfulListRequest& request, const DescribeBiddingSuccessfulListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBiddingSuccessfulListRequest&;
-    using Resp = DescribeBiddingSuccessfulListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBiddingSuccessfulList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBiddingSuccessfulList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeBiddingSuccessfulListOutcomeCallable DomainClient::DescribeBiddingSuccessfulListCallable(const DescribeBiddingSuccessfulListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBiddingSuccessfulListOutcome>>();
-    DescribeBiddingSuccessfulListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeBiddingSuccessfulListRequest&,
-        DescribeBiddingSuccessfulListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBiddingSuccessfulListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBiddingSuccessfulList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeCustomDnsHostSetOutcome DomainClient::DescribeCustomDnsHostSet(const DescribeCustomDnsHostSetRequest &request)
@@ -1312,32 +1137,25 @@ DomainClient::DescribeCustomDnsHostSetOutcome DomainClient::DescribeCustomDnsHos
 
 void DomainClient::DescribeCustomDnsHostSetAsync(const DescribeCustomDnsHostSetRequest& request, const DescribeCustomDnsHostSetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomDnsHostSetRequest&;
-    using Resp = DescribeCustomDnsHostSetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomDnsHostSet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomDnsHostSet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeCustomDnsHostSetOutcomeCallable DomainClient::DescribeCustomDnsHostSetCallable(const DescribeCustomDnsHostSetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomDnsHostSetOutcome>>();
-    DescribeCustomDnsHostSetAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeCustomDnsHostSetRequest&,
-        DescribeCustomDnsHostSetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomDnsHostSetOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomDnsHostSet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeDomainBaseInfoOutcome DomainClient::DescribeDomainBaseInfo(const DescribeDomainBaseInfoRequest &request)
@@ -1362,32 +1180,25 @@ DomainClient::DescribeDomainBaseInfoOutcome DomainClient::DescribeDomainBaseInfo
 
 void DomainClient::DescribeDomainBaseInfoAsync(const DescribeDomainBaseInfoRequest& request, const DescribeDomainBaseInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainBaseInfoRequest&;
-    using Resp = DescribeDomainBaseInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainBaseInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainBaseInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeDomainBaseInfoOutcomeCallable DomainClient::DescribeDomainBaseInfoCallable(const DescribeDomainBaseInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainBaseInfoOutcome>>();
-    DescribeDomainBaseInfoAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeDomainBaseInfoRequest&,
-        DescribeDomainBaseInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainBaseInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainBaseInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeDomainNameListOutcome DomainClient::DescribeDomainNameList(const DescribeDomainNameListRequest &request)
@@ -1412,32 +1223,25 @@ DomainClient::DescribeDomainNameListOutcome DomainClient::DescribeDomainNameList
 
 void DomainClient::DescribeDomainNameListAsync(const DescribeDomainNameListRequest& request, const DescribeDomainNameListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainNameListRequest&;
-    using Resp = DescribeDomainNameListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainNameList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainNameList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeDomainNameListOutcomeCallable DomainClient::DescribeDomainNameListCallable(const DescribeDomainNameListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainNameListOutcome>>();
-    DescribeDomainNameListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeDomainNameListRequest&,
-        DescribeDomainNameListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainNameListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainNameList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeDomainPriceListOutcome DomainClient::DescribeDomainPriceList(const DescribeDomainPriceListRequest &request)
@@ -1462,32 +1266,25 @@ DomainClient::DescribeDomainPriceListOutcome DomainClient::DescribeDomainPriceLi
 
 void DomainClient::DescribeDomainPriceListAsync(const DescribeDomainPriceListRequest& request, const DescribeDomainPriceListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainPriceListRequest&;
-    using Resp = DescribeDomainPriceListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainPriceList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainPriceList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeDomainPriceListOutcomeCallable DomainClient::DescribeDomainPriceListCallable(const DescribeDomainPriceListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainPriceListOutcome>>();
-    DescribeDomainPriceListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeDomainPriceListRequest&,
-        DescribeDomainPriceListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainPriceListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainPriceList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeDomainSimpleInfoOutcome DomainClient::DescribeDomainSimpleInfo(const DescribeDomainSimpleInfoRequest &request)
@@ -1512,32 +1309,25 @@ DomainClient::DescribeDomainSimpleInfoOutcome DomainClient::DescribeDomainSimple
 
 void DomainClient::DescribeDomainSimpleInfoAsync(const DescribeDomainSimpleInfoRequest& request, const DescribeDomainSimpleInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainSimpleInfoRequest&;
-    using Resp = DescribeDomainSimpleInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainSimpleInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainSimpleInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeDomainSimpleInfoOutcomeCallable DomainClient::DescribeDomainSimpleInfoCallable(const DescribeDomainSimpleInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainSimpleInfoOutcome>>();
-    DescribeDomainSimpleInfoAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeDomainSimpleInfoRequest&,
-        DescribeDomainSimpleInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainSimpleInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainSimpleInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribePayWaitDetailOutcome DomainClient::DescribePayWaitDetail(const DescribePayWaitDetailRequest &request)
@@ -1562,32 +1352,25 @@ DomainClient::DescribePayWaitDetailOutcome DomainClient::DescribePayWaitDetail(c
 
 void DomainClient::DescribePayWaitDetailAsync(const DescribePayWaitDetailRequest& request, const DescribePayWaitDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePayWaitDetailRequest&;
-    using Resp = DescribePayWaitDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePayWaitDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePayWaitDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribePayWaitDetailOutcomeCallable DomainClient::DescribePayWaitDetailCallable(const DescribePayWaitDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePayWaitDetailOutcome>>();
-    DescribePayWaitDetailAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribePayWaitDetailRequest&,
-        DescribePayWaitDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePayWaitDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePayWaitDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribePhoneEmailListOutcome DomainClient::DescribePhoneEmailList(const DescribePhoneEmailListRequest &request)
@@ -1612,32 +1395,25 @@ DomainClient::DescribePhoneEmailListOutcome DomainClient::DescribePhoneEmailList
 
 void DomainClient::DescribePhoneEmailListAsync(const DescribePhoneEmailListRequest& request, const DescribePhoneEmailListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePhoneEmailListRequest&;
-    using Resp = DescribePhoneEmailListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePhoneEmailList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePhoneEmailList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribePhoneEmailListOutcomeCallable DomainClient::DescribePhoneEmailListCallable(const DescribePhoneEmailListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePhoneEmailListOutcome>>();
-    DescribePhoneEmailListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribePhoneEmailListRequest&,
-        DescribePhoneEmailListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePhoneEmailListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePhoneEmailList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribePreAuctionListOutcome DomainClient::DescribePreAuctionList(const DescribePreAuctionListRequest &request)
@@ -1662,32 +1438,25 @@ DomainClient::DescribePreAuctionListOutcome DomainClient::DescribePreAuctionList
 
 void DomainClient::DescribePreAuctionListAsync(const DescribePreAuctionListRequest& request, const DescribePreAuctionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePreAuctionListRequest&;
-    using Resp = DescribePreAuctionListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePreAuctionList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePreAuctionList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribePreAuctionListOutcomeCallable DomainClient::DescribePreAuctionListCallable(const DescribePreAuctionListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePreAuctionListOutcome>>();
-    DescribePreAuctionListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribePreAuctionListRequest&,
-        DescribePreAuctionListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePreAuctionListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePreAuctionList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribePreDomainListOutcome DomainClient::DescribePreDomainList(const DescribePreDomainListRequest &request)
@@ -1712,32 +1481,25 @@ DomainClient::DescribePreDomainListOutcome DomainClient::DescribePreDomainList(c
 
 void DomainClient::DescribePreDomainListAsync(const DescribePreDomainListRequest& request, const DescribePreDomainListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePreDomainListRequest&;
-    using Resp = DescribePreDomainListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePreDomainList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePreDomainList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribePreDomainListOutcomeCallable DomainClient::DescribePreDomainListCallable(const DescribePreDomainListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePreDomainListOutcome>>();
-    DescribePreDomainListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribePreDomainListRequest&,
-        DescribePreDomainListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePreDomainListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePreDomainList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribePreReleaseListOutcome DomainClient::DescribePreReleaseList(const DescribePreReleaseListRequest &request)
@@ -1762,32 +1524,25 @@ DomainClient::DescribePreReleaseListOutcome DomainClient::DescribePreReleaseList
 
 void DomainClient::DescribePreReleaseListAsync(const DescribePreReleaseListRequest& request, const DescribePreReleaseListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePreReleaseListRequest&;
-    using Resp = DescribePreReleaseListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePreReleaseList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePreReleaseList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribePreReleaseListOutcomeCallable DomainClient::DescribePreReleaseListCallable(const DescribePreReleaseListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePreReleaseListOutcome>>();
-    DescribePreReleaseListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribePreReleaseListRequest&,
-        DescribePreReleaseListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePreReleaseListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePreReleaseList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeReservedBidInfoOutcome DomainClient::DescribeReservedBidInfo(const DescribeReservedBidInfoRequest &request)
@@ -1812,32 +1567,25 @@ DomainClient::DescribeReservedBidInfoOutcome DomainClient::DescribeReservedBidIn
 
 void DomainClient::DescribeReservedBidInfoAsync(const DescribeReservedBidInfoRequest& request, const DescribeReservedBidInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeReservedBidInfoRequest&;
-    using Resp = DescribeReservedBidInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeReservedBidInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeReservedBidInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeReservedBidInfoOutcomeCallable DomainClient::DescribeReservedBidInfoCallable(const DescribeReservedBidInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeReservedBidInfoOutcome>>();
-    DescribeReservedBidInfoAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeReservedBidInfoRequest&,
-        DescribeReservedBidInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeReservedBidInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeReservedBidInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeReservedPreDomainInfoOutcome DomainClient::DescribeReservedPreDomainInfo(const DescribeReservedPreDomainInfoRequest &request)
@@ -1862,32 +1610,25 @@ DomainClient::DescribeReservedPreDomainInfoOutcome DomainClient::DescribeReserve
 
 void DomainClient::DescribeReservedPreDomainInfoAsync(const DescribeReservedPreDomainInfoRequest& request, const DescribeReservedPreDomainInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeReservedPreDomainInfoRequest&;
-    using Resp = DescribeReservedPreDomainInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeReservedPreDomainInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeReservedPreDomainInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeReservedPreDomainInfoOutcomeCallable DomainClient::DescribeReservedPreDomainInfoCallable(const DescribeReservedPreDomainInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeReservedPreDomainInfoOutcome>>();
-    DescribeReservedPreDomainInfoAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeReservedPreDomainInfoRequest&,
-        DescribeReservedPreDomainInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeReservedPreDomainInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeReservedPreDomainInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeTemplateOutcome DomainClient::DescribeTemplate(const DescribeTemplateRequest &request)
@@ -1912,32 +1653,25 @@ DomainClient::DescribeTemplateOutcome DomainClient::DescribeTemplate(const Descr
 
 void DomainClient::DescribeTemplateAsync(const DescribeTemplateRequest& request, const DescribeTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTemplateRequest&;
-    using Resp = DescribeTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeTemplateOutcomeCallable DomainClient::DescribeTemplateCallable(const DescribeTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTemplateOutcome>>();
-    DescribeTemplateAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeTemplateRequest&,
-        DescribeTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeTemplateListOutcome DomainClient::DescribeTemplateList(const DescribeTemplateListRequest &request)
@@ -1962,32 +1696,25 @@ DomainClient::DescribeTemplateListOutcome DomainClient::DescribeTemplateList(con
 
 void DomainClient::DescribeTemplateListAsync(const DescribeTemplateListRequest& request, const DescribeTemplateListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTemplateListRequest&;
-    using Resp = DescribeTemplateListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTemplateList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTemplateList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeTemplateListOutcomeCallable DomainClient::DescribeTemplateListCallable(const DescribeTemplateListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTemplateListOutcome>>();
-    DescribeTemplateListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeTemplateListRequest&,
-        DescribeTemplateListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTemplateListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTemplateList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeTldListOutcome DomainClient::DescribeTldList(const DescribeTldListRequest &request)
@@ -2012,32 +1739,25 @@ DomainClient::DescribeTldListOutcome DomainClient::DescribeTldList(const Describ
 
 void DomainClient::DescribeTldListAsync(const DescribeTldListRequest& request, const DescribeTldListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTldListRequest&;
-    using Resp = DescribeTldListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTldList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTldList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeTldListOutcomeCallable DomainClient::DescribeTldListCallable(const DescribeTldListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTldListOutcome>>();
-    DescribeTldListAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeTldListRequest&,
-        DescribeTldListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTldListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTldList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::DescribeUnPreDomainDetailOutcome DomainClient::DescribeUnPreDomainDetail(const DescribeUnPreDomainDetailRequest &request)
@@ -2062,32 +1782,25 @@ DomainClient::DescribeUnPreDomainDetailOutcome DomainClient::DescribeUnPreDomain
 
 void DomainClient::DescribeUnPreDomainDetailAsync(const DescribeUnPreDomainDetailRequest& request, const DescribeUnPreDomainDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUnPreDomainDetailRequest&;
-    using Resp = DescribeUnPreDomainDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUnPreDomainDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUnPreDomainDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::DescribeUnPreDomainDetailOutcomeCallable DomainClient::DescribeUnPreDomainDetailCallable(const DescribeUnPreDomainDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUnPreDomainDetailOutcome>>();
-    DescribeUnPreDomainDetailAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const DescribeUnPreDomainDetailRequest&,
-        DescribeUnPreDomainDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUnPreDomainDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUnPreDomainDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::ModifyCustomDnsHostOutcome DomainClient::ModifyCustomDnsHost(const ModifyCustomDnsHostRequest &request)
@@ -2112,32 +1825,25 @@ DomainClient::ModifyCustomDnsHostOutcome DomainClient::ModifyCustomDnsHost(const
 
 void DomainClient::ModifyCustomDnsHostAsync(const ModifyCustomDnsHostRequest& request, const ModifyCustomDnsHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCustomDnsHostRequest&;
-    using Resp = ModifyCustomDnsHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCustomDnsHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCustomDnsHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::ModifyCustomDnsHostOutcomeCallable DomainClient::ModifyCustomDnsHostCallable(const ModifyCustomDnsHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCustomDnsHostOutcome>>();
-    ModifyCustomDnsHostAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const ModifyCustomDnsHostRequest&,
-        ModifyCustomDnsHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCustomDnsHostOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCustomDnsHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::ModifyDomainDNSBatchOutcome DomainClient::ModifyDomainDNSBatch(const ModifyDomainDNSBatchRequest &request)
@@ -2162,32 +1868,25 @@ DomainClient::ModifyDomainDNSBatchOutcome DomainClient::ModifyDomainDNSBatch(con
 
 void DomainClient::ModifyDomainDNSBatchAsync(const ModifyDomainDNSBatchRequest& request, const ModifyDomainDNSBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDomainDNSBatchRequest&;
-    using Resp = ModifyDomainDNSBatchResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDomainDNSBatch(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDomainDNSBatch", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::ModifyDomainDNSBatchOutcomeCallable DomainClient::ModifyDomainDNSBatchCallable(const ModifyDomainDNSBatchRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDomainDNSBatchOutcome>>();
-    ModifyDomainDNSBatchAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const ModifyDomainDNSBatchRequest&,
-        ModifyDomainDNSBatchOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDomainDNSBatchOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDomainDNSBatch(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::ModifyDomainOwnerBatchOutcome DomainClient::ModifyDomainOwnerBatch(const ModifyDomainOwnerBatchRequest &request)
@@ -2212,32 +1911,25 @@ DomainClient::ModifyDomainOwnerBatchOutcome DomainClient::ModifyDomainOwnerBatch
 
 void DomainClient::ModifyDomainOwnerBatchAsync(const ModifyDomainOwnerBatchRequest& request, const ModifyDomainOwnerBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDomainOwnerBatchRequest&;
-    using Resp = ModifyDomainOwnerBatchResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDomainOwnerBatch(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDomainOwnerBatch", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::ModifyDomainOwnerBatchOutcomeCallable DomainClient::ModifyDomainOwnerBatchCallable(const ModifyDomainOwnerBatchRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDomainOwnerBatchOutcome>>();
-    ModifyDomainOwnerBatchAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const ModifyDomainOwnerBatchRequest&,
-        ModifyDomainOwnerBatchOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDomainOwnerBatchOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDomainOwnerBatch(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::ModifyIntlCustomDnsHostOutcome DomainClient::ModifyIntlCustomDnsHost(const ModifyIntlCustomDnsHostRequest &request)
@@ -2262,32 +1954,25 @@ DomainClient::ModifyIntlCustomDnsHostOutcome DomainClient::ModifyIntlCustomDnsHo
 
 void DomainClient::ModifyIntlCustomDnsHostAsync(const ModifyIntlCustomDnsHostRequest& request, const ModifyIntlCustomDnsHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIntlCustomDnsHostRequest&;
-    using Resp = ModifyIntlCustomDnsHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIntlCustomDnsHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIntlCustomDnsHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::ModifyIntlCustomDnsHostOutcomeCallable DomainClient::ModifyIntlCustomDnsHostCallable(const ModifyIntlCustomDnsHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIntlCustomDnsHostOutcome>>();
-    ModifyIntlCustomDnsHostAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const ModifyIntlCustomDnsHostRequest&,
-        ModifyIntlCustomDnsHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIntlCustomDnsHostOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIntlCustomDnsHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::ModifyTemplateOutcome DomainClient::ModifyTemplate(const ModifyTemplateRequest &request)
@@ -2312,32 +1997,25 @@ DomainClient::ModifyTemplateOutcome DomainClient::ModifyTemplate(const ModifyTem
 
 void DomainClient::ModifyTemplateAsync(const ModifyTemplateRequest& request, const ModifyTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTemplateRequest&;
-    using Resp = ModifyTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::ModifyTemplateOutcomeCallable DomainClient::ModifyTemplateCallable(const ModifyTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTemplateOutcome>>();
-    ModifyTemplateAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const ModifyTemplateRequest&,
-        ModifyTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::RenewDomainBatchOutcome DomainClient::RenewDomainBatch(const RenewDomainBatchRequest &request)
@@ -2362,32 +2040,25 @@ DomainClient::RenewDomainBatchOutcome DomainClient::RenewDomainBatch(const Renew
 
 void DomainClient::RenewDomainBatchAsync(const RenewDomainBatchRequest& request, const RenewDomainBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewDomainBatchRequest&;
-    using Resp = RenewDomainBatchResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewDomainBatch(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewDomainBatch", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::RenewDomainBatchOutcomeCallable DomainClient::RenewDomainBatchCallable(const RenewDomainBatchRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewDomainBatchOutcome>>();
-    RenewDomainBatchAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const RenewDomainBatchRequest&,
-        RenewDomainBatchOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewDomainBatchOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewDomainBatch(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::ReservedPreDomainsOutcome DomainClient::ReservedPreDomains(const ReservedPreDomainsRequest &request)
@@ -2412,32 +2083,25 @@ DomainClient::ReservedPreDomainsOutcome DomainClient::ReservedPreDomains(const R
 
 void DomainClient::ReservedPreDomainsAsync(const ReservedPreDomainsRequest& request, const ReservedPreDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReservedPreDomainsRequest&;
-    using Resp = ReservedPreDomainsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReservedPreDomains(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReservedPreDomains", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::ReservedPreDomainsOutcomeCallable DomainClient::ReservedPreDomainsCallable(const ReservedPreDomainsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReservedPreDomainsOutcome>>();
-    ReservedPreDomainsAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const ReservedPreDomainsRequest&,
-        ReservedPreDomainsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReservedPreDomainsOutcome()>>(
+        [this, request]()
+        {
+            return this->ReservedPreDomains(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::SendPhoneEmailCodeOutcome DomainClient::SendPhoneEmailCode(const SendPhoneEmailCodeRequest &request)
@@ -2462,32 +2126,25 @@ DomainClient::SendPhoneEmailCodeOutcome DomainClient::SendPhoneEmailCode(const S
 
 void DomainClient::SendPhoneEmailCodeAsync(const SendPhoneEmailCodeRequest& request, const SendPhoneEmailCodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendPhoneEmailCodeRequest&;
-    using Resp = SendPhoneEmailCodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendPhoneEmailCode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendPhoneEmailCode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::SendPhoneEmailCodeOutcomeCallable DomainClient::SendPhoneEmailCodeCallable(const SendPhoneEmailCodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendPhoneEmailCodeOutcome>>();
-    SendPhoneEmailCodeAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const SendPhoneEmailCodeRequest&,
-        SendPhoneEmailCodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendPhoneEmailCodeOutcome()>>(
+        [this, request]()
+        {
+            return this->SendPhoneEmailCode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::SetDomainAutoRenewOutcome DomainClient::SetDomainAutoRenew(const SetDomainAutoRenewRequest &request)
@@ -2512,32 +2169,25 @@ DomainClient::SetDomainAutoRenewOutcome DomainClient::SetDomainAutoRenew(const S
 
 void DomainClient::SetDomainAutoRenewAsync(const SetDomainAutoRenewRequest& request, const SetDomainAutoRenewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetDomainAutoRenewRequest&;
-    using Resp = SetDomainAutoRenewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetDomainAutoRenew(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetDomainAutoRenew", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::SetDomainAutoRenewOutcomeCallable DomainClient::SetDomainAutoRenewCallable(const SetDomainAutoRenewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetDomainAutoRenewOutcome>>();
-    SetDomainAutoRenewAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const SetDomainAutoRenewRequest&,
-        SetDomainAutoRenewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetDomainAutoRenewOutcome()>>(
+        [this, request]()
+        {
+            return this->SetDomainAutoRenew(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::SyncCustomDnsHostOutcome DomainClient::SyncCustomDnsHost(const SyncCustomDnsHostRequest &request)
@@ -2562,32 +2212,25 @@ DomainClient::SyncCustomDnsHostOutcome DomainClient::SyncCustomDnsHost(const Syn
 
 void DomainClient::SyncCustomDnsHostAsync(const SyncCustomDnsHostRequest& request, const SyncCustomDnsHostAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SyncCustomDnsHostRequest&;
-    using Resp = SyncCustomDnsHostResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SyncCustomDnsHost(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SyncCustomDnsHost", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::SyncCustomDnsHostOutcomeCallable DomainClient::SyncCustomDnsHostCallable(const SyncCustomDnsHostRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SyncCustomDnsHostOutcome>>();
-    SyncCustomDnsHostAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const SyncCustomDnsHostRequest&,
-        SyncCustomDnsHostOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SyncCustomDnsHostOutcome()>>(
+        [this, request]()
+        {
+            return this->SyncCustomDnsHost(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::TransferInDomainBatchOutcome DomainClient::TransferInDomainBatch(const TransferInDomainBatchRequest &request)
@@ -2612,32 +2255,25 @@ DomainClient::TransferInDomainBatchOutcome DomainClient::TransferInDomainBatch(c
 
 void DomainClient::TransferInDomainBatchAsync(const TransferInDomainBatchRequest& request, const TransferInDomainBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TransferInDomainBatchRequest&;
-    using Resp = TransferInDomainBatchResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TransferInDomainBatch(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TransferInDomainBatch", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::TransferInDomainBatchOutcomeCallable DomainClient::TransferInDomainBatchCallable(const TransferInDomainBatchRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TransferInDomainBatchOutcome>>();
-    TransferInDomainBatchAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const TransferInDomainBatchRequest&,
-        TransferInDomainBatchOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TransferInDomainBatchOutcome()>>(
+        [this, request]()
+        {
+            return this->TransferInDomainBatch(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::TransferProhibitionBatchOutcome DomainClient::TransferProhibitionBatch(const TransferProhibitionBatchRequest &request)
@@ -2662,32 +2298,25 @@ DomainClient::TransferProhibitionBatchOutcome DomainClient::TransferProhibitionB
 
 void DomainClient::TransferProhibitionBatchAsync(const TransferProhibitionBatchRequest& request, const TransferProhibitionBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TransferProhibitionBatchRequest&;
-    using Resp = TransferProhibitionBatchResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TransferProhibitionBatch(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TransferProhibitionBatch", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::TransferProhibitionBatchOutcomeCallable DomainClient::TransferProhibitionBatchCallable(const TransferProhibitionBatchRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TransferProhibitionBatchOutcome>>();
-    TransferProhibitionBatchAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const TransferProhibitionBatchRequest&,
-        TransferProhibitionBatchOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TransferProhibitionBatchOutcome()>>(
+        [this, request]()
+        {
+            return this->TransferProhibitionBatch(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::UpdateProhibitionBatchOutcome DomainClient::UpdateProhibitionBatch(const UpdateProhibitionBatchRequest &request)
@@ -2712,32 +2341,25 @@ DomainClient::UpdateProhibitionBatchOutcome DomainClient::UpdateProhibitionBatch
 
 void DomainClient::UpdateProhibitionBatchAsync(const UpdateProhibitionBatchRequest& request, const UpdateProhibitionBatchAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateProhibitionBatchRequest&;
-    using Resp = UpdateProhibitionBatchResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateProhibitionBatch(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateProhibitionBatch", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::UpdateProhibitionBatchOutcomeCallable DomainClient::UpdateProhibitionBatchCallable(const UpdateProhibitionBatchRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateProhibitionBatchOutcome>>();
-    UpdateProhibitionBatchAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const UpdateProhibitionBatchRequest&,
-        UpdateProhibitionBatchOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateProhibitionBatchOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateProhibitionBatch(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 DomainClient::UploadImageOutcome DomainClient::UploadImage(const UploadImageRequest &request)
@@ -2762,31 +2384,24 @@ DomainClient::UploadImageOutcome DomainClient::UploadImage(const UploadImageRequ
 
 void DomainClient::UploadImageAsync(const UploadImageRequest& request, const UploadImageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UploadImageRequest&;
-    using Resp = UploadImageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UploadImage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UploadImage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 DomainClient::UploadImageOutcomeCallable DomainClient::UploadImageCallable(const UploadImageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UploadImageOutcome>>();
-    UploadImageAsync(
-    request,
-    [prom](
-        const DomainClient*,
-        const UploadImageRequest&,
-        UploadImageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UploadImageOutcome()>>(
+        [this, request]()
+        {
+            return this->UploadImage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

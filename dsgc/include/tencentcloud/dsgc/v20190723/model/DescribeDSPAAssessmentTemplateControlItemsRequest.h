@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DspaAssessmentFilter;
+
                 /**
                 * DescribeDSPAAssessmentTemplateControlItems请求参数结构体
                 */

@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InternetAccessible;
+                class TagInfo;
+                class ExclusiveCluster;
+                class SnatIp;
+                class LBChargePrepaid;
+
                 /**
                 * CreateLoadBalancer请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KongCertificatesList;
+
                 /**
                 * DescribeCloudNativeAPIGatewayCertificates返回参数结构体
                 */

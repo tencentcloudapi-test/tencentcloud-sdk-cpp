@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 智能代发-单笔代发转账接口返回数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TransferSinglePayData();
-                    ~TransferSinglePayData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

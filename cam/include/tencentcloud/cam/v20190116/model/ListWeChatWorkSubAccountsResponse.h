@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WeChatWorkSubAccount;
+
                 /**
                 * ListWeChatWorkSubAccounts返回参数结构体
                 */

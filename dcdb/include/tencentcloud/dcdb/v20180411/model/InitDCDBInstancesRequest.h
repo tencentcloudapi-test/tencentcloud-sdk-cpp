@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DBParamValue;
+
                 /**
                 * InitDCDBInstances请求参数结构体
                 */

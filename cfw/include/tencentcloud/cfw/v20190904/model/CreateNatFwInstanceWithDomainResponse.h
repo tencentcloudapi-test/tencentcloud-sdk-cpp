@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CreateNatFwInstanceWithDomain返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProductProperties;
+
                 /**
                 * CreateProduct请求参数结构体
                 */

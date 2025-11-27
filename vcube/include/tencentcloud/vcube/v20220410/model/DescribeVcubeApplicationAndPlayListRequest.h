@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * DescribeVcubeApplicationAndPlayList请求参数结构体
                 */

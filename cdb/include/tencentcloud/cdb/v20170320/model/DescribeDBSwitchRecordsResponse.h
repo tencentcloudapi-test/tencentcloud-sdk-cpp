@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DBSwitchInfo;
+
                 /**
                 * DescribeDBSwitchRecords返回参数结构体
                 */

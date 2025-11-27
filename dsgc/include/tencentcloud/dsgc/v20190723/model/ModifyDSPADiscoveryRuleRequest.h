@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScanTaskRDBRules;
+                class ScanTaskCOSRules;
+
                 /**
                 * ModifyDSPADiscoveryRule请求参数结构体
                 */

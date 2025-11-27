@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DdlOption;
+                class ConflictHandleOption;
+                class KafkaOption;
+
                 /**
                 * 数据同步中的选项
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     DynamicOptions();
-                    ~DynamicOptions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

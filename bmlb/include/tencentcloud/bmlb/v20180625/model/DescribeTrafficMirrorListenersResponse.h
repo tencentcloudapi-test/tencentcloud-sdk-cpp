@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TrafficMirrorListener;
+
                 /**
                 * DescribeTrafficMirrorListeners返回参数结构体
                 */

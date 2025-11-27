@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RceResult;
+
                 /**
                 * DescribeCaptchaRceResult返回参数结构体
                 */

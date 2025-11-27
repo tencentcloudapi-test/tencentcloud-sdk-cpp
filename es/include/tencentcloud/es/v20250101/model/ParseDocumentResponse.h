@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PageUsage;
+
                 /**
                 * ParseDocument返回参数结构体
                 */

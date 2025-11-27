@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AutonomyEventVo;
+
                 /**
                 * DescribeDBAutonomyEvents返回参数结构体
                 */

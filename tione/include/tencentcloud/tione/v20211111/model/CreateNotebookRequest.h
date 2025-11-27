@@ -39,6 +39,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceConf;
+                class CFSConfig;
+                class LogConfig;
+                class Tag;
+                class DataConfig;
+                class ImageInfo;
+                class SSHConfig;
+                class GooseFS;
+
                 /**
                 * CreateNotebook请求参数结构体
                 */

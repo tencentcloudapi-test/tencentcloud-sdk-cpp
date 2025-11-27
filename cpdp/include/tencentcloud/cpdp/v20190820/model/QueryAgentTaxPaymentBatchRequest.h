@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * QueryAgentTaxPaymentBatch请求参数结构体
                 */

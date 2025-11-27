@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Policy;
+
                 /**
                 * 策略集合
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Policys();
-                    ~Policys() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

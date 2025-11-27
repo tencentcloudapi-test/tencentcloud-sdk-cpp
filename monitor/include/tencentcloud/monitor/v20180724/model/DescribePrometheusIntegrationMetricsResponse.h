@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IntegrationMetricGroup;
+
                 /**
                 * DescribePrometheusIntegrationMetrics返回参数结构体
                 */

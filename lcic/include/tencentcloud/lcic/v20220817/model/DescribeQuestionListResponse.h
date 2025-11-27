@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QuestionInfo;
+
                 /**
                 * DescribeQuestionList返回参数结构体
                 */

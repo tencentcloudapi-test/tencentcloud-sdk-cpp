@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 扩缩容入参
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HpaPolicy();
-                    ~HpaPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

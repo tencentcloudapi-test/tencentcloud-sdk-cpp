@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordsSpeed;
+                class BytesSpeed;
+                class RealTimeTaskSpeed;
+
                 /**
                 * DescribeRealTimeTaskSpeed返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Attribute;
+
                 /**
                 * CreateDevice请求参数结构体
                 */

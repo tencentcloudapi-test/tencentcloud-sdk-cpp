@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Vocab;
+
                 /**
                 * GetAsrVocabList返回参数结构体
                 */

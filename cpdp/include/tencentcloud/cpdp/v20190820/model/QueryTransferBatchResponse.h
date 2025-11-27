@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TransferDetailResponse;
+
                 /**
                 * QueryTransferBatch返回参数结构体
                 */

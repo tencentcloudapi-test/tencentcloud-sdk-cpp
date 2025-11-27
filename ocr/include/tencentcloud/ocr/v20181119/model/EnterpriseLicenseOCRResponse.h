@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EnterpriseLicenseInfo;
+
                 /**
                 * EnterpriseLicenseOCR返回参数结构体
                 */

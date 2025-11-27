@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AggregationLegend;
+
                 /**
                 * 指标结构
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     MetricInfo();
-                    ~MetricInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

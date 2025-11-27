@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 签署控件的配置信息，用在嵌入式发起的页面配置，包括 
 
@@ -43,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SignComponentConfig();
-                    ~SignComponentConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SourceInstanceVpcInfo;
+                class SourceInstanceAuth;
+
                 /**
                 * 服务来源
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SourceInfo();
-                    ~SourceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

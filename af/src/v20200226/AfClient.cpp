@@ -62,32 +62,25 @@ AfClient::DescribeAntiFraudOutcome AfClient::DescribeAntiFraud(const DescribeAnt
 
 void AfClient::DescribeAntiFraudAsync(const DescribeAntiFraudRequest& request, const DescribeAntiFraudAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAntiFraudRequest&;
-    using Resp = DescribeAntiFraudResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAntiFraud(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAntiFraud", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AfClient::DescribeAntiFraudOutcomeCallable AfClient::DescribeAntiFraudCallable(const DescribeAntiFraudRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAntiFraudOutcome>>();
-    DescribeAntiFraudAsync(
-    request,
-    [prom](
-        const AfClient*,
-        const DescribeAntiFraudRequest&,
-        DescribeAntiFraudOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAntiFraudOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAntiFraud(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AfClient::GetAntiFraudOutcome AfClient::GetAntiFraud(const GetAntiFraudRequest &request)
@@ -112,32 +105,25 @@ AfClient::GetAntiFraudOutcome AfClient::GetAntiFraud(const GetAntiFraudRequest &
 
 void AfClient::GetAntiFraudAsync(const GetAntiFraudRequest& request, const GetAntiFraudAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetAntiFraudRequest&;
-    using Resp = GetAntiFraudResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetAntiFraud(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetAntiFraud", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AfClient::GetAntiFraudOutcomeCallable AfClient::GetAntiFraudCallable(const GetAntiFraudRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetAntiFraudOutcome>>();
-    GetAntiFraudAsync(
-    request,
-    [prom](
-        const AfClient*,
-        const GetAntiFraudRequest&,
-        GetAntiFraudOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetAntiFraudOutcome()>>(
+        [this, request]()
+        {
+            return this->GetAntiFraud(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 AfClient::QueryAntiFraudOutcome AfClient::QueryAntiFraud(const QueryAntiFraudRequest &request)
@@ -162,31 +148,24 @@ AfClient::QueryAntiFraudOutcome AfClient::QueryAntiFraud(const QueryAntiFraudReq
 
 void AfClient::QueryAntiFraudAsync(const QueryAntiFraudRequest& request, const QueryAntiFraudAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryAntiFraudRequest&;
-    using Resp = QueryAntiFraudResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryAntiFraud(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryAntiFraud", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 AfClient::QueryAntiFraudOutcomeCallable AfClient::QueryAntiFraudCallable(const QueryAntiFraudRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryAntiFraudOutcome>>();
-    QueryAntiFraudAsync(
-    request,
-    [prom](
-        const AfClient*,
-        const QueryAntiFraudRequest&,
-        QueryAntiFraudOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryAntiFraudOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryAntiFraud(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

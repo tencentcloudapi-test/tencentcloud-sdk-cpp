@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DetailData;
+
                 /**
                 * CDC集群内宿主机的统计信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HostStatistic();
-                    ~HostStatistic() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

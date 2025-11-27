@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 绑定到 COS 的输入规则。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CosFileUploadTrigger();
-                    ~CosFileUploadTrigger() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

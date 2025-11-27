@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatabaseTable;
+                class DatabaseView;
+                class DatabaseProcedure;
+                class DatabaseFunction;
+
                 /**
                 * DescribeDatabaseObjects返回参数结构体
                 */

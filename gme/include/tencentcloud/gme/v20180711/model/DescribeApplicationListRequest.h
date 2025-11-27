@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class Filter;
+
                 /**
                 * DescribeApplicationList请求参数结构体
                 */

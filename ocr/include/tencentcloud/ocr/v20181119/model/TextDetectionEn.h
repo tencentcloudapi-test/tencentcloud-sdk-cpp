@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Coord;
+                class WordCoordPoint;
+                class CandWord;
+                class Words;
+
                 /**
                 * 英文识别结果
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     TextDetectionEn();
-                    ~TextDetectionEn() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

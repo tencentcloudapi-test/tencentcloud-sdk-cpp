@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StepInfo;
+
                 /**
                 * DescribeModifyCheckSyncJobResult返回参数结构体
                 */

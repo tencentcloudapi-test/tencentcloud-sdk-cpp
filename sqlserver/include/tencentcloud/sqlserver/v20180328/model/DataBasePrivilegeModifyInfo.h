@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccountPrivilege;
+
                 /**
                 * 数据库账号权限变更信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DataBasePrivilegeModifyInfo();
-                    ~DataBasePrivilegeModifyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

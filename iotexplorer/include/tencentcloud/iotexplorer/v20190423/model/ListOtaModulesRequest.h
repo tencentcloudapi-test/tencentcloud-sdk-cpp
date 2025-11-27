@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchKeyword;
+
                 /**
                 * ListOtaModules请求参数结构体
                 */

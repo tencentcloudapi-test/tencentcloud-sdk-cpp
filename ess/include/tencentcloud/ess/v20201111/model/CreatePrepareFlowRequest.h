@@ -38,6 +38,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class FlowCreateApprover;
+                class Component;
+                class CreateFlowOption;
+                class CcInfo;
+                class Agent;
+                class SignComponentConfig;
+
                 /**
                 * CreatePrepareFlow请求参数结构体
                 */

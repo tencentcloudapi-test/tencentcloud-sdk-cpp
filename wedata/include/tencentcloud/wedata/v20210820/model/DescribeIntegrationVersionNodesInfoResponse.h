@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IntegrationNodeInfo;
+                class IntegrationNodeMapping;
+
                 /**
                 * DescribeIntegrationVersionNodesInfo返回参数结构体
                 */

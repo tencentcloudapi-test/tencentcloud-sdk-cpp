@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AutomationAgentInfo;
+
                 /**
                 * DescribeAutomationAgentStatus返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 已上传的文件对象。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FileObject();
-                    ~FileObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

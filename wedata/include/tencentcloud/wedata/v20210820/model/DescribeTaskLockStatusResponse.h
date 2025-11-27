@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskLockStatus;
+
                 /**
                 * DescribeTaskLockStatus返回参数结构体
                 */

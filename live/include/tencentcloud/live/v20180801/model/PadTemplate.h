@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 直播垫片模板。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PadTemplate();
-                    ~PadTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HTTPSListener;
+
                 /**
                 * DescribeHTTPSListeners返回参数结构体
                 */

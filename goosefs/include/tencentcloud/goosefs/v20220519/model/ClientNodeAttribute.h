@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 客户端节点属性
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ClientNodeAttribute();
-                    ~ClientNodeAttribute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

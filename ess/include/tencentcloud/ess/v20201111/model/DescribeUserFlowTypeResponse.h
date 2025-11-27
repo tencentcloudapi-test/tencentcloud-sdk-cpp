@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TemplateUserFlowType;
+
                 /**
                 * DescribeUserFlowType返回参数结构体
                 */

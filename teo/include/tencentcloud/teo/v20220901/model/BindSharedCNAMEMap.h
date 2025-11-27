@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 共享 CNAME 和接入域名的绑定关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BindSharedCNAMEMap();
-                    ~BindSharedCNAMEMap() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

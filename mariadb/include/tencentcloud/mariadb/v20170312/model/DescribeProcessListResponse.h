@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Process;
+
                 /**
                 * DescribeProcessList返回参数结构体
                 */

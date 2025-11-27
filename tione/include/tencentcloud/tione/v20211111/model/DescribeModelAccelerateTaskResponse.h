@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModelAccelerateTask;
+
                 /**
                 * DescribeModelAccelerateTask返回参数结构体
                 */

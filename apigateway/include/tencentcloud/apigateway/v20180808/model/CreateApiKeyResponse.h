@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiKey;
+
                 /**
                 * CreateApiKey返回参数结构体
                 */

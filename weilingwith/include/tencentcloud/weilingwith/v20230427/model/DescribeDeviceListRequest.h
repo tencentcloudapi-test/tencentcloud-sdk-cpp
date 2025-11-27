@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomField;
+
                 /**
                 * DescribeDeviceList请求参数结构体
                 */

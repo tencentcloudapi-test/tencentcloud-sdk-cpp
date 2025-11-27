@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcInfo;
+                class PublicAccessRule;
+                class Tag;
+
                 /**
                 * CreateRocketMQVipInstance请求参数结构体
                 */

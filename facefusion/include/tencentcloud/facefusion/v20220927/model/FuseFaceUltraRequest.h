@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MergeInfo;
+                class FusionUltraParam;
+                class LogoParam;
+
                 /**
                 * FuseFaceUltra请求参数结构体
                 */

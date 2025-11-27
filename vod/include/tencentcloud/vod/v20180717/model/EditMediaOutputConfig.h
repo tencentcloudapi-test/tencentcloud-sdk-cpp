@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EditMediaVideoStream;
+                class EditMediaTEHDConfig;
+
                 /**
                 * 编辑视频的结果文件输出。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     EditMediaOutputConfig();
-                    ~EditMediaOutputConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

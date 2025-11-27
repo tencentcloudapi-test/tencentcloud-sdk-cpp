@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExcelParam;
+
                 /**
                 * CreateTranscode请求参数结构体
                 */

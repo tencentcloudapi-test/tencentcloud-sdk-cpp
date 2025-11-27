@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AddressUnsubscribeConfigData;
+
                 /**
                 * ListAddressUnsubscribeConfig返回参数结构体
                 */

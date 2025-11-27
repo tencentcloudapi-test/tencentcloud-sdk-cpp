@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 短信免费量
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SmsFreeQuota();
-                    ~SmsFreeQuota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

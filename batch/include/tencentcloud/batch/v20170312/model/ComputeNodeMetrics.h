@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 计算节点统计指标
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ComputeNodeMetrics();
-                    ~ComputeNodeMetrics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

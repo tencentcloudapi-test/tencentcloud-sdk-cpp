@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ManagerStatusInfo;
+                class Tags;
+
                 /**
                 * 管理人信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ManagerInfo();
-                    ~ManagerInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

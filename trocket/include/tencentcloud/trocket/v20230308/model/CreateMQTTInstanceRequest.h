@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class VpcInfo;
+                class IpRule;
+
                 /**
                 * CreateMQTTInstance请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SsoDepartmentsResult;
+
                 /**
                 * DescribeTenantDepartmentList返回参数结构体
                 */

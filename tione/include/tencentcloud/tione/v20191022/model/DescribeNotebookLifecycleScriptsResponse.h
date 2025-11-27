@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NotebookLifecycleScriptsSummary;
+
                 /**
                 * DescribeNotebookLifecycleScripts返回参数结构体
                 */

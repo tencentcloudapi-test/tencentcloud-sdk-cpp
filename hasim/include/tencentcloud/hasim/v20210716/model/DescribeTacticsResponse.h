@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TacticInfos;
+
                 /**
                 * DescribeTactics返回参数结构体
                 */

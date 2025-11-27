@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 套餐包信息统计响应包体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SmsPackagesStatistics();
-                    ~SmsPackagesStatistics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

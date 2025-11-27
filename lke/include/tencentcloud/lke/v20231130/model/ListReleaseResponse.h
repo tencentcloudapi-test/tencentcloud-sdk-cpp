@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListReleaseItem;
+
                 /**
                 * ListRelease返回参数结构体
                 */

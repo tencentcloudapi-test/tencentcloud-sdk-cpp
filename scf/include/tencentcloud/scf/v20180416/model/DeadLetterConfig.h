@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 死信队列参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DeadLetterConfig();
-                    ~DeadLetterConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

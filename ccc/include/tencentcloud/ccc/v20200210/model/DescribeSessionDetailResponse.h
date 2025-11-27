@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IVRKeyPressedElement;
+                class SessionEvent;
+                class ServeParticipant;
+
                 /**
                 * DescribeSessionDetail返回参数结构体
                 */

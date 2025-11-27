@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Caller;
+                class UploadFile;
+
                 /**
                 * UploadFiles请求参数结构体
                 */

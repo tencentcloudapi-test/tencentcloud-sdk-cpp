@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户自带号码审批明细数据类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OwnNumberApplyDetailItem();
-                    ~OwnNumberApplyDetailItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

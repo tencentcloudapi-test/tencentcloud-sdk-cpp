@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupLine;
+
                 /**
                 * DescribeDnsLineList返回参数结构体
                 */

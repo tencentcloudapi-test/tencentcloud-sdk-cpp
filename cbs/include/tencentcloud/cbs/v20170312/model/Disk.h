@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class Placement;
+
                 /**
                 * 描述了云硬盘的详细信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     Disk();
-                    ~Disk() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

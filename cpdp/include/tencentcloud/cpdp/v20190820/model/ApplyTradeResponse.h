@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApplyTradeResult;
+
                 /**
                 * ApplyTrade返回参数结构体
                 */

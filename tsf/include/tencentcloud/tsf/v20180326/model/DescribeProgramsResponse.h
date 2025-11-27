@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PagedProgram;
+
                 /**
                 * DescribePrograms返回参数结构体
                 */

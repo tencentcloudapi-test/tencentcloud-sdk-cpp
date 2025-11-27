@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CHDFSProductVpcInfo;
+
                 /**
                 * 非DLC产品CHDFS绑定
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OtherCHDFSBinding();
-                    ~OtherCHDFSBinding() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

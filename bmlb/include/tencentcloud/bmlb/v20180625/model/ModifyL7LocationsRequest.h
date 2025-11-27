@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyL7LocationRule;
+
                 /**
                 * ModifyL7Locations请求参数结构体
                 */

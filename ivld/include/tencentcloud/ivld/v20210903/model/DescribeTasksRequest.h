@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskFilter;
+                class SortBy;
+
                 /**
                 * DescribeTasks请求参数结构体
                 */

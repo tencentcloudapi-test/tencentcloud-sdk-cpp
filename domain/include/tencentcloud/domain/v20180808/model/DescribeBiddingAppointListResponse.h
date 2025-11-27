@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BiddingAppointResult;
+
                 /**
                 * DescribeBiddingAppointList返回参数结构体
                 */

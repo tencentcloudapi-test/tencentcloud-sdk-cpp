@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * key信息组
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Key();
-                    ~Key() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

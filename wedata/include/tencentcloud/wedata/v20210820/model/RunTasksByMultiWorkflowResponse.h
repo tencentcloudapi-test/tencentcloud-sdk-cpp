@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OperationOpsDto;
+
                 /**
                 * RunTasksByMultiWorkflow返回参数结构体
                 */

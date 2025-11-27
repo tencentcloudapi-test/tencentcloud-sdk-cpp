@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Block;
+
                 /**
                 * GetBlockList返回参数结构体
                 */

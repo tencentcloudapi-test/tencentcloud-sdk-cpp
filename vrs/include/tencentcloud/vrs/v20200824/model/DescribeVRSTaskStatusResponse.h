@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeVRSTaskStatusRespData;
+
                 /**
                 * DescribeVRSTaskStatus返回参数结构体
                 */

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DevicesBindInfoRule;
+
                 /**
                 * 获取设备绑定信息时返回的七层监听器信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DevicesBindInfoL7Listener();
-                    ~DevicesBindInfoL7Listener() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

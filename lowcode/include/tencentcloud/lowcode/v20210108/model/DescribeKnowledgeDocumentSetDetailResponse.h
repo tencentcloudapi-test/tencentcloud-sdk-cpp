@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeKnowledgeDocumentSetDetailRsp;
+
                 /**
                 * DescribeKnowledgeDocumentSetDetail返回参数结构体
                 */

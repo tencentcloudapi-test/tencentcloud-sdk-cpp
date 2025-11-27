@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiagnosisInfo;
+                class RationalDrugInfo;
+
                 /**
                 * 智能问诊响应数据
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     SmartPredictRespData();
-                    ~SmartPredictRespData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

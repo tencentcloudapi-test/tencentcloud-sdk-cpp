@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 不可用原因
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UnavailableReason();
-                    ~UnavailableReason() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

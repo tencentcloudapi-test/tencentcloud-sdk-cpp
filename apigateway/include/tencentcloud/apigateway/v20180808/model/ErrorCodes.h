@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户自定义错误码
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ErrorCodes();
-                    ~ErrorCodes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

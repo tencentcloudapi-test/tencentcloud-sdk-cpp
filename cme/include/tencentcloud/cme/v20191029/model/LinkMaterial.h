@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LinkMaterialInfo;
+                class ClassInfo;
+
                 /**
                 * 链接类型的素材信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     LinkMaterial();
-                    ~LinkMaterial() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

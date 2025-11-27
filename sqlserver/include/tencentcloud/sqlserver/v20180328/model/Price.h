@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 参考价格，该价格为CPU、内存规格价格，不包括磁盘用量，实际价格以询价接口为准。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Price();
-                    ~Price() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

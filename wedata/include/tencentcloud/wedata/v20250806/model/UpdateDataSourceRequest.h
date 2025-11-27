@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataSourceFileUpload;
+
                 /**
                 * UpdateDataSource请求参数结构体
                 */

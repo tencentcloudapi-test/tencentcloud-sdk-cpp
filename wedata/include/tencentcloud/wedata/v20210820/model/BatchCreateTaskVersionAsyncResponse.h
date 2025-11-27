@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchTaskOperateNew;
+
                 /**
                 * BatchCreateTaskVersionAsync返回参数结构体
                 */

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApiIdStatus;
+                class UsagePlan;
+                class Tag;
+
                 /**
                 * DescribeService返回参数结构体
                 */

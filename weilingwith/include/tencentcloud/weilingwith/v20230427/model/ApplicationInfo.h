@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApplicationLogo;
+
                 /**
                 * 应用描述
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ApplicationInfo();
-                    ~ApplicationInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

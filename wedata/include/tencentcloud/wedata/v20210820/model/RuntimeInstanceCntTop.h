@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 指定时间窗口实例耗时排行
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RuntimeInstanceCntTop();
-                    ~RuntimeInstanceCntTop() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

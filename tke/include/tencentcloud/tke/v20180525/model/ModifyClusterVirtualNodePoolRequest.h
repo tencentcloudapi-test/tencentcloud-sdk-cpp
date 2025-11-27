@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Label;
+                class Taint;
+
                 /**
                 * ModifyClusterVirtualNodePool请求参数结构体
                 */

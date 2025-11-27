@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LineItem;
+
                 /**
                 * DescribeRecordLineCategoryList返回参数结构体
                 */

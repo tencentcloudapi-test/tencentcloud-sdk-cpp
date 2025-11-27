@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceResult;
+
                 /**
                 * CreateResourceGroup返回参数结构体
                 */

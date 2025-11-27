@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 目的实例信息，具体内容跟迁移任务类型相关
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DstInfo();
-                    ~DstInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

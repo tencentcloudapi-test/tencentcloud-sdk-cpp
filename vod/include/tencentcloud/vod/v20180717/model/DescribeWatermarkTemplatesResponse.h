@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WatermarkTemplate;
+
                 /**
                 * DescribeWatermarkTemplates返回参数结构体
                 */

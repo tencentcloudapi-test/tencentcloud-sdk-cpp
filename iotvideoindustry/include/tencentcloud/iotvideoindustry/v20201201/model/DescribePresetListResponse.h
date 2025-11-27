@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PresetItem;
+
                 /**
                 * DescribePresetList返回参数结构体
                 */

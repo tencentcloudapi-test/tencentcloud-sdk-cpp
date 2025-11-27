@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceTypeOverview;
+                class StatLevel;
+
                 /**
                 * 设备状态统计结果
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DeviceStatusStatRes();
-                    ~DeviceStatusStatRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

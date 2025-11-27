@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CkafkaDeliveryParams;
+
                 /**
                 * rule对应的dlq配置
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DeadLetterConfig();
-                    ~DeadLetterConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

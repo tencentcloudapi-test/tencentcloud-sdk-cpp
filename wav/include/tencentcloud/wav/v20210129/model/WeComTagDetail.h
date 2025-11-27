@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 企微个人标签信息,渠道活码使用
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WeComTagDetail();
-                    ~WeComTagDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PayeeAccountInfoResult;
+
                 /**
                 * QueryFlexPayeeAccountInfo返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogSetInfo;
+                class TopicInfo;
+
                 /**
                 * 除上海外其他区域日志集和日志主题信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ExtraLogset();
-                    ~ExtraLogset() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

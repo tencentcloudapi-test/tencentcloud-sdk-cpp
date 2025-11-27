@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TopicRecord;
+
                 /**
                 * DeleteTopics返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CCPrecisionPolicy;
+
                 /**
                 * DescribeCCPrecisionPlyList返回参数结构体
                 */

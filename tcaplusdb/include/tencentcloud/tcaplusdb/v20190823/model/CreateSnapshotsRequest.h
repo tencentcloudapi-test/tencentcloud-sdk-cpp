@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SnapshotInfo;
+
                 /**
                 * CreateSnapshots请求参数结构体
                 */

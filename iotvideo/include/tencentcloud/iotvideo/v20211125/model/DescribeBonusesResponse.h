@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BonusInfo;
+
                 /**
                 * DescribeBonuses返回参数结构体
                 */

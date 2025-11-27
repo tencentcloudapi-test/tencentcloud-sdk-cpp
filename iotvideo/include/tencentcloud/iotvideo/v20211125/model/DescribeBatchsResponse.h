@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoBatch;
+
                 /**
                 * DescribeBatchs返回参数结构体
                 */

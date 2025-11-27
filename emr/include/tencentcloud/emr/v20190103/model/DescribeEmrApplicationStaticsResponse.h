@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApplicationStatics;
+
                 /**
                 * DescribeEmrApplicationStatics返回参数结构体
                 */

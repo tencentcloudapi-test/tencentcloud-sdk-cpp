@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupOffsetResponse;
+
                 /**
                 * DescribeDatahubGroupOffsets返回参数结构体
                 */

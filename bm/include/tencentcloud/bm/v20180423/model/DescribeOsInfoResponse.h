@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OsInfo;
+
                 /**
                 * DescribeOsInfo返回参数结构体
                 */

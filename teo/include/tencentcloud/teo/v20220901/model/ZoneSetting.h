@@ -57,6 +57,30 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CacheKey;
+                class Quic;
+                class PostMaxSize;
+                class Compression;
+                class UpstreamHttp2;
+                class ForceRedirect;
+                class CacheConfig;
+                class Origin;
+                class SmartRouting;
+                class MaxAge;
+                class OfflineCache;
+                class WebSocket;
+                class ClientIpHeader;
+                class CachePrefresh;
+                class Ipv6;
+                class Https;
+                class ClientIpCountry;
+                class Grpc;
+                class NetworkErrorLogging;
+                class ImageOptimize;
+                class AccelerateMainland;
+                class StandardDebug;
+                class JITVideoProcess;
+
                 /**
                 * 站点配置。
                 */
@@ -64,7 +88,6 @@ namespace TencentCloud
                 {
                 public:
                     ZoneSetting();
-                    ~ZoneSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

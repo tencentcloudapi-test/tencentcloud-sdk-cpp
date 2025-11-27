@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class APIDoc;
+
                 /**
                 * ResetAPIDocPassword返回参数结构体
                 */

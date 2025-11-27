@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeBindingPolicyObjectListInstance;
+                class DescribeBindingPolicyObjectListInstanceGroup;
+
                 /**
                 * DescribeBindingPolicyObjectList返回参数结构体
                 */

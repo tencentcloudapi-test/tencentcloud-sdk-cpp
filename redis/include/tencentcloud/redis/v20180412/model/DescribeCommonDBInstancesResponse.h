@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RedisCommonInstanceList;
+
                 /**
                 * DescribeCommonDBInstances返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DisplayVul;
+
                 /**
                 * DescribeVuls返回参数结构体
                 */

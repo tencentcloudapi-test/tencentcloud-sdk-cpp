@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BudgetExtend;
+
                 /**
                 * 获取预算管理的基础信息分页数据
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DataForBudgetInfoPage();
-                    ~DataForBudgetInfoPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

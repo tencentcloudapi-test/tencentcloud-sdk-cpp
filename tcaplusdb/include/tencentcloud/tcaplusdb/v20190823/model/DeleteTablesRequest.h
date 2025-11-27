@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SelectedTableInfoNew;
+
                 /**
                 * DeleteTables请求参数结构体
                 */

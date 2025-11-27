@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompanyApplyInfo;
+
                 /**
                 * CreateCompanyApply请求参数结构体
                 */

@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagInfo;
+                class VpcInfo;
+                class AccountVpcInfo;
+
                 /**
                 * CreatePrivateZone请求参数结构体
                 */

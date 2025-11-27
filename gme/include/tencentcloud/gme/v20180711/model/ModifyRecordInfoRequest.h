@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscribeRecordUserIds;
+
                 /**
                 * ModifyRecordInfo请求参数结构体
                 */

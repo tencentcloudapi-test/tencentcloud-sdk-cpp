@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserIdAndUserName;
+                class UserInfo;
+
                 /**
                 * CreateUserRoleProject请求参数结构体
                 */

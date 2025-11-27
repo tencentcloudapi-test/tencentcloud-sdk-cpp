@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AnalysisTaskResults;
+
                 /**
                 * DescribeTasksAnalysis返回参数结构体
                 */

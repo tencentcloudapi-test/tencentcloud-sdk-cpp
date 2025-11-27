@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AccessControlEventInfo;
+
                 /**
                 * DescribeAccessControlEvents返回参数结构体
                 */

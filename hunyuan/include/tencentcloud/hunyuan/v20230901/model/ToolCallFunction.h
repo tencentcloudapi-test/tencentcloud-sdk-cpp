@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 具体的function调用
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ToolCallFunction();
-                    ~ToolCallFunction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

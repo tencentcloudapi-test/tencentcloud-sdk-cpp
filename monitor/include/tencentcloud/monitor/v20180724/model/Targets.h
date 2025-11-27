@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 抓取目标数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Targets();
-                    ~Targets() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

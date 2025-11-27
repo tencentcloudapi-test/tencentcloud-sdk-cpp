@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ModifyInstanceAttributesConfig;
+                class DynamicRetentionTime;
+                class DynamicDiskConfig;
+
                 /**
                 * ModifyInstanceAttributes请求参数结构体
                 */

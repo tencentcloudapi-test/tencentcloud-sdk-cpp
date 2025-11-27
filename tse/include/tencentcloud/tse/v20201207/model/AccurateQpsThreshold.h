@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 云原生网关限流插件参数限流的精确Qps阈值
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AccurateQpsThreshold();
-                    ~AccurateQpsThreshold() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

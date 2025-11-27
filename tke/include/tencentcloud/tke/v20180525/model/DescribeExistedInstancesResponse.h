@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExistedInstance;
+
                 /**
                 * DescribeExistedInstances返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApplicationInformation;
+
                 /**
                 * ListApplications返回参数结构体
                 */

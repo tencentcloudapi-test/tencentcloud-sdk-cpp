@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SpecPrice;
+
                 /**
                 * DescribeBillingSpecsPrice返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceTag;
+                class SlaveZones;
+
                 /**
                 * 实例详细信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DBInstance();
-                    ~DBInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

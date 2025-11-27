@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertificateInput;
+                class MultiCertInfo;
+
                 /**
                 * ModifyDomainAttributes请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 通用排序字段名和排序方向
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OrderCondition();
-                    ~OrderCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServerConfiguration;
+
                 /**
                 * DescribeSIPServer返回参数结构体
                 */

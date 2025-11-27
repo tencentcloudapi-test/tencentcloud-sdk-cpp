@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CreateAndroidInstancesScreenshot请求参数结构体
                 */

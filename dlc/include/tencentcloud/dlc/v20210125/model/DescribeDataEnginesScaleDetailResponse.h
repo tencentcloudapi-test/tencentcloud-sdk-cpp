@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataEngineScaleInfo;
+
                 /**
                 * DescribeDataEnginesScaleDetail返回参数结构体
                 */

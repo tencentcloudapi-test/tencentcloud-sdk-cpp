@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AutoStrategy;
+                class TimeIntervalStrategy;
+                class PeriodStrategy;
+
                 /**
                 * StartCpuExpand请求参数结构体
                 */

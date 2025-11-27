@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户行为分析 统计条件
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StatisticalFilter();
-                    ~StatisticalFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

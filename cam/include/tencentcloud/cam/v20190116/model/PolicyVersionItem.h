@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 策略版本列表元素结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PolicyVersionItem();
-                    ~PolicyVersionItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

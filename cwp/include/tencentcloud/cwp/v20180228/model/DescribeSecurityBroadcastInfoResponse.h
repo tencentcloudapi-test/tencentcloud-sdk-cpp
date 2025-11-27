@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BroadcastInfo;
+
                 /**
                 * DescribeSecurityBroadcastInfo返回参数结构体
                 */

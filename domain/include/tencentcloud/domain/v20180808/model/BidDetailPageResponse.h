@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PriceScopeConf;
+
                 /**
                 * BidDetailPage返回参数结构体
                 */

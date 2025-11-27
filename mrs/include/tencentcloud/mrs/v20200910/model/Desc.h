@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Organ;
+                class TuberInfo;
+                class Coord;
+
                 /**
                 * 描述
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     Desc();
-                    ~Desc() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

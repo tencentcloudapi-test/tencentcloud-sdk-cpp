@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UsagePlanBindSecret;
+
                 /**
                 * 使用计划绑定密钥列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     UsagePlanBindSecretStatus();
-                    ~UsagePlanBindSecretStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

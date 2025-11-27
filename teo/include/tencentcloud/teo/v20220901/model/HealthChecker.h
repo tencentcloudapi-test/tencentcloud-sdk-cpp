@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomizedHeader;
+
                 /**
                 * 负载均衡实例健康检查策略。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HealthChecker();
-                    ~HealthChecker() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

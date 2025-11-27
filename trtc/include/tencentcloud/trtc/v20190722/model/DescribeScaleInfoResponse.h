@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScaleInfomation;
+
                 /**
                 * DescribeScaleInfo返回参数结构体
                 */

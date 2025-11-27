@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceTagInfo;
+
                 /**
                 * DescribeInstances请求参数结构体
                 */

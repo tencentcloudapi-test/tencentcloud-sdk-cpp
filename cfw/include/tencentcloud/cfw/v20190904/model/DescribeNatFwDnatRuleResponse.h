@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescNatDnatRule;
+
                 /**
                 * DescribeNatFwDnatRule返回参数结构体
                 */

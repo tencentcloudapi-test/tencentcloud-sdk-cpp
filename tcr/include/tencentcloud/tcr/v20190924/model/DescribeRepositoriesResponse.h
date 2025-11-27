@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TcrRepositoryInfo;
+
                 /**
                 * DescribeRepositories返回参数结构体
                 */

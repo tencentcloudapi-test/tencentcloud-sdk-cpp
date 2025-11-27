@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PoolInfo;
+
                 /**
                 * DescribeMachine返回参数结构体
                 */

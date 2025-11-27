@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PacketStatistics;
+
                 /**
                 * MQTT客户端数据流量统计
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     StatisticsReport();
-                    ~StatisticsReport() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

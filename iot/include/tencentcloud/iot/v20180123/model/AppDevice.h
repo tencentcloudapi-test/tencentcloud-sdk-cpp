@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 绑定设备
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AppDevice();
-                    ~AppDevice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

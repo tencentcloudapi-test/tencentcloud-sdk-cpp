@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoadBalancer;
+
                 /**
                 * 证书ID，以及与该证书ID关联的负载均衡实例列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CertIdRelatedWithLoadBalancers();
-                    ~CertIdRelatedWithLoadBalancers() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

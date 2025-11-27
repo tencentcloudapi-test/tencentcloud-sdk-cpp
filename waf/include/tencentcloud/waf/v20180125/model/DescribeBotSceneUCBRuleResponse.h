@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeBotUCBRuleRsp;
+
                 /**
                 * DescribeBotSceneUCBRule返回参数结构体
                 */

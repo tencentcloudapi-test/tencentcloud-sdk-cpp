@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DDoSProtection;
+
                 /**
                 * ModifyDDoSProtection请求参数结构体
                 */

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmHierarchicalNotice;
+                class NoticeContentTmplBindInfo;
+
                 /**
                 * ModifyAlarmPolicyNotice请求参数结构体
                 */

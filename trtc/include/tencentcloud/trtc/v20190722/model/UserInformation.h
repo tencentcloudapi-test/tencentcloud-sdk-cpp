@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用户信息，包括用户进房时间，退房时间等
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UserInformation();
-                    ~UserInformation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

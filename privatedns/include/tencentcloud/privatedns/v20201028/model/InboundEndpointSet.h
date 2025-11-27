@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EndPointServiceInfo;
+
                 /**
                 * 终端节点信息列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InboundEndpointSet();
-                    ~InboundEndpointSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

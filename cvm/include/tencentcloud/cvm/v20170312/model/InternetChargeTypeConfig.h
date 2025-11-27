@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 描述了网络计费
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     InternetChargeTypeConfig();
-                    ~InternetChargeTypeConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

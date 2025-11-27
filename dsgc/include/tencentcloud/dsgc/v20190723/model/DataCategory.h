@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 敏感数据分类
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DataCategory();
-                    ~DataCategory() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

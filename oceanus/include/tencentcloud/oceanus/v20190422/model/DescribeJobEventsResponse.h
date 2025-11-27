@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class JobEvent;
+
                 /**
                 * DescribeJobEvents返回参数结构体
                 */

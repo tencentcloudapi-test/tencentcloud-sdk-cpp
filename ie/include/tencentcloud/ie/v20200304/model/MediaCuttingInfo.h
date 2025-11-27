@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaCuttingTimeInfo;
+                class MediaTargetInfo;
+                class MediaCuttingOutForm;
+                class MediaCuttingWatermark;
+
                 /**
                 * 编辑处理/剪切任务信息。
 截图结果默认存在 SaveInfoSet 的第一个存储位置。
@@ -46,7 +51,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaCuttingInfo();
-                    ~MediaCuttingInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

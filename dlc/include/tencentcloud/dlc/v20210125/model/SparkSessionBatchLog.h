@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SparkSessionBatchLogOperate;
+
                 /**
                 * SparkSQL批任务运行日志
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SparkSessionBatchLog();
-                    ~SparkSessionBatchLog() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

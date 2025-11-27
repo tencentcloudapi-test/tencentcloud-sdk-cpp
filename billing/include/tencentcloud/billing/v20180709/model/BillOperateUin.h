@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 操作者 UIN筛选列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BillOperateUin();
-                    ~BillOperateUin() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

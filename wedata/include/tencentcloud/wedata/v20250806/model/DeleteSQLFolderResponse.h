@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SQLContentActionResult;
+
                 /**
                 * DeleteSQLFolder返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Job;
+
                 /**
                 * CreateApiImportUserJob返回参数结构体
                 */

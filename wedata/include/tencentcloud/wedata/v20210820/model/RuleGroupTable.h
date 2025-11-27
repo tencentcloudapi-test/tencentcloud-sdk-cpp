@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RuleGroupTableInnerInfo;
+                class RuleGroupSchedulerInfo;
+                class RuleGroupSubscribe;
+
                 /**
                 * 表绑定规则组信息
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleGroupTable();
-                    ~RuleGroupTable() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

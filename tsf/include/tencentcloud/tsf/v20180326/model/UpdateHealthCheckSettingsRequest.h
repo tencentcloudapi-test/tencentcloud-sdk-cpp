@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HealthCheckSettings;
+
                 /**
                 * UpdateHealthCheckSettings请求参数结构体
                 */

@@ -62,32 +62,25 @@ CtsdbClient::DescribeClustersOutcome CtsdbClient::DescribeClusters(const Describ
 
 void CtsdbClient::DescribeClustersAsync(const DescribeClustersRequest& request, const DescribeClustersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeClustersRequest&;
-    using Resp = DescribeClustersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeClusters(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeClusters", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CtsdbClient::DescribeClustersOutcomeCallable CtsdbClient::DescribeClustersCallable(const DescribeClustersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeClustersOutcome>>();
-    DescribeClustersAsync(
-    request,
-    [prom](
-        const CtsdbClient*,
-        const DescribeClustersRequest&,
-        DescribeClustersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeClustersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeClusters(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CtsdbClient::DescribeDatabasesOutcome CtsdbClient::DescribeDatabases(const DescribeDatabasesRequest &request)
@@ -112,31 +105,24 @@ CtsdbClient::DescribeDatabasesOutcome CtsdbClient::DescribeDatabases(const Descr
 
 void CtsdbClient::DescribeDatabasesAsync(const DescribeDatabasesRequest& request, const DescribeDatabasesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDatabasesRequest&;
-    using Resp = DescribeDatabasesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDatabases(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDatabases", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CtsdbClient::DescribeDatabasesOutcomeCallable CtsdbClient::DescribeDatabasesCallable(const DescribeDatabasesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDatabasesOutcome>>();
-    DescribeDatabasesAsync(
-    request,
-    [prom](
-        const CtsdbClient*,
-        const DescribeDatabasesRequest&,
-        DescribeDatabasesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDatabasesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDatabases(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

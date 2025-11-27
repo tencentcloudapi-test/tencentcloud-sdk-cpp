@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrivateParameter;
+
                 /**
                 * 加速域名源站信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OriginDetail();
-                    ~OriginDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

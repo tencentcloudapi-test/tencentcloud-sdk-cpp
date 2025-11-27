@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetLoadDetail;
+
                 /**
                 * 资源负载概况
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AssetLoadSummary();
-                    ~AssetLoadSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

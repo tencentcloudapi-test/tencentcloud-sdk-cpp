@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetList;
+                class AggregationObj;
+
                 /**
                 * DescribeAssetList返回参数结构体
                 */

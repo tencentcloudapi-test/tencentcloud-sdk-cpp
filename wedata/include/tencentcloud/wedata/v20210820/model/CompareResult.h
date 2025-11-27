@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompareResultItem;
+
                 /**
                 * 质量检查对比结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CompareResult();
-                    ~CompareResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

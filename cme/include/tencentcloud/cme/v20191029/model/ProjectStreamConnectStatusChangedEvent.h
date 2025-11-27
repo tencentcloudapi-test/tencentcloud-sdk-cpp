@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StreamConnectInputInterruptInfo;
+                class StreamConnectOutputInterruptInfo;
+
                 /**
                 * 云转推项目状态变更事件。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ProjectStreamConnectStatusChangedEvent();
-                    ~ProjectStreamConnectStatusChangedEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

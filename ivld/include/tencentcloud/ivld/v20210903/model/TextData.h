@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MultiLevelTag;
+
                 /**
                 * 文本文件标签识别结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TextData();
-                    ~TextData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

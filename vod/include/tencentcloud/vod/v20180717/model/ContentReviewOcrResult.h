@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 图片Ocr 文字鉴别信息的任务结果类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ContentReviewOcrResult();
-                    ~ContentReviewOcrResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

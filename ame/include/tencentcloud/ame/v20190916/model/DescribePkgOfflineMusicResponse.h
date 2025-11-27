@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OfflineMusicDetail;
+
                 /**
                 * DescribePkgOfflineMusic返回参数结构体
                 */

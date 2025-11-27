@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RocketMQTopicConfig;
+
                 /**
                 * ImportRocketMQTopics请求参数结构体
                 */

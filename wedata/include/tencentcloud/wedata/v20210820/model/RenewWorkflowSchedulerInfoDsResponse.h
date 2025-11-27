@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BatchResultDs;
+
                 /**
                 * RenewWorkflowSchedulerInfoDs返回参数结构体
                 */

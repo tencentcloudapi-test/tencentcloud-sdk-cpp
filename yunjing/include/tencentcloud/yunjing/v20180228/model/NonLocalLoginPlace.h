@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 异地登录
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NonLocalLoginPlace();
-                    ~NonLocalLoginPlace() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

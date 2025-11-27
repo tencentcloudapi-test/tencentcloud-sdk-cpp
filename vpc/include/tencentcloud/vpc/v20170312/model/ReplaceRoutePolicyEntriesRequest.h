@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoutePolicyEntry;
+
                 /**
                 * ReplaceRoutePolicyEntries请求参数结构体
                 */

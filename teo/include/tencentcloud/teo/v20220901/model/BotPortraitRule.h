@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * bot 用户画像规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BotPortraitRule();
-                    ~BotPortraitRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

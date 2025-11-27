@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowDsDTO;
+
                 /**
                 * DescribeWorkflowByFordIds返回参数结构体
                 */

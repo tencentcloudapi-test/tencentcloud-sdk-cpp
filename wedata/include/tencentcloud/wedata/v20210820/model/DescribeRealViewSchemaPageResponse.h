@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatabaseSchemaIInfo;
+
                 /**
                 * DescribeRealViewSchemaPage返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BusInvoiceInfo;
+
                 /**
                 * BusInvoiceOCR返回参数结构体
                 */

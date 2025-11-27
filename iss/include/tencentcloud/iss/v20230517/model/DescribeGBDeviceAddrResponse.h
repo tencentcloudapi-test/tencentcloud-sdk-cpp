@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeDeviceAddrList;
+
                 /**
                 * DescribeGBDeviceAddr返回参数结构体
                 */

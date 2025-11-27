@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ContractPayListResult;
+
                 /**
                 * QueryContractPayWayList返回参数结构体
                 */

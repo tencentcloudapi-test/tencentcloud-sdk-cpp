@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 绑定分账收款方响应
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BindOpenBankProfitSharePayeeResult();
-                    ~BindOpenBankProfitSharePayeeResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

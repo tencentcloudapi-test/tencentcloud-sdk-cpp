@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 不满意回复
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UnsatisfiedReply();
-                    ~UnsatisfiedReply() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

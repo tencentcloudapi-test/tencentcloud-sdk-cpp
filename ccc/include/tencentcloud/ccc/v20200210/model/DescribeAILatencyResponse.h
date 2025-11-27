@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AILatencyDetail;
+                class AILatencyStatistics;
+
                 /**
                 * DescribeAILatency返回参数结构体
                 */

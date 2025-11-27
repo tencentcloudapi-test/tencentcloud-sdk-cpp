@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 采样截图模板详情
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SampleSnapshotTemplate();
-                    ~SampleSnapshotTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

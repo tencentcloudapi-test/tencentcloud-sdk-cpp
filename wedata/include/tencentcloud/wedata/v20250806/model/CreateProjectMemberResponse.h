@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProjectResult;
+
                 /**
                 * CreateProjectMember返回参数结构体
                 */

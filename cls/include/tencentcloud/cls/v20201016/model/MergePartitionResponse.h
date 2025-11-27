@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PartitionInfo;
+
                 /**
                 * MergePartition返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CollectionInstanceOpsDto;
+
                 /**
                 * DagInstances返回参数结构体
                 */

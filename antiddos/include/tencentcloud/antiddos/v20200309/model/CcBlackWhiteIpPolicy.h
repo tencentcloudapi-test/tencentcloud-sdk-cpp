@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CC四层黑白名单列表
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CcBlackWhiteIpPolicy();
-                    ~CcBlackWhiteIpPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

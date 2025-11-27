@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 数据资产操作标记
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OperateOption();
-                    ~OperateOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

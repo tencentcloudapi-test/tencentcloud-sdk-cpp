@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaselineDownload;
+
                 /**
                 * DescribeBaselineDownloadList返回参数结构体
                 */

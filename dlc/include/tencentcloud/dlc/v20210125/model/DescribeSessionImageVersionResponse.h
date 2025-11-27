@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EngineSessionImage;
+
                 /**
                 * DescribeSessionImageVersion返回参数结构体
                 */

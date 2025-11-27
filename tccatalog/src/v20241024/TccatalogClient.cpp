@@ -62,32 +62,25 @@ TccatalogClient::AcceptTccVpcEndPointConnectOutcome TccatalogClient::AcceptTccVp
 
 void TccatalogClient::AcceptTccVpcEndPointConnectAsync(const AcceptTccVpcEndPointConnectRequest& request, const AcceptTccVpcEndPointConnectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AcceptTccVpcEndPointConnectRequest&;
-    using Resp = AcceptTccVpcEndPointConnectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AcceptTccVpcEndPointConnect(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AcceptTccVpcEndPointConnect", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TccatalogClient::AcceptTccVpcEndPointConnectOutcomeCallable TccatalogClient::AcceptTccVpcEndPointConnectCallable(const AcceptTccVpcEndPointConnectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AcceptTccVpcEndPointConnectOutcome>>();
-    AcceptTccVpcEndPointConnectAsync(
-    request,
-    [prom](
-        const TccatalogClient*,
-        const AcceptTccVpcEndPointConnectRequest&,
-        AcceptTccVpcEndPointConnectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AcceptTccVpcEndPointConnectOutcome()>>(
+        [this, request]()
+        {
+            return this->AcceptTccVpcEndPointConnect(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TccatalogClient::BindTccVpcEndPointServiceWhiteListOutcome TccatalogClient::BindTccVpcEndPointServiceWhiteList(const BindTccVpcEndPointServiceWhiteListRequest &request)
@@ -112,32 +105,25 @@ TccatalogClient::BindTccVpcEndPointServiceWhiteListOutcome TccatalogClient::Bind
 
 void TccatalogClient::BindTccVpcEndPointServiceWhiteListAsync(const BindTccVpcEndPointServiceWhiteListRequest& request, const BindTccVpcEndPointServiceWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindTccVpcEndPointServiceWhiteListRequest&;
-    using Resp = BindTccVpcEndPointServiceWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindTccVpcEndPointServiceWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindTccVpcEndPointServiceWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TccatalogClient::BindTccVpcEndPointServiceWhiteListOutcomeCallable TccatalogClient::BindTccVpcEndPointServiceWhiteListCallable(const BindTccVpcEndPointServiceWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindTccVpcEndPointServiceWhiteListOutcome>>();
-    BindTccVpcEndPointServiceWhiteListAsync(
-    request,
-    [prom](
-        const TccatalogClient*,
-        const BindTccVpcEndPointServiceWhiteListRequest&,
-        BindTccVpcEndPointServiceWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindTccVpcEndPointServiceWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->BindTccVpcEndPointServiceWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TccatalogClient::DescribeTccCatalogOutcome TccatalogClient::DescribeTccCatalog(const DescribeTccCatalogRequest &request)
@@ -162,32 +148,25 @@ TccatalogClient::DescribeTccCatalogOutcome TccatalogClient::DescribeTccCatalog(c
 
 void TccatalogClient::DescribeTccCatalogAsync(const DescribeTccCatalogRequest& request, const DescribeTccCatalogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTccCatalogRequest&;
-    using Resp = DescribeTccCatalogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTccCatalog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTccCatalog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TccatalogClient::DescribeTccCatalogOutcomeCallable TccatalogClient::DescribeTccCatalogCallable(const DescribeTccCatalogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTccCatalogOutcome>>();
-    DescribeTccCatalogAsync(
-    request,
-    [prom](
-        const TccatalogClient*,
-        const DescribeTccCatalogRequest&,
-        DescribeTccCatalogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTccCatalogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTccCatalog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 TccatalogClient::DescribeTccCatalogsOutcome TccatalogClient::DescribeTccCatalogs(const DescribeTccCatalogsRequest &request)
@@ -212,31 +191,24 @@ TccatalogClient::DescribeTccCatalogsOutcome TccatalogClient::DescribeTccCatalogs
 
 void TccatalogClient::DescribeTccCatalogsAsync(const DescribeTccCatalogsRequest& request, const DescribeTccCatalogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTccCatalogsRequest&;
-    using Resp = DescribeTccCatalogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTccCatalogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTccCatalogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 TccatalogClient::DescribeTccCatalogsOutcomeCallable TccatalogClient::DescribeTccCatalogsCallable(const DescribeTccCatalogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTccCatalogsOutcome>>();
-    DescribeTccCatalogsAsync(
-    request,
-    [prom](
-        const TccatalogClient*,
-        const DescribeTccCatalogsRequest&,
-        DescribeTccCatalogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTccCatalogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTccCatalogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

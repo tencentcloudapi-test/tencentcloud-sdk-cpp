@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 监控播放数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MonitorStreamPlayInfo();
-                    ~MonitorStreamPlayInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

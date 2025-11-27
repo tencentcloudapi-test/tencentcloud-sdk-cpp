@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Strategy;
+                class JobDateTime;
+
                 /**
                 * DescribeCustomRules接口回包中的复杂类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeCustomRulesRspRuleListItem();
-                    ~DescribeCustomRulesRspRuleListItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 包含labelName 和labelValue
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Label();
-                    ~Label() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

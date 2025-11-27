@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 段落文本框位置：x，y代表左上顶点，width和height代表宽高
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BoundingBox();
-                    ~BoundingBox() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

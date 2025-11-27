@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FileTamperRuleDetail;
+
                 /**
                 * DescribeFileTamperEventRuleInfo返回参数结构体
                 */

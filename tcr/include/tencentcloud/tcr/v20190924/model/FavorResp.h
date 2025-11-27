@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Favors;
+
                 /**
                 * 用于获取收藏仓库的响应
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FavorResp();
-                    ~FavorResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

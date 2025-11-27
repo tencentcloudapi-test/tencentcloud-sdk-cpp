@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordStatistic;
+
                 /**
                 * DescribeMonitorDataByDate返回参数结构体
                 */

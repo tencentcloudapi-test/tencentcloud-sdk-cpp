@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageInfo;
+
                 /**
                 * DescribeImages返回参数结构体
                 */

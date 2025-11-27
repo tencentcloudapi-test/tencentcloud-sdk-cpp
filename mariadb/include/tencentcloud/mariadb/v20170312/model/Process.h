@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 用于显示当前正在运行的线程（连接/查询）信息，数据源来自系统表：information_schema.processlist。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Process();
-                    ~Process() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

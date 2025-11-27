@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SecurityAction;
+                class BotManagementActionOverrides;
+
                 /**
                 * IP 情报库（原客户端画像分析）的具体配置。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     IPReputationGroup();
-                    ~IPReputationGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

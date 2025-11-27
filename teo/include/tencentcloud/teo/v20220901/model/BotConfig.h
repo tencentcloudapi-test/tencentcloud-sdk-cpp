@@ -39,6 +39,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BotManagedRule;
+                class BotPortraitRule;
+                class IntelligenceRule;
+                class BotUserRule;
+                class AlgDetectRule;
+
                 /**
                 * 安全Bot配置
                 */
@@ -46,7 +52,6 @@ namespace TencentCloud
                 {
                 public:
                     BotConfig();
-                    ~BotConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

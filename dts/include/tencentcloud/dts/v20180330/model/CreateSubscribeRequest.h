@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagItem;
+
                 /**
                 * CreateSubscribe请求参数结构体
                 */

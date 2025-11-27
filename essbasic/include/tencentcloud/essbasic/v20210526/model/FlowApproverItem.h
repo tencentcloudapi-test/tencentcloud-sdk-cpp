@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ApproverItem;
+
                 /**
                 * 签署方信息，如角色ID、角色名称等
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FlowApproverItem();
-                    ~FlowApproverItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

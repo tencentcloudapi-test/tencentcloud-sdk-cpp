@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FileSystemByPolicy;
+                class TagInfo;
+
                 /**
                 * 快照策略信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AutoSnapshotPolicyInfo();
-                    ~AutoSnapshotPolicyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

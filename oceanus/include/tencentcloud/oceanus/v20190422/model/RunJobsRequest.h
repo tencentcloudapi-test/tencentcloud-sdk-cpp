@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RunJobDescription;
+
                 /**
                 * RunJobs请求参数结构体
                 */

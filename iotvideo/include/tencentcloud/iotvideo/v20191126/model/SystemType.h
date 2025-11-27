@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OsData;
+
                 /**
                 * 系统类型
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SystemType();
-                    ~SystemType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

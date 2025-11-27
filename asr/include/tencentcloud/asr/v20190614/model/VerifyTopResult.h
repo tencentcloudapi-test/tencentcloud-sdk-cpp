@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VerifyTop;
+
                 /**
                 * 说话人验证1:N返回结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VerifyTopResult();
-                    ~VerifyTopResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

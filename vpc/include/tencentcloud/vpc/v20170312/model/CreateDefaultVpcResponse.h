@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DefaultVpcSubnet;
+
                 /**
                 * CreateDefaultVpc返回参数结构体
                 */

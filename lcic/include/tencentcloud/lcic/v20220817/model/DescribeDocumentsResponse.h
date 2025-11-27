@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DocumentInfo;
+
                 /**
                 * DescribeDocuments返回参数结构体
                 */

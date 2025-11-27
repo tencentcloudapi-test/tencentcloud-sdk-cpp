@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceItem;
+                class ChannelItem;
+
                 /**
                 * CreateScene请求参数结构体
                 */

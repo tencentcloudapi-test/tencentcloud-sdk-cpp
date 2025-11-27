@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SourceIPAsset;
+
                 /**
                 * DescribeSourceIPAsset返回参数结构体
                 */

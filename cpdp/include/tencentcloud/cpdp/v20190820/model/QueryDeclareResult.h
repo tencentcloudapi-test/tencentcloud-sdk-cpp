@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QueryDeclareData;
+
                 /**
                 * 成功申报材料查询结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     QueryDeclareResult();
-                    ~QueryDeclareResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

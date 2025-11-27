@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 分摊比例表达式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AllocationRationExpression();
-                    ~AllocationRationExpression() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

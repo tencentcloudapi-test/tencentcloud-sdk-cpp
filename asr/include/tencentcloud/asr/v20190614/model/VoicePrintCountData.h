@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VoicePrintBaseData;
+
                 /**
                 * 统计返回[说话人注册数量](https://cloud.tencent.com/document/product/1093/96061#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0)
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     VoicePrintCountData();
-                    ~VoicePrintCountData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

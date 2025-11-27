@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * CC精准防护配置项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     CCPrecisionPlyRecord();
-                    ~CCPrecisionPlyRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TkeLabel;
+                class Taint;
+
                 /**
                 * 计算资源高级设置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ComputeResourceAdvanceParams();
-                    ~ComputeResourceAdvanceParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

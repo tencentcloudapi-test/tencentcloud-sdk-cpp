@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BandwidthRange;
+
                 /**
                 * DescribeAddressBandwidthRange返回参数结构体
                 */

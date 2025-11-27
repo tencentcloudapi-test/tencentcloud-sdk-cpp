@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudStorage;
+                class McuCloudVod;
+
                 /**
                 * Mcu转推录制，第三方存储参数。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     McuStorageParams();
-                    ~McuStorageParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackupLimitVpcItem;
+
                 /**
                 * ModifyBackupDownloadRestriction请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AnchorExtendInfo;
+
                 /**
                 * CreateAnchor请求参数结构体
                 */

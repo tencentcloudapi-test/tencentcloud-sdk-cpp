@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlowApproverDetail;
+                class UserFlowType;
+
                 /**
                 * 此结构体(FlowDetailInfo)描述的是合同(流程)的详细信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     FlowDetailInfo();
-                    ~FlowDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

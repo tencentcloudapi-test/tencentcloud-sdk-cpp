@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DspaDiscoveryComplianceGroupInfo;
+
                 /**
                 * DescribeDSPAComplianceGroups返回参数结构体
                 */

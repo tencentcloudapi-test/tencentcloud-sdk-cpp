@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppInfo;
+                class XMagicSimpleInfo;
+
                 /**
                 * 优图美视资源包
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     XMagicResourceSimpleInfo();
-                    ~XMagicResourceSimpleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

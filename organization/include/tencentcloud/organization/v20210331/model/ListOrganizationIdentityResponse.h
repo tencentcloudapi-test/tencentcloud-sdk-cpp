@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OrgIdentity;
+
                 /**
                 * ListOrganizationIdentity返回参数结构体
                 */

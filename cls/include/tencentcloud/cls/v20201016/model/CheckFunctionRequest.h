@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataTransformResouceInfo;
+
                 /**
                 * CheckFunction请求参数结构体
                 */

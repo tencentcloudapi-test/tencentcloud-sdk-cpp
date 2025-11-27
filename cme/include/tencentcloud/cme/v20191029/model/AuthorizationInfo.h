@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Entity;
+
                 /**
                 * 资源权限信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AuthorizationInfo();
-                    ~AuthorizationInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

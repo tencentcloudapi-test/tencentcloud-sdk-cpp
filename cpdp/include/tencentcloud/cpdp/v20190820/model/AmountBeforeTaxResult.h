@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 税前金额结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AmountBeforeTaxResult();
-                    ~AmountBeforeTaxResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

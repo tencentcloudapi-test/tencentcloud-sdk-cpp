@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RefreshBatchRelatedInstance;
+
                 /**
                 * 实例刷新批次信息，包含该批次的刷新状态、实例、起止时间等信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RefreshBatch();
-                    ~RefreshBatch() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

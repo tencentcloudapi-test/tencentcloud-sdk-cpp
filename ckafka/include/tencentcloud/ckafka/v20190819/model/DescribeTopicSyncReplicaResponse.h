@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TopicInSyncReplicaResult;
+
                 /**
                 * DescribeTopicSyncReplica返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordsSpeed;
+                class BytesSpeed;
+
                 /**
                 * 实时任务同步速度趋势
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     RealTimeTaskSpeed();
-                    ~RealTimeTaskSpeed() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

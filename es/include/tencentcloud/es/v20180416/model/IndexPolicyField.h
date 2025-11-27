@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 索引生命周期字段
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IndexPolicyField();
-                    ~IndexPolicyField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

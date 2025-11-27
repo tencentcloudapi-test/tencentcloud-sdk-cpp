@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 云点播存储用量的分区统计数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StorageStatData();
-                    ~StorageStatData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

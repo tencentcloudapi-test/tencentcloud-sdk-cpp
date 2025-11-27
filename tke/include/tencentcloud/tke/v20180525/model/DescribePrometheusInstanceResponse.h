@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusGrafanaInfo;
+
                 /**
                 * DescribePrometheusInstance返回参数结构体
                 */

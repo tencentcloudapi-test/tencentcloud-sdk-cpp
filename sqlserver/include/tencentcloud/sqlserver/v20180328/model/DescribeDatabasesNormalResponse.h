@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DbNormalDetail;
+
                 /**
                 * DescribeDatabasesNormal返回参数结构体
                 */

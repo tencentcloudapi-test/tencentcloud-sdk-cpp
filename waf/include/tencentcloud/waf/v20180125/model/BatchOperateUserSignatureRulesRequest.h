@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FiltersItemNew;
+
                 /**
                 * BatchOperateUserSignatureRules请求参数结构体
                 */

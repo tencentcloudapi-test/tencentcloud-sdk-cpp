@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableItem;
+                class ViewItem;
+                class RoleItem;
+
                 /**
                 * 迁移对象信息，在配置库表视图等对象信息时大小写敏感
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     DBItem();
-                    ~DBItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

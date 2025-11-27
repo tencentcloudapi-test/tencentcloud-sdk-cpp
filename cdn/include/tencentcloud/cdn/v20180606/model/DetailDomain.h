@@ -86,6 +86,59 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Origin;
+                class IpFilter;
+                class IpFreqLimit;
+                class StatusCodeCache;
+                class Compression;
+                class BandwidthAlert;
+                class RangeOriginPull;
+                class FollowRedirect;
+                class ErrorPage;
+                class RequestHeader;
+                class ResponseHeader;
+                class DownstreamCapping;
+                class CacheKey;
+                class ResponseHeaderCache;
+                class VideoSeek;
+                class Cache;
+                class OriginPullOptimization;
+                class Https;
+                class Authentication;
+                class Seo;
+                class ForceRedirect;
+                class Referer;
+                class MaxAge;
+                class Ipv6;
+                class Compatibility;
+                class SpecificConfig;
+                class OriginPullTimeout;
+                class AwsPrivateAccess;
+                class SecurityConfig;
+                class ImageOptimization;
+                class UserAgentFilter;
+                class AccessControl;
+                class UrlRedirect;
+                class Tag;
+                class AdvancedAuthentication;
+                class OriginAuthentication;
+                class Ipv6Access;
+                class AdvanceConfig;
+                class OfflineCache;
+                class OriginCombine;
+                class PostSize;
+                class Quic;
+                class OssPrivateAccess;
+                class WebSocket;
+                class RemoteAuthentication;
+                class ShareCname;
+                class RuleEngine;
+                class HwPrivateAccess;
+                class QnPrivateAccess;
+                class HttpsBilling;
+                class OthersPrivateAccess;
+                class ParamFilter;
+
                 /**
                 * 加速域名全量配置信息
                 */
@@ -93,7 +146,6 @@ namespace TencentCloud
                 {
                 public:
                     DetailDomain();
-                    ~DetailDomain() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GlobalRoute;
+
                 /**
                 * CreateGlobalRoutes返回参数结构体
                 */

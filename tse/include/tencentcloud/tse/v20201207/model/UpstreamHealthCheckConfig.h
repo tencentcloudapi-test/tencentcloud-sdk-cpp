@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KongActiveHealthCheck;
+                class KongPassiveHealthCheck;
+
                 /**
                 * 云原生网关健康检查配置
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     UpstreamHealthCheckConfig();
-                    ~UpstreamHealthCheckConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

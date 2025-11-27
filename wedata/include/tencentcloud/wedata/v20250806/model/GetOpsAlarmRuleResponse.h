@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmRuleData;
+
                 /**
                 * GetOpsAlarmRule返回参数结构体
                 */

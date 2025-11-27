@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class IdcUnitInfo;
+
                 /**
                 * DescribeIdcUnitAssetDetail返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PacketFilterConfig;
+                class InstanceRelation;
+
                 /**
                 * 特征过滤相关信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     PacketFilterRelation();
-                    ~PacketFilterRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

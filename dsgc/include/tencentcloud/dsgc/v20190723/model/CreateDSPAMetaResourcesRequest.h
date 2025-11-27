@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DspaUserResourceMeta;
+
                 /**
                 * CreateDSPAMetaResources请求参数结构体
                 */

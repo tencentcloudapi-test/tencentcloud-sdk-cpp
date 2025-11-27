@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaselineEffectHost;
+
                 /**
                 * DescribeBaselineEffectHostList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ExposesItem;
+
                 /**
                 * DescribeExposures返回参数结构体
                 */

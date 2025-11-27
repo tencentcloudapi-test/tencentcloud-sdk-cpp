@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeleteImageTag;
+
                 /**
                 * DeleteImageTags请求参数结构体
                 */

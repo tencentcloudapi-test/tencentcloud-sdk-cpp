@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServerManageTaskInfo;
+
                 /**
                 * DescribeServerManageTask返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 云企付-充值跳转参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OpenBankRechargeRedirectInfo();
-                    ~OpenBankRechargeRedirectInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

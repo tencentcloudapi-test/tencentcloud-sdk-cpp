@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AttributeFilters;
+
                 /**
                 * ExportAttributeLabel请求参数结构体
                 */

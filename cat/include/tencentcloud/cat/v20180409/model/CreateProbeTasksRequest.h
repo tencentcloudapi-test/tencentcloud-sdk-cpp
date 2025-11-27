@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProbeTaskBasicConfiguration;
+                class Tag;
+
                 /**
                 * CreateProbeTasks请求参数结构体
                 */

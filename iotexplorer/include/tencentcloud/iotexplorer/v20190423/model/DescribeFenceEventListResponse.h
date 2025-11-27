@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FenceEventItem;
+
                 /**
                 * DescribeFenceEventList返回参数结构体
                 */

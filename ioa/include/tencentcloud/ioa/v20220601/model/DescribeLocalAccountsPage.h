@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Paging;
+                class DescribeLocalAccountsData;
+
                 /**
                 * 获取账号列表响应的分页对象
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeLocalAccountsPage();
-                    ~DescribeLocalAccountsPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

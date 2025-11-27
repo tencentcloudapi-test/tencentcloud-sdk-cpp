@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuthorizedUser;
+
                 /**
                 * 持有的电子印章信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OccupiedSeal();
-                    ~OccupiedSeal() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

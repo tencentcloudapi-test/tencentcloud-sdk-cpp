@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResponseTerminateContract;
+
                 /**
                 * TerminateContract返回参数结构体
                 */

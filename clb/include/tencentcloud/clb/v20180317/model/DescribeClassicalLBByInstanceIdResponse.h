@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClassicalLoadBalancerInfo;
+
                 /**
                 * DescribeClassicalLBByInstanceId返回参数结构体
                 */

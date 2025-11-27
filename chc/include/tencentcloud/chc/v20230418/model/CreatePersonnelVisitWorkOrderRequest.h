@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Personnel;
+                class PersonnelVisitCar;
+
                 /**
                 * CreatePersonnelVisitWorkOrder请求参数结构体
                 */

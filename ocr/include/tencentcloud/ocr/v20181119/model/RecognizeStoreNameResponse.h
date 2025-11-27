@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class StoreInfo;
+
                 /**
                 * RecognizeStoreName返回参数结构体
                 */

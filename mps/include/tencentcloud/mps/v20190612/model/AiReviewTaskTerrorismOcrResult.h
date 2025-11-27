@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiReviewTerrorismOcrTaskInput;
+                class AiReviewTerrorismOcrTaskOutput;
+
                 /**
                 * 内容审核 Ocr 文字敏感任务结果类型
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewTaskTerrorismOcrResult();
-                    ~AiReviewTaskTerrorismOcrResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

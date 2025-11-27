@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ErrorInfo;
+
                 /**
                 * ModifyProject返回参数结构体
                 */

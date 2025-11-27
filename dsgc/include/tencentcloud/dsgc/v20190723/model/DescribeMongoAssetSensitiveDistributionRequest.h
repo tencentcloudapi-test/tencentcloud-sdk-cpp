@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetList;
+
                 /**
                 * DescribeMongoAssetSensitiveDistribution请求参数结构体
                 */

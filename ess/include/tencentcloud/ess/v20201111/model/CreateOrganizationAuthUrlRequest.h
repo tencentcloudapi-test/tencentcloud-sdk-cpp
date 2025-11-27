@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserInfo;
+                class JumpEvent;
+
                 /**
                 * CreateOrganizationAuthUrl请求参数结构体
                 */

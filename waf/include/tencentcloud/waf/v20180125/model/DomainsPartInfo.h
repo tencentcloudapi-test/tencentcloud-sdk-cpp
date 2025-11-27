@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PortInfo;
+                class UpstreamRule;
+
                 /**
                 * SaaS型WAF域名详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DomainsPartInfo();
-                    ~DomainsPartInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

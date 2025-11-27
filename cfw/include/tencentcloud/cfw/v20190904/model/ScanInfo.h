@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ScanResultInfo;
+
                 /**
                 * 新手引导扫描信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ScanInfo();
-                    ~ScanInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

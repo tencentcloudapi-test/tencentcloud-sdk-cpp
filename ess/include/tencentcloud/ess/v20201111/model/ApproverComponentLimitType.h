@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 签署方在使用个人印章签署控件（SIGN_SIGNATURE） 时可使用的签署方式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ApproverComponentLimitType();
-                    ~ApproverComponentLimitType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WaterPrintConfig;
+                class InstanceRelation;
+
                 /**
                 * 水印配置相关信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     WaterPrintRelation();
-                    ~WaterPrintRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

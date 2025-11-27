@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimeOutStrategyInfo;
+                class ProjectInstanceStatisticsAlarmInfo;
+                class ReconciliationStrategyInfo;
+                class MonitorWhiteTask;
+
                 /**
                 * 告警规则详细配置
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     AlarmRuleDetail();
-                    ~AlarmRuleDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

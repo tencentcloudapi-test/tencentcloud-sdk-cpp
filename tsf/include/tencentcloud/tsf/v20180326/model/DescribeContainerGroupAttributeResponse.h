@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ContainerGroupOther;
+
                 /**
                 * DescribeContainerGroupAttribute返回参数结构体
                 */

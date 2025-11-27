@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertificateAliasInfo;
+
                 /**
                 * HTTPS类型监听器信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     HTTPSListener();
-                    ~HTTPSListener() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

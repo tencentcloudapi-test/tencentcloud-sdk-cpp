@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Placement;
+                class VirtualPrivateCloud;
+                class ChcDeployExtraConfig;
+                class Tag;
+
                 /**
                 * CHC物理服务器信息
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     ChcHost();
-                    ~ChcHost() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FailedResource;
+
                 /**
                 * TagResources返回参数结构体
                 */

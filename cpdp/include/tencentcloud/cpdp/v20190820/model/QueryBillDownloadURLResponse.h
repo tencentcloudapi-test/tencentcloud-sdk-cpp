@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QueryBillDownloadURLData;
+
                 /**
                 * QueryBillDownloadURL返回参数结构体
                 */

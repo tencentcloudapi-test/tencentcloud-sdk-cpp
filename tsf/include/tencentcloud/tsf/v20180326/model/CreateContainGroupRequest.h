@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProtocolPort;
+
                 /**
                 * CreateContainGroup请求参数结构体
                 */

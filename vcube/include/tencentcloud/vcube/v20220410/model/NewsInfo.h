@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 视立方产品概览页新闻动态
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NewsInfo();
-                    ~NewsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

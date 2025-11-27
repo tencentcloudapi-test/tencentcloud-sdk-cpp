@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TransitionOpertion;
+                class TransitionOperation;
+
                 /**
                 * 转场信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     MediaTransitionItem();
-                    ~MediaTransitionItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

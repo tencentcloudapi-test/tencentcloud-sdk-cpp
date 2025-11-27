@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CustomizationConfigs;
+
                 /**
                 * GetCustomizationList返回参数结构体
                 */

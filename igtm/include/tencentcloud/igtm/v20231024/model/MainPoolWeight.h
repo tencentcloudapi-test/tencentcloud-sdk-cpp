@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 主力地址池id与权重
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MainPoolWeight();
-                    ~MainPoolWeight() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

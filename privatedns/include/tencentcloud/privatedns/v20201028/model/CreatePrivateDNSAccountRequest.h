@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrivateDNSAccount;
+
                 /**
                 * CreatePrivateDNSAccount请求参数结构体
                 */

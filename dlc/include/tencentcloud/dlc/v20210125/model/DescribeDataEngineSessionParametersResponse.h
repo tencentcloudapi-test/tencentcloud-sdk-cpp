@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataEngineImageSessionParameter;
+
                 /**
                 * DescribeDataEngineSessionParameters返回参数结构体
                 */

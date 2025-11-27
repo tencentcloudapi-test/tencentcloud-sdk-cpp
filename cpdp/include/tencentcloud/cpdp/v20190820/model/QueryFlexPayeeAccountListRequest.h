@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PayeeAccountPropertyInfo;
+                class Paging;
+
                 /**
                 * QueryFlexPayeeAccountList请求参数结构体
                 */

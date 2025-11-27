@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SsoUser;
+
                 /**
                 * 租户人员结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SsoUserResult();
-                    ~SsoUserResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

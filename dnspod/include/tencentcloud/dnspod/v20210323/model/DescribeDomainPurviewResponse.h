@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PurviewInfo;
+
                 /**
                 * DescribeDomainPurview返回参数结构体
                 */

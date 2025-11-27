@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 该字段用于返回审核结果明细字段的标签及分数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     Tag();
-                    ~Tag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

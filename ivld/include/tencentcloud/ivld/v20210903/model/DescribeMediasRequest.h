@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaFilter;
+                class SortBy;
+
                 /**
                 * DescribeMedias请求参数结构体
                 */

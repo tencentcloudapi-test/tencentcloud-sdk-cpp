@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FieldWriteConfig;
+
                 /**
                 * CreatePostCKafkaFlow请求参数结构体
                 */

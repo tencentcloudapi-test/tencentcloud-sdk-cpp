@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Metadata;
+
                 /**
                 * 治理中心服务入参
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     GovernanceServiceInput();
-                    ~GovernanceServiceInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceRelation;
+
                 /**
                 * DDoS防护的AI防护开关
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DDoSAIRelation();
-                    ~DDoSAIRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

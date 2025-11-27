@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AclCondition;
+
                 /**
                 * 用户自定义规则
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AclUserRule();
-                    ~AclUserRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

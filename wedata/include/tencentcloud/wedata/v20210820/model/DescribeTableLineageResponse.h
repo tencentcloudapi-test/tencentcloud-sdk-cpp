@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableLineageInfo;
+
                 /**
                 * DescribeTableLineage返回参数结构体
                 */

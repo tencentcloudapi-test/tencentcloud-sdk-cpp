@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpstreamRequestQueryString;
+                class UpstreamRequestCookie;
+
                 /**
                 * 回源请求参数配置参数。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     UpstreamRequestParameters();
-                    ~UpstreamRequestParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DatahubResource;
+                class TransformParam;
+                class PrivateLinkParam;
+                class TransformsParam;
+                class Tag;
+
                 /**
                 * CreateDatahubTask请求参数结构体
                 */

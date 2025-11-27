@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 防火墙开关列表对象
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SwitchListsData();
-                    ~SwitchListsData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpgradeAbleInstancesItem;
+                class UnavailableReason;
+
                 /**
                 * CheckInstancesUpgradeAble返回参数结构体
                 */

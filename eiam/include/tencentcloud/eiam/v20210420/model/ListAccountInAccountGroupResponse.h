@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppAccountInfo;
+
                 /**
                 * ListAccountInAccountGroup返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BackupRecords;
+
                 /**
                 * DeleteBackupRecords请求参数结构体
                 */

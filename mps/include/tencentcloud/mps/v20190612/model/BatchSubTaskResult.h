@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaInputInfo;
+                class MediaMetaData;
+                class BatchSmartSubtitlesResult;
+
                 /**
                 * 批量任务子任务结果
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     BatchSubTaskResult();
-                    ~BatchSubTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

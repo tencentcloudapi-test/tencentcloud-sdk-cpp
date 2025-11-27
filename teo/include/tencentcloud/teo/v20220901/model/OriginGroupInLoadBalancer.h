@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 负载均衡实例中需要绑定的源站组和优先级关系。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     OriginGroupInLoadBalancer();
-                    ~OriginGroupInLoadBalancer() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

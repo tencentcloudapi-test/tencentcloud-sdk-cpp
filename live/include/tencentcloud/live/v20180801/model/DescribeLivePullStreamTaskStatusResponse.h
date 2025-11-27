@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskStatusInfo;
+
                 /**
                 * DescribeLivePullStreamTaskStatus返回参数结构体
                 */

@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ForwardLoadBalancer;
+                class Tag;
+                class ServiceSettings;
+                class SpotMixedAllocationPolicy;
+                class InstanceNameIndexSettings;
+
                 /**
                 * CreateAutoScalingGroup请求参数结构体
                 */

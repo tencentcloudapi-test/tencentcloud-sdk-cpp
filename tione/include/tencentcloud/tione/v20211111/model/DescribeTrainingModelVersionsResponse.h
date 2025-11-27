@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TrainingModelVersionDTO;
+
                 /**
                 * DescribeTrainingModelVersions返回参数结构体
                 */

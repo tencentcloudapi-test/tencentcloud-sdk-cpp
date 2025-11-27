@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GoodsSpec;
+
                 /**
                 * InquirePriceMultiSpec请求参数结构体
                 */

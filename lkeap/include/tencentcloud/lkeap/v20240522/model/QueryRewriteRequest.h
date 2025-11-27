@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Message;
+
                 /**
                 * QueryRewrite请求参数结构体
                 */

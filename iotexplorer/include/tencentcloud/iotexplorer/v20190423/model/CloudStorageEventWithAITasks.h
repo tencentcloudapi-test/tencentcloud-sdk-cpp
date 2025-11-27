@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudStorageAIServiceTask;
+
                 /**
                 * 云存事件及其关联的云存 AI 任务
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudStorageEventWithAITasks();
-                    ~CloudStorageEventWithAITasks() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

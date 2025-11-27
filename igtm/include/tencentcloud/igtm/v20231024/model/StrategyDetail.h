@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Source;
+                class MainAddressPool;
+
                 /**
                 * 策略详情
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     StrategyDetail();
-                    ~StrategyDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DcnDetailItem;
+
                 /**
                 * DescribeDcnDetail返回参数结构体
                 */

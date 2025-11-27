@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProcessHistory;
+
                 /**
                 * DescribeDSPAAssessmentRiskProcessHistory返回参数结构体
                 */

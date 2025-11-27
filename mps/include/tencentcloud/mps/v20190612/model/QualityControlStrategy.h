@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimeSpotCheck;
+
                 /**
                 * 媒体质检检测策略。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     QualityControlStrategy();
-                    ~QualityControlStrategy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

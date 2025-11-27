@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubtaskStatus;
+
                 /**
                 * DescribeOperationResult返回参数结构体
                 */

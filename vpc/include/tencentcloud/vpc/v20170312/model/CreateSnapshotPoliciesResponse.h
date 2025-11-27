@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SnapshotPolicy;
+
                 /**
                 * CreateSnapshotPolicies返回参数结构体
                 */

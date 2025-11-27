@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DisplayWeakPassword;
+
                 /**
                 * DescribeWeakPasswords返回参数结构体
                 */

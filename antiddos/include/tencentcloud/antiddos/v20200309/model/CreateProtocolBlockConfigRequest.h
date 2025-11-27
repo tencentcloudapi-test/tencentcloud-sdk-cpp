@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProtocolBlockConfig;
+
                 /**
                 * CreateProtocolBlockConfig请求参数结构体
                 */

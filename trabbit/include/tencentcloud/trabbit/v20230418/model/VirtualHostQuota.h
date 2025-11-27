@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 虚拟主机配额
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VirtualHostQuota();
-                    ~VirtualHostQuota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

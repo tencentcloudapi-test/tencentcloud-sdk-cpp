@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoomItem;
+
                 /**
                 * GetRooms返回参数结构体
                 */

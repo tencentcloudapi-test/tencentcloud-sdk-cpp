@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TraceData;
+
                 /**
                 * DescribeTraceDataList返回参数结构体
                 */

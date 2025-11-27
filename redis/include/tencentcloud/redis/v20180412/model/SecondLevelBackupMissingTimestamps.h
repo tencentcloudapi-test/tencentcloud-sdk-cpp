@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 秒级备份不存在的时间戳范围
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     SecondLevelBackupMissingTimestamps();
-                    ~SecondLevelBackupMissingTimestamps() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

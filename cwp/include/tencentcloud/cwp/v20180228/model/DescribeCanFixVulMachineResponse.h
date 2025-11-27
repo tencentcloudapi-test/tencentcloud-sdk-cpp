@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CanFixVulInfo;
+
                 /**
                 * DescribeCanFixVulMachine返回参数结构体
                 */

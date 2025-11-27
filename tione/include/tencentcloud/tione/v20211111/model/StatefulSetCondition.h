@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 实例状况
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     StatefulSetCondition();
-                    ~StatefulSetCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

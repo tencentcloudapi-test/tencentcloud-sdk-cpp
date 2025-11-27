@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TriggerInvokeCondition;
+                class TriggerInvokePara;
+
                 /**
                 * 触发器返回值
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TriggerResp();
-                    ~TriggerResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

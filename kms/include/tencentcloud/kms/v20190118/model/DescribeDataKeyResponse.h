@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataKeyMetadata;
+
                 /**
                 * DescribeDataKey返回参数结构体
                 */

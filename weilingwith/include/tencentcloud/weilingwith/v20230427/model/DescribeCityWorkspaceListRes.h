@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkspaceInfo;
+
                 /**
                 * 通过城市id查询工作空间列表
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeCityWorkspaceListRes();
-                    ~DescribeCityWorkspaceListRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataCheckStat;
+
                 /**
                 * DescribeDataCheckStat返回参数结构体
                 */

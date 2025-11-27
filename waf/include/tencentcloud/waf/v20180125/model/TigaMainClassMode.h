@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * Tiga引擎中Mainclass的TypeID和防护模式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TigaMainClassMode();
-                    ~TigaMainClassMode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

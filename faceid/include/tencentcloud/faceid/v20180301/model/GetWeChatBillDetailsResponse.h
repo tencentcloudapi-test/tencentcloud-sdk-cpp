@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WeChatBillDetail;
+
                 /**
                 * GetWeChatBillDetails返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UsagePlanEnvironmentStatus;
+
                 /**
                 * DescribeUsagePlanEnvironments返回参数结构体
                 */

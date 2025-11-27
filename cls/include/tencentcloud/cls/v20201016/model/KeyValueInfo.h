@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ValueInfo;
+
                 /**
                 * 键值或者元字段索引的字段信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     KeyValueInfo();
-                    ~KeyValueInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

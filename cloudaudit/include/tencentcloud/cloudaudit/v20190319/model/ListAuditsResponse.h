@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AuditSummary;
+
                 /**
                 * ListAudits返回参数结构体
                 */

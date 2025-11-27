@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyWordLibListData;
+
                 /**
                 * GetAsrKeyWordLibList返回参数结构体
                 */

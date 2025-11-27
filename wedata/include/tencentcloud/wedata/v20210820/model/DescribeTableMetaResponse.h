@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TableMeta;
+                class LifecycleInfo;
+                class TagVoteSum;
+
                 /**
                 * DescribeTableMeta返回参数结构体
                 */

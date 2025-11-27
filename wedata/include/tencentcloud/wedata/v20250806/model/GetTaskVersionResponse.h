@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskVersionDetail;
+
                 /**
                 * GetTaskVersion返回参数结构体
                 */

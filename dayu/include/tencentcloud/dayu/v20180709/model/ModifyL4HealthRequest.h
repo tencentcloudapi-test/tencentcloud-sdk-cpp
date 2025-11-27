@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class L4RuleHealth;
+
                 /**
                 * ModifyL4Health请求参数结构体
                 */

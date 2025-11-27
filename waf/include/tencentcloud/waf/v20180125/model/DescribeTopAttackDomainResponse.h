@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KVInt;
+
                 /**
                 * DescribeTopAttackDomain返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GovernanceInterfaceDescription;
+                class Metadata;
+
                 /**
                 * 服务契约定义
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     GovernanceServiceContract();
-                    ~GovernanceServiceContract() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

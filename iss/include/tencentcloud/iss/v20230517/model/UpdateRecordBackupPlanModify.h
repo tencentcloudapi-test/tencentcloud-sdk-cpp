@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LifeCycleData;
+                class ChannelInfo;
+
                 /**
                 * 修改录像上云计划数据结构
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     UpdateRecordBackupPlanModify();
-                    ~UpdateRecordBackupPlanModify() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

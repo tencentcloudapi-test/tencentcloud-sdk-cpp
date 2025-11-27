@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AiRecognitionTaskAsrTranslateResultInput;
+                class AiRecognitionTaskAsrTranslateResultOutput;
+
                 /**
                 * 语音翻译结果。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     AiRecognitionTaskAsrTranslateResult();
-                    ~AiRecognitionTaskAsrTranslateResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

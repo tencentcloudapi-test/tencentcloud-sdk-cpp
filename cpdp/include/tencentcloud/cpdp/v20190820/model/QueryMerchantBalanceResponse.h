@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QueryMerchantBalanceResult;
+
                 /**
                 * QueryMerchantBalance返回参数结构体
                 */

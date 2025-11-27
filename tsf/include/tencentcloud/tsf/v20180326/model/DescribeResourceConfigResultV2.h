@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeResourceConfigSts;
+                class DescribeResourceConfigLicense;
+                class GroupResourceConfig;
+                class InstanceResourceConfig;
+                class DescribeResourceConfigCluster;
+                class PackageConfig;
+
                 /**
                 * DescribeResourceConfig
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     DescribeResourceConfigResultV2();
-                    ~DescribeResourceConfigResultV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

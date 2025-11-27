@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagInfo;
+                class CrontabResumeSuspendStrategy;
+                class DataEngineConfigPair;
+                class SessionResourceTemplate;
+
                 /**
                 * CreateDataEngine请求参数结构体
                 */

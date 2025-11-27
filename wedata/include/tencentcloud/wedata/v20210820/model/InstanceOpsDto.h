@@ -25,7 +25,6 @@
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
 #include <tencentcloud/core/AbstractModel.h>
 #include <tencentcloud/wedata/v20210820/model/TaskTypeOpsDto.h>
-#include <tencentcloud/wedata/v20210820/model/InstanceOpsDto.h>
 #include <tencentcloud/wedata/v20210820/model/InstanceLifeCycleOpsDto.h>
 
 
@@ -37,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskTypeOpsDto;
+                class InstanceLifeCycleOpsDto;
+
                 /**
                 * 实例运维详情
                 */
@@ -44,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceOpsDto();
-                    ~InstanceOpsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

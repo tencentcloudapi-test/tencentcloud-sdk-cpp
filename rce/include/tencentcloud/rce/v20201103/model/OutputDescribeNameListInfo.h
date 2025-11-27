@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OutputDescribeNameListFrontFix;
+
                 /**
                 * 黑白名单信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     OutputDescribeNameListInfo();
-                    ~OutputDescribeNameListInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

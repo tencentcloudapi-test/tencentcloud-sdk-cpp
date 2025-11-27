@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImagePath;
+
                 /**
                 * 分类内容
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Station();
-                    ~Station() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

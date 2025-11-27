@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 企微机器人事件类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WebHookEventKv();
-                    ~WebHookEventKv() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

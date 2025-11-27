@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskId;
+
                 /**
                 * ShrinkGroup返回参数结构体
                 */

@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class KeyRegexInfo;
+                class MetaTagInfo;
+                class EventLog;
+                class AdvanceFilterRuleInfo;
+
                 /**
                 * 日志提取规则
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     ExtractRuleInfo();
-                    ~ExtractRuleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

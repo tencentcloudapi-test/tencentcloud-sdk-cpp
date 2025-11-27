@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NormalLog;
+
                 /**
                 * DescribeNormalLogs返回参数结构体
                 */

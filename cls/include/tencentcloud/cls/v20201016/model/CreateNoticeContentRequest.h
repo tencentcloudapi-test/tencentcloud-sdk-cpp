@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NoticeContent;
+
                 /**
                 * CreateNoticeContent请求参数结构体
                 */

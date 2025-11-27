@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupGlobalConfs;
+
                 /**
                 * DescribeAutoScaleGroupGlobalConf返回参数结构体
                 */

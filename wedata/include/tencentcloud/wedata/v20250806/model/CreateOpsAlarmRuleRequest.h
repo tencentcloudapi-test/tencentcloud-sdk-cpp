@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmGroup;
+                class AlarmRuleDetail;
+
                 /**
                 * CreateOpsAlarmRule请求参数结构体
                 */

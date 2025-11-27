@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 告警免打扰时间区间
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AlarmQuietInterval();
-                    ~AlarmQuietInterval() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageRecord;
+
                 /**
                 * ImageTranslate返回参数结构体
                 */

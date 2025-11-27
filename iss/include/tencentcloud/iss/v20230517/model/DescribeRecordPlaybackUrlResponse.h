@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RecordPlaybackUrl;
+
                 /**
                 * DescribeRecordPlaybackUrl返回参数结构体
                 */

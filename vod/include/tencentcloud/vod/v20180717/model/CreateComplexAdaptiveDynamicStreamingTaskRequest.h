@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComplexAdaptiveDynamicStreamingTaskStreamPara;
+                class HeadTailTaskInput;
+                class ComplexAdaptiveDynamicStreamingTaskAudioInput;
+                class ComplexAdaptiveDynamicStreamingTaskSubtitleInput;
+
                 /**
                 * CreateComplexAdaptiveDynamicStreamingTask请求参数结构体
                 */

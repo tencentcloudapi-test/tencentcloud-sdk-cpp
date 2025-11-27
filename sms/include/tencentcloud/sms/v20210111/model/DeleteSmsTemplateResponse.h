@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeleteTemplateStatus;
+
                 /**
                 * DeleteSmsTemplate返回参数结构体
                 */

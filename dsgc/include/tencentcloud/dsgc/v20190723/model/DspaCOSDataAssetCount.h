@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SensitiveLevel;
+                class DspaDataCategoryDistributed;
+
                 /**
                 * COS对象存储敏感数据资产统计
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     DspaCOSDataAssetCount();
-                    ~DspaCOSDataAssetCount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

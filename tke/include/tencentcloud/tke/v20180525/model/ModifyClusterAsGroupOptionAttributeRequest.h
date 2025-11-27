@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClusterAsGroupOption;
+
                 /**
                 * ModifyClusterAsGroupOptionAttribute请求参数结构体
                 */

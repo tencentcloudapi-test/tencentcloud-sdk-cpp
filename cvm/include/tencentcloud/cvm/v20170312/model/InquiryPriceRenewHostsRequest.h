@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ChargePrepaid;
+
                 /**
                 * InquiryPriceRenewHosts请求参数结构体
                 */

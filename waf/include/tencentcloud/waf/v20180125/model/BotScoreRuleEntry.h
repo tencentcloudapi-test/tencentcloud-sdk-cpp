@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 动作策略的一条分数段实体
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BotScoreRuleEntry();
-                    ~BotScoreRuleEntry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

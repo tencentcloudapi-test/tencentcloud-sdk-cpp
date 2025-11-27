@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 快速媒体编辑操作的输入媒体类型
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     FastEditMediaFileInfo();
-                    ~FastEditMediaFileInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

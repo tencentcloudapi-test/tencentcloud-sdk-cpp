@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MachineExtraInfo;
+
                 /**
                 * 基线密码修复
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     BaselineFix();
-                    ~BaselineFix() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

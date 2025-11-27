@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReconstructDocumentSSEConfig;
+
                 /**
                 * ReconstructDocumentSSE请求参数结构体
                 */

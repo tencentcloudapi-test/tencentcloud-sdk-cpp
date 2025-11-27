@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskGroupConfig;
+                class TagWithCreate;
+
                 /**
                 * 从经验模板创建演练时需要配置的任务参数
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     TaskConfig();
-                    ~TaskConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

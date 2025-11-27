@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClientConnection;
+
                 /**
                 * DescribeClientConnections返回参数结构体
                 */

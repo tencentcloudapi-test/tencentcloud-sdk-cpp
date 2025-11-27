@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComplianceFilters;
+
                 /**
                 * DescribeNetworkFirewallNamespaceList请求参数结构体
                 */

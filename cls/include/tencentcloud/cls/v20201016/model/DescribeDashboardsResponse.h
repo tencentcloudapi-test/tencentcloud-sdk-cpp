@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DashboardInfo;
+
                 /**
                 * DescribeDashboards返回参数结构体
                 */

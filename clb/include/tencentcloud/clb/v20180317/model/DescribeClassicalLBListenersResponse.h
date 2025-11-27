@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ClassicalListener;
+
                 /**
                 * DescribeClassicalLBListeners返回参数结构体
                 */

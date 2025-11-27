@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Resource;
+
                 /**
                 * DescribeBandwidthPackageResources返回参数结构体
                 */

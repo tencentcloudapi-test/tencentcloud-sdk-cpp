@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PrometheusRecordRuleYamlItem;
+
                 /**
                 * DescribePrometheusRecordRules返回参数结构体
                 */

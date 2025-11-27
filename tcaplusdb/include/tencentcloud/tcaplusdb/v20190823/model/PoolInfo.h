@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ServerMachineInfo;
+                class ProxyMachineInfo;
+
                 /**
                 * center资源池中的机器信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     PoolInfo();
-                    ~PoolInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

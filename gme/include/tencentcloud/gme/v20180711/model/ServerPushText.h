@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 服务端控制AI对话机器人播报指定文本
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ServerPushText();
-                    ~ServerPushText() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

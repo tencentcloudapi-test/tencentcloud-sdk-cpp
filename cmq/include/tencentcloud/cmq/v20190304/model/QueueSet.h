@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Tag;
+                class TransactionPolicy;
+                class DeadLetterPolicy;
+                class DeadLetterSource;
+
                 /**
                 * 批量queue属性信息
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     QueueSet();
-                    ~QueueSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

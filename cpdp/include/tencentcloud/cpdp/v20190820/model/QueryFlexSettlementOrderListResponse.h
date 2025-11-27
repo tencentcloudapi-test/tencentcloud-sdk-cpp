@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SettlementOrders;
+
                 /**
                 * QueryFlexSettlementOrderList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MonitorStreamPlayInfo;
+
                 /**
                 * DescribeAllStreamPlayInfoList返回参数结构体
                 */

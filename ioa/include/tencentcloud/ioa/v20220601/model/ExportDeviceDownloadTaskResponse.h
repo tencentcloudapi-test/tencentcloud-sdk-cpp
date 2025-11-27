@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeviceDownloadTask;
+
                 /**
                 * ExportDeviceDownloadTask返回参数结构体
                 */

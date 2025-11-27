@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TagSpecification;
+                class ImportImageDataDisk;
+
                 /**
                 * ImportImage请求参数结构体
                 */

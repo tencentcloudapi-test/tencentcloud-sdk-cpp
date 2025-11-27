@@ -38,6 +38,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DetectInfoText;
+                class DetectInfoIdCardData;
+                class DetectInfoBestFrame;
+                class EidInfo;
+                class IntentionVerifyData;
+                class IntentionQuestionResult;
+                class IntentionActionResult;
+
                 /**
                 * GetEidResult返回参数结构体
                 */

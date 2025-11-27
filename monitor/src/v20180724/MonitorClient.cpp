@@ -62,32 +62,25 @@ MonitorClient::BindPrometheusManagedGrafanaOutcome MonitorClient::BindPrometheus
 
 void MonitorClient::BindPrometheusManagedGrafanaAsync(const BindPrometheusManagedGrafanaRequest& request, const BindPrometheusManagedGrafanaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindPrometheusManagedGrafanaRequest&;
-    using Resp = BindPrometheusManagedGrafanaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindPrometheusManagedGrafana(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindPrometheusManagedGrafana", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::BindPrometheusManagedGrafanaOutcomeCallable MonitorClient::BindPrometheusManagedGrafanaCallable(const BindPrometheusManagedGrafanaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindPrometheusManagedGrafanaOutcome>>();
-    BindPrometheusManagedGrafanaAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const BindPrometheusManagedGrafanaRequest&,
-        BindPrometheusManagedGrafanaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindPrometheusManagedGrafanaOutcome()>>(
+        [this, request]()
+        {
+            return this->BindPrometheusManagedGrafana(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::BindingPolicyObjectOutcome MonitorClient::BindingPolicyObject(const BindingPolicyObjectRequest &request)
@@ -112,32 +105,25 @@ MonitorClient::BindingPolicyObjectOutcome MonitorClient::BindingPolicyObject(con
 
 void MonitorClient::BindingPolicyObjectAsync(const BindingPolicyObjectRequest& request, const BindingPolicyObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindingPolicyObjectRequest&;
-    using Resp = BindingPolicyObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindingPolicyObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindingPolicyObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::BindingPolicyObjectOutcomeCallable MonitorClient::BindingPolicyObjectCallable(const BindingPolicyObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindingPolicyObjectOutcome>>();
-    BindingPolicyObjectAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const BindingPolicyObjectRequest&,
-        BindingPolicyObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindingPolicyObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->BindingPolicyObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::BindingPolicyTagOutcome MonitorClient::BindingPolicyTag(const BindingPolicyTagRequest &request)
@@ -162,32 +148,25 @@ MonitorClient::BindingPolicyTagOutcome MonitorClient::BindingPolicyTag(const Bin
 
 void MonitorClient::BindingPolicyTagAsync(const BindingPolicyTagRequest& request, const BindingPolicyTagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BindingPolicyTagRequest&;
-    using Resp = BindingPolicyTagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BindingPolicyTag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BindingPolicyTag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::BindingPolicyTagOutcomeCallable MonitorClient::BindingPolicyTagCallable(const BindingPolicyTagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BindingPolicyTagOutcome>>();
-    BindingPolicyTagAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const BindingPolicyTagRequest&,
-        BindingPolicyTagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BindingPolicyTagOutcome()>>(
+        [this, request]()
+        {
+            return this->BindingPolicyTag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CleanGrafanaInstanceOutcome MonitorClient::CleanGrafanaInstance(const CleanGrafanaInstanceRequest &request)
@@ -212,32 +191,25 @@ MonitorClient::CleanGrafanaInstanceOutcome MonitorClient::CleanGrafanaInstance(c
 
 void MonitorClient::CleanGrafanaInstanceAsync(const CleanGrafanaInstanceRequest& request, const CleanGrafanaInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CleanGrafanaInstanceRequest&;
-    using Resp = CleanGrafanaInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CleanGrafanaInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CleanGrafanaInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CleanGrafanaInstanceOutcomeCallable MonitorClient::CleanGrafanaInstanceCallable(const CleanGrafanaInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CleanGrafanaInstanceOutcome>>();
-    CleanGrafanaInstanceAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CleanGrafanaInstanceRequest&,
-        CleanGrafanaInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CleanGrafanaInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CleanGrafanaInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateAlarmNoticeOutcome MonitorClient::CreateAlarmNotice(const CreateAlarmNoticeRequest &request)
@@ -262,32 +234,25 @@ MonitorClient::CreateAlarmNoticeOutcome MonitorClient::CreateAlarmNotice(const C
 
 void MonitorClient::CreateAlarmNoticeAsync(const CreateAlarmNoticeRequest& request, const CreateAlarmNoticeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAlarmNoticeRequest&;
-    using Resp = CreateAlarmNoticeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAlarmNotice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAlarmNotice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateAlarmNoticeOutcomeCallable MonitorClient::CreateAlarmNoticeCallable(const CreateAlarmNoticeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAlarmNoticeOutcome>>();
-    CreateAlarmNoticeAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateAlarmNoticeRequest&,
-        CreateAlarmNoticeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAlarmNoticeOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAlarmNotice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateAlarmPolicyOutcome MonitorClient::CreateAlarmPolicy(const CreateAlarmPolicyRequest &request)
@@ -312,32 +277,25 @@ MonitorClient::CreateAlarmPolicyOutcome MonitorClient::CreateAlarmPolicy(const C
 
 void MonitorClient::CreateAlarmPolicyAsync(const CreateAlarmPolicyRequest& request, const CreateAlarmPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAlarmPolicyRequest&;
-    using Resp = CreateAlarmPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAlarmPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAlarmPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateAlarmPolicyOutcomeCallable MonitorClient::CreateAlarmPolicyCallable(const CreateAlarmPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAlarmPolicyOutcome>>();
-    CreateAlarmPolicyAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateAlarmPolicyRequest&,
-        CreateAlarmPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAlarmPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAlarmPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateAlarmShieldOutcome MonitorClient::CreateAlarmShield(const CreateAlarmShieldRequest &request)
@@ -362,32 +320,25 @@ MonitorClient::CreateAlarmShieldOutcome MonitorClient::CreateAlarmShield(const C
 
 void MonitorClient::CreateAlarmShieldAsync(const CreateAlarmShieldRequest& request, const CreateAlarmShieldAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAlarmShieldRequest&;
-    using Resp = CreateAlarmShieldResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAlarmShield(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAlarmShield", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateAlarmShieldOutcomeCallable MonitorClient::CreateAlarmShieldCallable(const CreateAlarmShieldRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAlarmShieldOutcome>>();
-    CreateAlarmShieldAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateAlarmShieldRequest&,
-        CreateAlarmShieldOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAlarmShieldOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAlarmShield(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateAlertRuleOutcome MonitorClient::CreateAlertRule(const CreateAlertRuleRequest &request)
@@ -412,32 +363,25 @@ MonitorClient::CreateAlertRuleOutcome MonitorClient::CreateAlertRule(const Creat
 
 void MonitorClient::CreateAlertRuleAsync(const CreateAlertRuleRequest& request, const CreateAlertRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAlertRuleRequest&;
-    using Resp = CreateAlertRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAlertRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAlertRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateAlertRuleOutcomeCallable MonitorClient::CreateAlertRuleCallable(const CreateAlertRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAlertRuleOutcome>>();
-    CreateAlertRuleAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateAlertRuleRequest&,
-        CreateAlertRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAlertRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAlertRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateConditionsTemplateOutcome MonitorClient::CreateConditionsTemplate(const CreateConditionsTemplateRequest &request)
@@ -462,32 +406,25 @@ MonitorClient::CreateConditionsTemplateOutcome MonitorClient::CreateConditionsTe
 
 void MonitorClient::CreateConditionsTemplateAsync(const CreateConditionsTemplateRequest& request, const CreateConditionsTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateConditionsTemplateRequest&;
-    using Resp = CreateConditionsTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateConditionsTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateConditionsTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateConditionsTemplateOutcomeCallable MonitorClient::CreateConditionsTemplateCallable(const CreateConditionsTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateConditionsTemplateOutcome>>();
-    CreateConditionsTemplateAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateConditionsTemplateRequest&,
-        CreateConditionsTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateConditionsTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateConditionsTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateExporterIntegrationOutcome MonitorClient::CreateExporterIntegration(const CreateExporterIntegrationRequest &request)
@@ -512,32 +449,25 @@ MonitorClient::CreateExporterIntegrationOutcome MonitorClient::CreateExporterInt
 
 void MonitorClient::CreateExporterIntegrationAsync(const CreateExporterIntegrationRequest& request, const CreateExporterIntegrationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateExporterIntegrationRequest&;
-    using Resp = CreateExporterIntegrationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateExporterIntegration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateExporterIntegration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateExporterIntegrationOutcomeCallable MonitorClient::CreateExporterIntegrationCallable(const CreateExporterIntegrationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateExporterIntegrationOutcome>>();
-    CreateExporterIntegrationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateExporterIntegrationRequest&,
-        CreateExporterIntegrationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateExporterIntegrationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateExporterIntegration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateExternalClusterOutcome MonitorClient::CreateExternalCluster(const CreateExternalClusterRequest &request)
@@ -562,32 +492,25 @@ MonitorClient::CreateExternalClusterOutcome MonitorClient::CreateExternalCluster
 
 void MonitorClient::CreateExternalClusterAsync(const CreateExternalClusterRequest& request, const CreateExternalClusterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateExternalClusterRequest&;
-    using Resp = CreateExternalClusterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateExternalCluster(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateExternalCluster", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateExternalClusterOutcomeCallable MonitorClient::CreateExternalClusterCallable(const CreateExternalClusterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateExternalClusterOutcome>>();
-    CreateExternalClusterAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateExternalClusterRequest&,
-        CreateExternalClusterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateExternalClusterOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateExternalCluster(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateGrafanaInstanceOutcome MonitorClient::CreateGrafanaInstance(const CreateGrafanaInstanceRequest &request)
@@ -612,32 +535,25 @@ MonitorClient::CreateGrafanaInstanceOutcome MonitorClient::CreateGrafanaInstance
 
 void MonitorClient::CreateGrafanaInstanceAsync(const CreateGrafanaInstanceRequest& request, const CreateGrafanaInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGrafanaInstanceRequest&;
-    using Resp = CreateGrafanaInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGrafanaInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGrafanaInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateGrafanaInstanceOutcomeCallable MonitorClient::CreateGrafanaInstanceCallable(const CreateGrafanaInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGrafanaInstanceOutcome>>();
-    CreateGrafanaInstanceAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateGrafanaInstanceRequest&,
-        CreateGrafanaInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGrafanaInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGrafanaInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateGrafanaIntegrationOutcome MonitorClient::CreateGrafanaIntegration(const CreateGrafanaIntegrationRequest &request)
@@ -662,32 +578,25 @@ MonitorClient::CreateGrafanaIntegrationOutcome MonitorClient::CreateGrafanaInteg
 
 void MonitorClient::CreateGrafanaIntegrationAsync(const CreateGrafanaIntegrationRequest& request, const CreateGrafanaIntegrationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGrafanaIntegrationRequest&;
-    using Resp = CreateGrafanaIntegrationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGrafanaIntegration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGrafanaIntegration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateGrafanaIntegrationOutcomeCallable MonitorClient::CreateGrafanaIntegrationCallable(const CreateGrafanaIntegrationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGrafanaIntegrationOutcome>>();
-    CreateGrafanaIntegrationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateGrafanaIntegrationRequest&,
-        CreateGrafanaIntegrationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGrafanaIntegrationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGrafanaIntegration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateGrafanaNotificationChannelOutcome MonitorClient::CreateGrafanaNotificationChannel(const CreateGrafanaNotificationChannelRequest &request)
@@ -712,32 +621,25 @@ MonitorClient::CreateGrafanaNotificationChannelOutcome MonitorClient::CreateGraf
 
 void MonitorClient::CreateGrafanaNotificationChannelAsync(const CreateGrafanaNotificationChannelRequest& request, const CreateGrafanaNotificationChannelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGrafanaNotificationChannelRequest&;
-    using Resp = CreateGrafanaNotificationChannelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGrafanaNotificationChannel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGrafanaNotificationChannel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateGrafanaNotificationChannelOutcomeCallable MonitorClient::CreateGrafanaNotificationChannelCallable(const CreateGrafanaNotificationChannelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGrafanaNotificationChannelOutcome>>();
-    CreateGrafanaNotificationChannelAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateGrafanaNotificationChannelRequest&,
-        CreateGrafanaNotificationChannelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGrafanaNotificationChannelOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGrafanaNotificationChannel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePolicyGroupOutcome MonitorClient::CreatePolicyGroup(const CreatePolicyGroupRequest &request)
@@ -762,32 +664,25 @@ MonitorClient::CreatePolicyGroupOutcome MonitorClient::CreatePolicyGroup(const C
 
 void MonitorClient::CreatePolicyGroupAsync(const CreatePolicyGroupRequest& request, const CreatePolicyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePolicyGroupRequest&;
-    using Resp = CreatePolicyGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePolicyGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePolicyGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePolicyGroupOutcomeCallable MonitorClient::CreatePolicyGroupCallable(const CreatePolicyGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePolicyGroupOutcome>>();
-    CreatePolicyGroupAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePolicyGroupRequest&,
-        CreatePolicyGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePolicyGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePolicyGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusAgentOutcome MonitorClient::CreatePrometheusAgent(const CreatePrometheusAgentRequest &request)
@@ -812,32 +707,25 @@ MonitorClient::CreatePrometheusAgentOutcome MonitorClient::CreatePrometheusAgent
 
 void MonitorClient::CreatePrometheusAgentAsync(const CreatePrometheusAgentRequest& request, const CreatePrometheusAgentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusAgentRequest&;
-    using Resp = CreatePrometheusAgentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusAgent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusAgent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusAgentOutcomeCallable MonitorClient::CreatePrometheusAgentCallable(const CreatePrometheusAgentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusAgentOutcome>>();
-    CreatePrometheusAgentAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusAgentRequest&,
-        CreatePrometheusAgentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusAgentOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusAgent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusAlertGroupOutcome MonitorClient::CreatePrometheusAlertGroup(const CreatePrometheusAlertGroupRequest &request)
@@ -862,32 +750,25 @@ MonitorClient::CreatePrometheusAlertGroupOutcome MonitorClient::CreatePrometheus
 
 void MonitorClient::CreatePrometheusAlertGroupAsync(const CreatePrometheusAlertGroupRequest& request, const CreatePrometheusAlertGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusAlertGroupRequest&;
-    using Resp = CreatePrometheusAlertGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusAlertGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusAlertGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusAlertGroupOutcomeCallable MonitorClient::CreatePrometheusAlertGroupCallable(const CreatePrometheusAlertGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusAlertGroupOutcome>>();
-    CreatePrometheusAlertGroupAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusAlertGroupRequest&,
-        CreatePrometheusAlertGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusAlertGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusAlertGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusAlertPolicyOutcome MonitorClient::CreatePrometheusAlertPolicy(const CreatePrometheusAlertPolicyRequest &request)
@@ -912,32 +793,25 @@ MonitorClient::CreatePrometheusAlertPolicyOutcome MonitorClient::CreatePrometheu
 
 void MonitorClient::CreatePrometheusAlertPolicyAsync(const CreatePrometheusAlertPolicyRequest& request, const CreatePrometheusAlertPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusAlertPolicyRequest&;
-    using Resp = CreatePrometheusAlertPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusAlertPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusAlertPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusAlertPolicyOutcomeCallable MonitorClient::CreatePrometheusAlertPolicyCallable(const CreatePrometheusAlertPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusAlertPolicyOutcome>>();
-    CreatePrometheusAlertPolicyAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusAlertPolicyRequest&,
-        CreatePrometheusAlertPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusAlertPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusAlertPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusClusterAgentOutcome MonitorClient::CreatePrometheusClusterAgent(const CreatePrometheusClusterAgentRequest &request)
@@ -962,32 +836,25 @@ MonitorClient::CreatePrometheusClusterAgentOutcome MonitorClient::CreatePromethe
 
 void MonitorClient::CreatePrometheusClusterAgentAsync(const CreatePrometheusClusterAgentRequest& request, const CreatePrometheusClusterAgentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusClusterAgentRequest&;
-    using Resp = CreatePrometheusClusterAgentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusClusterAgent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusClusterAgent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusClusterAgentOutcomeCallable MonitorClient::CreatePrometheusClusterAgentCallable(const CreatePrometheusClusterAgentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusClusterAgentOutcome>>();
-    CreatePrometheusClusterAgentAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusClusterAgentRequest&,
-        CreatePrometheusClusterAgentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusClusterAgentOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusClusterAgent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusConfigOutcome MonitorClient::CreatePrometheusConfig(const CreatePrometheusConfigRequest &request)
@@ -1012,32 +879,25 @@ MonitorClient::CreatePrometheusConfigOutcome MonitorClient::CreatePrometheusConf
 
 void MonitorClient::CreatePrometheusConfigAsync(const CreatePrometheusConfigRequest& request, const CreatePrometheusConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusConfigRequest&;
-    using Resp = CreatePrometheusConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusConfigOutcomeCallable MonitorClient::CreatePrometheusConfigCallable(const CreatePrometheusConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusConfigOutcome>>();
-    CreatePrometheusConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusConfigRequest&,
-        CreatePrometheusConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusGlobalNotificationOutcome MonitorClient::CreatePrometheusGlobalNotification(const CreatePrometheusGlobalNotificationRequest &request)
@@ -1062,32 +922,25 @@ MonitorClient::CreatePrometheusGlobalNotificationOutcome MonitorClient::CreatePr
 
 void MonitorClient::CreatePrometheusGlobalNotificationAsync(const CreatePrometheusGlobalNotificationRequest& request, const CreatePrometheusGlobalNotificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusGlobalNotificationRequest&;
-    using Resp = CreatePrometheusGlobalNotificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusGlobalNotification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusGlobalNotification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusGlobalNotificationOutcomeCallable MonitorClient::CreatePrometheusGlobalNotificationCallable(const CreatePrometheusGlobalNotificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusGlobalNotificationOutcome>>();
-    CreatePrometheusGlobalNotificationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusGlobalNotificationRequest&,
-        CreatePrometheusGlobalNotificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusGlobalNotificationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusGlobalNotification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusMultiTenantInstancePostPayModeOutcome MonitorClient::CreatePrometheusMultiTenantInstancePostPayMode(const CreatePrometheusMultiTenantInstancePostPayModeRequest &request)
@@ -1112,32 +965,25 @@ MonitorClient::CreatePrometheusMultiTenantInstancePostPayModeOutcome MonitorClie
 
 void MonitorClient::CreatePrometheusMultiTenantInstancePostPayModeAsync(const CreatePrometheusMultiTenantInstancePostPayModeRequest& request, const CreatePrometheusMultiTenantInstancePostPayModeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusMultiTenantInstancePostPayModeRequest&;
-    using Resp = CreatePrometheusMultiTenantInstancePostPayModeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusMultiTenantInstancePostPayMode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusMultiTenantInstancePostPayMode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusMultiTenantInstancePostPayModeOutcomeCallable MonitorClient::CreatePrometheusMultiTenantInstancePostPayModeCallable(const CreatePrometheusMultiTenantInstancePostPayModeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusMultiTenantInstancePostPayModeOutcome>>();
-    CreatePrometheusMultiTenantInstancePostPayModeAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusMultiTenantInstancePostPayModeRequest&,
-        CreatePrometheusMultiTenantInstancePostPayModeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusMultiTenantInstancePostPayModeOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusMultiTenantInstancePostPayMode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusRecordRuleYamlOutcome MonitorClient::CreatePrometheusRecordRuleYaml(const CreatePrometheusRecordRuleYamlRequest &request)
@@ -1162,32 +1008,25 @@ MonitorClient::CreatePrometheusRecordRuleYamlOutcome MonitorClient::CreatePromet
 
 void MonitorClient::CreatePrometheusRecordRuleYamlAsync(const CreatePrometheusRecordRuleYamlRequest& request, const CreatePrometheusRecordRuleYamlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusRecordRuleYamlRequest&;
-    using Resp = CreatePrometheusRecordRuleYamlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusRecordRuleYaml(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusRecordRuleYaml", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusRecordRuleYamlOutcomeCallable MonitorClient::CreatePrometheusRecordRuleYamlCallable(const CreatePrometheusRecordRuleYamlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusRecordRuleYamlOutcome>>();
-    CreatePrometheusRecordRuleYamlAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusRecordRuleYamlRequest&,
-        CreatePrometheusRecordRuleYamlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusRecordRuleYamlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusRecordRuleYaml(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusScrapeJobOutcome MonitorClient::CreatePrometheusScrapeJob(const CreatePrometheusScrapeJobRequest &request)
@@ -1212,32 +1051,25 @@ MonitorClient::CreatePrometheusScrapeJobOutcome MonitorClient::CreatePrometheusS
 
 void MonitorClient::CreatePrometheusScrapeJobAsync(const CreatePrometheusScrapeJobRequest& request, const CreatePrometheusScrapeJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusScrapeJobRequest&;
-    using Resp = CreatePrometheusScrapeJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusScrapeJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusScrapeJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusScrapeJobOutcomeCallable MonitorClient::CreatePrometheusScrapeJobCallable(const CreatePrometheusScrapeJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusScrapeJobOutcome>>();
-    CreatePrometheusScrapeJobAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusScrapeJobRequest&,
-        CreatePrometheusScrapeJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusScrapeJobOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusScrapeJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreatePrometheusTempOutcome MonitorClient::CreatePrometheusTemp(const CreatePrometheusTempRequest &request)
@@ -1262,32 +1094,25 @@ MonitorClient::CreatePrometheusTempOutcome MonitorClient::CreatePrometheusTemp(c
 
 void MonitorClient::CreatePrometheusTempAsync(const CreatePrometheusTempRequest& request, const CreatePrometheusTempAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrometheusTempRequest&;
-    using Resp = CreatePrometheusTempResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrometheusTemp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrometheusTemp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreatePrometheusTempOutcomeCallable MonitorClient::CreatePrometheusTempCallable(const CreatePrometheusTempRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrometheusTempOutcome>>();
-    CreatePrometheusTempAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreatePrometheusTempRequest&,
-        CreatePrometheusTempOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrometheusTempOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrometheusTemp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateRecordingRuleOutcome MonitorClient::CreateRecordingRule(const CreateRecordingRuleRequest &request)
@@ -1312,32 +1137,25 @@ MonitorClient::CreateRecordingRuleOutcome MonitorClient::CreateRecordingRule(con
 
 void MonitorClient::CreateRecordingRuleAsync(const CreateRecordingRuleRequest& request, const CreateRecordingRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRecordingRuleRequest&;
-    using Resp = CreateRecordingRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRecordingRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRecordingRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateRecordingRuleOutcomeCallable MonitorClient::CreateRecordingRuleCallable(const CreateRecordingRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRecordingRuleOutcome>>();
-    CreateRecordingRuleAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateRecordingRuleRequest&,
-        CreateRecordingRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRecordingRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRecordingRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateSSOAccountOutcome MonitorClient::CreateSSOAccount(const CreateSSOAccountRequest &request)
@@ -1362,32 +1180,25 @@ MonitorClient::CreateSSOAccountOutcome MonitorClient::CreateSSOAccount(const Cre
 
 void MonitorClient::CreateSSOAccountAsync(const CreateSSOAccountRequest& request, const CreateSSOAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSSOAccountRequest&;
-    using Resp = CreateSSOAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSSOAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSSOAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateSSOAccountOutcomeCallable MonitorClient::CreateSSOAccountCallable(const CreateSSOAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSSOAccountOutcome>>();
-    CreateSSOAccountAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateSSOAccountRequest&,
-        CreateSSOAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSSOAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSSOAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::CreateServiceDiscoveryOutcome MonitorClient::CreateServiceDiscovery(const CreateServiceDiscoveryRequest &request)
@@ -1412,32 +1223,25 @@ MonitorClient::CreateServiceDiscoveryOutcome MonitorClient::CreateServiceDiscove
 
 void MonitorClient::CreateServiceDiscoveryAsync(const CreateServiceDiscoveryRequest& request, const CreateServiceDiscoveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateServiceDiscoveryRequest&;
-    using Resp = CreateServiceDiscoveryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateServiceDiscovery(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateServiceDiscovery", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::CreateServiceDiscoveryOutcomeCallable MonitorClient::CreateServiceDiscoveryCallable(const CreateServiceDiscoveryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateServiceDiscoveryOutcome>>();
-    CreateServiceDiscoveryAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const CreateServiceDiscoveryRequest&,
-        CreateServiceDiscoveryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateServiceDiscoveryOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateServiceDiscovery(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteAlarmNoticesOutcome MonitorClient::DeleteAlarmNotices(const DeleteAlarmNoticesRequest &request)
@@ -1462,32 +1266,25 @@ MonitorClient::DeleteAlarmNoticesOutcome MonitorClient::DeleteAlarmNotices(const
 
 void MonitorClient::DeleteAlarmNoticesAsync(const DeleteAlarmNoticesRequest& request, const DeleteAlarmNoticesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAlarmNoticesRequest&;
-    using Resp = DeleteAlarmNoticesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAlarmNotices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAlarmNotices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteAlarmNoticesOutcomeCallable MonitorClient::DeleteAlarmNoticesCallable(const DeleteAlarmNoticesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAlarmNoticesOutcome>>();
-    DeleteAlarmNoticesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteAlarmNoticesRequest&,
-        DeleteAlarmNoticesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAlarmNoticesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAlarmNotices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteAlarmPolicyOutcome MonitorClient::DeleteAlarmPolicy(const DeleteAlarmPolicyRequest &request)
@@ -1512,32 +1309,25 @@ MonitorClient::DeleteAlarmPolicyOutcome MonitorClient::DeleteAlarmPolicy(const D
 
 void MonitorClient::DeleteAlarmPolicyAsync(const DeleteAlarmPolicyRequest& request, const DeleteAlarmPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAlarmPolicyRequest&;
-    using Resp = DeleteAlarmPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAlarmPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAlarmPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteAlarmPolicyOutcomeCallable MonitorClient::DeleteAlarmPolicyCallable(const DeleteAlarmPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAlarmPolicyOutcome>>();
-    DeleteAlarmPolicyAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteAlarmPolicyRequest&,
-        DeleteAlarmPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAlarmPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAlarmPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteAlarmShieldsOutcome MonitorClient::DeleteAlarmShields(const DeleteAlarmShieldsRequest &request)
@@ -1562,32 +1352,25 @@ MonitorClient::DeleteAlarmShieldsOutcome MonitorClient::DeleteAlarmShields(const
 
 void MonitorClient::DeleteAlarmShieldsAsync(const DeleteAlarmShieldsRequest& request, const DeleteAlarmShieldsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAlarmShieldsRequest&;
-    using Resp = DeleteAlarmShieldsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAlarmShields(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAlarmShields", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteAlarmShieldsOutcomeCallable MonitorClient::DeleteAlarmShieldsCallable(const DeleteAlarmShieldsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAlarmShieldsOutcome>>();
-    DeleteAlarmShieldsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteAlarmShieldsRequest&,
-        DeleteAlarmShieldsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAlarmShieldsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAlarmShields(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteAlertRulesOutcome MonitorClient::DeleteAlertRules(const DeleteAlertRulesRequest &request)
@@ -1612,32 +1395,25 @@ MonitorClient::DeleteAlertRulesOutcome MonitorClient::DeleteAlertRules(const Del
 
 void MonitorClient::DeleteAlertRulesAsync(const DeleteAlertRulesRequest& request, const DeleteAlertRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAlertRulesRequest&;
-    using Resp = DeleteAlertRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAlertRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAlertRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteAlertRulesOutcomeCallable MonitorClient::DeleteAlertRulesCallable(const DeleteAlertRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAlertRulesOutcome>>();
-    DeleteAlertRulesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteAlertRulesRequest&,
-        DeleteAlertRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAlertRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAlertRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteExporterIntegrationOutcome MonitorClient::DeleteExporterIntegration(const DeleteExporterIntegrationRequest &request)
@@ -1662,32 +1438,25 @@ MonitorClient::DeleteExporterIntegrationOutcome MonitorClient::DeleteExporterInt
 
 void MonitorClient::DeleteExporterIntegrationAsync(const DeleteExporterIntegrationRequest& request, const DeleteExporterIntegrationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteExporterIntegrationRequest&;
-    using Resp = DeleteExporterIntegrationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteExporterIntegration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteExporterIntegration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteExporterIntegrationOutcomeCallable MonitorClient::DeleteExporterIntegrationCallable(const DeleteExporterIntegrationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteExporterIntegrationOutcome>>();
-    DeleteExporterIntegrationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteExporterIntegrationRequest&,
-        DeleteExporterIntegrationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteExporterIntegrationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteExporterIntegration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteGrafanaInstanceOutcome MonitorClient::DeleteGrafanaInstance(const DeleteGrafanaInstanceRequest &request)
@@ -1712,32 +1481,25 @@ MonitorClient::DeleteGrafanaInstanceOutcome MonitorClient::DeleteGrafanaInstance
 
 void MonitorClient::DeleteGrafanaInstanceAsync(const DeleteGrafanaInstanceRequest& request, const DeleteGrafanaInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGrafanaInstanceRequest&;
-    using Resp = DeleteGrafanaInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGrafanaInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGrafanaInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteGrafanaInstanceOutcomeCallable MonitorClient::DeleteGrafanaInstanceCallable(const DeleteGrafanaInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGrafanaInstanceOutcome>>();
-    DeleteGrafanaInstanceAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteGrafanaInstanceRequest&,
-        DeleteGrafanaInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGrafanaInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGrafanaInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteGrafanaIntegrationOutcome MonitorClient::DeleteGrafanaIntegration(const DeleteGrafanaIntegrationRequest &request)
@@ -1762,32 +1524,25 @@ MonitorClient::DeleteGrafanaIntegrationOutcome MonitorClient::DeleteGrafanaInteg
 
 void MonitorClient::DeleteGrafanaIntegrationAsync(const DeleteGrafanaIntegrationRequest& request, const DeleteGrafanaIntegrationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGrafanaIntegrationRequest&;
-    using Resp = DeleteGrafanaIntegrationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGrafanaIntegration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGrafanaIntegration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteGrafanaIntegrationOutcomeCallable MonitorClient::DeleteGrafanaIntegrationCallable(const DeleteGrafanaIntegrationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGrafanaIntegrationOutcome>>();
-    DeleteGrafanaIntegrationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteGrafanaIntegrationRequest&,
-        DeleteGrafanaIntegrationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGrafanaIntegrationOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGrafanaIntegration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteGrafanaNotificationChannelOutcome MonitorClient::DeleteGrafanaNotificationChannel(const DeleteGrafanaNotificationChannelRequest &request)
@@ -1812,32 +1567,25 @@ MonitorClient::DeleteGrafanaNotificationChannelOutcome MonitorClient::DeleteGraf
 
 void MonitorClient::DeleteGrafanaNotificationChannelAsync(const DeleteGrafanaNotificationChannelRequest& request, const DeleteGrafanaNotificationChannelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGrafanaNotificationChannelRequest&;
-    using Resp = DeleteGrafanaNotificationChannelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGrafanaNotificationChannel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGrafanaNotificationChannel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteGrafanaNotificationChannelOutcomeCallable MonitorClient::DeleteGrafanaNotificationChannelCallable(const DeleteGrafanaNotificationChannelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGrafanaNotificationChannelOutcome>>();
-    DeleteGrafanaNotificationChannelAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteGrafanaNotificationChannelRequest&,
-        DeleteGrafanaNotificationChannelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGrafanaNotificationChannelOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGrafanaNotificationChannel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePolicyGroupOutcome MonitorClient::DeletePolicyGroup(const DeletePolicyGroupRequest &request)
@@ -1862,32 +1610,25 @@ MonitorClient::DeletePolicyGroupOutcome MonitorClient::DeletePolicyGroup(const D
 
 void MonitorClient::DeletePolicyGroupAsync(const DeletePolicyGroupRequest& request, const DeletePolicyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePolicyGroupRequest&;
-    using Resp = DeletePolicyGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePolicyGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePolicyGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePolicyGroupOutcomeCallable MonitorClient::DeletePolicyGroupCallable(const DeletePolicyGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePolicyGroupOutcome>>();
-    DeletePolicyGroupAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePolicyGroupRequest&,
-        DeletePolicyGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePolicyGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePolicyGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePrometheusAlertGroupsOutcome MonitorClient::DeletePrometheusAlertGroups(const DeletePrometheusAlertGroupsRequest &request)
@@ -1912,32 +1653,25 @@ MonitorClient::DeletePrometheusAlertGroupsOutcome MonitorClient::DeletePrometheu
 
 void MonitorClient::DeletePrometheusAlertGroupsAsync(const DeletePrometheusAlertGroupsRequest& request, const DeletePrometheusAlertGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrometheusAlertGroupsRequest&;
-    using Resp = DeletePrometheusAlertGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrometheusAlertGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrometheusAlertGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePrometheusAlertGroupsOutcomeCallable MonitorClient::DeletePrometheusAlertGroupsCallable(const DeletePrometheusAlertGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrometheusAlertGroupsOutcome>>();
-    DeletePrometheusAlertGroupsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePrometheusAlertGroupsRequest&,
-        DeletePrometheusAlertGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrometheusAlertGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrometheusAlertGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePrometheusAlertPolicyOutcome MonitorClient::DeletePrometheusAlertPolicy(const DeletePrometheusAlertPolicyRequest &request)
@@ -1962,32 +1696,25 @@ MonitorClient::DeletePrometheusAlertPolicyOutcome MonitorClient::DeletePrometheu
 
 void MonitorClient::DeletePrometheusAlertPolicyAsync(const DeletePrometheusAlertPolicyRequest& request, const DeletePrometheusAlertPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrometheusAlertPolicyRequest&;
-    using Resp = DeletePrometheusAlertPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrometheusAlertPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrometheusAlertPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePrometheusAlertPolicyOutcomeCallable MonitorClient::DeletePrometheusAlertPolicyCallable(const DeletePrometheusAlertPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrometheusAlertPolicyOutcome>>();
-    DeletePrometheusAlertPolicyAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePrometheusAlertPolicyRequest&,
-        DeletePrometheusAlertPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrometheusAlertPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrometheusAlertPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePrometheusClusterAgentOutcome MonitorClient::DeletePrometheusClusterAgent(const DeletePrometheusClusterAgentRequest &request)
@@ -2012,32 +1739,25 @@ MonitorClient::DeletePrometheusClusterAgentOutcome MonitorClient::DeletePromethe
 
 void MonitorClient::DeletePrometheusClusterAgentAsync(const DeletePrometheusClusterAgentRequest& request, const DeletePrometheusClusterAgentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrometheusClusterAgentRequest&;
-    using Resp = DeletePrometheusClusterAgentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrometheusClusterAgent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrometheusClusterAgent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePrometheusClusterAgentOutcomeCallable MonitorClient::DeletePrometheusClusterAgentCallable(const DeletePrometheusClusterAgentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrometheusClusterAgentOutcome>>();
-    DeletePrometheusClusterAgentAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePrometheusClusterAgentRequest&,
-        DeletePrometheusClusterAgentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrometheusClusterAgentOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrometheusClusterAgent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePrometheusConfigOutcome MonitorClient::DeletePrometheusConfig(const DeletePrometheusConfigRequest &request)
@@ -2062,32 +1782,25 @@ MonitorClient::DeletePrometheusConfigOutcome MonitorClient::DeletePrometheusConf
 
 void MonitorClient::DeletePrometheusConfigAsync(const DeletePrometheusConfigRequest& request, const DeletePrometheusConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrometheusConfigRequest&;
-    using Resp = DeletePrometheusConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrometheusConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrometheusConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePrometheusConfigOutcomeCallable MonitorClient::DeletePrometheusConfigCallable(const DeletePrometheusConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrometheusConfigOutcome>>();
-    DeletePrometheusConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePrometheusConfigRequest&,
-        DeletePrometheusConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrometheusConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrometheusConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePrometheusRecordRuleYamlOutcome MonitorClient::DeletePrometheusRecordRuleYaml(const DeletePrometheusRecordRuleYamlRequest &request)
@@ -2112,32 +1825,25 @@ MonitorClient::DeletePrometheusRecordRuleYamlOutcome MonitorClient::DeletePromet
 
 void MonitorClient::DeletePrometheusRecordRuleYamlAsync(const DeletePrometheusRecordRuleYamlRequest& request, const DeletePrometheusRecordRuleYamlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrometheusRecordRuleYamlRequest&;
-    using Resp = DeletePrometheusRecordRuleYamlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrometheusRecordRuleYaml(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrometheusRecordRuleYaml", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePrometheusRecordRuleYamlOutcomeCallable MonitorClient::DeletePrometheusRecordRuleYamlCallable(const DeletePrometheusRecordRuleYamlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrometheusRecordRuleYamlOutcome>>();
-    DeletePrometheusRecordRuleYamlAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePrometheusRecordRuleYamlRequest&,
-        DeletePrometheusRecordRuleYamlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrometheusRecordRuleYamlOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrometheusRecordRuleYaml(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePrometheusScrapeJobsOutcome MonitorClient::DeletePrometheusScrapeJobs(const DeletePrometheusScrapeJobsRequest &request)
@@ -2162,32 +1868,25 @@ MonitorClient::DeletePrometheusScrapeJobsOutcome MonitorClient::DeletePrometheus
 
 void MonitorClient::DeletePrometheusScrapeJobsAsync(const DeletePrometheusScrapeJobsRequest& request, const DeletePrometheusScrapeJobsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrometheusScrapeJobsRequest&;
-    using Resp = DeletePrometheusScrapeJobsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrometheusScrapeJobs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrometheusScrapeJobs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePrometheusScrapeJobsOutcomeCallable MonitorClient::DeletePrometheusScrapeJobsCallable(const DeletePrometheusScrapeJobsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrometheusScrapeJobsOutcome>>();
-    DeletePrometheusScrapeJobsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePrometheusScrapeJobsRequest&,
-        DeletePrometheusScrapeJobsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrometheusScrapeJobsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrometheusScrapeJobs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePrometheusTempOutcome MonitorClient::DeletePrometheusTemp(const DeletePrometheusTempRequest &request)
@@ -2212,32 +1911,25 @@ MonitorClient::DeletePrometheusTempOutcome MonitorClient::DeletePrometheusTemp(c
 
 void MonitorClient::DeletePrometheusTempAsync(const DeletePrometheusTempRequest& request, const DeletePrometheusTempAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrometheusTempRequest&;
-    using Resp = DeletePrometheusTempResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrometheusTemp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrometheusTemp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePrometheusTempOutcomeCallable MonitorClient::DeletePrometheusTempCallable(const DeletePrometheusTempRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrometheusTempOutcome>>();
-    DeletePrometheusTempAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePrometheusTempRequest&,
-        DeletePrometheusTempOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrometheusTempOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrometheusTemp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeletePrometheusTempSyncOutcome MonitorClient::DeletePrometheusTempSync(const DeletePrometheusTempSyncRequest &request)
@@ -2262,32 +1954,25 @@ MonitorClient::DeletePrometheusTempSyncOutcome MonitorClient::DeletePrometheusTe
 
 void MonitorClient::DeletePrometheusTempSyncAsync(const DeletePrometheusTempSyncRequest& request, const DeletePrometheusTempSyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrometheusTempSyncRequest&;
-    using Resp = DeletePrometheusTempSyncResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrometheusTempSync(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrometheusTempSync", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeletePrometheusTempSyncOutcomeCallable MonitorClient::DeletePrometheusTempSyncCallable(const DeletePrometheusTempSyncRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrometheusTempSyncOutcome>>();
-    DeletePrometheusTempSyncAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeletePrometheusTempSyncRequest&,
-        DeletePrometheusTempSyncOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrometheusTempSyncOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrometheusTempSync(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteRecordingRulesOutcome MonitorClient::DeleteRecordingRules(const DeleteRecordingRulesRequest &request)
@@ -2312,32 +1997,25 @@ MonitorClient::DeleteRecordingRulesOutcome MonitorClient::DeleteRecordingRules(c
 
 void MonitorClient::DeleteRecordingRulesAsync(const DeleteRecordingRulesRequest& request, const DeleteRecordingRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRecordingRulesRequest&;
-    using Resp = DeleteRecordingRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRecordingRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRecordingRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteRecordingRulesOutcomeCallable MonitorClient::DeleteRecordingRulesCallable(const DeleteRecordingRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRecordingRulesOutcome>>();
-    DeleteRecordingRulesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteRecordingRulesRequest&,
-        DeleteRecordingRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRecordingRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRecordingRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteSSOAccountOutcome MonitorClient::DeleteSSOAccount(const DeleteSSOAccountRequest &request)
@@ -2362,32 +2040,25 @@ MonitorClient::DeleteSSOAccountOutcome MonitorClient::DeleteSSOAccount(const Del
 
 void MonitorClient::DeleteSSOAccountAsync(const DeleteSSOAccountRequest& request, const DeleteSSOAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSSOAccountRequest&;
-    using Resp = DeleteSSOAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSSOAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSSOAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteSSOAccountOutcomeCallable MonitorClient::DeleteSSOAccountCallable(const DeleteSSOAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSSOAccountOutcome>>();
-    DeleteSSOAccountAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteSSOAccountRequest&,
-        DeleteSSOAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSSOAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSSOAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DeleteServiceDiscoveryOutcome MonitorClient::DeleteServiceDiscovery(const DeleteServiceDiscoveryRequest &request)
@@ -2412,32 +2083,25 @@ MonitorClient::DeleteServiceDiscoveryOutcome MonitorClient::DeleteServiceDiscove
 
 void MonitorClient::DeleteServiceDiscoveryAsync(const DeleteServiceDiscoveryRequest& request, const DeleteServiceDiscoveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteServiceDiscoveryRequest&;
-    using Resp = DeleteServiceDiscoveryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteServiceDiscovery(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteServiceDiscovery", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DeleteServiceDiscoveryOutcomeCallable MonitorClient::DeleteServiceDiscoveryCallable(const DeleteServiceDiscoveryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteServiceDiscoveryOutcome>>();
-    DeleteServiceDiscoveryAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DeleteServiceDiscoveryRequest&,
-        DeleteServiceDiscoveryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteServiceDiscoveryOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteServiceDiscovery(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAccidentEventListOutcome MonitorClient::DescribeAccidentEventList(const DescribeAccidentEventListRequest &request)
@@ -2462,32 +2126,25 @@ MonitorClient::DescribeAccidentEventListOutcome MonitorClient::DescribeAccidentE
 
 void MonitorClient::DescribeAccidentEventListAsync(const DescribeAccidentEventListRequest& request, const DescribeAccidentEventListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccidentEventListRequest&;
-    using Resp = DescribeAccidentEventListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccidentEventList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccidentEventList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAccidentEventListOutcomeCallable MonitorClient::DescribeAccidentEventListCallable(const DescribeAccidentEventListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccidentEventListOutcome>>();
-    DescribeAccidentEventListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAccidentEventListRequest&,
-        DescribeAccidentEventListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccidentEventListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccidentEventList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmEventsOutcome MonitorClient::DescribeAlarmEvents(const DescribeAlarmEventsRequest &request)
@@ -2512,32 +2169,25 @@ MonitorClient::DescribeAlarmEventsOutcome MonitorClient::DescribeAlarmEvents(con
 
 void MonitorClient::DescribeAlarmEventsAsync(const DescribeAlarmEventsRequest& request, const DescribeAlarmEventsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmEventsRequest&;
-    using Resp = DescribeAlarmEventsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmEvents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmEvents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmEventsOutcomeCallable MonitorClient::DescribeAlarmEventsCallable(const DescribeAlarmEventsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmEventsOutcome>>();
-    DescribeAlarmEventsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmEventsRequest&,
-        DescribeAlarmEventsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmEventsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmEvents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmHistoriesOutcome MonitorClient::DescribeAlarmHistories(const DescribeAlarmHistoriesRequest &request)
@@ -2562,32 +2212,25 @@ MonitorClient::DescribeAlarmHistoriesOutcome MonitorClient::DescribeAlarmHistori
 
 void MonitorClient::DescribeAlarmHistoriesAsync(const DescribeAlarmHistoriesRequest& request, const DescribeAlarmHistoriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmHistoriesRequest&;
-    using Resp = DescribeAlarmHistoriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmHistories(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmHistories", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmHistoriesOutcomeCallable MonitorClient::DescribeAlarmHistoriesCallable(const DescribeAlarmHistoriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmHistoriesOutcome>>();
-    DescribeAlarmHistoriesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmHistoriesRequest&,
-        DescribeAlarmHistoriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmHistoriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmHistories(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmMetricsOutcome MonitorClient::DescribeAlarmMetrics(const DescribeAlarmMetricsRequest &request)
@@ -2612,32 +2255,25 @@ MonitorClient::DescribeAlarmMetricsOutcome MonitorClient::DescribeAlarmMetrics(c
 
 void MonitorClient::DescribeAlarmMetricsAsync(const DescribeAlarmMetricsRequest& request, const DescribeAlarmMetricsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmMetricsRequest&;
-    using Resp = DescribeAlarmMetricsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmMetrics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmMetrics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmMetricsOutcomeCallable MonitorClient::DescribeAlarmMetricsCallable(const DescribeAlarmMetricsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmMetricsOutcome>>();
-    DescribeAlarmMetricsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmMetricsRequest&,
-        DescribeAlarmMetricsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmMetricsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmMetrics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmNoticeOutcome MonitorClient::DescribeAlarmNotice(const DescribeAlarmNoticeRequest &request)
@@ -2662,32 +2298,25 @@ MonitorClient::DescribeAlarmNoticeOutcome MonitorClient::DescribeAlarmNotice(con
 
 void MonitorClient::DescribeAlarmNoticeAsync(const DescribeAlarmNoticeRequest& request, const DescribeAlarmNoticeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmNoticeRequest&;
-    using Resp = DescribeAlarmNoticeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmNotice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmNotice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmNoticeOutcomeCallable MonitorClient::DescribeAlarmNoticeCallable(const DescribeAlarmNoticeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmNoticeOutcome>>();
-    DescribeAlarmNoticeAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmNoticeRequest&,
-        DescribeAlarmNoticeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmNoticeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmNotice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmNoticeCallbacksOutcome MonitorClient::DescribeAlarmNoticeCallbacks(const DescribeAlarmNoticeCallbacksRequest &request)
@@ -2712,32 +2341,25 @@ MonitorClient::DescribeAlarmNoticeCallbacksOutcome MonitorClient::DescribeAlarmN
 
 void MonitorClient::DescribeAlarmNoticeCallbacksAsync(const DescribeAlarmNoticeCallbacksRequest& request, const DescribeAlarmNoticeCallbacksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmNoticeCallbacksRequest&;
-    using Resp = DescribeAlarmNoticeCallbacksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmNoticeCallbacks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmNoticeCallbacks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmNoticeCallbacksOutcomeCallable MonitorClient::DescribeAlarmNoticeCallbacksCallable(const DescribeAlarmNoticeCallbacksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmNoticeCallbacksOutcome>>();
-    DescribeAlarmNoticeCallbacksAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmNoticeCallbacksRequest&,
-        DescribeAlarmNoticeCallbacksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmNoticeCallbacksOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmNoticeCallbacks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmNoticesOutcome MonitorClient::DescribeAlarmNotices(const DescribeAlarmNoticesRequest &request)
@@ -2762,32 +2384,25 @@ MonitorClient::DescribeAlarmNoticesOutcome MonitorClient::DescribeAlarmNotices(c
 
 void MonitorClient::DescribeAlarmNoticesAsync(const DescribeAlarmNoticesRequest& request, const DescribeAlarmNoticesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmNoticesRequest&;
-    using Resp = DescribeAlarmNoticesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmNotices(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmNotices", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmNoticesOutcomeCallable MonitorClient::DescribeAlarmNoticesCallable(const DescribeAlarmNoticesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmNoticesOutcome>>();
-    DescribeAlarmNoticesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmNoticesRequest&,
-        DescribeAlarmNoticesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmNoticesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmNotices(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmPoliciesOutcome MonitorClient::DescribeAlarmPolicies(const DescribeAlarmPoliciesRequest &request)
@@ -2812,32 +2427,25 @@ MonitorClient::DescribeAlarmPoliciesOutcome MonitorClient::DescribeAlarmPolicies
 
 void MonitorClient::DescribeAlarmPoliciesAsync(const DescribeAlarmPoliciesRequest& request, const DescribeAlarmPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmPoliciesRequest&;
-    using Resp = DescribeAlarmPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmPoliciesOutcomeCallable MonitorClient::DescribeAlarmPoliciesCallable(const DescribeAlarmPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmPoliciesOutcome>>();
-    DescribeAlarmPoliciesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmPoliciesRequest&,
-        DescribeAlarmPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmPolicyOutcome MonitorClient::DescribeAlarmPolicy(const DescribeAlarmPolicyRequest &request)
@@ -2862,32 +2470,25 @@ MonitorClient::DescribeAlarmPolicyOutcome MonitorClient::DescribeAlarmPolicy(con
 
 void MonitorClient::DescribeAlarmPolicyAsync(const DescribeAlarmPolicyRequest& request, const DescribeAlarmPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmPolicyRequest&;
-    using Resp = DescribeAlarmPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmPolicyOutcomeCallable MonitorClient::DescribeAlarmPolicyCallable(const DescribeAlarmPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmPolicyOutcome>>();
-    DescribeAlarmPolicyAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmPolicyRequest&,
-        DescribeAlarmPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlarmSmsQuotaOutcome MonitorClient::DescribeAlarmSmsQuota(const DescribeAlarmSmsQuotaRequest &request)
@@ -2912,32 +2513,25 @@ MonitorClient::DescribeAlarmSmsQuotaOutcome MonitorClient::DescribeAlarmSmsQuota
 
 void MonitorClient::DescribeAlarmSmsQuotaAsync(const DescribeAlarmSmsQuotaRequest& request, const DescribeAlarmSmsQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlarmSmsQuotaRequest&;
-    using Resp = DescribeAlarmSmsQuotaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlarmSmsQuota(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlarmSmsQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlarmSmsQuotaOutcomeCallable MonitorClient::DescribeAlarmSmsQuotaCallable(const DescribeAlarmSmsQuotaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlarmSmsQuotaOutcome>>();
-    DescribeAlarmSmsQuotaAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlarmSmsQuotaRequest&,
-        DescribeAlarmSmsQuotaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlarmSmsQuotaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlarmSmsQuota(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAlertRulesOutcome MonitorClient::DescribeAlertRules(const DescribeAlertRulesRequest &request)
@@ -2962,32 +2556,25 @@ MonitorClient::DescribeAlertRulesOutcome MonitorClient::DescribeAlertRules(const
 
 void MonitorClient::DescribeAlertRulesAsync(const DescribeAlertRulesRequest& request, const DescribeAlertRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAlertRulesRequest&;
-    using Resp = DescribeAlertRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAlertRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAlertRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAlertRulesOutcomeCallable MonitorClient::DescribeAlertRulesCallable(const DescribeAlertRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAlertRulesOutcome>>();
-    DescribeAlertRulesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAlertRulesRequest&,
-        DescribeAlertRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAlertRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAlertRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeAllNamespacesOutcome MonitorClient::DescribeAllNamespaces(const DescribeAllNamespacesRequest &request)
@@ -3012,32 +2599,25 @@ MonitorClient::DescribeAllNamespacesOutcome MonitorClient::DescribeAllNamespaces
 
 void MonitorClient::DescribeAllNamespacesAsync(const DescribeAllNamespacesRequest& request, const DescribeAllNamespacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAllNamespacesRequest&;
-    using Resp = DescribeAllNamespacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAllNamespaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAllNamespaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeAllNamespacesOutcomeCallable MonitorClient::DescribeAllNamespacesCallable(const DescribeAllNamespacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAllNamespacesOutcome>>();
-    DescribeAllNamespacesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeAllNamespacesRequest&,
-        DescribeAllNamespacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAllNamespacesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAllNamespaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeBaseMetricsOutcome MonitorClient::DescribeBaseMetrics(const DescribeBaseMetricsRequest &request)
@@ -3062,32 +2642,25 @@ MonitorClient::DescribeBaseMetricsOutcome MonitorClient::DescribeBaseMetrics(con
 
 void MonitorClient::DescribeBaseMetricsAsync(const DescribeBaseMetricsRequest& request, const DescribeBaseMetricsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBaseMetricsRequest&;
-    using Resp = DescribeBaseMetricsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBaseMetrics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBaseMetrics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeBaseMetricsOutcomeCallable MonitorClient::DescribeBaseMetricsCallable(const DescribeBaseMetricsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBaseMetricsOutcome>>();
-    DescribeBaseMetricsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeBaseMetricsRequest&,
-        DescribeBaseMetricsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBaseMetricsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBaseMetrics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeBasicAlarmListOutcome MonitorClient::DescribeBasicAlarmList(const DescribeBasicAlarmListRequest &request)
@@ -3112,32 +2685,25 @@ MonitorClient::DescribeBasicAlarmListOutcome MonitorClient::DescribeBasicAlarmLi
 
 void MonitorClient::DescribeBasicAlarmListAsync(const DescribeBasicAlarmListRequest& request, const DescribeBasicAlarmListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBasicAlarmListRequest&;
-    using Resp = DescribeBasicAlarmListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBasicAlarmList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBasicAlarmList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeBasicAlarmListOutcomeCallable MonitorClient::DescribeBasicAlarmListCallable(const DescribeBasicAlarmListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBasicAlarmListOutcome>>();
-    DescribeBasicAlarmListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeBasicAlarmListRequest&,
-        DescribeBasicAlarmListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBasicAlarmListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBasicAlarmList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeBindingPolicyObjectListOutcome MonitorClient::DescribeBindingPolicyObjectList(const DescribeBindingPolicyObjectListRequest &request)
@@ -3162,32 +2728,25 @@ MonitorClient::DescribeBindingPolicyObjectListOutcome MonitorClient::DescribeBin
 
 void MonitorClient::DescribeBindingPolicyObjectListAsync(const DescribeBindingPolicyObjectListRequest& request, const DescribeBindingPolicyObjectListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBindingPolicyObjectListRequest&;
-    using Resp = DescribeBindingPolicyObjectListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBindingPolicyObjectList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBindingPolicyObjectList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeBindingPolicyObjectListOutcomeCallable MonitorClient::DescribeBindingPolicyObjectListCallable(const DescribeBindingPolicyObjectListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBindingPolicyObjectListOutcome>>();
-    DescribeBindingPolicyObjectListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeBindingPolicyObjectListRequest&,
-        DescribeBindingPolicyObjectListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBindingPolicyObjectListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBindingPolicyObjectList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeClusterAgentCreatingProgressOutcome MonitorClient::DescribeClusterAgentCreatingProgress(const DescribeClusterAgentCreatingProgressRequest &request)
@@ -3212,32 +2771,25 @@ MonitorClient::DescribeClusterAgentCreatingProgressOutcome MonitorClient::Descri
 
 void MonitorClient::DescribeClusterAgentCreatingProgressAsync(const DescribeClusterAgentCreatingProgressRequest& request, const DescribeClusterAgentCreatingProgressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeClusterAgentCreatingProgressRequest&;
-    using Resp = DescribeClusterAgentCreatingProgressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeClusterAgentCreatingProgress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeClusterAgentCreatingProgress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeClusterAgentCreatingProgressOutcomeCallable MonitorClient::DescribeClusterAgentCreatingProgressCallable(const DescribeClusterAgentCreatingProgressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeClusterAgentCreatingProgressOutcome>>();
-    DescribeClusterAgentCreatingProgressAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeClusterAgentCreatingProgressRequest&,
-        DescribeClusterAgentCreatingProgressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeClusterAgentCreatingProgressOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeClusterAgentCreatingProgress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeConditionsTemplateListOutcome MonitorClient::DescribeConditionsTemplateList(const DescribeConditionsTemplateListRequest &request)
@@ -3262,32 +2814,25 @@ MonitorClient::DescribeConditionsTemplateListOutcome MonitorClient::DescribeCond
 
 void MonitorClient::DescribeConditionsTemplateListAsync(const DescribeConditionsTemplateListRequest& request, const DescribeConditionsTemplateListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeConditionsTemplateListRequest&;
-    using Resp = DescribeConditionsTemplateListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeConditionsTemplateList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeConditionsTemplateList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeConditionsTemplateListOutcomeCallable MonitorClient::DescribeConditionsTemplateListCallable(const DescribeConditionsTemplateListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeConditionsTemplateListOutcome>>();
-    DescribeConditionsTemplateListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeConditionsTemplateListRequest&,
-        DescribeConditionsTemplateListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeConditionsTemplateListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeConditionsTemplateList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeDNSConfigOutcome MonitorClient::DescribeDNSConfig(const DescribeDNSConfigRequest &request)
@@ -3312,32 +2857,25 @@ MonitorClient::DescribeDNSConfigOutcome MonitorClient::DescribeDNSConfig(const D
 
 void MonitorClient::DescribeDNSConfigAsync(const DescribeDNSConfigRequest& request, const DescribeDNSConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDNSConfigRequest&;
-    using Resp = DescribeDNSConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDNSConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDNSConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeDNSConfigOutcomeCallable MonitorClient::DescribeDNSConfigCallable(const DescribeDNSConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDNSConfigOutcome>>();
-    DescribeDNSConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeDNSConfigRequest&,
-        DescribeDNSConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDNSConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDNSConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeExporterIntegrationsOutcome MonitorClient::DescribeExporterIntegrations(const DescribeExporterIntegrationsRequest &request)
@@ -3362,32 +2900,25 @@ MonitorClient::DescribeExporterIntegrationsOutcome MonitorClient::DescribeExport
 
 void MonitorClient::DescribeExporterIntegrationsAsync(const DescribeExporterIntegrationsRequest& request, const DescribeExporterIntegrationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExporterIntegrationsRequest&;
-    using Resp = DescribeExporterIntegrationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExporterIntegrations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExporterIntegrations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeExporterIntegrationsOutcomeCallable MonitorClient::DescribeExporterIntegrationsCallable(const DescribeExporterIntegrationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExporterIntegrationsOutcome>>();
-    DescribeExporterIntegrationsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeExporterIntegrationsRequest&,
-        DescribeExporterIntegrationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExporterIntegrationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExporterIntegrations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeExternalClusterRegisterCommandOutcome MonitorClient::DescribeExternalClusterRegisterCommand(const DescribeExternalClusterRegisterCommandRequest &request)
@@ -3412,32 +2943,25 @@ MonitorClient::DescribeExternalClusterRegisterCommandOutcome MonitorClient::Desc
 
 void MonitorClient::DescribeExternalClusterRegisterCommandAsync(const DescribeExternalClusterRegisterCommandRequest& request, const DescribeExternalClusterRegisterCommandAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExternalClusterRegisterCommandRequest&;
-    using Resp = DescribeExternalClusterRegisterCommandResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExternalClusterRegisterCommand(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExternalClusterRegisterCommand", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeExternalClusterRegisterCommandOutcomeCallable MonitorClient::DescribeExternalClusterRegisterCommandCallable(const DescribeExternalClusterRegisterCommandRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExternalClusterRegisterCommandOutcome>>();
-    DescribeExternalClusterRegisterCommandAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeExternalClusterRegisterCommandRequest&,
-        DescribeExternalClusterRegisterCommandOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExternalClusterRegisterCommandOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExternalClusterRegisterCommand(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeExternalClusterUninstallCommandOutcome MonitorClient::DescribeExternalClusterUninstallCommand(const DescribeExternalClusterUninstallCommandRequest &request)
@@ -3462,32 +2986,25 @@ MonitorClient::DescribeExternalClusterUninstallCommandOutcome MonitorClient::Des
 
 void MonitorClient::DescribeExternalClusterUninstallCommandAsync(const DescribeExternalClusterUninstallCommandRequest& request, const DescribeExternalClusterUninstallCommandAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeExternalClusterUninstallCommandRequest&;
-    using Resp = DescribeExternalClusterUninstallCommandResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeExternalClusterUninstallCommand(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeExternalClusterUninstallCommand", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeExternalClusterUninstallCommandOutcomeCallable MonitorClient::DescribeExternalClusterUninstallCommandCallable(const DescribeExternalClusterUninstallCommandRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeExternalClusterUninstallCommandOutcome>>();
-    DescribeExternalClusterUninstallCommandAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeExternalClusterUninstallCommandRequest&,
-        DescribeExternalClusterUninstallCommandOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeExternalClusterUninstallCommandOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeExternalClusterUninstallCommand(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeGrafanaChannelsOutcome MonitorClient::DescribeGrafanaChannels(const DescribeGrafanaChannelsRequest &request)
@@ -3512,32 +3029,25 @@ MonitorClient::DescribeGrafanaChannelsOutcome MonitorClient::DescribeGrafanaChan
 
 void MonitorClient::DescribeGrafanaChannelsAsync(const DescribeGrafanaChannelsRequest& request, const DescribeGrafanaChannelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGrafanaChannelsRequest&;
-    using Resp = DescribeGrafanaChannelsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGrafanaChannels(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGrafanaChannels", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeGrafanaChannelsOutcomeCallable MonitorClient::DescribeGrafanaChannelsCallable(const DescribeGrafanaChannelsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGrafanaChannelsOutcome>>();
-    DescribeGrafanaChannelsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeGrafanaChannelsRequest&,
-        DescribeGrafanaChannelsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGrafanaChannelsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGrafanaChannels(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeGrafanaConfigOutcome MonitorClient::DescribeGrafanaConfig(const DescribeGrafanaConfigRequest &request)
@@ -3562,32 +3072,25 @@ MonitorClient::DescribeGrafanaConfigOutcome MonitorClient::DescribeGrafanaConfig
 
 void MonitorClient::DescribeGrafanaConfigAsync(const DescribeGrafanaConfigRequest& request, const DescribeGrafanaConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGrafanaConfigRequest&;
-    using Resp = DescribeGrafanaConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGrafanaConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGrafanaConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeGrafanaConfigOutcomeCallable MonitorClient::DescribeGrafanaConfigCallable(const DescribeGrafanaConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGrafanaConfigOutcome>>();
-    DescribeGrafanaConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeGrafanaConfigRequest&,
-        DescribeGrafanaConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGrafanaConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGrafanaConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeGrafanaEnvironmentsOutcome MonitorClient::DescribeGrafanaEnvironments(const DescribeGrafanaEnvironmentsRequest &request)
@@ -3612,32 +3115,25 @@ MonitorClient::DescribeGrafanaEnvironmentsOutcome MonitorClient::DescribeGrafana
 
 void MonitorClient::DescribeGrafanaEnvironmentsAsync(const DescribeGrafanaEnvironmentsRequest& request, const DescribeGrafanaEnvironmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGrafanaEnvironmentsRequest&;
-    using Resp = DescribeGrafanaEnvironmentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGrafanaEnvironments(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGrafanaEnvironments", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeGrafanaEnvironmentsOutcomeCallable MonitorClient::DescribeGrafanaEnvironmentsCallable(const DescribeGrafanaEnvironmentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGrafanaEnvironmentsOutcome>>();
-    DescribeGrafanaEnvironmentsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeGrafanaEnvironmentsRequest&,
-        DescribeGrafanaEnvironmentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGrafanaEnvironmentsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGrafanaEnvironments(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeGrafanaInstancesOutcome MonitorClient::DescribeGrafanaInstances(const DescribeGrafanaInstancesRequest &request)
@@ -3662,32 +3158,25 @@ MonitorClient::DescribeGrafanaInstancesOutcome MonitorClient::DescribeGrafanaIns
 
 void MonitorClient::DescribeGrafanaInstancesAsync(const DescribeGrafanaInstancesRequest& request, const DescribeGrafanaInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGrafanaInstancesRequest&;
-    using Resp = DescribeGrafanaInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGrafanaInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGrafanaInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeGrafanaInstancesOutcomeCallable MonitorClient::DescribeGrafanaInstancesCallable(const DescribeGrafanaInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGrafanaInstancesOutcome>>();
-    DescribeGrafanaInstancesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeGrafanaInstancesRequest&,
-        DescribeGrafanaInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGrafanaInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGrafanaInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeGrafanaIntegrationsOutcome MonitorClient::DescribeGrafanaIntegrations(const DescribeGrafanaIntegrationsRequest &request)
@@ -3712,32 +3201,25 @@ MonitorClient::DescribeGrafanaIntegrationsOutcome MonitorClient::DescribeGrafana
 
 void MonitorClient::DescribeGrafanaIntegrationsAsync(const DescribeGrafanaIntegrationsRequest& request, const DescribeGrafanaIntegrationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGrafanaIntegrationsRequest&;
-    using Resp = DescribeGrafanaIntegrationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGrafanaIntegrations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGrafanaIntegrations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeGrafanaIntegrationsOutcomeCallable MonitorClient::DescribeGrafanaIntegrationsCallable(const DescribeGrafanaIntegrationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGrafanaIntegrationsOutcome>>();
-    DescribeGrafanaIntegrationsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeGrafanaIntegrationsRequest&,
-        DescribeGrafanaIntegrationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGrafanaIntegrationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGrafanaIntegrations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeGrafanaNotificationChannelsOutcome MonitorClient::DescribeGrafanaNotificationChannels(const DescribeGrafanaNotificationChannelsRequest &request)
@@ -3762,32 +3244,25 @@ MonitorClient::DescribeGrafanaNotificationChannelsOutcome MonitorClient::Describ
 
 void MonitorClient::DescribeGrafanaNotificationChannelsAsync(const DescribeGrafanaNotificationChannelsRequest& request, const DescribeGrafanaNotificationChannelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGrafanaNotificationChannelsRequest&;
-    using Resp = DescribeGrafanaNotificationChannelsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGrafanaNotificationChannels(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGrafanaNotificationChannels", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeGrafanaNotificationChannelsOutcomeCallable MonitorClient::DescribeGrafanaNotificationChannelsCallable(const DescribeGrafanaNotificationChannelsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGrafanaNotificationChannelsOutcome>>();
-    DescribeGrafanaNotificationChannelsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeGrafanaNotificationChannelsRequest&,
-        DescribeGrafanaNotificationChannelsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGrafanaNotificationChannelsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGrafanaNotificationChannels(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeGrafanaWhiteListOutcome MonitorClient::DescribeGrafanaWhiteList(const DescribeGrafanaWhiteListRequest &request)
@@ -3812,32 +3287,25 @@ MonitorClient::DescribeGrafanaWhiteListOutcome MonitorClient::DescribeGrafanaWhi
 
 void MonitorClient::DescribeGrafanaWhiteListAsync(const DescribeGrafanaWhiteListRequest& request, const DescribeGrafanaWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGrafanaWhiteListRequest&;
-    using Resp = DescribeGrafanaWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGrafanaWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGrafanaWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeGrafanaWhiteListOutcomeCallable MonitorClient::DescribeGrafanaWhiteListCallable(const DescribeGrafanaWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGrafanaWhiteListOutcome>>();
-    DescribeGrafanaWhiteListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeGrafanaWhiteListRequest&,
-        DescribeGrafanaWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGrafanaWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGrafanaWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeInstalledPluginsOutcome MonitorClient::DescribeInstalledPlugins(const DescribeInstalledPluginsRequest &request)
@@ -3862,32 +3330,25 @@ MonitorClient::DescribeInstalledPluginsOutcome MonitorClient::DescribeInstalledP
 
 void MonitorClient::DescribeInstalledPluginsAsync(const DescribeInstalledPluginsRequest& request, const DescribeInstalledPluginsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstalledPluginsRequest&;
-    using Resp = DescribeInstalledPluginsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstalledPlugins(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstalledPlugins", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeInstalledPluginsOutcomeCallable MonitorClient::DescribeInstalledPluginsCallable(const DescribeInstalledPluginsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstalledPluginsOutcome>>();
-    DescribeInstalledPluginsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeInstalledPluginsRequest&,
-        DescribeInstalledPluginsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstalledPluginsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstalledPlugins(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeMonitorResourceInfoOutcome MonitorClient::DescribeMonitorResourceInfo(const DescribeMonitorResourceInfoRequest &request)
@@ -3912,32 +3373,25 @@ MonitorClient::DescribeMonitorResourceInfoOutcome MonitorClient::DescribeMonitor
 
 void MonitorClient::DescribeMonitorResourceInfoAsync(const DescribeMonitorResourceInfoRequest& request, const DescribeMonitorResourceInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMonitorResourceInfoRequest&;
-    using Resp = DescribeMonitorResourceInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMonitorResourceInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMonitorResourceInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeMonitorResourceInfoOutcomeCallable MonitorClient::DescribeMonitorResourceInfoCallable(const DescribeMonitorResourceInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMonitorResourceInfoOutcome>>();
-    DescribeMonitorResourceInfoAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeMonitorResourceInfoRequest&,
-        DescribeMonitorResourceInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMonitorResourceInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMonitorResourceInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeMonitorTypesOutcome MonitorClient::DescribeMonitorTypes(const DescribeMonitorTypesRequest &request)
@@ -3962,32 +3416,25 @@ MonitorClient::DescribeMonitorTypesOutcome MonitorClient::DescribeMonitorTypes(c
 
 void MonitorClient::DescribeMonitorTypesAsync(const DescribeMonitorTypesRequest& request, const DescribeMonitorTypesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeMonitorTypesRequest&;
-    using Resp = DescribeMonitorTypesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeMonitorTypes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeMonitorTypes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeMonitorTypesOutcomeCallable MonitorClient::DescribeMonitorTypesCallable(const DescribeMonitorTypesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeMonitorTypesOutcome>>();
-    DescribeMonitorTypesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeMonitorTypesRequest&,
-        DescribeMonitorTypesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeMonitorTypesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeMonitorTypes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePhoneAlarmFlowTotalCountOutcome MonitorClient::DescribePhoneAlarmFlowTotalCount(const DescribePhoneAlarmFlowTotalCountRequest &request)
@@ -4012,32 +3459,25 @@ MonitorClient::DescribePhoneAlarmFlowTotalCountOutcome MonitorClient::DescribePh
 
 void MonitorClient::DescribePhoneAlarmFlowTotalCountAsync(const DescribePhoneAlarmFlowTotalCountRequest& request, const DescribePhoneAlarmFlowTotalCountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePhoneAlarmFlowTotalCountRequest&;
-    using Resp = DescribePhoneAlarmFlowTotalCountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePhoneAlarmFlowTotalCount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePhoneAlarmFlowTotalCount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePhoneAlarmFlowTotalCountOutcomeCallable MonitorClient::DescribePhoneAlarmFlowTotalCountCallable(const DescribePhoneAlarmFlowTotalCountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePhoneAlarmFlowTotalCountOutcome>>();
-    DescribePhoneAlarmFlowTotalCountAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePhoneAlarmFlowTotalCountRequest&,
-        DescribePhoneAlarmFlowTotalCountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePhoneAlarmFlowTotalCountOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePhoneAlarmFlowTotalCount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePluginOverviewsOutcome MonitorClient::DescribePluginOverviews(const DescribePluginOverviewsRequest &request)
@@ -4062,32 +3502,25 @@ MonitorClient::DescribePluginOverviewsOutcome MonitorClient::DescribePluginOverv
 
 void MonitorClient::DescribePluginOverviewsAsync(const DescribePluginOverviewsRequest& request, const DescribePluginOverviewsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePluginOverviewsRequest&;
-    using Resp = DescribePluginOverviewsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePluginOverviews(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePluginOverviews", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePluginOverviewsOutcomeCallable MonitorClient::DescribePluginOverviewsCallable(const DescribePluginOverviewsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePluginOverviewsOutcome>>();
-    DescribePluginOverviewsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePluginOverviewsRequest&,
-        DescribePluginOverviewsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePluginOverviewsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePluginOverviews(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePolicyConditionListOutcome MonitorClient::DescribePolicyConditionList(const DescribePolicyConditionListRequest &request)
@@ -4112,32 +3545,25 @@ MonitorClient::DescribePolicyConditionListOutcome MonitorClient::DescribePolicyC
 
 void MonitorClient::DescribePolicyConditionListAsync(const DescribePolicyConditionListRequest& request, const DescribePolicyConditionListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePolicyConditionListRequest&;
-    using Resp = DescribePolicyConditionListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePolicyConditionList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePolicyConditionList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePolicyConditionListOutcomeCallable MonitorClient::DescribePolicyConditionListCallable(const DescribePolicyConditionListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePolicyConditionListOutcome>>();
-    DescribePolicyConditionListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePolicyConditionListRequest&,
-        DescribePolicyConditionListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePolicyConditionListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePolicyConditionList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePolicyGroupInfoOutcome MonitorClient::DescribePolicyGroupInfo(const DescribePolicyGroupInfoRequest &request)
@@ -4162,32 +3588,25 @@ MonitorClient::DescribePolicyGroupInfoOutcome MonitorClient::DescribePolicyGroup
 
 void MonitorClient::DescribePolicyGroupInfoAsync(const DescribePolicyGroupInfoRequest& request, const DescribePolicyGroupInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePolicyGroupInfoRequest&;
-    using Resp = DescribePolicyGroupInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePolicyGroupInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePolicyGroupInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePolicyGroupInfoOutcomeCallable MonitorClient::DescribePolicyGroupInfoCallable(const DescribePolicyGroupInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePolicyGroupInfoOutcome>>();
-    DescribePolicyGroupInfoAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePolicyGroupInfoRequest&,
-        DescribePolicyGroupInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePolicyGroupInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePolicyGroupInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePolicyGroupListOutcome MonitorClient::DescribePolicyGroupList(const DescribePolicyGroupListRequest &request)
@@ -4212,32 +3631,25 @@ MonitorClient::DescribePolicyGroupListOutcome MonitorClient::DescribePolicyGroup
 
 void MonitorClient::DescribePolicyGroupListAsync(const DescribePolicyGroupListRequest& request, const DescribePolicyGroupListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePolicyGroupListRequest&;
-    using Resp = DescribePolicyGroupListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePolicyGroupList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePolicyGroupList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePolicyGroupListOutcomeCallable MonitorClient::DescribePolicyGroupListCallable(const DescribePolicyGroupListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePolicyGroupListOutcome>>();
-    DescribePolicyGroupListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePolicyGroupListRequest&,
-        DescribePolicyGroupListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePolicyGroupListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePolicyGroupList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePolicyObjectCountOutcome MonitorClient::DescribePolicyObjectCount(const DescribePolicyObjectCountRequest &request)
@@ -4262,32 +3674,25 @@ MonitorClient::DescribePolicyObjectCountOutcome MonitorClient::DescribePolicyObj
 
 void MonitorClient::DescribePolicyObjectCountAsync(const DescribePolicyObjectCountRequest& request, const DescribePolicyObjectCountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePolicyObjectCountRequest&;
-    using Resp = DescribePolicyObjectCountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePolicyObjectCount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePolicyObjectCount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePolicyObjectCountOutcomeCallable MonitorClient::DescribePolicyObjectCountCallable(const DescribePolicyObjectCountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePolicyObjectCountOutcome>>();
-    DescribePolicyObjectCountAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePolicyObjectCountRequest&,
-        DescribePolicyObjectCountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePolicyObjectCountOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePolicyObjectCount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeProductEventListOutcome MonitorClient::DescribeProductEventList(const DescribeProductEventListRequest &request)
@@ -4312,32 +3717,25 @@ MonitorClient::DescribeProductEventListOutcome MonitorClient::DescribeProductEve
 
 void MonitorClient::DescribeProductEventListAsync(const DescribeProductEventListRequest& request, const DescribeProductEventListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProductEventListRequest&;
-    using Resp = DescribeProductEventListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProductEventList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProductEventList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeProductEventListOutcomeCallable MonitorClient::DescribeProductEventListCallable(const DescribeProductEventListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProductEventListOutcome>>();
-    DescribeProductEventListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeProductEventListRequest&,
-        DescribeProductEventListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProductEventListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProductEventList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeProductListOutcome MonitorClient::DescribeProductList(const DescribeProductListRequest &request)
@@ -4362,32 +3760,25 @@ MonitorClient::DescribeProductListOutcome MonitorClient::DescribeProductList(con
 
 void MonitorClient::DescribeProductListAsync(const DescribeProductListRequest& request, const DescribeProductListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProductListRequest&;
-    using Resp = DescribeProductListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProductList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProductList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeProductListOutcomeCallable MonitorClient::DescribeProductListCallable(const DescribeProductListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProductListOutcome>>();
-    DescribeProductListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeProductListRequest&,
-        DescribeProductListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProductListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProductList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusAgentInstancesOutcome MonitorClient::DescribePrometheusAgentInstances(const DescribePrometheusAgentInstancesRequest &request)
@@ -4412,32 +3803,25 @@ MonitorClient::DescribePrometheusAgentInstancesOutcome MonitorClient::DescribePr
 
 void MonitorClient::DescribePrometheusAgentInstancesAsync(const DescribePrometheusAgentInstancesRequest& request, const DescribePrometheusAgentInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusAgentInstancesRequest&;
-    using Resp = DescribePrometheusAgentInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusAgentInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusAgentInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusAgentInstancesOutcomeCallable MonitorClient::DescribePrometheusAgentInstancesCallable(const DescribePrometheusAgentInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusAgentInstancesOutcome>>();
-    DescribePrometheusAgentInstancesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusAgentInstancesRequest&,
-        DescribePrometheusAgentInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusAgentInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusAgentInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusAgentsOutcome MonitorClient::DescribePrometheusAgents(const DescribePrometheusAgentsRequest &request)
@@ -4462,32 +3846,25 @@ MonitorClient::DescribePrometheusAgentsOutcome MonitorClient::DescribePrometheus
 
 void MonitorClient::DescribePrometheusAgentsAsync(const DescribePrometheusAgentsRequest& request, const DescribePrometheusAgentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusAgentsRequest&;
-    using Resp = DescribePrometheusAgentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusAgents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusAgents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusAgentsOutcomeCallable MonitorClient::DescribePrometheusAgentsCallable(const DescribePrometheusAgentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusAgentsOutcome>>();
-    DescribePrometheusAgentsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusAgentsRequest&,
-        DescribePrometheusAgentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusAgentsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusAgents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusAlertGroupsOutcome MonitorClient::DescribePrometheusAlertGroups(const DescribePrometheusAlertGroupsRequest &request)
@@ -4512,32 +3889,25 @@ MonitorClient::DescribePrometheusAlertGroupsOutcome MonitorClient::DescribeProme
 
 void MonitorClient::DescribePrometheusAlertGroupsAsync(const DescribePrometheusAlertGroupsRequest& request, const DescribePrometheusAlertGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusAlertGroupsRequest&;
-    using Resp = DescribePrometheusAlertGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusAlertGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusAlertGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusAlertGroupsOutcomeCallable MonitorClient::DescribePrometheusAlertGroupsCallable(const DescribePrometheusAlertGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusAlertGroupsOutcome>>();
-    DescribePrometheusAlertGroupsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusAlertGroupsRequest&,
-        DescribePrometheusAlertGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusAlertGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusAlertGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusAlertPolicyOutcome MonitorClient::DescribePrometheusAlertPolicy(const DescribePrometheusAlertPolicyRequest &request)
@@ -4562,32 +3932,25 @@ MonitorClient::DescribePrometheusAlertPolicyOutcome MonitorClient::DescribeProme
 
 void MonitorClient::DescribePrometheusAlertPolicyAsync(const DescribePrometheusAlertPolicyRequest& request, const DescribePrometheusAlertPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusAlertPolicyRequest&;
-    using Resp = DescribePrometheusAlertPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusAlertPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusAlertPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusAlertPolicyOutcomeCallable MonitorClient::DescribePrometheusAlertPolicyCallable(const DescribePrometheusAlertPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusAlertPolicyOutcome>>();
-    DescribePrometheusAlertPolicyAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusAlertPolicyRequest&,
-        DescribePrometheusAlertPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusAlertPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusAlertPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusClusterAgentsOutcome MonitorClient::DescribePrometheusClusterAgents(const DescribePrometheusClusterAgentsRequest &request)
@@ -4612,32 +3975,25 @@ MonitorClient::DescribePrometheusClusterAgentsOutcome MonitorClient::DescribePro
 
 void MonitorClient::DescribePrometheusClusterAgentsAsync(const DescribePrometheusClusterAgentsRequest& request, const DescribePrometheusClusterAgentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusClusterAgentsRequest&;
-    using Resp = DescribePrometheusClusterAgentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusClusterAgents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusClusterAgents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusClusterAgentsOutcomeCallable MonitorClient::DescribePrometheusClusterAgentsCallable(const DescribePrometheusClusterAgentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusClusterAgentsOutcome>>();
-    DescribePrometheusClusterAgentsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusClusterAgentsRequest&,
-        DescribePrometheusClusterAgentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusClusterAgentsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusClusterAgents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusConfigOutcome MonitorClient::DescribePrometheusConfig(const DescribePrometheusConfigRequest &request)
@@ -4662,32 +4018,25 @@ MonitorClient::DescribePrometheusConfigOutcome MonitorClient::DescribePrometheus
 
 void MonitorClient::DescribePrometheusConfigAsync(const DescribePrometheusConfigRequest& request, const DescribePrometheusConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusConfigRequest&;
-    using Resp = DescribePrometheusConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusConfigOutcomeCallable MonitorClient::DescribePrometheusConfigCallable(const DescribePrometheusConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusConfigOutcome>>();
-    DescribePrometheusConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusConfigRequest&,
-        DescribePrometheusConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusGlobalConfigOutcome MonitorClient::DescribePrometheusGlobalConfig(const DescribePrometheusGlobalConfigRequest &request)
@@ -4712,32 +4061,25 @@ MonitorClient::DescribePrometheusGlobalConfigOutcome MonitorClient::DescribeProm
 
 void MonitorClient::DescribePrometheusGlobalConfigAsync(const DescribePrometheusGlobalConfigRequest& request, const DescribePrometheusGlobalConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusGlobalConfigRequest&;
-    using Resp = DescribePrometheusGlobalConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusGlobalConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusGlobalConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusGlobalConfigOutcomeCallable MonitorClient::DescribePrometheusGlobalConfigCallable(const DescribePrometheusGlobalConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusGlobalConfigOutcome>>();
-    DescribePrometheusGlobalConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusGlobalConfigRequest&,
-        DescribePrometheusGlobalConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusGlobalConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusGlobalConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusGlobalNotificationOutcome MonitorClient::DescribePrometheusGlobalNotification(const DescribePrometheusGlobalNotificationRequest &request)
@@ -4762,32 +4104,25 @@ MonitorClient::DescribePrometheusGlobalNotificationOutcome MonitorClient::Descri
 
 void MonitorClient::DescribePrometheusGlobalNotificationAsync(const DescribePrometheusGlobalNotificationRequest& request, const DescribePrometheusGlobalNotificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusGlobalNotificationRequest&;
-    using Resp = DescribePrometheusGlobalNotificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusGlobalNotification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusGlobalNotification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusGlobalNotificationOutcomeCallable MonitorClient::DescribePrometheusGlobalNotificationCallable(const DescribePrometheusGlobalNotificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusGlobalNotificationOutcome>>();
-    DescribePrometheusGlobalNotificationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusGlobalNotificationRequest&,
-        DescribePrometheusGlobalNotificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusGlobalNotificationOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusGlobalNotification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusInstanceDetailOutcome MonitorClient::DescribePrometheusInstanceDetail(const DescribePrometheusInstanceDetailRequest &request)
@@ -4812,32 +4147,25 @@ MonitorClient::DescribePrometheusInstanceDetailOutcome MonitorClient::DescribePr
 
 void MonitorClient::DescribePrometheusInstanceDetailAsync(const DescribePrometheusInstanceDetailRequest& request, const DescribePrometheusInstanceDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusInstanceDetailRequest&;
-    using Resp = DescribePrometheusInstanceDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusInstanceDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusInstanceDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusInstanceDetailOutcomeCallable MonitorClient::DescribePrometheusInstanceDetailCallable(const DescribePrometheusInstanceDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusInstanceDetailOutcome>>();
-    DescribePrometheusInstanceDetailAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusInstanceDetailRequest&,
-        DescribePrometheusInstanceDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusInstanceDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusInstanceDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusInstanceInitStatusOutcome MonitorClient::DescribePrometheusInstanceInitStatus(const DescribePrometheusInstanceInitStatusRequest &request)
@@ -4862,32 +4190,25 @@ MonitorClient::DescribePrometheusInstanceInitStatusOutcome MonitorClient::Descri
 
 void MonitorClient::DescribePrometheusInstanceInitStatusAsync(const DescribePrometheusInstanceInitStatusRequest& request, const DescribePrometheusInstanceInitStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusInstanceInitStatusRequest&;
-    using Resp = DescribePrometheusInstanceInitStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusInstanceInitStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusInstanceInitStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusInstanceInitStatusOutcomeCallable MonitorClient::DescribePrometheusInstanceInitStatusCallable(const DescribePrometheusInstanceInitStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusInstanceInitStatusOutcome>>();
-    DescribePrometheusInstanceInitStatusAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusInstanceInitStatusRequest&,
-        DescribePrometheusInstanceInitStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusInstanceInitStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusInstanceInitStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusInstanceUsageOutcome MonitorClient::DescribePrometheusInstanceUsage(const DescribePrometheusInstanceUsageRequest &request)
@@ -4912,32 +4233,25 @@ MonitorClient::DescribePrometheusInstanceUsageOutcome MonitorClient::DescribePro
 
 void MonitorClient::DescribePrometheusInstanceUsageAsync(const DescribePrometheusInstanceUsageRequest& request, const DescribePrometheusInstanceUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusInstanceUsageRequest&;
-    using Resp = DescribePrometheusInstanceUsageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusInstanceUsage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusInstanceUsage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusInstanceUsageOutcomeCallable MonitorClient::DescribePrometheusInstanceUsageCallable(const DescribePrometheusInstanceUsageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusInstanceUsageOutcome>>();
-    DescribePrometheusInstanceUsageAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusInstanceUsageRequest&,
-        DescribePrometheusInstanceUsageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusInstanceUsageOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusInstanceUsage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusInstancesOutcome MonitorClient::DescribePrometheusInstances(const DescribePrometheusInstancesRequest &request)
@@ -4962,32 +4276,25 @@ MonitorClient::DescribePrometheusInstancesOutcome MonitorClient::DescribePrometh
 
 void MonitorClient::DescribePrometheusInstancesAsync(const DescribePrometheusInstancesRequest& request, const DescribePrometheusInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusInstancesRequest&;
-    using Resp = DescribePrometheusInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusInstancesOutcomeCallable MonitorClient::DescribePrometheusInstancesCallable(const DescribePrometheusInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusInstancesOutcome>>();
-    DescribePrometheusInstancesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusInstancesRequest&,
-        DescribePrometheusInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusInstancesOverviewOutcome MonitorClient::DescribePrometheusInstancesOverview(const DescribePrometheusInstancesOverviewRequest &request)
@@ -5012,32 +4319,25 @@ MonitorClient::DescribePrometheusInstancesOverviewOutcome MonitorClient::Describ
 
 void MonitorClient::DescribePrometheusInstancesOverviewAsync(const DescribePrometheusInstancesOverviewRequest& request, const DescribePrometheusInstancesOverviewAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusInstancesOverviewRequest&;
-    using Resp = DescribePrometheusInstancesOverviewResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusInstancesOverview(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusInstancesOverview", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusInstancesOverviewOutcomeCallable MonitorClient::DescribePrometheusInstancesOverviewCallable(const DescribePrometheusInstancesOverviewRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusInstancesOverviewOutcome>>();
-    DescribePrometheusInstancesOverviewAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusInstancesOverviewRequest&,
-        DescribePrometheusInstancesOverviewOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusInstancesOverviewOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusInstancesOverview(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusIntegrationMetricsOutcome MonitorClient::DescribePrometheusIntegrationMetrics(const DescribePrometheusIntegrationMetricsRequest &request)
@@ -5062,32 +4362,25 @@ MonitorClient::DescribePrometheusIntegrationMetricsOutcome MonitorClient::Descri
 
 void MonitorClient::DescribePrometheusIntegrationMetricsAsync(const DescribePrometheusIntegrationMetricsRequest& request, const DescribePrometheusIntegrationMetricsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusIntegrationMetricsRequest&;
-    using Resp = DescribePrometheusIntegrationMetricsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusIntegrationMetrics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusIntegrationMetrics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusIntegrationMetricsOutcomeCallable MonitorClient::DescribePrometheusIntegrationMetricsCallable(const DescribePrometheusIntegrationMetricsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusIntegrationMetricsOutcome>>();
-    DescribePrometheusIntegrationMetricsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusIntegrationMetricsRequest&,
-        DescribePrometheusIntegrationMetricsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusIntegrationMetricsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusIntegrationMetrics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusRecordRulesOutcome MonitorClient::DescribePrometheusRecordRules(const DescribePrometheusRecordRulesRequest &request)
@@ -5112,32 +4405,25 @@ MonitorClient::DescribePrometheusRecordRulesOutcome MonitorClient::DescribeProme
 
 void MonitorClient::DescribePrometheusRecordRulesAsync(const DescribePrometheusRecordRulesRequest& request, const DescribePrometheusRecordRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusRecordRulesRequest&;
-    using Resp = DescribePrometheusRecordRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusRecordRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusRecordRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusRecordRulesOutcomeCallable MonitorClient::DescribePrometheusRecordRulesCallable(const DescribePrometheusRecordRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusRecordRulesOutcome>>();
-    DescribePrometheusRecordRulesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusRecordRulesRequest&,
-        DescribePrometheusRecordRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusRecordRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusRecordRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusRegionsOutcome MonitorClient::DescribePrometheusRegions(const DescribePrometheusRegionsRequest &request)
@@ -5162,32 +4448,25 @@ MonitorClient::DescribePrometheusRegionsOutcome MonitorClient::DescribePrometheu
 
 void MonitorClient::DescribePrometheusRegionsAsync(const DescribePrometheusRegionsRequest& request, const DescribePrometheusRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusRegionsRequest&;
-    using Resp = DescribePrometheusRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusRegionsOutcomeCallable MonitorClient::DescribePrometheusRegionsCallable(const DescribePrometheusRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusRegionsOutcome>>();
-    DescribePrometheusRegionsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusRegionsRequest&,
-        DescribePrometheusRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusScrapeJobsOutcome MonitorClient::DescribePrometheusScrapeJobs(const DescribePrometheusScrapeJobsRequest &request)
@@ -5212,32 +4491,25 @@ MonitorClient::DescribePrometheusScrapeJobsOutcome MonitorClient::DescribePromet
 
 void MonitorClient::DescribePrometheusScrapeJobsAsync(const DescribePrometheusScrapeJobsRequest& request, const DescribePrometheusScrapeJobsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusScrapeJobsRequest&;
-    using Resp = DescribePrometheusScrapeJobsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusScrapeJobs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusScrapeJobs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusScrapeJobsOutcomeCallable MonitorClient::DescribePrometheusScrapeJobsCallable(const DescribePrometheusScrapeJobsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusScrapeJobsOutcome>>();
-    DescribePrometheusScrapeJobsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusScrapeJobsRequest&,
-        DescribePrometheusScrapeJobsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusScrapeJobsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusScrapeJobs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusScrapeStatisticsOutcome MonitorClient::DescribePrometheusScrapeStatistics(const DescribePrometheusScrapeStatisticsRequest &request)
@@ -5262,32 +4534,25 @@ MonitorClient::DescribePrometheusScrapeStatisticsOutcome MonitorClient::Describe
 
 void MonitorClient::DescribePrometheusScrapeStatisticsAsync(const DescribePrometheusScrapeStatisticsRequest& request, const DescribePrometheusScrapeStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusScrapeStatisticsRequest&;
-    using Resp = DescribePrometheusScrapeStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusScrapeStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusScrapeStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusScrapeStatisticsOutcomeCallable MonitorClient::DescribePrometheusScrapeStatisticsCallable(const DescribePrometheusScrapeStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusScrapeStatisticsOutcome>>();
-    DescribePrometheusScrapeStatisticsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusScrapeStatisticsRequest&,
-        DescribePrometheusScrapeStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusScrapeStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusScrapeStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusTargetsTMPOutcome MonitorClient::DescribePrometheusTargetsTMP(const DescribePrometheusTargetsTMPRequest &request)
@@ -5312,32 +4577,25 @@ MonitorClient::DescribePrometheusTargetsTMPOutcome MonitorClient::DescribePromet
 
 void MonitorClient::DescribePrometheusTargetsTMPAsync(const DescribePrometheusTargetsTMPRequest& request, const DescribePrometheusTargetsTMPAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusTargetsTMPRequest&;
-    using Resp = DescribePrometheusTargetsTMPResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusTargetsTMP(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusTargetsTMP", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusTargetsTMPOutcomeCallable MonitorClient::DescribePrometheusTargetsTMPCallable(const DescribePrometheusTargetsTMPRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusTargetsTMPOutcome>>();
-    DescribePrometheusTargetsTMPAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusTargetsTMPRequest&,
-        DescribePrometheusTargetsTMPOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusTargetsTMPOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusTargetsTMP(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusTempOutcome MonitorClient::DescribePrometheusTemp(const DescribePrometheusTempRequest &request)
@@ -5362,32 +4620,25 @@ MonitorClient::DescribePrometheusTempOutcome MonitorClient::DescribePrometheusTe
 
 void MonitorClient::DescribePrometheusTempAsync(const DescribePrometheusTempRequest& request, const DescribePrometheusTempAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusTempRequest&;
-    using Resp = DescribePrometheusTempResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusTemp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusTemp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusTempOutcomeCallable MonitorClient::DescribePrometheusTempCallable(const DescribePrometheusTempRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusTempOutcome>>();
-    DescribePrometheusTempAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusTempRequest&,
-        DescribePrometheusTempOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusTempOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusTemp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusTempSyncOutcome MonitorClient::DescribePrometheusTempSync(const DescribePrometheusTempSyncRequest &request)
@@ -5412,32 +4663,25 @@ MonitorClient::DescribePrometheusTempSyncOutcome MonitorClient::DescribePromethe
 
 void MonitorClient::DescribePrometheusTempSyncAsync(const DescribePrometheusTempSyncRequest& request, const DescribePrometheusTempSyncAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusTempSyncRequest&;
-    using Resp = DescribePrometheusTempSyncResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusTempSync(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusTempSync", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusTempSyncOutcomeCallable MonitorClient::DescribePrometheusTempSyncCallable(const DescribePrometheusTempSyncRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusTempSyncOutcome>>();
-    DescribePrometheusTempSyncAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusTempSyncRequest&,
-        DescribePrometheusTempSyncOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusTempSyncOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusTempSync(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribePrometheusZonesOutcome MonitorClient::DescribePrometheusZones(const DescribePrometheusZonesRequest &request)
@@ -5462,32 +4706,25 @@ MonitorClient::DescribePrometheusZonesOutcome MonitorClient::DescribePrometheusZ
 
 void MonitorClient::DescribePrometheusZonesAsync(const DescribePrometheusZonesRequest& request, const DescribePrometheusZonesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrometheusZonesRequest&;
-    using Resp = DescribePrometheusZonesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrometheusZones(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrometheusZones", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribePrometheusZonesOutcomeCallable MonitorClient::DescribePrometheusZonesCallable(const DescribePrometheusZonesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrometheusZonesOutcome>>();
-    DescribePrometheusZonesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribePrometheusZonesRequest&,
-        DescribePrometheusZonesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrometheusZonesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrometheusZones(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeRecordingRulesOutcome MonitorClient::DescribeRecordingRules(const DescribeRecordingRulesRequest &request)
@@ -5512,32 +4749,25 @@ MonitorClient::DescribeRecordingRulesOutcome MonitorClient::DescribeRecordingRul
 
 void MonitorClient::DescribeRecordingRulesAsync(const DescribeRecordingRulesRequest& request, const DescribeRecordingRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRecordingRulesRequest&;
-    using Resp = DescribeRecordingRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRecordingRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRecordingRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeRecordingRulesOutcomeCallable MonitorClient::DescribeRecordingRulesCallable(const DescribeRecordingRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRecordingRulesOutcome>>();
-    DescribeRecordingRulesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeRecordingRulesRequest&,
-        DescribeRecordingRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRecordingRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRecordingRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeRemoteURLsOutcome MonitorClient::DescribeRemoteURLs(const DescribeRemoteURLsRequest &request)
@@ -5562,32 +4792,25 @@ MonitorClient::DescribeRemoteURLsOutcome MonitorClient::DescribeRemoteURLs(const
 
 void MonitorClient::DescribeRemoteURLsAsync(const DescribeRemoteURLsRequest& request, const DescribeRemoteURLsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRemoteURLsRequest&;
-    using Resp = DescribeRemoteURLsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRemoteURLs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRemoteURLs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeRemoteURLsOutcomeCallable MonitorClient::DescribeRemoteURLsCallable(const DescribeRemoteURLsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRemoteURLsOutcome>>();
-    DescribeRemoteURLsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeRemoteURLsRequest&,
-        DescribeRemoteURLsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRemoteURLsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRemoteURLs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeRemoteWritesOutcome MonitorClient::DescribeRemoteWrites(const DescribeRemoteWritesRequest &request)
@@ -5612,32 +4835,25 @@ MonitorClient::DescribeRemoteWritesOutcome MonitorClient::DescribeRemoteWrites(c
 
 void MonitorClient::DescribeRemoteWritesAsync(const DescribeRemoteWritesRequest& request, const DescribeRemoteWritesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRemoteWritesRequest&;
-    using Resp = DescribeRemoteWritesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRemoteWrites(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRemoteWrites", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeRemoteWritesOutcomeCallable MonitorClient::DescribeRemoteWritesCallable(const DescribeRemoteWritesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRemoteWritesOutcome>>();
-    DescribeRemoteWritesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeRemoteWritesRequest&,
-        DescribeRemoteWritesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRemoteWritesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRemoteWrites(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeSSOAccountOutcome MonitorClient::DescribeSSOAccount(const DescribeSSOAccountRequest &request)
@@ -5662,32 +4878,25 @@ MonitorClient::DescribeSSOAccountOutcome MonitorClient::DescribeSSOAccount(const
 
 void MonitorClient::DescribeSSOAccountAsync(const DescribeSSOAccountRequest& request, const DescribeSSOAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSSOAccountRequest&;
-    using Resp = DescribeSSOAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSSOAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSSOAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeSSOAccountOutcomeCallable MonitorClient::DescribeSSOAccountCallable(const DescribeSSOAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSSOAccountOutcome>>();
-    DescribeSSOAccountAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeSSOAccountRequest&,
-        DescribeSSOAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSSOAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSSOAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeServiceDiscoveryOutcome MonitorClient::DescribeServiceDiscovery(const DescribeServiceDiscoveryRequest &request)
@@ -5712,32 +4921,25 @@ MonitorClient::DescribeServiceDiscoveryOutcome MonitorClient::DescribeServiceDis
 
 void MonitorClient::DescribeServiceDiscoveryAsync(const DescribeServiceDiscoveryRequest& request, const DescribeServiceDiscoveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeServiceDiscoveryRequest&;
-    using Resp = DescribeServiceDiscoveryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeServiceDiscovery(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeServiceDiscovery", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeServiceDiscoveryOutcomeCallable MonitorClient::DescribeServiceDiscoveryCallable(const DescribeServiceDiscoveryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeServiceDiscoveryOutcome>>();
-    DescribeServiceDiscoveryAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeServiceDiscoveryRequest&,
-        DescribeServiceDiscoveryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeServiceDiscoveryOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeServiceDiscovery(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DescribeStatisticDataOutcome MonitorClient::DescribeStatisticData(const DescribeStatisticDataRequest &request)
@@ -5762,32 +4964,25 @@ MonitorClient::DescribeStatisticDataOutcome MonitorClient::DescribeStatisticData
 
 void MonitorClient::DescribeStatisticDataAsync(const DescribeStatisticDataRequest& request, const DescribeStatisticDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeStatisticDataRequest&;
-    using Resp = DescribeStatisticDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeStatisticData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeStatisticData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DescribeStatisticDataOutcomeCallable MonitorClient::DescribeStatisticDataCallable(const DescribeStatisticDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeStatisticDataOutcome>>();
-    DescribeStatisticDataAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DescribeStatisticDataRequest&,
-        DescribeStatisticDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeStatisticDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeStatisticData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::DestroyPrometheusInstanceOutcome MonitorClient::DestroyPrometheusInstance(const DestroyPrometheusInstanceRequest &request)
@@ -5812,32 +5007,25 @@ MonitorClient::DestroyPrometheusInstanceOutcome MonitorClient::DestroyPrometheus
 
 void MonitorClient::DestroyPrometheusInstanceAsync(const DestroyPrometheusInstanceRequest& request, const DestroyPrometheusInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyPrometheusInstanceRequest&;
-    using Resp = DestroyPrometheusInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyPrometheusInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyPrometheusInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::DestroyPrometheusInstanceOutcomeCallable MonitorClient::DestroyPrometheusInstanceCallable(const DestroyPrometheusInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyPrometheusInstanceOutcome>>();
-    DestroyPrometheusInstanceAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const DestroyPrometheusInstanceRequest&,
-        DestroyPrometheusInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyPrometheusInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyPrometheusInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::EnableGrafanaInternetOutcome MonitorClient::EnableGrafanaInternet(const EnableGrafanaInternetRequest &request)
@@ -5862,32 +5050,25 @@ MonitorClient::EnableGrafanaInternetOutcome MonitorClient::EnableGrafanaInternet
 
 void MonitorClient::EnableGrafanaInternetAsync(const EnableGrafanaInternetRequest& request, const EnableGrafanaInternetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableGrafanaInternetRequest&;
-    using Resp = EnableGrafanaInternetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableGrafanaInternet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableGrafanaInternet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::EnableGrafanaInternetOutcomeCallable MonitorClient::EnableGrafanaInternetCallable(const EnableGrafanaInternetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableGrafanaInternetOutcome>>();
-    EnableGrafanaInternetAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const EnableGrafanaInternetRequest&,
-        EnableGrafanaInternetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableGrafanaInternetOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableGrafanaInternet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::EnableGrafanaSSOOutcome MonitorClient::EnableGrafanaSSO(const EnableGrafanaSSORequest &request)
@@ -5912,32 +5093,25 @@ MonitorClient::EnableGrafanaSSOOutcome MonitorClient::EnableGrafanaSSO(const Ena
 
 void MonitorClient::EnableGrafanaSSOAsync(const EnableGrafanaSSORequest& request, const EnableGrafanaSSOAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableGrafanaSSORequest&;
-    using Resp = EnableGrafanaSSOResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableGrafanaSSO(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableGrafanaSSO", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::EnableGrafanaSSOOutcomeCallable MonitorClient::EnableGrafanaSSOCallable(const EnableGrafanaSSORequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableGrafanaSSOOutcome>>();
-    EnableGrafanaSSOAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const EnableGrafanaSSORequest&,
-        EnableGrafanaSSOOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableGrafanaSSOOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableGrafanaSSO(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::EnableSSOCamCheckOutcome MonitorClient::EnableSSOCamCheck(const EnableSSOCamCheckRequest &request)
@@ -5962,32 +5136,25 @@ MonitorClient::EnableSSOCamCheckOutcome MonitorClient::EnableSSOCamCheck(const E
 
 void MonitorClient::EnableSSOCamCheckAsync(const EnableSSOCamCheckRequest& request, const EnableSSOCamCheckAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableSSOCamCheckRequest&;
-    using Resp = EnableSSOCamCheckResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableSSOCamCheck(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableSSOCamCheck", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::EnableSSOCamCheckOutcomeCallable MonitorClient::EnableSSOCamCheckCallable(const EnableSSOCamCheckRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableSSOCamCheckOutcome>>();
-    EnableSSOCamCheckAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const EnableSSOCamCheckRequest&,
-        EnableSSOCamCheckOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableSSOCamCheckOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableSSOCamCheck(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ExportPrometheusReadOnlyDynamicAPIOutcome MonitorClient::ExportPrometheusReadOnlyDynamicAPI(const ExportPrometheusReadOnlyDynamicAPIRequest &request)
@@ -6012,32 +5179,25 @@ MonitorClient::ExportPrometheusReadOnlyDynamicAPIOutcome MonitorClient::ExportPr
 
 void MonitorClient::ExportPrometheusReadOnlyDynamicAPIAsync(const ExportPrometheusReadOnlyDynamicAPIRequest& request, const ExportPrometheusReadOnlyDynamicAPIAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ExportPrometheusReadOnlyDynamicAPIRequest&;
-    using Resp = ExportPrometheusReadOnlyDynamicAPIResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ExportPrometheusReadOnlyDynamicAPI(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ExportPrometheusReadOnlyDynamicAPI", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ExportPrometheusReadOnlyDynamicAPIOutcomeCallable MonitorClient::ExportPrometheusReadOnlyDynamicAPICallable(const ExportPrometheusReadOnlyDynamicAPIRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ExportPrometheusReadOnlyDynamicAPIOutcome>>();
-    ExportPrometheusReadOnlyDynamicAPIAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ExportPrometheusReadOnlyDynamicAPIRequest&,
-        ExportPrometheusReadOnlyDynamicAPIOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ExportPrometheusReadOnlyDynamicAPIOutcome()>>(
+        [this, request]()
+        {
+            return this->ExportPrometheusReadOnlyDynamicAPI(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::GetMonitorDataOutcome MonitorClient::GetMonitorData(const GetMonitorDataRequest &request)
@@ -6062,32 +5222,25 @@ MonitorClient::GetMonitorDataOutcome MonitorClient::GetMonitorData(const GetMoni
 
 void MonitorClient::GetMonitorDataAsync(const GetMonitorDataRequest& request, const GetMonitorDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetMonitorDataRequest&;
-    using Resp = GetMonitorDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetMonitorData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetMonitorData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::GetMonitorDataOutcomeCallable MonitorClient::GetMonitorDataCallable(const GetMonitorDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetMonitorDataOutcome>>();
-    GetMonitorDataAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const GetMonitorDataRequest&,
-        GetMonitorDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetMonitorDataOutcome()>>(
+        [this, request]()
+        {
+            return this->GetMonitorData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::GetPrometheusAgentManagementCommandOutcome MonitorClient::GetPrometheusAgentManagementCommand(const GetPrometheusAgentManagementCommandRequest &request)
@@ -6112,32 +5265,25 @@ MonitorClient::GetPrometheusAgentManagementCommandOutcome MonitorClient::GetProm
 
 void MonitorClient::GetPrometheusAgentManagementCommandAsync(const GetPrometheusAgentManagementCommandRequest& request, const GetPrometheusAgentManagementCommandAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetPrometheusAgentManagementCommandRequest&;
-    using Resp = GetPrometheusAgentManagementCommandResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetPrometheusAgentManagementCommand(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetPrometheusAgentManagementCommand", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::GetPrometheusAgentManagementCommandOutcomeCallable MonitorClient::GetPrometheusAgentManagementCommandCallable(const GetPrometheusAgentManagementCommandRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetPrometheusAgentManagementCommandOutcome>>();
-    GetPrometheusAgentManagementCommandAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const GetPrometheusAgentManagementCommandRequest&,
-        GetPrometheusAgentManagementCommandOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetPrometheusAgentManagementCommandOutcome()>>(
+        [this, request]()
+        {
+            return this->GetPrometheusAgentManagementCommand(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::GetTopNMonitorDataOutcome MonitorClient::GetTopNMonitorData(const GetTopNMonitorDataRequest &request)
@@ -6162,32 +5308,25 @@ MonitorClient::GetTopNMonitorDataOutcome MonitorClient::GetTopNMonitorData(const
 
 void MonitorClient::GetTopNMonitorDataAsync(const GetTopNMonitorDataRequest& request, const GetTopNMonitorDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTopNMonitorDataRequest&;
-    using Resp = GetTopNMonitorDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTopNMonitorData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTopNMonitorData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::GetTopNMonitorDataOutcomeCallable MonitorClient::GetTopNMonitorDataCallable(const GetTopNMonitorDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTopNMonitorDataOutcome>>();
-    GetTopNMonitorDataAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const GetTopNMonitorDataRequest&,
-        GetTopNMonitorDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTopNMonitorDataOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTopNMonitorData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::InstallPluginsOutcome MonitorClient::InstallPlugins(const InstallPluginsRequest &request)
@@ -6212,32 +5351,25 @@ MonitorClient::InstallPluginsOutcome MonitorClient::InstallPlugins(const Install
 
 void MonitorClient::InstallPluginsAsync(const InstallPluginsRequest& request, const InstallPluginsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InstallPluginsRequest&;
-    using Resp = InstallPluginsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InstallPlugins(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InstallPlugins", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::InstallPluginsOutcomeCallable MonitorClient::InstallPluginsCallable(const InstallPluginsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InstallPluginsOutcome>>();
-    InstallPluginsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const InstallPluginsRequest&,
-        InstallPluginsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InstallPluginsOutcome()>>(
+        [this, request]()
+        {
+            return this->InstallPlugins(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyAlarmNoticeOutcome MonitorClient::ModifyAlarmNotice(const ModifyAlarmNoticeRequest &request)
@@ -6262,32 +5394,25 @@ MonitorClient::ModifyAlarmNoticeOutcome MonitorClient::ModifyAlarmNotice(const M
 
 void MonitorClient::ModifyAlarmNoticeAsync(const ModifyAlarmNoticeRequest& request, const ModifyAlarmNoticeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmNoticeRequest&;
-    using Resp = ModifyAlarmNoticeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmNotice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmNotice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyAlarmNoticeOutcomeCallable MonitorClient::ModifyAlarmNoticeCallable(const ModifyAlarmNoticeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmNoticeOutcome>>();
-    ModifyAlarmNoticeAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyAlarmNoticeRequest&,
-        ModifyAlarmNoticeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmNoticeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmNotice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyAlarmPolicyConditionOutcome MonitorClient::ModifyAlarmPolicyCondition(const ModifyAlarmPolicyConditionRequest &request)
@@ -6312,32 +5437,25 @@ MonitorClient::ModifyAlarmPolicyConditionOutcome MonitorClient::ModifyAlarmPolic
 
 void MonitorClient::ModifyAlarmPolicyConditionAsync(const ModifyAlarmPolicyConditionRequest& request, const ModifyAlarmPolicyConditionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmPolicyConditionRequest&;
-    using Resp = ModifyAlarmPolicyConditionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmPolicyCondition(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmPolicyCondition", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyAlarmPolicyConditionOutcomeCallable MonitorClient::ModifyAlarmPolicyConditionCallable(const ModifyAlarmPolicyConditionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmPolicyConditionOutcome>>();
-    ModifyAlarmPolicyConditionAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyAlarmPolicyConditionRequest&,
-        ModifyAlarmPolicyConditionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmPolicyConditionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmPolicyCondition(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyAlarmPolicyInfoOutcome MonitorClient::ModifyAlarmPolicyInfo(const ModifyAlarmPolicyInfoRequest &request)
@@ -6362,32 +5480,25 @@ MonitorClient::ModifyAlarmPolicyInfoOutcome MonitorClient::ModifyAlarmPolicyInfo
 
 void MonitorClient::ModifyAlarmPolicyInfoAsync(const ModifyAlarmPolicyInfoRequest& request, const ModifyAlarmPolicyInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmPolicyInfoRequest&;
-    using Resp = ModifyAlarmPolicyInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmPolicyInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmPolicyInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyAlarmPolicyInfoOutcomeCallable MonitorClient::ModifyAlarmPolicyInfoCallable(const ModifyAlarmPolicyInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmPolicyInfoOutcome>>();
-    ModifyAlarmPolicyInfoAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyAlarmPolicyInfoRequest&,
-        ModifyAlarmPolicyInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmPolicyInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmPolicyInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyAlarmPolicyNoticeOutcome MonitorClient::ModifyAlarmPolicyNotice(const ModifyAlarmPolicyNoticeRequest &request)
@@ -6412,32 +5523,25 @@ MonitorClient::ModifyAlarmPolicyNoticeOutcome MonitorClient::ModifyAlarmPolicyNo
 
 void MonitorClient::ModifyAlarmPolicyNoticeAsync(const ModifyAlarmPolicyNoticeRequest& request, const ModifyAlarmPolicyNoticeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmPolicyNoticeRequest&;
-    using Resp = ModifyAlarmPolicyNoticeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmPolicyNotice(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmPolicyNotice", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyAlarmPolicyNoticeOutcomeCallable MonitorClient::ModifyAlarmPolicyNoticeCallable(const ModifyAlarmPolicyNoticeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmPolicyNoticeOutcome>>();
-    ModifyAlarmPolicyNoticeAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyAlarmPolicyNoticeRequest&,
-        ModifyAlarmPolicyNoticeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmPolicyNoticeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmPolicyNotice(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyAlarmPolicyStatusOutcome MonitorClient::ModifyAlarmPolicyStatus(const ModifyAlarmPolicyStatusRequest &request)
@@ -6462,32 +5566,25 @@ MonitorClient::ModifyAlarmPolicyStatusOutcome MonitorClient::ModifyAlarmPolicySt
 
 void MonitorClient::ModifyAlarmPolicyStatusAsync(const ModifyAlarmPolicyStatusRequest& request, const ModifyAlarmPolicyStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmPolicyStatusRequest&;
-    using Resp = ModifyAlarmPolicyStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmPolicyStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmPolicyStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyAlarmPolicyStatusOutcomeCallable MonitorClient::ModifyAlarmPolicyStatusCallable(const ModifyAlarmPolicyStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmPolicyStatusOutcome>>();
-    ModifyAlarmPolicyStatusAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyAlarmPolicyStatusRequest&,
-        ModifyAlarmPolicyStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmPolicyStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmPolicyStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyAlarmPolicyTasksOutcome MonitorClient::ModifyAlarmPolicyTasks(const ModifyAlarmPolicyTasksRequest &request)
@@ -6512,32 +5609,25 @@ MonitorClient::ModifyAlarmPolicyTasksOutcome MonitorClient::ModifyAlarmPolicyTas
 
 void MonitorClient::ModifyAlarmPolicyTasksAsync(const ModifyAlarmPolicyTasksRequest& request, const ModifyAlarmPolicyTasksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmPolicyTasksRequest&;
-    using Resp = ModifyAlarmPolicyTasksResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmPolicyTasks(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmPolicyTasks", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyAlarmPolicyTasksOutcomeCallable MonitorClient::ModifyAlarmPolicyTasksCallable(const ModifyAlarmPolicyTasksRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmPolicyTasksOutcome>>();
-    ModifyAlarmPolicyTasksAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyAlarmPolicyTasksRequest&,
-        ModifyAlarmPolicyTasksOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmPolicyTasksOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmPolicyTasks(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyAlarmReceiversOutcome MonitorClient::ModifyAlarmReceivers(const ModifyAlarmReceiversRequest &request)
@@ -6562,32 +5652,25 @@ MonitorClient::ModifyAlarmReceiversOutcome MonitorClient::ModifyAlarmReceivers(c
 
 void MonitorClient::ModifyAlarmReceiversAsync(const ModifyAlarmReceiversRequest& request, const ModifyAlarmReceiversAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAlarmReceiversRequest&;
-    using Resp = ModifyAlarmReceiversResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAlarmReceivers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAlarmReceivers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyAlarmReceiversOutcomeCallable MonitorClient::ModifyAlarmReceiversCallable(const ModifyAlarmReceiversRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAlarmReceiversOutcome>>();
-    ModifyAlarmReceiversAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyAlarmReceiversRequest&,
-        ModifyAlarmReceiversOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAlarmReceiversOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAlarmReceivers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyGrafanaInstanceOutcome MonitorClient::ModifyGrafanaInstance(const ModifyGrafanaInstanceRequest &request)
@@ -6612,32 +5695,25 @@ MonitorClient::ModifyGrafanaInstanceOutcome MonitorClient::ModifyGrafanaInstance
 
 void MonitorClient::ModifyGrafanaInstanceAsync(const ModifyGrafanaInstanceRequest& request, const ModifyGrafanaInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGrafanaInstanceRequest&;
-    using Resp = ModifyGrafanaInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGrafanaInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGrafanaInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyGrafanaInstanceOutcomeCallable MonitorClient::ModifyGrafanaInstanceCallable(const ModifyGrafanaInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGrafanaInstanceOutcome>>();
-    ModifyGrafanaInstanceAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyGrafanaInstanceRequest&,
-        ModifyGrafanaInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGrafanaInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGrafanaInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyPolicyGroupOutcome MonitorClient::ModifyPolicyGroup(const ModifyPolicyGroupRequest &request)
@@ -6662,32 +5738,25 @@ MonitorClient::ModifyPolicyGroupOutcome MonitorClient::ModifyPolicyGroup(const M
 
 void MonitorClient::ModifyPolicyGroupAsync(const ModifyPolicyGroupRequest& request, const ModifyPolicyGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPolicyGroupRequest&;
-    using Resp = ModifyPolicyGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPolicyGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPolicyGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyPolicyGroupOutcomeCallable MonitorClient::ModifyPolicyGroupCallable(const ModifyPolicyGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPolicyGroupOutcome>>();
-    ModifyPolicyGroupAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyPolicyGroupRequest&,
-        ModifyPolicyGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPolicyGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPolicyGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyPrometheusAgentExternalLabelsOutcome MonitorClient::ModifyPrometheusAgentExternalLabels(const ModifyPrometheusAgentExternalLabelsRequest &request)
@@ -6712,32 +5781,25 @@ MonitorClient::ModifyPrometheusAgentExternalLabelsOutcome MonitorClient::ModifyP
 
 void MonitorClient::ModifyPrometheusAgentExternalLabelsAsync(const ModifyPrometheusAgentExternalLabelsRequest& request, const ModifyPrometheusAgentExternalLabelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrometheusAgentExternalLabelsRequest&;
-    using Resp = ModifyPrometheusAgentExternalLabelsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrometheusAgentExternalLabels(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrometheusAgentExternalLabels", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyPrometheusAgentExternalLabelsOutcomeCallable MonitorClient::ModifyPrometheusAgentExternalLabelsCallable(const ModifyPrometheusAgentExternalLabelsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrometheusAgentExternalLabelsOutcome>>();
-    ModifyPrometheusAgentExternalLabelsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyPrometheusAgentExternalLabelsRequest&,
-        ModifyPrometheusAgentExternalLabelsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrometheusAgentExternalLabelsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrometheusAgentExternalLabels(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyPrometheusAlertPolicyOutcome MonitorClient::ModifyPrometheusAlertPolicy(const ModifyPrometheusAlertPolicyRequest &request)
@@ -6762,32 +5824,25 @@ MonitorClient::ModifyPrometheusAlertPolicyOutcome MonitorClient::ModifyPrometheu
 
 void MonitorClient::ModifyPrometheusAlertPolicyAsync(const ModifyPrometheusAlertPolicyRequest& request, const ModifyPrometheusAlertPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrometheusAlertPolicyRequest&;
-    using Resp = ModifyPrometheusAlertPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrometheusAlertPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrometheusAlertPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyPrometheusAlertPolicyOutcomeCallable MonitorClient::ModifyPrometheusAlertPolicyCallable(const ModifyPrometheusAlertPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrometheusAlertPolicyOutcome>>();
-    ModifyPrometheusAlertPolicyAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyPrometheusAlertPolicyRequest&,
-        ModifyPrometheusAlertPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrometheusAlertPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrometheusAlertPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyPrometheusConfigOutcome MonitorClient::ModifyPrometheusConfig(const ModifyPrometheusConfigRequest &request)
@@ -6812,32 +5867,25 @@ MonitorClient::ModifyPrometheusConfigOutcome MonitorClient::ModifyPrometheusConf
 
 void MonitorClient::ModifyPrometheusConfigAsync(const ModifyPrometheusConfigRequest& request, const ModifyPrometheusConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrometheusConfigRequest&;
-    using Resp = ModifyPrometheusConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrometheusConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrometheusConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyPrometheusConfigOutcomeCallable MonitorClient::ModifyPrometheusConfigCallable(const ModifyPrometheusConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrometheusConfigOutcome>>();
-    ModifyPrometheusConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyPrometheusConfigRequest&,
-        ModifyPrometheusConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrometheusConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrometheusConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyPrometheusGlobalNotificationOutcome MonitorClient::ModifyPrometheusGlobalNotification(const ModifyPrometheusGlobalNotificationRequest &request)
@@ -6862,32 +5910,25 @@ MonitorClient::ModifyPrometheusGlobalNotificationOutcome MonitorClient::ModifyPr
 
 void MonitorClient::ModifyPrometheusGlobalNotificationAsync(const ModifyPrometheusGlobalNotificationRequest& request, const ModifyPrometheusGlobalNotificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrometheusGlobalNotificationRequest&;
-    using Resp = ModifyPrometheusGlobalNotificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrometheusGlobalNotification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrometheusGlobalNotification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyPrometheusGlobalNotificationOutcomeCallable MonitorClient::ModifyPrometheusGlobalNotificationCallable(const ModifyPrometheusGlobalNotificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrometheusGlobalNotificationOutcome>>();
-    ModifyPrometheusGlobalNotificationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyPrometheusGlobalNotificationRequest&,
-        ModifyPrometheusGlobalNotificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrometheusGlobalNotificationOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrometheusGlobalNotification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyPrometheusInstanceAttributesOutcome MonitorClient::ModifyPrometheusInstanceAttributes(const ModifyPrometheusInstanceAttributesRequest &request)
@@ -6912,32 +5953,25 @@ MonitorClient::ModifyPrometheusInstanceAttributesOutcome MonitorClient::ModifyPr
 
 void MonitorClient::ModifyPrometheusInstanceAttributesAsync(const ModifyPrometheusInstanceAttributesRequest& request, const ModifyPrometheusInstanceAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrometheusInstanceAttributesRequest&;
-    using Resp = ModifyPrometheusInstanceAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrometheusInstanceAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrometheusInstanceAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyPrometheusInstanceAttributesOutcomeCallable MonitorClient::ModifyPrometheusInstanceAttributesCallable(const ModifyPrometheusInstanceAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrometheusInstanceAttributesOutcome>>();
-    ModifyPrometheusInstanceAttributesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyPrometheusInstanceAttributesRequest&,
-        ModifyPrometheusInstanceAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrometheusInstanceAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrometheusInstanceAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyPrometheusRecordRuleYamlOutcome MonitorClient::ModifyPrometheusRecordRuleYaml(const ModifyPrometheusRecordRuleYamlRequest &request)
@@ -6962,32 +5996,25 @@ MonitorClient::ModifyPrometheusRecordRuleYamlOutcome MonitorClient::ModifyPromet
 
 void MonitorClient::ModifyPrometheusRecordRuleYamlAsync(const ModifyPrometheusRecordRuleYamlRequest& request, const ModifyPrometheusRecordRuleYamlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrometheusRecordRuleYamlRequest&;
-    using Resp = ModifyPrometheusRecordRuleYamlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrometheusRecordRuleYaml(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrometheusRecordRuleYaml", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyPrometheusRecordRuleYamlOutcomeCallable MonitorClient::ModifyPrometheusRecordRuleYamlCallable(const ModifyPrometheusRecordRuleYamlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrometheusRecordRuleYamlOutcome>>();
-    ModifyPrometheusRecordRuleYamlAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyPrometheusRecordRuleYamlRequest&,
-        ModifyPrometheusRecordRuleYamlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrometheusRecordRuleYamlOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrometheusRecordRuleYaml(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyPrometheusTempOutcome MonitorClient::ModifyPrometheusTemp(const ModifyPrometheusTempRequest &request)
@@ -7012,32 +6039,25 @@ MonitorClient::ModifyPrometheusTempOutcome MonitorClient::ModifyPrometheusTemp(c
 
 void MonitorClient::ModifyPrometheusTempAsync(const ModifyPrometheusTempRequest& request, const ModifyPrometheusTempAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrometheusTempRequest&;
-    using Resp = ModifyPrometheusTempResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrometheusTemp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrometheusTemp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyPrometheusTempOutcomeCallable MonitorClient::ModifyPrometheusTempCallable(const ModifyPrometheusTempRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrometheusTempOutcome>>();
-    ModifyPrometheusTempAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyPrometheusTempRequest&,
-        ModifyPrometheusTempOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrometheusTempOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrometheusTemp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ModifyRemoteURLsOutcome MonitorClient::ModifyRemoteURLs(const ModifyRemoteURLsRequest &request)
@@ -7062,32 +6082,25 @@ MonitorClient::ModifyRemoteURLsOutcome MonitorClient::ModifyRemoteURLs(const Mod
 
 void MonitorClient::ModifyRemoteURLsAsync(const ModifyRemoteURLsRequest& request, const ModifyRemoteURLsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRemoteURLsRequest&;
-    using Resp = ModifyRemoteURLsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRemoteURLs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRemoteURLs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ModifyRemoteURLsOutcomeCallable MonitorClient::ModifyRemoteURLsCallable(const ModifyRemoteURLsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRemoteURLsOutcome>>();
-    ModifyRemoteURLsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ModifyRemoteURLsRequest&,
-        ModifyRemoteURLsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRemoteURLsOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRemoteURLs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::ResumeGrafanaInstanceOutcome MonitorClient::ResumeGrafanaInstance(const ResumeGrafanaInstanceRequest &request)
@@ -7112,32 +6125,25 @@ MonitorClient::ResumeGrafanaInstanceOutcome MonitorClient::ResumeGrafanaInstance
 
 void MonitorClient::ResumeGrafanaInstanceAsync(const ResumeGrafanaInstanceRequest& request, const ResumeGrafanaInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResumeGrafanaInstanceRequest&;
-    using Resp = ResumeGrafanaInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResumeGrafanaInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResumeGrafanaInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::ResumeGrafanaInstanceOutcomeCallable MonitorClient::ResumeGrafanaInstanceCallable(const ResumeGrafanaInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResumeGrafanaInstanceOutcome>>();
-    ResumeGrafanaInstanceAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const ResumeGrafanaInstanceRequest&,
-        ResumeGrafanaInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResumeGrafanaInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ResumeGrafanaInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::RunPrometheusInstanceOutcome MonitorClient::RunPrometheusInstance(const RunPrometheusInstanceRequest &request)
@@ -7162,32 +6168,25 @@ MonitorClient::RunPrometheusInstanceOutcome MonitorClient::RunPrometheusInstance
 
 void MonitorClient::RunPrometheusInstanceAsync(const RunPrometheusInstanceRequest& request, const RunPrometheusInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunPrometheusInstanceRequest&;
-    using Resp = RunPrometheusInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunPrometheusInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunPrometheusInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::RunPrometheusInstanceOutcomeCallable MonitorClient::RunPrometheusInstanceCallable(const RunPrometheusInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunPrometheusInstanceOutcome>>();
-    RunPrometheusInstanceAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const RunPrometheusInstanceRequest&,
-        RunPrometheusInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunPrometheusInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->RunPrometheusInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::SetDefaultAlarmPolicyOutcome MonitorClient::SetDefaultAlarmPolicy(const SetDefaultAlarmPolicyRequest &request)
@@ -7212,32 +6211,25 @@ MonitorClient::SetDefaultAlarmPolicyOutcome MonitorClient::SetDefaultAlarmPolicy
 
 void MonitorClient::SetDefaultAlarmPolicyAsync(const SetDefaultAlarmPolicyRequest& request, const SetDefaultAlarmPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetDefaultAlarmPolicyRequest&;
-    using Resp = SetDefaultAlarmPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetDefaultAlarmPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetDefaultAlarmPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::SetDefaultAlarmPolicyOutcomeCallable MonitorClient::SetDefaultAlarmPolicyCallable(const SetDefaultAlarmPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetDefaultAlarmPolicyOutcome>>();
-    SetDefaultAlarmPolicyAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const SetDefaultAlarmPolicyRequest&,
-        SetDefaultAlarmPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetDefaultAlarmPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->SetDefaultAlarmPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::SyncPrometheusTempOutcome MonitorClient::SyncPrometheusTemp(const SyncPrometheusTempRequest &request)
@@ -7262,32 +6254,25 @@ MonitorClient::SyncPrometheusTempOutcome MonitorClient::SyncPrometheusTemp(const
 
 void MonitorClient::SyncPrometheusTempAsync(const SyncPrometheusTempRequest& request, const SyncPrometheusTempAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SyncPrometheusTempRequest&;
-    using Resp = SyncPrometheusTempResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SyncPrometheusTemp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SyncPrometheusTemp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::SyncPrometheusTempOutcomeCallable MonitorClient::SyncPrometheusTempCallable(const SyncPrometheusTempRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SyncPrometheusTempOutcome>>();
-    SyncPrometheusTempAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const SyncPrometheusTempRequest&,
-        SyncPrometheusTempOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SyncPrometheusTempOutcome()>>(
+        [this, request]()
+        {
+            return this->SyncPrometheusTemp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::TerminatePrometheusInstancesOutcome MonitorClient::TerminatePrometheusInstances(const TerminatePrometheusInstancesRequest &request)
@@ -7312,32 +6297,25 @@ MonitorClient::TerminatePrometheusInstancesOutcome MonitorClient::TerminateProme
 
 void MonitorClient::TerminatePrometheusInstancesAsync(const TerminatePrometheusInstancesRequest& request, const TerminatePrometheusInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TerminatePrometheusInstancesRequest&;
-    using Resp = TerminatePrometheusInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TerminatePrometheusInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TerminatePrometheusInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::TerminatePrometheusInstancesOutcomeCallable MonitorClient::TerminatePrometheusInstancesCallable(const TerminatePrometheusInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TerminatePrometheusInstancesOutcome>>();
-    TerminatePrometheusInstancesAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const TerminatePrometheusInstancesRequest&,
-        TerminatePrometheusInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TerminatePrometheusInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->TerminatePrometheusInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UnBindingAllPolicyObjectOutcome MonitorClient::UnBindingAllPolicyObject(const UnBindingAllPolicyObjectRequest &request)
@@ -7362,32 +6340,25 @@ MonitorClient::UnBindingAllPolicyObjectOutcome MonitorClient::UnBindingAllPolicy
 
 void MonitorClient::UnBindingAllPolicyObjectAsync(const UnBindingAllPolicyObjectRequest& request, const UnBindingAllPolicyObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnBindingAllPolicyObjectRequest&;
-    using Resp = UnBindingAllPolicyObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnBindingAllPolicyObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnBindingAllPolicyObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UnBindingAllPolicyObjectOutcomeCallable MonitorClient::UnBindingAllPolicyObjectCallable(const UnBindingAllPolicyObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnBindingAllPolicyObjectOutcome>>();
-    UnBindingAllPolicyObjectAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UnBindingAllPolicyObjectRequest&,
-        UnBindingAllPolicyObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnBindingAllPolicyObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->UnBindingAllPolicyObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UnBindingPolicyObjectOutcome MonitorClient::UnBindingPolicyObject(const UnBindingPolicyObjectRequest &request)
@@ -7412,32 +6383,25 @@ MonitorClient::UnBindingPolicyObjectOutcome MonitorClient::UnBindingPolicyObject
 
 void MonitorClient::UnBindingPolicyObjectAsync(const UnBindingPolicyObjectRequest& request, const UnBindingPolicyObjectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnBindingPolicyObjectRequest&;
-    using Resp = UnBindingPolicyObjectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnBindingPolicyObject(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnBindingPolicyObject", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UnBindingPolicyObjectOutcomeCallable MonitorClient::UnBindingPolicyObjectCallable(const UnBindingPolicyObjectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnBindingPolicyObjectOutcome>>();
-    UnBindingPolicyObjectAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UnBindingPolicyObjectRequest&,
-        UnBindingPolicyObjectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnBindingPolicyObjectOutcome()>>(
+        [this, request]()
+        {
+            return this->UnBindingPolicyObject(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UnbindPrometheusManagedGrafanaOutcome MonitorClient::UnbindPrometheusManagedGrafana(const UnbindPrometheusManagedGrafanaRequest &request)
@@ -7462,32 +6426,25 @@ MonitorClient::UnbindPrometheusManagedGrafanaOutcome MonitorClient::UnbindPromet
 
 void MonitorClient::UnbindPrometheusManagedGrafanaAsync(const UnbindPrometheusManagedGrafanaRequest& request, const UnbindPrometheusManagedGrafanaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnbindPrometheusManagedGrafanaRequest&;
-    using Resp = UnbindPrometheusManagedGrafanaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnbindPrometheusManagedGrafana(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnbindPrometheusManagedGrafana", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UnbindPrometheusManagedGrafanaOutcomeCallable MonitorClient::UnbindPrometheusManagedGrafanaCallable(const UnbindPrometheusManagedGrafanaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnbindPrometheusManagedGrafanaOutcome>>();
-    UnbindPrometheusManagedGrafanaAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UnbindPrometheusManagedGrafanaRequest&,
-        UnbindPrometheusManagedGrafanaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnbindPrometheusManagedGrafanaOutcome()>>(
+        [this, request]()
+        {
+            return this->UnbindPrometheusManagedGrafana(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UninstallGrafanaDashboardOutcome MonitorClient::UninstallGrafanaDashboard(const UninstallGrafanaDashboardRequest &request)
@@ -7512,32 +6469,25 @@ MonitorClient::UninstallGrafanaDashboardOutcome MonitorClient::UninstallGrafanaD
 
 void MonitorClient::UninstallGrafanaDashboardAsync(const UninstallGrafanaDashboardRequest& request, const UninstallGrafanaDashboardAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UninstallGrafanaDashboardRequest&;
-    using Resp = UninstallGrafanaDashboardResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UninstallGrafanaDashboard(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UninstallGrafanaDashboard", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UninstallGrafanaDashboardOutcomeCallable MonitorClient::UninstallGrafanaDashboardCallable(const UninstallGrafanaDashboardRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UninstallGrafanaDashboardOutcome>>();
-    UninstallGrafanaDashboardAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UninstallGrafanaDashboardRequest&,
-        UninstallGrafanaDashboardOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UninstallGrafanaDashboardOutcome()>>(
+        [this, request]()
+        {
+            return this->UninstallGrafanaDashboard(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UninstallGrafanaPluginsOutcome MonitorClient::UninstallGrafanaPlugins(const UninstallGrafanaPluginsRequest &request)
@@ -7562,32 +6512,25 @@ MonitorClient::UninstallGrafanaPluginsOutcome MonitorClient::UninstallGrafanaPlu
 
 void MonitorClient::UninstallGrafanaPluginsAsync(const UninstallGrafanaPluginsRequest& request, const UninstallGrafanaPluginsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UninstallGrafanaPluginsRequest&;
-    using Resp = UninstallGrafanaPluginsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UninstallGrafanaPlugins(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UninstallGrafanaPlugins", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UninstallGrafanaPluginsOutcomeCallable MonitorClient::UninstallGrafanaPluginsCallable(const UninstallGrafanaPluginsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UninstallGrafanaPluginsOutcome>>();
-    UninstallGrafanaPluginsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UninstallGrafanaPluginsRequest&,
-        UninstallGrafanaPluginsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UninstallGrafanaPluginsOutcome()>>(
+        [this, request]()
+        {
+            return this->UninstallGrafanaPlugins(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateAlertRuleOutcome MonitorClient::UpdateAlertRule(const UpdateAlertRuleRequest &request)
@@ -7612,32 +6555,25 @@ MonitorClient::UpdateAlertRuleOutcome MonitorClient::UpdateAlertRule(const Updat
 
 void MonitorClient::UpdateAlertRuleAsync(const UpdateAlertRuleRequest& request, const UpdateAlertRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateAlertRuleRequest&;
-    using Resp = UpdateAlertRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateAlertRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateAlertRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateAlertRuleOutcomeCallable MonitorClient::UpdateAlertRuleCallable(const UpdateAlertRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateAlertRuleOutcome>>();
-    UpdateAlertRuleAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateAlertRuleRequest&,
-        UpdateAlertRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateAlertRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateAlertRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateAlertRuleStateOutcome MonitorClient::UpdateAlertRuleState(const UpdateAlertRuleStateRequest &request)
@@ -7662,32 +6598,25 @@ MonitorClient::UpdateAlertRuleStateOutcome MonitorClient::UpdateAlertRuleState(c
 
 void MonitorClient::UpdateAlertRuleStateAsync(const UpdateAlertRuleStateRequest& request, const UpdateAlertRuleStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateAlertRuleStateRequest&;
-    using Resp = UpdateAlertRuleStateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateAlertRuleState(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateAlertRuleState", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateAlertRuleStateOutcomeCallable MonitorClient::UpdateAlertRuleStateCallable(const UpdateAlertRuleStateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateAlertRuleStateOutcome>>();
-    UpdateAlertRuleStateAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateAlertRuleStateRequest&,
-        UpdateAlertRuleStateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateAlertRuleStateOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateAlertRuleState(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateDNSConfigOutcome MonitorClient::UpdateDNSConfig(const UpdateDNSConfigRequest &request)
@@ -7712,32 +6641,25 @@ MonitorClient::UpdateDNSConfigOutcome MonitorClient::UpdateDNSConfig(const Updat
 
 void MonitorClient::UpdateDNSConfigAsync(const UpdateDNSConfigRequest& request, const UpdateDNSConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateDNSConfigRequest&;
-    using Resp = UpdateDNSConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateDNSConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateDNSConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateDNSConfigOutcomeCallable MonitorClient::UpdateDNSConfigCallable(const UpdateDNSConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateDNSConfigOutcome>>();
-    UpdateDNSConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateDNSConfigRequest&,
-        UpdateDNSConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateDNSConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateDNSConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateExporterIntegrationOutcome MonitorClient::UpdateExporterIntegration(const UpdateExporterIntegrationRequest &request)
@@ -7762,32 +6684,25 @@ MonitorClient::UpdateExporterIntegrationOutcome MonitorClient::UpdateExporterInt
 
 void MonitorClient::UpdateExporterIntegrationAsync(const UpdateExporterIntegrationRequest& request, const UpdateExporterIntegrationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateExporterIntegrationRequest&;
-    using Resp = UpdateExporterIntegrationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateExporterIntegration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateExporterIntegration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateExporterIntegrationOutcomeCallable MonitorClient::UpdateExporterIntegrationCallable(const UpdateExporterIntegrationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateExporterIntegrationOutcome>>();
-    UpdateExporterIntegrationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateExporterIntegrationRequest&,
-        UpdateExporterIntegrationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateExporterIntegrationOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateExporterIntegration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateGrafanaConfigOutcome MonitorClient::UpdateGrafanaConfig(const UpdateGrafanaConfigRequest &request)
@@ -7812,32 +6727,25 @@ MonitorClient::UpdateGrafanaConfigOutcome MonitorClient::UpdateGrafanaConfig(con
 
 void MonitorClient::UpdateGrafanaConfigAsync(const UpdateGrafanaConfigRequest& request, const UpdateGrafanaConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateGrafanaConfigRequest&;
-    using Resp = UpdateGrafanaConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateGrafanaConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateGrafanaConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateGrafanaConfigOutcomeCallable MonitorClient::UpdateGrafanaConfigCallable(const UpdateGrafanaConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateGrafanaConfigOutcome>>();
-    UpdateGrafanaConfigAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateGrafanaConfigRequest&,
-        UpdateGrafanaConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateGrafanaConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateGrafanaConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateGrafanaEnvironmentsOutcome MonitorClient::UpdateGrafanaEnvironments(const UpdateGrafanaEnvironmentsRequest &request)
@@ -7862,32 +6770,25 @@ MonitorClient::UpdateGrafanaEnvironmentsOutcome MonitorClient::UpdateGrafanaEnvi
 
 void MonitorClient::UpdateGrafanaEnvironmentsAsync(const UpdateGrafanaEnvironmentsRequest& request, const UpdateGrafanaEnvironmentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateGrafanaEnvironmentsRequest&;
-    using Resp = UpdateGrafanaEnvironmentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateGrafanaEnvironments(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateGrafanaEnvironments", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateGrafanaEnvironmentsOutcomeCallable MonitorClient::UpdateGrafanaEnvironmentsCallable(const UpdateGrafanaEnvironmentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateGrafanaEnvironmentsOutcome>>();
-    UpdateGrafanaEnvironmentsAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateGrafanaEnvironmentsRequest&,
-        UpdateGrafanaEnvironmentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateGrafanaEnvironmentsOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateGrafanaEnvironments(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateGrafanaIntegrationOutcome MonitorClient::UpdateGrafanaIntegration(const UpdateGrafanaIntegrationRequest &request)
@@ -7912,32 +6813,25 @@ MonitorClient::UpdateGrafanaIntegrationOutcome MonitorClient::UpdateGrafanaInteg
 
 void MonitorClient::UpdateGrafanaIntegrationAsync(const UpdateGrafanaIntegrationRequest& request, const UpdateGrafanaIntegrationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateGrafanaIntegrationRequest&;
-    using Resp = UpdateGrafanaIntegrationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateGrafanaIntegration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateGrafanaIntegration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateGrafanaIntegrationOutcomeCallable MonitorClient::UpdateGrafanaIntegrationCallable(const UpdateGrafanaIntegrationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateGrafanaIntegrationOutcome>>();
-    UpdateGrafanaIntegrationAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateGrafanaIntegrationRequest&,
-        UpdateGrafanaIntegrationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateGrafanaIntegrationOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateGrafanaIntegration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateGrafanaNotificationChannelOutcome MonitorClient::UpdateGrafanaNotificationChannel(const UpdateGrafanaNotificationChannelRequest &request)
@@ -7962,32 +6856,25 @@ MonitorClient::UpdateGrafanaNotificationChannelOutcome MonitorClient::UpdateGraf
 
 void MonitorClient::UpdateGrafanaNotificationChannelAsync(const UpdateGrafanaNotificationChannelRequest& request, const UpdateGrafanaNotificationChannelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateGrafanaNotificationChannelRequest&;
-    using Resp = UpdateGrafanaNotificationChannelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateGrafanaNotificationChannel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateGrafanaNotificationChannel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateGrafanaNotificationChannelOutcomeCallable MonitorClient::UpdateGrafanaNotificationChannelCallable(const UpdateGrafanaNotificationChannelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateGrafanaNotificationChannelOutcome>>();
-    UpdateGrafanaNotificationChannelAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateGrafanaNotificationChannelRequest&,
-        UpdateGrafanaNotificationChannelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateGrafanaNotificationChannelOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateGrafanaNotificationChannel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateGrafanaWhiteListOutcome MonitorClient::UpdateGrafanaWhiteList(const UpdateGrafanaWhiteListRequest &request)
@@ -8012,32 +6899,25 @@ MonitorClient::UpdateGrafanaWhiteListOutcome MonitorClient::UpdateGrafanaWhiteLi
 
 void MonitorClient::UpdateGrafanaWhiteListAsync(const UpdateGrafanaWhiteListRequest& request, const UpdateGrafanaWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateGrafanaWhiteListRequest&;
-    using Resp = UpdateGrafanaWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateGrafanaWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateGrafanaWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateGrafanaWhiteListOutcomeCallable MonitorClient::UpdateGrafanaWhiteListCallable(const UpdateGrafanaWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateGrafanaWhiteListOutcome>>();
-    UpdateGrafanaWhiteListAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateGrafanaWhiteListRequest&,
-        UpdateGrafanaWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateGrafanaWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateGrafanaWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdatePrometheusAgentStatusOutcome MonitorClient::UpdatePrometheusAgentStatus(const UpdatePrometheusAgentStatusRequest &request)
@@ -8062,32 +6942,25 @@ MonitorClient::UpdatePrometheusAgentStatusOutcome MonitorClient::UpdatePrometheu
 
 void MonitorClient::UpdatePrometheusAgentStatusAsync(const UpdatePrometheusAgentStatusRequest& request, const UpdatePrometheusAgentStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdatePrometheusAgentStatusRequest&;
-    using Resp = UpdatePrometheusAgentStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdatePrometheusAgentStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdatePrometheusAgentStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdatePrometheusAgentStatusOutcomeCallable MonitorClient::UpdatePrometheusAgentStatusCallable(const UpdatePrometheusAgentStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdatePrometheusAgentStatusOutcome>>();
-    UpdatePrometheusAgentStatusAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdatePrometheusAgentStatusRequest&,
-        UpdatePrometheusAgentStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdatePrometheusAgentStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdatePrometheusAgentStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdatePrometheusAlertGroupOutcome MonitorClient::UpdatePrometheusAlertGroup(const UpdatePrometheusAlertGroupRequest &request)
@@ -8112,32 +6985,25 @@ MonitorClient::UpdatePrometheusAlertGroupOutcome MonitorClient::UpdatePrometheus
 
 void MonitorClient::UpdatePrometheusAlertGroupAsync(const UpdatePrometheusAlertGroupRequest& request, const UpdatePrometheusAlertGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdatePrometheusAlertGroupRequest&;
-    using Resp = UpdatePrometheusAlertGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdatePrometheusAlertGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdatePrometheusAlertGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdatePrometheusAlertGroupOutcomeCallable MonitorClient::UpdatePrometheusAlertGroupCallable(const UpdatePrometheusAlertGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdatePrometheusAlertGroupOutcome>>();
-    UpdatePrometheusAlertGroupAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdatePrometheusAlertGroupRequest&,
-        UpdatePrometheusAlertGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdatePrometheusAlertGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdatePrometheusAlertGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdatePrometheusAlertGroupStateOutcome MonitorClient::UpdatePrometheusAlertGroupState(const UpdatePrometheusAlertGroupStateRequest &request)
@@ -8162,32 +7028,25 @@ MonitorClient::UpdatePrometheusAlertGroupStateOutcome MonitorClient::UpdateProme
 
 void MonitorClient::UpdatePrometheusAlertGroupStateAsync(const UpdatePrometheusAlertGroupStateRequest& request, const UpdatePrometheusAlertGroupStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdatePrometheusAlertGroupStateRequest&;
-    using Resp = UpdatePrometheusAlertGroupStateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdatePrometheusAlertGroupState(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdatePrometheusAlertGroupState", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdatePrometheusAlertGroupStateOutcomeCallable MonitorClient::UpdatePrometheusAlertGroupStateCallable(const UpdatePrometheusAlertGroupStateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdatePrometheusAlertGroupStateOutcome>>();
-    UpdatePrometheusAlertGroupStateAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdatePrometheusAlertGroupStateRequest&,
-        UpdatePrometheusAlertGroupStateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdatePrometheusAlertGroupStateOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdatePrometheusAlertGroupState(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdatePrometheusScrapeJobOutcome MonitorClient::UpdatePrometheusScrapeJob(const UpdatePrometheusScrapeJobRequest &request)
@@ -8212,32 +7071,25 @@ MonitorClient::UpdatePrometheusScrapeJobOutcome MonitorClient::UpdatePrometheusS
 
 void MonitorClient::UpdatePrometheusScrapeJobAsync(const UpdatePrometheusScrapeJobRequest& request, const UpdatePrometheusScrapeJobAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdatePrometheusScrapeJobRequest&;
-    using Resp = UpdatePrometheusScrapeJobResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdatePrometheusScrapeJob(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdatePrometheusScrapeJob", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdatePrometheusScrapeJobOutcomeCallable MonitorClient::UpdatePrometheusScrapeJobCallable(const UpdatePrometheusScrapeJobRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdatePrometheusScrapeJobOutcome>>();
-    UpdatePrometheusScrapeJobAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdatePrometheusScrapeJobRequest&,
-        UpdatePrometheusScrapeJobOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdatePrometheusScrapeJobOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdatePrometheusScrapeJob(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateRecordingRuleOutcome MonitorClient::UpdateRecordingRule(const UpdateRecordingRuleRequest &request)
@@ -8262,32 +7114,25 @@ MonitorClient::UpdateRecordingRuleOutcome MonitorClient::UpdateRecordingRule(con
 
 void MonitorClient::UpdateRecordingRuleAsync(const UpdateRecordingRuleRequest& request, const UpdateRecordingRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateRecordingRuleRequest&;
-    using Resp = UpdateRecordingRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateRecordingRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateRecordingRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateRecordingRuleOutcomeCallable MonitorClient::UpdateRecordingRuleCallable(const UpdateRecordingRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateRecordingRuleOutcome>>();
-    UpdateRecordingRuleAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateRecordingRuleRequest&,
-        UpdateRecordingRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateRecordingRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateRecordingRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateSSOAccountOutcome MonitorClient::UpdateSSOAccount(const UpdateSSOAccountRequest &request)
@@ -8312,32 +7157,25 @@ MonitorClient::UpdateSSOAccountOutcome MonitorClient::UpdateSSOAccount(const Upd
 
 void MonitorClient::UpdateSSOAccountAsync(const UpdateSSOAccountRequest& request, const UpdateSSOAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateSSOAccountRequest&;
-    using Resp = UpdateSSOAccountResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateSSOAccount(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateSSOAccount", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateSSOAccountOutcomeCallable MonitorClient::UpdateSSOAccountCallable(const UpdateSSOAccountRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateSSOAccountOutcome>>();
-    UpdateSSOAccountAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateSSOAccountRequest&,
-        UpdateSSOAccountOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateSSOAccountOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateSSOAccount(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpdateServiceDiscoveryOutcome MonitorClient::UpdateServiceDiscovery(const UpdateServiceDiscoveryRequest &request)
@@ -8362,32 +7200,25 @@ MonitorClient::UpdateServiceDiscoveryOutcome MonitorClient::UpdateServiceDiscove
 
 void MonitorClient::UpdateServiceDiscoveryAsync(const UpdateServiceDiscoveryRequest& request, const UpdateServiceDiscoveryAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateServiceDiscoveryRequest&;
-    using Resp = UpdateServiceDiscoveryResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateServiceDiscovery(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateServiceDiscovery", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpdateServiceDiscoveryOutcomeCallable MonitorClient::UpdateServiceDiscoveryCallable(const UpdateServiceDiscoveryRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateServiceDiscoveryOutcome>>();
-    UpdateServiceDiscoveryAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpdateServiceDiscoveryRequest&,
-        UpdateServiceDiscoveryOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateServiceDiscoveryOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateServiceDiscovery(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpgradeGrafanaDashboardOutcome MonitorClient::UpgradeGrafanaDashboard(const UpgradeGrafanaDashboardRequest &request)
@@ -8412,32 +7243,25 @@ MonitorClient::UpgradeGrafanaDashboardOutcome MonitorClient::UpgradeGrafanaDashb
 
 void MonitorClient::UpgradeGrafanaDashboardAsync(const UpgradeGrafanaDashboardRequest& request, const UpgradeGrafanaDashboardAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeGrafanaDashboardRequest&;
-    using Resp = UpgradeGrafanaDashboardResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeGrafanaDashboard(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeGrafanaDashboard", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpgradeGrafanaDashboardOutcomeCallable MonitorClient::UpgradeGrafanaDashboardCallable(const UpgradeGrafanaDashboardRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeGrafanaDashboardOutcome>>();
-    UpgradeGrafanaDashboardAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpgradeGrafanaDashboardRequest&,
-        UpgradeGrafanaDashboardOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeGrafanaDashboardOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeGrafanaDashboard(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 MonitorClient::UpgradeGrafanaInstanceOutcome MonitorClient::UpgradeGrafanaInstance(const UpgradeGrafanaInstanceRequest &request)
@@ -8462,31 +7286,24 @@ MonitorClient::UpgradeGrafanaInstanceOutcome MonitorClient::UpgradeGrafanaInstan
 
 void MonitorClient::UpgradeGrafanaInstanceAsync(const UpgradeGrafanaInstanceRequest& request, const UpgradeGrafanaInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpgradeGrafanaInstanceRequest&;
-    using Resp = UpgradeGrafanaInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpgradeGrafanaInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpgradeGrafanaInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 MonitorClient::UpgradeGrafanaInstanceOutcomeCallable MonitorClient::UpgradeGrafanaInstanceCallable(const UpgradeGrafanaInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpgradeGrafanaInstanceOutcome>>();
-    UpgradeGrafanaInstanceAsync(
-    request,
-    [prom](
-        const MonitorClient*,
-        const UpgradeGrafanaInstanceRequest&,
-        UpgradeGrafanaInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpgradeGrafanaInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->UpgradeGrafanaInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

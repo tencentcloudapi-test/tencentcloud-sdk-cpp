@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlowRealtimeStatusCommon;
+                class FlowRealtimeStatusSRT;
+                class FlowRealtimeStatusRTMP;
+                class FlowRealtimeStatusRTP;
+
                 /**
                 * 流状态实时查询接口的流状态信息
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     FlowRealtimeStatusItem();
-                    ~FlowRealtimeStatusItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

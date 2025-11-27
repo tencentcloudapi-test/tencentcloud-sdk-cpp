@@ -43,6 +43,16 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaInputInfo;
+                class MediaMetaData;
+                class MediaProcessTaskResult;
+                class AiContentReviewResult;
+                class AiAnalysisResult;
+                class AiRecognitionResult;
+                class ScheduleQualityControlTaskResult;
+                class SmartSubtitlesResult;
+                class SmartEraseTaskResult;
+
                 /**
                 * 媒体处理任务信息
                 */
@@ -50,7 +60,6 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowTask();
-                    ~WorkflowTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 信息区证件内容
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PassportRecognizeInfos();
-                    ~PassportRecognizeInfos() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

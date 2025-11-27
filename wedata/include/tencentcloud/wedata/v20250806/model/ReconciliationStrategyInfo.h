@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 离线集成对账告警规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ReconciliationStrategyInfo();
-                    ~ReconciliationStrategyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

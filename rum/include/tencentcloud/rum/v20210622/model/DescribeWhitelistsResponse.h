@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Whitelist;
+
                 /**
                 * DescribeWhitelists返回参数结构体
                 */

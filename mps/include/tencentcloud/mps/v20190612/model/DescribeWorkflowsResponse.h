@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowInfo;
+
                 /**
                 * DescribeWorkflows返回参数结构体
                 */

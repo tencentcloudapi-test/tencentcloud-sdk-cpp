@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VpcInfo;
+                class Tag;
+
                 /**
                 * CreateProCluster请求参数结构体
                 */

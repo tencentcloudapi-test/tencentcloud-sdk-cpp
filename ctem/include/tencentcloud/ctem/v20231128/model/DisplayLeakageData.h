@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DisplayToolCommon;
+
                 /**
                 * 数据泄露详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DisplayLeakageData();
-                    ~DisplayLeakageData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

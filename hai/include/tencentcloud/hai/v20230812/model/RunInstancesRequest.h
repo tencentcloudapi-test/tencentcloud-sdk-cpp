@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SystemDisk;
+
                 /**
                 * RunInstances请求参数结构体
                 */

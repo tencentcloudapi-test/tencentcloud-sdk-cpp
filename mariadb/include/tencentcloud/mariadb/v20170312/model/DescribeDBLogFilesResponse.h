@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LogFileInfo;
+
                 /**
                 * DescribeDBLogFiles返回参数结构体
                 */

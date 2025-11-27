@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Metadata;
+                class Location;
+
                 /**
                 * DescribeGovernanceInstances请求参数结构体
                 */

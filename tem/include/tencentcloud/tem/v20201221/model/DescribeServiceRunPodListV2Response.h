@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeRunPodPage;
+
                 /**
                 * DescribeServiceRunPodListV2返回参数结构体
                 */

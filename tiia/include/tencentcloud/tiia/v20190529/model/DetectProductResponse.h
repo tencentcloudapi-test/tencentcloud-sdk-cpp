@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Product;
+
                 /**
                 * DetectProduct返回参数结构体
                 */

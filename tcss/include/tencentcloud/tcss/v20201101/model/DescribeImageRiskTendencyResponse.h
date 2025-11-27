@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ImageRiskTendencyInfo;
+
                 /**
                 * DescribeImageRiskTendency返回参数结构体
                 */

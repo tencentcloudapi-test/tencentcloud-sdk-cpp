@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkOrderTinyInfo;
+
                 /**
                 * CreatePowerOnWorkOrder返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 背景音设置，将在通话中添加环境音效，使体验更加逼真。目前支持以下选项：
 coffee_shops: 咖啡店氛围，背景中有人聊天。
@@ -45,7 +46,6 @@ evening_mountain: 户外山林
                 {
                 public:
                     AmbientSound();
-                    ~AmbientSound() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

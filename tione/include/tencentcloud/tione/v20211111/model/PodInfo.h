@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceConfigInfo;
+
                 /**
                 * 任务建模Pod信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     PodInfo();
-                    ~PodInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

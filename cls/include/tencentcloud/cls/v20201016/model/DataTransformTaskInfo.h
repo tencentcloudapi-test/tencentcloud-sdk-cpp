@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DataTransformResouceInfo;
+                class DataTransformSqlDataSource;
+                class EnvInfo;
+
                 /**
                 * 数据加工任务基本详情
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     DataTransformTaskInfo();
-                    ~DataTransformTaskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

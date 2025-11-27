@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 路由接收策略条目。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RoutePolicyEntry();
-                    ~RoutePolicyEntry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

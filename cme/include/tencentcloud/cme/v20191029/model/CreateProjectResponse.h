@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RtmpPushInputInfo;
+
                 /**
                 * CreateProject返回参数结构体
                 */

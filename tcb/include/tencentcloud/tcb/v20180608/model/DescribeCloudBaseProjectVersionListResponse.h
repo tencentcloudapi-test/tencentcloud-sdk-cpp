@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudBaseProjectVersion;
+
                 /**
                 * DescribeCloudBaseProjectVersionList返回参数结构体
                 */

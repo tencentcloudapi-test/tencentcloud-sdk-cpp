@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OwnerDifference;
+
                 /**
                 * pg owner不一致性详情
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DifferenceOwnerDetail();
-                    ~DifferenceOwnerDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

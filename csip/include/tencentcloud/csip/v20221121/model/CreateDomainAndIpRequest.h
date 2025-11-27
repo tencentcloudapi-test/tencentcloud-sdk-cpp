@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetTag;
+
                 /**
                 * CreateDomainAndIp请求参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 文件桶信息
 参考腾讯云存储相关说明 https://cloud.tencent.com/document/product/436/44352
@@ -42,7 +43,6 @@ namespace TencentCloud
                 {
                 public:
                     BucketInfo();
-                    ~BucketInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 5.7升级8.0指定参数的结构
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UpgradeEngineVersionParams();
-                    ~UpgradeEngineVersionParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

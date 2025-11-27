@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudBaseRunVersionFlowItem;
+
                 /**
                 * ModifyCloudBaseRunServerFlowConf请求参数结构体
                 */

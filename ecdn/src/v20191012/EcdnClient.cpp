@@ -62,32 +62,25 @@ EcdnClient::DescribeDomainsOutcome EcdnClient::DescribeDomains(const DescribeDom
 
 void EcdnClient::DescribeDomainsAsync(const DescribeDomainsRequest& request, const DescribeDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainsRequest&;
-    using Resp = DescribeDomainsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomains(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomains", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EcdnClient::DescribeDomainsOutcomeCallable EcdnClient::DescribeDomainsCallable(const DescribeDomainsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainsOutcome>>();
-    DescribeDomainsAsync(
-    request,
-    [prom](
-        const EcdnClient*,
-        const DescribeDomainsRequest&,
-        DescribeDomainsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomains(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EcdnClient::DescribeDomainsConfigOutcome EcdnClient::DescribeDomainsConfig(const DescribeDomainsConfigRequest &request)
@@ -112,32 +105,25 @@ EcdnClient::DescribeDomainsConfigOutcome EcdnClient::DescribeDomainsConfig(const
 
 void EcdnClient::DescribeDomainsConfigAsync(const DescribeDomainsConfigRequest& request, const DescribeDomainsConfigAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDomainsConfigRequest&;
-    using Resp = DescribeDomainsConfigResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDomainsConfig(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDomainsConfig", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EcdnClient::DescribeDomainsConfigOutcomeCallable EcdnClient::DescribeDomainsConfigCallable(const DescribeDomainsConfigRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDomainsConfigOutcome>>();
-    DescribeDomainsConfigAsync(
-    request,
-    [prom](
-        const EcdnClient*,
-        const DescribeDomainsConfigRequest&,
-        DescribeDomainsConfigOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDomainsConfigOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDomainsConfig(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EcdnClient::DescribeEcdnDomainLogsOutcome EcdnClient::DescribeEcdnDomainLogs(const DescribeEcdnDomainLogsRequest &request)
@@ -162,32 +148,25 @@ EcdnClient::DescribeEcdnDomainLogsOutcome EcdnClient::DescribeEcdnDomainLogs(con
 
 void EcdnClient::DescribeEcdnDomainLogsAsync(const DescribeEcdnDomainLogsRequest& request, const DescribeEcdnDomainLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEcdnDomainLogsRequest&;
-    using Resp = DescribeEcdnDomainLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEcdnDomainLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEcdnDomainLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EcdnClient::DescribeEcdnDomainLogsOutcomeCallable EcdnClient::DescribeEcdnDomainLogsCallable(const DescribeEcdnDomainLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEcdnDomainLogsOutcome>>();
-    DescribeEcdnDomainLogsAsync(
-    request,
-    [prom](
-        const EcdnClient*,
-        const DescribeEcdnDomainLogsRequest&,
-        DescribeEcdnDomainLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEcdnDomainLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEcdnDomainLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EcdnClient::DescribeEcdnDomainStatisticsOutcome EcdnClient::DescribeEcdnDomainStatistics(const DescribeEcdnDomainStatisticsRequest &request)
@@ -212,32 +191,25 @@ EcdnClient::DescribeEcdnDomainStatisticsOutcome EcdnClient::DescribeEcdnDomainSt
 
 void EcdnClient::DescribeEcdnDomainStatisticsAsync(const DescribeEcdnDomainStatisticsRequest& request, const DescribeEcdnDomainStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEcdnDomainStatisticsRequest&;
-    using Resp = DescribeEcdnDomainStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEcdnDomainStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEcdnDomainStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EcdnClient::DescribeEcdnDomainStatisticsOutcomeCallable EcdnClient::DescribeEcdnDomainStatisticsCallable(const DescribeEcdnDomainStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEcdnDomainStatisticsOutcome>>();
-    DescribeEcdnDomainStatisticsAsync(
-    request,
-    [prom](
-        const EcdnClient*,
-        const DescribeEcdnDomainStatisticsRequest&,
-        DescribeEcdnDomainStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEcdnDomainStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEcdnDomainStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EcdnClient::DescribeEcdnStatisticsOutcome EcdnClient::DescribeEcdnStatistics(const DescribeEcdnStatisticsRequest &request)
@@ -262,32 +234,25 @@ EcdnClient::DescribeEcdnStatisticsOutcome EcdnClient::DescribeEcdnStatistics(con
 
 void EcdnClient::DescribeEcdnStatisticsAsync(const DescribeEcdnStatisticsRequest& request, const DescribeEcdnStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeEcdnStatisticsRequest&;
-    using Resp = DescribeEcdnStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeEcdnStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeEcdnStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EcdnClient::DescribeEcdnStatisticsOutcomeCallable EcdnClient::DescribeEcdnStatisticsCallable(const DescribeEcdnStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeEcdnStatisticsOutcome>>();
-    DescribeEcdnStatisticsAsync(
-    request,
-    [prom](
-        const EcdnClient*,
-        const DescribeEcdnStatisticsRequest&,
-        DescribeEcdnStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeEcdnStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeEcdnStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EcdnClient::DescribeIpStatusOutcome EcdnClient::DescribeIpStatus(const DescribeIpStatusRequest &request)
@@ -312,31 +277,24 @@ EcdnClient::DescribeIpStatusOutcome EcdnClient::DescribeIpStatus(const DescribeI
 
 void EcdnClient::DescribeIpStatusAsync(const DescribeIpStatusRequest& request, const DescribeIpStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIpStatusRequest&;
-    using Resp = DescribeIpStatusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIpStatus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIpStatus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EcdnClient::DescribeIpStatusOutcomeCallable EcdnClient::DescribeIpStatusCallable(const DescribeIpStatusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIpStatusOutcome>>();
-    DescribeIpStatusAsync(
-    request,
-    [prom](
-        const EcdnClient*,
-        const DescribeIpStatusRequest&,
-        DescribeIpStatusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIpStatusOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIpStatus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

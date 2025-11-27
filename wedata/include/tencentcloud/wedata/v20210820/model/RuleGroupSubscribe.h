@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SubscribeReceiver;
+                class SubscribeWebHook;
+
                 /**
                 * 数据质量规则组订阅信息
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     RuleGroupSubscribe();
-                    ~RuleGroupSubscribe() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

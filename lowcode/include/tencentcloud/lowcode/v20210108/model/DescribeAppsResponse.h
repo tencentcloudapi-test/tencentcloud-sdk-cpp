@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Weapp;
+
                 /**
                 * DescribeApps返回参数结构体
                 */

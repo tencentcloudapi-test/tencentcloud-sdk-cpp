@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RspMetadata;
+                class GetIndustryV1HomeMembersRespPayload;
+
                 /**
                 * GetIndustryV1HomeMembers返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Addon;
+
                 /**
                 * DescribeAddon返回参数结构体
                 */

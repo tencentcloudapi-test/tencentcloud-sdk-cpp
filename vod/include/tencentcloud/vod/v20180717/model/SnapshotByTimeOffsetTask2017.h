@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SnapshotByTimeOffset2017;
+
                 /**
                 * 视频指定时间点截图任务信息，该结构仅用于 2017 版[指定时间点截图](https://cloud.tencent.com/document/product/266/8102)接口发起的任务。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SnapshotByTimeOffsetTask2017();
-                    ~SnapshotByTimeOffsetTask2017() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

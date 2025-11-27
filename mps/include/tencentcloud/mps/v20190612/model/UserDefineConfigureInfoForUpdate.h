@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserDefineFaceReviewTemplateInfoForUpdate;
+                class UserDefineAsrTextReviewTemplateInfoForUpdate;
+                class UserDefineOcrTextReviewTemplateInfoForUpdate;
+
                 /**
                 * 用户自定义审核任务控制参数。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     UserDefineConfigureInfoForUpdate();
-                    ~UserDefineConfigureInfoForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

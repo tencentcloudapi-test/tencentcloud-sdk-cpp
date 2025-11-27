@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DDoSProtection;
+
                 /**
                 * DescribeDDoSProtection返回参数结构体
                 */

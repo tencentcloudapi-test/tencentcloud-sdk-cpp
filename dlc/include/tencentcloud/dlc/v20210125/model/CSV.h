@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CSVSerde;
+
                 /**
                 * CSV类型数据格式
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CSV();
-                    ~CSV() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

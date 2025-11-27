@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LaunchTemplateInfo;
+
                 /**
                 * DescribeLaunchTemplates返回参数结构体
                 */

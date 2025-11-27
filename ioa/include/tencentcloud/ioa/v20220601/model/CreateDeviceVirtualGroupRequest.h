@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ComplexRule;
+
                 /**
                 * CreateDeviceVirtualGroup请求参数结构体
                 */

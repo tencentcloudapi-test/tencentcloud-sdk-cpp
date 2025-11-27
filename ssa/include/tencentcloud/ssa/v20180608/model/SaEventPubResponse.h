@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ObjDataSaEventPub;
+
                 /**
                 * SaEventPub返回参数结构体
                 */

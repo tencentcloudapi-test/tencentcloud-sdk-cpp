@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 云数据库切换记录
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DBSwitchInfo();
-                    ~DBSwitchInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

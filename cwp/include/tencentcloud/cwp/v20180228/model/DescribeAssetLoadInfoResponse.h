@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AssetLoadSummary;
+
                 /**
                 * DescribeAssetLoadInfo返回参数结构体
                 */

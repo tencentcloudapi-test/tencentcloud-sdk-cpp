@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SystemDisk;
+                class LoginSettings;
+                class EnhancedService;
+
                 /**
                 * InquiryPriceResetInstance请求参数结构体
                 */

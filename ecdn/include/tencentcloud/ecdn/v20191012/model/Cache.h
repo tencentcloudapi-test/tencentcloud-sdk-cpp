@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CacheRule;
+
                 /**
                 * 缓存配置简单版本，该版本不支持设置源站未返回max-age情况下的缓存规则。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     Cache();
-                    ~Cache() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

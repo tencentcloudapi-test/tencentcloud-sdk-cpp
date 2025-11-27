@@ -62,32 +62,25 @@ LkeapClient::ChatCompletionsOutcome LkeapClient::ChatCompletions(const ChatCompl
 
 void LkeapClient::ChatCompletionsAsync(const ChatCompletionsRequest& request, const ChatCompletionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ChatCompletionsRequest&;
-    using Resp = ChatCompletionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ChatCompletions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ChatCompletions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::ChatCompletionsOutcomeCallable LkeapClient::ChatCompletionsCallable(const ChatCompletionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ChatCompletionsOutcome>>();
-    ChatCompletionsAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const ChatCompletionsRequest&,
-        ChatCompletionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ChatCompletionsOutcome()>>(
+        [this, request]()
+        {
+            return this->ChatCompletions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::CreateAttributeLabelOutcome LkeapClient::CreateAttributeLabel(const CreateAttributeLabelRequest &request)
@@ -112,32 +105,25 @@ LkeapClient::CreateAttributeLabelOutcome LkeapClient::CreateAttributeLabel(const
 
 void LkeapClient::CreateAttributeLabelAsync(const CreateAttributeLabelRequest& request, const CreateAttributeLabelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAttributeLabelRequest&;
-    using Resp = CreateAttributeLabelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAttributeLabel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAttributeLabel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::CreateAttributeLabelOutcomeCallable LkeapClient::CreateAttributeLabelCallable(const CreateAttributeLabelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAttributeLabelOutcome>>();
-    CreateAttributeLabelAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const CreateAttributeLabelRequest&,
-        CreateAttributeLabelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAttributeLabelOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAttributeLabel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::CreateKnowledgeBaseOutcome LkeapClient::CreateKnowledgeBase(const CreateKnowledgeBaseRequest &request)
@@ -162,32 +148,25 @@ LkeapClient::CreateKnowledgeBaseOutcome LkeapClient::CreateKnowledgeBase(const C
 
 void LkeapClient::CreateKnowledgeBaseAsync(const CreateKnowledgeBaseRequest& request, const CreateKnowledgeBaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateKnowledgeBaseRequest&;
-    using Resp = CreateKnowledgeBaseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateKnowledgeBase(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateKnowledgeBase", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::CreateKnowledgeBaseOutcomeCallable LkeapClient::CreateKnowledgeBaseCallable(const CreateKnowledgeBaseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateKnowledgeBaseOutcome>>();
-    CreateKnowledgeBaseAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const CreateKnowledgeBaseRequest&,
-        CreateKnowledgeBaseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateKnowledgeBaseOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateKnowledgeBase(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::CreateQAOutcome LkeapClient::CreateQA(const CreateQARequest &request)
@@ -212,32 +191,25 @@ LkeapClient::CreateQAOutcome LkeapClient::CreateQA(const CreateQARequest &reques
 
 void LkeapClient::CreateQAAsync(const CreateQARequest& request, const CreateQAAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateQARequest&;
-    using Resp = CreateQAResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateQA(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateQA", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::CreateQAOutcomeCallable LkeapClient::CreateQACallable(const CreateQARequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateQAOutcome>>();
-    CreateQAAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const CreateQARequest&,
-        CreateQAOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateQAOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateQA(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::CreateReconstructDocumentFlowOutcome LkeapClient::CreateReconstructDocumentFlow(const CreateReconstructDocumentFlowRequest &request)
@@ -262,32 +234,25 @@ LkeapClient::CreateReconstructDocumentFlowOutcome LkeapClient::CreateReconstruct
 
 void LkeapClient::CreateReconstructDocumentFlowAsync(const CreateReconstructDocumentFlowRequest& request, const CreateReconstructDocumentFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateReconstructDocumentFlowRequest&;
-    using Resp = CreateReconstructDocumentFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateReconstructDocumentFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateReconstructDocumentFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::CreateReconstructDocumentFlowOutcomeCallable LkeapClient::CreateReconstructDocumentFlowCallable(const CreateReconstructDocumentFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateReconstructDocumentFlowOutcome>>();
-    CreateReconstructDocumentFlowAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const CreateReconstructDocumentFlowRequest&,
-        CreateReconstructDocumentFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateReconstructDocumentFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateReconstructDocumentFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::CreateSplitDocumentFlowOutcome LkeapClient::CreateSplitDocumentFlow(const CreateSplitDocumentFlowRequest &request)
@@ -312,32 +277,25 @@ LkeapClient::CreateSplitDocumentFlowOutcome LkeapClient::CreateSplitDocumentFlow
 
 void LkeapClient::CreateSplitDocumentFlowAsync(const CreateSplitDocumentFlowRequest& request, const CreateSplitDocumentFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSplitDocumentFlowRequest&;
-    using Resp = CreateSplitDocumentFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSplitDocumentFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSplitDocumentFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::CreateSplitDocumentFlowOutcomeCallable LkeapClient::CreateSplitDocumentFlowCallable(const CreateSplitDocumentFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSplitDocumentFlowOutcome>>();
-    CreateSplitDocumentFlowAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const CreateSplitDocumentFlowRequest&,
-        CreateSplitDocumentFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSplitDocumentFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSplitDocumentFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::DeleteAttributeLabelsOutcome LkeapClient::DeleteAttributeLabels(const DeleteAttributeLabelsRequest &request)
@@ -362,32 +320,25 @@ LkeapClient::DeleteAttributeLabelsOutcome LkeapClient::DeleteAttributeLabels(con
 
 void LkeapClient::DeleteAttributeLabelsAsync(const DeleteAttributeLabelsRequest& request, const DeleteAttributeLabelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAttributeLabelsRequest&;
-    using Resp = DeleteAttributeLabelsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAttributeLabels(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAttributeLabels", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::DeleteAttributeLabelsOutcomeCallable LkeapClient::DeleteAttributeLabelsCallable(const DeleteAttributeLabelsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAttributeLabelsOutcome>>();
-    DeleteAttributeLabelsAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const DeleteAttributeLabelsRequest&,
-        DeleteAttributeLabelsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAttributeLabelsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAttributeLabels(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::DeleteDocsOutcome LkeapClient::DeleteDocs(const DeleteDocsRequest &request)
@@ -412,32 +363,25 @@ LkeapClient::DeleteDocsOutcome LkeapClient::DeleteDocs(const DeleteDocsRequest &
 
 void LkeapClient::DeleteDocsAsync(const DeleteDocsRequest& request, const DeleteDocsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDocsRequest&;
-    using Resp = DeleteDocsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDocs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDocs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::DeleteDocsOutcomeCallable LkeapClient::DeleteDocsCallable(const DeleteDocsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDocsOutcome>>();
-    DeleteDocsAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const DeleteDocsRequest&,
-        DeleteDocsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDocsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDocs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::DeleteKnowledgeBaseOutcome LkeapClient::DeleteKnowledgeBase(const DeleteKnowledgeBaseRequest &request)
@@ -462,32 +406,25 @@ LkeapClient::DeleteKnowledgeBaseOutcome LkeapClient::DeleteKnowledgeBase(const D
 
 void LkeapClient::DeleteKnowledgeBaseAsync(const DeleteKnowledgeBaseRequest& request, const DeleteKnowledgeBaseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteKnowledgeBaseRequest&;
-    using Resp = DeleteKnowledgeBaseResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteKnowledgeBase(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteKnowledgeBase", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::DeleteKnowledgeBaseOutcomeCallable LkeapClient::DeleteKnowledgeBaseCallable(const DeleteKnowledgeBaseRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteKnowledgeBaseOutcome>>();
-    DeleteKnowledgeBaseAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const DeleteKnowledgeBaseRequest&,
-        DeleteKnowledgeBaseOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteKnowledgeBaseOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteKnowledgeBase(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::DeleteQAsOutcome LkeapClient::DeleteQAs(const DeleteQAsRequest &request)
@@ -512,32 +449,25 @@ LkeapClient::DeleteQAsOutcome LkeapClient::DeleteQAs(const DeleteQAsRequest &req
 
 void LkeapClient::DeleteQAsAsync(const DeleteQAsRequest& request, const DeleteQAsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteQAsRequest&;
-    using Resp = DeleteQAsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteQAs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteQAs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::DeleteQAsOutcomeCallable LkeapClient::DeleteQAsCallable(const DeleteQAsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteQAsOutcome>>();
-    DeleteQAsAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const DeleteQAsRequest&,
-        DeleteQAsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteQAsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteQAs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::DescribeDocOutcome LkeapClient::DescribeDoc(const DescribeDocRequest &request)
@@ -562,32 +492,25 @@ LkeapClient::DescribeDocOutcome LkeapClient::DescribeDoc(const DescribeDocReques
 
 void LkeapClient::DescribeDocAsync(const DescribeDocRequest& request, const DescribeDocAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDocRequest&;
-    using Resp = DescribeDocResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDoc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDoc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::DescribeDocOutcomeCallable LkeapClient::DescribeDocCallable(const DescribeDocRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDocOutcome>>();
-    DescribeDocAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const DescribeDocRequest&,
-        DescribeDocOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDocOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDoc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::GetCharacterUsageOutcome LkeapClient::GetCharacterUsage(const GetCharacterUsageRequest &request)
@@ -612,32 +535,25 @@ LkeapClient::GetCharacterUsageOutcome LkeapClient::GetCharacterUsage(const GetCh
 
 void LkeapClient::GetCharacterUsageAsync(const GetCharacterUsageRequest& request, const GetCharacterUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetCharacterUsageRequest&;
-    using Resp = GetCharacterUsageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetCharacterUsage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetCharacterUsage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::GetCharacterUsageOutcomeCallable LkeapClient::GetCharacterUsageCallable(const GetCharacterUsageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetCharacterUsageOutcome>>();
-    GetCharacterUsageAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const GetCharacterUsageRequest&,
-        GetCharacterUsageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetCharacterUsageOutcome()>>(
+        [this, request]()
+        {
+            return this->GetCharacterUsage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::GetEmbeddingOutcome LkeapClient::GetEmbedding(const GetEmbeddingRequest &request)
@@ -662,32 +578,25 @@ LkeapClient::GetEmbeddingOutcome LkeapClient::GetEmbedding(const GetEmbeddingReq
 
 void LkeapClient::GetEmbeddingAsync(const GetEmbeddingRequest& request, const GetEmbeddingAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetEmbeddingRequest&;
-    using Resp = GetEmbeddingResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetEmbedding(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetEmbedding", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::GetEmbeddingOutcomeCallable LkeapClient::GetEmbeddingCallable(const GetEmbeddingRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetEmbeddingOutcome>>();
-    GetEmbeddingAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const GetEmbeddingRequest&,
-        GetEmbeddingOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetEmbeddingOutcome()>>(
+        [this, request]()
+        {
+            return this->GetEmbedding(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::GetReconstructDocumentResultOutcome LkeapClient::GetReconstructDocumentResult(const GetReconstructDocumentResultRequest &request)
@@ -712,32 +621,25 @@ LkeapClient::GetReconstructDocumentResultOutcome LkeapClient::GetReconstructDocu
 
 void LkeapClient::GetReconstructDocumentResultAsync(const GetReconstructDocumentResultRequest& request, const GetReconstructDocumentResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetReconstructDocumentResultRequest&;
-    using Resp = GetReconstructDocumentResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetReconstructDocumentResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetReconstructDocumentResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::GetReconstructDocumentResultOutcomeCallable LkeapClient::GetReconstructDocumentResultCallable(const GetReconstructDocumentResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetReconstructDocumentResultOutcome>>();
-    GetReconstructDocumentResultAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const GetReconstructDocumentResultRequest&,
-        GetReconstructDocumentResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetReconstructDocumentResultOutcome()>>(
+        [this, request]()
+        {
+            return this->GetReconstructDocumentResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::GetSplitDocumentResultOutcome LkeapClient::GetSplitDocumentResult(const GetSplitDocumentResultRequest &request)
@@ -762,32 +664,25 @@ LkeapClient::GetSplitDocumentResultOutcome LkeapClient::GetSplitDocumentResult(c
 
 void LkeapClient::GetSplitDocumentResultAsync(const GetSplitDocumentResultRequest& request, const GetSplitDocumentResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetSplitDocumentResultRequest&;
-    using Resp = GetSplitDocumentResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetSplitDocumentResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetSplitDocumentResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::GetSplitDocumentResultOutcomeCallable LkeapClient::GetSplitDocumentResultCallable(const GetSplitDocumentResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetSplitDocumentResultOutcome>>();
-    GetSplitDocumentResultAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const GetSplitDocumentResultRequest&,
-        GetSplitDocumentResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetSplitDocumentResultOutcome()>>(
+        [this, request]()
+        {
+            return this->GetSplitDocumentResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::ImportQAsOutcome LkeapClient::ImportQAs(const ImportQAsRequest &request)
@@ -812,32 +707,25 @@ LkeapClient::ImportQAsOutcome LkeapClient::ImportQAs(const ImportQAsRequest &req
 
 void LkeapClient::ImportQAsAsync(const ImportQAsRequest& request, const ImportQAsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ImportQAsRequest&;
-    using Resp = ImportQAsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ImportQAs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ImportQAs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::ImportQAsOutcomeCallable LkeapClient::ImportQAsCallable(const ImportQAsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ImportQAsOutcome>>();
-    ImportQAsAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const ImportQAsRequest&,
-        ImportQAsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ImportQAsOutcome()>>(
+        [this, request]()
+        {
+            return this->ImportQAs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::ListAttributeLabelsOutcome LkeapClient::ListAttributeLabels(const ListAttributeLabelsRequest &request)
@@ -862,32 +750,25 @@ LkeapClient::ListAttributeLabelsOutcome LkeapClient::ListAttributeLabels(const L
 
 void LkeapClient::ListAttributeLabelsAsync(const ListAttributeLabelsRequest& request, const ListAttributeLabelsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListAttributeLabelsRequest&;
-    using Resp = ListAttributeLabelsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListAttributeLabels(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListAttributeLabels", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::ListAttributeLabelsOutcomeCallable LkeapClient::ListAttributeLabelsCallable(const ListAttributeLabelsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListAttributeLabelsOutcome>>();
-    ListAttributeLabelsAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const ListAttributeLabelsRequest&,
-        ListAttributeLabelsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListAttributeLabelsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListAttributeLabels(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::ListDocsOutcome LkeapClient::ListDocs(const ListDocsRequest &request)
@@ -912,32 +793,25 @@ LkeapClient::ListDocsOutcome LkeapClient::ListDocs(const ListDocsRequest &reques
 
 void LkeapClient::ListDocsAsync(const ListDocsRequest& request, const ListDocsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListDocsRequest&;
-    using Resp = ListDocsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListDocs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListDocs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::ListDocsOutcomeCallable LkeapClient::ListDocsCallable(const ListDocsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListDocsOutcome>>();
-    ListDocsAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const ListDocsRequest&,
-        ListDocsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListDocsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListDocs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::ListQAsOutcome LkeapClient::ListQAs(const ListQAsRequest &request)
@@ -962,32 +836,25 @@ LkeapClient::ListQAsOutcome LkeapClient::ListQAs(const ListQAsRequest &request)
 
 void LkeapClient::ListQAsAsync(const ListQAsRequest& request, const ListQAsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ListQAsRequest&;
-    using Resp = ListQAsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ListQAs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ListQAs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::ListQAsOutcomeCallable LkeapClient::ListQAsCallable(const ListQAsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ListQAsOutcome>>();
-    ListQAsAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const ListQAsRequest&,
-        ListQAsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ListQAsOutcome()>>(
+        [this, request]()
+        {
+            return this->ListQAs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::ModifyAttributeLabelOutcome LkeapClient::ModifyAttributeLabel(const ModifyAttributeLabelRequest &request)
@@ -1012,32 +879,25 @@ LkeapClient::ModifyAttributeLabelOutcome LkeapClient::ModifyAttributeLabel(const
 
 void LkeapClient::ModifyAttributeLabelAsync(const ModifyAttributeLabelRequest& request, const ModifyAttributeLabelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAttributeLabelRequest&;
-    using Resp = ModifyAttributeLabelResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAttributeLabel(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAttributeLabel", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::ModifyAttributeLabelOutcomeCallable LkeapClient::ModifyAttributeLabelCallable(const ModifyAttributeLabelRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAttributeLabelOutcome>>();
-    ModifyAttributeLabelAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const ModifyAttributeLabelRequest&,
-        ModifyAttributeLabelOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAttributeLabelOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAttributeLabel(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::ModifyQAOutcome LkeapClient::ModifyQA(const ModifyQARequest &request)
@@ -1062,32 +922,25 @@ LkeapClient::ModifyQAOutcome LkeapClient::ModifyQA(const ModifyQARequest &reques
 
 void LkeapClient::ModifyQAAsync(const ModifyQARequest& request, const ModifyQAAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyQARequest&;
-    using Resp = ModifyQAResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyQA(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyQA", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::ModifyQAOutcomeCallable LkeapClient::ModifyQACallable(const ModifyQARequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyQAOutcome>>();
-    ModifyQAAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const ModifyQARequest&,
-        ModifyQAOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyQAOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyQA(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::QueryRewriteOutcome LkeapClient::QueryRewrite(const QueryRewriteRequest &request)
@@ -1112,32 +965,25 @@ LkeapClient::QueryRewriteOutcome LkeapClient::QueryRewrite(const QueryRewriteReq
 
 void LkeapClient::QueryRewriteAsync(const QueryRewriteRequest& request, const QueryRewriteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const QueryRewriteRequest&;
-    using Resp = QueryRewriteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->QueryRewrite(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "QueryRewrite", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::QueryRewriteOutcomeCallable LkeapClient::QueryRewriteCallable(const QueryRewriteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<QueryRewriteOutcome>>();
-    QueryRewriteAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const QueryRewriteRequest&,
-        QueryRewriteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<QueryRewriteOutcome()>>(
+        [this, request]()
+        {
+            return this->QueryRewrite(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::ReconstructDocumentSSEOutcome LkeapClient::ReconstructDocumentSSE(const ReconstructDocumentSSERequest &request)
@@ -1162,32 +1008,25 @@ LkeapClient::ReconstructDocumentSSEOutcome LkeapClient::ReconstructDocumentSSE(c
 
 void LkeapClient::ReconstructDocumentSSEAsync(const ReconstructDocumentSSERequest& request, const ReconstructDocumentSSEAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReconstructDocumentSSERequest&;
-    using Resp = ReconstructDocumentSSEResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReconstructDocumentSSE(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReconstructDocumentSSE", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::ReconstructDocumentSSEOutcomeCallable LkeapClient::ReconstructDocumentSSECallable(const ReconstructDocumentSSERequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReconstructDocumentSSEOutcome>>();
-    ReconstructDocumentSSEAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const ReconstructDocumentSSERequest&,
-        ReconstructDocumentSSEOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReconstructDocumentSSEOutcome()>>(
+        [this, request]()
+        {
+            return this->ReconstructDocumentSSE(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::RetrieveKnowledgeOutcome LkeapClient::RetrieveKnowledge(const RetrieveKnowledgeRequest &request)
@@ -1212,32 +1051,25 @@ LkeapClient::RetrieveKnowledgeOutcome LkeapClient::RetrieveKnowledge(const Retri
 
 void LkeapClient::RetrieveKnowledgeAsync(const RetrieveKnowledgeRequest& request, const RetrieveKnowledgeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RetrieveKnowledgeRequest&;
-    using Resp = RetrieveKnowledgeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RetrieveKnowledge(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RetrieveKnowledge", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::RetrieveKnowledgeOutcomeCallable LkeapClient::RetrieveKnowledgeCallable(const RetrieveKnowledgeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RetrieveKnowledgeOutcome>>();
-    RetrieveKnowledgeAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const RetrieveKnowledgeRequest&,
-        RetrieveKnowledgeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RetrieveKnowledgeOutcome()>>(
+        [this, request]()
+        {
+            return this->RetrieveKnowledge(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::RunRerankOutcome LkeapClient::RunRerank(const RunRerankRequest &request)
@@ -1262,32 +1094,25 @@ LkeapClient::RunRerankOutcome LkeapClient::RunRerank(const RunRerankRequest &req
 
 void LkeapClient::RunRerankAsync(const RunRerankRequest& request, const RunRerankAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RunRerankRequest&;
-    using Resp = RunRerankResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RunRerank(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RunRerank", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::RunRerankOutcomeCallable LkeapClient::RunRerankCallable(const RunRerankRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RunRerankOutcome>>();
-    RunRerankAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const RunRerankRequest&,
-        RunRerankOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RunRerankOutcome()>>(
+        [this, request]()
+        {
+            return this->RunRerank(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 LkeapClient::UploadDocOutcome LkeapClient::UploadDoc(const UploadDocRequest &request)
@@ -1312,31 +1137,24 @@ LkeapClient::UploadDocOutcome LkeapClient::UploadDoc(const UploadDocRequest &req
 
 void LkeapClient::UploadDocAsync(const UploadDocRequest& request, const UploadDocAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UploadDocRequest&;
-    using Resp = UploadDocResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UploadDoc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UploadDoc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 LkeapClient::UploadDocOutcomeCallable LkeapClient::UploadDocCallable(const UploadDocRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UploadDocOutcome>>();
-    UploadDocAsync(
-    request,
-    [prom](
-        const LkeapClient*,
-        const UploadDocRequest&,
-        UploadDocOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UploadDocOutcome()>>(
+        [this, request]()
+        {
+            return this->UploadDoc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SearchDocInfo;
+
                 /**
                 * 知识库文档搜索结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SearchDocRsp();
-                    ~SearchDocRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * MP4配置参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     MP4ConfigureInfo();
-                    ~MP4ConfigureInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

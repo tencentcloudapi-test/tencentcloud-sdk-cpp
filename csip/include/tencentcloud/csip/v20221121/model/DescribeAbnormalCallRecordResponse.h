@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CallRecord;
+
                 /**
                 * DescribeAbnormalCallRecord返回参数结构体
                 */

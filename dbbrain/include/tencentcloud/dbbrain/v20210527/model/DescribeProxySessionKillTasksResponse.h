@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TaskInfo;
+
                 /**
                 * DescribeProxySessionKillTasks返回参数结构体
                 */

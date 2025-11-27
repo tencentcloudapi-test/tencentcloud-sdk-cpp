@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Pet;
+
                 /**
                 * DetectPet返回参数结构体
                 */

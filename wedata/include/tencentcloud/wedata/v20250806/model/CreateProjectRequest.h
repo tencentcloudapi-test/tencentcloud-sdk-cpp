@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProjectRequest;
+                class DLCClusterInfo;
+
                 /**
                 * CreateProject请求参数结构体
                 */

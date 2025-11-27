@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SparkJobInfo;
+
                 /**
                 * DescribeSparkAppJob返回参数结构体
                 */

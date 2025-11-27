@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceAdvancedSettings;
+                class EnhancedService;
+                class LoginSettings;
+
                 /**
                 * 节点升级重装参数
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     UpgradeNodeResetParam();
-                    ~UpgradeNodeResetParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

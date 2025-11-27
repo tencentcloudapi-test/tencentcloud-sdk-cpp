@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TemplateScope;
+
                 /**
                 * 安全策略模板的绑定关系。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SecurityTemplateBinding();
-                    ~SecurityTemplateBinding() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

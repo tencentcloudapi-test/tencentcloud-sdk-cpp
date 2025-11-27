@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 新增模式传递参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     NewModeItems();
-                    ~NewModeItems() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

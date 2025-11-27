@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoEncode;
+                class McuLayoutParams;
+                class McuWaterMarkParams;
+
                 /**
                 * 混流转推的视频相关参数。
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     McuVideoParams();
-                    ~McuVideoParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

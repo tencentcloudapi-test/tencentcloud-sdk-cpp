@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 公网IP和域名资产列表key
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PublicIpDomainListKey();
-                    ~PublicIpDomainListKey() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

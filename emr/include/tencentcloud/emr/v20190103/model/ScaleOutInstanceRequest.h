@@ -37,6 +37,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PreExecuteFileSettings;
+                class Tag;
+                class PodSpec;
+                class PodParameter;
+                class ComputeResourceAdvanceParams;
+                class NodeMark;
+
                 /**
                 * ScaleOutInstance请求参数结构体
                 */

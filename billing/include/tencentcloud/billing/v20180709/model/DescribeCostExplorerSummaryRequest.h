@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AnalyseConditions;
+
                 /**
                 * DescribeCostExplorerSummary请求参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PdfVerifyResult;
+
                 /**
                 * ChannelVerifyPdf返回参数结构体
                 */

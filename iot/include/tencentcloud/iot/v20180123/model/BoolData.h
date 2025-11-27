@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 布尔类型数据
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BoolData();
-                    ~BoolData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

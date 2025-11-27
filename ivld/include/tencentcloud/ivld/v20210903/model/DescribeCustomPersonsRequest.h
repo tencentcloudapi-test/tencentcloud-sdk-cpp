@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SortBy;
+                class CustomPersonFilter;
+
                 /**
                 * DescribeCustomPersons请求参数结构体
                 */

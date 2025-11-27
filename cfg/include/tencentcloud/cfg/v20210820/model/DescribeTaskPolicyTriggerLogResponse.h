@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class PolicyTriggerLog;
+
                 /**
                 * DescribeTaskPolicyTriggerLog返回参数结构体
                 */

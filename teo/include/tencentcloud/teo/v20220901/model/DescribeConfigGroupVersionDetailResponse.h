@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigGroupVersionInfo;
+
                 /**
                 * DescribeConfigGroupVersionDetail返回参数结构体
                 */

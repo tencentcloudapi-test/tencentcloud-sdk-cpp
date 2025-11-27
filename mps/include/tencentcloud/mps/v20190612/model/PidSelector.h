@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 对于含有多个音/视频轨的流，可以指定需要使用的轨道
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     PidSelector();
-                    ~PidSelector() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -40,6 +40,13 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CreateOutputSRTSettings;
+                class CreateOutputRTMPSettings;
+                class CreateOutputInfoRTPSettings;
+                class CreateOutputRistSettings;
+                class PidSelector;
+                class StreamSelector;
+
                 /**
                 * 创建输出的配置信息。
                 */
@@ -47,7 +54,6 @@ namespace TencentCloud
                 {
                 public:
                     CreateOutputInfo();
-                    ~CreateOutputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

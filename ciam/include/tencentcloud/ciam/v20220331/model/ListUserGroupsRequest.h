@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Pageable;
+                class Filter;
+
                 /**
                 * ListUserGroups请求参数结构体
                 */

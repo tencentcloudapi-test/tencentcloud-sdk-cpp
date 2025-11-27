@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DeployParam;
+                class ServerBaseConfig;
+                class DiffConfigItem;
+                class CreateVpcInfo;
+
                 /**
                 * CreateCloudRunServer请求参数结构体
                 */

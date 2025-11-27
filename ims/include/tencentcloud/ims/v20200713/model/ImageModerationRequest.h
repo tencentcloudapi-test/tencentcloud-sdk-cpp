@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class User;
+                class Device;
+
                 /**
                 * ImageModeration请求参数结构体
                 */

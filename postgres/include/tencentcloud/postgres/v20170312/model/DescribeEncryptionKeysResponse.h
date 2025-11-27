@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EncryptionKey;
+
                 /**
                 * DescribeEncryptionKeys返回参数结构体
                 */

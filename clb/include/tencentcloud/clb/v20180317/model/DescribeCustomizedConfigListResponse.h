@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ConfigListItem;
+
                 /**
                 * DescribeCustomizedConfigList返回参数结构体
                 */

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 转发规则之间的重定向关系
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RewriteLocationMap();
-                    ~RewriteLocationMap() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

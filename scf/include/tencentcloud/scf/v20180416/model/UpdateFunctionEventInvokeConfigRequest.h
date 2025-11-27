@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AsyncTriggerConfig;
+
                 /**
                 * UpdateFunctionEventInvokeConfig请求参数结构体
                 */

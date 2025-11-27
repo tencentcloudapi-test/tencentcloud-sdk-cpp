@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProxyTypeInfo;
+                class SourceServer;
+                class InstanceRelation;
+                class RuleInstanceRelation;
+
                 /**
                 * 7层转发规则
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     Layer7Rule();
-                    ~Layer7Rule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class L3ConnInfo;
+
                 /**
                 * GetL3ConnList返回参数结构体
                 */

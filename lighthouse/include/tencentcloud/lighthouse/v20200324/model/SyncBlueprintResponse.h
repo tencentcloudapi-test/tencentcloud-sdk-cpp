@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DestinationRegionBlueprint;
+
                 /**
                 * SyncBlueprint返回参数结构体
                 */

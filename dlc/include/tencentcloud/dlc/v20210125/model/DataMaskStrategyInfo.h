@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class GroupInfo;
+
                 /**
                 * 数据脱敏策略信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DataMaskStrategyInfo();
-                    ~DataMaskStrategyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

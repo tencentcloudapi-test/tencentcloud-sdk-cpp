@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 智能集锦结果片段
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     HighlightsTaskResultItemSegment();
-                    ~HighlightsTaskResultItemSegment() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

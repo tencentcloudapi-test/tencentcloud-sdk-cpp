@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlowGroupApprovers;
+
                 /**
                 * CreateFlowGroupByFiles返回参数结构体
                 */

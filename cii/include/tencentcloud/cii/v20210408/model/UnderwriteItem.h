@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 机器核保结论子项
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     UnderwriteItem();
-                    ~UnderwriteItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

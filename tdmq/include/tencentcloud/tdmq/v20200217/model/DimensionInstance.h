@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DimensionOpt;
+
                 /**
                 * 实例维度组合数组
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     DimensionInstance();
-                    ~DimensionInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

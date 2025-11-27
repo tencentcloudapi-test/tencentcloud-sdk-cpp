@@ -38,6 +38,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EndpointsConf;
+                class CertConf;
+                class WafConf;
+                class Tag;
+
                 /**
                 * 云函数自定义域名详情
                 */
@@ -45,7 +50,6 @@ namespace TencentCloud
                 {
                 public:
                     DomainInfo();
-                    ~DomainInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 带有匹配规则的函数版本
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     VersionMatch();
-                    ~VersionMatch() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

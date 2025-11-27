@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class VideoTemplateInfo;
+                class AudioTemplateInfo;
+
                 /**
                 * 即时转码模板详情。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     JustInTimeTranscodeTemplate();
-                    ~JustInTimeTranscodeTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

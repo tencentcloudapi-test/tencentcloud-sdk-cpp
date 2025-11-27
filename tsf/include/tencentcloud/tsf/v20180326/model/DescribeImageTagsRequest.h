@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TcrRepoInfo;
+
                 /**
                 * DescribeImageTags请求参数结构体
                 */

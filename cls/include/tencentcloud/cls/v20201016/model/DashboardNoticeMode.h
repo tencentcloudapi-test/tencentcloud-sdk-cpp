@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 仪表盘订阅通知方式
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     DashboardNoticeMode();
-                    ~DashboardNoticeMode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 白板推流备份相关请求参数
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     WhiteboardPushBackupParam();
-                    ~WhiteboardPushBackupParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

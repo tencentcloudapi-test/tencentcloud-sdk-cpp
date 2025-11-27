@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ParamTemplateListInfo;
+
                 /**
                 * DescribeParamTemplates返回参数结构体
                 */

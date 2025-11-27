@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UpdateSmartEraseSubtitleConfig;
+                class UpdateSmartEraseWatermarkConfig;
+                class UpdateSmartErasePrivacyConfig;
+
                 /**
                 * 智能擦除自定义参数
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     OverrideEraseParameter();
-                    ~OverrideEraseParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

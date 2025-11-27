@@ -42,6 +42,15 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlarmTargetInfo;
+                class MonitorTime;
+                class CallBackInfo;
+                class AnalysisDimensional;
+                class Tag;
+                class AlarmClassification;
+                class MultiCondition;
+                class MonitorNotice;
+
                 /**
                 * 告警策略描述
                 */
@@ -49,7 +58,6 @@ namespace TencentCloud
                 {
                 public:
                     AlarmInfo();
-                    ~AlarmInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SlotInfo;
+                class ResponseMessage;
+
                 /**
                 * TextProcess返回参数结构体
                 */

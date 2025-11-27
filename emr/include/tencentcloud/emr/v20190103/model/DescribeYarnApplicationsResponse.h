@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class YarnApplication;
+
                 /**
                 * DescribeYarnApplications返回参数结构体
                 */

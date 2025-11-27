@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CompliancePeriodTaskRule;
+
                 /**
                 * 表示一类资产的总览信息。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     ComplianceAssetSummary();
-                    ~ComplianceAssetSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiskChargePrepaid;
+
                 /**
                 * InquirePriceCreateDisks请求参数结构体
                 */

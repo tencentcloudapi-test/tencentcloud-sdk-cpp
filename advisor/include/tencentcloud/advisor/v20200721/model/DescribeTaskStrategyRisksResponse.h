@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RiskFieldsDesc;
+
                 /**
                 * DescribeTaskStrategyRisks返回参数结构体
                 */

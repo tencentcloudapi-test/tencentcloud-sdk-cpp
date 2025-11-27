@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class HostDesc;
+
                 /**
                 * DescribeLoginWhiteHostList返回参数结构体
                 */

@@ -31,6 +31,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * ModifyRansomDefenseEventsStatus返回参数结构体
                 */

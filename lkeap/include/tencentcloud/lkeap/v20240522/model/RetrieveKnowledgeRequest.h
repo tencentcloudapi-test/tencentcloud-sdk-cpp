@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RetrievalSetting;
+                class LabelItem;
+
                 /**
                 * RetrieveKnowledge请求参数结构体
                 */

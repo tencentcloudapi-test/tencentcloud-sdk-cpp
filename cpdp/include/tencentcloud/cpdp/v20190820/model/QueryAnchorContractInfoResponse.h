@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AnchorContractInfo;
+
                 /**
                 * QueryAnchorContractInfo返回参数结构体
                 */

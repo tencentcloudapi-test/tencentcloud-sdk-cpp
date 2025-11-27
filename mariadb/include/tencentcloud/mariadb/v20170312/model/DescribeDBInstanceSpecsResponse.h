@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class InstanceSpec;
+
                 /**
                 * DescribeDBInstanceSpecs返回参数结构体
                 */

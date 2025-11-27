@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TimeRange;
+                class SortBy;
+
                 /**
                 * SearchMedia请求参数结构体
                 */

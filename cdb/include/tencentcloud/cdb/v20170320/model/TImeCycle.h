@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 扩容的周期
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     TImeCycle();
-                    ~TImeCycle() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

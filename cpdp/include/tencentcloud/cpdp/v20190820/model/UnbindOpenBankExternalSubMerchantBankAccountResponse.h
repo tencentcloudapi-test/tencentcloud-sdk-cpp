@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UnbindOpenBankExternalSubMerchantBankAccountResult;
+
                 /**
                 * UnbindOpenBankExternalSubMerchantBankAccount返回参数结构体
                 */

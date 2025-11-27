@@ -62,32 +62,25 @@ EssbasicClient::ArchiveFlowOutcome EssbasicClient::ArchiveFlow(const ArchiveFlow
 
 void EssbasicClient::ArchiveFlowAsync(const ArchiveFlowRequest& request, const ArchiveFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ArchiveFlowRequest&;
-    using Resp = ArchiveFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ArchiveFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ArchiveFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::ArchiveFlowOutcomeCallable EssbasicClient::ArchiveFlowCallable(const ArchiveFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ArchiveFlowOutcome>>();
-    ArchiveFlowAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const ArchiveFlowRequest&,
-        ArchiveFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ArchiveFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->ArchiveFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CancelFlowOutcome EssbasicClient::CancelFlow(const CancelFlowRequest &request)
@@ -112,32 +105,25 @@ EssbasicClient::CancelFlowOutcome EssbasicClient::CancelFlow(const CancelFlowReq
 
 void EssbasicClient::CancelFlowAsync(const CancelFlowRequest& request, const CancelFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CancelFlowRequest&;
-    using Resp = CancelFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CancelFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CancelFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CancelFlowOutcomeCallable EssbasicClient::CancelFlowCallable(const CancelFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CancelFlowOutcome>>();
-    CancelFlowAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CancelFlowRequest&,
-        CancelFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CancelFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->CancelFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckBankCard2EVerificationOutcome EssbasicClient::CheckBankCard2EVerification(const CheckBankCard2EVerificationRequest &request)
@@ -162,32 +148,25 @@ EssbasicClient::CheckBankCard2EVerificationOutcome EssbasicClient::CheckBankCard
 
 void EssbasicClient::CheckBankCard2EVerificationAsync(const CheckBankCard2EVerificationRequest& request, const CheckBankCard2EVerificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckBankCard2EVerificationRequest&;
-    using Resp = CheckBankCard2EVerificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckBankCard2EVerification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckBankCard2EVerification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckBankCard2EVerificationOutcomeCallable EssbasicClient::CheckBankCard2EVerificationCallable(const CheckBankCard2EVerificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckBankCard2EVerificationOutcome>>();
-    CheckBankCard2EVerificationAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckBankCard2EVerificationRequest&,
-        CheckBankCard2EVerificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckBankCard2EVerificationOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckBankCard2EVerification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckBankCard3EVerificationOutcome EssbasicClient::CheckBankCard3EVerification(const CheckBankCard3EVerificationRequest &request)
@@ -212,32 +191,25 @@ EssbasicClient::CheckBankCard3EVerificationOutcome EssbasicClient::CheckBankCard
 
 void EssbasicClient::CheckBankCard3EVerificationAsync(const CheckBankCard3EVerificationRequest& request, const CheckBankCard3EVerificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckBankCard3EVerificationRequest&;
-    using Resp = CheckBankCard3EVerificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckBankCard3EVerification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckBankCard3EVerification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckBankCard3EVerificationOutcomeCallable EssbasicClient::CheckBankCard3EVerificationCallable(const CheckBankCard3EVerificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckBankCard3EVerificationOutcome>>();
-    CheckBankCard3EVerificationAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckBankCard3EVerificationRequest&,
-        CheckBankCard3EVerificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckBankCard3EVerificationOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckBankCard3EVerification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckBankCard4EVerificationOutcome EssbasicClient::CheckBankCard4EVerification(const CheckBankCard4EVerificationRequest &request)
@@ -262,32 +234,25 @@ EssbasicClient::CheckBankCard4EVerificationOutcome EssbasicClient::CheckBankCard
 
 void EssbasicClient::CheckBankCard4EVerificationAsync(const CheckBankCard4EVerificationRequest& request, const CheckBankCard4EVerificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckBankCard4EVerificationRequest&;
-    using Resp = CheckBankCard4EVerificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckBankCard4EVerification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckBankCard4EVerification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckBankCard4EVerificationOutcomeCallable EssbasicClient::CheckBankCard4EVerificationCallable(const CheckBankCard4EVerificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckBankCard4EVerificationOutcome>>();
-    CheckBankCard4EVerificationAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckBankCard4EVerificationRequest&,
-        CheckBankCard4EVerificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckBankCard4EVerificationOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckBankCard4EVerification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckBankCardVerificationOutcome EssbasicClient::CheckBankCardVerification(const CheckBankCardVerificationRequest &request)
@@ -312,32 +277,25 @@ EssbasicClient::CheckBankCardVerificationOutcome EssbasicClient::CheckBankCardVe
 
 void EssbasicClient::CheckBankCardVerificationAsync(const CheckBankCardVerificationRequest& request, const CheckBankCardVerificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckBankCardVerificationRequest&;
-    using Resp = CheckBankCardVerificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckBankCardVerification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckBankCardVerification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckBankCardVerificationOutcomeCallable EssbasicClient::CheckBankCardVerificationCallable(const CheckBankCardVerificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckBankCardVerificationOutcome>>();
-    CheckBankCardVerificationAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckBankCardVerificationRequest&,
-        CheckBankCardVerificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckBankCardVerificationOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckBankCardVerification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckFaceIdentifyOutcome EssbasicClient::CheckFaceIdentify(const CheckFaceIdentifyRequest &request)
@@ -362,32 +320,25 @@ EssbasicClient::CheckFaceIdentifyOutcome EssbasicClient::CheckFaceIdentify(const
 
 void EssbasicClient::CheckFaceIdentifyAsync(const CheckFaceIdentifyRequest& request, const CheckFaceIdentifyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckFaceIdentifyRequest&;
-    using Resp = CheckFaceIdentifyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckFaceIdentify(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckFaceIdentify", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckFaceIdentifyOutcomeCallable EssbasicClient::CheckFaceIdentifyCallable(const CheckFaceIdentifyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckFaceIdentifyOutcome>>();
-    CheckFaceIdentifyAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckFaceIdentifyRequest&,
-        CheckFaceIdentifyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckFaceIdentifyOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckFaceIdentify(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckIdCardVerificationOutcome EssbasicClient::CheckIdCardVerification(const CheckIdCardVerificationRequest &request)
@@ -412,32 +363,25 @@ EssbasicClient::CheckIdCardVerificationOutcome EssbasicClient::CheckIdCardVerifi
 
 void EssbasicClient::CheckIdCardVerificationAsync(const CheckIdCardVerificationRequest& request, const CheckIdCardVerificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckIdCardVerificationRequest&;
-    using Resp = CheckIdCardVerificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckIdCardVerification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckIdCardVerification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckIdCardVerificationOutcomeCallable EssbasicClient::CheckIdCardVerificationCallable(const CheckIdCardVerificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckIdCardVerificationOutcome>>();
-    CheckIdCardVerificationAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckIdCardVerificationRequest&,
-        CheckIdCardVerificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckIdCardVerificationOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckIdCardVerification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckMobileAndNameOutcome EssbasicClient::CheckMobileAndName(const CheckMobileAndNameRequest &request)
@@ -462,32 +406,25 @@ EssbasicClient::CheckMobileAndNameOutcome EssbasicClient::CheckMobileAndName(con
 
 void EssbasicClient::CheckMobileAndNameAsync(const CheckMobileAndNameRequest& request, const CheckMobileAndNameAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckMobileAndNameRequest&;
-    using Resp = CheckMobileAndNameResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckMobileAndName(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckMobileAndName", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckMobileAndNameOutcomeCallable EssbasicClient::CheckMobileAndNameCallable(const CheckMobileAndNameRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckMobileAndNameOutcome>>();
-    CheckMobileAndNameAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckMobileAndNameRequest&,
-        CheckMobileAndNameOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckMobileAndNameOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckMobileAndName(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckMobileVerificationOutcome EssbasicClient::CheckMobileVerification(const CheckMobileVerificationRequest &request)
@@ -512,32 +449,25 @@ EssbasicClient::CheckMobileVerificationOutcome EssbasicClient::CheckMobileVerifi
 
 void EssbasicClient::CheckMobileVerificationAsync(const CheckMobileVerificationRequest& request, const CheckMobileVerificationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckMobileVerificationRequest&;
-    using Resp = CheckMobileVerificationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckMobileVerification(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckMobileVerification", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckMobileVerificationOutcomeCallable EssbasicClient::CheckMobileVerificationCallable(const CheckMobileVerificationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckMobileVerificationOutcome>>();
-    CheckMobileVerificationAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckMobileVerificationRequest&,
-        CheckMobileVerificationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckMobileVerificationOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckMobileVerification(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CheckVerifyCodeMatchFlowIdOutcome EssbasicClient::CheckVerifyCodeMatchFlowId(const CheckVerifyCodeMatchFlowIdRequest &request)
@@ -562,32 +492,25 @@ EssbasicClient::CheckVerifyCodeMatchFlowIdOutcome EssbasicClient::CheckVerifyCod
 
 void EssbasicClient::CheckVerifyCodeMatchFlowIdAsync(const CheckVerifyCodeMatchFlowIdRequest& request, const CheckVerifyCodeMatchFlowIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckVerifyCodeMatchFlowIdRequest&;
-    using Resp = CheckVerifyCodeMatchFlowIdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckVerifyCodeMatchFlowId(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckVerifyCodeMatchFlowId", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CheckVerifyCodeMatchFlowIdOutcomeCallable EssbasicClient::CheckVerifyCodeMatchFlowIdCallable(const CheckVerifyCodeMatchFlowIdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckVerifyCodeMatchFlowIdOutcome>>();
-    CheckVerifyCodeMatchFlowIdAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CheckVerifyCodeMatchFlowIdRequest&,
-        CheckVerifyCodeMatchFlowIdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckVerifyCodeMatchFlowIdOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckVerifyCodeMatchFlowId(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateFaceIdSignOutcome EssbasicClient::CreateFaceIdSign(const CreateFaceIdSignRequest &request)
@@ -612,32 +535,25 @@ EssbasicClient::CreateFaceIdSignOutcome EssbasicClient::CreateFaceIdSign(const C
 
 void EssbasicClient::CreateFaceIdSignAsync(const CreateFaceIdSignRequest& request, const CreateFaceIdSignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateFaceIdSignRequest&;
-    using Resp = CreateFaceIdSignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateFaceIdSign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateFaceIdSign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateFaceIdSignOutcomeCallable EssbasicClient::CreateFaceIdSignCallable(const CreateFaceIdSignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateFaceIdSignOutcome>>();
-    CreateFaceIdSignAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateFaceIdSignRequest&,
-        CreateFaceIdSignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateFaceIdSignOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateFaceIdSign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateFlowByFilesOutcome EssbasicClient::CreateFlowByFiles(const CreateFlowByFilesRequest &request)
@@ -662,32 +578,25 @@ EssbasicClient::CreateFlowByFilesOutcome EssbasicClient::CreateFlowByFiles(const
 
 void EssbasicClient::CreateFlowByFilesAsync(const CreateFlowByFilesRequest& request, const CreateFlowByFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateFlowByFilesRequest&;
-    using Resp = CreateFlowByFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateFlowByFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateFlowByFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateFlowByFilesOutcomeCallable EssbasicClient::CreateFlowByFilesCallable(const CreateFlowByFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateFlowByFilesOutcome>>();
-    CreateFlowByFilesAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateFlowByFilesRequest&,
-        CreateFlowByFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateFlowByFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateFlowByFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateH5FaceIdUrlOutcome EssbasicClient::CreateH5FaceIdUrl(const CreateH5FaceIdUrlRequest &request)
@@ -712,32 +621,25 @@ EssbasicClient::CreateH5FaceIdUrlOutcome EssbasicClient::CreateH5FaceIdUrl(const
 
 void EssbasicClient::CreateH5FaceIdUrlAsync(const CreateH5FaceIdUrlRequest& request, const CreateH5FaceIdUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateH5FaceIdUrlRequest&;
-    using Resp = CreateH5FaceIdUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateH5FaceIdUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateH5FaceIdUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateH5FaceIdUrlOutcomeCallable EssbasicClient::CreateH5FaceIdUrlCallable(const CreateH5FaceIdUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateH5FaceIdUrlOutcome>>();
-    CreateH5FaceIdUrlAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateH5FaceIdUrlRequest&,
-        CreateH5FaceIdUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateH5FaceIdUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateH5FaceIdUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreatePreviewSignUrlOutcome EssbasicClient::CreatePreviewSignUrl(const CreatePreviewSignUrlRequest &request)
@@ -762,32 +664,25 @@ EssbasicClient::CreatePreviewSignUrlOutcome EssbasicClient::CreatePreviewSignUrl
 
 void EssbasicClient::CreatePreviewSignUrlAsync(const CreatePreviewSignUrlRequest& request, const CreatePreviewSignUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePreviewSignUrlRequest&;
-    using Resp = CreatePreviewSignUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePreviewSignUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePreviewSignUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreatePreviewSignUrlOutcomeCallable EssbasicClient::CreatePreviewSignUrlCallable(const CreatePreviewSignUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePreviewSignUrlOutcome>>();
-    CreatePreviewSignUrlAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreatePreviewSignUrlRequest&,
-        CreatePreviewSignUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePreviewSignUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePreviewSignUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateSealOutcome EssbasicClient::CreateSeal(const CreateSealRequest &request)
@@ -812,32 +707,25 @@ EssbasicClient::CreateSealOutcome EssbasicClient::CreateSeal(const CreateSealReq
 
 void EssbasicClient::CreateSealAsync(const CreateSealRequest& request, const CreateSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSealRequest&;
-    using Resp = CreateSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateSealOutcomeCallable EssbasicClient::CreateSealCallable(const CreateSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSealOutcome>>();
-    CreateSealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateSealRequest&,
-        CreateSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSealOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateServerFlowSignOutcome EssbasicClient::CreateServerFlowSign(const CreateServerFlowSignRequest &request)
@@ -862,32 +750,25 @@ EssbasicClient::CreateServerFlowSignOutcome EssbasicClient::CreateServerFlowSign
 
 void EssbasicClient::CreateServerFlowSignAsync(const CreateServerFlowSignRequest& request, const CreateServerFlowSignAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateServerFlowSignRequest&;
-    using Resp = CreateServerFlowSignResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateServerFlowSign(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateServerFlowSign", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateServerFlowSignOutcomeCallable EssbasicClient::CreateServerFlowSignCallable(const CreateServerFlowSignRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateServerFlowSignOutcome>>();
-    CreateServerFlowSignAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateServerFlowSignRequest&,
-        CreateServerFlowSignOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateServerFlowSignOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateServerFlowSign(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateSignUrlOutcome EssbasicClient::CreateSignUrl(const CreateSignUrlRequest &request)
@@ -912,32 +793,25 @@ EssbasicClient::CreateSignUrlOutcome EssbasicClient::CreateSignUrl(const CreateS
 
 void EssbasicClient::CreateSignUrlAsync(const CreateSignUrlRequest& request, const CreateSignUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSignUrlRequest&;
-    using Resp = CreateSignUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSignUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSignUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateSignUrlOutcomeCallable EssbasicClient::CreateSignUrlCallable(const CreateSignUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSignUrlOutcome>>();
-    CreateSignUrlAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateSignUrlRequest&,
-        CreateSignUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSignUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSignUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateSubOrganizationOutcome EssbasicClient::CreateSubOrganization(const CreateSubOrganizationRequest &request)
@@ -962,32 +836,25 @@ EssbasicClient::CreateSubOrganizationOutcome EssbasicClient::CreateSubOrganizati
 
 void EssbasicClient::CreateSubOrganizationAsync(const CreateSubOrganizationRequest& request, const CreateSubOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSubOrganizationRequest&;
-    using Resp = CreateSubOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSubOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSubOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateSubOrganizationOutcomeCallable EssbasicClient::CreateSubOrganizationCallable(const CreateSubOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSubOrganizationOutcome>>();
-    CreateSubOrganizationAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateSubOrganizationRequest&,
-        CreateSubOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSubOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSubOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateSubOrganizationAndSealOutcome EssbasicClient::CreateSubOrganizationAndSeal(const CreateSubOrganizationAndSealRequest &request)
@@ -1012,32 +879,25 @@ EssbasicClient::CreateSubOrganizationAndSealOutcome EssbasicClient::CreateSubOrg
 
 void EssbasicClient::CreateSubOrganizationAndSealAsync(const CreateSubOrganizationAndSealRequest& request, const CreateSubOrganizationAndSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSubOrganizationAndSealRequest&;
-    using Resp = CreateSubOrganizationAndSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSubOrganizationAndSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSubOrganizationAndSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateSubOrganizationAndSealOutcomeCallable EssbasicClient::CreateSubOrganizationAndSealCallable(const CreateSubOrganizationAndSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSubOrganizationAndSealOutcome>>();
-    CreateSubOrganizationAndSealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateSubOrganizationAndSealRequest&,
-        CreateSubOrganizationAndSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSubOrganizationAndSealOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSubOrganizationAndSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateUserOutcome EssbasicClient::CreateUser(const CreateUserRequest &request)
@@ -1062,32 +922,25 @@ EssbasicClient::CreateUserOutcome EssbasicClient::CreateUser(const CreateUserReq
 
 void EssbasicClient::CreateUserAsync(const CreateUserRequest& request, const CreateUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserRequest&;
-    using Resp = CreateUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateUserOutcomeCallable EssbasicClient::CreateUserCallable(const CreateUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserOutcome>>();
-    CreateUserAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateUserRequest&,
-        CreateUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::CreateUserAndSealOutcome EssbasicClient::CreateUserAndSeal(const CreateUserAndSealRequest &request)
@@ -1112,32 +965,25 @@ EssbasicClient::CreateUserAndSealOutcome EssbasicClient::CreateUserAndSeal(const
 
 void EssbasicClient::CreateUserAndSealAsync(const CreateUserAndSealRequest& request, const CreateUserAndSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateUserAndSealRequest&;
-    using Resp = CreateUserAndSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateUserAndSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateUserAndSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::CreateUserAndSealOutcomeCallable EssbasicClient::CreateUserAndSealCallable(const CreateUserAndSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateUserAndSealOutcome>>();
-    CreateUserAndSealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const CreateUserAndSealRequest&,
-        CreateUserAndSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateUserAndSealOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateUserAndSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DeleteSealOutcome EssbasicClient::DeleteSeal(const DeleteSealRequest &request)
@@ -1162,32 +1008,25 @@ EssbasicClient::DeleteSealOutcome EssbasicClient::DeleteSeal(const DeleteSealReq
 
 void EssbasicClient::DeleteSealAsync(const DeleteSealRequest& request, const DeleteSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSealRequest&;
-    using Resp = DeleteSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DeleteSealOutcomeCallable EssbasicClient::DeleteSealCallable(const DeleteSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSealOutcome>>();
-    DeleteSealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DeleteSealRequest&,
-        DeleteSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSealOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeCatalogApproversOutcome EssbasicClient::DescribeCatalogApprovers(const DescribeCatalogApproversRequest &request)
@@ -1212,32 +1051,25 @@ EssbasicClient::DescribeCatalogApproversOutcome EssbasicClient::DescribeCatalogA
 
 void EssbasicClient::DescribeCatalogApproversAsync(const DescribeCatalogApproversRequest& request, const DescribeCatalogApproversAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCatalogApproversRequest&;
-    using Resp = DescribeCatalogApproversResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCatalogApprovers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCatalogApprovers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeCatalogApproversOutcomeCallable EssbasicClient::DescribeCatalogApproversCallable(const DescribeCatalogApproversRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCatalogApproversOutcome>>();
-    DescribeCatalogApproversAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeCatalogApproversRequest&,
-        DescribeCatalogApproversOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCatalogApproversOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCatalogApprovers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeCatalogSignComponentsOutcome EssbasicClient::DescribeCatalogSignComponents(const DescribeCatalogSignComponentsRequest &request)
@@ -1262,32 +1094,25 @@ EssbasicClient::DescribeCatalogSignComponentsOutcome EssbasicClient::DescribeCat
 
 void EssbasicClient::DescribeCatalogSignComponentsAsync(const DescribeCatalogSignComponentsRequest& request, const DescribeCatalogSignComponentsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCatalogSignComponentsRequest&;
-    using Resp = DescribeCatalogSignComponentsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCatalogSignComponents(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCatalogSignComponents", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeCatalogSignComponentsOutcomeCallable EssbasicClient::DescribeCatalogSignComponentsCallable(const DescribeCatalogSignComponentsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCatalogSignComponentsOutcome>>();
-    DescribeCatalogSignComponentsAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeCatalogSignComponentsRequest&,
-        DescribeCatalogSignComponentsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCatalogSignComponentsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCatalogSignComponents(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeCustomFlowIdsOutcome EssbasicClient::DescribeCustomFlowIds(const DescribeCustomFlowIdsRequest &request)
@@ -1312,32 +1137,25 @@ EssbasicClient::DescribeCustomFlowIdsOutcome EssbasicClient::DescribeCustomFlowI
 
 void EssbasicClient::DescribeCustomFlowIdsAsync(const DescribeCustomFlowIdsRequest& request, const DescribeCustomFlowIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomFlowIdsRequest&;
-    using Resp = DescribeCustomFlowIdsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomFlowIds(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomFlowIds", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeCustomFlowIdsOutcomeCallable EssbasicClient::DescribeCustomFlowIdsCallable(const DescribeCustomFlowIdsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomFlowIdsOutcome>>();
-    DescribeCustomFlowIdsAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeCustomFlowIdsRequest&,
-        DescribeCustomFlowIdsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomFlowIdsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomFlowIds(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeCustomFlowIdsByFlowIdOutcome EssbasicClient::DescribeCustomFlowIdsByFlowId(const DescribeCustomFlowIdsByFlowIdRequest &request)
@@ -1362,32 +1180,25 @@ EssbasicClient::DescribeCustomFlowIdsByFlowIdOutcome EssbasicClient::DescribeCus
 
 void EssbasicClient::DescribeCustomFlowIdsByFlowIdAsync(const DescribeCustomFlowIdsByFlowIdRequest& request, const DescribeCustomFlowIdsByFlowIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomFlowIdsByFlowIdRequest&;
-    using Resp = DescribeCustomFlowIdsByFlowIdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomFlowIdsByFlowId(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomFlowIdsByFlowId", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeCustomFlowIdsByFlowIdOutcomeCallable EssbasicClient::DescribeCustomFlowIdsByFlowIdCallable(const DescribeCustomFlowIdsByFlowIdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomFlowIdsByFlowIdOutcome>>();
-    DescribeCustomFlowIdsByFlowIdAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeCustomFlowIdsByFlowIdRequest&,
-        DescribeCustomFlowIdsByFlowIdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomFlowIdsByFlowIdOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomFlowIdsByFlowId(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeFaceIdPhotosOutcome EssbasicClient::DescribeFaceIdPhotos(const DescribeFaceIdPhotosRequest &request)
@@ -1412,32 +1223,25 @@ EssbasicClient::DescribeFaceIdPhotosOutcome EssbasicClient::DescribeFaceIdPhotos
 
 void EssbasicClient::DescribeFaceIdPhotosAsync(const DescribeFaceIdPhotosRequest& request, const DescribeFaceIdPhotosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFaceIdPhotosRequest&;
-    using Resp = DescribeFaceIdPhotosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFaceIdPhotos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFaceIdPhotos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeFaceIdPhotosOutcomeCallable EssbasicClient::DescribeFaceIdPhotosCallable(const DescribeFaceIdPhotosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFaceIdPhotosOutcome>>();
-    DescribeFaceIdPhotosAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeFaceIdPhotosRequest&,
-        DescribeFaceIdPhotosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFaceIdPhotosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFaceIdPhotos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeFaceIdResultsOutcome EssbasicClient::DescribeFaceIdResults(const DescribeFaceIdResultsRequest &request)
@@ -1462,32 +1266,25 @@ EssbasicClient::DescribeFaceIdResultsOutcome EssbasicClient::DescribeFaceIdResul
 
 void EssbasicClient::DescribeFaceIdResultsAsync(const DescribeFaceIdResultsRequest& request, const DescribeFaceIdResultsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFaceIdResultsRequest&;
-    using Resp = DescribeFaceIdResultsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFaceIdResults(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFaceIdResults", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeFaceIdResultsOutcomeCallable EssbasicClient::DescribeFaceIdResultsCallable(const DescribeFaceIdResultsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFaceIdResultsOutcome>>();
-    DescribeFaceIdResultsAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeFaceIdResultsRequest&,
-        DescribeFaceIdResultsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFaceIdResultsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFaceIdResults(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeFileIdsByCustomIdsOutcome EssbasicClient::DescribeFileIdsByCustomIds(const DescribeFileIdsByCustomIdsRequest &request)
@@ -1512,32 +1309,25 @@ EssbasicClient::DescribeFileIdsByCustomIdsOutcome EssbasicClient::DescribeFileId
 
 void EssbasicClient::DescribeFileIdsByCustomIdsAsync(const DescribeFileIdsByCustomIdsRequest& request, const DescribeFileIdsByCustomIdsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFileIdsByCustomIdsRequest&;
-    using Resp = DescribeFileIdsByCustomIdsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFileIdsByCustomIds(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFileIdsByCustomIds", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeFileIdsByCustomIdsOutcomeCallable EssbasicClient::DescribeFileIdsByCustomIdsCallable(const DescribeFileIdsByCustomIdsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFileIdsByCustomIdsOutcome>>();
-    DescribeFileIdsByCustomIdsAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeFileIdsByCustomIdsRequest&,
-        DescribeFileIdsByCustomIdsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFileIdsByCustomIdsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFileIdsByCustomIds(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeFileUrlsOutcome EssbasicClient::DescribeFileUrls(const DescribeFileUrlsRequest &request)
@@ -1562,32 +1352,25 @@ EssbasicClient::DescribeFileUrlsOutcome EssbasicClient::DescribeFileUrls(const D
 
 void EssbasicClient::DescribeFileUrlsAsync(const DescribeFileUrlsRequest& request, const DescribeFileUrlsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFileUrlsRequest&;
-    using Resp = DescribeFileUrlsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFileUrls(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFileUrls", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeFileUrlsOutcomeCallable EssbasicClient::DescribeFileUrlsCallable(const DescribeFileUrlsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFileUrlsOutcome>>();
-    DescribeFileUrlsAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeFileUrlsRequest&,
-        DescribeFileUrlsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFileUrlsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFileUrls(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeFlowOutcome EssbasicClient::DescribeFlow(const DescribeFlowRequest &request)
@@ -1612,32 +1395,25 @@ EssbasicClient::DescribeFlowOutcome EssbasicClient::DescribeFlow(const DescribeF
 
 void EssbasicClient::DescribeFlowAsync(const DescribeFlowRequest& request, const DescribeFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFlowRequest&;
-    using Resp = DescribeFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeFlowOutcomeCallable EssbasicClient::DescribeFlowCallable(const DescribeFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFlowOutcome>>();
-    DescribeFlowAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeFlowRequest&,
-        DescribeFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeFlowApproversOutcome EssbasicClient::DescribeFlowApprovers(const DescribeFlowApproversRequest &request)
@@ -1662,32 +1438,25 @@ EssbasicClient::DescribeFlowApproversOutcome EssbasicClient::DescribeFlowApprove
 
 void EssbasicClient::DescribeFlowApproversAsync(const DescribeFlowApproversRequest& request, const DescribeFlowApproversAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFlowApproversRequest&;
-    using Resp = DescribeFlowApproversResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFlowApprovers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFlowApprovers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeFlowApproversOutcomeCallable EssbasicClient::DescribeFlowApproversCallable(const DescribeFlowApproversRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFlowApproversOutcome>>();
-    DescribeFlowApproversAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeFlowApproversRequest&,
-        DescribeFlowApproversOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFlowApproversOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFlowApprovers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeFlowFilesOutcome EssbasicClient::DescribeFlowFiles(const DescribeFlowFilesRequest &request)
@@ -1712,32 +1481,25 @@ EssbasicClient::DescribeFlowFilesOutcome EssbasicClient::DescribeFlowFiles(const
 
 void EssbasicClient::DescribeFlowFilesAsync(const DescribeFlowFilesRequest& request, const DescribeFlowFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFlowFilesRequest&;
-    using Resp = DescribeFlowFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFlowFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFlowFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeFlowFilesOutcomeCallable EssbasicClient::DescribeFlowFilesCallable(const DescribeFlowFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFlowFilesOutcome>>();
-    DescribeFlowFilesAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeFlowFilesRequest&,
-        DescribeFlowFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFlowFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFlowFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeSealsOutcome EssbasicClient::DescribeSeals(const DescribeSealsRequest &request)
@@ -1762,32 +1524,25 @@ EssbasicClient::DescribeSealsOutcome EssbasicClient::DescribeSeals(const Describ
 
 void EssbasicClient::DescribeSealsAsync(const DescribeSealsRequest& request, const DescribeSealsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSealsRequest&;
-    using Resp = DescribeSealsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSeals(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSeals", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeSealsOutcomeCallable EssbasicClient::DescribeSealsCallable(const DescribeSealsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSealsOutcome>>();
-    DescribeSealsAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeSealsRequest&,
-        DescribeSealsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSealsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSeals(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeSubOrganizationsOutcome EssbasicClient::DescribeSubOrganizations(const DescribeSubOrganizationsRequest &request)
@@ -1812,32 +1567,25 @@ EssbasicClient::DescribeSubOrganizationsOutcome EssbasicClient::DescribeSubOrgan
 
 void EssbasicClient::DescribeSubOrganizationsAsync(const DescribeSubOrganizationsRequest& request, const DescribeSubOrganizationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSubOrganizationsRequest&;
-    using Resp = DescribeSubOrganizationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSubOrganizations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSubOrganizations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeSubOrganizationsOutcomeCallable EssbasicClient::DescribeSubOrganizationsCallable(const DescribeSubOrganizationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSubOrganizationsOutcome>>();
-    DescribeSubOrganizationsAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeSubOrganizationsRequest&,
-        DescribeSubOrganizationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSubOrganizationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSubOrganizations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DescribeUsersOutcome EssbasicClient::DescribeUsers(const DescribeUsersRequest &request)
@@ -1862,32 +1610,25 @@ EssbasicClient::DescribeUsersOutcome EssbasicClient::DescribeUsers(const Describ
 
 void EssbasicClient::DescribeUsersAsync(const DescribeUsersRequest& request, const DescribeUsersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUsersRequest&;
-    using Resp = DescribeUsersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUsers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUsers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DescribeUsersOutcomeCallable EssbasicClient::DescribeUsersCallable(const DescribeUsersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUsersOutcome>>();
-    DescribeUsersAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DescribeUsersRequest&,
-        DescribeUsersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUsersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUsers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::DestroyFlowFileOutcome EssbasicClient::DestroyFlowFile(const DestroyFlowFileRequest &request)
@@ -1912,32 +1653,25 @@ EssbasicClient::DestroyFlowFileOutcome EssbasicClient::DestroyFlowFile(const Des
 
 void EssbasicClient::DestroyFlowFileAsync(const DestroyFlowFileRequest& request, const DestroyFlowFileAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyFlowFileRequest&;
-    using Resp = DestroyFlowFileResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyFlowFile(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyFlowFile", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::DestroyFlowFileOutcomeCallable EssbasicClient::DestroyFlowFileCallable(const DestroyFlowFileRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyFlowFileOutcome>>();
-    DestroyFlowFileAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const DestroyFlowFileRequest&,
-        DestroyFlowFileOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyFlowFileOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyFlowFile(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::GenerateOrganizationSealOutcome EssbasicClient::GenerateOrganizationSeal(const GenerateOrganizationSealRequest &request)
@@ -1962,32 +1696,25 @@ EssbasicClient::GenerateOrganizationSealOutcome EssbasicClient::GenerateOrganiza
 
 void EssbasicClient::GenerateOrganizationSealAsync(const GenerateOrganizationSealRequest& request, const GenerateOrganizationSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GenerateOrganizationSealRequest&;
-    using Resp = GenerateOrganizationSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GenerateOrganizationSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GenerateOrganizationSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::GenerateOrganizationSealOutcomeCallable EssbasicClient::GenerateOrganizationSealCallable(const GenerateOrganizationSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GenerateOrganizationSealOutcome>>();
-    GenerateOrganizationSealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const GenerateOrganizationSealRequest&,
-        GenerateOrganizationSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GenerateOrganizationSealOutcome()>>(
+        [this, request]()
+        {
+            return this->GenerateOrganizationSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::GenerateUserSealOutcome EssbasicClient::GenerateUserSeal(const GenerateUserSealRequest &request)
@@ -2012,32 +1739,25 @@ EssbasicClient::GenerateUserSealOutcome EssbasicClient::GenerateUserSeal(const G
 
 void EssbasicClient::GenerateUserSealAsync(const GenerateUserSealRequest& request, const GenerateUserSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GenerateUserSealRequest&;
-    using Resp = GenerateUserSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GenerateUserSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GenerateUserSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::GenerateUserSealOutcomeCallable EssbasicClient::GenerateUserSealCallable(const GenerateUserSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GenerateUserSealOutcome>>();
-    GenerateUserSealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const GenerateUserSealRequest&,
-        GenerateUserSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GenerateUserSealOutcome()>>(
+        [this, request]()
+        {
+            return this->GenerateUserSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::ModifyOrganizationDefaultSealOutcome EssbasicClient::ModifyOrganizationDefaultSeal(const ModifyOrganizationDefaultSealRequest &request)
@@ -2062,32 +1782,25 @@ EssbasicClient::ModifyOrganizationDefaultSealOutcome EssbasicClient::ModifyOrgan
 
 void EssbasicClient::ModifyOrganizationDefaultSealAsync(const ModifyOrganizationDefaultSealRequest& request, const ModifyOrganizationDefaultSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyOrganizationDefaultSealRequest&;
-    using Resp = ModifyOrganizationDefaultSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyOrganizationDefaultSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyOrganizationDefaultSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::ModifyOrganizationDefaultSealOutcomeCallable EssbasicClient::ModifyOrganizationDefaultSealCallable(const ModifyOrganizationDefaultSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyOrganizationDefaultSealOutcome>>();
-    ModifyOrganizationDefaultSealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const ModifyOrganizationDefaultSealRequest&,
-        ModifyOrganizationDefaultSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyOrganizationDefaultSealOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyOrganizationDefaultSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::ModifySealOutcome EssbasicClient::ModifySeal(const ModifySealRequest &request)
@@ -2112,32 +1825,25 @@ EssbasicClient::ModifySealOutcome EssbasicClient::ModifySeal(const ModifySealReq
 
 void EssbasicClient::ModifySealAsync(const ModifySealRequest& request, const ModifySealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySealRequest&;
-    using Resp = ModifySealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::ModifySealOutcomeCallable EssbasicClient::ModifySealCallable(const ModifySealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySealOutcome>>();
-    ModifySealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const ModifySealRequest&,
-        ModifySealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySealOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::ModifySubOrganizationInfoOutcome EssbasicClient::ModifySubOrganizationInfo(const ModifySubOrganizationInfoRequest &request)
@@ -2162,32 +1868,25 @@ EssbasicClient::ModifySubOrganizationInfoOutcome EssbasicClient::ModifySubOrgani
 
 void EssbasicClient::ModifySubOrganizationInfoAsync(const ModifySubOrganizationInfoRequest& request, const ModifySubOrganizationInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySubOrganizationInfoRequest&;
-    using Resp = ModifySubOrganizationInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySubOrganizationInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySubOrganizationInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::ModifySubOrganizationInfoOutcomeCallable EssbasicClient::ModifySubOrganizationInfoCallable(const ModifySubOrganizationInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySubOrganizationInfoOutcome>>();
-    ModifySubOrganizationInfoAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const ModifySubOrganizationInfoRequest&,
-        ModifySubOrganizationInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySubOrganizationInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySubOrganizationInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::ModifyUserOutcome EssbasicClient::ModifyUser(const ModifyUserRequest &request)
@@ -2212,32 +1911,25 @@ EssbasicClient::ModifyUserOutcome EssbasicClient::ModifyUser(const ModifyUserReq
 
 void EssbasicClient::ModifyUserAsync(const ModifyUserRequest& request, const ModifyUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserRequest&;
-    using Resp = ModifyUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::ModifyUserOutcomeCallable EssbasicClient::ModifyUserCallable(const ModifyUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserOutcome>>();
-    ModifyUserAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const ModifyUserRequest&,
-        ModifyUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::ModifyUserDefaultSealOutcome EssbasicClient::ModifyUserDefaultSeal(const ModifyUserDefaultSealRequest &request)
@@ -2262,32 +1954,25 @@ EssbasicClient::ModifyUserDefaultSealOutcome EssbasicClient::ModifyUserDefaultSe
 
 void EssbasicClient::ModifyUserDefaultSealAsync(const ModifyUserDefaultSealRequest& request, const ModifyUserDefaultSealAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyUserDefaultSealRequest&;
-    using Resp = ModifyUserDefaultSealResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyUserDefaultSeal(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyUserDefaultSeal", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::ModifyUserDefaultSealOutcomeCallable EssbasicClient::ModifyUserDefaultSealCallable(const ModifyUserDefaultSealRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyUserDefaultSealOutcome>>();
-    ModifyUserDefaultSealAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const ModifyUserDefaultSealRequest&,
-        ModifyUserDefaultSealOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyUserDefaultSealOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyUserDefaultSeal(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::RejectFlowOutcome EssbasicClient::RejectFlow(const RejectFlowRequest &request)
@@ -2312,32 +1997,25 @@ EssbasicClient::RejectFlowOutcome EssbasicClient::RejectFlow(const RejectFlowReq
 
 void EssbasicClient::RejectFlowAsync(const RejectFlowRequest& request, const RejectFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RejectFlowRequest&;
-    using Resp = RejectFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RejectFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RejectFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::RejectFlowOutcomeCallable EssbasicClient::RejectFlowCallable(const RejectFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RejectFlowOutcome>>();
-    RejectFlowAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const RejectFlowRequest&,
-        RejectFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RejectFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->RejectFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::SendFlowOutcome EssbasicClient::SendFlow(const SendFlowRequest &request)
@@ -2362,32 +2040,25 @@ EssbasicClient::SendFlowOutcome EssbasicClient::SendFlow(const SendFlowRequest &
 
 void EssbasicClient::SendFlowAsync(const SendFlowRequest& request, const SendFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendFlowRequest&;
-    using Resp = SendFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::SendFlowOutcomeCallable EssbasicClient::SendFlowCallable(const SendFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendFlowOutcome>>();
-    SendFlowAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const SendFlowRequest&,
-        SendFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->SendFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::SendFlowUrlOutcome EssbasicClient::SendFlowUrl(const SendFlowUrlRequest &request)
@@ -2412,32 +2083,25 @@ EssbasicClient::SendFlowUrlOutcome EssbasicClient::SendFlowUrl(const SendFlowUrl
 
 void EssbasicClient::SendFlowUrlAsync(const SendFlowUrlRequest& request, const SendFlowUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendFlowUrlRequest&;
-    using Resp = SendFlowUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendFlowUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendFlowUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::SendFlowUrlOutcomeCallable EssbasicClient::SendFlowUrlCallable(const SendFlowUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendFlowUrlOutcome>>();
-    SendFlowUrlAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const SendFlowUrlRequest&,
-        SendFlowUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendFlowUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->SendFlowUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::SendSignInnerVerifyCodeOutcome EssbasicClient::SendSignInnerVerifyCode(const SendSignInnerVerifyCodeRequest &request)
@@ -2462,32 +2126,25 @@ EssbasicClient::SendSignInnerVerifyCodeOutcome EssbasicClient::SendSignInnerVeri
 
 void EssbasicClient::SendSignInnerVerifyCodeAsync(const SendSignInnerVerifyCodeRequest& request, const SendSignInnerVerifyCodeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SendSignInnerVerifyCodeRequest&;
-    using Resp = SendSignInnerVerifyCodeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SendSignInnerVerifyCode(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SendSignInnerVerifyCode", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::SendSignInnerVerifyCodeOutcomeCallable EssbasicClient::SendSignInnerVerifyCodeCallable(const SendSignInnerVerifyCodeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SendSignInnerVerifyCodeOutcome>>();
-    SendSignInnerVerifyCodeAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const SendSignInnerVerifyCodeRequest&,
-        SendSignInnerVerifyCodeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SendSignInnerVerifyCodeOutcome()>>(
+        [this, request]()
+        {
+            return this->SendSignInnerVerifyCode(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::SignFlowOutcome EssbasicClient::SignFlow(const SignFlowRequest &request)
@@ -2512,32 +2169,25 @@ EssbasicClient::SignFlowOutcome EssbasicClient::SignFlow(const SignFlowRequest &
 
 void EssbasicClient::SignFlowAsync(const SignFlowRequest& request, const SignFlowAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SignFlowRequest&;
-    using Resp = SignFlowResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SignFlow(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SignFlow", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::SignFlowOutcomeCallable EssbasicClient::SignFlowCallable(const SignFlowRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SignFlowOutcome>>();
-    SignFlowAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const SignFlowRequest&,
-        SignFlowOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SignFlowOutcome()>>(
+        [this, request]()
+        {
+            return this->SignFlow(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::UploadFilesOutcome EssbasicClient::UploadFiles(const UploadFilesRequest &request)
@@ -2562,32 +2212,25 @@ EssbasicClient::UploadFilesOutcome EssbasicClient::UploadFiles(const UploadFiles
 
 void EssbasicClient::UploadFilesAsync(const UploadFilesRequest& request, const UploadFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UploadFilesRequest&;
-    using Resp = UploadFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UploadFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UploadFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::UploadFilesOutcomeCallable EssbasicClient::UploadFilesCallable(const UploadFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UploadFilesOutcome>>();
-    UploadFilesAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const UploadFilesRequest&,
-        UploadFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UploadFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->UploadFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::VerifySubOrganizationOutcome EssbasicClient::VerifySubOrganization(const VerifySubOrganizationRequest &request)
@@ -2612,32 +2255,25 @@ EssbasicClient::VerifySubOrganizationOutcome EssbasicClient::VerifySubOrganizati
 
 void EssbasicClient::VerifySubOrganizationAsync(const VerifySubOrganizationRequest& request, const VerifySubOrganizationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const VerifySubOrganizationRequest&;
-    using Resp = VerifySubOrganizationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->VerifySubOrganization(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "VerifySubOrganization", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::VerifySubOrganizationOutcomeCallable EssbasicClient::VerifySubOrganizationCallable(const VerifySubOrganizationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<VerifySubOrganizationOutcome>>();
-    VerifySubOrganizationAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const VerifySubOrganizationRequest&,
-        VerifySubOrganizationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<VerifySubOrganizationOutcome()>>(
+        [this, request]()
+        {
+            return this->VerifySubOrganization(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 EssbasicClient::VerifyUserOutcome EssbasicClient::VerifyUser(const VerifyUserRequest &request)
@@ -2662,31 +2298,24 @@ EssbasicClient::VerifyUserOutcome EssbasicClient::VerifyUser(const VerifyUserReq
 
 void EssbasicClient::VerifyUserAsync(const VerifyUserRequest& request, const VerifyUserAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const VerifyUserRequest&;
-    using Resp = VerifyUserResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->VerifyUser(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "VerifyUser", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 EssbasicClient::VerifyUserOutcomeCallable EssbasicClient::VerifyUserCallable(const VerifyUserRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<VerifyUserOutcome>>();
-    VerifyUserAsync(
-    request,
-    [prom](
-        const EssbasicClient*,
-        const VerifyUserRequest&,
-        VerifyUserOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<VerifyUserOutcome()>>(
+        [this, request]()
+        {
+            return this->VerifyUser(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

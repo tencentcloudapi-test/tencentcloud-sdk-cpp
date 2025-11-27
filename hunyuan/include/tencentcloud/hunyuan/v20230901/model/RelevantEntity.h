@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 相关组织及人物
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     RelevantEntity();
-                    ~RelevantEntity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

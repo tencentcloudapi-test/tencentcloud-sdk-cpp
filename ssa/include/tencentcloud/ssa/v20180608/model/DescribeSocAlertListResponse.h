@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AlertListData;
+
                 /**
                 * DescribeSocAlertList返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeCityWorkspaceListRes;
+
                 /**
                 * DescribeCityWorkspaceList返回参数结构体
                 */

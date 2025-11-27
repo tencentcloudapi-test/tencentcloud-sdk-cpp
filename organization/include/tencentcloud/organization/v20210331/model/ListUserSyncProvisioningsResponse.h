@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class UserProvisioning;
+
                 /**
                 * ListUserSyncProvisionings返回参数结构体
                 */

@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QueryOpenBankBankBranchListResult;
+
                 /**
                 * QueryOpenBankBankBranchList返回参数结构体
                 */

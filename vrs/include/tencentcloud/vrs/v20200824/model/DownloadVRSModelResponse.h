@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DownloadVRSModelRsp;
+
                 /**
                 * DownloadVRSModel返回参数结构体
                 */

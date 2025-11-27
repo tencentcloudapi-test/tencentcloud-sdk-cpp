@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeBindingPolicyObjectListDimension;
+
                 /**
                 * DescribeBindingPolicyObjectList请求参数结构体
                 */

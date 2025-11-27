@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class LoginSetting;
+
                 /**
                 * DescribeServiceLoginSettings返回参数结构体
                 */

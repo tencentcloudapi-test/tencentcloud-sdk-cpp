@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SnapshotInstance;
+
                 /**
                 * DescribeSnapshotAttachedInstances返回参数结构体
                 */

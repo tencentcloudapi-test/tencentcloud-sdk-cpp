@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 基线自定规则ID和名字
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BaselineCustomRuleIdName();
-                    ~BaselineCustomRuleIdName() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

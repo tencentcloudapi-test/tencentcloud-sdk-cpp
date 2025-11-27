@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 健康检查信息。
 注意，自定义探测相关参数 目前只有少量区域灰度支持。
@@ -42,7 +43,6 @@ namespace TencentCloud
                 {
                 public:
                     HealthCheck();
-                    ~HealthCheck() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CloudNativeAPIGatewayStrategyAutoScalerConfigMetric;
+                class AutoScalerBehavior;
+
                 /**
                 * 弹性伸缩策略
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     CloudNativeAPIGatewayStrategyAutoScalerConfig();
-                    ~CloudNativeAPIGatewayStrategyAutoScalerConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class MediaContentReviewAsrTextSegmentItem;
+
                 /**
                 * Asr 文字涉及令人不适宜的信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewPoliticalAsrTaskOutput();
-                    ~AiReviewPoliticalAsrTaskOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

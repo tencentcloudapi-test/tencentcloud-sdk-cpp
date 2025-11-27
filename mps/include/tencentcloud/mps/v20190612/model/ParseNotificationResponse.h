@@ -36,6 +36,12 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class WorkflowTask;
+                class EditMediaTask;
+                class ScheduleTask;
+                class BatchSubTaskResult;
+                class ExtractBlindWatermarkTask;
+
                 /**
                 * ParseNotification返回参数结构体
                 */

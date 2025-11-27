@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResponseCode;
+
                 /**
                 * ModifyCustomRuleStatus返回参数结构体
                 */

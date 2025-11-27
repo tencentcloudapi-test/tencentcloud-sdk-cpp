@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class RoomUser;
+
                 /**
                 * DescribeRoomInfo返回参数结构体
                 */

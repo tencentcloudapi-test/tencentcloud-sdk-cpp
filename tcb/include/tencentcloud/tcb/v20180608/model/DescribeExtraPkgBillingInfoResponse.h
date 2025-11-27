@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class EnvBillingInfoItem;
+
                 /**
                 * DescribeExtraPkgBillingInfo返回参数结构体
                 */

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FlowMediaVideo;
+                class FlowMediaAudio;
+
                 /**
                 * 传输流的媒体数据。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     FlowMediaInfo();
-                    ~FlowMediaInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class FunctionInfo;
+
                 /**
                 * SCF云函数（Serverless Cloud Function）作为后端服务
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     FunctionTarget();
-                    ~FunctionTarget() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

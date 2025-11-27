@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * gRPC 配置项。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     GrpcParameters();
-                    ~GrpcParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

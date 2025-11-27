@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Agent;
+                class ProxyOrganizationOperator;
+                class UserInfo;
+
                 /**
                 * SyncProxyOrganizationOperators请求参数结构体
                 */

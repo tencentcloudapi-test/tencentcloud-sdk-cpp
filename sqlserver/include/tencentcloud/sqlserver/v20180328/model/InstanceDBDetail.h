@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DBDetail;
+
                 /**
                 * 实例的数据库信息
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     InstanceDBDetail();
-                    ~InstanceDBDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Label;
+                class Taint;
+
                 /**
                 * 虚拟节点池
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     VirtualNodePool();
-                    ~VirtualNodePool() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -62,32 +62,25 @@ BaClient::CreateWeappQRUrlOutcome BaClient::CreateWeappQRUrl(const CreateWeappQR
 
 void BaClient::CreateWeappQRUrlAsync(const CreateWeappQRUrlRequest& request, const CreateWeappQRUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateWeappQRUrlRequest&;
-    using Resp = CreateWeappQRUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateWeappQRUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateWeappQRUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BaClient::CreateWeappQRUrlOutcomeCallable BaClient::CreateWeappQRUrlCallable(const CreateWeappQRUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateWeappQRUrlOutcome>>();
-    CreateWeappQRUrlAsync(
-    request,
-    [prom](
-        const BaClient*,
-        const CreateWeappQRUrlRequest&,
-        CreateWeappQRUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateWeappQRUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateWeappQRUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BaClient::DescribeGetAuthInfoOutcome BaClient::DescribeGetAuthInfo(const DescribeGetAuthInfoRequest &request)
@@ -112,32 +105,25 @@ BaClient::DescribeGetAuthInfoOutcome BaClient::DescribeGetAuthInfo(const Describ
 
 void BaClient::DescribeGetAuthInfoAsync(const DescribeGetAuthInfoRequest& request, const DescribeGetAuthInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGetAuthInfoRequest&;
-    using Resp = DescribeGetAuthInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGetAuthInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGetAuthInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BaClient::DescribeGetAuthInfoOutcomeCallable BaClient::DescribeGetAuthInfoCallable(const DescribeGetAuthInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGetAuthInfoOutcome>>();
-    DescribeGetAuthInfoAsync(
-    request,
-    [prom](
-        const BaClient*,
-        const DescribeGetAuthInfoRequest&,
-        DescribeGetAuthInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGetAuthInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGetAuthInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 BaClient::SyncIcpOrderWebInfoOutcome BaClient::SyncIcpOrderWebInfo(const SyncIcpOrderWebInfoRequest &request)
@@ -162,31 +148,24 @@ BaClient::SyncIcpOrderWebInfoOutcome BaClient::SyncIcpOrderWebInfo(const SyncIcp
 
 void BaClient::SyncIcpOrderWebInfoAsync(const SyncIcpOrderWebInfoRequest& request, const SyncIcpOrderWebInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SyncIcpOrderWebInfoRequest&;
-    using Resp = SyncIcpOrderWebInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SyncIcpOrderWebInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SyncIcpOrderWebInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 BaClient::SyncIcpOrderWebInfoOutcomeCallable BaClient::SyncIcpOrderWebInfoCallable(const SyncIcpOrderWebInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SyncIcpOrderWebInfoOutcome>>();
-    SyncIcpOrderWebInfoAsync(
-    request,
-    [prom](
-        const BaClient*,
-        const SyncIcpOrderWebInfoRequest&,
-        SyncIcpOrderWebInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SyncIcpOrderWebInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->SyncIcpOrderWebInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

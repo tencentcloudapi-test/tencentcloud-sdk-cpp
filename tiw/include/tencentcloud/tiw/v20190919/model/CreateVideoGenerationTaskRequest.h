@@ -35,6 +35,11 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Whiteboard;
+                class Concat;
+                class MixStream;
+                class RecordControl;
+
                 /**
                 * CreateVideoGenerationTask请求参数结构体
                 */

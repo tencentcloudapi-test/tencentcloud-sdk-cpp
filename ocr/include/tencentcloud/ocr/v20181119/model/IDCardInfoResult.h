@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 身份证ocr信息结果
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IDCardInfoResult();
-                    ~IDCardInfoResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

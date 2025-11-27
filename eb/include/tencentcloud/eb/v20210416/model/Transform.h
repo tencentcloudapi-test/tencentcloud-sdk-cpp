@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class OutputStructParam;
+
                 /**
                 * 描述如何数据转换
 
@@ -43,7 +45,6 @@ namespace TencentCloud
                 {
                 public:
                     Transform();
-                    ~Transform() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

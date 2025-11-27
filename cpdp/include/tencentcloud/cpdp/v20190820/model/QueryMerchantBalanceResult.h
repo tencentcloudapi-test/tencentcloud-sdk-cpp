@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class QueryMerchantBalanceData;
+
                 /**
                 * 对接账户余额查询结果
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     QueryMerchantBalanceResult();
-                    ~QueryMerchantBalanceResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

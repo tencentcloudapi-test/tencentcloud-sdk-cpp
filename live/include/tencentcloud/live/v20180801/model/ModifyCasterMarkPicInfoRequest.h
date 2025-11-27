@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CasterMarkPicInfo;
+
                 /**
                 * ModifyCasterMarkPicInfo请求参数结构体
                 */

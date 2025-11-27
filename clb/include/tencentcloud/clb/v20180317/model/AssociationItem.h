@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 目标组关联到的规则
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     AssociationItem();
-                    ~AssociationItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

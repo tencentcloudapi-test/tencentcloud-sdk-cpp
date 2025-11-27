@@ -62,32 +62,25 @@ VpcClient::AcceptAttachCcnInstancesOutcome VpcClient::AcceptAttachCcnInstances(c
 
 void VpcClient::AcceptAttachCcnInstancesAsync(const AcceptAttachCcnInstancesRequest& request, const AcceptAttachCcnInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AcceptAttachCcnInstancesRequest&;
-    using Resp = AcceptAttachCcnInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AcceptAttachCcnInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AcceptAttachCcnInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AcceptAttachCcnInstancesOutcomeCallable VpcClient::AcceptAttachCcnInstancesCallable(const AcceptAttachCcnInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AcceptAttachCcnInstancesOutcome>>();
-    AcceptAttachCcnInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AcceptAttachCcnInstancesRequest&,
-        AcceptAttachCcnInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AcceptAttachCcnInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->AcceptAttachCcnInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AcceptVpcPeeringConnectionOutcome VpcClient::AcceptVpcPeeringConnection(const AcceptVpcPeeringConnectionRequest &request)
@@ -112,32 +105,25 @@ VpcClient::AcceptVpcPeeringConnectionOutcome VpcClient::AcceptVpcPeeringConnecti
 
 void VpcClient::AcceptVpcPeeringConnectionAsync(const AcceptVpcPeeringConnectionRequest& request, const AcceptVpcPeeringConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AcceptVpcPeeringConnectionRequest&;
-    using Resp = AcceptVpcPeeringConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AcceptVpcPeeringConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AcceptVpcPeeringConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AcceptVpcPeeringConnectionOutcomeCallable VpcClient::AcceptVpcPeeringConnectionCallable(const AcceptVpcPeeringConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AcceptVpcPeeringConnectionOutcome>>();
-    AcceptVpcPeeringConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AcceptVpcPeeringConnectionRequest&,
-        AcceptVpcPeeringConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AcceptVpcPeeringConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->AcceptVpcPeeringConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AddBandwidthPackageResourcesOutcome VpcClient::AddBandwidthPackageResources(const AddBandwidthPackageResourcesRequest &request)
@@ -162,32 +148,25 @@ VpcClient::AddBandwidthPackageResourcesOutcome VpcClient::AddBandwidthPackageRes
 
 void VpcClient::AddBandwidthPackageResourcesAsync(const AddBandwidthPackageResourcesRequest& request, const AddBandwidthPackageResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddBandwidthPackageResourcesRequest&;
-    using Resp = AddBandwidthPackageResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddBandwidthPackageResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddBandwidthPackageResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AddBandwidthPackageResourcesOutcomeCallable VpcClient::AddBandwidthPackageResourcesCallable(const AddBandwidthPackageResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddBandwidthPackageResourcesOutcome>>();
-    AddBandwidthPackageResourcesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AddBandwidthPackageResourcesRequest&,
-        AddBandwidthPackageResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddBandwidthPackageResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->AddBandwidthPackageResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AddIp6RulesOutcome VpcClient::AddIp6Rules(const AddIp6RulesRequest &request)
@@ -212,32 +191,25 @@ VpcClient::AddIp6RulesOutcome VpcClient::AddIp6Rules(const AddIp6RulesRequest &r
 
 void VpcClient::AddIp6RulesAsync(const AddIp6RulesRequest& request, const AddIp6RulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddIp6RulesRequest&;
-    using Resp = AddIp6RulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddIp6Rules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddIp6Rules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AddIp6RulesOutcomeCallable VpcClient::AddIp6RulesCallable(const AddIp6RulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddIp6RulesOutcome>>();
-    AddIp6RulesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AddIp6RulesRequest&,
-        AddIp6RulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddIp6RulesOutcome()>>(
+        [this, request]()
+        {
+            return this->AddIp6Rules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AddTemplateMemberOutcome VpcClient::AddTemplateMember(const AddTemplateMemberRequest &request)
@@ -262,32 +234,25 @@ VpcClient::AddTemplateMemberOutcome VpcClient::AddTemplateMember(const AddTempla
 
 void VpcClient::AddTemplateMemberAsync(const AddTemplateMemberRequest& request, const AddTemplateMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AddTemplateMemberRequest&;
-    using Resp = AddTemplateMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AddTemplateMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AddTemplateMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AddTemplateMemberOutcomeCallable VpcClient::AddTemplateMemberCallable(const AddTemplateMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AddTemplateMemberOutcome>>();
-    AddTemplateMemberAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AddTemplateMemberRequest&,
-        AddTemplateMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AddTemplateMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->AddTemplateMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AdjustPublicAddressOutcome VpcClient::AdjustPublicAddress(const AdjustPublicAddressRequest &request)
@@ -312,32 +277,25 @@ VpcClient::AdjustPublicAddressOutcome VpcClient::AdjustPublicAddress(const Adjus
 
 void VpcClient::AdjustPublicAddressAsync(const AdjustPublicAddressRequest& request, const AdjustPublicAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AdjustPublicAddressRequest&;
-    using Resp = AdjustPublicAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AdjustPublicAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AdjustPublicAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AdjustPublicAddressOutcomeCallable VpcClient::AdjustPublicAddressCallable(const AdjustPublicAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AdjustPublicAddressOutcome>>();
-    AdjustPublicAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AdjustPublicAddressRequest&,
-        AdjustPublicAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AdjustPublicAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->AdjustPublicAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AllocateAddressesOutcome VpcClient::AllocateAddresses(const AllocateAddressesRequest &request)
@@ -362,32 +320,25 @@ VpcClient::AllocateAddressesOutcome VpcClient::AllocateAddresses(const AllocateA
 
 void VpcClient::AllocateAddressesAsync(const AllocateAddressesRequest& request, const AllocateAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AllocateAddressesRequest&;
-    using Resp = AllocateAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AllocateAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AllocateAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AllocateAddressesOutcomeCallable VpcClient::AllocateAddressesCallable(const AllocateAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AllocateAddressesOutcome>>();
-    AllocateAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AllocateAddressesRequest&,
-        AllocateAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AllocateAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->AllocateAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AllocateIPv6AddressesOutcome VpcClient::AllocateIPv6Addresses(const AllocateIPv6AddressesRequest &request)
@@ -412,32 +363,25 @@ VpcClient::AllocateIPv6AddressesOutcome VpcClient::AllocateIPv6Addresses(const A
 
 void VpcClient::AllocateIPv6AddressesAsync(const AllocateIPv6AddressesRequest& request, const AllocateIPv6AddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AllocateIPv6AddressesRequest&;
-    using Resp = AllocateIPv6AddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AllocateIPv6Addresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AllocateIPv6Addresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AllocateIPv6AddressesOutcomeCallable VpcClient::AllocateIPv6AddressesCallable(const AllocateIPv6AddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AllocateIPv6AddressesOutcome>>();
-    AllocateIPv6AddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AllocateIPv6AddressesRequest&,
-        AllocateIPv6AddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AllocateIPv6AddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->AllocateIPv6Addresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AllocateIp6AddressesBandwidthOutcome VpcClient::AllocateIp6AddressesBandwidth(const AllocateIp6AddressesBandwidthRequest &request)
@@ -462,32 +406,25 @@ VpcClient::AllocateIp6AddressesBandwidthOutcome VpcClient::AllocateIp6AddressesB
 
 void VpcClient::AllocateIp6AddressesBandwidthAsync(const AllocateIp6AddressesBandwidthRequest& request, const AllocateIp6AddressesBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AllocateIp6AddressesBandwidthRequest&;
-    using Resp = AllocateIp6AddressesBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AllocateIp6AddressesBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AllocateIp6AddressesBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AllocateIp6AddressesBandwidthOutcomeCallable VpcClient::AllocateIp6AddressesBandwidthCallable(const AllocateIp6AddressesBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AllocateIp6AddressesBandwidthOutcome>>();
-    AllocateIp6AddressesBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AllocateIp6AddressesBandwidthRequest&,
-        AllocateIp6AddressesBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AllocateIp6AddressesBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->AllocateIp6AddressesBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssignIpv6AddressesOutcome VpcClient::AssignIpv6Addresses(const AssignIpv6AddressesRequest &request)
@@ -512,32 +449,25 @@ VpcClient::AssignIpv6AddressesOutcome VpcClient::AssignIpv6Addresses(const Assig
 
 void VpcClient::AssignIpv6AddressesAsync(const AssignIpv6AddressesRequest& request, const AssignIpv6AddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssignIpv6AddressesRequest&;
-    using Resp = AssignIpv6AddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssignIpv6Addresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssignIpv6Addresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssignIpv6AddressesOutcomeCallable VpcClient::AssignIpv6AddressesCallable(const AssignIpv6AddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssignIpv6AddressesOutcome>>();
-    AssignIpv6AddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssignIpv6AddressesRequest&,
-        AssignIpv6AddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssignIpv6AddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->AssignIpv6Addresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssignIpv6CidrBlockOutcome VpcClient::AssignIpv6CidrBlock(const AssignIpv6CidrBlockRequest &request)
@@ -562,32 +492,25 @@ VpcClient::AssignIpv6CidrBlockOutcome VpcClient::AssignIpv6CidrBlock(const Assig
 
 void VpcClient::AssignIpv6CidrBlockAsync(const AssignIpv6CidrBlockRequest& request, const AssignIpv6CidrBlockAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssignIpv6CidrBlockRequest&;
-    using Resp = AssignIpv6CidrBlockResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssignIpv6CidrBlock(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssignIpv6CidrBlock", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssignIpv6CidrBlockOutcomeCallable VpcClient::AssignIpv6CidrBlockCallable(const AssignIpv6CidrBlockRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssignIpv6CidrBlockOutcome>>();
-    AssignIpv6CidrBlockAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssignIpv6CidrBlockRequest&,
-        AssignIpv6CidrBlockOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssignIpv6CidrBlockOutcome()>>(
+        [this, request]()
+        {
+            return this->AssignIpv6CidrBlock(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssignIpv6SubnetCidrBlockOutcome VpcClient::AssignIpv6SubnetCidrBlock(const AssignIpv6SubnetCidrBlockRequest &request)
@@ -612,32 +535,25 @@ VpcClient::AssignIpv6SubnetCidrBlockOutcome VpcClient::AssignIpv6SubnetCidrBlock
 
 void VpcClient::AssignIpv6SubnetCidrBlockAsync(const AssignIpv6SubnetCidrBlockRequest& request, const AssignIpv6SubnetCidrBlockAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssignIpv6SubnetCidrBlockRequest&;
-    using Resp = AssignIpv6SubnetCidrBlockResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssignIpv6SubnetCidrBlock(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssignIpv6SubnetCidrBlock", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssignIpv6SubnetCidrBlockOutcomeCallable VpcClient::AssignIpv6SubnetCidrBlockCallable(const AssignIpv6SubnetCidrBlockRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssignIpv6SubnetCidrBlockOutcome>>();
-    AssignIpv6SubnetCidrBlockAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssignIpv6SubnetCidrBlockRequest&,
-        AssignIpv6SubnetCidrBlockOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssignIpv6SubnetCidrBlockOutcome()>>(
+        [this, request]()
+        {
+            return this->AssignIpv6SubnetCidrBlock(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssignPrivateIpAddressesOutcome VpcClient::AssignPrivateIpAddresses(const AssignPrivateIpAddressesRequest &request)
@@ -662,32 +578,25 @@ VpcClient::AssignPrivateIpAddressesOutcome VpcClient::AssignPrivateIpAddresses(c
 
 void VpcClient::AssignPrivateIpAddressesAsync(const AssignPrivateIpAddressesRequest& request, const AssignPrivateIpAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssignPrivateIpAddressesRequest&;
-    using Resp = AssignPrivateIpAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssignPrivateIpAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssignPrivateIpAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssignPrivateIpAddressesOutcomeCallable VpcClient::AssignPrivateIpAddressesCallable(const AssignPrivateIpAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssignPrivateIpAddressesOutcome>>();
-    AssignPrivateIpAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssignPrivateIpAddressesRequest&,
-        AssignPrivateIpAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssignPrivateIpAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->AssignPrivateIpAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateAddressOutcome VpcClient::AssociateAddress(const AssociateAddressRequest &request)
@@ -712,32 +621,25 @@ VpcClient::AssociateAddressOutcome VpcClient::AssociateAddress(const AssociateAd
 
 void VpcClient::AssociateAddressAsync(const AssociateAddressRequest& request, const AssociateAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateAddressRequest&;
-    using Resp = AssociateAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateAddressOutcomeCallable VpcClient::AssociateAddressCallable(const AssociateAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateAddressOutcome>>();
-    AssociateAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateAddressRequest&,
-        AssociateAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateDhcpIpWithAddressIpOutcome VpcClient::AssociateDhcpIpWithAddressIp(const AssociateDhcpIpWithAddressIpRequest &request)
@@ -762,32 +664,25 @@ VpcClient::AssociateDhcpIpWithAddressIpOutcome VpcClient::AssociateDhcpIpWithAdd
 
 void VpcClient::AssociateDhcpIpWithAddressIpAsync(const AssociateDhcpIpWithAddressIpRequest& request, const AssociateDhcpIpWithAddressIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateDhcpIpWithAddressIpRequest&;
-    using Resp = AssociateDhcpIpWithAddressIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateDhcpIpWithAddressIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateDhcpIpWithAddressIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateDhcpIpWithAddressIpOutcomeCallable VpcClient::AssociateDhcpIpWithAddressIpCallable(const AssociateDhcpIpWithAddressIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateDhcpIpWithAddressIpOutcome>>();
-    AssociateDhcpIpWithAddressIpAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateDhcpIpWithAddressIpRequest&,
-        AssociateDhcpIpWithAddressIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateDhcpIpWithAddressIpOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateDhcpIpWithAddressIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateDirectConnectGatewayNatGatewayOutcome VpcClient::AssociateDirectConnectGatewayNatGateway(const AssociateDirectConnectGatewayNatGatewayRequest &request)
@@ -812,32 +707,25 @@ VpcClient::AssociateDirectConnectGatewayNatGatewayOutcome VpcClient::AssociateDi
 
 void VpcClient::AssociateDirectConnectGatewayNatGatewayAsync(const AssociateDirectConnectGatewayNatGatewayRequest& request, const AssociateDirectConnectGatewayNatGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateDirectConnectGatewayNatGatewayRequest&;
-    using Resp = AssociateDirectConnectGatewayNatGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateDirectConnectGatewayNatGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateDirectConnectGatewayNatGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateDirectConnectGatewayNatGatewayOutcomeCallable VpcClient::AssociateDirectConnectGatewayNatGatewayCallable(const AssociateDirectConnectGatewayNatGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateDirectConnectGatewayNatGatewayOutcome>>();
-    AssociateDirectConnectGatewayNatGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateDirectConnectGatewayNatGatewayRequest&,
-        AssociateDirectConnectGatewayNatGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateDirectConnectGatewayNatGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateDirectConnectGatewayNatGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateHaVipInstanceOutcome VpcClient::AssociateHaVipInstance(const AssociateHaVipInstanceRequest &request)
@@ -862,32 +750,25 @@ VpcClient::AssociateHaVipInstanceOutcome VpcClient::AssociateHaVipInstance(const
 
 void VpcClient::AssociateHaVipInstanceAsync(const AssociateHaVipInstanceRequest& request, const AssociateHaVipInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateHaVipInstanceRequest&;
-    using Resp = AssociateHaVipInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateHaVipInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateHaVipInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateHaVipInstanceOutcomeCallable VpcClient::AssociateHaVipInstanceCallable(const AssociateHaVipInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateHaVipInstanceOutcome>>();
-    AssociateHaVipInstanceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateHaVipInstanceRequest&,
-        AssociateHaVipInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateHaVipInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateHaVipInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateIPv6AddressOutcome VpcClient::AssociateIPv6Address(const AssociateIPv6AddressRequest &request)
@@ -912,32 +793,25 @@ VpcClient::AssociateIPv6AddressOutcome VpcClient::AssociateIPv6Address(const Ass
 
 void VpcClient::AssociateIPv6AddressAsync(const AssociateIPv6AddressRequest& request, const AssociateIPv6AddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateIPv6AddressRequest&;
-    using Resp = AssociateIPv6AddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateIPv6Address(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateIPv6Address", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateIPv6AddressOutcomeCallable VpcClient::AssociateIPv6AddressCallable(const AssociateIPv6AddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateIPv6AddressOutcome>>();
-    AssociateIPv6AddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateIPv6AddressRequest&,
-        AssociateIPv6AddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateIPv6AddressOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateIPv6Address(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateInstancesToCcnRouteTableOutcome VpcClient::AssociateInstancesToCcnRouteTable(const AssociateInstancesToCcnRouteTableRequest &request)
@@ -962,32 +836,25 @@ VpcClient::AssociateInstancesToCcnRouteTableOutcome VpcClient::AssociateInstance
 
 void VpcClient::AssociateInstancesToCcnRouteTableAsync(const AssociateInstancesToCcnRouteTableRequest& request, const AssociateInstancesToCcnRouteTableAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateInstancesToCcnRouteTableRequest&;
-    using Resp = AssociateInstancesToCcnRouteTableResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateInstancesToCcnRouteTable(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateInstancesToCcnRouteTable", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateInstancesToCcnRouteTableOutcomeCallable VpcClient::AssociateInstancesToCcnRouteTableCallable(const AssociateInstancesToCcnRouteTableRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateInstancesToCcnRouteTableOutcome>>();
-    AssociateInstancesToCcnRouteTableAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateInstancesToCcnRouteTableRequest&,
-        AssociateInstancesToCcnRouteTableOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateInstancesToCcnRouteTableOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateInstancesToCcnRouteTable(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateNatGatewayAddressOutcome VpcClient::AssociateNatGatewayAddress(const AssociateNatGatewayAddressRequest &request)
@@ -1012,32 +879,25 @@ VpcClient::AssociateNatGatewayAddressOutcome VpcClient::AssociateNatGatewayAddre
 
 void VpcClient::AssociateNatGatewayAddressAsync(const AssociateNatGatewayAddressRequest& request, const AssociateNatGatewayAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateNatGatewayAddressRequest&;
-    using Resp = AssociateNatGatewayAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateNatGatewayAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateNatGatewayAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateNatGatewayAddressOutcomeCallable VpcClient::AssociateNatGatewayAddressCallable(const AssociateNatGatewayAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateNatGatewayAddressOutcome>>();
-    AssociateNatGatewayAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateNatGatewayAddressRequest&,
-        AssociateNatGatewayAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateNatGatewayAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateNatGatewayAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateNetworkAclSubnetsOutcome VpcClient::AssociateNetworkAclSubnets(const AssociateNetworkAclSubnetsRequest &request)
@@ -1062,32 +922,25 @@ VpcClient::AssociateNetworkAclSubnetsOutcome VpcClient::AssociateNetworkAclSubne
 
 void VpcClient::AssociateNetworkAclSubnetsAsync(const AssociateNetworkAclSubnetsRequest& request, const AssociateNetworkAclSubnetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateNetworkAclSubnetsRequest&;
-    using Resp = AssociateNetworkAclSubnetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateNetworkAclSubnets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateNetworkAclSubnets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateNetworkAclSubnetsOutcomeCallable VpcClient::AssociateNetworkAclSubnetsCallable(const AssociateNetworkAclSubnetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateNetworkAclSubnetsOutcome>>();
-    AssociateNetworkAclSubnetsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateNetworkAclSubnetsRequest&,
-        AssociateNetworkAclSubnetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateNetworkAclSubnetsOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateNetworkAclSubnets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AssociateNetworkInterfaceSecurityGroupsOutcome VpcClient::AssociateNetworkInterfaceSecurityGroups(const AssociateNetworkInterfaceSecurityGroupsRequest &request)
@@ -1112,32 +965,25 @@ VpcClient::AssociateNetworkInterfaceSecurityGroupsOutcome VpcClient::AssociateNe
 
 void VpcClient::AssociateNetworkInterfaceSecurityGroupsAsync(const AssociateNetworkInterfaceSecurityGroupsRequest& request, const AssociateNetworkInterfaceSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AssociateNetworkInterfaceSecurityGroupsRequest&;
-    using Resp = AssociateNetworkInterfaceSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AssociateNetworkInterfaceSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AssociateNetworkInterfaceSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AssociateNetworkInterfaceSecurityGroupsOutcomeCallable VpcClient::AssociateNetworkInterfaceSecurityGroupsCallable(const AssociateNetworkInterfaceSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AssociateNetworkInterfaceSecurityGroupsOutcome>>();
-    AssociateNetworkInterfaceSecurityGroupsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AssociateNetworkInterfaceSecurityGroupsRequest&,
-        AssociateNetworkInterfaceSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AssociateNetworkInterfaceSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->AssociateNetworkInterfaceSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AttachCcnInstancesOutcome VpcClient::AttachCcnInstances(const AttachCcnInstancesRequest &request)
@@ -1162,32 +1008,25 @@ VpcClient::AttachCcnInstancesOutcome VpcClient::AttachCcnInstances(const AttachC
 
 void VpcClient::AttachCcnInstancesAsync(const AttachCcnInstancesRequest& request, const AttachCcnInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachCcnInstancesRequest&;
-    using Resp = AttachCcnInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachCcnInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachCcnInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AttachCcnInstancesOutcomeCallable VpcClient::AttachCcnInstancesCallable(const AttachCcnInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachCcnInstancesOutcome>>();
-    AttachCcnInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AttachCcnInstancesRequest&,
-        AttachCcnInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachCcnInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachCcnInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AttachClassicLinkVpcOutcome VpcClient::AttachClassicLinkVpc(const AttachClassicLinkVpcRequest &request)
@@ -1212,32 +1051,25 @@ VpcClient::AttachClassicLinkVpcOutcome VpcClient::AttachClassicLinkVpc(const Att
 
 void VpcClient::AttachClassicLinkVpcAsync(const AttachClassicLinkVpcRequest& request, const AttachClassicLinkVpcAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachClassicLinkVpcRequest&;
-    using Resp = AttachClassicLinkVpcResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachClassicLinkVpc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachClassicLinkVpc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AttachClassicLinkVpcOutcomeCallable VpcClient::AttachClassicLinkVpcCallable(const AttachClassicLinkVpcRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachClassicLinkVpcOutcome>>();
-    AttachClassicLinkVpcAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AttachClassicLinkVpcRequest&,
-        AttachClassicLinkVpcOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachClassicLinkVpcOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachClassicLinkVpc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AttachNetworkInterfaceOutcome VpcClient::AttachNetworkInterface(const AttachNetworkInterfaceRequest &request)
@@ -1262,32 +1094,25 @@ VpcClient::AttachNetworkInterfaceOutcome VpcClient::AttachNetworkInterface(const
 
 void VpcClient::AttachNetworkInterfaceAsync(const AttachNetworkInterfaceRequest& request, const AttachNetworkInterfaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachNetworkInterfaceRequest&;
-    using Resp = AttachNetworkInterfaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachNetworkInterface(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachNetworkInterface", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AttachNetworkInterfaceOutcomeCallable VpcClient::AttachNetworkInterfaceCallable(const AttachNetworkInterfaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachNetworkInterfaceOutcome>>();
-    AttachNetworkInterfaceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AttachNetworkInterfaceRequest&,
-        AttachNetworkInterfaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachNetworkInterfaceOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachNetworkInterface(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AttachSnapshotInstancesOutcome VpcClient::AttachSnapshotInstances(const AttachSnapshotInstancesRequest &request)
@@ -1312,32 +1137,25 @@ VpcClient::AttachSnapshotInstancesOutcome VpcClient::AttachSnapshotInstances(con
 
 void VpcClient::AttachSnapshotInstancesAsync(const AttachSnapshotInstancesRequest& request, const AttachSnapshotInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AttachSnapshotInstancesRequest&;
-    using Resp = AttachSnapshotInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AttachSnapshotInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AttachSnapshotInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AttachSnapshotInstancesOutcomeCallable VpcClient::AttachSnapshotInstancesCallable(const AttachSnapshotInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AttachSnapshotInstancesOutcome>>();
-    AttachSnapshotInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AttachSnapshotInstancesRequest&,
-        AttachSnapshotInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AttachSnapshotInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->AttachSnapshotInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::AuditCrossBorderComplianceOutcome VpcClient::AuditCrossBorderCompliance(const AuditCrossBorderComplianceRequest &request)
@@ -1362,32 +1180,25 @@ VpcClient::AuditCrossBorderComplianceOutcome VpcClient::AuditCrossBorderComplian
 
 void VpcClient::AuditCrossBorderComplianceAsync(const AuditCrossBorderComplianceRequest& request, const AuditCrossBorderComplianceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const AuditCrossBorderComplianceRequest&;
-    using Resp = AuditCrossBorderComplianceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->AuditCrossBorderCompliance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "AuditCrossBorderCompliance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::AuditCrossBorderComplianceOutcomeCallable VpcClient::AuditCrossBorderComplianceCallable(const AuditCrossBorderComplianceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<AuditCrossBorderComplianceOutcome>>();
-    AuditCrossBorderComplianceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const AuditCrossBorderComplianceRequest&,
-        AuditCrossBorderComplianceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<AuditCrossBorderComplianceOutcome()>>(
+        [this, request]()
+        {
+            return this->AuditCrossBorderCompliance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CheckAssistantCidrOutcome VpcClient::CheckAssistantCidr(const CheckAssistantCidrRequest &request)
@@ -1412,32 +1223,25 @@ VpcClient::CheckAssistantCidrOutcome VpcClient::CheckAssistantCidr(const CheckAs
 
 void VpcClient::CheckAssistantCidrAsync(const CheckAssistantCidrRequest& request, const CheckAssistantCidrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckAssistantCidrRequest&;
-    using Resp = CheckAssistantCidrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckAssistantCidr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckAssistantCidr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CheckAssistantCidrOutcomeCallable VpcClient::CheckAssistantCidrCallable(const CheckAssistantCidrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckAssistantCidrOutcome>>();
-    CheckAssistantCidrAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CheckAssistantCidrRequest&,
-        CheckAssistantCidrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckAssistantCidrOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckAssistantCidr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CheckDefaultSubnetOutcome VpcClient::CheckDefaultSubnet(const CheckDefaultSubnetRequest &request)
@@ -1462,32 +1266,25 @@ VpcClient::CheckDefaultSubnetOutcome VpcClient::CheckDefaultSubnet(const CheckDe
 
 void VpcClient::CheckDefaultSubnetAsync(const CheckDefaultSubnetRequest& request, const CheckDefaultSubnetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckDefaultSubnetRequest&;
-    using Resp = CheckDefaultSubnetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckDefaultSubnet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckDefaultSubnet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CheckDefaultSubnetOutcomeCallable VpcClient::CheckDefaultSubnetCallable(const CheckDefaultSubnetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckDefaultSubnetOutcome>>();
-    CheckDefaultSubnetAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CheckDefaultSubnetRequest&,
-        CheckDefaultSubnetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckDefaultSubnetOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckDefaultSubnet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CheckGatewayFlowMonitorOutcome VpcClient::CheckGatewayFlowMonitor(const CheckGatewayFlowMonitorRequest &request)
@@ -1512,32 +1309,25 @@ VpcClient::CheckGatewayFlowMonitorOutcome VpcClient::CheckGatewayFlowMonitor(con
 
 void VpcClient::CheckGatewayFlowMonitorAsync(const CheckGatewayFlowMonitorRequest& request, const CheckGatewayFlowMonitorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckGatewayFlowMonitorRequest&;
-    using Resp = CheckGatewayFlowMonitorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckGatewayFlowMonitor(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckGatewayFlowMonitor", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CheckGatewayFlowMonitorOutcomeCallable VpcClient::CheckGatewayFlowMonitorCallable(const CheckGatewayFlowMonitorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckGatewayFlowMonitorOutcome>>();
-    CheckGatewayFlowMonitorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CheckGatewayFlowMonitorRequest&,
-        CheckGatewayFlowMonitorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckGatewayFlowMonitorOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckGatewayFlowMonitor(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CheckNetDetectStateOutcome VpcClient::CheckNetDetectState(const CheckNetDetectStateRequest &request)
@@ -1562,32 +1352,25 @@ VpcClient::CheckNetDetectStateOutcome VpcClient::CheckNetDetectState(const Check
 
 void VpcClient::CheckNetDetectStateAsync(const CheckNetDetectStateRequest& request, const CheckNetDetectStateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckNetDetectStateRequest&;
-    using Resp = CheckNetDetectStateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckNetDetectState(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckNetDetectState", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CheckNetDetectStateOutcomeCallable VpcClient::CheckNetDetectStateCallable(const CheckNetDetectStateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckNetDetectStateOutcome>>();
-    CheckNetDetectStateAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CheckNetDetectStateRequest&,
-        CheckNetDetectStateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckNetDetectStateOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckNetDetectState(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CheckTrafficMirrorOutcome VpcClient::CheckTrafficMirror(const CheckTrafficMirrorRequest &request)
@@ -1612,32 +1395,25 @@ VpcClient::CheckTrafficMirrorOutcome VpcClient::CheckTrafficMirror(const CheckTr
 
 void VpcClient::CheckTrafficMirrorAsync(const CheckTrafficMirrorRequest& request, const CheckTrafficMirrorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CheckTrafficMirrorRequest&;
-    using Resp = CheckTrafficMirrorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CheckTrafficMirror(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CheckTrafficMirror", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CheckTrafficMirrorOutcomeCallable VpcClient::CheckTrafficMirrorCallable(const CheckTrafficMirrorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CheckTrafficMirrorOutcome>>();
-    CheckTrafficMirrorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CheckTrafficMirrorRequest&,
-        CheckTrafficMirrorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CheckTrafficMirrorOutcome()>>(
+        [this, request]()
+        {
+            return this->CheckTrafficMirror(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ClearRouteTableSelectionPoliciesOutcome VpcClient::ClearRouteTableSelectionPolicies(const ClearRouteTableSelectionPoliciesRequest &request)
@@ -1662,32 +1438,25 @@ VpcClient::ClearRouteTableSelectionPoliciesOutcome VpcClient::ClearRouteTableSel
 
 void VpcClient::ClearRouteTableSelectionPoliciesAsync(const ClearRouteTableSelectionPoliciesRequest& request, const ClearRouteTableSelectionPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ClearRouteTableSelectionPoliciesRequest&;
-    using Resp = ClearRouteTableSelectionPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ClearRouteTableSelectionPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ClearRouteTableSelectionPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ClearRouteTableSelectionPoliciesOutcomeCallable VpcClient::ClearRouteTableSelectionPoliciesCallable(const ClearRouteTableSelectionPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ClearRouteTableSelectionPoliciesOutcome>>();
-    ClearRouteTableSelectionPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ClearRouteTableSelectionPoliciesRequest&,
-        ClearRouteTableSelectionPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ClearRouteTableSelectionPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->ClearRouteTableSelectionPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CloneSecurityGroupOutcome VpcClient::CloneSecurityGroup(const CloneSecurityGroupRequest &request)
@@ -1712,32 +1481,25 @@ VpcClient::CloneSecurityGroupOutcome VpcClient::CloneSecurityGroup(const CloneSe
 
 void VpcClient::CloneSecurityGroupAsync(const CloneSecurityGroupRequest& request, const CloneSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CloneSecurityGroupRequest&;
-    using Resp = CloneSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CloneSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CloneSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CloneSecurityGroupOutcomeCallable VpcClient::CloneSecurityGroupCallable(const CloneSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CloneSecurityGroupOutcome>>();
-    CloneSecurityGroupAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CloneSecurityGroupRequest&,
-        CloneSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CloneSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CloneSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateAddressTemplateOutcome VpcClient::CreateAddressTemplate(const CreateAddressTemplateRequest &request)
@@ -1762,32 +1524,25 @@ VpcClient::CreateAddressTemplateOutcome VpcClient::CreateAddressTemplate(const C
 
 void VpcClient::CreateAddressTemplateAsync(const CreateAddressTemplateRequest& request, const CreateAddressTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAddressTemplateRequest&;
-    using Resp = CreateAddressTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAddressTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAddressTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateAddressTemplateOutcomeCallable VpcClient::CreateAddressTemplateCallable(const CreateAddressTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAddressTemplateOutcome>>();
-    CreateAddressTemplateAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateAddressTemplateRequest&,
-        CreateAddressTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAddressTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAddressTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateAddressTemplateGroupOutcome VpcClient::CreateAddressTemplateGroup(const CreateAddressTemplateGroupRequest &request)
@@ -1812,32 +1567,25 @@ VpcClient::CreateAddressTemplateGroupOutcome VpcClient::CreateAddressTemplateGro
 
 void VpcClient::CreateAddressTemplateGroupAsync(const CreateAddressTemplateGroupRequest& request, const CreateAddressTemplateGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAddressTemplateGroupRequest&;
-    using Resp = CreateAddressTemplateGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAddressTemplateGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAddressTemplateGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateAddressTemplateGroupOutcomeCallable VpcClient::CreateAddressTemplateGroupCallable(const CreateAddressTemplateGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAddressTemplateGroupOutcome>>();
-    CreateAddressTemplateGroupAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateAddressTemplateGroupRequest&,
-        CreateAddressTemplateGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAddressTemplateGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAddressTemplateGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateAndAttachNetworkInterfaceOutcome VpcClient::CreateAndAttachNetworkInterface(const CreateAndAttachNetworkInterfaceRequest &request)
@@ -1862,32 +1610,25 @@ VpcClient::CreateAndAttachNetworkInterfaceOutcome VpcClient::CreateAndAttachNetw
 
 void VpcClient::CreateAndAttachNetworkInterfaceAsync(const CreateAndAttachNetworkInterfaceRequest& request, const CreateAndAttachNetworkInterfaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAndAttachNetworkInterfaceRequest&;
-    using Resp = CreateAndAttachNetworkInterfaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAndAttachNetworkInterface(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAndAttachNetworkInterface", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateAndAttachNetworkInterfaceOutcomeCallable VpcClient::CreateAndAttachNetworkInterfaceCallable(const CreateAndAttachNetworkInterfaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAndAttachNetworkInterfaceOutcome>>();
-    CreateAndAttachNetworkInterfaceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateAndAttachNetworkInterfaceRequest&,
-        CreateAndAttachNetworkInterfaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAndAttachNetworkInterfaceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAndAttachNetworkInterface(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateAssistantCidrOutcome VpcClient::CreateAssistantCidr(const CreateAssistantCidrRequest &request)
@@ -1912,32 +1653,25 @@ VpcClient::CreateAssistantCidrOutcome VpcClient::CreateAssistantCidr(const Creat
 
 void VpcClient::CreateAssistantCidrAsync(const CreateAssistantCidrRequest& request, const CreateAssistantCidrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateAssistantCidrRequest&;
-    using Resp = CreateAssistantCidrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateAssistantCidr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateAssistantCidr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateAssistantCidrOutcomeCallable VpcClient::CreateAssistantCidrCallable(const CreateAssistantCidrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateAssistantCidrOutcome>>();
-    CreateAssistantCidrAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateAssistantCidrRequest&,
-        CreateAssistantCidrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateAssistantCidrOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateAssistantCidr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateBandwidthPackageOutcome VpcClient::CreateBandwidthPackage(const CreateBandwidthPackageRequest &request)
@@ -1962,32 +1696,25 @@ VpcClient::CreateBandwidthPackageOutcome VpcClient::CreateBandwidthPackage(const
 
 void VpcClient::CreateBandwidthPackageAsync(const CreateBandwidthPackageRequest& request, const CreateBandwidthPackageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateBandwidthPackageRequest&;
-    using Resp = CreateBandwidthPackageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateBandwidthPackage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateBandwidthPackage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateBandwidthPackageOutcomeCallable VpcClient::CreateBandwidthPackageCallable(const CreateBandwidthPackageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateBandwidthPackageOutcome>>();
-    CreateBandwidthPackageAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateBandwidthPackageRequest&,
-        CreateBandwidthPackageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateBandwidthPackageOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateBandwidthPackage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateCcnOutcome VpcClient::CreateCcn(const CreateCcnRequest &request)
@@ -2012,32 +1739,25 @@ VpcClient::CreateCcnOutcome VpcClient::CreateCcn(const CreateCcnRequest &request
 
 void VpcClient::CreateCcnAsync(const CreateCcnRequest& request, const CreateCcnAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCcnRequest&;
-    using Resp = CreateCcnResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCcn(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCcn", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateCcnOutcomeCallable VpcClient::CreateCcnCallable(const CreateCcnRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCcnOutcome>>();
-    CreateCcnAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateCcnRequest&,
-        CreateCcnOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCcnOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCcn(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateCcnRouteTablesOutcome VpcClient::CreateCcnRouteTables(const CreateCcnRouteTablesRequest &request)
@@ -2062,32 +1782,25 @@ VpcClient::CreateCcnRouteTablesOutcome VpcClient::CreateCcnRouteTables(const Cre
 
 void VpcClient::CreateCcnRouteTablesAsync(const CreateCcnRouteTablesRequest& request, const CreateCcnRouteTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCcnRouteTablesRequest&;
-    using Resp = CreateCcnRouteTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCcnRouteTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCcnRouteTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateCcnRouteTablesOutcomeCallable VpcClient::CreateCcnRouteTablesCallable(const CreateCcnRouteTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCcnRouteTablesOutcome>>();
-    CreateCcnRouteTablesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateCcnRouteTablesRequest&,
-        CreateCcnRouteTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCcnRouteTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCcnRouteTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateCdcLDCXListOutcome VpcClient::CreateCdcLDCXList(const CreateCdcLDCXListRequest &request)
@@ -2112,32 +1825,25 @@ VpcClient::CreateCdcLDCXListOutcome VpcClient::CreateCdcLDCXList(const CreateCdc
 
 void VpcClient::CreateCdcLDCXListAsync(const CreateCdcLDCXListRequest& request, const CreateCdcLDCXListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCdcLDCXListRequest&;
-    using Resp = CreateCdcLDCXListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCdcLDCXList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCdcLDCXList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateCdcLDCXListOutcomeCallable VpcClient::CreateCdcLDCXListCallable(const CreateCdcLDCXListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCdcLDCXListOutcome>>();
-    CreateCdcLDCXListAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateCdcLDCXListRequest&,
-        CreateCdcLDCXListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCdcLDCXListOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCdcLDCXList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateCdcNetPlanesOutcome VpcClient::CreateCdcNetPlanes(const CreateCdcNetPlanesRequest &request)
@@ -2162,32 +1868,25 @@ VpcClient::CreateCdcNetPlanesOutcome VpcClient::CreateCdcNetPlanes(const CreateC
 
 void VpcClient::CreateCdcNetPlanesAsync(const CreateCdcNetPlanesRequest& request, const CreateCdcNetPlanesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCdcNetPlanesRequest&;
-    using Resp = CreateCdcNetPlanesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCdcNetPlanes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCdcNetPlanes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateCdcNetPlanesOutcomeCallable VpcClient::CreateCdcNetPlanesCallable(const CreateCdcNetPlanesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCdcNetPlanesOutcome>>();
-    CreateCdcNetPlanesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateCdcNetPlanesRequest&,
-        CreateCdcNetPlanesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCdcNetPlanesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCdcNetPlanes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateCustomerGatewayOutcome VpcClient::CreateCustomerGateway(const CreateCustomerGatewayRequest &request)
@@ -2212,32 +1911,25 @@ VpcClient::CreateCustomerGatewayOutcome VpcClient::CreateCustomerGateway(const C
 
 void VpcClient::CreateCustomerGatewayAsync(const CreateCustomerGatewayRequest& request, const CreateCustomerGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateCustomerGatewayRequest&;
-    using Resp = CreateCustomerGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateCustomerGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateCustomerGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateCustomerGatewayOutcomeCallable VpcClient::CreateCustomerGatewayCallable(const CreateCustomerGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateCustomerGatewayOutcome>>();
-    CreateCustomerGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateCustomerGatewayRequest&,
-        CreateCustomerGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateCustomerGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateCustomerGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateDefaultSecurityGroupOutcome VpcClient::CreateDefaultSecurityGroup(const CreateDefaultSecurityGroupRequest &request)
@@ -2262,32 +1954,25 @@ VpcClient::CreateDefaultSecurityGroupOutcome VpcClient::CreateDefaultSecurityGro
 
 void VpcClient::CreateDefaultSecurityGroupAsync(const CreateDefaultSecurityGroupRequest& request, const CreateDefaultSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDefaultSecurityGroupRequest&;
-    using Resp = CreateDefaultSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDefaultSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDefaultSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateDefaultSecurityGroupOutcomeCallable VpcClient::CreateDefaultSecurityGroupCallable(const CreateDefaultSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDefaultSecurityGroupOutcome>>();
-    CreateDefaultSecurityGroupAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateDefaultSecurityGroupRequest&,
-        CreateDefaultSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDefaultSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDefaultSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateDefaultVpcOutcome VpcClient::CreateDefaultVpc(const CreateDefaultVpcRequest &request)
@@ -2312,32 +1997,25 @@ VpcClient::CreateDefaultVpcOutcome VpcClient::CreateDefaultVpc(const CreateDefau
 
 void VpcClient::CreateDefaultVpcAsync(const CreateDefaultVpcRequest& request, const CreateDefaultVpcAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDefaultVpcRequest&;
-    using Resp = CreateDefaultVpcResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDefaultVpc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDefaultVpc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateDefaultVpcOutcomeCallable VpcClient::CreateDefaultVpcCallable(const CreateDefaultVpcRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDefaultVpcOutcome>>();
-    CreateDefaultVpcAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateDefaultVpcRequest&,
-        CreateDefaultVpcOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDefaultVpcOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDefaultVpc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateDhcpIpOutcome VpcClient::CreateDhcpIp(const CreateDhcpIpRequest &request)
@@ -2362,32 +2040,25 @@ VpcClient::CreateDhcpIpOutcome VpcClient::CreateDhcpIp(const CreateDhcpIpRequest
 
 void VpcClient::CreateDhcpIpAsync(const CreateDhcpIpRequest& request, const CreateDhcpIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDhcpIpRequest&;
-    using Resp = CreateDhcpIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDhcpIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDhcpIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateDhcpIpOutcomeCallable VpcClient::CreateDhcpIpCallable(const CreateDhcpIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDhcpIpOutcome>>();
-    CreateDhcpIpAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateDhcpIpRequest&,
-        CreateDhcpIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDhcpIpOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDhcpIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateDirectConnectGatewayOutcome VpcClient::CreateDirectConnectGateway(const CreateDirectConnectGatewayRequest &request)
@@ -2412,32 +2083,25 @@ VpcClient::CreateDirectConnectGatewayOutcome VpcClient::CreateDirectConnectGatew
 
 void VpcClient::CreateDirectConnectGatewayAsync(const CreateDirectConnectGatewayRequest& request, const CreateDirectConnectGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDirectConnectGatewayRequest&;
-    using Resp = CreateDirectConnectGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDirectConnectGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDirectConnectGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateDirectConnectGatewayOutcomeCallable VpcClient::CreateDirectConnectGatewayCallable(const CreateDirectConnectGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDirectConnectGatewayOutcome>>();
-    CreateDirectConnectGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateDirectConnectGatewayRequest&,
-        CreateDirectConnectGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDirectConnectGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDirectConnectGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateDirectConnectGatewayCcnRoutesOutcome VpcClient::CreateDirectConnectGatewayCcnRoutes(const CreateDirectConnectGatewayCcnRoutesRequest &request)
@@ -2462,32 +2126,25 @@ VpcClient::CreateDirectConnectGatewayCcnRoutesOutcome VpcClient::CreateDirectCon
 
 void VpcClient::CreateDirectConnectGatewayCcnRoutesAsync(const CreateDirectConnectGatewayCcnRoutesRequest& request, const CreateDirectConnectGatewayCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateDirectConnectGatewayCcnRoutesRequest&;
-    using Resp = CreateDirectConnectGatewayCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateDirectConnectGatewayCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateDirectConnectGatewayCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateDirectConnectGatewayCcnRoutesOutcomeCallable VpcClient::CreateDirectConnectGatewayCcnRoutesCallable(const CreateDirectConnectGatewayCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateDirectConnectGatewayCcnRoutesOutcome>>();
-    CreateDirectConnectGatewayCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateDirectConnectGatewayCcnRoutesRequest&,
-        CreateDirectConnectGatewayCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateDirectConnectGatewayCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateDirectConnectGatewayCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateFlowLogOutcome VpcClient::CreateFlowLog(const CreateFlowLogRequest &request)
@@ -2512,32 +2169,25 @@ VpcClient::CreateFlowLogOutcome VpcClient::CreateFlowLog(const CreateFlowLogRequ
 
 void VpcClient::CreateFlowLogAsync(const CreateFlowLogRequest& request, const CreateFlowLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateFlowLogRequest&;
-    using Resp = CreateFlowLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateFlowLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateFlowLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateFlowLogOutcomeCallable VpcClient::CreateFlowLogCallable(const CreateFlowLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateFlowLogOutcome>>();
-    CreateFlowLogAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateFlowLogRequest&,
-        CreateFlowLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateFlowLogOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateFlowLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateGlobalRoutesOutcome VpcClient::CreateGlobalRoutes(const CreateGlobalRoutesRequest &request)
@@ -2562,32 +2212,25 @@ VpcClient::CreateGlobalRoutesOutcome VpcClient::CreateGlobalRoutes(const CreateG
 
 void VpcClient::CreateGlobalRoutesAsync(const CreateGlobalRoutesRequest& request, const CreateGlobalRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateGlobalRoutesRequest&;
-    using Resp = CreateGlobalRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateGlobalRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateGlobalRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateGlobalRoutesOutcomeCallable VpcClient::CreateGlobalRoutesCallable(const CreateGlobalRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateGlobalRoutesOutcome>>();
-    CreateGlobalRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateGlobalRoutesRequest&,
-        CreateGlobalRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateGlobalRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateGlobalRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateHaVipOutcome VpcClient::CreateHaVip(const CreateHaVipRequest &request)
@@ -2612,32 +2255,25 @@ VpcClient::CreateHaVipOutcome VpcClient::CreateHaVip(const CreateHaVipRequest &r
 
 void VpcClient::CreateHaVipAsync(const CreateHaVipRequest& request, const CreateHaVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHaVipRequest&;
-    using Resp = CreateHaVipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHaVip(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHaVip", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateHaVipOutcomeCallable VpcClient::CreateHaVipCallable(const CreateHaVipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHaVipOutcome>>();
-    CreateHaVipAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateHaVipRequest&,
-        CreateHaVipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHaVipOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHaVip(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateHighPriorityRouteTableOutcome VpcClient::CreateHighPriorityRouteTable(const CreateHighPriorityRouteTableRequest &request)
@@ -2662,32 +2298,25 @@ VpcClient::CreateHighPriorityRouteTableOutcome VpcClient::CreateHighPriorityRout
 
 void VpcClient::CreateHighPriorityRouteTableAsync(const CreateHighPriorityRouteTableRequest& request, const CreateHighPriorityRouteTableAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHighPriorityRouteTableRequest&;
-    using Resp = CreateHighPriorityRouteTableResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHighPriorityRouteTable(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHighPriorityRouteTable", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateHighPriorityRouteTableOutcomeCallable VpcClient::CreateHighPriorityRouteTableCallable(const CreateHighPriorityRouteTableRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHighPriorityRouteTableOutcome>>();
-    CreateHighPriorityRouteTableAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateHighPriorityRouteTableRequest&,
-        CreateHighPriorityRouteTableOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHighPriorityRouteTableOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHighPriorityRouteTable(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateHighPriorityRoutesOutcome VpcClient::CreateHighPriorityRoutes(const CreateHighPriorityRoutesRequest &request)
@@ -2712,32 +2341,25 @@ VpcClient::CreateHighPriorityRoutesOutcome VpcClient::CreateHighPriorityRoutes(c
 
 void VpcClient::CreateHighPriorityRoutesAsync(const CreateHighPriorityRoutesRequest& request, const CreateHighPriorityRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateHighPriorityRoutesRequest&;
-    using Resp = CreateHighPriorityRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateHighPriorityRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateHighPriorityRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateHighPriorityRoutesOutcomeCallable VpcClient::CreateHighPriorityRoutesCallable(const CreateHighPriorityRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateHighPriorityRoutesOutcome>>();
-    CreateHighPriorityRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateHighPriorityRoutesRequest&,
-        CreateHighPriorityRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateHighPriorityRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateHighPriorityRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateIp6TranslatorsOutcome VpcClient::CreateIp6Translators(const CreateIp6TranslatorsRequest &request)
@@ -2762,32 +2384,25 @@ VpcClient::CreateIp6TranslatorsOutcome VpcClient::CreateIp6Translators(const Cre
 
 void VpcClient::CreateIp6TranslatorsAsync(const CreateIp6TranslatorsRequest& request, const CreateIp6TranslatorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateIp6TranslatorsRequest&;
-    using Resp = CreateIp6TranslatorsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateIp6Translators(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateIp6Translators", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateIp6TranslatorsOutcomeCallable VpcClient::CreateIp6TranslatorsCallable(const CreateIp6TranslatorsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateIp6TranslatorsOutcome>>();
-    CreateIp6TranslatorsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateIp6TranslatorsRequest&,
-        CreateIp6TranslatorsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateIp6TranslatorsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateIp6Translators(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateLocalGatewayOutcome VpcClient::CreateLocalGateway(const CreateLocalGatewayRequest &request)
@@ -2812,32 +2427,25 @@ VpcClient::CreateLocalGatewayOutcome VpcClient::CreateLocalGateway(const CreateL
 
 void VpcClient::CreateLocalGatewayAsync(const CreateLocalGatewayRequest& request, const CreateLocalGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateLocalGatewayRequest&;
-    using Resp = CreateLocalGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateLocalGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateLocalGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateLocalGatewayOutcomeCallable VpcClient::CreateLocalGatewayCallable(const CreateLocalGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateLocalGatewayOutcome>>();
-    CreateLocalGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateLocalGatewayRequest&,
-        CreateLocalGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateLocalGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateLocalGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateNatGatewayOutcome VpcClient::CreateNatGateway(const CreateNatGatewayRequest &request)
@@ -2862,32 +2470,25 @@ VpcClient::CreateNatGatewayOutcome VpcClient::CreateNatGateway(const CreateNatGa
 
 void VpcClient::CreateNatGatewayAsync(const CreateNatGatewayRequest& request, const CreateNatGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNatGatewayRequest&;
-    using Resp = CreateNatGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNatGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNatGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateNatGatewayOutcomeCallable VpcClient::CreateNatGatewayCallable(const CreateNatGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNatGatewayOutcome>>();
-    CreateNatGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateNatGatewayRequest&,
-        CreateNatGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNatGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNatGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient::CreateNatGatewayDestinationIpPortTranslationNatRule(const CreateNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
@@ -2912,32 +2513,25 @@ VpcClient::CreateNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient:
 
 void VpcClient::CreateNatGatewayDestinationIpPortTranslationNatRuleAsync(const CreateNatGatewayDestinationIpPortTranslationNatRuleRequest& request, const CreateNatGatewayDestinationIpPortTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNatGatewayDestinationIpPortTranslationNatRuleRequest&;
-    using Resp = CreateNatGatewayDestinationIpPortTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNatGatewayDestinationIpPortTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNatGatewayDestinationIpPortTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateNatGatewayDestinationIpPortTranslationNatRuleOutcomeCallable VpcClient::CreateNatGatewayDestinationIpPortTranslationNatRuleCallable(const CreateNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNatGatewayDestinationIpPortTranslationNatRuleOutcome>>();
-    CreateNatGatewayDestinationIpPortTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateNatGatewayDestinationIpPortTranslationNatRuleRequest&,
-        CreateNatGatewayDestinationIpPortTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNatGatewayDestinationIpPortTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNatGatewayDestinationIpPortTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateNatGatewaySourceIpTranslationNatRuleOutcome VpcClient::CreateNatGatewaySourceIpTranslationNatRule(const CreateNatGatewaySourceIpTranslationNatRuleRequest &request)
@@ -2962,32 +2556,25 @@ VpcClient::CreateNatGatewaySourceIpTranslationNatRuleOutcome VpcClient::CreateNa
 
 void VpcClient::CreateNatGatewaySourceIpTranslationNatRuleAsync(const CreateNatGatewaySourceIpTranslationNatRuleRequest& request, const CreateNatGatewaySourceIpTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNatGatewaySourceIpTranslationNatRuleRequest&;
-    using Resp = CreateNatGatewaySourceIpTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNatGatewaySourceIpTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNatGatewaySourceIpTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateNatGatewaySourceIpTranslationNatRuleOutcomeCallable VpcClient::CreateNatGatewaySourceIpTranslationNatRuleCallable(const CreateNatGatewaySourceIpTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNatGatewaySourceIpTranslationNatRuleOutcome>>();
-    CreateNatGatewaySourceIpTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateNatGatewaySourceIpTranslationNatRuleRequest&,
-        CreateNatGatewaySourceIpTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNatGatewaySourceIpTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNatGatewaySourceIpTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateNetDetectOutcome VpcClient::CreateNetDetect(const CreateNetDetectRequest &request)
@@ -3012,32 +2599,25 @@ VpcClient::CreateNetDetectOutcome VpcClient::CreateNetDetect(const CreateNetDete
 
 void VpcClient::CreateNetDetectAsync(const CreateNetDetectRequest& request, const CreateNetDetectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNetDetectRequest&;
-    using Resp = CreateNetDetectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNetDetect(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNetDetect", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateNetDetectOutcomeCallable VpcClient::CreateNetDetectCallable(const CreateNetDetectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNetDetectOutcome>>();
-    CreateNetDetectAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateNetDetectRequest&,
-        CreateNetDetectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNetDetectOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNetDetect(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateNetworkAclOutcome VpcClient::CreateNetworkAcl(const CreateNetworkAclRequest &request)
@@ -3062,32 +2642,25 @@ VpcClient::CreateNetworkAclOutcome VpcClient::CreateNetworkAcl(const CreateNetwo
 
 void VpcClient::CreateNetworkAclAsync(const CreateNetworkAclRequest& request, const CreateNetworkAclAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNetworkAclRequest&;
-    using Resp = CreateNetworkAclResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNetworkAcl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNetworkAcl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateNetworkAclOutcomeCallable VpcClient::CreateNetworkAclCallable(const CreateNetworkAclRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNetworkAclOutcome>>();
-    CreateNetworkAclAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateNetworkAclRequest&,
-        CreateNetworkAclOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNetworkAclOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNetworkAcl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateNetworkAclEntriesOutcome VpcClient::CreateNetworkAclEntries(const CreateNetworkAclEntriesRequest &request)
@@ -3112,32 +2685,25 @@ VpcClient::CreateNetworkAclEntriesOutcome VpcClient::CreateNetworkAclEntries(con
 
 void VpcClient::CreateNetworkAclEntriesAsync(const CreateNetworkAclEntriesRequest& request, const CreateNetworkAclEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNetworkAclEntriesRequest&;
-    using Resp = CreateNetworkAclEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNetworkAclEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNetworkAclEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateNetworkAclEntriesOutcomeCallable VpcClient::CreateNetworkAclEntriesCallable(const CreateNetworkAclEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNetworkAclEntriesOutcome>>();
-    CreateNetworkAclEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateNetworkAclEntriesRequest&,
-        CreateNetworkAclEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNetworkAclEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNetworkAclEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateNetworkAclQuintupleEntriesOutcome VpcClient::CreateNetworkAclQuintupleEntries(const CreateNetworkAclQuintupleEntriesRequest &request)
@@ -3162,32 +2728,25 @@ VpcClient::CreateNetworkAclQuintupleEntriesOutcome VpcClient::CreateNetworkAclQu
 
 void VpcClient::CreateNetworkAclQuintupleEntriesAsync(const CreateNetworkAclQuintupleEntriesRequest& request, const CreateNetworkAclQuintupleEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNetworkAclQuintupleEntriesRequest&;
-    using Resp = CreateNetworkAclQuintupleEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNetworkAclQuintupleEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNetworkAclQuintupleEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateNetworkAclQuintupleEntriesOutcomeCallable VpcClient::CreateNetworkAclQuintupleEntriesCallable(const CreateNetworkAclQuintupleEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNetworkAclQuintupleEntriesOutcome>>();
-    CreateNetworkAclQuintupleEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateNetworkAclQuintupleEntriesRequest&,
-        CreateNetworkAclQuintupleEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNetworkAclQuintupleEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNetworkAclQuintupleEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateNetworkInterfaceOutcome VpcClient::CreateNetworkInterface(const CreateNetworkInterfaceRequest &request)
@@ -3212,32 +2771,25 @@ VpcClient::CreateNetworkInterfaceOutcome VpcClient::CreateNetworkInterface(const
 
 void VpcClient::CreateNetworkInterfaceAsync(const CreateNetworkInterfaceRequest& request, const CreateNetworkInterfaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateNetworkInterfaceRequest&;
-    using Resp = CreateNetworkInterfaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateNetworkInterface(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateNetworkInterface", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateNetworkInterfaceOutcomeCallable VpcClient::CreateNetworkInterfaceCallable(const CreateNetworkInterfaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateNetworkInterfaceOutcome>>();
-    CreateNetworkInterfaceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateNetworkInterfaceRequest&,
-        CreateNetworkInterfaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateNetworkInterfaceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateNetworkInterface(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreatePrivateNatGatewayOutcome VpcClient::CreatePrivateNatGateway(const CreatePrivateNatGatewayRequest &request)
@@ -3262,32 +2814,25 @@ VpcClient::CreatePrivateNatGatewayOutcome VpcClient::CreatePrivateNatGateway(con
 
 void VpcClient::CreatePrivateNatGatewayAsync(const CreatePrivateNatGatewayRequest& request, const CreatePrivateNatGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateNatGatewayRequest&;
-    using Resp = CreatePrivateNatGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateNatGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateNatGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreatePrivateNatGatewayOutcomeCallable VpcClient::CreatePrivateNatGatewayCallable(const CreatePrivateNatGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateNatGatewayOutcome>>();
-    CreatePrivateNatGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreatePrivateNatGatewayRequest&,
-        CreatePrivateNatGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateNatGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateNatGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient::CreatePrivateNatGatewayDestinationIpPortTranslationNatRule(const CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
@@ -3312,32 +2857,25 @@ VpcClient::CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome Vpc
 
 void VpcClient::CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleAsync(const CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest& request, const CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest&;
-    using Resp = CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateNatGatewayDestinationIpPortTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateNatGatewayDestinationIpPortTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcomeCallable VpcClient::CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleCallable(const CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome>>();
-    CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest&,
-        CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateNatGatewayDestinationIpPortTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreatePrivateNatGatewayTranslationAclRuleOutcome VpcClient::CreatePrivateNatGatewayTranslationAclRule(const CreatePrivateNatGatewayTranslationAclRuleRequest &request)
@@ -3362,32 +2900,25 @@ VpcClient::CreatePrivateNatGatewayTranslationAclRuleOutcome VpcClient::CreatePri
 
 void VpcClient::CreatePrivateNatGatewayTranslationAclRuleAsync(const CreatePrivateNatGatewayTranslationAclRuleRequest& request, const CreatePrivateNatGatewayTranslationAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateNatGatewayTranslationAclRuleRequest&;
-    using Resp = CreatePrivateNatGatewayTranslationAclRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateNatGatewayTranslationAclRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateNatGatewayTranslationAclRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreatePrivateNatGatewayTranslationAclRuleOutcomeCallable VpcClient::CreatePrivateNatGatewayTranslationAclRuleCallable(const CreatePrivateNatGatewayTranslationAclRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateNatGatewayTranslationAclRuleOutcome>>();
-    CreatePrivateNatGatewayTranslationAclRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreatePrivateNatGatewayTranslationAclRuleRequest&,
-        CreatePrivateNatGatewayTranslationAclRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateNatGatewayTranslationAclRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateNatGatewayTranslationAclRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreatePrivateNatGatewayTranslationNatRuleOutcome VpcClient::CreatePrivateNatGatewayTranslationNatRule(const CreatePrivateNatGatewayTranslationNatRuleRequest &request)
@@ -3412,32 +2943,25 @@ VpcClient::CreatePrivateNatGatewayTranslationNatRuleOutcome VpcClient::CreatePri
 
 void VpcClient::CreatePrivateNatGatewayTranslationNatRuleAsync(const CreatePrivateNatGatewayTranslationNatRuleRequest& request, const CreatePrivateNatGatewayTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreatePrivateNatGatewayTranslationNatRuleRequest&;
-    using Resp = CreatePrivateNatGatewayTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreatePrivateNatGatewayTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreatePrivateNatGatewayTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreatePrivateNatGatewayTranslationNatRuleOutcomeCallable VpcClient::CreatePrivateNatGatewayTranslationNatRuleCallable(const CreatePrivateNatGatewayTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreatePrivateNatGatewayTranslationNatRuleOutcome>>();
-    CreatePrivateNatGatewayTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreatePrivateNatGatewayTranslationNatRuleRequest&,
-        CreatePrivateNatGatewayTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreatePrivateNatGatewayTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->CreatePrivateNatGatewayTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateReserveIpAddressesOutcome VpcClient::CreateReserveIpAddresses(const CreateReserveIpAddressesRequest &request)
@@ -3462,32 +2986,25 @@ VpcClient::CreateReserveIpAddressesOutcome VpcClient::CreateReserveIpAddresses(c
 
 void VpcClient::CreateReserveIpAddressesAsync(const CreateReserveIpAddressesRequest& request, const CreateReserveIpAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateReserveIpAddressesRequest&;
-    using Resp = CreateReserveIpAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateReserveIpAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateReserveIpAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateReserveIpAddressesOutcomeCallable VpcClient::CreateReserveIpAddressesCallable(const CreateReserveIpAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateReserveIpAddressesOutcome>>();
-    CreateReserveIpAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateReserveIpAddressesRequest&,
-        CreateReserveIpAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateReserveIpAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateReserveIpAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateRoutePolicyOutcome VpcClient::CreateRoutePolicy(const CreateRoutePolicyRequest &request)
@@ -3512,32 +3029,25 @@ VpcClient::CreateRoutePolicyOutcome VpcClient::CreateRoutePolicy(const CreateRou
 
 void VpcClient::CreateRoutePolicyAsync(const CreateRoutePolicyRequest& request, const CreateRoutePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoutePolicyRequest&;
-    using Resp = CreateRoutePolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoutePolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoutePolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateRoutePolicyOutcomeCallable VpcClient::CreateRoutePolicyCallable(const CreateRoutePolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoutePolicyOutcome>>();
-    CreateRoutePolicyAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateRoutePolicyRequest&,
-        CreateRoutePolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoutePolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoutePolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateRoutePolicyAssociationsOutcome VpcClient::CreateRoutePolicyAssociations(const CreateRoutePolicyAssociationsRequest &request)
@@ -3562,32 +3072,25 @@ VpcClient::CreateRoutePolicyAssociationsOutcome VpcClient::CreateRoutePolicyAsso
 
 void VpcClient::CreateRoutePolicyAssociationsAsync(const CreateRoutePolicyAssociationsRequest& request, const CreateRoutePolicyAssociationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoutePolicyAssociationsRequest&;
-    using Resp = CreateRoutePolicyAssociationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoutePolicyAssociations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoutePolicyAssociations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateRoutePolicyAssociationsOutcomeCallable VpcClient::CreateRoutePolicyAssociationsCallable(const CreateRoutePolicyAssociationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoutePolicyAssociationsOutcome>>();
-    CreateRoutePolicyAssociationsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateRoutePolicyAssociationsRequest&,
-        CreateRoutePolicyAssociationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoutePolicyAssociationsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoutePolicyAssociations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateRoutePolicyEntriesOutcome VpcClient::CreateRoutePolicyEntries(const CreateRoutePolicyEntriesRequest &request)
@@ -3612,32 +3115,25 @@ VpcClient::CreateRoutePolicyEntriesOutcome VpcClient::CreateRoutePolicyEntries(c
 
 void VpcClient::CreateRoutePolicyEntriesAsync(const CreateRoutePolicyEntriesRequest& request, const CreateRoutePolicyEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoutePolicyEntriesRequest&;
-    using Resp = CreateRoutePolicyEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoutePolicyEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoutePolicyEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateRoutePolicyEntriesOutcomeCallable VpcClient::CreateRoutePolicyEntriesCallable(const CreateRoutePolicyEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoutePolicyEntriesOutcome>>();
-    CreateRoutePolicyEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateRoutePolicyEntriesRequest&,
-        CreateRoutePolicyEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoutePolicyEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoutePolicyEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateRouteTableOutcome VpcClient::CreateRouteTable(const CreateRouteTableRequest &request)
@@ -3662,32 +3158,25 @@ VpcClient::CreateRouteTableOutcome VpcClient::CreateRouteTable(const CreateRoute
 
 void VpcClient::CreateRouteTableAsync(const CreateRouteTableRequest& request, const CreateRouteTableAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRouteTableRequest&;
-    using Resp = CreateRouteTableResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRouteTable(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRouteTable", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateRouteTableOutcomeCallable VpcClient::CreateRouteTableCallable(const CreateRouteTableRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRouteTableOutcome>>();
-    CreateRouteTableAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateRouteTableRequest&,
-        CreateRouteTableOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRouteTableOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRouteTable(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateRoutesOutcome VpcClient::CreateRoutes(const CreateRoutesRequest &request)
@@ -3712,32 +3201,25 @@ VpcClient::CreateRoutesOutcome VpcClient::CreateRoutes(const CreateRoutesRequest
 
 void VpcClient::CreateRoutesAsync(const CreateRoutesRequest& request, const CreateRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateRoutesRequest&;
-    using Resp = CreateRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateRoutesOutcomeCallable VpcClient::CreateRoutesCallable(const CreateRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateRoutesOutcome>>();
-    CreateRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateRoutesRequest&,
-        CreateRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateSecurityGroupOutcome VpcClient::CreateSecurityGroup(const CreateSecurityGroupRequest &request)
@@ -3762,32 +3244,25 @@ VpcClient::CreateSecurityGroupOutcome VpcClient::CreateSecurityGroup(const Creat
 
 void VpcClient::CreateSecurityGroupAsync(const CreateSecurityGroupRequest& request, const CreateSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSecurityGroupRequest&;
-    using Resp = CreateSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateSecurityGroupOutcomeCallable VpcClient::CreateSecurityGroupCallable(const CreateSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSecurityGroupOutcome>>();
-    CreateSecurityGroupAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateSecurityGroupRequest&,
-        CreateSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateSecurityGroupPoliciesOutcome VpcClient::CreateSecurityGroupPolicies(const CreateSecurityGroupPoliciesRequest &request)
@@ -3812,32 +3287,25 @@ VpcClient::CreateSecurityGroupPoliciesOutcome VpcClient::CreateSecurityGroupPoli
 
 void VpcClient::CreateSecurityGroupPoliciesAsync(const CreateSecurityGroupPoliciesRequest& request, const CreateSecurityGroupPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSecurityGroupPoliciesRequest&;
-    using Resp = CreateSecurityGroupPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSecurityGroupPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSecurityGroupPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateSecurityGroupPoliciesOutcomeCallable VpcClient::CreateSecurityGroupPoliciesCallable(const CreateSecurityGroupPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSecurityGroupPoliciesOutcome>>();
-    CreateSecurityGroupPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateSecurityGroupPoliciesRequest&,
-        CreateSecurityGroupPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSecurityGroupPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSecurityGroupPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateSecurityGroupWithPoliciesOutcome VpcClient::CreateSecurityGroupWithPolicies(const CreateSecurityGroupWithPoliciesRequest &request)
@@ -3862,32 +3330,25 @@ VpcClient::CreateSecurityGroupWithPoliciesOutcome VpcClient::CreateSecurityGroup
 
 void VpcClient::CreateSecurityGroupWithPoliciesAsync(const CreateSecurityGroupWithPoliciesRequest& request, const CreateSecurityGroupWithPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSecurityGroupWithPoliciesRequest&;
-    using Resp = CreateSecurityGroupWithPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSecurityGroupWithPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSecurityGroupWithPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateSecurityGroupWithPoliciesOutcomeCallable VpcClient::CreateSecurityGroupWithPoliciesCallable(const CreateSecurityGroupWithPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSecurityGroupWithPoliciesOutcome>>();
-    CreateSecurityGroupWithPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateSecurityGroupWithPoliciesRequest&,
-        CreateSecurityGroupWithPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSecurityGroupWithPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSecurityGroupWithPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateServiceTemplateOutcome VpcClient::CreateServiceTemplate(const CreateServiceTemplateRequest &request)
@@ -3912,32 +3373,25 @@ VpcClient::CreateServiceTemplateOutcome VpcClient::CreateServiceTemplate(const C
 
 void VpcClient::CreateServiceTemplateAsync(const CreateServiceTemplateRequest& request, const CreateServiceTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateServiceTemplateRequest&;
-    using Resp = CreateServiceTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateServiceTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateServiceTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateServiceTemplateOutcomeCallable VpcClient::CreateServiceTemplateCallable(const CreateServiceTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateServiceTemplateOutcome>>();
-    CreateServiceTemplateAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateServiceTemplateRequest&,
-        CreateServiceTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateServiceTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateServiceTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateServiceTemplateGroupOutcome VpcClient::CreateServiceTemplateGroup(const CreateServiceTemplateGroupRequest &request)
@@ -3962,32 +3416,25 @@ VpcClient::CreateServiceTemplateGroupOutcome VpcClient::CreateServiceTemplateGro
 
 void VpcClient::CreateServiceTemplateGroupAsync(const CreateServiceTemplateGroupRequest& request, const CreateServiceTemplateGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateServiceTemplateGroupRequest&;
-    using Resp = CreateServiceTemplateGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateServiceTemplateGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateServiceTemplateGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateServiceTemplateGroupOutcomeCallable VpcClient::CreateServiceTemplateGroupCallable(const CreateServiceTemplateGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateServiceTemplateGroupOutcome>>();
-    CreateServiceTemplateGroupAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateServiceTemplateGroupRequest&,
-        CreateServiceTemplateGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateServiceTemplateGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateServiceTemplateGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateSnapshotPoliciesOutcome VpcClient::CreateSnapshotPolicies(const CreateSnapshotPoliciesRequest &request)
@@ -4012,32 +3459,25 @@ VpcClient::CreateSnapshotPoliciesOutcome VpcClient::CreateSnapshotPolicies(const
 
 void VpcClient::CreateSnapshotPoliciesAsync(const CreateSnapshotPoliciesRequest& request, const CreateSnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSnapshotPoliciesRequest&;
-    using Resp = CreateSnapshotPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSnapshotPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSnapshotPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateSnapshotPoliciesOutcomeCallable VpcClient::CreateSnapshotPoliciesCallable(const CreateSnapshotPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSnapshotPoliciesOutcome>>();
-    CreateSnapshotPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateSnapshotPoliciesRequest&,
-        CreateSnapshotPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSnapshotPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSnapshotPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateSubnetOutcome VpcClient::CreateSubnet(const CreateSubnetRequest &request)
@@ -4062,32 +3502,25 @@ VpcClient::CreateSubnetOutcome VpcClient::CreateSubnet(const CreateSubnetRequest
 
 void VpcClient::CreateSubnetAsync(const CreateSubnetRequest& request, const CreateSubnetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSubnetRequest&;
-    using Resp = CreateSubnetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSubnet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSubnet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateSubnetOutcomeCallable VpcClient::CreateSubnetCallable(const CreateSubnetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSubnetOutcome>>();
-    CreateSubnetAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateSubnetRequest&,
-        CreateSubnetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSubnetOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSubnet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateSubnetsOutcome VpcClient::CreateSubnets(const CreateSubnetsRequest &request)
@@ -4112,32 +3545,25 @@ VpcClient::CreateSubnetsOutcome VpcClient::CreateSubnets(const CreateSubnetsRequ
 
 void VpcClient::CreateSubnetsAsync(const CreateSubnetsRequest& request, const CreateSubnetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateSubnetsRequest&;
-    using Resp = CreateSubnetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateSubnets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateSubnets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateSubnetsOutcomeCallable VpcClient::CreateSubnetsCallable(const CreateSubnetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateSubnetsOutcome>>();
-    CreateSubnetsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateSubnetsRequest&,
-        CreateSubnetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateSubnetsOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateSubnets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateTrafficMirrorOutcome VpcClient::CreateTrafficMirror(const CreateTrafficMirrorRequest &request)
@@ -4162,32 +3588,25 @@ VpcClient::CreateTrafficMirrorOutcome VpcClient::CreateTrafficMirror(const Creat
 
 void VpcClient::CreateTrafficMirrorAsync(const CreateTrafficMirrorRequest& request, const CreateTrafficMirrorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTrafficMirrorRequest&;
-    using Resp = CreateTrafficMirrorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTrafficMirror(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTrafficMirror", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateTrafficMirrorOutcomeCallable VpcClient::CreateTrafficMirrorCallable(const CreateTrafficMirrorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTrafficMirrorOutcome>>();
-    CreateTrafficMirrorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateTrafficMirrorRequest&,
-        CreateTrafficMirrorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTrafficMirrorOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTrafficMirror(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateTrafficPackagesOutcome VpcClient::CreateTrafficPackages(const CreateTrafficPackagesRequest &request)
@@ -4212,32 +3631,25 @@ VpcClient::CreateTrafficPackagesOutcome VpcClient::CreateTrafficPackages(const C
 
 void VpcClient::CreateTrafficPackagesAsync(const CreateTrafficPackagesRequest& request, const CreateTrafficPackagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateTrafficPackagesRequest&;
-    using Resp = CreateTrafficPackagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateTrafficPackages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateTrafficPackages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateTrafficPackagesOutcomeCallable VpcClient::CreateTrafficPackagesCallable(const CreateTrafficPackagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateTrafficPackagesOutcome>>();
-    CreateTrafficPackagesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateTrafficPackagesRequest&,
-        CreateTrafficPackagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateTrafficPackagesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateTrafficPackages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpcOutcome VpcClient::CreateVpc(const CreateVpcRequest &request)
@@ -4262,32 +3674,25 @@ VpcClient::CreateVpcOutcome VpcClient::CreateVpc(const CreateVpcRequest &request
 
 void VpcClient::CreateVpcAsync(const CreateVpcRequest& request, const CreateVpcAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpcRequest&;
-    using Resp = CreateVpcResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpcOutcomeCallable VpcClient::CreateVpcCallable(const CreateVpcRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpcOutcome>>();
-    CreateVpcAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpcRequest&,
-        CreateVpcOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpcOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpcEndPointOutcome VpcClient::CreateVpcEndPoint(const CreateVpcEndPointRequest &request)
@@ -4312,32 +3717,25 @@ VpcClient::CreateVpcEndPointOutcome VpcClient::CreateVpcEndPoint(const CreateVpc
 
 void VpcClient::CreateVpcEndPointAsync(const CreateVpcEndPointRequest& request, const CreateVpcEndPointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpcEndPointRequest&;
-    using Resp = CreateVpcEndPointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpcEndPoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpcEndPoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpcEndPointOutcomeCallable VpcClient::CreateVpcEndPointCallable(const CreateVpcEndPointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpcEndPointOutcome>>();
-    CreateVpcEndPointAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpcEndPointRequest&,
-        CreateVpcEndPointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpcEndPointOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpcEndPoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpcEndPointServiceOutcome VpcClient::CreateVpcEndPointService(const CreateVpcEndPointServiceRequest &request)
@@ -4362,32 +3760,25 @@ VpcClient::CreateVpcEndPointServiceOutcome VpcClient::CreateVpcEndPointService(c
 
 void VpcClient::CreateVpcEndPointServiceAsync(const CreateVpcEndPointServiceRequest& request, const CreateVpcEndPointServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpcEndPointServiceRequest&;
-    using Resp = CreateVpcEndPointServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpcEndPointService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpcEndPointService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpcEndPointServiceOutcomeCallable VpcClient::CreateVpcEndPointServiceCallable(const CreateVpcEndPointServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpcEndPointServiceOutcome>>();
-    CreateVpcEndPointServiceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpcEndPointServiceRequest&,
-        CreateVpcEndPointServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpcEndPointServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpcEndPointService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpcEndPointServiceWhiteListOutcome VpcClient::CreateVpcEndPointServiceWhiteList(const CreateVpcEndPointServiceWhiteListRequest &request)
@@ -4412,32 +3803,25 @@ VpcClient::CreateVpcEndPointServiceWhiteListOutcome VpcClient::CreateVpcEndPoint
 
 void VpcClient::CreateVpcEndPointServiceWhiteListAsync(const CreateVpcEndPointServiceWhiteListRequest& request, const CreateVpcEndPointServiceWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpcEndPointServiceWhiteListRequest&;
-    using Resp = CreateVpcEndPointServiceWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpcEndPointServiceWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpcEndPointServiceWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpcEndPointServiceWhiteListOutcomeCallable VpcClient::CreateVpcEndPointServiceWhiteListCallable(const CreateVpcEndPointServiceWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpcEndPointServiceWhiteListOutcome>>();
-    CreateVpcEndPointServiceWhiteListAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpcEndPointServiceWhiteListRequest&,
-        CreateVpcEndPointServiceWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpcEndPointServiceWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpcEndPointServiceWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpcPeeringConnectionOutcome VpcClient::CreateVpcPeeringConnection(const CreateVpcPeeringConnectionRequest &request)
@@ -4462,32 +3846,25 @@ VpcClient::CreateVpcPeeringConnectionOutcome VpcClient::CreateVpcPeeringConnecti
 
 void VpcClient::CreateVpcPeeringConnectionAsync(const CreateVpcPeeringConnectionRequest& request, const CreateVpcPeeringConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpcPeeringConnectionRequest&;
-    using Resp = CreateVpcPeeringConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpcPeeringConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpcPeeringConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpcPeeringConnectionOutcomeCallable VpcClient::CreateVpcPeeringConnectionCallable(const CreateVpcPeeringConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpcPeeringConnectionOutcome>>();
-    CreateVpcPeeringConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpcPeeringConnectionRequest&,
-        CreateVpcPeeringConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpcPeeringConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpcPeeringConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpnConnectionOutcome VpcClient::CreateVpnConnection(const CreateVpnConnectionRequest &request)
@@ -4512,32 +3889,25 @@ VpcClient::CreateVpnConnectionOutcome VpcClient::CreateVpnConnection(const Creat
 
 void VpcClient::CreateVpnConnectionAsync(const CreateVpnConnectionRequest& request, const CreateVpnConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpnConnectionRequest&;
-    using Resp = CreateVpnConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpnConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpnConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpnConnectionOutcomeCallable VpcClient::CreateVpnConnectionCallable(const CreateVpnConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpnConnectionOutcome>>();
-    CreateVpnConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpnConnectionRequest&,
-        CreateVpnConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpnConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpnConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpnGatewayOutcome VpcClient::CreateVpnGateway(const CreateVpnGatewayRequest &request)
@@ -4562,32 +3932,25 @@ VpcClient::CreateVpnGatewayOutcome VpcClient::CreateVpnGateway(const CreateVpnGa
 
 void VpcClient::CreateVpnGatewayAsync(const CreateVpnGatewayRequest& request, const CreateVpnGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpnGatewayRequest&;
-    using Resp = CreateVpnGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpnGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpnGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpnGatewayOutcomeCallable VpcClient::CreateVpnGatewayCallable(const CreateVpnGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpnGatewayOutcome>>();
-    CreateVpnGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpnGatewayRequest&,
-        CreateVpnGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpnGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpnGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpnGatewayRoutesOutcome VpcClient::CreateVpnGatewayRoutes(const CreateVpnGatewayRoutesRequest &request)
@@ -4612,32 +3975,25 @@ VpcClient::CreateVpnGatewayRoutesOutcome VpcClient::CreateVpnGatewayRoutes(const
 
 void VpcClient::CreateVpnGatewayRoutesAsync(const CreateVpnGatewayRoutesRequest& request, const CreateVpnGatewayRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpnGatewayRoutesRequest&;
-    using Resp = CreateVpnGatewayRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpnGatewayRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpnGatewayRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpnGatewayRoutesOutcomeCallable VpcClient::CreateVpnGatewayRoutesCallable(const CreateVpnGatewayRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpnGatewayRoutesOutcome>>();
-    CreateVpnGatewayRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpnGatewayRoutesRequest&,
-        CreateVpnGatewayRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpnGatewayRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpnGatewayRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpnGatewaySslClientOutcome VpcClient::CreateVpnGatewaySslClient(const CreateVpnGatewaySslClientRequest &request)
@@ -4662,32 +4018,25 @@ VpcClient::CreateVpnGatewaySslClientOutcome VpcClient::CreateVpnGatewaySslClient
 
 void VpcClient::CreateVpnGatewaySslClientAsync(const CreateVpnGatewaySslClientRequest& request, const CreateVpnGatewaySslClientAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpnGatewaySslClientRequest&;
-    using Resp = CreateVpnGatewaySslClientResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpnGatewaySslClient(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpnGatewaySslClient", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpnGatewaySslClientOutcomeCallable VpcClient::CreateVpnGatewaySslClientCallable(const CreateVpnGatewaySslClientRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpnGatewaySslClientOutcome>>();
-    CreateVpnGatewaySslClientAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpnGatewaySslClientRequest&,
-        CreateVpnGatewaySslClientOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpnGatewaySslClientOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpnGatewaySslClient(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::CreateVpnGatewaySslServerOutcome VpcClient::CreateVpnGatewaySslServer(const CreateVpnGatewaySslServerRequest &request)
@@ -4712,32 +4061,25 @@ VpcClient::CreateVpnGatewaySslServerOutcome VpcClient::CreateVpnGatewaySslServer
 
 void VpcClient::CreateVpnGatewaySslServerAsync(const CreateVpnGatewaySslServerRequest& request, const CreateVpnGatewaySslServerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateVpnGatewaySslServerRequest&;
-    using Resp = CreateVpnGatewaySslServerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateVpnGatewaySslServer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateVpnGatewaySslServer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::CreateVpnGatewaySslServerOutcomeCallable VpcClient::CreateVpnGatewaySslServerCallable(const CreateVpnGatewaySslServerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateVpnGatewaySslServerOutcome>>();
-    CreateVpnGatewaySslServerAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const CreateVpnGatewaySslServerRequest&,
-        CreateVpnGatewaySslServerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateVpnGatewaySslServerOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateVpnGatewaySslServer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteAddressTemplateOutcome VpcClient::DeleteAddressTemplate(const DeleteAddressTemplateRequest &request)
@@ -4762,32 +4104,25 @@ VpcClient::DeleteAddressTemplateOutcome VpcClient::DeleteAddressTemplate(const D
 
 void VpcClient::DeleteAddressTemplateAsync(const DeleteAddressTemplateRequest& request, const DeleteAddressTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAddressTemplateRequest&;
-    using Resp = DeleteAddressTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAddressTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAddressTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteAddressTemplateOutcomeCallable VpcClient::DeleteAddressTemplateCallable(const DeleteAddressTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAddressTemplateOutcome>>();
-    DeleteAddressTemplateAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteAddressTemplateRequest&,
-        DeleteAddressTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAddressTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAddressTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteAddressTemplateGroupOutcome VpcClient::DeleteAddressTemplateGroup(const DeleteAddressTemplateGroupRequest &request)
@@ -4812,32 +4147,25 @@ VpcClient::DeleteAddressTemplateGroupOutcome VpcClient::DeleteAddressTemplateGro
 
 void VpcClient::DeleteAddressTemplateGroupAsync(const DeleteAddressTemplateGroupRequest& request, const DeleteAddressTemplateGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAddressTemplateGroupRequest&;
-    using Resp = DeleteAddressTemplateGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAddressTemplateGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAddressTemplateGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteAddressTemplateGroupOutcomeCallable VpcClient::DeleteAddressTemplateGroupCallable(const DeleteAddressTemplateGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAddressTemplateGroupOutcome>>();
-    DeleteAddressTemplateGroupAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteAddressTemplateGroupRequest&,
-        DeleteAddressTemplateGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAddressTemplateGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAddressTemplateGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteAssistantCidrOutcome VpcClient::DeleteAssistantCidr(const DeleteAssistantCidrRequest &request)
@@ -4862,32 +4190,25 @@ VpcClient::DeleteAssistantCidrOutcome VpcClient::DeleteAssistantCidr(const Delet
 
 void VpcClient::DeleteAssistantCidrAsync(const DeleteAssistantCidrRequest& request, const DeleteAssistantCidrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteAssistantCidrRequest&;
-    using Resp = DeleteAssistantCidrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteAssistantCidr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteAssistantCidr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteAssistantCidrOutcomeCallable VpcClient::DeleteAssistantCidrCallable(const DeleteAssistantCidrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteAssistantCidrOutcome>>();
-    DeleteAssistantCidrAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteAssistantCidrRequest&,
-        DeleteAssistantCidrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteAssistantCidrOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteAssistantCidr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteBandwidthPackageOutcome VpcClient::DeleteBandwidthPackage(const DeleteBandwidthPackageRequest &request)
@@ -4912,32 +4233,25 @@ VpcClient::DeleteBandwidthPackageOutcome VpcClient::DeleteBandwidthPackage(const
 
 void VpcClient::DeleteBandwidthPackageAsync(const DeleteBandwidthPackageRequest& request, const DeleteBandwidthPackageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteBandwidthPackageRequest&;
-    using Resp = DeleteBandwidthPackageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteBandwidthPackage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteBandwidthPackage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteBandwidthPackageOutcomeCallable VpcClient::DeleteBandwidthPackageCallable(const DeleteBandwidthPackageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteBandwidthPackageOutcome>>();
-    DeleteBandwidthPackageAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteBandwidthPackageRequest&,
-        DeleteBandwidthPackageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteBandwidthPackageOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteBandwidthPackage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteCcnOutcome VpcClient::DeleteCcn(const DeleteCcnRequest &request)
@@ -4962,32 +4276,25 @@ VpcClient::DeleteCcnOutcome VpcClient::DeleteCcn(const DeleteCcnRequest &request
 
 void VpcClient::DeleteCcnAsync(const DeleteCcnRequest& request, const DeleteCcnAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCcnRequest&;
-    using Resp = DeleteCcnResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCcn(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCcn", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteCcnOutcomeCallable VpcClient::DeleteCcnCallable(const DeleteCcnRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCcnOutcome>>();
-    DeleteCcnAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteCcnRequest&,
-        DeleteCcnOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCcnOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCcn(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteCcnRouteTablesOutcome VpcClient::DeleteCcnRouteTables(const DeleteCcnRouteTablesRequest &request)
@@ -5012,32 +4319,25 @@ VpcClient::DeleteCcnRouteTablesOutcome VpcClient::DeleteCcnRouteTables(const Del
 
 void VpcClient::DeleteCcnRouteTablesAsync(const DeleteCcnRouteTablesRequest& request, const DeleteCcnRouteTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCcnRouteTablesRequest&;
-    using Resp = DeleteCcnRouteTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCcnRouteTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCcnRouteTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteCcnRouteTablesOutcomeCallable VpcClient::DeleteCcnRouteTablesCallable(const DeleteCcnRouteTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCcnRouteTablesOutcome>>();
-    DeleteCcnRouteTablesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteCcnRouteTablesRequest&,
-        DeleteCcnRouteTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCcnRouteTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCcnRouteTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteCdcLDCXListOutcome VpcClient::DeleteCdcLDCXList(const DeleteCdcLDCXListRequest &request)
@@ -5062,32 +4362,25 @@ VpcClient::DeleteCdcLDCXListOutcome VpcClient::DeleteCdcLDCXList(const DeleteCdc
 
 void VpcClient::DeleteCdcLDCXListAsync(const DeleteCdcLDCXListRequest& request, const DeleteCdcLDCXListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCdcLDCXListRequest&;
-    using Resp = DeleteCdcLDCXListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCdcLDCXList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCdcLDCXList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteCdcLDCXListOutcomeCallable VpcClient::DeleteCdcLDCXListCallable(const DeleteCdcLDCXListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCdcLDCXListOutcome>>();
-    DeleteCdcLDCXListAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteCdcLDCXListRequest&,
-        DeleteCdcLDCXListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCdcLDCXListOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCdcLDCXList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteCdcNetPlanesOutcome VpcClient::DeleteCdcNetPlanes(const DeleteCdcNetPlanesRequest &request)
@@ -5112,32 +4405,25 @@ VpcClient::DeleteCdcNetPlanesOutcome VpcClient::DeleteCdcNetPlanes(const DeleteC
 
 void VpcClient::DeleteCdcNetPlanesAsync(const DeleteCdcNetPlanesRequest& request, const DeleteCdcNetPlanesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCdcNetPlanesRequest&;
-    using Resp = DeleteCdcNetPlanesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCdcNetPlanes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCdcNetPlanes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteCdcNetPlanesOutcomeCallable VpcClient::DeleteCdcNetPlanesCallable(const DeleteCdcNetPlanesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCdcNetPlanesOutcome>>();
-    DeleteCdcNetPlanesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteCdcNetPlanesRequest&,
-        DeleteCdcNetPlanesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCdcNetPlanesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCdcNetPlanes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteCustomerGatewayOutcome VpcClient::DeleteCustomerGateway(const DeleteCustomerGatewayRequest &request)
@@ -5162,32 +4448,25 @@ VpcClient::DeleteCustomerGatewayOutcome VpcClient::DeleteCustomerGateway(const D
 
 void VpcClient::DeleteCustomerGatewayAsync(const DeleteCustomerGatewayRequest& request, const DeleteCustomerGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteCustomerGatewayRequest&;
-    using Resp = DeleteCustomerGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteCustomerGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteCustomerGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteCustomerGatewayOutcomeCallable VpcClient::DeleteCustomerGatewayCallable(const DeleteCustomerGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteCustomerGatewayOutcome>>();
-    DeleteCustomerGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteCustomerGatewayRequest&,
-        DeleteCustomerGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteCustomerGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteCustomerGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteDhcpIpOutcome VpcClient::DeleteDhcpIp(const DeleteDhcpIpRequest &request)
@@ -5212,32 +4491,25 @@ VpcClient::DeleteDhcpIpOutcome VpcClient::DeleteDhcpIp(const DeleteDhcpIpRequest
 
 void VpcClient::DeleteDhcpIpAsync(const DeleteDhcpIpRequest& request, const DeleteDhcpIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDhcpIpRequest&;
-    using Resp = DeleteDhcpIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDhcpIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDhcpIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteDhcpIpOutcomeCallable VpcClient::DeleteDhcpIpCallable(const DeleteDhcpIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDhcpIpOutcome>>();
-    DeleteDhcpIpAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteDhcpIpRequest&,
-        DeleteDhcpIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDhcpIpOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDhcpIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteDirectConnectGatewayOutcome VpcClient::DeleteDirectConnectGateway(const DeleteDirectConnectGatewayRequest &request)
@@ -5262,32 +4534,25 @@ VpcClient::DeleteDirectConnectGatewayOutcome VpcClient::DeleteDirectConnectGatew
 
 void VpcClient::DeleteDirectConnectGatewayAsync(const DeleteDirectConnectGatewayRequest& request, const DeleteDirectConnectGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDirectConnectGatewayRequest&;
-    using Resp = DeleteDirectConnectGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDirectConnectGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDirectConnectGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteDirectConnectGatewayOutcomeCallable VpcClient::DeleteDirectConnectGatewayCallable(const DeleteDirectConnectGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDirectConnectGatewayOutcome>>();
-    DeleteDirectConnectGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteDirectConnectGatewayRequest&,
-        DeleteDirectConnectGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDirectConnectGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDirectConnectGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteDirectConnectGatewayCcnRoutesOutcome VpcClient::DeleteDirectConnectGatewayCcnRoutes(const DeleteDirectConnectGatewayCcnRoutesRequest &request)
@@ -5312,32 +4577,25 @@ VpcClient::DeleteDirectConnectGatewayCcnRoutesOutcome VpcClient::DeleteDirectCon
 
 void VpcClient::DeleteDirectConnectGatewayCcnRoutesAsync(const DeleteDirectConnectGatewayCcnRoutesRequest& request, const DeleteDirectConnectGatewayCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteDirectConnectGatewayCcnRoutesRequest&;
-    using Resp = DeleteDirectConnectGatewayCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteDirectConnectGatewayCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteDirectConnectGatewayCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteDirectConnectGatewayCcnRoutesOutcomeCallable VpcClient::DeleteDirectConnectGatewayCcnRoutesCallable(const DeleteDirectConnectGatewayCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteDirectConnectGatewayCcnRoutesOutcome>>();
-    DeleteDirectConnectGatewayCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteDirectConnectGatewayCcnRoutesRequest&,
-        DeleteDirectConnectGatewayCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteDirectConnectGatewayCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteDirectConnectGatewayCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteFlowLogOutcome VpcClient::DeleteFlowLog(const DeleteFlowLogRequest &request)
@@ -5362,32 +4620,25 @@ VpcClient::DeleteFlowLogOutcome VpcClient::DeleteFlowLog(const DeleteFlowLogRequ
 
 void VpcClient::DeleteFlowLogAsync(const DeleteFlowLogRequest& request, const DeleteFlowLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteFlowLogRequest&;
-    using Resp = DeleteFlowLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteFlowLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteFlowLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteFlowLogOutcomeCallable VpcClient::DeleteFlowLogCallable(const DeleteFlowLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteFlowLogOutcome>>();
-    DeleteFlowLogAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteFlowLogRequest&,
-        DeleteFlowLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteFlowLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteFlowLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteGlobalRoutesOutcome VpcClient::DeleteGlobalRoutes(const DeleteGlobalRoutesRequest &request)
@@ -5412,32 +4663,25 @@ VpcClient::DeleteGlobalRoutesOutcome VpcClient::DeleteGlobalRoutes(const DeleteG
 
 void VpcClient::DeleteGlobalRoutesAsync(const DeleteGlobalRoutesRequest& request, const DeleteGlobalRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteGlobalRoutesRequest&;
-    using Resp = DeleteGlobalRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteGlobalRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteGlobalRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteGlobalRoutesOutcomeCallable VpcClient::DeleteGlobalRoutesCallable(const DeleteGlobalRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteGlobalRoutesOutcome>>();
-    DeleteGlobalRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteGlobalRoutesRequest&,
-        DeleteGlobalRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteGlobalRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteGlobalRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteHaVipOutcome VpcClient::DeleteHaVip(const DeleteHaVipRequest &request)
@@ -5462,32 +4706,25 @@ VpcClient::DeleteHaVipOutcome VpcClient::DeleteHaVip(const DeleteHaVipRequest &r
 
 void VpcClient::DeleteHaVipAsync(const DeleteHaVipRequest& request, const DeleteHaVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteHaVipRequest&;
-    using Resp = DeleteHaVipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteHaVip(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteHaVip", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteHaVipOutcomeCallable VpcClient::DeleteHaVipCallable(const DeleteHaVipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteHaVipOutcome>>();
-    DeleteHaVipAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteHaVipRequest&,
-        DeleteHaVipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteHaVipOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteHaVip(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteHighPriorityRouteTablesOutcome VpcClient::DeleteHighPriorityRouteTables(const DeleteHighPriorityRouteTablesRequest &request)
@@ -5512,32 +4749,25 @@ VpcClient::DeleteHighPriorityRouteTablesOutcome VpcClient::DeleteHighPriorityRou
 
 void VpcClient::DeleteHighPriorityRouteTablesAsync(const DeleteHighPriorityRouteTablesRequest& request, const DeleteHighPriorityRouteTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteHighPriorityRouteTablesRequest&;
-    using Resp = DeleteHighPriorityRouteTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteHighPriorityRouteTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteHighPriorityRouteTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteHighPriorityRouteTablesOutcomeCallable VpcClient::DeleteHighPriorityRouteTablesCallable(const DeleteHighPriorityRouteTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteHighPriorityRouteTablesOutcome>>();
-    DeleteHighPriorityRouteTablesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteHighPriorityRouteTablesRequest&,
-        DeleteHighPriorityRouteTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteHighPriorityRouteTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteHighPriorityRouteTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteHighPriorityRoutesOutcome VpcClient::DeleteHighPriorityRoutes(const DeleteHighPriorityRoutesRequest &request)
@@ -5562,32 +4792,25 @@ VpcClient::DeleteHighPriorityRoutesOutcome VpcClient::DeleteHighPriorityRoutes(c
 
 void VpcClient::DeleteHighPriorityRoutesAsync(const DeleteHighPriorityRoutesRequest& request, const DeleteHighPriorityRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteHighPriorityRoutesRequest&;
-    using Resp = DeleteHighPriorityRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteHighPriorityRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteHighPriorityRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteHighPriorityRoutesOutcomeCallable VpcClient::DeleteHighPriorityRoutesCallable(const DeleteHighPriorityRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteHighPriorityRoutesOutcome>>();
-    DeleteHighPriorityRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteHighPriorityRoutesRequest&,
-        DeleteHighPriorityRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteHighPriorityRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteHighPriorityRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteIp6TranslatorsOutcome VpcClient::DeleteIp6Translators(const DeleteIp6TranslatorsRequest &request)
@@ -5612,32 +4835,25 @@ VpcClient::DeleteIp6TranslatorsOutcome VpcClient::DeleteIp6Translators(const Del
 
 void VpcClient::DeleteIp6TranslatorsAsync(const DeleteIp6TranslatorsRequest& request, const DeleteIp6TranslatorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteIp6TranslatorsRequest&;
-    using Resp = DeleteIp6TranslatorsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteIp6Translators(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteIp6Translators", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteIp6TranslatorsOutcomeCallable VpcClient::DeleteIp6TranslatorsCallable(const DeleteIp6TranslatorsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteIp6TranslatorsOutcome>>();
-    DeleteIp6TranslatorsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteIp6TranslatorsRequest&,
-        DeleteIp6TranslatorsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteIp6TranslatorsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteIp6Translators(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteLocalGatewayOutcome VpcClient::DeleteLocalGateway(const DeleteLocalGatewayRequest &request)
@@ -5662,32 +4878,25 @@ VpcClient::DeleteLocalGatewayOutcome VpcClient::DeleteLocalGateway(const DeleteL
 
 void VpcClient::DeleteLocalGatewayAsync(const DeleteLocalGatewayRequest& request, const DeleteLocalGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteLocalGatewayRequest&;
-    using Resp = DeleteLocalGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteLocalGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteLocalGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteLocalGatewayOutcomeCallable VpcClient::DeleteLocalGatewayCallable(const DeleteLocalGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteLocalGatewayOutcome>>();
-    DeleteLocalGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteLocalGatewayRequest&,
-        DeleteLocalGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteLocalGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteLocalGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteNatGatewayOutcome VpcClient::DeleteNatGateway(const DeleteNatGatewayRequest &request)
@@ -5712,32 +4921,25 @@ VpcClient::DeleteNatGatewayOutcome VpcClient::DeleteNatGateway(const DeleteNatGa
 
 void VpcClient::DeleteNatGatewayAsync(const DeleteNatGatewayRequest& request, const DeleteNatGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNatGatewayRequest&;
-    using Resp = DeleteNatGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNatGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNatGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteNatGatewayOutcomeCallable VpcClient::DeleteNatGatewayCallable(const DeleteNatGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNatGatewayOutcome>>();
-    DeleteNatGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteNatGatewayRequest&,
-        DeleteNatGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNatGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNatGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient::DeleteNatGatewayDestinationIpPortTranslationNatRule(const DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
@@ -5762,32 +4964,25 @@ VpcClient::DeleteNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient:
 
 void VpcClient::DeleteNatGatewayDestinationIpPortTranslationNatRuleAsync(const DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest& request, const DeleteNatGatewayDestinationIpPortTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest&;
-    using Resp = DeleteNatGatewayDestinationIpPortTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNatGatewayDestinationIpPortTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNatGatewayDestinationIpPortTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteNatGatewayDestinationIpPortTranslationNatRuleOutcomeCallable VpcClient::DeleteNatGatewayDestinationIpPortTranslationNatRuleCallable(const DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNatGatewayDestinationIpPortTranslationNatRuleOutcome>>();
-    DeleteNatGatewayDestinationIpPortTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteNatGatewayDestinationIpPortTranslationNatRuleRequest&,
-        DeleteNatGatewayDestinationIpPortTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNatGatewayDestinationIpPortTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNatGatewayDestinationIpPortTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteNatGatewaySourceIpTranslationNatRuleOutcome VpcClient::DeleteNatGatewaySourceIpTranslationNatRule(const DeleteNatGatewaySourceIpTranslationNatRuleRequest &request)
@@ -5812,32 +5007,25 @@ VpcClient::DeleteNatGatewaySourceIpTranslationNatRuleOutcome VpcClient::DeleteNa
 
 void VpcClient::DeleteNatGatewaySourceIpTranslationNatRuleAsync(const DeleteNatGatewaySourceIpTranslationNatRuleRequest& request, const DeleteNatGatewaySourceIpTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNatGatewaySourceIpTranslationNatRuleRequest&;
-    using Resp = DeleteNatGatewaySourceIpTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNatGatewaySourceIpTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNatGatewaySourceIpTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteNatGatewaySourceIpTranslationNatRuleOutcomeCallable VpcClient::DeleteNatGatewaySourceIpTranslationNatRuleCallable(const DeleteNatGatewaySourceIpTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNatGatewaySourceIpTranslationNatRuleOutcome>>();
-    DeleteNatGatewaySourceIpTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteNatGatewaySourceIpTranslationNatRuleRequest&,
-        DeleteNatGatewaySourceIpTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNatGatewaySourceIpTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNatGatewaySourceIpTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteNetDetectOutcome VpcClient::DeleteNetDetect(const DeleteNetDetectRequest &request)
@@ -5862,32 +5050,25 @@ VpcClient::DeleteNetDetectOutcome VpcClient::DeleteNetDetect(const DeleteNetDete
 
 void VpcClient::DeleteNetDetectAsync(const DeleteNetDetectRequest& request, const DeleteNetDetectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNetDetectRequest&;
-    using Resp = DeleteNetDetectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNetDetect(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNetDetect", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteNetDetectOutcomeCallable VpcClient::DeleteNetDetectCallable(const DeleteNetDetectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNetDetectOutcome>>();
-    DeleteNetDetectAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteNetDetectRequest&,
-        DeleteNetDetectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNetDetectOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNetDetect(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteNetworkAclOutcome VpcClient::DeleteNetworkAcl(const DeleteNetworkAclRequest &request)
@@ -5912,32 +5093,25 @@ VpcClient::DeleteNetworkAclOutcome VpcClient::DeleteNetworkAcl(const DeleteNetwo
 
 void VpcClient::DeleteNetworkAclAsync(const DeleteNetworkAclRequest& request, const DeleteNetworkAclAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNetworkAclRequest&;
-    using Resp = DeleteNetworkAclResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNetworkAcl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNetworkAcl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteNetworkAclOutcomeCallable VpcClient::DeleteNetworkAclCallable(const DeleteNetworkAclRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNetworkAclOutcome>>();
-    DeleteNetworkAclAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteNetworkAclRequest&,
-        DeleteNetworkAclOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNetworkAclOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNetworkAcl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteNetworkAclEntriesOutcome VpcClient::DeleteNetworkAclEntries(const DeleteNetworkAclEntriesRequest &request)
@@ -5962,32 +5136,25 @@ VpcClient::DeleteNetworkAclEntriesOutcome VpcClient::DeleteNetworkAclEntries(con
 
 void VpcClient::DeleteNetworkAclEntriesAsync(const DeleteNetworkAclEntriesRequest& request, const DeleteNetworkAclEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNetworkAclEntriesRequest&;
-    using Resp = DeleteNetworkAclEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNetworkAclEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNetworkAclEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteNetworkAclEntriesOutcomeCallable VpcClient::DeleteNetworkAclEntriesCallable(const DeleteNetworkAclEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNetworkAclEntriesOutcome>>();
-    DeleteNetworkAclEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteNetworkAclEntriesRequest&,
-        DeleteNetworkAclEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNetworkAclEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNetworkAclEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteNetworkAclQuintupleEntriesOutcome VpcClient::DeleteNetworkAclQuintupleEntries(const DeleteNetworkAclQuintupleEntriesRequest &request)
@@ -6012,32 +5179,25 @@ VpcClient::DeleteNetworkAclQuintupleEntriesOutcome VpcClient::DeleteNetworkAclQu
 
 void VpcClient::DeleteNetworkAclQuintupleEntriesAsync(const DeleteNetworkAclQuintupleEntriesRequest& request, const DeleteNetworkAclQuintupleEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNetworkAclQuintupleEntriesRequest&;
-    using Resp = DeleteNetworkAclQuintupleEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNetworkAclQuintupleEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNetworkAclQuintupleEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteNetworkAclQuintupleEntriesOutcomeCallable VpcClient::DeleteNetworkAclQuintupleEntriesCallable(const DeleteNetworkAclQuintupleEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNetworkAclQuintupleEntriesOutcome>>();
-    DeleteNetworkAclQuintupleEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteNetworkAclQuintupleEntriesRequest&,
-        DeleteNetworkAclQuintupleEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNetworkAclQuintupleEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNetworkAclQuintupleEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteNetworkInterfaceOutcome VpcClient::DeleteNetworkInterface(const DeleteNetworkInterfaceRequest &request)
@@ -6062,32 +5222,25 @@ VpcClient::DeleteNetworkInterfaceOutcome VpcClient::DeleteNetworkInterface(const
 
 void VpcClient::DeleteNetworkInterfaceAsync(const DeleteNetworkInterfaceRequest& request, const DeleteNetworkInterfaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteNetworkInterfaceRequest&;
-    using Resp = DeleteNetworkInterfaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteNetworkInterface(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteNetworkInterface", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteNetworkInterfaceOutcomeCallable VpcClient::DeleteNetworkInterfaceCallable(const DeleteNetworkInterfaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteNetworkInterfaceOutcome>>();
-    DeleteNetworkInterfaceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteNetworkInterfaceRequest&,
-        DeleteNetworkInterfaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteNetworkInterfaceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteNetworkInterface(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeletePrivateNatGatewayOutcome VpcClient::DeletePrivateNatGateway(const DeletePrivateNatGatewayRequest &request)
@@ -6112,32 +5265,25 @@ VpcClient::DeletePrivateNatGatewayOutcome VpcClient::DeletePrivateNatGateway(con
 
 void VpcClient::DeletePrivateNatGatewayAsync(const DeletePrivateNatGatewayRequest& request, const DeletePrivateNatGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrivateNatGatewayRequest&;
-    using Resp = DeletePrivateNatGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrivateNatGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrivateNatGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeletePrivateNatGatewayOutcomeCallable VpcClient::DeletePrivateNatGatewayCallable(const DeletePrivateNatGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrivateNatGatewayOutcome>>();
-    DeletePrivateNatGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeletePrivateNatGatewayRequest&,
-        DeletePrivateNatGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrivateNatGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrivateNatGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient::DeletePrivateNatGatewayDestinationIpPortTranslationNatRule(const DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
@@ -6162,32 +5308,25 @@ VpcClient::DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome Vpc
 
 void VpcClient::DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleAsync(const DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest& request, const DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest&;
-    using Resp = DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrivateNatGatewayDestinationIpPortTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrivateNatGatewayDestinationIpPortTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcomeCallable VpcClient::DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleCallable(const DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome>>();
-    DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleRequest&,
-        DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrivateNatGatewayDestinationIpPortTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeletePrivateNatGatewayTranslationAclRuleOutcome VpcClient::DeletePrivateNatGatewayTranslationAclRule(const DeletePrivateNatGatewayTranslationAclRuleRequest &request)
@@ -6212,32 +5351,25 @@ VpcClient::DeletePrivateNatGatewayTranslationAclRuleOutcome VpcClient::DeletePri
 
 void VpcClient::DeletePrivateNatGatewayTranslationAclRuleAsync(const DeletePrivateNatGatewayTranslationAclRuleRequest& request, const DeletePrivateNatGatewayTranslationAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrivateNatGatewayTranslationAclRuleRequest&;
-    using Resp = DeletePrivateNatGatewayTranslationAclRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrivateNatGatewayTranslationAclRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrivateNatGatewayTranslationAclRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeletePrivateNatGatewayTranslationAclRuleOutcomeCallable VpcClient::DeletePrivateNatGatewayTranslationAclRuleCallable(const DeletePrivateNatGatewayTranslationAclRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrivateNatGatewayTranslationAclRuleOutcome>>();
-    DeletePrivateNatGatewayTranslationAclRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeletePrivateNatGatewayTranslationAclRuleRequest&,
-        DeletePrivateNatGatewayTranslationAclRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrivateNatGatewayTranslationAclRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrivateNatGatewayTranslationAclRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeletePrivateNatGatewayTranslationNatRuleOutcome VpcClient::DeletePrivateNatGatewayTranslationNatRule(const DeletePrivateNatGatewayTranslationNatRuleRequest &request)
@@ -6262,32 +5394,25 @@ VpcClient::DeletePrivateNatGatewayTranslationNatRuleOutcome VpcClient::DeletePri
 
 void VpcClient::DeletePrivateNatGatewayTranslationNatRuleAsync(const DeletePrivateNatGatewayTranslationNatRuleRequest& request, const DeletePrivateNatGatewayTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeletePrivateNatGatewayTranslationNatRuleRequest&;
-    using Resp = DeletePrivateNatGatewayTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeletePrivateNatGatewayTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeletePrivateNatGatewayTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeletePrivateNatGatewayTranslationNatRuleOutcomeCallable VpcClient::DeletePrivateNatGatewayTranslationNatRuleCallable(const DeletePrivateNatGatewayTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeletePrivateNatGatewayTranslationNatRuleOutcome>>();
-    DeletePrivateNatGatewayTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeletePrivateNatGatewayTranslationNatRuleRequest&,
-        DeletePrivateNatGatewayTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeletePrivateNatGatewayTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->DeletePrivateNatGatewayTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteReserveIpAddressesOutcome VpcClient::DeleteReserveIpAddresses(const DeleteReserveIpAddressesRequest &request)
@@ -6312,32 +5437,25 @@ VpcClient::DeleteReserveIpAddressesOutcome VpcClient::DeleteReserveIpAddresses(c
 
 void VpcClient::DeleteReserveIpAddressesAsync(const DeleteReserveIpAddressesRequest& request, const DeleteReserveIpAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteReserveIpAddressesRequest&;
-    using Resp = DeleteReserveIpAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteReserveIpAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteReserveIpAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteReserveIpAddressesOutcomeCallable VpcClient::DeleteReserveIpAddressesCallable(const DeleteReserveIpAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteReserveIpAddressesOutcome>>();
-    DeleteReserveIpAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteReserveIpAddressesRequest&,
-        DeleteReserveIpAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteReserveIpAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteReserveIpAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteRoutePolicyOutcome VpcClient::DeleteRoutePolicy(const DeleteRoutePolicyRequest &request)
@@ -6362,32 +5480,25 @@ VpcClient::DeleteRoutePolicyOutcome VpcClient::DeleteRoutePolicy(const DeleteRou
 
 void VpcClient::DeleteRoutePolicyAsync(const DeleteRoutePolicyRequest& request, const DeleteRoutePolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRoutePolicyRequest&;
-    using Resp = DeleteRoutePolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRoutePolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRoutePolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteRoutePolicyOutcomeCallable VpcClient::DeleteRoutePolicyCallable(const DeleteRoutePolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRoutePolicyOutcome>>();
-    DeleteRoutePolicyAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteRoutePolicyRequest&,
-        DeleteRoutePolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRoutePolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRoutePolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteRoutePolicyAssociationsOutcome VpcClient::DeleteRoutePolicyAssociations(const DeleteRoutePolicyAssociationsRequest &request)
@@ -6412,32 +5523,25 @@ VpcClient::DeleteRoutePolicyAssociationsOutcome VpcClient::DeleteRoutePolicyAsso
 
 void VpcClient::DeleteRoutePolicyAssociationsAsync(const DeleteRoutePolicyAssociationsRequest& request, const DeleteRoutePolicyAssociationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRoutePolicyAssociationsRequest&;
-    using Resp = DeleteRoutePolicyAssociationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRoutePolicyAssociations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRoutePolicyAssociations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteRoutePolicyAssociationsOutcomeCallable VpcClient::DeleteRoutePolicyAssociationsCallable(const DeleteRoutePolicyAssociationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRoutePolicyAssociationsOutcome>>();
-    DeleteRoutePolicyAssociationsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteRoutePolicyAssociationsRequest&,
-        DeleteRoutePolicyAssociationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRoutePolicyAssociationsOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRoutePolicyAssociations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteRoutePolicyEntriesOutcome VpcClient::DeleteRoutePolicyEntries(const DeleteRoutePolicyEntriesRequest &request)
@@ -6462,32 +5566,25 @@ VpcClient::DeleteRoutePolicyEntriesOutcome VpcClient::DeleteRoutePolicyEntries(c
 
 void VpcClient::DeleteRoutePolicyEntriesAsync(const DeleteRoutePolicyEntriesRequest& request, const DeleteRoutePolicyEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRoutePolicyEntriesRequest&;
-    using Resp = DeleteRoutePolicyEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRoutePolicyEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRoutePolicyEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteRoutePolicyEntriesOutcomeCallable VpcClient::DeleteRoutePolicyEntriesCallable(const DeleteRoutePolicyEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRoutePolicyEntriesOutcome>>();
-    DeleteRoutePolicyEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteRoutePolicyEntriesRequest&,
-        DeleteRoutePolicyEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRoutePolicyEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRoutePolicyEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteRouteTableOutcome VpcClient::DeleteRouteTable(const DeleteRouteTableRequest &request)
@@ -6512,32 +5609,25 @@ VpcClient::DeleteRouteTableOutcome VpcClient::DeleteRouteTable(const DeleteRoute
 
 void VpcClient::DeleteRouteTableAsync(const DeleteRouteTableRequest& request, const DeleteRouteTableAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRouteTableRequest&;
-    using Resp = DeleteRouteTableResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRouteTable(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRouteTable", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteRouteTableOutcomeCallable VpcClient::DeleteRouteTableCallable(const DeleteRouteTableRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRouteTableOutcome>>();
-    DeleteRouteTableAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteRouteTableRequest&,
-        DeleteRouteTableOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRouteTableOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRouteTable(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteRoutesOutcome VpcClient::DeleteRoutes(const DeleteRoutesRequest &request)
@@ -6562,32 +5652,25 @@ VpcClient::DeleteRoutesOutcome VpcClient::DeleteRoutes(const DeleteRoutesRequest
 
 void VpcClient::DeleteRoutesAsync(const DeleteRoutesRequest& request, const DeleteRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteRoutesRequest&;
-    using Resp = DeleteRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteRoutesOutcomeCallable VpcClient::DeleteRoutesCallable(const DeleteRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteRoutesOutcome>>();
-    DeleteRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteRoutesRequest&,
-        DeleteRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteSecurityGroupOutcome VpcClient::DeleteSecurityGroup(const DeleteSecurityGroupRequest &request)
@@ -6612,32 +5695,25 @@ VpcClient::DeleteSecurityGroupOutcome VpcClient::DeleteSecurityGroup(const Delet
 
 void VpcClient::DeleteSecurityGroupAsync(const DeleteSecurityGroupRequest& request, const DeleteSecurityGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSecurityGroupRequest&;
-    using Resp = DeleteSecurityGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSecurityGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSecurityGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteSecurityGroupOutcomeCallable VpcClient::DeleteSecurityGroupCallable(const DeleteSecurityGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSecurityGroupOutcome>>();
-    DeleteSecurityGroupAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteSecurityGroupRequest&,
-        DeleteSecurityGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSecurityGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSecurityGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteSecurityGroupPoliciesOutcome VpcClient::DeleteSecurityGroupPolicies(const DeleteSecurityGroupPoliciesRequest &request)
@@ -6662,32 +5738,25 @@ VpcClient::DeleteSecurityGroupPoliciesOutcome VpcClient::DeleteSecurityGroupPoli
 
 void VpcClient::DeleteSecurityGroupPoliciesAsync(const DeleteSecurityGroupPoliciesRequest& request, const DeleteSecurityGroupPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSecurityGroupPoliciesRequest&;
-    using Resp = DeleteSecurityGroupPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSecurityGroupPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSecurityGroupPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteSecurityGroupPoliciesOutcomeCallable VpcClient::DeleteSecurityGroupPoliciesCallable(const DeleteSecurityGroupPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSecurityGroupPoliciesOutcome>>();
-    DeleteSecurityGroupPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteSecurityGroupPoliciesRequest&,
-        DeleteSecurityGroupPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSecurityGroupPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSecurityGroupPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteServiceTemplateOutcome VpcClient::DeleteServiceTemplate(const DeleteServiceTemplateRequest &request)
@@ -6712,32 +5781,25 @@ VpcClient::DeleteServiceTemplateOutcome VpcClient::DeleteServiceTemplate(const D
 
 void VpcClient::DeleteServiceTemplateAsync(const DeleteServiceTemplateRequest& request, const DeleteServiceTemplateAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteServiceTemplateRequest&;
-    using Resp = DeleteServiceTemplateResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteServiceTemplate(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteServiceTemplate", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteServiceTemplateOutcomeCallable VpcClient::DeleteServiceTemplateCallable(const DeleteServiceTemplateRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteServiceTemplateOutcome>>();
-    DeleteServiceTemplateAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteServiceTemplateRequest&,
-        DeleteServiceTemplateOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteServiceTemplateOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteServiceTemplate(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteServiceTemplateGroupOutcome VpcClient::DeleteServiceTemplateGroup(const DeleteServiceTemplateGroupRequest &request)
@@ -6762,32 +5824,25 @@ VpcClient::DeleteServiceTemplateGroupOutcome VpcClient::DeleteServiceTemplateGro
 
 void VpcClient::DeleteServiceTemplateGroupAsync(const DeleteServiceTemplateGroupRequest& request, const DeleteServiceTemplateGroupAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteServiceTemplateGroupRequest&;
-    using Resp = DeleteServiceTemplateGroupResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteServiceTemplateGroup(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteServiceTemplateGroup", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteServiceTemplateGroupOutcomeCallable VpcClient::DeleteServiceTemplateGroupCallable(const DeleteServiceTemplateGroupRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteServiceTemplateGroupOutcome>>();
-    DeleteServiceTemplateGroupAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteServiceTemplateGroupRequest&,
-        DeleteServiceTemplateGroupOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteServiceTemplateGroupOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteServiceTemplateGroup(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteSnapshotPoliciesOutcome VpcClient::DeleteSnapshotPolicies(const DeleteSnapshotPoliciesRequest &request)
@@ -6812,32 +5867,25 @@ VpcClient::DeleteSnapshotPoliciesOutcome VpcClient::DeleteSnapshotPolicies(const
 
 void VpcClient::DeleteSnapshotPoliciesAsync(const DeleteSnapshotPoliciesRequest& request, const DeleteSnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSnapshotPoliciesRequest&;
-    using Resp = DeleteSnapshotPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSnapshotPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSnapshotPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteSnapshotPoliciesOutcomeCallable VpcClient::DeleteSnapshotPoliciesCallable(const DeleteSnapshotPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSnapshotPoliciesOutcome>>();
-    DeleteSnapshotPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteSnapshotPoliciesRequest&,
-        DeleteSnapshotPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSnapshotPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSnapshotPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteSubnetOutcome VpcClient::DeleteSubnet(const DeleteSubnetRequest &request)
@@ -6862,32 +5910,25 @@ VpcClient::DeleteSubnetOutcome VpcClient::DeleteSubnet(const DeleteSubnetRequest
 
 void VpcClient::DeleteSubnetAsync(const DeleteSubnetRequest& request, const DeleteSubnetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteSubnetRequest&;
-    using Resp = DeleteSubnetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteSubnet(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteSubnet", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteSubnetOutcomeCallable VpcClient::DeleteSubnetCallable(const DeleteSubnetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteSubnetOutcome>>();
-    DeleteSubnetAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteSubnetRequest&,
-        DeleteSubnetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteSubnetOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteSubnet(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteTemplateMemberOutcome VpcClient::DeleteTemplateMember(const DeleteTemplateMemberRequest &request)
@@ -6912,32 +5953,25 @@ VpcClient::DeleteTemplateMemberOutcome VpcClient::DeleteTemplateMember(const Del
 
 void VpcClient::DeleteTemplateMemberAsync(const DeleteTemplateMemberRequest& request, const DeleteTemplateMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTemplateMemberRequest&;
-    using Resp = DeleteTemplateMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTemplateMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTemplateMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteTemplateMemberOutcomeCallable VpcClient::DeleteTemplateMemberCallable(const DeleteTemplateMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTemplateMemberOutcome>>();
-    DeleteTemplateMemberAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteTemplateMemberRequest&,
-        DeleteTemplateMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTemplateMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTemplateMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteTrafficMirrorOutcome VpcClient::DeleteTrafficMirror(const DeleteTrafficMirrorRequest &request)
@@ -6962,32 +5996,25 @@ VpcClient::DeleteTrafficMirrorOutcome VpcClient::DeleteTrafficMirror(const Delet
 
 void VpcClient::DeleteTrafficMirrorAsync(const DeleteTrafficMirrorRequest& request, const DeleteTrafficMirrorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTrafficMirrorRequest&;
-    using Resp = DeleteTrafficMirrorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTrafficMirror(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTrafficMirror", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteTrafficMirrorOutcomeCallable VpcClient::DeleteTrafficMirrorCallable(const DeleteTrafficMirrorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTrafficMirrorOutcome>>();
-    DeleteTrafficMirrorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteTrafficMirrorRequest&,
-        DeleteTrafficMirrorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTrafficMirrorOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTrafficMirror(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteTrafficPackagesOutcome VpcClient::DeleteTrafficPackages(const DeleteTrafficPackagesRequest &request)
@@ -7012,32 +6039,25 @@ VpcClient::DeleteTrafficPackagesOutcome VpcClient::DeleteTrafficPackages(const D
 
 void VpcClient::DeleteTrafficPackagesAsync(const DeleteTrafficPackagesRequest& request, const DeleteTrafficPackagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteTrafficPackagesRequest&;
-    using Resp = DeleteTrafficPackagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteTrafficPackages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteTrafficPackages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteTrafficPackagesOutcomeCallable VpcClient::DeleteTrafficPackagesCallable(const DeleteTrafficPackagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteTrafficPackagesOutcome>>();
-    DeleteTrafficPackagesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteTrafficPackagesRequest&,
-        DeleteTrafficPackagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteTrafficPackagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteTrafficPackages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpcOutcome VpcClient::DeleteVpc(const DeleteVpcRequest &request)
@@ -7062,32 +6082,25 @@ VpcClient::DeleteVpcOutcome VpcClient::DeleteVpc(const DeleteVpcRequest &request
 
 void VpcClient::DeleteVpcAsync(const DeleteVpcRequest& request, const DeleteVpcAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpcRequest&;
-    using Resp = DeleteVpcResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpcOutcomeCallable VpcClient::DeleteVpcCallable(const DeleteVpcRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpcOutcome>>();
-    DeleteVpcAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpcRequest&,
-        DeleteVpcOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpcOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpcEndPointOutcome VpcClient::DeleteVpcEndPoint(const DeleteVpcEndPointRequest &request)
@@ -7112,32 +6125,25 @@ VpcClient::DeleteVpcEndPointOutcome VpcClient::DeleteVpcEndPoint(const DeleteVpc
 
 void VpcClient::DeleteVpcEndPointAsync(const DeleteVpcEndPointRequest& request, const DeleteVpcEndPointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpcEndPointRequest&;
-    using Resp = DeleteVpcEndPointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpcEndPoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpcEndPoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpcEndPointOutcomeCallable VpcClient::DeleteVpcEndPointCallable(const DeleteVpcEndPointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpcEndPointOutcome>>();
-    DeleteVpcEndPointAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpcEndPointRequest&,
-        DeleteVpcEndPointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpcEndPointOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpcEndPoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpcEndPointServiceOutcome VpcClient::DeleteVpcEndPointService(const DeleteVpcEndPointServiceRequest &request)
@@ -7162,32 +6168,25 @@ VpcClient::DeleteVpcEndPointServiceOutcome VpcClient::DeleteVpcEndPointService(c
 
 void VpcClient::DeleteVpcEndPointServiceAsync(const DeleteVpcEndPointServiceRequest& request, const DeleteVpcEndPointServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpcEndPointServiceRequest&;
-    using Resp = DeleteVpcEndPointServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpcEndPointService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpcEndPointService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpcEndPointServiceOutcomeCallable VpcClient::DeleteVpcEndPointServiceCallable(const DeleteVpcEndPointServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpcEndPointServiceOutcome>>();
-    DeleteVpcEndPointServiceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpcEndPointServiceRequest&,
-        DeleteVpcEndPointServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpcEndPointServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpcEndPointService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpcEndPointServiceWhiteListOutcome VpcClient::DeleteVpcEndPointServiceWhiteList(const DeleteVpcEndPointServiceWhiteListRequest &request)
@@ -7212,32 +6211,25 @@ VpcClient::DeleteVpcEndPointServiceWhiteListOutcome VpcClient::DeleteVpcEndPoint
 
 void VpcClient::DeleteVpcEndPointServiceWhiteListAsync(const DeleteVpcEndPointServiceWhiteListRequest& request, const DeleteVpcEndPointServiceWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpcEndPointServiceWhiteListRequest&;
-    using Resp = DeleteVpcEndPointServiceWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpcEndPointServiceWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpcEndPointServiceWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpcEndPointServiceWhiteListOutcomeCallable VpcClient::DeleteVpcEndPointServiceWhiteListCallable(const DeleteVpcEndPointServiceWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpcEndPointServiceWhiteListOutcome>>();
-    DeleteVpcEndPointServiceWhiteListAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpcEndPointServiceWhiteListRequest&,
-        DeleteVpcEndPointServiceWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpcEndPointServiceWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpcEndPointServiceWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpcPeeringConnectionOutcome VpcClient::DeleteVpcPeeringConnection(const DeleteVpcPeeringConnectionRequest &request)
@@ -7262,32 +6254,25 @@ VpcClient::DeleteVpcPeeringConnectionOutcome VpcClient::DeleteVpcPeeringConnecti
 
 void VpcClient::DeleteVpcPeeringConnectionAsync(const DeleteVpcPeeringConnectionRequest& request, const DeleteVpcPeeringConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpcPeeringConnectionRequest&;
-    using Resp = DeleteVpcPeeringConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpcPeeringConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpcPeeringConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpcPeeringConnectionOutcomeCallable VpcClient::DeleteVpcPeeringConnectionCallable(const DeleteVpcPeeringConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpcPeeringConnectionOutcome>>();
-    DeleteVpcPeeringConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpcPeeringConnectionRequest&,
-        DeleteVpcPeeringConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpcPeeringConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpcPeeringConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpnConnectionOutcome VpcClient::DeleteVpnConnection(const DeleteVpnConnectionRequest &request)
@@ -7312,32 +6297,25 @@ VpcClient::DeleteVpnConnectionOutcome VpcClient::DeleteVpnConnection(const Delet
 
 void VpcClient::DeleteVpnConnectionAsync(const DeleteVpnConnectionRequest& request, const DeleteVpnConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpnConnectionRequest&;
-    using Resp = DeleteVpnConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpnConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpnConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpnConnectionOutcomeCallable VpcClient::DeleteVpnConnectionCallable(const DeleteVpnConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpnConnectionOutcome>>();
-    DeleteVpnConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpnConnectionRequest&,
-        DeleteVpnConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpnConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpnConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpnGatewayOutcome VpcClient::DeleteVpnGateway(const DeleteVpnGatewayRequest &request)
@@ -7362,32 +6340,25 @@ VpcClient::DeleteVpnGatewayOutcome VpcClient::DeleteVpnGateway(const DeleteVpnGa
 
 void VpcClient::DeleteVpnGatewayAsync(const DeleteVpnGatewayRequest& request, const DeleteVpnGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpnGatewayRequest&;
-    using Resp = DeleteVpnGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpnGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpnGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpnGatewayOutcomeCallable VpcClient::DeleteVpnGatewayCallable(const DeleteVpnGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpnGatewayOutcome>>();
-    DeleteVpnGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpnGatewayRequest&,
-        DeleteVpnGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpnGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpnGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpnGatewayRoutesOutcome VpcClient::DeleteVpnGatewayRoutes(const DeleteVpnGatewayRoutesRequest &request)
@@ -7412,32 +6383,25 @@ VpcClient::DeleteVpnGatewayRoutesOutcome VpcClient::DeleteVpnGatewayRoutes(const
 
 void VpcClient::DeleteVpnGatewayRoutesAsync(const DeleteVpnGatewayRoutesRequest& request, const DeleteVpnGatewayRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpnGatewayRoutesRequest&;
-    using Resp = DeleteVpnGatewayRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpnGatewayRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpnGatewayRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpnGatewayRoutesOutcomeCallable VpcClient::DeleteVpnGatewayRoutesCallable(const DeleteVpnGatewayRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpnGatewayRoutesOutcome>>();
-    DeleteVpnGatewayRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpnGatewayRoutesRequest&,
-        DeleteVpnGatewayRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpnGatewayRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpnGatewayRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpnGatewaySslClientOutcome VpcClient::DeleteVpnGatewaySslClient(const DeleteVpnGatewaySslClientRequest &request)
@@ -7462,32 +6426,25 @@ VpcClient::DeleteVpnGatewaySslClientOutcome VpcClient::DeleteVpnGatewaySslClient
 
 void VpcClient::DeleteVpnGatewaySslClientAsync(const DeleteVpnGatewaySslClientRequest& request, const DeleteVpnGatewaySslClientAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpnGatewaySslClientRequest&;
-    using Resp = DeleteVpnGatewaySslClientResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpnGatewaySslClient(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpnGatewaySslClient", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpnGatewaySslClientOutcomeCallable VpcClient::DeleteVpnGatewaySslClientCallable(const DeleteVpnGatewaySslClientRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpnGatewaySslClientOutcome>>();
-    DeleteVpnGatewaySslClientAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpnGatewaySslClientRequest&,
-        DeleteVpnGatewaySslClientOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpnGatewaySslClientOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpnGatewaySslClient(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DeleteVpnGatewaySslServerOutcome VpcClient::DeleteVpnGatewaySslServer(const DeleteVpnGatewaySslServerRequest &request)
@@ -7512,32 +6469,25 @@ VpcClient::DeleteVpnGatewaySslServerOutcome VpcClient::DeleteVpnGatewaySslServer
 
 void VpcClient::DeleteVpnGatewaySslServerAsync(const DeleteVpnGatewaySslServerRequest& request, const DeleteVpnGatewaySslServerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DeleteVpnGatewaySslServerRequest&;
-    using Resp = DeleteVpnGatewaySslServerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DeleteVpnGatewaySslServer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DeleteVpnGatewaySslServer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DeleteVpnGatewaySslServerOutcomeCallable VpcClient::DeleteVpnGatewaySslServerCallable(const DeleteVpnGatewaySslServerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DeleteVpnGatewaySslServerOutcome>>();
-    DeleteVpnGatewaySslServerAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DeleteVpnGatewaySslServerRequest&,
-        DeleteVpnGatewaySslServerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DeleteVpnGatewaySslServerOutcome()>>(
+        [this, request]()
+        {
+            return this->DeleteVpnGatewaySslServer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAccountAttributesOutcome VpcClient::DescribeAccountAttributes(const DescribeAccountAttributesRequest &request)
@@ -7562,32 +6512,25 @@ VpcClient::DescribeAccountAttributesOutcome VpcClient::DescribeAccountAttributes
 
 void VpcClient::DescribeAccountAttributesAsync(const DescribeAccountAttributesRequest& request, const DescribeAccountAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAccountAttributesRequest&;
-    using Resp = DescribeAccountAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAccountAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAccountAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAccountAttributesOutcomeCallable VpcClient::DescribeAccountAttributesCallable(const DescribeAccountAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAccountAttributesOutcome>>();
-    DescribeAccountAttributesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAccountAttributesRequest&,
-        DescribeAccountAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAccountAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAccountAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAddressBandwidthRangeOutcome VpcClient::DescribeAddressBandwidthRange(const DescribeAddressBandwidthRangeRequest &request)
@@ -7612,32 +6555,25 @@ VpcClient::DescribeAddressBandwidthRangeOutcome VpcClient::DescribeAddressBandwi
 
 void VpcClient::DescribeAddressBandwidthRangeAsync(const DescribeAddressBandwidthRangeRequest& request, const DescribeAddressBandwidthRangeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAddressBandwidthRangeRequest&;
-    using Resp = DescribeAddressBandwidthRangeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAddressBandwidthRange(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAddressBandwidthRange", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAddressBandwidthRangeOutcomeCallable VpcClient::DescribeAddressBandwidthRangeCallable(const DescribeAddressBandwidthRangeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAddressBandwidthRangeOutcome>>();
-    DescribeAddressBandwidthRangeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAddressBandwidthRangeRequest&,
-        DescribeAddressBandwidthRangeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAddressBandwidthRangeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAddressBandwidthRange(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAddressQuotaOutcome VpcClient::DescribeAddressQuota(const DescribeAddressQuotaRequest &request)
@@ -7662,32 +6598,25 @@ VpcClient::DescribeAddressQuotaOutcome VpcClient::DescribeAddressQuota(const Des
 
 void VpcClient::DescribeAddressQuotaAsync(const DescribeAddressQuotaRequest& request, const DescribeAddressQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAddressQuotaRequest&;
-    using Resp = DescribeAddressQuotaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAddressQuota(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAddressQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAddressQuotaOutcomeCallable VpcClient::DescribeAddressQuotaCallable(const DescribeAddressQuotaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAddressQuotaOutcome>>();
-    DescribeAddressQuotaAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAddressQuotaRequest&,
-        DescribeAddressQuotaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAddressQuotaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAddressQuota(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAddressTemplateGroupInstancesOutcome VpcClient::DescribeAddressTemplateGroupInstances(const DescribeAddressTemplateGroupInstancesRequest &request)
@@ -7712,32 +6641,25 @@ VpcClient::DescribeAddressTemplateGroupInstancesOutcome VpcClient::DescribeAddre
 
 void VpcClient::DescribeAddressTemplateGroupInstancesAsync(const DescribeAddressTemplateGroupInstancesRequest& request, const DescribeAddressTemplateGroupInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAddressTemplateGroupInstancesRequest&;
-    using Resp = DescribeAddressTemplateGroupInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAddressTemplateGroupInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAddressTemplateGroupInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAddressTemplateGroupInstancesOutcomeCallable VpcClient::DescribeAddressTemplateGroupInstancesCallable(const DescribeAddressTemplateGroupInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAddressTemplateGroupInstancesOutcome>>();
-    DescribeAddressTemplateGroupInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAddressTemplateGroupInstancesRequest&,
-        DescribeAddressTemplateGroupInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAddressTemplateGroupInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAddressTemplateGroupInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAddressTemplateGroupsOutcome VpcClient::DescribeAddressTemplateGroups(const DescribeAddressTemplateGroupsRequest &request)
@@ -7762,32 +6684,25 @@ VpcClient::DescribeAddressTemplateGroupsOutcome VpcClient::DescribeAddressTempla
 
 void VpcClient::DescribeAddressTemplateGroupsAsync(const DescribeAddressTemplateGroupsRequest& request, const DescribeAddressTemplateGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAddressTemplateGroupsRequest&;
-    using Resp = DescribeAddressTemplateGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAddressTemplateGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAddressTemplateGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAddressTemplateGroupsOutcomeCallable VpcClient::DescribeAddressTemplateGroupsCallable(const DescribeAddressTemplateGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAddressTemplateGroupsOutcome>>();
-    DescribeAddressTemplateGroupsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAddressTemplateGroupsRequest&,
-        DescribeAddressTemplateGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAddressTemplateGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAddressTemplateGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAddressTemplateInstancesOutcome VpcClient::DescribeAddressTemplateInstances(const DescribeAddressTemplateInstancesRequest &request)
@@ -7812,32 +6727,25 @@ VpcClient::DescribeAddressTemplateInstancesOutcome VpcClient::DescribeAddressTem
 
 void VpcClient::DescribeAddressTemplateInstancesAsync(const DescribeAddressTemplateInstancesRequest& request, const DescribeAddressTemplateInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAddressTemplateInstancesRequest&;
-    using Resp = DescribeAddressTemplateInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAddressTemplateInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAddressTemplateInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAddressTemplateInstancesOutcomeCallable VpcClient::DescribeAddressTemplateInstancesCallable(const DescribeAddressTemplateInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAddressTemplateInstancesOutcome>>();
-    DescribeAddressTemplateInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAddressTemplateInstancesRequest&,
-        DescribeAddressTemplateInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAddressTemplateInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAddressTemplateInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAddressTemplatesOutcome VpcClient::DescribeAddressTemplates(const DescribeAddressTemplatesRequest &request)
@@ -7862,32 +6770,25 @@ VpcClient::DescribeAddressTemplatesOutcome VpcClient::DescribeAddressTemplates(c
 
 void VpcClient::DescribeAddressTemplatesAsync(const DescribeAddressTemplatesRequest& request, const DescribeAddressTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAddressTemplatesRequest&;
-    using Resp = DescribeAddressTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAddressTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAddressTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAddressTemplatesOutcomeCallable VpcClient::DescribeAddressTemplatesCallable(const DescribeAddressTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAddressTemplatesOutcome>>();
-    DescribeAddressTemplatesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAddressTemplatesRequest&,
-        DescribeAddressTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAddressTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAddressTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAddressesOutcome VpcClient::DescribeAddresses(const DescribeAddressesRequest &request)
@@ -7912,32 +6813,25 @@ VpcClient::DescribeAddressesOutcome VpcClient::DescribeAddresses(const DescribeA
 
 void VpcClient::DescribeAddressesAsync(const DescribeAddressesRequest& request, const DescribeAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAddressesRequest&;
-    using Resp = DescribeAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAddressesOutcomeCallable VpcClient::DescribeAddressesCallable(const DescribeAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAddressesOutcome>>();
-    DescribeAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAddressesRequest&,
-        DescribeAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeAssistantCidrOutcome VpcClient::DescribeAssistantCidr(const DescribeAssistantCidrRequest &request)
@@ -7962,32 +6856,25 @@ VpcClient::DescribeAssistantCidrOutcome VpcClient::DescribeAssistantCidr(const D
 
 void VpcClient::DescribeAssistantCidrAsync(const DescribeAssistantCidrRequest& request, const DescribeAssistantCidrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeAssistantCidrRequest&;
-    using Resp = DescribeAssistantCidrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeAssistantCidr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeAssistantCidr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeAssistantCidrOutcomeCallable VpcClient::DescribeAssistantCidrCallable(const DescribeAssistantCidrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeAssistantCidrOutcome>>();
-    DescribeAssistantCidrAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeAssistantCidrRequest&,
-        DescribeAssistantCidrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeAssistantCidrOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeAssistantCidr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeBandwidthPackageBandwidthRangeOutcome VpcClient::DescribeBandwidthPackageBandwidthRange(const DescribeBandwidthPackageBandwidthRangeRequest &request)
@@ -8012,32 +6899,25 @@ VpcClient::DescribeBandwidthPackageBandwidthRangeOutcome VpcClient::DescribeBand
 
 void VpcClient::DescribeBandwidthPackageBandwidthRangeAsync(const DescribeBandwidthPackageBandwidthRangeRequest& request, const DescribeBandwidthPackageBandwidthRangeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBandwidthPackageBandwidthRangeRequest&;
-    using Resp = DescribeBandwidthPackageBandwidthRangeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBandwidthPackageBandwidthRange(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBandwidthPackageBandwidthRange", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeBandwidthPackageBandwidthRangeOutcomeCallable VpcClient::DescribeBandwidthPackageBandwidthRangeCallable(const DescribeBandwidthPackageBandwidthRangeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBandwidthPackageBandwidthRangeOutcome>>();
-    DescribeBandwidthPackageBandwidthRangeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeBandwidthPackageBandwidthRangeRequest&,
-        DescribeBandwidthPackageBandwidthRangeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBandwidthPackageBandwidthRangeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBandwidthPackageBandwidthRange(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeBandwidthPackageBillUsageOutcome VpcClient::DescribeBandwidthPackageBillUsage(const DescribeBandwidthPackageBillUsageRequest &request)
@@ -8062,32 +6942,25 @@ VpcClient::DescribeBandwidthPackageBillUsageOutcome VpcClient::DescribeBandwidth
 
 void VpcClient::DescribeBandwidthPackageBillUsageAsync(const DescribeBandwidthPackageBillUsageRequest& request, const DescribeBandwidthPackageBillUsageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBandwidthPackageBillUsageRequest&;
-    using Resp = DescribeBandwidthPackageBillUsageResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBandwidthPackageBillUsage(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBandwidthPackageBillUsage", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeBandwidthPackageBillUsageOutcomeCallable VpcClient::DescribeBandwidthPackageBillUsageCallable(const DescribeBandwidthPackageBillUsageRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBandwidthPackageBillUsageOutcome>>();
-    DescribeBandwidthPackageBillUsageAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeBandwidthPackageBillUsageRequest&,
-        DescribeBandwidthPackageBillUsageOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBandwidthPackageBillUsageOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBandwidthPackageBillUsage(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeBandwidthPackageQuotaOutcome VpcClient::DescribeBandwidthPackageQuota(const DescribeBandwidthPackageQuotaRequest &request)
@@ -8112,32 +6985,25 @@ VpcClient::DescribeBandwidthPackageQuotaOutcome VpcClient::DescribeBandwidthPack
 
 void VpcClient::DescribeBandwidthPackageQuotaAsync(const DescribeBandwidthPackageQuotaRequest& request, const DescribeBandwidthPackageQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBandwidthPackageQuotaRequest&;
-    using Resp = DescribeBandwidthPackageQuotaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBandwidthPackageQuota(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBandwidthPackageQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeBandwidthPackageQuotaOutcomeCallable VpcClient::DescribeBandwidthPackageQuotaCallable(const DescribeBandwidthPackageQuotaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBandwidthPackageQuotaOutcome>>();
-    DescribeBandwidthPackageQuotaAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeBandwidthPackageQuotaRequest&,
-        DescribeBandwidthPackageQuotaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBandwidthPackageQuotaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBandwidthPackageQuota(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeBandwidthPackageResourcesOutcome VpcClient::DescribeBandwidthPackageResources(const DescribeBandwidthPackageResourcesRequest &request)
@@ -8162,32 +7028,25 @@ VpcClient::DescribeBandwidthPackageResourcesOutcome VpcClient::DescribeBandwidth
 
 void VpcClient::DescribeBandwidthPackageResourcesAsync(const DescribeBandwidthPackageResourcesRequest& request, const DescribeBandwidthPackageResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBandwidthPackageResourcesRequest&;
-    using Resp = DescribeBandwidthPackageResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBandwidthPackageResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBandwidthPackageResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeBandwidthPackageResourcesOutcomeCallable VpcClient::DescribeBandwidthPackageResourcesCallable(const DescribeBandwidthPackageResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBandwidthPackageResourcesOutcome>>();
-    DescribeBandwidthPackageResourcesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeBandwidthPackageResourcesRequest&,
-        DescribeBandwidthPackageResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBandwidthPackageResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBandwidthPackageResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeBandwidthPackagesOutcome VpcClient::DescribeBandwidthPackages(const DescribeBandwidthPackagesRequest &request)
@@ -8212,32 +7071,25 @@ VpcClient::DescribeBandwidthPackagesOutcome VpcClient::DescribeBandwidthPackages
 
 void VpcClient::DescribeBandwidthPackagesAsync(const DescribeBandwidthPackagesRequest& request, const DescribeBandwidthPackagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeBandwidthPackagesRequest&;
-    using Resp = DescribeBandwidthPackagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeBandwidthPackages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeBandwidthPackages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeBandwidthPackagesOutcomeCallable VpcClient::DescribeBandwidthPackagesCallable(const DescribeBandwidthPackagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeBandwidthPackagesOutcome>>();
-    DescribeBandwidthPackagesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeBandwidthPackagesRequest&,
-        DescribeBandwidthPackagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeBandwidthPackagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeBandwidthPackages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCcnAttachedInstancesOutcome VpcClient::DescribeCcnAttachedInstances(const DescribeCcnAttachedInstancesRequest &request)
@@ -8262,32 +7114,25 @@ VpcClient::DescribeCcnAttachedInstancesOutcome VpcClient::DescribeCcnAttachedIns
 
 void VpcClient::DescribeCcnAttachedInstancesAsync(const DescribeCcnAttachedInstancesRequest& request, const DescribeCcnAttachedInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCcnAttachedInstancesRequest&;
-    using Resp = DescribeCcnAttachedInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCcnAttachedInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCcnAttachedInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCcnAttachedInstancesOutcomeCallable VpcClient::DescribeCcnAttachedInstancesCallable(const DescribeCcnAttachedInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCcnAttachedInstancesOutcome>>();
-    DescribeCcnAttachedInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCcnAttachedInstancesRequest&,
-        DescribeCcnAttachedInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCcnAttachedInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCcnAttachedInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCcnRegionBandwidthLimitsOutcome VpcClient::DescribeCcnRegionBandwidthLimits(const DescribeCcnRegionBandwidthLimitsRequest &request)
@@ -8312,32 +7157,25 @@ VpcClient::DescribeCcnRegionBandwidthLimitsOutcome VpcClient::DescribeCcnRegionB
 
 void VpcClient::DescribeCcnRegionBandwidthLimitsAsync(const DescribeCcnRegionBandwidthLimitsRequest& request, const DescribeCcnRegionBandwidthLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCcnRegionBandwidthLimitsRequest&;
-    using Resp = DescribeCcnRegionBandwidthLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCcnRegionBandwidthLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCcnRegionBandwidthLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCcnRegionBandwidthLimitsOutcomeCallable VpcClient::DescribeCcnRegionBandwidthLimitsCallable(const DescribeCcnRegionBandwidthLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCcnRegionBandwidthLimitsOutcome>>();
-    DescribeCcnRegionBandwidthLimitsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCcnRegionBandwidthLimitsRequest&,
-        DescribeCcnRegionBandwidthLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCcnRegionBandwidthLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCcnRegionBandwidthLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCcnRouteTableBroadcastPolicysOutcome VpcClient::DescribeCcnRouteTableBroadcastPolicys(const DescribeCcnRouteTableBroadcastPolicysRequest &request)
@@ -8362,32 +7200,25 @@ VpcClient::DescribeCcnRouteTableBroadcastPolicysOutcome VpcClient::DescribeCcnRo
 
 void VpcClient::DescribeCcnRouteTableBroadcastPolicysAsync(const DescribeCcnRouteTableBroadcastPolicysRequest& request, const DescribeCcnRouteTableBroadcastPolicysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCcnRouteTableBroadcastPolicysRequest&;
-    using Resp = DescribeCcnRouteTableBroadcastPolicysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCcnRouteTableBroadcastPolicys(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCcnRouteTableBroadcastPolicys", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCcnRouteTableBroadcastPolicysOutcomeCallable VpcClient::DescribeCcnRouteTableBroadcastPolicysCallable(const DescribeCcnRouteTableBroadcastPolicysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCcnRouteTableBroadcastPolicysOutcome>>();
-    DescribeCcnRouteTableBroadcastPolicysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCcnRouteTableBroadcastPolicysRequest&,
-        DescribeCcnRouteTableBroadcastPolicysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCcnRouteTableBroadcastPolicysOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCcnRouteTableBroadcastPolicys(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCcnRouteTableInputPolicysOutcome VpcClient::DescribeCcnRouteTableInputPolicys(const DescribeCcnRouteTableInputPolicysRequest &request)
@@ -8412,32 +7243,25 @@ VpcClient::DescribeCcnRouteTableInputPolicysOutcome VpcClient::DescribeCcnRouteT
 
 void VpcClient::DescribeCcnRouteTableInputPolicysAsync(const DescribeCcnRouteTableInputPolicysRequest& request, const DescribeCcnRouteTableInputPolicysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCcnRouteTableInputPolicysRequest&;
-    using Resp = DescribeCcnRouteTableInputPolicysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCcnRouteTableInputPolicys(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCcnRouteTableInputPolicys", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCcnRouteTableInputPolicysOutcomeCallable VpcClient::DescribeCcnRouteTableInputPolicysCallable(const DescribeCcnRouteTableInputPolicysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCcnRouteTableInputPolicysOutcome>>();
-    DescribeCcnRouteTableInputPolicysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCcnRouteTableInputPolicysRequest&,
-        DescribeCcnRouteTableInputPolicysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCcnRouteTableInputPolicysOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCcnRouteTableInputPolicys(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCcnRouteTablesOutcome VpcClient::DescribeCcnRouteTables(const DescribeCcnRouteTablesRequest &request)
@@ -8462,32 +7286,25 @@ VpcClient::DescribeCcnRouteTablesOutcome VpcClient::DescribeCcnRouteTables(const
 
 void VpcClient::DescribeCcnRouteTablesAsync(const DescribeCcnRouteTablesRequest& request, const DescribeCcnRouteTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCcnRouteTablesRequest&;
-    using Resp = DescribeCcnRouteTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCcnRouteTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCcnRouteTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCcnRouteTablesOutcomeCallable VpcClient::DescribeCcnRouteTablesCallable(const DescribeCcnRouteTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCcnRouteTablesOutcome>>();
-    DescribeCcnRouteTablesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCcnRouteTablesRequest&,
-        DescribeCcnRouteTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCcnRouteTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCcnRouteTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCcnRoutesOutcome VpcClient::DescribeCcnRoutes(const DescribeCcnRoutesRequest &request)
@@ -8512,32 +7329,25 @@ VpcClient::DescribeCcnRoutesOutcome VpcClient::DescribeCcnRoutes(const DescribeC
 
 void VpcClient::DescribeCcnRoutesAsync(const DescribeCcnRoutesRequest& request, const DescribeCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCcnRoutesRequest&;
-    using Resp = DescribeCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCcnRoutesOutcomeCallable VpcClient::DescribeCcnRoutesCallable(const DescribeCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCcnRoutesOutcome>>();
-    DescribeCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCcnRoutesRequest&,
-        DescribeCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCcnsOutcome VpcClient::DescribeCcns(const DescribeCcnsRequest &request)
@@ -8562,32 +7372,25 @@ VpcClient::DescribeCcnsOutcome VpcClient::DescribeCcns(const DescribeCcnsRequest
 
 void VpcClient::DescribeCcnsAsync(const DescribeCcnsRequest& request, const DescribeCcnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCcnsRequest&;
-    using Resp = DescribeCcnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCcns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCcns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCcnsOutcomeCallable VpcClient::DescribeCcnsCallable(const DescribeCcnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCcnsOutcome>>();
-    DescribeCcnsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCcnsRequest&,
-        DescribeCcnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCcnsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCcns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCdcLDCXListOutcome VpcClient::DescribeCdcLDCXList(const DescribeCdcLDCXListRequest &request)
@@ -8612,32 +7415,25 @@ VpcClient::DescribeCdcLDCXListOutcome VpcClient::DescribeCdcLDCXList(const Descr
 
 void VpcClient::DescribeCdcLDCXListAsync(const DescribeCdcLDCXListRequest& request, const DescribeCdcLDCXListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCdcLDCXListRequest&;
-    using Resp = DescribeCdcLDCXListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCdcLDCXList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCdcLDCXList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCdcLDCXListOutcomeCallable VpcClient::DescribeCdcLDCXListCallable(const DescribeCdcLDCXListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCdcLDCXListOutcome>>();
-    DescribeCdcLDCXListAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCdcLDCXListRequest&,
-        DescribeCdcLDCXListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCdcLDCXListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCdcLDCXList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCdcNetPlanesOutcome VpcClient::DescribeCdcNetPlanes(const DescribeCdcNetPlanesRequest &request)
@@ -8662,32 +7458,25 @@ VpcClient::DescribeCdcNetPlanesOutcome VpcClient::DescribeCdcNetPlanes(const Des
 
 void VpcClient::DescribeCdcNetPlanesAsync(const DescribeCdcNetPlanesRequest& request, const DescribeCdcNetPlanesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCdcNetPlanesRequest&;
-    using Resp = DescribeCdcNetPlanesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCdcNetPlanes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCdcNetPlanes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCdcNetPlanesOutcomeCallable VpcClient::DescribeCdcNetPlanesCallable(const DescribeCdcNetPlanesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCdcNetPlanesOutcome>>();
-    DescribeCdcNetPlanesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCdcNetPlanesRequest&,
-        DescribeCdcNetPlanesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCdcNetPlanesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCdcNetPlanes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCdcUsedIdcVlanOutcome VpcClient::DescribeCdcUsedIdcVlan(const DescribeCdcUsedIdcVlanRequest &request)
@@ -8712,32 +7501,25 @@ VpcClient::DescribeCdcUsedIdcVlanOutcome VpcClient::DescribeCdcUsedIdcVlan(const
 
 void VpcClient::DescribeCdcUsedIdcVlanAsync(const DescribeCdcUsedIdcVlanRequest& request, const DescribeCdcUsedIdcVlanAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCdcUsedIdcVlanRequest&;
-    using Resp = DescribeCdcUsedIdcVlanResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCdcUsedIdcVlan(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCdcUsedIdcVlan", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCdcUsedIdcVlanOutcomeCallable VpcClient::DescribeCdcUsedIdcVlanCallable(const DescribeCdcUsedIdcVlanRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCdcUsedIdcVlanOutcome>>();
-    DescribeCdcUsedIdcVlanAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCdcUsedIdcVlanRequest&,
-        DescribeCdcUsedIdcVlanOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCdcUsedIdcVlanOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCdcUsedIdcVlan(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeClassicLinkInstancesOutcome VpcClient::DescribeClassicLinkInstances(const DescribeClassicLinkInstancesRequest &request)
@@ -8762,32 +7544,25 @@ VpcClient::DescribeClassicLinkInstancesOutcome VpcClient::DescribeClassicLinkIns
 
 void VpcClient::DescribeClassicLinkInstancesAsync(const DescribeClassicLinkInstancesRequest& request, const DescribeClassicLinkInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeClassicLinkInstancesRequest&;
-    using Resp = DescribeClassicLinkInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeClassicLinkInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeClassicLinkInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeClassicLinkInstancesOutcomeCallable VpcClient::DescribeClassicLinkInstancesCallable(const DescribeClassicLinkInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeClassicLinkInstancesOutcome>>();
-    DescribeClassicLinkInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeClassicLinkInstancesRequest&,
-        DescribeClassicLinkInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeClassicLinkInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeClassicLinkInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCrossBorderCcnRegionBandwidthLimitsOutcome VpcClient::DescribeCrossBorderCcnRegionBandwidthLimits(const DescribeCrossBorderCcnRegionBandwidthLimitsRequest &request)
@@ -8812,32 +7587,25 @@ VpcClient::DescribeCrossBorderCcnRegionBandwidthLimitsOutcome VpcClient::Describ
 
 void VpcClient::DescribeCrossBorderCcnRegionBandwidthLimitsAsync(const DescribeCrossBorderCcnRegionBandwidthLimitsRequest& request, const DescribeCrossBorderCcnRegionBandwidthLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCrossBorderCcnRegionBandwidthLimitsRequest&;
-    using Resp = DescribeCrossBorderCcnRegionBandwidthLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCrossBorderCcnRegionBandwidthLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCrossBorderCcnRegionBandwidthLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCrossBorderCcnRegionBandwidthLimitsOutcomeCallable VpcClient::DescribeCrossBorderCcnRegionBandwidthLimitsCallable(const DescribeCrossBorderCcnRegionBandwidthLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCrossBorderCcnRegionBandwidthLimitsOutcome>>();
-    DescribeCrossBorderCcnRegionBandwidthLimitsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCrossBorderCcnRegionBandwidthLimitsRequest&,
-        DescribeCrossBorderCcnRegionBandwidthLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCrossBorderCcnRegionBandwidthLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCrossBorderCcnRegionBandwidthLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCrossBorderComplianceOutcome VpcClient::DescribeCrossBorderCompliance(const DescribeCrossBorderComplianceRequest &request)
@@ -8862,32 +7630,25 @@ VpcClient::DescribeCrossBorderComplianceOutcome VpcClient::DescribeCrossBorderCo
 
 void VpcClient::DescribeCrossBorderComplianceAsync(const DescribeCrossBorderComplianceRequest& request, const DescribeCrossBorderComplianceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCrossBorderComplianceRequest&;
-    using Resp = DescribeCrossBorderComplianceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCrossBorderCompliance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCrossBorderCompliance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCrossBorderComplianceOutcomeCallable VpcClient::DescribeCrossBorderComplianceCallable(const DescribeCrossBorderComplianceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCrossBorderComplianceOutcome>>();
-    DescribeCrossBorderComplianceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCrossBorderComplianceRequest&,
-        DescribeCrossBorderComplianceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCrossBorderComplianceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCrossBorderCompliance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCrossBorderFlowMonitorOutcome VpcClient::DescribeCrossBorderFlowMonitor(const DescribeCrossBorderFlowMonitorRequest &request)
@@ -8912,32 +7673,25 @@ VpcClient::DescribeCrossBorderFlowMonitorOutcome VpcClient::DescribeCrossBorderF
 
 void VpcClient::DescribeCrossBorderFlowMonitorAsync(const DescribeCrossBorderFlowMonitorRequest& request, const DescribeCrossBorderFlowMonitorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCrossBorderFlowMonitorRequest&;
-    using Resp = DescribeCrossBorderFlowMonitorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCrossBorderFlowMonitor(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCrossBorderFlowMonitor", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCrossBorderFlowMonitorOutcomeCallable VpcClient::DescribeCrossBorderFlowMonitorCallable(const DescribeCrossBorderFlowMonitorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCrossBorderFlowMonitorOutcome>>();
-    DescribeCrossBorderFlowMonitorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCrossBorderFlowMonitorRequest&,
-        DescribeCrossBorderFlowMonitorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCrossBorderFlowMonitorOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCrossBorderFlowMonitor(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCustomerGatewayVendorsOutcome VpcClient::DescribeCustomerGatewayVendors(const DescribeCustomerGatewayVendorsRequest &request)
@@ -8962,32 +7716,25 @@ VpcClient::DescribeCustomerGatewayVendorsOutcome VpcClient::DescribeCustomerGate
 
 void VpcClient::DescribeCustomerGatewayVendorsAsync(const DescribeCustomerGatewayVendorsRequest& request, const DescribeCustomerGatewayVendorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomerGatewayVendorsRequest&;
-    using Resp = DescribeCustomerGatewayVendorsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomerGatewayVendors(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomerGatewayVendors", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCustomerGatewayVendorsOutcomeCallable VpcClient::DescribeCustomerGatewayVendorsCallable(const DescribeCustomerGatewayVendorsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomerGatewayVendorsOutcome>>();
-    DescribeCustomerGatewayVendorsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCustomerGatewayVendorsRequest&,
-        DescribeCustomerGatewayVendorsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomerGatewayVendorsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomerGatewayVendors(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeCustomerGatewaysOutcome VpcClient::DescribeCustomerGateways(const DescribeCustomerGatewaysRequest &request)
@@ -9012,32 +7759,25 @@ VpcClient::DescribeCustomerGatewaysOutcome VpcClient::DescribeCustomerGateways(c
 
 void VpcClient::DescribeCustomerGatewaysAsync(const DescribeCustomerGatewaysRequest& request, const DescribeCustomerGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCustomerGatewaysRequest&;
-    using Resp = DescribeCustomerGatewaysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCustomerGateways(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCustomerGateways", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeCustomerGatewaysOutcomeCallable VpcClient::DescribeCustomerGatewaysCallable(const DescribeCustomerGatewaysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCustomerGatewaysOutcome>>();
-    DescribeCustomerGatewaysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeCustomerGatewaysRequest&,
-        DescribeCustomerGatewaysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCustomerGatewaysOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCustomerGateways(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeDhcpIpsOutcome VpcClient::DescribeDhcpIps(const DescribeDhcpIpsRequest &request)
@@ -9062,32 +7802,25 @@ VpcClient::DescribeDhcpIpsOutcome VpcClient::DescribeDhcpIps(const DescribeDhcpI
 
 void VpcClient::DescribeDhcpIpsAsync(const DescribeDhcpIpsRequest& request, const DescribeDhcpIpsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDhcpIpsRequest&;
-    using Resp = DescribeDhcpIpsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDhcpIps(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDhcpIps", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeDhcpIpsOutcomeCallable VpcClient::DescribeDhcpIpsCallable(const DescribeDhcpIpsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDhcpIpsOutcome>>();
-    DescribeDhcpIpsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeDhcpIpsRequest&,
-        DescribeDhcpIpsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDhcpIpsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDhcpIps(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeDirectConnectGatewayCcnRoutesOutcome VpcClient::DescribeDirectConnectGatewayCcnRoutes(const DescribeDirectConnectGatewayCcnRoutesRequest &request)
@@ -9112,32 +7845,25 @@ VpcClient::DescribeDirectConnectGatewayCcnRoutesOutcome VpcClient::DescribeDirec
 
 void VpcClient::DescribeDirectConnectGatewayCcnRoutesAsync(const DescribeDirectConnectGatewayCcnRoutesRequest& request, const DescribeDirectConnectGatewayCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDirectConnectGatewayCcnRoutesRequest&;
-    using Resp = DescribeDirectConnectGatewayCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDirectConnectGatewayCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDirectConnectGatewayCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeDirectConnectGatewayCcnRoutesOutcomeCallable VpcClient::DescribeDirectConnectGatewayCcnRoutesCallable(const DescribeDirectConnectGatewayCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDirectConnectGatewayCcnRoutesOutcome>>();
-    DescribeDirectConnectGatewayCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeDirectConnectGatewayCcnRoutesRequest&,
-        DescribeDirectConnectGatewayCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDirectConnectGatewayCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDirectConnectGatewayCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeDirectConnectGatewaysOutcome VpcClient::DescribeDirectConnectGateways(const DescribeDirectConnectGatewaysRequest &request)
@@ -9162,32 +7888,25 @@ VpcClient::DescribeDirectConnectGatewaysOutcome VpcClient::DescribeDirectConnect
 
 void VpcClient::DescribeDirectConnectGatewaysAsync(const DescribeDirectConnectGatewaysRequest& request, const DescribeDirectConnectGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeDirectConnectGatewaysRequest&;
-    using Resp = DescribeDirectConnectGatewaysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeDirectConnectGateways(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeDirectConnectGateways", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeDirectConnectGatewaysOutcomeCallable VpcClient::DescribeDirectConnectGatewaysCallable(const DescribeDirectConnectGatewaysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeDirectConnectGatewaysOutcome>>();
-    DescribeDirectConnectGatewaysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeDirectConnectGatewaysRequest&,
-        DescribeDirectConnectGatewaysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeDirectConnectGatewaysOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeDirectConnectGateways(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeFlowLogOutcome VpcClient::DescribeFlowLog(const DescribeFlowLogRequest &request)
@@ -9212,32 +7931,25 @@ VpcClient::DescribeFlowLogOutcome VpcClient::DescribeFlowLog(const DescribeFlowL
 
 void VpcClient::DescribeFlowLogAsync(const DescribeFlowLogRequest& request, const DescribeFlowLogAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFlowLogRequest&;
-    using Resp = DescribeFlowLogResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFlowLog(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFlowLog", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeFlowLogOutcomeCallable VpcClient::DescribeFlowLogCallable(const DescribeFlowLogRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFlowLogOutcome>>();
-    DescribeFlowLogAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeFlowLogRequest&,
-        DescribeFlowLogOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFlowLogOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFlowLog(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeFlowLogsOutcome VpcClient::DescribeFlowLogs(const DescribeFlowLogsRequest &request)
@@ -9262,32 +7974,25 @@ VpcClient::DescribeFlowLogsOutcome VpcClient::DescribeFlowLogs(const DescribeFlo
 
 void VpcClient::DescribeFlowLogsAsync(const DescribeFlowLogsRequest& request, const DescribeFlowLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeFlowLogsRequest&;
-    using Resp = DescribeFlowLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeFlowLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeFlowLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeFlowLogsOutcomeCallable VpcClient::DescribeFlowLogsCallable(const DescribeFlowLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeFlowLogsOutcome>>();
-    DescribeFlowLogsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeFlowLogsRequest&,
-        DescribeFlowLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeFlowLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeFlowLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeGatewayFlowMonitorDetailOutcome VpcClient::DescribeGatewayFlowMonitorDetail(const DescribeGatewayFlowMonitorDetailRequest &request)
@@ -9312,32 +8017,25 @@ VpcClient::DescribeGatewayFlowMonitorDetailOutcome VpcClient::DescribeGatewayFlo
 
 void VpcClient::DescribeGatewayFlowMonitorDetailAsync(const DescribeGatewayFlowMonitorDetailRequest& request, const DescribeGatewayFlowMonitorDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGatewayFlowMonitorDetailRequest&;
-    using Resp = DescribeGatewayFlowMonitorDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGatewayFlowMonitorDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayFlowMonitorDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeGatewayFlowMonitorDetailOutcomeCallable VpcClient::DescribeGatewayFlowMonitorDetailCallable(const DescribeGatewayFlowMonitorDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGatewayFlowMonitorDetailOutcome>>();
-    DescribeGatewayFlowMonitorDetailAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeGatewayFlowMonitorDetailRequest&,
-        DescribeGatewayFlowMonitorDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGatewayFlowMonitorDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGatewayFlowMonitorDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeGatewayFlowQosOutcome VpcClient::DescribeGatewayFlowQos(const DescribeGatewayFlowQosRequest &request)
@@ -9362,32 +8060,25 @@ VpcClient::DescribeGatewayFlowQosOutcome VpcClient::DescribeGatewayFlowQos(const
 
 void VpcClient::DescribeGatewayFlowQosAsync(const DescribeGatewayFlowQosRequest& request, const DescribeGatewayFlowQosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGatewayFlowQosRequest&;
-    using Resp = DescribeGatewayFlowQosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGatewayFlowQos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGatewayFlowQos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeGatewayFlowQosOutcomeCallable VpcClient::DescribeGatewayFlowQosCallable(const DescribeGatewayFlowQosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGatewayFlowQosOutcome>>();
-    DescribeGatewayFlowQosAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeGatewayFlowQosRequest&,
-        DescribeGatewayFlowQosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGatewayFlowQosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGatewayFlowQos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeGlobalRoutesOutcome VpcClient::DescribeGlobalRoutes(const DescribeGlobalRoutesRequest &request)
@@ -9412,32 +8103,25 @@ VpcClient::DescribeGlobalRoutesOutcome VpcClient::DescribeGlobalRoutes(const Des
 
 void VpcClient::DescribeGlobalRoutesAsync(const DescribeGlobalRoutesRequest& request, const DescribeGlobalRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeGlobalRoutesRequest&;
-    using Resp = DescribeGlobalRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeGlobalRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeGlobalRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeGlobalRoutesOutcomeCallable VpcClient::DescribeGlobalRoutesCallable(const DescribeGlobalRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeGlobalRoutesOutcome>>();
-    DescribeGlobalRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeGlobalRoutesRequest&,
-        DescribeGlobalRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeGlobalRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeGlobalRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeHaVipsOutcome VpcClient::DescribeHaVips(const DescribeHaVipsRequest &request)
@@ -9462,32 +8146,25 @@ VpcClient::DescribeHaVipsOutcome VpcClient::DescribeHaVips(const DescribeHaVipsR
 
 void VpcClient::DescribeHaVipsAsync(const DescribeHaVipsRequest& request, const DescribeHaVipsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHaVipsRequest&;
-    using Resp = DescribeHaVipsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHaVips(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHaVips", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeHaVipsOutcomeCallable VpcClient::DescribeHaVipsCallable(const DescribeHaVipsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHaVipsOutcome>>();
-    DescribeHaVipsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeHaVipsRequest&,
-        DescribeHaVipsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHaVipsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHaVips(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeHighPriorityRouteTablesOutcome VpcClient::DescribeHighPriorityRouteTables(const DescribeHighPriorityRouteTablesRequest &request)
@@ -9512,32 +8189,25 @@ VpcClient::DescribeHighPriorityRouteTablesOutcome VpcClient::DescribeHighPriorit
 
 void VpcClient::DescribeHighPriorityRouteTablesAsync(const DescribeHighPriorityRouteTablesRequest& request, const DescribeHighPriorityRouteTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHighPriorityRouteTablesRequest&;
-    using Resp = DescribeHighPriorityRouteTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHighPriorityRouteTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHighPriorityRouteTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeHighPriorityRouteTablesOutcomeCallable VpcClient::DescribeHighPriorityRouteTablesCallable(const DescribeHighPriorityRouteTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHighPriorityRouteTablesOutcome>>();
-    DescribeHighPriorityRouteTablesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeHighPriorityRouteTablesRequest&,
-        DescribeHighPriorityRouteTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHighPriorityRouteTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHighPriorityRouteTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeHighPriorityRoutesOutcome VpcClient::DescribeHighPriorityRoutes(const DescribeHighPriorityRoutesRequest &request)
@@ -9562,32 +8232,25 @@ VpcClient::DescribeHighPriorityRoutesOutcome VpcClient::DescribeHighPriorityRout
 
 void VpcClient::DescribeHighPriorityRoutesAsync(const DescribeHighPriorityRoutesRequest& request, const DescribeHighPriorityRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeHighPriorityRoutesRequest&;
-    using Resp = DescribeHighPriorityRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeHighPriorityRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeHighPriorityRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeHighPriorityRoutesOutcomeCallable VpcClient::DescribeHighPriorityRoutesCallable(const DescribeHighPriorityRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeHighPriorityRoutesOutcome>>();
-    DescribeHighPriorityRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeHighPriorityRoutesRequest&,
-        DescribeHighPriorityRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeHighPriorityRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeHighPriorityRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeIPv6AddressesOutcome VpcClient::DescribeIPv6Addresses(const DescribeIPv6AddressesRequest &request)
@@ -9612,32 +8275,25 @@ VpcClient::DescribeIPv6AddressesOutcome VpcClient::DescribeIPv6Addresses(const D
 
 void VpcClient::DescribeIPv6AddressesAsync(const DescribeIPv6AddressesRequest& request, const DescribeIPv6AddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIPv6AddressesRequest&;
-    using Resp = DescribeIPv6AddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIPv6Addresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIPv6Addresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeIPv6AddressesOutcomeCallable VpcClient::DescribeIPv6AddressesCallable(const DescribeIPv6AddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIPv6AddressesOutcome>>();
-    DescribeIPv6AddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeIPv6AddressesRequest&,
-        DescribeIPv6AddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIPv6AddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIPv6Addresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeInstanceJumboOutcome VpcClient::DescribeInstanceJumbo(const DescribeInstanceJumboRequest &request)
@@ -9662,32 +8318,25 @@ VpcClient::DescribeInstanceJumboOutcome VpcClient::DescribeInstanceJumbo(const D
 
 void VpcClient::DescribeInstanceJumboAsync(const DescribeInstanceJumboRequest& request, const DescribeInstanceJumboAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeInstanceJumboRequest&;
-    using Resp = DescribeInstanceJumboResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeInstanceJumbo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeInstanceJumbo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeInstanceJumboOutcomeCallable VpcClient::DescribeInstanceJumboCallable(const DescribeInstanceJumboRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeInstanceJumboOutcome>>();
-    DescribeInstanceJumboAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeInstanceJumboRequest&,
-        DescribeInstanceJumboOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeInstanceJumboOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeInstanceJumbo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeIp6AddressesOutcome VpcClient::DescribeIp6Addresses(const DescribeIp6AddressesRequest &request)
@@ -9712,32 +8361,25 @@ VpcClient::DescribeIp6AddressesOutcome VpcClient::DescribeIp6Addresses(const Des
 
 void VpcClient::DescribeIp6AddressesAsync(const DescribeIp6AddressesRequest& request, const DescribeIp6AddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIp6AddressesRequest&;
-    using Resp = DescribeIp6AddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIp6Addresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIp6Addresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeIp6AddressesOutcomeCallable VpcClient::DescribeIp6AddressesCallable(const DescribeIp6AddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIp6AddressesOutcome>>();
-    DescribeIp6AddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeIp6AddressesRequest&,
-        DescribeIp6AddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIp6AddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIp6Addresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeIp6TranslatorQuotaOutcome VpcClient::DescribeIp6TranslatorQuota(const DescribeIp6TranslatorQuotaRequest &request)
@@ -9762,32 +8404,25 @@ VpcClient::DescribeIp6TranslatorQuotaOutcome VpcClient::DescribeIp6TranslatorQuo
 
 void VpcClient::DescribeIp6TranslatorQuotaAsync(const DescribeIp6TranslatorQuotaRequest& request, const DescribeIp6TranslatorQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIp6TranslatorQuotaRequest&;
-    using Resp = DescribeIp6TranslatorQuotaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIp6TranslatorQuota(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIp6TranslatorQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeIp6TranslatorQuotaOutcomeCallable VpcClient::DescribeIp6TranslatorQuotaCallable(const DescribeIp6TranslatorQuotaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIp6TranslatorQuotaOutcome>>();
-    DescribeIp6TranslatorQuotaAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeIp6TranslatorQuotaRequest&,
-        DescribeIp6TranslatorQuotaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIp6TranslatorQuotaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIp6TranslatorQuota(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeIp6TranslatorsOutcome VpcClient::DescribeIp6Translators(const DescribeIp6TranslatorsRequest &request)
@@ -9812,32 +8447,25 @@ VpcClient::DescribeIp6TranslatorsOutcome VpcClient::DescribeIp6Translators(const
 
 void VpcClient::DescribeIp6TranslatorsAsync(const DescribeIp6TranslatorsRequest& request, const DescribeIp6TranslatorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIp6TranslatorsRequest&;
-    using Resp = DescribeIp6TranslatorsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIp6Translators(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIp6Translators", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeIp6TranslatorsOutcomeCallable VpcClient::DescribeIp6TranslatorsCallable(const DescribeIp6TranslatorsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIp6TranslatorsOutcome>>();
-    DescribeIp6TranslatorsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeIp6TranslatorsRequest&,
-        DescribeIp6TranslatorsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIp6TranslatorsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIp6Translators(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeIpGeolocationDatabaseUrlOutcome VpcClient::DescribeIpGeolocationDatabaseUrl(const DescribeIpGeolocationDatabaseUrlRequest &request)
@@ -9862,32 +8490,25 @@ VpcClient::DescribeIpGeolocationDatabaseUrlOutcome VpcClient::DescribeIpGeolocat
 
 void VpcClient::DescribeIpGeolocationDatabaseUrlAsync(const DescribeIpGeolocationDatabaseUrlRequest& request, const DescribeIpGeolocationDatabaseUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIpGeolocationDatabaseUrlRequest&;
-    using Resp = DescribeIpGeolocationDatabaseUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIpGeolocationDatabaseUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIpGeolocationDatabaseUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeIpGeolocationDatabaseUrlOutcomeCallable VpcClient::DescribeIpGeolocationDatabaseUrlCallable(const DescribeIpGeolocationDatabaseUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIpGeolocationDatabaseUrlOutcome>>();
-    DescribeIpGeolocationDatabaseUrlAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeIpGeolocationDatabaseUrlRequest&,
-        DescribeIpGeolocationDatabaseUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIpGeolocationDatabaseUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIpGeolocationDatabaseUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeIpGeolocationInfosOutcome VpcClient::DescribeIpGeolocationInfos(const DescribeIpGeolocationInfosRequest &request)
@@ -9912,32 +8533,25 @@ VpcClient::DescribeIpGeolocationInfosOutcome VpcClient::DescribeIpGeolocationInf
 
 void VpcClient::DescribeIpGeolocationInfosAsync(const DescribeIpGeolocationInfosRequest& request, const DescribeIpGeolocationInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeIpGeolocationInfosRequest&;
-    using Resp = DescribeIpGeolocationInfosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeIpGeolocationInfos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeIpGeolocationInfos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeIpGeolocationInfosOutcomeCallable VpcClient::DescribeIpGeolocationInfosCallable(const DescribeIpGeolocationInfosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeIpGeolocationInfosOutcome>>();
-    DescribeIpGeolocationInfosAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeIpGeolocationInfosRequest&,
-        DescribeIpGeolocationInfosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeIpGeolocationInfosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeIpGeolocationInfos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeLocalGatewayOutcome VpcClient::DescribeLocalGateway(const DescribeLocalGatewayRequest &request)
@@ -9962,32 +8576,25 @@ VpcClient::DescribeLocalGatewayOutcome VpcClient::DescribeLocalGateway(const Des
 
 void VpcClient::DescribeLocalGatewayAsync(const DescribeLocalGatewayRequest& request, const DescribeLocalGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLocalGatewayRequest&;
-    using Resp = DescribeLocalGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLocalGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLocalGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeLocalGatewayOutcomeCallable VpcClient::DescribeLocalGatewayCallable(const DescribeLocalGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLocalGatewayOutcome>>();
-    DescribeLocalGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeLocalGatewayRequest&,
-        DescribeLocalGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLocalGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLocalGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNatGatewayDestinationIpPortTranslationNatRulesOutcome VpcClient::DescribeNatGatewayDestinationIpPortTranslationNatRules(const DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest &request)
@@ -10012,32 +8619,25 @@ VpcClient::DescribeNatGatewayDestinationIpPortTranslationNatRulesOutcome VpcClie
 
 void VpcClient::DescribeNatGatewayDestinationIpPortTranslationNatRulesAsync(const DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest& request, const DescribeNatGatewayDestinationIpPortTranslationNatRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest&;
-    using Resp = DescribeNatGatewayDestinationIpPortTranslationNatRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNatGatewayDestinationIpPortTranslationNatRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNatGatewayDestinationIpPortTranslationNatRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNatGatewayDestinationIpPortTranslationNatRulesOutcomeCallable VpcClient::DescribeNatGatewayDestinationIpPortTranslationNatRulesCallable(const DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNatGatewayDestinationIpPortTranslationNatRulesOutcome>>();
-    DescribeNatGatewayDestinationIpPortTranslationNatRulesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNatGatewayDestinationIpPortTranslationNatRulesRequest&,
-        DescribeNatGatewayDestinationIpPortTranslationNatRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNatGatewayDestinationIpPortTranslationNatRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNatGatewayDestinationIpPortTranslationNatRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNatGatewayDirectConnectGatewayRouteOutcome VpcClient::DescribeNatGatewayDirectConnectGatewayRoute(const DescribeNatGatewayDirectConnectGatewayRouteRequest &request)
@@ -10062,32 +8662,25 @@ VpcClient::DescribeNatGatewayDirectConnectGatewayRouteOutcome VpcClient::Describ
 
 void VpcClient::DescribeNatGatewayDirectConnectGatewayRouteAsync(const DescribeNatGatewayDirectConnectGatewayRouteRequest& request, const DescribeNatGatewayDirectConnectGatewayRouteAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNatGatewayDirectConnectGatewayRouteRequest&;
-    using Resp = DescribeNatGatewayDirectConnectGatewayRouteResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNatGatewayDirectConnectGatewayRoute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNatGatewayDirectConnectGatewayRoute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNatGatewayDirectConnectGatewayRouteOutcomeCallable VpcClient::DescribeNatGatewayDirectConnectGatewayRouteCallable(const DescribeNatGatewayDirectConnectGatewayRouteRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNatGatewayDirectConnectGatewayRouteOutcome>>();
-    DescribeNatGatewayDirectConnectGatewayRouteAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNatGatewayDirectConnectGatewayRouteRequest&,
-        DescribeNatGatewayDirectConnectGatewayRouteOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNatGatewayDirectConnectGatewayRouteOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNatGatewayDirectConnectGatewayRoute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNatGatewayFlowMonitorDetailOutcome VpcClient::DescribeNatGatewayFlowMonitorDetail(const DescribeNatGatewayFlowMonitorDetailRequest &request)
@@ -10112,32 +8705,25 @@ VpcClient::DescribeNatGatewayFlowMonitorDetailOutcome VpcClient::DescribeNatGate
 
 void VpcClient::DescribeNatGatewayFlowMonitorDetailAsync(const DescribeNatGatewayFlowMonitorDetailRequest& request, const DescribeNatGatewayFlowMonitorDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNatGatewayFlowMonitorDetailRequest&;
-    using Resp = DescribeNatGatewayFlowMonitorDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNatGatewayFlowMonitorDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNatGatewayFlowMonitorDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNatGatewayFlowMonitorDetailOutcomeCallable VpcClient::DescribeNatGatewayFlowMonitorDetailCallable(const DescribeNatGatewayFlowMonitorDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNatGatewayFlowMonitorDetailOutcome>>();
-    DescribeNatGatewayFlowMonitorDetailAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNatGatewayFlowMonitorDetailRequest&,
-        DescribeNatGatewayFlowMonitorDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNatGatewayFlowMonitorDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNatGatewayFlowMonitorDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNatGatewaySourceIpTranslationNatRulesOutcome VpcClient::DescribeNatGatewaySourceIpTranslationNatRules(const DescribeNatGatewaySourceIpTranslationNatRulesRequest &request)
@@ -10162,32 +8748,25 @@ VpcClient::DescribeNatGatewaySourceIpTranslationNatRulesOutcome VpcClient::Descr
 
 void VpcClient::DescribeNatGatewaySourceIpTranslationNatRulesAsync(const DescribeNatGatewaySourceIpTranslationNatRulesRequest& request, const DescribeNatGatewaySourceIpTranslationNatRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNatGatewaySourceIpTranslationNatRulesRequest&;
-    using Resp = DescribeNatGatewaySourceIpTranslationNatRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNatGatewaySourceIpTranslationNatRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNatGatewaySourceIpTranslationNatRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNatGatewaySourceIpTranslationNatRulesOutcomeCallable VpcClient::DescribeNatGatewaySourceIpTranslationNatRulesCallable(const DescribeNatGatewaySourceIpTranslationNatRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNatGatewaySourceIpTranslationNatRulesOutcome>>();
-    DescribeNatGatewaySourceIpTranslationNatRulesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNatGatewaySourceIpTranslationNatRulesRequest&,
-        DescribeNatGatewaySourceIpTranslationNatRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNatGatewaySourceIpTranslationNatRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNatGatewaySourceIpTranslationNatRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNatGatewayZonesOutcome VpcClient::DescribeNatGatewayZones(const DescribeNatGatewayZonesRequest &request)
@@ -10212,32 +8791,25 @@ VpcClient::DescribeNatGatewayZonesOutcome VpcClient::DescribeNatGatewayZones(con
 
 void VpcClient::DescribeNatGatewayZonesAsync(const DescribeNatGatewayZonesRequest& request, const DescribeNatGatewayZonesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNatGatewayZonesRequest&;
-    using Resp = DescribeNatGatewayZonesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNatGatewayZones(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNatGatewayZones", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNatGatewayZonesOutcomeCallable VpcClient::DescribeNatGatewayZonesCallable(const DescribeNatGatewayZonesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNatGatewayZonesOutcome>>();
-    DescribeNatGatewayZonesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNatGatewayZonesRequest&,
-        DescribeNatGatewayZonesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNatGatewayZonesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNatGatewayZones(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNatGatewaysOutcome VpcClient::DescribeNatGateways(const DescribeNatGatewaysRequest &request)
@@ -10262,32 +8834,25 @@ VpcClient::DescribeNatGatewaysOutcome VpcClient::DescribeNatGateways(const Descr
 
 void VpcClient::DescribeNatGatewaysAsync(const DescribeNatGatewaysRequest& request, const DescribeNatGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNatGatewaysRequest&;
-    using Resp = DescribeNatGatewaysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNatGateways(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNatGateways", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNatGatewaysOutcomeCallable VpcClient::DescribeNatGatewaysCallable(const DescribeNatGatewaysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNatGatewaysOutcome>>();
-    DescribeNatGatewaysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNatGatewaysRequest&,
-        DescribeNatGatewaysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNatGatewaysOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNatGateways(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNetDetectStatesOutcome VpcClient::DescribeNetDetectStates(const DescribeNetDetectStatesRequest &request)
@@ -10312,32 +8877,25 @@ VpcClient::DescribeNetDetectStatesOutcome VpcClient::DescribeNetDetectStates(con
 
 void VpcClient::DescribeNetDetectStatesAsync(const DescribeNetDetectStatesRequest& request, const DescribeNetDetectStatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNetDetectStatesRequest&;
-    using Resp = DescribeNetDetectStatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNetDetectStates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNetDetectStates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNetDetectStatesOutcomeCallable VpcClient::DescribeNetDetectStatesCallable(const DescribeNetDetectStatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNetDetectStatesOutcome>>();
-    DescribeNetDetectStatesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNetDetectStatesRequest&,
-        DescribeNetDetectStatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNetDetectStatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNetDetectStates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNetDetectsOutcome VpcClient::DescribeNetDetects(const DescribeNetDetectsRequest &request)
@@ -10362,32 +8920,25 @@ VpcClient::DescribeNetDetectsOutcome VpcClient::DescribeNetDetects(const Describ
 
 void VpcClient::DescribeNetDetectsAsync(const DescribeNetDetectsRequest& request, const DescribeNetDetectsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNetDetectsRequest&;
-    using Resp = DescribeNetDetectsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNetDetects(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNetDetects", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNetDetectsOutcomeCallable VpcClient::DescribeNetDetectsCallable(const DescribeNetDetectsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNetDetectsOutcome>>();
-    DescribeNetDetectsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNetDetectsRequest&,
-        DescribeNetDetectsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNetDetectsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNetDetects(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNetworkAccountTypeOutcome VpcClient::DescribeNetworkAccountType(const DescribeNetworkAccountTypeRequest &request)
@@ -10412,32 +8963,25 @@ VpcClient::DescribeNetworkAccountTypeOutcome VpcClient::DescribeNetworkAccountTy
 
 void VpcClient::DescribeNetworkAccountTypeAsync(const DescribeNetworkAccountTypeRequest& request, const DescribeNetworkAccountTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNetworkAccountTypeRequest&;
-    using Resp = DescribeNetworkAccountTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNetworkAccountType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNetworkAccountType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNetworkAccountTypeOutcomeCallable VpcClient::DescribeNetworkAccountTypeCallable(const DescribeNetworkAccountTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNetworkAccountTypeOutcome>>();
-    DescribeNetworkAccountTypeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNetworkAccountTypeRequest&,
-        DescribeNetworkAccountTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNetworkAccountTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNetworkAccountType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNetworkAclQuintupleEntriesOutcome VpcClient::DescribeNetworkAclQuintupleEntries(const DescribeNetworkAclQuintupleEntriesRequest &request)
@@ -10462,32 +9006,25 @@ VpcClient::DescribeNetworkAclQuintupleEntriesOutcome VpcClient::DescribeNetworkA
 
 void VpcClient::DescribeNetworkAclQuintupleEntriesAsync(const DescribeNetworkAclQuintupleEntriesRequest& request, const DescribeNetworkAclQuintupleEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNetworkAclQuintupleEntriesRequest&;
-    using Resp = DescribeNetworkAclQuintupleEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNetworkAclQuintupleEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNetworkAclQuintupleEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNetworkAclQuintupleEntriesOutcomeCallable VpcClient::DescribeNetworkAclQuintupleEntriesCallable(const DescribeNetworkAclQuintupleEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNetworkAclQuintupleEntriesOutcome>>();
-    DescribeNetworkAclQuintupleEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNetworkAclQuintupleEntriesRequest&,
-        DescribeNetworkAclQuintupleEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNetworkAclQuintupleEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNetworkAclQuintupleEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNetworkAclsOutcome VpcClient::DescribeNetworkAcls(const DescribeNetworkAclsRequest &request)
@@ -10512,32 +9049,25 @@ VpcClient::DescribeNetworkAclsOutcome VpcClient::DescribeNetworkAcls(const Descr
 
 void VpcClient::DescribeNetworkAclsAsync(const DescribeNetworkAclsRequest& request, const DescribeNetworkAclsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNetworkAclsRequest&;
-    using Resp = DescribeNetworkAclsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNetworkAcls(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNetworkAcls", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNetworkAclsOutcomeCallable VpcClient::DescribeNetworkAclsCallable(const DescribeNetworkAclsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNetworkAclsOutcome>>();
-    DescribeNetworkAclsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNetworkAclsRequest&,
-        DescribeNetworkAclsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNetworkAclsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNetworkAcls(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNetworkInterfaceLimitOutcome VpcClient::DescribeNetworkInterfaceLimit(const DescribeNetworkInterfaceLimitRequest &request)
@@ -10562,32 +9092,25 @@ VpcClient::DescribeNetworkInterfaceLimitOutcome VpcClient::DescribeNetworkInterf
 
 void VpcClient::DescribeNetworkInterfaceLimitAsync(const DescribeNetworkInterfaceLimitRequest& request, const DescribeNetworkInterfaceLimitAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNetworkInterfaceLimitRequest&;
-    using Resp = DescribeNetworkInterfaceLimitResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNetworkInterfaceLimit(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNetworkInterfaceLimit", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNetworkInterfaceLimitOutcomeCallable VpcClient::DescribeNetworkInterfaceLimitCallable(const DescribeNetworkInterfaceLimitRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNetworkInterfaceLimitOutcome>>();
-    DescribeNetworkInterfaceLimitAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNetworkInterfaceLimitRequest&,
-        DescribeNetworkInterfaceLimitOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNetworkInterfaceLimitOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNetworkInterfaceLimit(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeNetworkInterfacesOutcome VpcClient::DescribeNetworkInterfaces(const DescribeNetworkInterfacesRequest &request)
@@ -10612,32 +9135,25 @@ VpcClient::DescribeNetworkInterfacesOutcome VpcClient::DescribeNetworkInterfaces
 
 void VpcClient::DescribeNetworkInterfacesAsync(const DescribeNetworkInterfacesRequest& request, const DescribeNetworkInterfacesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeNetworkInterfacesRequest&;
-    using Resp = DescribeNetworkInterfacesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeNetworkInterfaces(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeNetworkInterfaces", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeNetworkInterfacesOutcomeCallable VpcClient::DescribeNetworkInterfacesCallable(const DescribeNetworkInterfacesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeNetworkInterfacesOutcome>>();
-    DescribeNetworkInterfacesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeNetworkInterfacesRequest&,
-        DescribeNetworkInterfacesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeNetworkInterfacesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeNetworkInterfaces(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesOutcome VpcClient::DescribePrivateNatGatewayDestinationIpPortTranslationNatRules(const DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesRequest &request)
@@ -10662,32 +9178,25 @@ VpcClient::DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesOutcome 
 
 void VpcClient::DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesAsync(const DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesRequest& request, const DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesRequest&;
-    using Resp = DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateNatGatewayDestinationIpPortTranslationNatRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateNatGatewayDestinationIpPortTranslationNatRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesOutcomeCallable VpcClient::DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesCallable(const DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesOutcome>>();
-    DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesRequest&,
-        DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateNatGatewayDestinationIpPortTranslationNatRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateNatGatewayDestinationIpPortTranslationNatRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribePrivateNatGatewayLimitsOutcome VpcClient::DescribePrivateNatGatewayLimits(const DescribePrivateNatGatewayLimitsRequest &request)
@@ -10712,32 +9221,25 @@ VpcClient::DescribePrivateNatGatewayLimitsOutcome VpcClient::DescribePrivateNatG
 
 void VpcClient::DescribePrivateNatGatewayLimitsAsync(const DescribePrivateNatGatewayLimitsRequest& request, const DescribePrivateNatGatewayLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateNatGatewayLimitsRequest&;
-    using Resp = DescribePrivateNatGatewayLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateNatGatewayLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateNatGatewayLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribePrivateNatGatewayLimitsOutcomeCallable VpcClient::DescribePrivateNatGatewayLimitsCallable(const DescribePrivateNatGatewayLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateNatGatewayLimitsOutcome>>();
-    DescribePrivateNatGatewayLimitsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribePrivateNatGatewayLimitsRequest&,
-        DescribePrivateNatGatewayLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateNatGatewayLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateNatGatewayLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribePrivateNatGatewayRegionsOutcome VpcClient::DescribePrivateNatGatewayRegions(const DescribePrivateNatGatewayRegionsRequest &request)
@@ -10762,32 +9264,25 @@ VpcClient::DescribePrivateNatGatewayRegionsOutcome VpcClient::DescribePrivateNat
 
 void VpcClient::DescribePrivateNatGatewayRegionsAsync(const DescribePrivateNatGatewayRegionsRequest& request, const DescribePrivateNatGatewayRegionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateNatGatewayRegionsRequest&;
-    using Resp = DescribePrivateNatGatewayRegionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateNatGatewayRegions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateNatGatewayRegions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribePrivateNatGatewayRegionsOutcomeCallable VpcClient::DescribePrivateNatGatewayRegionsCallable(const DescribePrivateNatGatewayRegionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateNatGatewayRegionsOutcome>>();
-    DescribePrivateNatGatewayRegionsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribePrivateNatGatewayRegionsRequest&,
-        DescribePrivateNatGatewayRegionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateNatGatewayRegionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateNatGatewayRegions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribePrivateNatGatewayTranslationAclRulesOutcome VpcClient::DescribePrivateNatGatewayTranslationAclRules(const DescribePrivateNatGatewayTranslationAclRulesRequest &request)
@@ -10812,32 +9307,25 @@ VpcClient::DescribePrivateNatGatewayTranslationAclRulesOutcome VpcClient::Descri
 
 void VpcClient::DescribePrivateNatGatewayTranslationAclRulesAsync(const DescribePrivateNatGatewayTranslationAclRulesRequest& request, const DescribePrivateNatGatewayTranslationAclRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateNatGatewayTranslationAclRulesRequest&;
-    using Resp = DescribePrivateNatGatewayTranslationAclRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateNatGatewayTranslationAclRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateNatGatewayTranslationAclRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribePrivateNatGatewayTranslationAclRulesOutcomeCallable VpcClient::DescribePrivateNatGatewayTranslationAclRulesCallable(const DescribePrivateNatGatewayTranslationAclRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateNatGatewayTranslationAclRulesOutcome>>();
-    DescribePrivateNatGatewayTranslationAclRulesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribePrivateNatGatewayTranslationAclRulesRequest&,
-        DescribePrivateNatGatewayTranslationAclRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateNatGatewayTranslationAclRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateNatGatewayTranslationAclRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribePrivateNatGatewayTranslationNatRulesOutcome VpcClient::DescribePrivateNatGatewayTranslationNatRules(const DescribePrivateNatGatewayTranslationNatRulesRequest &request)
@@ -10862,32 +9350,25 @@ VpcClient::DescribePrivateNatGatewayTranslationNatRulesOutcome VpcClient::Descri
 
 void VpcClient::DescribePrivateNatGatewayTranslationNatRulesAsync(const DescribePrivateNatGatewayTranslationNatRulesRequest& request, const DescribePrivateNatGatewayTranslationNatRulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateNatGatewayTranslationNatRulesRequest&;
-    using Resp = DescribePrivateNatGatewayTranslationNatRulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateNatGatewayTranslationNatRules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateNatGatewayTranslationNatRules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribePrivateNatGatewayTranslationNatRulesOutcomeCallable VpcClient::DescribePrivateNatGatewayTranslationNatRulesCallable(const DescribePrivateNatGatewayTranslationNatRulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateNatGatewayTranslationNatRulesOutcome>>();
-    DescribePrivateNatGatewayTranslationNatRulesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribePrivateNatGatewayTranslationNatRulesRequest&,
-        DescribePrivateNatGatewayTranslationNatRulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateNatGatewayTranslationNatRulesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateNatGatewayTranslationNatRules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribePrivateNatGatewaysOutcome VpcClient::DescribePrivateNatGateways(const DescribePrivateNatGatewaysRequest &request)
@@ -10912,32 +9393,25 @@ VpcClient::DescribePrivateNatGatewaysOutcome VpcClient::DescribePrivateNatGatewa
 
 void VpcClient::DescribePrivateNatGatewaysAsync(const DescribePrivateNatGatewaysRequest& request, const DescribePrivateNatGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribePrivateNatGatewaysRequest&;
-    using Resp = DescribePrivateNatGatewaysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribePrivateNatGateways(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribePrivateNatGateways", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribePrivateNatGatewaysOutcomeCallable VpcClient::DescribePrivateNatGatewaysCallable(const DescribePrivateNatGatewaysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribePrivateNatGatewaysOutcome>>();
-    DescribePrivateNatGatewaysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribePrivateNatGatewaysRequest&,
-        DescribePrivateNatGatewaysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribePrivateNatGatewaysOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribePrivateNatGateways(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeProductQuotaOutcome VpcClient::DescribeProductQuota(const DescribeProductQuotaRequest &request)
@@ -10962,32 +9436,25 @@ VpcClient::DescribeProductQuotaOutcome VpcClient::DescribeProductQuota(const Des
 
 void VpcClient::DescribeProductQuotaAsync(const DescribeProductQuotaRequest& request, const DescribeProductQuotaAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeProductQuotaRequest&;
-    using Resp = DescribeProductQuotaResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeProductQuota(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeProductQuota", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeProductQuotaOutcomeCallable VpcClient::DescribeProductQuotaCallable(const DescribeProductQuotaRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeProductQuotaOutcome>>();
-    DescribeProductQuotaAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeProductQuotaRequest&,
-        DescribeProductQuotaOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeProductQuotaOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeProductQuota(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeReserveIpAddressesOutcome VpcClient::DescribeReserveIpAddresses(const DescribeReserveIpAddressesRequest &request)
@@ -11012,32 +9479,25 @@ VpcClient::DescribeReserveIpAddressesOutcome VpcClient::DescribeReserveIpAddress
 
 void VpcClient::DescribeReserveIpAddressesAsync(const DescribeReserveIpAddressesRequest& request, const DescribeReserveIpAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeReserveIpAddressesRequest&;
-    using Resp = DescribeReserveIpAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeReserveIpAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeReserveIpAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeReserveIpAddressesOutcomeCallable VpcClient::DescribeReserveIpAddressesCallable(const DescribeReserveIpAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeReserveIpAddressesOutcome>>();
-    DescribeReserveIpAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeReserveIpAddressesRequest&,
-        DescribeReserveIpAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeReserveIpAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeReserveIpAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeRouteConflictsOutcome VpcClient::DescribeRouteConflicts(const DescribeRouteConflictsRequest &request)
@@ -11062,32 +9522,25 @@ VpcClient::DescribeRouteConflictsOutcome VpcClient::DescribeRouteConflicts(const
 
 void VpcClient::DescribeRouteConflictsAsync(const DescribeRouteConflictsRequest& request, const DescribeRouteConflictsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRouteConflictsRequest&;
-    using Resp = DescribeRouteConflictsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRouteConflicts(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRouteConflicts", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeRouteConflictsOutcomeCallable VpcClient::DescribeRouteConflictsCallable(const DescribeRouteConflictsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRouteConflictsOutcome>>();
-    DescribeRouteConflictsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeRouteConflictsRequest&,
-        DescribeRouteConflictsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRouteConflictsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRouteConflicts(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeRouteListOutcome VpcClient::DescribeRouteList(const DescribeRouteListRequest &request)
@@ -11112,32 +9565,25 @@ VpcClient::DescribeRouteListOutcome VpcClient::DescribeRouteList(const DescribeR
 
 void VpcClient::DescribeRouteListAsync(const DescribeRouteListRequest& request, const DescribeRouteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRouteListRequest&;
-    using Resp = DescribeRouteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRouteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRouteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeRouteListOutcomeCallable VpcClient::DescribeRouteListCallable(const DescribeRouteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRouteListOutcome>>();
-    DescribeRouteListAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeRouteListRequest&,
-        DescribeRouteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRouteListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRouteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeRoutePolicyEntriesOutcome VpcClient::DescribeRoutePolicyEntries(const DescribeRoutePolicyEntriesRequest &request)
@@ -11162,32 +9608,25 @@ VpcClient::DescribeRoutePolicyEntriesOutcome VpcClient::DescribeRoutePolicyEntri
 
 void VpcClient::DescribeRoutePolicyEntriesAsync(const DescribeRoutePolicyEntriesRequest& request, const DescribeRoutePolicyEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRoutePolicyEntriesRequest&;
-    using Resp = DescribeRoutePolicyEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoutePolicyEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoutePolicyEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeRoutePolicyEntriesOutcomeCallable VpcClient::DescribeRoutePolicyEntriesCallable(const DescribeRoutePolicyEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRoutePolicyEntriesOutcome>>();
-    DescribeRoutePolicyEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeRoutePolicyEntriesRequest&,
-        DescribeRoutePolicyEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRoutePolicyEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoutePolicyEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeRouteTableAssociatedInstancesOutcome VpcClient::DescribeRouteTableAssociatedInstances(const DescribeRouteTableAssociatedInstancesRequest &request)
@@ -11212,32 +9651,25 @@ VpcClient::DescribeRouteTableAssociatedInstancesOutcome VpcClient::DescribeRoute
 
 void VpcClient::DescribeRouteTableAssociatedInstancesAsync(const DescribeRouteTableAssociatedInstancesRequest& request, const DescribeRouteTableAssociatedInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRouteTableAssociatedInstancesRequest&;
-    using Resp = DescribeRouteTableAssociatedInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRouteTableAssociatedInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRouteTableAssociatedInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeRouteTableAssociatedInstancesOutcomeCallable VpcClient::DescribeRouteTableAssociatedInstancesCallable(const DescribeRouteTableAssociatedInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRouteTableAssociatedInstancesOutcome>>();
-    DescribeRouteTableAssociatedInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeRouteTableAssociatedInstancesRequest&,
-        DescribeRouteTableAssociatedInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRouteTableAssociatedInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRouteTableAssociatedInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeRouteTableSelectionPoliciesOutcome VpcClient::DescribeRouteTableSelectionPolicies(const DescribeRouteTableSelectionPoliciesRequest &request)
@@ -11262,32 +9694,25 @@ VpcClient::DescribeRouteTableSelectionPoliciesOutcome VpcClient::DescribeRouteTa
 
 void VpcClient::DescribeRouteTableSelectionPoliciesAsync(const DescribeRouteTableSelectionPoliciesRequest& request, const DescribeRouteTableSelectionPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRouteTableSelectionPoliciesRequest&;
-    using Resp = DescribeRouteTableSelectionPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRouteTableSelectionPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRouteTableSelectionPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeRouteTableSelectionPoliciesOutcomeCallable VpcClient::DescribeRouteTableSelectionPoliciesCallable(const DescribeRouteTableSelectionPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRouteTableSelectionPoliciesOutcome>>();
-    DescribeRouteTableSelectionPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeRouteTableSelectionPoliciesRequest&,
-        DescribeRouteTableSelectionPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRouteTableSelectionPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRouteTableSelectionPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeRouteTablesOutcome VpcClient::DescribeRouteTables(const DescribeRouteTablesRequest &request)
@@ -11312,32 +9737,25 @@ VpcClient::DescribeRouteTablesOutcome VpcClient::DescribeRouteTables(const Descr
 
 void VpcClient::DescribeRouteTablesAsync(const DescribeRouteTablesRequest& request, const DescribeRouteTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRouteTablesRequest&;
-    using Resp = DescribeRouteTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRouteTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRouteTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeRouteTablesOutcomeCallable VpcClient::DescribeRouteTablesCallable(const DescribeRouteTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRouteTablesOutcome>>();
-    DescribeRouteTablesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeRouteTablesRequest&,
-        DescribeRouteTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRouteTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRouteTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeRoutesOutcome VpcClient::DescribeRoutes(const DescribeRoutesRequest &request)
@@ -11362,32 +9780,25 @@ VpcClient::DescribeRoutesOutcome VpcClient::DescribeRoutes(const DescribeRoutesR
 
 void VpcClient::DescribeRoutesAsync(const DescribeRoutesRequest& request, const DescribeRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeRoutesRequest&;
-    using Resp = DescribeRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeRoutesOutcomeCallable VpcClient::DescribeRoutesCallable(const DescribeRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeRoutesOutcome>>();
-    DescribeRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeRoutesRequest&,
-        DescribeRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSecurityGroupAssociationStatisticsOutcome VpcClient::DescribeSecurityGroupAssociationStatistics(const DescribeSecurityGroupAssociationStatisticsRequest &request)
@@ -11412,32 +9823,25 @@ VpcClient::DescribeSecurityGroupAssociationStatisticsOutcome VpcClient::Describe
 
 void VpcClient::DescribeSecurityGroupAssociationStatisticsAsync(const DescribeSecurityGroupAssociationStatisticsRequest& request, const DescribeSecurityGroupAssociationStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityGroupAssociationStatisticsRequest&;
-    using Resp = DescribeSecurityGroupAssociationStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityGroupAssociationStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityGroupAssociationStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSecurityGroupAssociationStatisticsOutcomeCallable VpcClient::DescribeSecurityGroupAssociationStatisticsCallable(const DescribeSecurityGroupAssociationStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityGroupAssociationStatisticsOutcome>>();
-    DescribeSecurityGroupAssociationStatisticsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSecurityGroupAssociationStatisticsRequest&,
-        DescribeSecurityGroupAssociationStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityGroupAssociationStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityGroupAssociationStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSecurityGroupExpandedPoliciesOutcome VpcClient::DescribeSecurityGroupExpandedPolicies(const DescribeSecurityGroupExpandedPoliciesRequest &request)
@@ -11462,32 +9866,25 @@ VpcClient::DescribeSecurityGroupExpandedPoliciesOutcome VpcClient::DescribeSecur
 
 void VpcClient::DescribeSecurityGroupExpandedPoliciesAsync(const DescribeSecurityGroupExpandedPoliciesRequest& request, const DescribeSecurityGroupExpandedPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityGroupExpandedPoliciesRequest&;
-    using Resp = DescribeSecurityGroupExpandedPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityGroupExpandedPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityGroupExpandedPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSecurityGroupExpandedPoliciesOutcomeCallable VpcClient::DescribeSecurityGroupExpandedPoliciesCallable(const DescribeSecurityGroupExpandedPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityGroupExpandedPoliciesOutcome>>();
-    DescribeSecurityGroupExpandedPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSecurityGroupExpandedPoliciesRequest&,
-        DescribeSecurityGroupExpandedPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityGroupExpandedPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityGroupExpandedPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSecurityGroupLimitsOutcome VpcClient::DescribeSecurityGroupLimits(const DescribeSecurityGroupLimitsRequest &request)
@@ -11512,32 +9909,25 @@ VpcClient::DescribeSecurityGroupLimitsOutcome VpcClient::DescribeSecurityGroupLi
 
 void VpcClient::DescribeSecurityGroupLimitsAsync(const DescribeSecurityGroupLimitsRequest& request, const DescribeSecurityGroupLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityGroupLimitsRequest&;
-    using Resp = DescribeSecurityGroupLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityGroupLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityGroupLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSecurityGroupLimitsOutcomeCallable VpcClient::DescribeSecurityGroupLimitsCallable(const DescribeSecurityGroupLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityGroupLimitsOutcome>>();
-    DescribeSecurityGroupLimitsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSecurityGroupLimitsRequest&,
-        DescribeSecurityGroupLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityGroupLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityGroupLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSecurityGroupPoliciesOutcome VpcClient::DescribeSecurityGroupPolicies(const DescribeSecurityGroupPoliciesRequest &request)
@@ -11562,32 +9952,25 @@ VpcClient::DescribeSecurityGroupPoliciesOutcome VpcClient::DescribeSecurityGroup
 
 void VpcClient::DescribeSecurityGroupPoliciesAsync(const DescribeSecurityGroupPoliciesRequest& request, const DescribeSecurityGroupPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityGroupPoliciesRequest&;
-    using Resp = DescribeSecurityGroupPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityGroupPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityGroupPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSecurityGroupPoliciesOutcomeCallable VpcClient::DescribeSecurityGroupPoliciesCallable(const DescribeSecurityGroupPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityGroupPoliciesOutcome>>();
-    DescribeSecurityGroupPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSecurityGroupPoliciesRequest&,
-        DescribeSecurityGroupPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityGroupPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityGroupPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSecurityGroupReferencesOutcome VpcClient::DescribeSecurityGroupReferences(const DescribeSecurityGroupReferencesRequest &request)
@@ -11612,32 +9995,25 @@ VpcClient::DescribeSecurityGroupReferencesOutcome VpcClient::DescribeSecurityGro
 
 void VpcClient::DescribeSecurityGroupReferencesAsync(const DescribeSecurityGroupReferencesRequest& request, const DescribeSecurityGroupReferencesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityGroupReferencesRequest&;
-    using Resp = DescribeSecurityGroupReferencesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityGroupReferences(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityGroupReferences", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSecurityGroupReferencesOutcomeCallable VpcClient::DescribeSecurityGroupReferencesCallable(const DescribeSecurityGroupReferencesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityGroupReferencesOutcome>>();
-    DescribeSecurityGroupReferencesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSecurityGroupReferencesRequest&,
-        DescribeSecurityGroupReferencesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityGroupReferencesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityGroupReferences(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSecurityGroupsOutcome VpcClient::DescribeSecurityGroups(const DescribeSecurityGroupsRequest &request)
@@ -11662,32 +10038,25 @@ VpcClient::DescribeSecurityGroupsOutcome VpcClient::DescribeSecurityGroups(const
 
 void VpcClient::DescribeSecurityGroupsAsync(const DescribeSecurityGroupsRequest& request, const DescribeSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSecurityGroupsRequest&;
-    using Resp = DescribeSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSecurityGroupsOutcomeCallable VpcClient::DescribeSecurityGroupsCallable(const DescribeSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSecurityGroupsOutcome>>();
-    DescribeSecurityGroupsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSecurityGroupsRequest&,
-        DescribeSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeServiceTemplateGroupInstancesOutcome VpcClient::DescribeServiceTemplateGroupInstances(const DescribeServiceTemplateGroupInstancesRequest &request)
@@ -11712,32 +10081,25 @@ VpcClient::DescribeServiceTemplateGroupInstancesOutcome VpcClient::DescribeServi
 
 void VpcClient::DescribeServiceTemplateGroupInstancesAsync(const DescribeServiceTemplateGroupInstancesRequest& request, const DescribeServiceTemplateGroupInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeServiceTemplateGroupInstancesRequest&;
-    using Resp = DescribeServiceTemplateGroupInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeServiceTemplateGroupInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeServiceTemplateGroupInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeServiceTemplateGroupInstancesOutcomeCallable VpcClient::DescribeServiceTemplateGroupInstancesCallable(const DescribeServiceTemplateGroupInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeServiceTemplateGroupInstancesOutcome>>();
-    DescribeServiceTemplateGroupInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeServiceTemplateGroupInstancesRequest&,
-        DescribeServiceTemplateGroupInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeServiceTemplateGroupInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeServiceTemplateGroupInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeServiceTemplateGroupsOutcome VpcClient::DescribeServiceTemplateGroups(const DescribeServiceTemplateGroupsRequest &request)
@@ -11762,32 +10124,25 @@ VpcClient::DescribeServiceTemplateGroupsOutcome VpcClient::DescribeServiceTempla
 
 void VpcClient::DescribeServiceTemplateGroupsAsync(const DescribeServiceTemplateGroupsRequest& request, const DescribeServiceTemplateGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeServiceTemplateGroupsRequest&;
-    using Resp = DescribeServiceTemplateGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeServiceTemplateGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeServiceTemplateGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeServiceTemplateGroupsOutcomeCallable VpcClient::DescribeServiceTemplateGroupsCallable(const DescribeServiceTemplateGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeServiceTemplateGroupsOutcome>>();
-    DescribeServiceTemplateGroupsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeServiceTemplateGroupsRequest&,
-        DescribeServiceTemplateGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeServiceTemplateGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeServiceTemplateGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeServiceTemplateInstancesOutcome VpcClient::DescribeServiceTemplateInstances(const DescribeServiceTemplateInstancesRequest &request)
@@ -11812,32 +10167,25 @@ VpcClient::DescribeServiceTemplateInstancesOutcome VpcClient::DescribeServiceTem
 
 void VpcClient::DescribeServiceTemplateInstancesAsync(const DescribeServiceTemplateInstancesRequest& request, const DescribeServiceTemplateInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeServiceTemplateInstancesRequest&;
-    using Resp = DescribeServiceTemplateInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeServiceTemplateInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeServiceTemplateInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeServiceTemplateInstancesOutcomeCallable VpcClient::DescribeServiceTemplateInstancesCallable(const DescribeServiceTemplateInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeServiceTemplateInstancesOutcome>>();
-    DescribeServiceTemplateInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeServiceTemplateInstancesRequest&,
-        DescribeServiceTemplateInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeServiceTemplateInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeServiceTemplateInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeServiceTemplatesOutcome VpcClient::DescribeServiceTemplates(const DescribeServiceTemplatesRequest &request)
@@ -11862,32 +10210,25 @@ VpcClient::DescribeServiceTemplatesOutcome VpcClient::DescribeServiceTemplates(c
 
 void VpcClient::DescribeServiceTemplatesAsync(const DescribeServiceTemplatesRequest& request, const DescribeServiceTemplatesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeServiceTemplatesRequest&;
-    using Resp = DescribeServiceTemplatesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeServiceTemplates(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeServiceTemplates", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeServiceTemplatesOutcomeCallable VpcClient::DescribeServiceTemplatesCallable(const DescribeServiceTemplatesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeServiceTemplatesOutcome>>();
-    DescribeServiceTemplatesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeServiceTemplatesRequest&,
-        DescribeServiceTemplatesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeServiceTemplatesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeServiceTemplates(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSgSnapshotFileContentOutcome VpcClient::DescribeSgSnapshotFileContent(const DescribeSgSnapshotFileContentRequest &request)
@@ -11912,32 +10253,25 @@ VpcClient::DescribeSgSnapshotFileContentOutcome VpcClient::DescribeSgSnapshotFil
 
 void VpcClient::DescribeSgSnapshotFileContentAsync(const DescribeSgSnapshotFileContentRequest& request, const DescribeSgSnapshotFileContentAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSgSnapshotFileContentRequest&;
-    using Resp = DescribeSgSnapshotFileContentResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSgSnapshotFileContent(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSgSnapshotFileContent", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSgSnapshotFileContentOutcomeCallable VpcClient::DescribeSgSnapshotFileContentCallable(const DescribeSgSnapshotFileContentRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSgSnapshotFileContentOutcome>>();
-    DescribeSgSnapshotFileContentAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSgSnapshotFileContentRequest&,
-        DescribeSgSnapshotFileContentOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSgSnapshotFileContentOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSgSnapshotFileContent(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSnapshotAttachedInstancesOutcome VpcClient::DescribeSnapshotAttachedInstances(const DescribeSnapshotAttachedInstancesRequest &request)
@@ -11962,32 +10296,25 @@ VpcClient::DescribeSnapshotAttachedInstancesOutcome VpcClient::DescribeSnapshotA
 
 void VpcClient::DescribeSnapshotAttachedInstancesAsync(const DescribeSnapshotAttachedInstancesRequest& request, const DescribeSnapshotAttachedInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotAttachedInstancesRequest&;
-    using Resp = DescribeSnapshotAttachedInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshotAttachedInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshotAttachedInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSnapshotAttachedInstancesOutcomeCallable VpcClient::DescribeSnapshotAttachedInstancesCallable(const DescribeSnapshotAttachedInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotAttachedInstancesOutcome>>();
-    DescribeSnapshotAttachedInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSnapshotAttachedInstancesRequest&,
-        DescribeSnapshotAttachedInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotAttachedInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshotAttachedInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSnapshotFilesOutcome VpcClient::DescribeSnapshotFiles(const DescribeSnapshotFilesRequest &request)
@@ -12012,32 +10339,25 @@ VpcClient::DescribeSnapshotFilesOutcome VpcClient::DescribeSnapshotFiles(const D
 
 void VpcClient::DescribeSnapshotFilesAsync(const DescribeSnapshotFilesRequest& request, const DescribeSnapshotFilesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotFilesRequest&;
-    using Resp = DescribeSnapshotFilesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshotFiles(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshotFiles", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSnapshotFilesOutcomeCallable VpcClient::DescribeSnapshotFilesCallable(const DescribeSnapshotFilesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotFilesOutcome>>();
-    DescribeSnapshotFilesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSnapshotFilesRequest&,
-        DescribeSnapshotFilesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotFilesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshotFiles(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSnapshotPoliciesOutcome VpcClient::DescribeSnapshotPolicies(const DescribeSnapshotPoliciesRequest &request)
@@ -12062,32 +10382,25 @@ VpcClient::DescribeSnapshotPoliciesOutcome VpcClient::DescribeSnapshotPolicies(c
 
 void VpcClient::DescribeSnapshotPoliciesAsync(const DescribeSnapshotPoliciesRequest& request, const DescribeSnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSnapshotPoliciesRequest&;
-    using Resp = DescribeSnapshotPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSnapshotPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSnapshotPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSnapshotPoliciesOutcomeCallable VpcClient::DescribeSnapshotPoliciesCallable(const DescribeSnapshotPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSnapshotPoliciesOutcome>>();
-    DescribeSnapshotPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSnapshotPoliciesRequest&,
-        DescribeSnapshotPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSnapshotPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSnapshotPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSpecificTrafficPackageUsedDetailsOutcome VpcClient::DescribeSpecificTrafficPackageUsedDetails(const DescribeSpecificTrafficPackageUsedDetailsRequest &request)
@@ -12112,32 +10425,25 @@ VpcClient::DescribeSpecificTrafficPackageUsedDetailsOutcome VpcClient::DescribeS
 
 void VpcClient::DescribeSpecificTrafficPackageUsedDetailsAsync(const DescribeSpecificTrafficPackageUsedDetailsRequest& request, const DescribeSpecificTrafficPackageUsedDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSpecificTrafficPackageUsedDetailsRequest&;
-    using Resp = DescribeSpecificTrafficPackageUsedDetailsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSpecificTrafficPackageUsedDetails(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSpecificTrafficPackageUsedDetails", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSpecificTrafficPackageUsedDetailsOutcomeCallable VpcClient::DescribeSpecificTrafficPackageUsedDetailsCallable(const DescribeSpecificTrafficPackageUsedDetailsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSpecificTrafficPackageUsedDetailsOutcome>>();
-    DescribeSpecificTrafficPackageUsedDetailsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSpecificTrafficPackageUsedDetailsRequest&,
-        DescribeSpecificTrafficPackageUsedDetailsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSpecificTrafficPackageUsedDetailsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSpecificTrafficPackageUsedDetails(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSubnetResourceDashboardOutcome VpcClient::DescribeSubnetResourceDashboard(const DescribeSubnetResourceDashboardRequest &request)
@@ -12162,32 +10468,25 @@ VpcClient::DescribeSubnetResourceDashboardOutcome VpcClient::DescribeSubnetResou
 
 void VpcClient::DescribeSubnetResourceDashboardAsync(const DescribeSubnetResourceDashboardRequest& request, const DescribeSubnetResourceDashboardAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSubnetResourceDashboardRequest&;
-    using Resp = DescribeSubnetResourceDashboardResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSubnetResourceDashboard(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSubnetResourceDashboard", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSubnetResourceDashboardOutcomeCallable VpcClient::DescribeSubnetResourceDashboardCallable(const DescribeSubnetResourceDashboardRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSubnetResourceDashboardOutcome>>();
-    DescribeSubnetResourceDashboardAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSubnetResourceDashboardRequest&,
-        DescribeSubnetResourceDashboardOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSubnetResourceDashboardOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSubnetResourceDashboard(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeSubnetsOutcome VpcClient::DescribeSubnets(const DescribeSubnetsRequest &request)
@@ -12212,32 +10511,25 @@ VpcClient::DescribeSubnetsOutcome VpcClient::DescribeSubnets(const DescribeSubne
 
 void VpcClient::DescribeSubnetsAsync(const DescribeSubnetsRequest& request, const DescribeSubnetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeSubnetsRequest&;
-    using Resp = DescribeSubnetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeSubnets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeSubnets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeSubnetsOutcomeCallable VpcClient::DescribeSubnetsCallable(const DescribeSubnetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeSubnetsOutcome>>();
-    DescribeSubnetsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeSubnetsRequest&,
-        DescribeSubnetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeSubnetsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeSubnets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeTaskResultOutcome VpcClient::DescribeTaskResult(const DescribeTaskResultRequest &request)
@@ -12262,32 +10554,25 @@ VpcClient::DescribeTaskResultOutcome VpcClient::DescribeTaskResult(const Describ
 
 void VpcClient::DescribeTaskResultAsync(const DescribeTaskResultRequest& request, const DescribeTaskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTaskResultRequest&;
-    using Resp = DescribeTaskResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTaskResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTaskResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeTaskResultOutcomeCallable VpcClient::DescribeTaskResultCallable(const DescribeTaskResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTaskResultOutcome>>();
-    DescribeTaskResultAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeTaskResultRequest&,
-        DescribeTaskResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTaskResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTaskResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeTemplateLimitsOutcome VpcClient::DescribeTemplateLimits(const DescribeTemplateLimitsRequest &request)
@@ -12312,32 +10597,25 @@ VpcClient::DescribeTemplateLimitsOutcome VpcClient::DescribeTemplateLimits(const
 
 void VpcClient::DescribeTemplateLimitsAsync(const DescribeTemplateLimitsRequest& request, const DescribeTemplateLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTemplateLimitsRequest&;
-    using Resp = DescribeTemplateLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTemplateLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTemplateLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeTemplateLimitsOutcomeCallable VpcClient::DescribeTemplateLimitsCallable(const DescribeTemplateLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTemplateLimitsOutcome>>();
-    DescribeTemplateLimitsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeTemplateLimitsRequest&,
-        DescribeTemplateLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTemplateLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTemplateLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeTenantCcnsOutcome VpcClient::DescribeTenantCcns(const DescribeTenantCcnsRequest &request)
@@ -12362,32 +10640,25 @@ VpcClient::DescribeTenantCcnsOutcome VpcClient::DescribeTenantCcns(const Describ
 
 void VpcClient::DescribeTenantCcnsAsync(const DescribeTenantCcnsRequest& request, const DescribeTenantCcnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTenantCcnsRequest&;
-    using Resp = DescribeTenantCcnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTenantCcns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTenantCcns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeTenantCcnsOutcomeCallable VpcClient::DescribeTenantCcnsCallable(const DescribeTenantCcnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTenantCcnsOutcome>>();
-    DescribeTenantCcnsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeTenantCcnsRequest&,
-        DescribeTenantCcnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTenantCcnsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTenantCcns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeTrafficMirrorsOutcome VpcClient::DescribeTrafficMirrors(const DescribeTrafficMirrorsRequest &request)
@@ -12412,32 +10683,25 @@ VpcClient::DescribeTrafficMirrorsOutcome VpcClient::DescribeTrafficMirrors(const
 
 void VpcClient::DescribeTrafficMirrorsAsync(const DescribeTrafficMirrorsRequest& request, const DescribeTrafficMirrorsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrafficMirrorsRequest&;
-    using Resp = DescribeTrafficMirrorsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrafficMirrors(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrafficMirrors", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeTrafficMirrorsOutcomeCallable VpcClient::DescribeTrafficMirrorsCallable(const DescribeTrafficMirrorsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrafficMirrorsOutcome>>();
-    DescribeTrafficMirrorsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeTrafficMirrorsRequest&,
-        DescribeTrafficMirrorsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrafficMirrorsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrafficMirrors(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeTrafficPackagesOutcome VpcClient::DescribeTrafficPackages(const DescribeTrafficPackagesRequest &request)
@@ -12462,32 +10726,25 @@ VpcClient::DescribeTrafficPackagesOutcome VpcClient::DescribeTrafficPackages(con
 
 void VpcClient::DescribeTrafficPackagesAsync(const DescribeTrafficPackagesRequest& request, const DescribeTrafficPackagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrafficPackagesRequest&;
-    using Resp = DescribeTrafficPackagesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrafficPackages(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrafficPackages", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeTrafficPackagesOutcomeCallable VpcClient::DescribeTrafficPackagesCallable(const DescribeTrafficPackagesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrafficPackagesOutcome>>();
-    DescribeTrafficPackagesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeTrafficPackagesRequest&,
-        DescribeTrafficPackagesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrafficPackagesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrafficPackages(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeTrafficQosPolicyOutcome VpcClient::DescribeTrafficQosPolicy(const DescribeTrafficQosPolicyRequest &request)
@@ -12512,32 +10769,25 @@ VpcClient::DescribeTrafficQosPolicyOutcome VpcClient::DescribeTrafficQosPolicy(c
 
 void VpcClient::DescribeTrafficQosPolicyAsync(const DescribeTrafficQosPolicyRequest& request, const DescribeTrafficQosPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeTrafficQosPolicyRequest&;
-    using Resp = DescribeTrafficQosPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeTrafficQosPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeTrafficQosPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeTrafficQosPolicyOutcomeCallable VpcClient::DescribeTrafficQosPolicyCallable(const DescribeTrafficQosPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeTrafficQosPolicyOutcome>>();
-    DescribeTrafficQosPolicyAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeTrafficQosPolicyRequest&,
-        DescribeTrafficQosPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeTrafficQosPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeTrafficQosPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeUsedIpAddressOutcome VpcClient::DescribeUsedIpAddress(const DescribeUsedIpAddressRequest &request)
@@ -12562,32 +10812,25 @@ VpcClient::DescribeUsedIpAddressOutcome VpcClient::DescribeUsedIpAddress(const D
 
 void VpcClient::DescribeUsedIpAddressAsync(const DescribeUsedIpAddressRequest& request, const DescribeUsedIpAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUsedIpAddressRequest&;
-    using Resp = DescribeUsedIpAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUsedIpAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUsedIpAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeUsedIpAddressOutcomeCallable VpcClient::DescribeUsedIpAddressCallable(const DescribeUsedIpAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUsedIpAddressOutcome>>();
-    DescribeUsedIpAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeUsedIpAddressRequest&,
-        DescribeUsedIpAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUsedIpAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUsedIpAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcEndPointOutcome VpcClient::DescribeVpcEndPoint(const DescribeVpcEndPointRequest &request)
@@ -12612,32 +10855,25 @@ VpcClient::DescribeVpcEndPointOutcome VpcClient::DescribeVpcEndPoint(const Descr
 
 void VpcClient::DescribeVpcEndPointAsync(const DescribeVpcEndPointRequest& request, const DescribeVpcEndPointAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcEndPointRequest&;
-    using Resp = DescribeVpcEndPointResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcEndPoint(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcEndPoint", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcEndPointOutcomeCallable VpcClient::DescribeVpcEndPointCallable(const DescribeVpcEndPointRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcEndPointOutcome>>();
-    DescribeVpcEndPointAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcEndPointRequest&,
-        DescribeVpcEndPointOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcEndPointOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcEndPoint(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcEndPointServiceOutcome VpcClient::DescribeVpcEndPointService(const DescribeVpcEndPointServiceRequest &request)
@@ -12662,32 +10898,25 @@ VpcClient::DescribeVpcEndPointServiceOutcome VpcClient::DescribeVpcEndPointServi
 
 void VpcClient::DescribeVpcEndPointServiceAsync(const DescribeVpcEndPointServiceRequest& request, const DescribeVpcEndPointServiceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcEndPointServiceRequest&;
-    using Resp = DescribeVpcEndPointServiceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcEndPointService(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcEndPointService", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcEndPointServiceOutcomeCallable VpcClient::DescribeVpcEndPointServiceCallable(const DescribeVpcEndPointServiceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcEndPointServiceOutcome>>();
-    DescribeVpcEndPointServiceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcEndPointServiceRequest&,
-        DescribeVpcEndPointServiceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcEndPointServiceOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcEndPointService(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcEndPointServiceWhiteListOutcome VpcClient::DescribeVpcEndPointServiceWhiteList(const DescribeVpcEndPointServiceWhiteListRequest &request)
@@ -12712,32 +10941,25 @@ VpcClient::DescribeVpcEndPointServiceWhiteListOutcome VpcClient::DescribeVpcEndP
 
 void VpcClient::DescribeVpcEndPointServiceWhiteListAsync(const DescribeVpcEndPointServiceWhiteListRequest& request, const DescribeVpcEndPointServiceWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcEndPointServiceWhiteListRequest&;
-    using Resp = DescribeVpcEndPointServiceWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcEndPointServiceWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcEndPointServiceWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcEndPointServiceWhiteListOutcomeCallable VpcClient::DescribeVpcEndPointServiceWhiteListCallable(const DescribeVpcEndPointServiceWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcEndPointServiceWhiteListOutcome>>();
-    DescribeVpcEndPointServiceWhiteListAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcEndPointServiceWhiteListRequest&,
-        DescribeVpcEndPointServiceWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcEndPointServiceWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcEndPointServiceWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcInstancesOutcome VpcClient::DescribeVpcInstances(const DescribeVpcInstancesRequest &request)
@@ -12762,32 +10984,25 @@ VpcClient::DescribeVpcInstancesOutcome VpcClient::DescribeVpcInstances(const Des
 
 void VpcClient::DescribeVpcInstancesAsync(const DescribeVpcInstancesRequest& request, const DescribeVpcInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcInstancesRequest&;
-    using Resp = DescribeVpcInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcInstancesOutcomeCallable VpcClient::DescribeVpcInstancesCallable(const DescribeVpcInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcInstancesOutcome>>();
-    DescribeVpcInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcInstancesRequest&,
-        DescribeVpcInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcIpv6AddressesOutcome VpcClient::DescribeVpcIpv6Addresses(const DescribeVpcIpv6AddressesRequest &request)
@@ -12812,32 +11027,25 @@ VpcClient::DescribeVpcIpv6AddressesOutcome VpcClient::DescribeVpcIpv6Addresses(c
 
 void VpcClient::DescribeVpcIpv6AddressesAsync(const DescribeVpcIpv6AddressesRequest& request, const DescribeVpcIpv6AddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcIpv6AddressesRequest&;
-    using Resp = DescribeVpcIpv6AddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcIpv6Addresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcIpv6Addresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcIpv6AddressesOutcomeCallable VpcClient::DescribeVpcIpv6AddressesCallable(const DescribeVpcIpv6AddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcIpv6AddressesOutcome>>();
-    DescribeVpcIpv6AddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcIpv6AddressesRequest&,
-        DescribeVpcIpv6AddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcIpv6AddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcIpv6Addresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcLimitsOutcome VpcClient::DescribeVpcLimits(const DescribeVpcLimitsRequest &request)
@@ -12862,32 +11070,25 @@ VpcClient::DescribeVpcLimitsOutcome VpcClient::DescribeVpcLimits(const DescribeV
 
 void VpcClient::DescribeVpcLimitsAsync(const DescribeVpcLimitsRequest& request, const DescribeVpcLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcLimitsRequest&;
-    using Resp = DescribeVpcLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcLimitsOutcomeCallable VpcClient::DescribeVpcLimitsCallable(const DescribeVpcLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcLimitsOutcome>>();
-    DescribeVpcLimitsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcLimitsRequest&,
-        DescribeVpcLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcPeeringConnectionsOutcome VpcClient::DescribeVpcPeeringConnections(const DescribeVpcPeeringConnectionsRequest &request)
@@ -12912,32 +11113,25 @@ VpcClient::DescribeVpcPeeringConnectionsOutcome VpcClient::DescribeVpcPeeringCon
 
 void VpcClient::DescribeVpcPeeringConnectionsAsync(const DescribeVpcPeeringConnectionsRequest& request, const DescribeVpcPeeringConnectionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcPeeringConnectionsRequest&;
-    using Resp = DescribeVpcPeeringConnectionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcPeeringConnections(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcPeeringConnections", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcPeeringConnectionsOutcomeCallable VpcClient::DescribeVpcPeeringConnectionsCallable(const DescribeVpcPeeringConnectionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcPeeringConnectionsOutcome>>();
-    DescribeVpcPeeringConnectionsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcPeeringConnectionsRequest&,
-        DescribeVpcPeeringConnectionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcPeeringConnectionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcPeeringConnections(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcPrivateIpAddressesOutcome VpcClient::DescribeVpcPrivateIpAddresses(const DescribeVpcPrivateIpAddressesRequest &request)
@@ -12962,32 +11156,25 @@ VpcClient::DescribeVpcPrivateIpAddressesOutcome VpcClient::DescribeVpcPrivateIpA
 
 void VpcClient::DescribeVpcPrivateIpAddressesAsync(const DescribeVpcPrivateIpAddressesRequest& request, const DescribeVpcPrivateIpAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcPrivateIpAddressesRequest&;
-    using Resp = DescribeVpcPrivateIpAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcPrivateIpAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcPrivateIpAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcPrivateIpAddressesOutcomeCallable VpcClient::DescribeVpcPrivateIpAddressesCallable(const DescribeVpcPrivateIpAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcPrivateIpAddressesOutcome>>();
-    DescribeVpcPrivateIpAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcPrivateIpAddressesRequest&,
-        DescribeVpcPrivateIpAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcPrivateIpAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcPrivateIpAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcResourceDashboardOutcome VpcClient::DescribeVpcResourceDashboard(const DescribeVpcResourceDashboardRequest &request)
@@ -13012,32 +11199,25 @@ VpcClient::DescribeVpcResourceDashboardOutcome VpcClient::DescribeVpcResourceDas
 
 void VpcClient::DescribeVpcResourceDashboardAsync(const DescribeVpcResourceDashboardRequest& request, const DescribeVpcResourceDashboardAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcResourceDashboardRequest&;
-    using Resp = DescribeVpcResourceDashboardResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcResourceDashboard(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcResourceDashboard", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcResourceDashboardOutcomeCallable VpcClient::DescribeVpcResourceDashboardCallable(const DescribeVpcResourceDashboardRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcResourceDashboardOutcome>>();
-    DescribeVpcResourceDashboardAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcResourceDashboardRequest&,
-        DescribeVpcResourceDashboardOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcResourceDashboardOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcResourceDashboard(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcTaskResultOutcome VpcClient::DescribeVpcTaskResult(const DescribeVpcTaskResultRequest &request)
@@ -13062,32 +11242,25 @@ VpcClient::DescribeVpcTaskResultOutcome VpcClient::DescribeVpcTaskResult(const D
 
 void VpcClient::DescribeVpcTaskResultAsync(const DescribeVpcTaskResultRequest& request, const DescribeVpcTaskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcTaskResultRequest&;
-    using Resp = DescribeVpcTaskResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcTaskResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcTaskResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcTaskResultOutcomeCallable VpcClient::DescribeVpcTaskResultCallable(const DescribeVpcTaskResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcTaskResultOutcome>>();
-    DescribeVpcTaskResultAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcTaskResultRequest&,
-        DescribeVpcTaskResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcTaskResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcTaskResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpcsOutcome VpcClient::DescribeVpcs(const DescribeVpcsRequest &request)
@@ -13112,32 +11285,25 @@ VpcClient::DescribeVpcsOutcome VpcClient::DescribeVpcs(const DescribeVpcsRequest
 
 void VpcClient::DescribeVpcsAsync(const DescribeVpcsRequest& request, const DescribeVpcsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpcsRequest&;
-    using Resp = DescribeVpcsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpcs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpcs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpcsOutcomeCallable VpcClient::DescribeVpcsCallable(const DescribeVpcsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpcsOutcome>>();
-    DescribeVpcsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpcsRequest&,
-        DescribeVpcsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpcsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpcs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpnConnectionsOutcome VpcClient::DescribeVpnConnections(const DescribeVpnConnectionsRequest &request)
@@ -13162,32 +11328,25 @@ VpcClient::DescribeVpnConnectionsOutcome VpcClient::DescribeVpnConnections(const
 
 void VpcClient::DescribeVpnConnectionsAsync(const DescribeVpnConnectionsRequest& request, const DescribeVpnConnectionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpnConnectionsRequest&;
-    using Resp = DescribeVpnConnectionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpnConnections(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpnConnections", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpnConnectionsOutcomeCallable VpcClient::DescribeVpnConnectionsCallable(const DescribeVpnConnectionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpnConnectionsOutcome>>();
-    DescribeVpnConnectionsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpnConnectionsRequest&,
-        DescribeVpnConnectionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpnConnectionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpnConnections(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpnGatewayCcnRoutesOutcome VpcClient::DescribeVpnGatewayCcnRoutes(const DescribeVpnGatewayCcnRoutesRequest &request)
@@ -13212,32 +11371,25 @@ VpcClient::DescribeVpnGatewayCcnRoutesOutcome VpcClient::DescribeVpnGatewayCcnRo
 
 void VpcClient::DescribeVpnGatewayCcnRoutesAsync(const DescribeVpnGatewayCcnRoutesRequest& request, const DescribeVpnGatewayCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpnGatewayCcnRoutesRequest&;
-    using Resp = DescribeVpnGatewayCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpnGatewayCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpnGatewayCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpnGatewayCcnRoutesOutcomeCallable VpcClient::DescribeVpnGatewayCcnRoutesCallable(const DescribeVpnGatewayCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpnGatewayCcnRoutesOutcome>>();
-    DescribeVpnGatewayCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpnGatewayCcnRoutesRequest&,
-        DescribeVpnGatewayCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpnGatewayCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpnGatewayCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpnGatewayRoutesOutcome VpcClient::DescribeVpnGatewayRoutes(const DescribeVpnGatewayRoutesRequest &request)
@@ -13262,32 +11414,25 @@ VpcClient::DescribeVpnGatewayRoutesOutcome VpcClient::DescribeVpnGatewayRoutes(c
 
 void VpcClient::DescribeVpnGatewayRoutesAsync(const DescribeVpnGatewayRoutesRequest& request, const DescribeVpnGatewayRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpnGatewayRoutesRequest&;
-    using Resp = DescribeVpnGatewayRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpnGatewayRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpnGatewayRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpnGatewayRoutesOutcomeCallable VpcClient::DescribeVpnGatewayRoutesCallable(const DescribeVpnGatewayRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpnGatewayRoutesOutcome>>();
-    DescribeVpnGatewayRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpnGatewayRoutesRequest&,
-        DescribeVpnGatewayRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpnGatewayRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpnGatewayRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpnGatewaySslClientsOutcome VpcClient::DescribeVpnGatewaySslClients(const DescribeVpnGatewaySslClientsRequest &request)
@@ -13312,32 +11457,25 @@ VpcClient::DescribeVpnGatewaySslClientsOutcome VpcClient::DescribeVpnGatewaySslC
 
 void VpcClient::DescribeVpnGatewaySslClientsAsync(const DescribeVpnGatewaySslClientsRequest& request, const DescribeVpnGatewaySslClientsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpnGatewaySslClientsRequest&;
-    using Resp = DescribeVpnGatewaySslClientsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpnGatewaySslClients(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpnGatewaySslClients", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpnGatewaySslClientsOutcomeCallable VpcClient::DescribeVpnGatewaySslClientsCallable(const DescribeVpnGatewaySslClientsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpnGatewaySslClientsOutcome>>();
-    DescribeVpnGatewaySslClientsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpnGatewaySslClientsRequest&,
-        DescribeVpnGatewaySslClientsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpnGatewaySslClientsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpnGatewaySslClients(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpnGatewaySslServersOutcome VpcClient::DescribeVpnGatewaySslServers(const DescribeVpnGatewaySslServersRequest &request)
@@ -13362,32 +11500,25 @@ VpcClient::DescribeVpnGatewaySslServersOutcome VpcClient::DescribeVpnGatewaySslS
 
 void VpcClient::DescribeVpnGatewaySslServersAsync(const DescribeVpnGatewaySslServersRequest& request, const DescribeVpnGatewaySslServersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpnGatewaySslServersRequest&;
-    using Resp = DescribeVpnGatewaySslServersResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpnGatewaySslServers(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpnGatewaySslServers", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpnGatewaySslServersOutcomeCallable VpcClient::DescribeVpnGatewaySslServersCallable(const DescribeVpnGatewaySslServersRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpnGatewaySslServersOutcome>>();
-    DescribeVpnGatewaySslServersAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpnGatewaySslServersRequest&,
-        DescribeVpnGatewaySslServersOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpnGatewaySslServersOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpnGatewaySslServers(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DescribeVpnGatewaysOutcome VpcClient::DescribeVpnGateways(const DescribeVpnGatewaysRequest &request)
@@ -13412,32 +11543,25 @@ VpcClient::DescribeVpnGatewaysOutcome VpcClient::DescribeVpnGateways(const Descr
 
 void VpcClient::DescribeVpnGatewaysAsync(const DescribeVpnGatewaysRequest& request, const DescribeVpnGatewaysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVpnGatewaysRequest&;
-    using Resp = DescribeVpnGatewaysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVpnGateways(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVpnGateways", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DescribeVpnGatewaysOutcomeCallable VpcClient::DescribeVpnGatewaysCallable(const DescribeVpnGatewaysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVpnGatewaysOutcome>>();
-    DescribeVpnGatewaysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DescribeVpnGatewaysRequest&,
-        DescribeVpnGatewaysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVpnGatewaysOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVpnGateways(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DetachCcnInstancesOutcome VpcClient::DetachCcnInstances(const DetachCcnInstancesRequest &request)
@@ -13462,32 +11586,25 @@ VpcClient::DetachCcnInstancesOutcome VpcClient::DetachCcnInstances(const DetachC
 
 void VpcClient::DetachCcnInstancesAsync(const DetachCcnInstancesRequest& request, const DetachCcnInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachCcnInstancesRequest&;
-    using Resp = DetachCcnInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachCcnInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachCcnInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DetachCcnInstancesOutcomeCallable VpcClient::DetachCcnInstancesCallable(const DetachCcnInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachCcnInstancesOutcome>>();
-    DetachCcnInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DetachCcnInstancesRequest&,
-        DetachCcnInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachCcnInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachCcnInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DetachClassicLinkVpcOutcome VpcClient::DetachClassicLinkVpc(const DetachClassicLinkVpcRequest &request)
@@ -13512,32 +11629,25 @@ VpcClient::DetachClassicLinkVpcOutcome VpcClient::DetachClassicLinkVpc(const Det
 
 void VpcClient::DetachClassicLinkVpcAsync(const DetachClassicLinkVpcRequest& request, const DetachClassicLinkVpcAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachClassicLinkVpcRequest&;
-    using Resp = DetachClassicLinkVpcResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachClassicLinkVpc(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachClassicLinkVpc", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DetachClassicLinkVpcOutcomeCallable VpcClient::DetachClassicLinkVpcCallable(const DetachClassicLinkVpcRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachClassicLinkVpcOutcome>>();
-    DetachClassicLinkVpcAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DetachClassicLinkVpcRequest&,
-        DetachClassicLinkVpcOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachClassicLinkVpcOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachClassicLinkVpc(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DetachNetworkInterfaceOutcome VpcClient::DetachNetworkInterface(const DetachNetworkInterfaceRequest &request)
@@ -13562,32 +11672,25 @@ VpcClient::DetachNetworkInterfaceOutcome VpcClient::DetachNetworkInterface(const
 
 void VpcClient::DetachNetworkInterfaceAsync(const DetachNetworkInterfaceRequest& request, const DetachNetworkInterfaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachNetworkInterfaceRequest&;
-    using Resp = DetachNetworkInterfaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachNetworkInterface(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachNetworkInterface", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DetachNetworkInterfaceOutcomeCallable VpcClient::DetachNetworkInterfaceCallable(const DetachNetworkInterfaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachNetworkInterfaceOutcome>>();
-    DetachNetworkInterfaceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DetachNetworkInterfaceRequest&,
-        DetachNetworkInterfaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachNetworkInterfaceOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachNetworkInterface(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DetachSnapshotInstancesOutcome VpcClient::DetachSnapshotInstances(const DetachSnapshotInstancesRequest &request)
@@ -13612,32 +11715,25 @@ VpcClient::DetachSnapshotInstancesOutcome VpcClient::DetachSnapshotInstances(con
 
 void VpcClient::DetachSnapshotInstancesAsync(const DetachSnapshotInstancesRequest& request, const DetachSnapshotInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DetachSnapshotInstancesRequest&;
-    using Resp = DetachSnapshotInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DetachSnapshotInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DetachSnapshotInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DetachSnapshotInstancesOutcomeCallable VpcClient::DetachSnapshotInstancesCallable(const DetachSnapshotInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DetachSnapshotInstancesOutcome>>();
-    DetachSnapshotInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DetachSnapshotInstancesRequest&,
-        DetachSnapshotInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DetachSnapshotInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->DetachSnapshotInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisableCcnRoutesOutcome VpcClient::DisableCcnRoutes(const DisableCcnRoutesRequest &request)
@@ -13662,32 +11758,25 @@ VpcClient::DisableCcnRoutesOutcome VpcClient::DisableCcnRoutes(const DisableCcnR
 
 void VpcClient::DisableCcnRoutesAsync(const DisableCcnRoutesRequest& request, const DisableCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableCcnRoutesRequest&;
-    using Resp = DisableCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisableCcnRoutesOutcomeCallable VpcClient::DisableCcnRoutesCallable(const DisableCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableCcnRoutesOutcome>>();
-    DisableCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisableCcnRoutesRequest&,
-        DisableCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisableFlowLogsOutcome VpcClient::DisableFlowLogs(const DisableFlowLogsRequest &request)
@@ -13712,32 +11801,25 @@ VpcClient::DisableFlowLogsOutcome VpcClient::DisableFlowLogs(const DisableFlowLo
 
 void VpcClient::DisableFlowLogsAsync(const DisableFlowLogsRequest& request, const DisableFlowLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableFlowLogsRequest&;
-    using Resp = DisableFlowLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableFlowLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableFlowLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisableFlowLogsOutcomeCallable VpcClient::DisableFlowLogsCallable(const DisableFlowLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableFlowLogsOutcome>>();
-    DisableFlowLogsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisableFlowLogsRequest&,
-        DisableFlowLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableFlowLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableFlowLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisableGatewayFlowMonitorOutcome VpcClient::DisableGatewayFlowMonitor(const DisableGatewayFlowMonitorRequest &request)
@@ -13762,32 +11844,25 @@ VpcClient::DisableGatewayFlowMonitorOutcome VpcClient::DisableGatewayFlowMonitor
 
 void VpcClient::DisableGatewayFlowMonitorAsync(const DisableGatewayFlowMonitorRequest& request, const DisableGatewayFlowMonitorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableGatewayFlowMonitorRequest&;
-    using Resp = DisableGatewayFlowMonitorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableGatewayFlowMonitor(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableGatewayFlowMonitor", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisableGatewayFlowMonitorOutcomeCallable VpcClient::DisableGatewayFlowMonitorCallable(const DisableGatewayFlowMonitorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableGatewayFlowMonitorOutcome>>();
-    DisableGatewayFlowMonitorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisableGatewayFlowMonitorRequest&,
-        DisableGatewayFlowMonitorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableGatewayFlowMonitorOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableGatewayFlowMonitor(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisableRoutesOutcome VpcClient::DisableRoutes(const DisableRoutesRequest &request)
@@ -13812,32 +11887,25 @@ VpcClient::DisableRoutesOutcome VpcClient::DisableRoutes(const DisableRoutesRequ
 
 void VpcClient::DisableRoutesAsync(const DisableRoutesRequest& request, const DisableRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableRoutesRequest&;
-    using Resp = DisableRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisableRoutesOutcomeCallable VpcClient::DisableRoutesCallable(const DisableRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableRoutesOutcome>>();
-    DisableRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisableRoutesRequest&,
-        DisableRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisableSnapshotPoliciesOutcome VpcClient::DisableSnapshotPolicies(const DisableSnapshotPoliciesRequest &request)
@@ -13862,32 +11930,25 @@ VpcClient::DisableSnapshotPoliciesOutcome VpcClient::DisableSnapshotPolicies(con
 
 void VpcClient::DisableSnapshotPoliciesAsync(const DisableSnapshotPoliciesRequest& request, const DisableSnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableSnapshotPoliciesRequest&;
-    using Resp = DisableSnapshotPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableSnapshotPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableSnapshotPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisableSnapshotPoliciesOutcomeCallable VpcClient::DisableSnapshotPoliciesCallable(const DisableSnapshotPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableSnapshotPoliciesOutcome>>();
-    DisableSnapshotPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisableSnapshotPoliciesRequest&,
-        DisableSnapshotPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableSnapshotPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableSnapshotPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisableVpnGatewaySslClientCertOutcome VpcClient::DisableVpnGatewaySslClientCert(const DisableVpnGatewaySslClientCertRequest &request)
@@ -13912,32 +11973,25 @@ VpcClient::DisableVpnGatewaySslClientCertOutcome VpcClient::DisableVpnGatewaySsl
 
 void VpcClient::DisableVpnGatewaySslClientCertAsync(const DisableVpnGatewaySslClientCertRequest& request, const DisableVpnGatewaySslClientCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisableVpnGatewaySslClientCertRequest&;
-    using Resp = DisableVpnGatewaySslClientCertResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisableVpnGatewaySslClientCert(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisableVpnGatewaySslClientCert", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisableVpnGatewaySslClientCertOutcomeCallable VpcClient::DisableVpnGatewaySslClientCertCallable(const DisableVpnGatewaySslClientCertRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisableVpnGatewaySslClientCertOutcome>>();
-    DisableVpnGatewaySslClientCertAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisableVpnGatewaySslClientCertRequest&,
-        DisableVpnGatewaySslClientCertOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisableVpnGatewaySslClientCertOutcome()>>(
+        [this, request]()
+        {
+            return this->DisableVpnGatewaySslClientCert(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateAddressOutcome VpcClient::DisassociateAddress(const DisassociateAddressRequest &request)
@@ -13962,32 +12016,25 @@ VpcClient::DisassociateAddressOutcome VpcClient::DisassociateAddress(const Disas
 
 void VpcClient::DisassociateAddressAsync(const DisassociateAddressRequest& request, const DisassociateAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateAddressRequest&;
-    using Resp = DisassociateAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateAddressOutcomeCallable VpcClient::DisassociateAddressCallable(const DisassociateAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateAddressOutcome>>();
-    DisassociateAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateAddressRequest&,
-        DisassociateAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateDhcpIpWithAddressIpOutcome VpcClient::DisassociateDhcpIpWithAddressIp(const DisassociateDhcpIpWithAddressIpRequest &request)
@@ -14012,32 +12059,25 @@ VpcClient::DisassociateDhcpIpWithAddressIpOutcome VpcClient::DisassociateDhcpIpW
 
 void VpcClient::DisassociateDhcpIpWithAddressIpAsync(const DisassociateDhcpIpWithAddressIpRequest& request, const DisassociateDhcpIpWithAddressIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateDhcpIpWithAddressIpRequest&;
-    using Resp = DisassociateDhcpIpWithAddressIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateDhcpIpWithAddressIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateDhcpIpWithAddressIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateDhcpIpWithAddressIpOutcomeCallable VpcClient::DisassociateDhcpIpWithAddressIpCallable(const DisassociateDhcpIpWithAddressIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateDhcpIpWithAddressIpOutcome>>();
-    DisassociateDhcpIpWithAddressIpAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateDhcpIpWithAddressIpRequest&,
-        DisassociateDhcpIpWithAddressIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateDhcpIpWithAddressIpOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateDhcpIpWithAddressIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateDirectConnectGatewayNatGatewayOutcome VpcClient::DisassociateDirectConnectGatewayNatGateway(const DisassociateDirectConnectGatewayNatGatewayRequest &request)
@@ -14062,32 +12102,25 @@ VpcClient::DisassociateDirectConnectGatewayNatGatewayOutcome VpcClient::Disassoc
 
 void VpcClient::DisassociateDirectConnectGatewayNatGatewayAsync(const DisassociateDirectConnectGatewayNatGatewayRequest& request, const DisassociateDirectConnectGatewayNatGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateDirectConnectGatewayNatGatewayRequest&;
-    using Resp = DisassociateDirectConnectGatewayNatGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateDirectConnectGatewayNatGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateDirectConnectGatewayNatGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateDirectConnectGatewayNatGatewayOutcomeCallable VpcClient::DisassociateDirectConnectGatewayNatGatewayCallable(const DisassociateDirectConnectGatewayNatGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateDirectConnectGatewayNatGatewayOutcome>>();
-    DisassociateDirectConnectGatewayNatGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateDirectConnectGatewayNatGatewayRequest&,
-        DisassociateDirectConnectGatewayNatGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateDirectConnectGatewayNatGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateDirectConnectGatewayNatGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateHaVipInstanceOutcome VpcClient::DisassociateHaVipInstance(const DisassociateHaVipInstanceRequest &request)
@@ -14112,32 +12145,25 @@ VpcClient::DisassociateHaVipInstanceOutcome VpcClient::DisassociateHaVipInstance
 
 void VpcClient::DisassociateHaVipInstanceAsync(const DisassociateHaVipInstanceRequest& request, const DisassociateHaVipInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateHaVipInstanceRequest&;
-    using Resp = DisassociateHaVipInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateHaVipInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateHaVipInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateHaVipInstanceOutcomeCallable VpcClient::DisassociateHaVipInstanceCallable(const DisassociateHaVipInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateHaVipInstanceOutcome>>();
-    DisassociateHaVipInstanceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateHaVipInstanceRequest&,
-        DisassociateHaVipInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateHaVipInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateHaVipInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateIPv6AddressOutcome VpcClient::DisassociateIPv6Address(const DisassociateIPv6AddressRequest &request)
@@ -14162,32 +12188,25 @@ VpcClient::DisassociateIPv6AddressOutcome VpcClient::DisassociateIPv6Address(con
 
 void VpcClient::DisassociateIPv6AddressAsync(const DisassociateIPv6AddressRequest& request, const DisassociateIPv6AddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateIPv6AddressRequest&;
-    using Resp = DisassociateIPv6AddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateIPv6Address(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateIPv6Address", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateIPv6AddressOutcomeCallable VpcClient::DisassociateIPv6AddressCallable(const DisassociateIPv6AddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateIPv6AddressOutcome>>();
-    DisassociateIPv6AddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateIPv6AddressRequest&,
-        DisassociateIPv6AddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateIPv6AddressOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateIPv6Address(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateNatGatewayAddressOutcome VpcClient::DisassociateNatGatewayAddress(const DisassociateNatGatewayAddressRequest &request)
@@ -14212,32 +12231,25 @@ VpcClient::DisassociateNatGatewayAddressOutcome VpcClient::DisassociateNatGatewa
 
 void VpcClient::DisassociateNatGatewayAddressAsync(const DisassociateNatGatewayAddressRequest& request, const DisassociateNatGatewayAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateNatGatewayAddressRequest&;
-    using Resp = DisassociateNatGatewayAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateNatGatewayAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateNatGatewayAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateNatGatewayAddressOutcomeCallable VpcClient::DisassociateNatGatewayAddressCallable(const DisassociateNatGatewayAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateNatGatewayAddressOutcome>>();
-    DisassociateNatGatewayAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateNatGatewayAddressRequest&,
-        DisassociateNatGatewayAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateNatGatewayAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateNatGatewayAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateNetworkAclSubnetsOutcome VpcClient::DisassociateNetworkAclSubnets(const DisassociateNetworkAclSubnetsRequest &request)
@@ -14262,32 +12274,25 @@ VpcClient::DisassociateNetworkAclSubnetsOutcome VpcClient::DisassociateNetworkAc
 
 void VpcClient::DisassociateNetworkAclSubnetsAsync(const DisassociateNetworkAclSubnetsRequest& request, const DisassociateNetworkAclSubnetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateNetworkAclSubnetsRequest&;
-    using Resp = DisassociateNetworkAclSubnetsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateNetworkAclSubnets(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateNetworkAclSubnets", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateNetworkAclSubnetsOutcomeCallable VpcClient::DisassociateNetworkAclSubnetsCallable(const DisassociateNetworkAclSubnetsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateNetworkAclSubnetsOutcome>>();
-    DisassociateNetworkAclSubnetsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateNetworkAclSubnetsRequest&,
-        DisassociateNetworkAclSubnetsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateNetworkAclSubnetsOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateNetworkAclSubnets(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateNetworkInterfaceSecurityGroupsOutcome VpcClient::DisassociateNetworkInterfaceSecurityGroups(const DisassociateNetworkInterfaceSecurityGroupsRequest &request)
@@ -14312,32 +12317,25 @@ VpcClient::DisassociateNetworkInterfaceSecurityGroupsOutcome VpcClient::Disassoc
 
 void VpcClient::DisassociateNetworkInterfaceSecurityGroupsAsync(const DisassociateNetworkInterfaceSecurityGroupsRequest& request, const DisassociateNetworkInterfaceSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateNetworkInterfaceSecurityGroupsRequest&;
-    using Resp = DisassociateNetworkInterfaceSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateNetworkInterfaceSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateNetworkInterfaceSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateNetworkInterfaceSecurityGroupsOutcomeCallable VpcClient::DisassociateNetworkInterfaceSecurityGroupsCallable(const DisassociateNetworkInterfaceSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateNetworkInterfaceSecurityGroupsOutcome>>();
-    DisassociateNetworkInterfaceSecurityGroupsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateNetworkInterfaceSecurityGroupsRequest&,
-        DisassociateNetworkInterfaceSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateNetworkInterfaceSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateNetworkInterfaceSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DisassociateVpcEndPointSecurityGroupsOutcome VpcClient::DisassociateVpcEndPointSecurityGroups(const DisassociateVpcEndPointSecurityGroupsRequest &request)
@@ -14362,32 +12360,25 @@ VpcClient::DisassociateVpcEndPointSecurityGroupsOutcome VpcClient::DisassociateV
 
 void VpcClient::DisassociateVpcEndPointSecurityGroupsAsync(const DisassociateVpcEndPointSecurityGroupsRequest& request, const DisassociateVpcEndPointSecurityGroupsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DisassociateVpcEndPointSecurityGroupsRequest&;
-    using Resp = DisassociateVpcEndPointSecurityGroupsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DisassociateVpcEndPointSecurityGroups(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DisassociateVpcEndPointSecurityGroups", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DisassociateVpcEndPointSecurityGroupsOutcomeCallable VpcClient::DisassociateVpcEndPointSecurityGroupsCallable(const DisassociateVpcEndPointSecurityGroupsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DisassociateVpcEndPointSecurityGroupsOutcome>>();
-    DisassociateVpcEndPointSecurityGroupsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DisassociateVpcEndPointSecurityGroupsRequest&,
-        DisassociateVpcEndPointSecurityGroupsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DisassociateVpcEndPointSecurityGroupsOutcome()>>(
+        [this, request]()
+        {
+            return this->DisassociateVpcEndPointSecurityGroups(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DownloadCustomerGatewayConfigurationOutcome VpcClient::DownloadCustomerGatewayConfiguration(const DownloadCustomerGatewayConfigurationRequest &request)
@@ -14412,32 +12403,25 @@ VpcClient::DownloadCustomerGatewayConfigurationOutcome VpcClient::DownloadCustom
 
 void VpcClient::DownloadCustomerGatewayConfigurationAsync(const DownloadCustomerGatewayConfigurationRequest& request, const DownloadCustomerGatewayConfigurationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DownloadCustomerGatewayConfigurationRequest&;
-    using Resp = DownloadCustomerGatewayConfigurationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DownloadCustomerGatewayConfiguration(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DownloadCustomerGatewayConfiguration", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DownloadCustomerGatewayConfigurationOutcomeCallable VpcClient::DownloadCustomerGatewayConfigurationCallable(const DownloadCustomerGatewayConfigurationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DownloadCustomerGatewayConfigurationOutcome>>();
-    DownloadCustomerGatewayConfigurationAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DownloadCustomerGatewayConfigurationRequest&,
-        DownloadCustomerGatewayConfigurationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DownloadCustomerGatewayConfigurationOutcome()>>(
+        [this, request]()
+        {
+            return this->DownloadCustomerGatewayConfiguration(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::DownloadVpnGatewaySslClientCertOutcome VpcClient::DownloadVpnGatewaySslClientCert(const DownloadVpnGatewaySslClientCertRequest &request)
@@ -14462,32 +12446,25 @@ VpcClient::DownloadVpnGatewaySslClientCertOutcome VpcClient::DownloadVpnGatewayS
 
 void VpcClient::DownloadVpnGatewaySslClientCertAsync(const DownloadVpnGatewaySslClientCertRequest& request, const DownloadVpnGatewaySslClientCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DownloadVpnGatewaySslClientCertRequest&;
-    using Resp = DownloadVpnGatewaySslClientCertResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DownloadVpnGatewaySslClientCert(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DownloadVpnGatewaySslClientCert", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::DownloadVpnGatewaySslClientCertOutcomeCallable VpcClient::DownloadVpnGatewaySslClientCertCallable(const DownloadVpnGatewaySslClientCertRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DownloadVpnGatewaySslClientCertOutcome>>();
-    DownloadVpnGatewaySslClientCertAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const DownloadVpnGatewaySslClientCertRequest&,
-        DownloadVpnGatewaySslClientCertOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DownloadVpnGatewaySslClientCertOutcome()>>(
+        [this, request]()
+        {
+            return this->DownloadVpnGatewaySslClientCert(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::EnableCcnRoutesOutcome VpcClient::EnableCcnRoutes(const EnableCcnRoutesRequest &request)
@@ -14512,32 +12489,25 @@ VpcClient::EnableCcnRoutesOutcome VpcClient::EnableCcnRoutes(const EnableCcnRout
 
 void VpcClient::EnableCcnRoutesAsync(const EnableCcnRoutesRequest& request, const EnableCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableCcnRoutesRequest&;
-    using Resp = EnableCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::EnableCcnRoutesOutcomeCallable VpcClient::EnableCcnRoutesCallable(const EnableCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableCcnRoutesOutcome>>();
-    EnableCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const EnableCcnRoutesRequest&,
-        EnableCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::EnableFlowLogsOutcome VpcClient::EnableFlowLogs(const EnableFlowLogsRequest &request)
@@ -14562,32 +12532,25 @@ VpcClient::EnableFlowLogsOutcome VpcClient::EnableFlowLogs(const EnableFlowLogsR
 
 void VpcClient::EnableFlowLogsAsync(const EnableFlowLogsRequest& request, const EnableFlowLogsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableFlowLogsRequest&;
-    using Resp = EnableFlowLogsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableFlowLogs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableFlowLogs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::EnableFlowLogsOutcomeCallable VpcClient::EnableFlowLogsCallable(const EnableFlowLogsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableFlowLogsOutcome>>();
-    EnableFlowLogsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const EnableFlowLogsRequest&,
-        EnableFlowLogsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableFlowLogsOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableFlowLogs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::EnableGatewayFlowMonitorOutcome VpcClient::EnableGatewayFlowMonitor(const EnableGatewayFlowMonitorRequest &request)
@@ -14612,32 +12575,25 @@ VpcClient::EnableGatewayFlowMonitorOutcome VpcClient::EnableGatewayFlowMonitor(c
 
 void VpcClient::EnableGatewayFlowMonitorAsync(const EnableGatewayFlowMonitorRequest& request, const EnableGatewayFlowMonitorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableGatewayFlowMonitorRequest&;
-    using Resp = EnableGatewayFlowMonitorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableGatewayFlowMonitor(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableGatewayFlowMonitor", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::EnableGatewayFlowMonitorOutcomeCallable VpcClient::EnableGatewayFlowMonitorCallable(const EnableGatewayFlowMonitorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableGatewayFlowMonitorOutcome>>();
-    EnableGatewayFlowMonitorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const EnableGatewayFlowMonitorRequest&,
-        EnableGatewayFlowMonitorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableGatewayFlowMonitorOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableGatewayFlowMonitor(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::EnableRoutesOutcome VpcClient::EnableRoutes(const EnableRoutesRequest &request)
@@ -14662,32 +12618,25 @@ VpcClient::EnableRoutesOutcome VpcClient::EnableRoutes(const EnableRoutesRequest
 
 void VpcClient::EnableRoutesAsync(const EnableRoutesRequest& request, const EnableRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableRoutesRequest&;
-    using Resp = EnableRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::EnableRoutesOutcomeCallable VpcClient::EnableRoutesCallable(const EnableRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableRoutesOutcome>>();
-    EnableRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const EnableRoutesRequest&,
-        EnableRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::EnableSnapshotPoliciesOutcome VpcClient::EnableSnapshotPolicies(const EnableSnapshotPoliciesRequest &request)
@@ -14712,32 +12661,25 @@ VpcClient::EnableSnapshotPoliciesOutcome VpcClient::EnableSnapshotPolicies(const
 
 void VpcClient::EnableSnapshotPoliciesAsync(const EnableSnapshotPoliciesRequest& request, const EnableSnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableSnapshotPoliciesRequest&;
-    using Resp = EnableSnapshotPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableSnapshotPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableSnapshotPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::EnableSnapshotPoliciesOutcomeCallable VpcClient::EnableSnapshotPoliciesCallable(const EnableSnapshotPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableSnapshotPoliciesOutcome>>();
-    EnableSnapshotPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const EnableSnapshotPoliciesRequest&,
-        EnableSnapshotPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableSnapshotPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableSnapshotPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::EnableVpcEndPointConnectOutcome VpcClient::EnableVpcEndPointConnect(const EnableVpcEndPointConnectRequest &request)
@@ -14762,32 +12704,25 @@ VpcClient::EnableVpcEndPointConnectOutcome VpcClient::EnableVpcEndPointConnect(c
 
 void VpcClient::EnableVpcEndPointConnectAsync(const EnableVpcEndPointConnectRequest& request, const EnableVpcEndPointConnectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableVpcEndPointConnectRequest&;
-    using Resp = EnableVpcEndPointConnectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableVpcEndPointConnect(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableVpcEndPointConnect", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::EnableVpcEndPointConnectOutcomeCallable VpcClient::EnableVpcEndPointConnectCallable(const EnableVpcEndPointConnectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableVpcEndPointConnectOutcome>>();
-    EnableVpcEndPointConnectAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const EnableVpcEndPointConnectRequest&,
-        EnableVpcEndPointConnectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableVpcEndPointConnectOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableVpcEndPointConnect(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::EnableVpnGatewaySslClientCertOutcome VpcClient::EnableVpnGatewaySslClientCert(const EnableVpnGatewaySslClientCertRequest &request)
@@ -14812,32 +12747,25 @@ VpcClient::EnableVpnGatewaySslClientCertOutcome VpcClient::EnableVpnGatewaySslCl
 
 void VpcClient::EnableVpnGatewaySslClientCertAsync(const EnableVpnGatewaySslClientCertRequest& request, const EnableVpnGatewaySslClientCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const EnableVpnGatewaySslClientCertRequest&;
-    using Resp = EnableVpnGatewaySslClientCertResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->EnableVpnGatewaySslClientCert(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "EnableVpnGatewaySslClientCert", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::EnableVpnGatewaySslClientCertOutcomeCallable VpcClient::EnableVpnGatewaySslClientCertCallable(const EnableVpnGatewaySslClientCertRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<EnableVpnGatewaySslClientCertOutcome>>();
-    EnableVpnGatewaySslClientCertAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const EnableVpnGatewaySslClientCertRequest&,
-        EnableVpnGatewaySslClientCertOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<EnableVpnGatewaySslClientCertOutcome()>>(
+        [this, request]()
+        {
+            return this->EnableVpnGatewaySslClientCert(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::GenerateVpnConnectionDefaultHealthCheckIpOutcome VpcClient::GenerateVpnConnectionDefaultHealthCheckIp(const GenerateVpnConnectionDefaultHealthCheckIpRequest &request)
@@ -14862,32 +12790,25 @@ VpcClient::GenerateVpnConnectionDefaultHealthCheckIpOutcome VpcClient::GenerateV
 
 void VpcClient::GenerateVpnConnectionDefaultHealthCheckIpAsync(const GenerateVpnConnectionDefaultHealthCheckIpRequest& request, const GenerateVpnConnectionDefaultHealthCheckIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GenerateVpnConnectionDefaultHealthCheckIpRequest&;
-    using Resp = GenerateVpnConnectionDefaultHealthCheckIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GenerateVpnConnectionDefaultHealthCheckIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GenerateVpnConnectionDefaultHealthCheckIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::GenerateVpnConnectionDefaultHealthCheckIpOutcomeCallable VpcClient::GenerateVpnConnectionDefaultHealthCheckIpCallable(const GenerateVpnConnectionDefaultHealthCheckIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GenerateVpnConnectionDefaultHealthCheckIpOutcome>>();
-    GenerateVpnConnectionDefaultHealthCheckIpAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const GenerateVpnConnectionDefaultHealthCheckIpRequest&,
-        GenerateVpnConnectionDefaultHealthCheckIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GenerateVpnConnectionDefaultHealthCheckIpOutcome()>>(
+        [this, request]()
+        {
+            return this->GenerateVpnConnectionDefaultHealthCheckIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::GetCcnRegionBandwidthLimitsOutcome VpcClient::GetCcnRegionBandwidthLimits(const GetCcnRegionBandwidthLimitsRequest &request)
@@ -14912,32 +12833,25 @@ VpcClient::GetCcnRegionBandwidthLimitsOutcome VpcClient::GetCcnRegionBandwidthLi
 
 void VpcClient::GetCcnRegionBandwidthLimitsAsync(const GetCcnRegionBandwidthLimitsRequest& request, const GetCcnRegionBandwidthLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetCcnRegionBandwidthLimitsRequest&;
-    using Resp = GetCcnRegionBandwidthLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetCcnRegionBandwidthLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetCcnRegionBandwidthLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::GetCcnRegionBandwidthLimitsOutcomeCallable VpcClient::GetCcnRegionBandwidthLimitsCallable(const GetCcnRegionBandwidthLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetCcnRegionBandwidthLimitsOutcome>>();
-    GetCcnRegionBandwidthLimitsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const GetCcnRegionBandwidthLimitsRequest&,
-        GetCcnRegionBandwidthLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetCcnRegionBandwidthLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetCcnRegionBandwidthLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::HaVipAssociateAddressIpOutcome VpcClient::HaVipAssociateAddressIp(const HaVipAssociateAddressIpRequest &request)
@@ -14962,32 +12876,25 @@ VpcClient::HaVipAssociateAddressIpOutcome VpcClient::HaVipAssociateAddressIp(con
 
 void VpcClient::HaVipAssociateAddressIpAsync(const HaVipAssociateAddressIpRequest& request, const HaVipAssociateAddressIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const HaVipAssociateAddressIpRequest&;
-    using Resp = HaVipAssociateAddressIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->HaVipAssociateAddressIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "HaVipAssociateAddressIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::HaVipAssociateAddressIpOutcomeCallable VpcClient::HaVipAssociateAddressIpCallable(const HaVipAssociateAddressIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<HaVipAssociateAddressIpOutcome>>();
-    HaVipAssociateAddressIpAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const HaVipAssociateAddressIpRequest&,
-        HaVipAssociateAddressIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<HaVipAssociateAddressIpOutcome()>>(
+        [this, request]()
+        {
+            return this->HaVipAssociateAddressIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::HaVipDisassociateAddressIpOutcome VpcClient::HaVipDisassociateAddressIp(const HaVipDisassociateAddressIpRequest &request)
@@ -15012,32 +12919,25 @@ VpcClient::HaVipDisassociateAddressIpOutcome VpcClient::HaVipDisassociateAddress
 
 void VpcClient::HaVipDisassociateAddressIpAsync(const HaVipDisassociateAddressIpRequest& request, const HaVipDisassociateAddressIpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const HaVipDisassociateAddressIpRequest&;
-    using Resp = HaVipDisassociateAddressIpResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->HaVipDisassociateAddressIp(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "HaVipDisassociateAddressIp", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::HaVipDisassociateAddressIpOutcomeCallable VpcClient::HaVipDisassociateAddressIpCallable(const HaVipDisassociateAddressIpRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<HaVipDisassociateAddressIpOutcome>>();
-    HaVipDisassociateAddressIpAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const HaVipDisassociateAddressIpRequest&,
-        HaVipDisassociateAddressIpOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<HaVipDisassociateAddressIpOutcome()>>(
+        [this, request]()
+        {
+            return this->HaVipDisassociateAddressIp(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::InquirePriceCreateDirectConnectGatewayOutcome VpcClient::InquirePriceCreateDirectConnectGateway(const InquirePriceCreateDirectConnectGatewayRequest &request)
@@ -15062,32 +12962,25 @@ VpcClient::InquirePriceCreateDirectConnectGatewayOutcome VpcClient::InquirePrice
 
 void VpcClient::InquirePriceCreateDirectConnectGatewayAsync(const InquirePriceCreateDirectConnectGatewayRequest& request, const InquirePriceCreateDirectConnectGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquirePriceCreateDirectConnectGatewayRequest&;
-    using Resp = InquirePriceCreateDirectConnectGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquirePriceCreateDirectConnectGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquirePriceCreateDirectConnectGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::InquirePriceCreateDirectConnectGatewayOutcomeCallable VpcClient::InquirePriceCreateDirectConnectGatewayCallable(const InquirePriceCreateDirectConnectGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquirePriceCreateDirectConnectGatewayOutcome>>();
-    InquirePriceCreateDirectConnectGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const InquirePriceCreateDirectConnectGatewayRequest&,
-        InquirePriceCreateDirectConnectGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquirePriceCreateDirectConnectGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->InquirePriceCreateDirectConnectGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::InquiryPriceAllocateAddressesOutcome VpcClient::InquiryPriceAllocateAddresses(const InquiryPriceAllocateAddressesRequest &request)
@@ -15112,32 +13005,25 @@ VpcClient::InquiryPriceAllocateAddressesOutcome VpcClient::InquiryPriceAllocateA
 
 void VpcClient::InquiryPriceAllocateAddressesAsync(const InquiryPriceAllocateAddressesRequest& request, const InquiryPriceAllocateAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceAllocateAddressesRequest&;
-    using Resp = InquiryPriceAllocateAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceAllocateAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceAllocateAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::InquiryPriceAllocateAddressesOutcomeCallable VpcClient::InquiryPriceAllocateAddressesCallable(const InquiryPriceAllocateAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceAllocateAddressesOutcome>>();
-    InquiryPriceAllocateAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const InquiryPriceAllocateAddressesRequest&,
-        InquiryPriceAllocateAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceAllocateAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceAllocateAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::InquiryPriceCreateVpnGatewayOutcome VpcClient::InquiryPriceCreateVpnGateway(const InquiryPriceCreateVpnGatewayRequest &request)
@@ -15162,32 +13048,25 @@ VpcClient::InquiryPriceCreateVpnGatewayOutcome VpcClient::InquiryPriceCreateVpnG
 
 void VpcClient::InquiryPriceCreateVpnGatewayAsync(const InquiryPriceCreateVpnGatewayRequest& request, const InquiryPriceCreateVpnGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceCreateVpnGatewayRequest&;
-    using Resp = InquiryPriceCreateVpnGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceCreateVpnGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceCreateVpnGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::InquiryPriceCreateVpnGatewayOutcomeCallable VpcClient::InquiryPriceCreateVpnGatewayCallable(const InquiryPriceCreateVpnGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceCreateVpnGatewayOutcome>>();
-    InquiryPriceCreateVpnGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const InquiryPriceCreateVpnGatewayRequest&,
-        InquiryPriceCreateVpnGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceCreateVpnGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceCreateVpnGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::InquiryPriceModifyAddressesBandwidthOutcome VpcClient::InquiryPriceModifyAddressesBandwidth(const InquiryPriceModifyAddressesBandwidthRequest &request)
@@ -15212,32 +13091,25 @@ VpcClient::InquiryPriceModifyAddressesBandwidthOutcome VpcClient::InquiryPriceMo
 
 void VpcClient::InquiryPriceModifyAddressesBandwidthAsync(const InquiryPriceModifyAddressesBandwidthRequest& request, const InquiryPriceModifyAddressesBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceModifyAddressesBandwidthRequest&;
-    using Resp = InquiryPriceModifyAddressesBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceModifyAddressesBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceModifyAddressesBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::InquiryPriceModifyAddressesBandwidthOutcomeCallable VpcClient::InquiryPriceModifyAddressesBandwidthCallable(const InquiryPriceModifyAddressesBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceModifyAddressesBandwidthOutcome>>();
-    InquiryPriceModifyAddressesBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const InquiryPriceModifyAddressesBandwidthRequest&,
-        InquiryPriceModifyAddressesBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceModifyAddressesBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceModifyAddressesBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::InquiryPriceRenewAddressesOutcome VpcClient::InquiryPriceRenewAddresses(const InquiryPriceRenewAddressesRequest &request)
@@ -15262,32 +13134,25 @@ VpcClient::InquiryPriceRenewAddressesOutcome VpcClient::InquiryPriceRenewAddress
 
 void VpcClient::InquiryPriceRenewAddressesAsync(const InquiryPriceRenewAddressesRequest& request, const InquiryPriceRenewAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceRenewAddressesRequest&;
-    using Resp = InquiryPriceRenewAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceRenewAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceRenewAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::InquiryPriceRenewAddressesOutcomeCallable VpcClient::InquiryPriceRenewAddressesCallable(const InquiryPriceRenewAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceRenewAddressesOutcome>>();
-    InquiryPriceRenewAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const InquiryPriceRenewAddressesRequest&,
-        InquiryPriceRenewAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceRenewAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceRenewAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::InquiryPriceRenewVpnGatewayOutcome VpcClient::InquiryPriceRenewVpnGateway(const InquiryPriceRenewVpnGatewayRequest &request)
@@ -15312,32 +13177,25 @@ VpcClient::InquiryPriceRenewVpnGatewayOutcome VpcClient::InquiryPriceRenewVpnGat
 
 void VpcClient::InquiryPriceRenewVpnGatewayAsync(const InquiryPriceRenewVpnGatewayRequest& request, const InquiryPriceRenewVpnGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceRenewVpnGatewayRequest&;
-    using Resp = InquiryPriceRenewVpnGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceRenewVpnGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceRenewVpnGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::InquiryPriceRenewVpnGatewayOutcomeCallable VpcClient::InquiryPriceRenewVpnGatewayCallable(const InquiryPriceRenewVpnGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceRenewVpnGatewayOutcome>>();
-    InquiryPriceRenewVpnGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const InquiryPriceRenewVpnGatewayRequest&,
-        InquiryPriceRenewVpnGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceRenewVpnGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceRenewVpnGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::InquiryPriceResetVpnGatewayInternetMaxBandwidthOutcome VpcClient::InquiryPriceResetVpnGatewayInternetMaxBandwidth(const InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest &request)
@@ -15362,32 +13220,25 @@ VpcClient::InquiryPriceResetVpnGatewayInternetMaxBandwidthOutcome VpcClient::Inq
 
 void VpcClient::InquiryPriceResetVpnGatewayInternetMaxBandwidthAsync(const InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest& request, const InquiryPriceResetVpnGatewayInternetMaxBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest&;
-    using Resp = InquiryPriceResetVpnGatewayInternetMaxBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->InquiryPriceResetVpnGatewayInternetMaxBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "InquiryPriceResetVpnGatewayInternetMaxBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::InquiryPriceResetVpnGatewayInternetMaxBandwidthOutcomeCallable VpcClient::InquiryPriceResetVpnGatewayInternetMaxBandwidthCallable(const InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<InquiryPriceResetVpnGatewayInternetMaxBandwidthOutcome>>();
-    InquiryPriceResetVpnGatewayInternetMaxBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const InquiryPriceResetVpnGatewayInternetMaxBandwidthRequest&,
-        InquiryPriceResetVpnGatewayInternetMaxBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<InquiryPriceResetVpnGatewayInternetMaxBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->InquiryPriceResetVpnGatewayInternetMaxBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::LockCcnBandwidthsOutcome VpcClient::LockCcnBandwidths(const LockCcnBandwidthsRequest &request)
@@ -15412,32 +13263,25 @@ VpcClient::LockCcnBandwidthsOutcome VpcClient::LockCcnBandwidths(const LockCcnBa
 
 void VpcClient::LockCcnBandwidthsAsync(const LockCcnBandwidthsRequest& request, const LockCcnBandwidthsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const LockCcnBandwidthsRequest&;
-    using Resp = LockCcnBandwidthsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->LockCcnBandwidths(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "LockCcnBandwidths", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::LockCcnBandwidthsOutcomeCallable VpcClient::LockCcnBandwidthsCallable(const LockCcnBandwidthsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<LockCcnBandwidthsOutcome>>();
-    LockCcnBandwidthsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const LockCcnBandwidthsRequest&,
-        LockCcnBandwidthsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<LockCcnBandwidthsOutcome()>>(
+        [this, request]()
+        {
+            return this->LockCcnBandwidths(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::LockCcnsOutcome VpcClient::LockCcns(const LockCcnsRequest &request)
@@ -15462,32 +13306,25 @@ VpcClient::LockCcnsOutcome VpcClient::LockCcns(const LockCcnsRequest &request)
 
 void VpcClient::LockCcnsAsync(const LockCcnsRequest& request, const LockCcnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const LockCcnsRequest&;
-    using Resp = LockCcnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->LockCcns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "LockCcns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::LockCcnsOutcomeCallable VpcClient::LockCcnsCallable(const LockCcnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<LockCcnsOutcome>>();
-    LockCcnsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const LockCcnsRequest&,
-        LockCcnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<LockCcnsOutcome()>>(
+        [this, request]()
+        {
+            return this->LockCcns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::MigrateBandwidthPackageResourcesOutcome VpcClient::MigrateBandwidthPackageResources(const MigrateBandwidthPackageResourcesRequest &request)
@@ -15512,32 +13349,25 @@ VpcClient::MigrateBandwidthPackageResourcesOutcome VpcClient::MigrateBandwidthPa
 
 void VpcClient::MigrateBandwidthPackageResourcesAsync(const MigrateBandwidthPackageResourcesRequest& request, const MigrateBandwidthPackageResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const MigrateBandwidthPackageResourcesRequest&;
-    using Resp = MigrateBandwidthPackageResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->MigrateBandwidthPackageResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "MigrateBandwidthPackageResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::MigrateBandwidthPackageResourcesOutcomeCallable VpcClient::MigrateBandwidthPackageResourcesCallable(const MigrateBandwidthPackageResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<MigrateBandwidthPackageResourcesOutcome>>();
-    MigrateBandwidthPackageResourcesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const MigrateBandwidthPackageResourcesRequest&,
-        MigrateBandwidthPackageResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<MigrateBandwidthPackageResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->MigrateBandwidthPackageResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::MigrateNetworkInterfaceOutcome VpcClient::MigrateNetworkInterface(const MigrateNetworkInterfaceRequest &request)
@@ -15562,32 +13392,25 @@ VpcClient::MigrateNetworkInterfaceOutcome VpcClient::MigrateNetworkInterface(con
 
 void VpcClient::MigrateNetworkInterfaceAsync(const MigrateNetworkInterfaceRequest& request, const MigrateNetworkInterfaceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const MigrateNetworkInterfaceRequest&;
-    using Resp = MigrateNetworkInterfaceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->MigrateNetworkInterface(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "MigrateNetworkInterface", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::MigrateNetworkInterfaceOutcomeCallable VpcClient::MigrateNetworkInterfaceCallable(const MigrateNetworkInterfaceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<MigrateNetworkInterfaceOutcome>>();
-    MigrateNetworkInterfaceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const MigrateNetworkInterfaceRequest&,
-        MigrateNetworkInterfaceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<MigrateNetworkInterfaceOutcome()>>(
+        [this, request]()
+        {
+            return this->MigrateNetworkInterface(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::MigratePrivateIpAddressOutcome VpcClient::MigratePrivateIpAddress(const MigratePrivateIpAddressRequest &request)
@@ -15612,32 +13435,25 @@ VpcClient::MigratePrivateIpAddressOutcome VpcClient::MigratePrivateIpAddress(con
 
 void VpcClient::MigratePrivateIpAddressAsync(const MigratePrivateIpAddressRequest& request, const MigratePrivateIpAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const MigratePrivateIpAddressRequest&;
-    using Resp = MigratePrivateIpAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->MigratePrivateIpAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "MigratePrivateIpAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::MigratePrivateIpAddressOutcomeCallable VpcClient::MigratePrivateIpAddressCallable(const MigratePrivateIpAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<MigratePrivateIpAddressOutcome>>();
-    MigratePrivateIpAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const MigratePrivateIpAddressRequest&,
-        MigratePrivateIpAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<MigratePrivateIpAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->MigratePrivateIpAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyAddressAttributeOutcome VpcClient::ModifyAddressAttribute(const ModifyAddressAttributeRequest &request)
@@ -15662,32 +13478,25 @@ VpcClient::ModifyAddressAttributeOutcome VpcClient::ModifyAddressAttribute(const
 
 void VpcClient::ModifyAddressAttributeAsync(const ModifyAddressAttributeRequest& request, const ModifyAddressAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAddressAttributeRequest&;
-    using Resp = ModifyAddressAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAddressAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAddressAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyAddressAttributeOutcomeCallable VpcClient::ModifyAddressAttributeCallable(const ModifyAddressAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAddressAttributeOutcome>>();
-    ModifyAddressAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyAddressAttributeRequest&,
-        ModifyAddressAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAddressAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAddressAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyAddressInternetChargeTypeOutcome VpcClient::ModifyAddressInternetChargeType(const ModifyAddressInternetChargeTypeRequest &request)
@@ -15712,32 +13521,25 @@ VpcClient::ModifyAddressInternetChargeTypeOutcome VpcClient::ModifyAddressIntern
 
 void VpcClient::ModifyAddressInternetChargeTypeAsync(const ModifyAddressInternetChargeTypeRequest& request, const ModifyAddressInternetChargeTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAddressInternetChargeTypeRequest&;
-    using Resp = ModifyAddressInternetChargeTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAddressInternetChargeType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAddressInternetChargeType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyAddressInternetChargeTypeOutcomeCallable VpcClient::ModifyAddressInternetChargeTypeCallable(const ModifyAddressInternetChargeTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAddressInternetChargeTypeOutcome>>();
-    ModifyAddressInternetChargeTypeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyAddressInternetChargeTypeRequest&,
-        ModifyAddressInternetChargeTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAddressInternetChargeTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAddressInternetChargeType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyAddressTemplateAttributeOutcome VpcClient::ModifyAddressTemplateAttribute(const ModifyAddressTemplateAttributeRequest &request)
@@ -15762,32 +13564,25 @@ VpcClient::ModifyAddressTemplateAttributeOutcome VpcClient::ModifyAddressTemplat
 
 void VpcClient::ModifyAddressTemplateAttributeAsync(const ModifyAddressTemplateAttributeRequest& request, const ModifyAddressTemplateAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAddressTemplateAttributeRequest&;
-    using Resp = ModifyAddressTemplateAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAddressTemplateAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAddressTemplateAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyAddressTemplateAttributeOutcomeCallable VpcClient::ModifyAddressTemplateAttributeCallable(const ModifyAddressTemplateAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAddressTemplateAttributeOutcome>>();
-    ModifyAddressTemplateAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyAddressTemplateAttributeRequest&,
-        ModifyAddressTemplateAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAddressTemplateAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAddressTemplateAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyAddressTemplateGroupAttributeOutcome VpcClient::ModifyAddressTemplateGroupAttribute(const ModifyAddressTemplateGroupAttributeRequest &request)
@@ -15812,32 +13607,25 @@ VpcClient::ModifyAddressTemplateGroupAttributeOutcome VpcClient::ModifyAddressTe
 
 void VpcClient::ModifyAddressTemplateGroupAttributeAsync(const ModifyAddressTemplateGroupAttributeRequest& request, const ModifyAddressTemplateGroupAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAddressTemplateGroupAttributeRequest&;
-    using Resp = ModifyAddressTemplateGroupAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAddressTemplateGroupAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAddressTemplateGroupAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyAddressTemplateGroupAttributeOutcomeCallable VpcClient::ModifyAddressTemplateGroupAttributeCallable(const ModifyAddressTemplateGroupAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAddressTemplateGroupAttributeOutcome>>();
-    ModifyAddressTemplateGroupAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyAddressTemplateGroupAttributeRequest&,
-        ModifyAddressTemplateGroupAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAddressTemplateGroupAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAddressTemplateGroupAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyAddressesBandwidthOutcome VpcClient::ModifyAddressesBandwidth(const ModifyAddressesBandwidthRequest &request)
@@ -15862,32 +13650,25 @@ VpcClient::ModifyAddressesBandwidthOutcome VpcClient::ModifyAddressesBandwidth(c
 
 void VpcClient::ModifyAddressesBandwidthAsync(const ModifyAddressesBandwidthRequest& request, const ModifyAddressesBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAddressesBandwidthRequest&;
-    using Resp = ModifyAddressesBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAddressesBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAddressesBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyAddressesBandwidthOutcomeCallable VpcClient::ModifyAddressesBandwidthCallable(const ModifyAddressesBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAddressesBandwidthOutcome>>();
-    ModifyAddressesBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyAddressesBandwidthRequest&,
-        ModifyAddressesBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAddressesBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAddressesBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyAddressesRenewFlagOutcome VpcClient::ModifyAddressesRenewFlag(const ModifyAddressesRenewFlagRequest &request)
@@ -15912,32 +13693,25 @@ VpcClient::ModifyAddressesRenewFlagOutcome VpcClient::ModifyAddressesRenewFlag(c
 
 void VpcClient::ModifyAddressesRenewFlagAsync(const ModifyAddressesRenewFlagRequest& request, const ModifyAddressesRenewFlagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAddressesRenewFlagRequest&;
-    using Resp = ModifyAddressesRenewFlagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAddressesRenewFlag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAddressesRenewFlag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyAddressesRenewFlagOutcomeCallable VpcClient::ModifyAddressesRenewFlagCallable(const ModifyAddressesRenewFlagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAddressesRenewFlagOutcome>>();
-    ModifyAddressesRenewFlagAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyAddressesRenewFlagRequest&,
-        ModifyAddressesRenewFlagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAddressesRenewFlagOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAddressesRenewFlag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyAssistantCidrOutcome VpcClient::ModifyAssistantCidr(const ModifyAssistantCidrRequest &request)
@@ -15962,32 +13736,25 @@ VpcClient::ModifyAssistantCidrOutcome VpcClient::ModifyAssistantCidr(const Modif
 
 void VpcClient::ModifyAssistantCidrAsync(const ModifyAssistantCidrRequest& request, const ModifyAssistantCidrAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyAssistantCidrRequest&;
-    using Resp = ModifyAssistantCidrResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyAssistantCidr(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyAssistantCidr", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyAssistantCidrOutcomeCallable VpcClient::ModifyAssistantCidrCallable(const ModifyAssistantCidrRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyAssistantCidrOutcome>>();
-    ModifyAssistantCidrAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyAssistantCidrRequest&,
-        ModifyAssistantCidrOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyAssistantCidrOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyAssistantCidr(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyBandwidthPackageAttributeOutcome VpcClient::ModifyBandwidthPackageAttribute(const ModifyBandwidthPackageAttributeRequest &request)
@@ -16012,32 +13779,25 @@ VpcClient::ModifyBandwidthPackageAttributeOutcome VpcClient::ModifyBandwidthPack
 
 void VpcClient::ModifyBandwidthPackageAttributeAsync(const ModifyBandwidthPackageAttributeRequest& request, const ModifyBandwidthPackageAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBandwidthPackageAttributeRequest&;
-    using Resp = ModifyBandwidthPackageAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBandwidthPackageAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBandwidthPackageAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyBandwidthPackageAttributeOutcomeCallable VpcClient::ModifyBandwidthPackageAttributeCallable(const ModifyBandwidthPackageAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBandwidthPackageAttributeOutcome>>();
-    ModifyBandwidthPackageAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyBandwidthPackageAttributeRequest&,
-        ModifyBandwidthPackageAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBandwidthPackageAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBandwidthPackageAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyBandwidthPackageBandwidthOutcome VpcClient::ModifyBandwidthPackageBandwidth(const ModifyBandwidthPackageBandwidthRequest &request)
@@ -16062,32 +13822,25 @@ VpcClient::ModifyBandwidthPackageBandwidthOutcome VpcClient::ModifyBandwidthPack
 
 void VpcClient::ModifyBandwidthPackageBandwidthAsync(const ModifyBandwidthPackageBandwidthRequest& request, const ModifyBandwidthPackageBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyBandwidthPackageBandwidthRequest&;
-    using Resp = ModifyBandwidthPackageBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyBandwidthPackageBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyBandwidthPackageBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyBandwidthPackageBandwidthOutcomeCallable VpcClient::ModifyBandwidthPackageBandwidthCallable(const ModifyBandwidthPackageBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyBandwidthPackageBandwidthOutcome>>();
-    ModifyBandwidthPackageBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyBandwidthPackageBandwidthRequest&,
-        ModifyBandwidthPackageBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyBandwidthPackageBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyBandwidthPackageBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyCcnAttachedInstancesAttributeOutcome VpcClient::ModifyCcnAttachedInstancesAttribute(const ModifyCcnAttachedInstancesAttributeRequest &request)
@@ -16112,32 +13865,25 @@ VpcClient::ModifyCcnAttachedInstancesAttributeOutcome VpcClient::ModifyCcnAttach
 
 void VpcClient::ModifyCcnAttachedInstancesAttributeAsync(const ModifyCcnAttachedInstancesAttributeRequest& request, const ModifyCcnAttachedInstancesAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCcnAttachedInstancesAttributeRequest&;
-    using Resp = ModifyCcnAttachedInstancesAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCcnAttachedInstancesAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCcnAttachedInstancesAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyCcnAttachedInstancesAttributeOutcomeCallable VpcClient::ModifyCcnAttachedInstancesAttributeCallable(const ModifyCcnAttachedInstancesAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCcnAttachedInstancesAttributeOutcome>>();
-    ModifyCcnAttachedInstancesAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyCcnAttachedInstancesAttributeRequest&,
-        ModifyCcnAttachedInstancesAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCcnAttachedInstancesAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCcnAttachedInstancesAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyCcnAttributeOutcome VpcClient::ModifyCcnAttribute(const ModifyCcnAttributeRequest &request)
@@ -16162,32 +13908,25 @@ VpcClient::ModifyCcnAttributeOutcome VpcClient::ModifyCcnAttribute(const ModifyC
 
 void VpcClient::ModifyCcnAttributeAsync(const ModifyCcnAttributeRequest& request, const ModifyCcnAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCcnAttributeRequest&;
-    using Resp = ModifyCcnAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCcnAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCcnAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyCcnAttributeOutcomeCallable VpcClient::ModifyCcnAttributeCallable(const ModifyCcnAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCcnAttributeOutcome>>();
-    ModifyCcnAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyCcnAttributeRequest&,
-        ModifyCcnAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCcnAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCcnAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyCcnRegionBandwidthLimitsTypeOutcome VpcClient::ModifyCcnRegionBandwidthLimitsType(const ModifyCcnRegionBandwidthLimitsTypeRequest &request)
@@ -16212,32 +13951,25 @@ VpcClient::ModifyCcnRegionBandwidthLimitsTypeOutcome VpcClient::ModifyCcnRegionB
 
 void VpcClient::ModifyCcnRegionBandwidthLimitsTypeAsync(const ModifyCcnRegionBandwidthLimitsTypeRequest& request, const ModifyCcnRegionBandwidthLimitsTypeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCcnRegionBandwidthLimitsTypeRequest&;
-    using Resp = ModifyCcnRegionBandwidthLimitsTypeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCcnRegionBandwidthLimitsType(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCcnRegionBandwidthLimitsType", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyCcnRegionBandwidthLimitsTypeOutcomeCallable VpcClient::ModifyCcnRegionBandwidthLimitsTypeCallable(const ModifyCcnRegionBandwidthLimitsTypeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCcnRegionBandwidthLimitsTypeOutcome>>();
-    ModifyCcnRegionBandwidthLimitsTypeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyCcnRegionBandwidthLimitsTypeRequest&,
-        ModifyCcnRegionBandwidthLimitsTypeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCcnRegionBandwidthLimitsTypeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCcnRegionBandwidthLimitsType(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyCcnRouteTablesOutcome VpcClient::ModifyCcnRouteTables(const ModifyCcnRouteTablesRequest &request)
@@ -16262,32 +13994,25 @@ VpcClient::ModifyCcnRouteTablesOutcome VpcClient::ModifyCcnRouteTables(const Mod
 
 void VpcClient::ModifyCcnRouteTablesAsync(const ModifyCcnRouteTablesRequest& request, const ModifyCcnRouteTablesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCcnRouteTablesRequest&;
-    using Resp = ModifyCcnRouteTablesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCcnRouteTables(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCcnRouteTables", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyCcnRouteTablesOutcomeCallable VpcClient::ModifyCcnRouteTablesCallable(const ModifyCcnRouteTablesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCcnRouteTablesOutcome>>();
-    ModifyCcnRouteTablesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyCcnRouteTablesRequest&,
-        ModifyCcnRouteTablesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCcnRouteTablesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCcnRouteTables(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyCdcLDCXAttributeOutcome VpcClient::ModifyCdcLDCXAttribute(const ModifyCdcLDCXAttributeRequest &request)
@@ -16312,32 +14037,25 @@ VpcClient::ModifyCdcLDCXAttributeOutcome VpcClient::ModifyCdcLDCXAttribute(const
 
 void VpcClient::ModifyCdcLDCXAttributeAsync(const ModifyCdcLDCXAttributeRequest& request, const ModifyCdcLDCXAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCdcLDCXAttributeRequest&;
-    using Resp = ModifyCdcLDCXAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCdcLDCXAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCdcLDCXAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyCdcLDCXAttributeOutcomeCallable VpcClient::ModifyCdcLDCXAttributeCallable(const ModifyCdcLDCXAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCdcLDCXAttributeOutcome>>();
-    ModifyCdcLDCXAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyCdcLDCXAttributeRequest&,
-        ModifyCdcLDCXAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCdcLDCXAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCdcLDCXAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyCdcNetPlaneAttributeOutcome VpcClient::ModifyCdcNetPlaneAttribute(const ModifyCdcNetPlaneAttributeRequest &request)
@@ -16362,32 +14080,25 @@ VpcClient::ModifyCdcNetPlaneAttributeOutcome VpcClient::ModifyCdcNetPlaneAttribu
 
 void VpcClient::ModifyCdcNetPlaneAttributeAsync(const ModifyCdcNetPlaneAttributeRequest& request, const ModifyCdcNetPlaneAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCdcNetPlaneAttributeRequest&;
-    using Resp = ModifyCdcNetPlaneAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCdcNetPlaneAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCdcNetPlaneAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyCdcNetPlaneAttributeOutcomeCallable VpcClient::ModifyCdcNetPlaneAttributeCallable(const ModifyCdcNetPlaneAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCdcNetPlaneAttributeOutcome>>();
-    ModifyCdcNetPlaneAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyCdcNetPlaneAttributeRequest&,
-        ModifyCdcNetPlaneAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCdcNetPlaneAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCdcNetPlaneAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyCustomerGatewayAttributeOutcome VpcClient::ModifyCustomerGatewayAttribute(const ModifyCustomerGatewayAttributeRequest &request)
@@ -16412,32 +14123,25 @@ VpcClient::ModifyCustomerGatewayAttributeOutcome VpcClient::ModifyCustomerGatewa
 
 void VpcClient::ModifyCustomerGatewayAttributeAsync(const ModifyCustomerGatewayAttributeRequest& request, const ModifyCustomerGatewayAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyCustomerGatewayAttributeRequest&;
-    using Resp = ModifyCustomerGatewayAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyCustomerGatewayAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyCustomerGatewayAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyCustomerGatewayAttributeOutcomeCallable VpcClient::ModifyCustomerGatewayAttributeCallable(const ModifyCustomerGatewayAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyCustomerGatewayAttributeOutcome>>();
-    ModifyCustomerGatewayAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyCustomerGatewayAttributeRequest&,
-        ModifyCustomerGatewayAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyCustomerGatewayAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyCustomerGatewayAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyDhcpIpAttributeOutcome VpcClient::ModifyDhcpIpAttribute(const ModifyDhcpIpAttributeRequest &request)
@@ -16462,32 +14166,25 @@ VpcClient::ModifyDhcpIpAttributeOutcome VpcClient::ModifyDhcpIpAttribute(const M
 
 void VpcClient::ModifyDhcpIpAttributeAsync(const ModifyDhcpIpAttributeRequest& request, const ModifyDhcpIpAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDhcpIpAttributeRequest&;
-    using Resp = ModifyDhcpIpAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDhcpIpAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDhcpIpAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyDhcpIpAttributeOutcomeCallable VpcClient::ModifyDhcpIpAttributeCallable(const ModifyDhcpIpAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDhcpIpAttributeOutcome>>();
-    ModifyDhcpIpAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyDhcpIpAttributeRequest&,
-        ModifyDhcpIpAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDhcpIpAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDhcpIpAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyDirectConnectGatewayAttributeOutcome VpcClient::ModifyDirectConnectGatewayAttribute(const ModifyDirectConnectGatewayAttributeRequest &request)
@@ -16512,32 +14209,25 @@ VpcClient::ModifyDirectConnectGatewayAttributeOutcome VpcClient::ModifyDirectCon
 
 void VpcClient::ModifyDirectConnectGatewayAttributeAsync(const ModifyDirectConnectGatewayAttributeRequest& request, const ModifyDirectConnectGatewayAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyDirectConnectGatewayAttributeRequest&;
-    using Resp = ModifyDirectConnectGatewayAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyDirectConnectGatewayAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyDirectConnectGatewayAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyDirectConnectGatewayAttributeOutcomeCallable VpcClient::ModifyDirectConnectGatewayAttributeCallable(const ModifyDirectConnectGatewayAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyDirectConnectGatewayAttributeOutcome>>();
-    ModifyDirectConnectGatewayAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyDirectConnectGatewayAttributeRequest&,
-        ModifyDirectConnectGatewayAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyDirectConnectGatewayAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyDirectConnectGatewayAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyFlowLogAttributeOutcome VpcClient::ModifyFlowLogAttribute(const ModifyFlowLogAttributeRequest &request)
@@ -16562,32 +14252,25 @@ VpcClient::ModifyFlowLogAttributeOutcome VpcClient::ModifyFlowLogAttribute(const
 
 void VpcClient::ModifyFlowLogAttributeAsync(const ModifyFlowLogAttributeRequest& request, const ModifyFlowLogAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyFlowLogAttributeRequest&;
-    using Resp = ModifyFlowLogAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyFlowLogAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyFlowLogAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyFlowLogAttributeOutcomeCallable VpcClient::ModifyFlowLogAttributeCallable(const ModifyFlowLogAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyFlowLogAttributeOutcome>>();
-    ModifyFlowLogAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyFlowLogAttributeRequest&,
-        ModifyFlowLogAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyFlowLogAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyFlowLogAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyGatewayFlowQosOutcome VpcClient::ModifyGatewayFlowQos(const ModifyGatewayFlowQosRequest &request)
@@ -16612,32 +14295,25 @@ VpcClient::ModifyGatewayFlowQosOutcome VpcClient::ModifyGatewayFlowQos(const Mod
 
 void VpcClient::ModifyGatewayFlowQosAsync(const ModifyGatewayFlowQosRequest& request, const ModifyGatewayFlowQosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGatewayFlowQosRequest&;
-    using Resp = ModifyGatewayFlowQosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGatewayFlowQos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGatewayFlowQos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyGatewayFlowQosOutcomeCallable VpcClient::ModifyGatewayFlowQosCallable(const ModifyGatewayFlowQosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGatewayFlowQosOutcome>>();
-    ModifyGatewayFlowQosAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyGatewayFlowQosRequest&,
-        ModifyGatewayFlowQosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGatewayFlowQosOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGatewayFlowQos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyGlobalRouteECMPAlgorithmOutcome VpcClient::ModifyGlobalRouteECMPAlgorithm(const ModifyGlobalRouteECMPAlgorithmRequest &request)
@@ -16662,32 +14338,25 @@ VpcClient::ModifyGlobalRouteECMPAlgorithmOutcome VpcClient::ModifyGlobalRouteECM
 
 void VpcClient::ModifyGlobalRouteECMPAlgorithmAsync(const ModifyGlobalRouteECMPAlgorithmRequest& request, const ModifyGlobalRouteECMPAlgorithmAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGlobalRouteECMPAlgorithmRequest&;
-    using Resp = ModifyGlobalRouteECMPAlgorithmResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGlobalRouteECMPAlgorithm(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGlobalRouteECMPAlgorithm", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyGlobalRouteECMPAlgorithmOutcomeCallable VpcClient::ModifyGlobalRouteECMPAlgorithmCallable(const ModifyGlobalRouteECMPAlgorithmRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGlobalRouteECMPAlgorithmOutcome>>();
-    ModifyGlobalRouteECMPAlgorithmAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyGlobalRouteECMPAlgorithmRequest&,
-        ModifyGlobalRouteECMPAlgorithmOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGlobalRouteECMPAlgorithmOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGlobalRouteECMPAlgorithm(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyGlobalRoutesOutcome VpcClient::ModifyGlobalRoutes(const ModifyGlobalRoutesRequest &request)
@@ -16712,32 +14381,25 @@ VpcClient::ModifyGlobalRoutesOutcome VpcClient::ModifyGlobalRoutes(const ModifyG
 
 void VpcClient::ModifyGlobalRoutesAsync(const ModifyGlobalRoutesRequest& request, const ModifyGlobalRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyGlobalRoutesRequest&;
-    using Resp = ModifyGlobalRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyGlobalRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyGlobalRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyGlobalRoutesOutcomeCallable VpcClient::ModifyGlobalRoutesCallable(const ModifyGlobalRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyGlobalRoutesOutcome>>();
-    ModifyGlobalRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyGlobalRoutesRequest&,
-        ModifyGlobalRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyGlobalRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyGlobalRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyHaVipAttributeOutcome VpcClient::ModifyHaVipAttribute(const ModifyHaVipAttributeRequest &request)
@@ -16762,32 +14424,25 @@ VpcClient::ModifyHaVipAttributeOutcome VpcClient::ModifyHaVipAttribute(const Mod
 
 void VpcClient::ModifyHaVipAttributeAsync(const ModifyHaVipAttributeRequest& request, const ModifyHaVipAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHaVipAttributeRequest&;
-    using Resp = ModifyHaVipAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHaVipAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHaVipAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyHaVipAttributeOutcomeCallable VpcClient::ModifyHaVipAttributeCallable(const ModifyHaVipAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHaVipAttributeOutcome>>();
-    ModifyHaVipAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyHaVipAttributeRequest&,
-        ModifyHaVipAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHaVipAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHaVipAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyHighPriorityRouteAttributeOutcome VpcClient::ModifyHighPriorityRouteAttribute(const ModifyHighPriorityRouteAttributeRequest &request)
@@ -16812,32 +14467,25 @@ VpcClient::ModifyHighPriorityRouteAttributeOutcome VpcClient::ModifyHighPriority
 
 void VpcClient::ModifyHighPriorityRouteAttributeAsync(const ModifyHighPriorityRouteAttributeRequest& request, const ModifyHighPriorityRouteAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHighPriorityRouteAttributeRequest&;
-    using Resp = ModifyHighPriorityRouteAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHighPriorityRouteAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHighPriorityRouteAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyHighPriorityRouteAttributeOutcomeCallable VpcClient::ModifyHighPriorityRouteAttributeCallable(const ModifyHighPriorityRouteAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHighPriorityRouteAttributeOutcome>>();
-    ModifyHighPriorityRouteAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyHighPriorityRouteAttributeRequest&,
-        ModifyHighPriorityRouteAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHighPriorityRouteAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHighPriorityRouteAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyHighPriorityRouteECMPAlgorithmOutcome VpcClient::ModifyHighPriorityRouteECMPAlgorithm(const ModifyHighPriorityRouteECMPAlgorithmRequest &request)
@@ -16862,32 +14510,25 @@ VpcClient::ModifyHighPriorityRouteECMPAlgorithmOutcome VpcClient::ModifyHighPrio
 
 void VpcClient::ModifyHighPriorityRouteECMPAlgorithmAsync(const ModifyHighPriorityRouteECMPAlgorithmRequest& request, const ModifyHighPriorityRouteECMPAlgorithmAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHighPriorityRouteECMPAlgorithmRequest&;
-    using Resp = ModifyHighPriorityRouteECMPAlgorithmResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHighPriorityRouteECMPAlgorithm(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHighPriorityRouteECMPAlgorithm", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyHighPriorityRouteECMPAlgorithmOutcomeCallable VpcClient::ModifyHighPriorityRouteECMPAlgorithmCallable(const ModifyHighPriorityRouteECMPAlgorithmRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHighPriorityRouteECMPAlgorithmOutcome>>();
-    ModifyHighPriorityRouteECMPAlgorithmAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyHighPriorityRouteECMPAlgorithmRequest&,
-        ModifyHighPriorityRouteECMPAlgorithmOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHighPriorityRouteECMPAlgorithmOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHighPriorityRouteECMPAlgorithm(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyHighPriorityRouteTableAttributeOutcome VpcClient::ModifyHighPriorityRouteTableAttribute(const ModifyHighPriorityRouteTableAttributeRequest &request)
@@ -16912,32 +14553,25 @@ VpcClient::ModifyHighPriorityRouteTableAttributeOutcome VpcClient::ModifyHighPri
 
 void VpcClient::ModifyHighPriorityRouteTableAttributeAsync(const ModifyHighPriorityRouteTableAttributeRequest& request, const ModifyHighPriorityRouteTableAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyHighPriorityRouteTableAttributeRequest&;
-    using Resp = ModifyHighPriorityRouteTableAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyHighPriorityRouteTableAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyHighPriorityRouteTableAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyHighPriorityRouteTableAttributeOutcomeCallable VpcClient::ModifyHighPriorityRouteTableAttributeCallable(const ModifyHighPriorityRouteTableAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyHighPriorityRouteTableAttributeOutcome>>();
-    ModifyHighPriorityRouteTableAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyHighPriorityRouteTableAttributeRequest&,
-        ModifyHighPriorityRouteTableAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyHighPriorityRouteTableAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyHighPriorityRouteTableAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyIPv6AddressesAttributesOutcome VpcClient::ModifyIPv6AddressesAttributes(const ModifyIPv6AddressesAttributesRequest &request)
@@ -16962,32 +14596,25 @@ VpcClient::ModifyIPv6AddressesAttributesOutcome VpcClient::ModifyIPv6AddressesAt
 
 void VpcClient::ModifyIPv6AddressesAttributesAsync(const ModifyIPv6AddressesAttributesRequest& request, const ModifyIPv6AddressesAttributesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIPv6AddressesAttributesRequest&;
-    using Resp = ModifyIPv6AddressesAttributesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIPv6AddressesAttributes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIPv6AddressesAttributes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyIPv6AddressesAttributesOutcomeCallable VpcClient::ModifyIPv6AddressesAttributesCallable(const ModifyIPv6AddressesAttributesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIPv6AddressesAttributesOutcome>>();
-    ModifyIPv6AddressesAttributesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyIPv6AddressesAttributesRequest&,
-        ModifyIPv6AddressesAttributesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIPv6AddressesAttributesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIPv6AddressesAttributes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyIPv6AddressesBandwidthOutcome VpcClient::ModifyIPv6AddressesBandwidth(const ModifyIPv6AddressesBandwidthRequest &request)
@@ -17012,32 +14639,25 @@ VpcClient::ModifyIPv6AddressesBandwidthOutcome VpcClient::ModifyIPv6AddressesBan
 
 void VpcClient::ModifyIPv6AddressesBandwidthAsync(const ModifyIPv6AddressesBandwidthRequest& request, const ModifyIPv6AddressesBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIPv6AddressesBandwidthRequest&;
-    using Resp = ModifyIPv6AddressesBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIPv6AddressesBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIPv6AddressesBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyIPv6AddressesBandwidthOutcomeCallable VpcClient::ModifyIPv6AddressesBandwidthCallable(const ModifyIPv6AddressesBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIPv6AddressesBandwidthOutcome>>();
-    ModifyIPv6AddressesBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyIPv6AddressesBandwidthRequest&,
-        ModifyIPv6AddressesBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIPv6AddressesBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIPv6AddressesBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyIp6AddressesBandwidthOutcome VpcClient::ModifyIp6AddressesBandwidth(const ModifyIp6AddressesBandwidthRequest &request)
@@ -17062,32 +14682,25 @@ VpcClient::ModifyIp6AddressesBandwidthOutcome VpcClient::ModifyIp6AddressesBandw
 
 void VpcClient::ModifyIp6AddressesBandwidthAsync(const ModifyIp6AddressesBandwidthRequest& request, const ModifyIp6AddressesBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIp6AddressesBandwidthRequest&;
-    using Resp = ModifyIp6AddressesBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIp6AddressesBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIp6AddressesBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyIp6AddressesBandwidthOutcomeCallable VpcClient::ModifyIp6AddressesBandwidthCallable(const ModifyIp6AddressesBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIp6AddressesBandwidthOutcome>>();
-    ModifyIp6AddressesBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyIp6AddressesBandwidthRequest&,
-        ModifyIp6AddressesBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIp6AddressesBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIp6AddressesBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyIp6RuleOutcome VpcClient::ModifyIp6Rule(const ModifyIp6RuleRequest &request)
@@ -17112,32 +14725,25 @@ VpcClient::ModifyIp6RuleOutcome VpcClient::ModifyIp6Rule(const ModifyIp6RuleRequ
 
 void VpcClient::ModifyIp6RuleAsync(const ModifyIp6RuleRequest& request, const ModifyIp6RuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIp6RuleRequest&;
-    using Resp = ModifyIp6RuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIp6Rule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIp6Rule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyIp6RuleOutcomeCallable VpcClient::ModifyIp6RuleCallable(const ModifyIp6RuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIp6RuleOutcome>>();
-    ModifyIp6RuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyIp6RuleRequest&,
-        ModifyIp6RuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIp6RuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIp6Rule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyIp6TranslatorOutcome VpcClient::ModifyIp6Translator(const ModifyIp6TranslatorRequest &request)
@@ -17162,32 +14768,25 @@ VpcClient::ModifyIp6TranslatorOutcome VpcClient::ModifyIp6Translator(const Modif
 
 void VpcClient::ModifyIp6TranslatorAsync(const ModifyIp6TranslatorRequest& request, const ModifyIp6TranslatorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIp6TranslatorRequest&;
-    using Resp = ModifyIp6TranslatorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIp6Translator(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIp6Translator", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyIp6TranslatorOutcomeCallable VpcClient::ModifyIp6TranslatorCallable(const ModifyIp6TranslatorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIp6TranslatorOutcome>>();
-    ModifyIp6TranslatorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyIp6TranslatorRequest&,
-        ModifyIp6TranslatorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIp6TranslatorOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIp6Translator(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyIpv6AddressesAttributeOutcome VpcClient::ModifyIpv6AddressesAttribute(const ModifyIpv6AddressesAttributeRequest &request)
@@ -17212,32 +14811,25 @@ VpcClient::ModifyIpv6AddressesAttributeOutcome VpcClient::ModifyIpv6AddressesAtt
 
 void VpcClient::ModifyIpv6AddressesAttributeAsync(const ModifyIpv6AddressesAttributeRequest& request, const ModifyIpv6AddressesAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyIpv6AddressesAttributeRequest&;
-    using Resp = ModifyIpv6AddressesAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyIpv6AddressesAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyIpv6AddressesAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyIpv6AddressesAttributeOutcomeCallable VpcClient::ModifyIpv6AddressesAttributeCallable(const ModifyIpv6AddressesAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyIpv6AddressesAttributeOutcome>>();
-    ModifyIpv6AddressesAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyIpv6AddressesAttributeRequest&,
-        ModifyIpv6AddressesAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyIpv6AddressesAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyIpv6AddressesAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyLocalGatewayOutcome VpcClient::ModifyLocalGateway(const ModifyLocalGatewayRequest &request)
@@ -17262,32 +14854,25 @@ VpcClient::ModifyLocalGatewayOutcome VpcClient::ModifyLocalGateway(const ModifyL
 
 void VpcClient::ModifyLocalGatewayAsync(const ModifyLocalGatewayRequest& request, const ModifyLocalGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyLocalGatewayRequest&;
-    using Resp = ModifyLocalGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyLocalGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyLocalGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyLocalGatewayOutcomeCallable VpcClient::ModifyLocalGatewayCallable(const ModifyLocalGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyLocalGatewayOutcome>>();
-    ModifyLocalGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyLocalGatewayRequest&,
-        ModifyLocalGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyLocalGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyLocalGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNatGatewayAttributeOutcome VpcClient::ModifyNatGatewayAttribute(const ModifyNatGatewayAttributeRequest &request)
@@ -17312,32 +14897,25 @@ VpcClient::ModifyNatGatewayAttributeOutcome VpcClient::ModifyNatGatewayAttribute
 
 void VpcClient::ModifyNatGatewayAttributeAsync(const ModifyNatGatewayAttributeRequest& request, const ModifyNatGatewayAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNatGatewayAttributeRequest&;
-    using Resp = ModifyNatGatewayAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNatGatewayAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNatGatewayAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNatGatewayAttributeOutcomeCallable VpcClient::ModifyNatGatewayAttributeCallable(const ModifyNatGatewayAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNatGatewayAttributeOutcome>>();
-    ModifyNatGatewayAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNatGatewayAttributeRequest&,
-        ModifyNatGatewayAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNatGatewayAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNatGatewayAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient::ModifyNatGatewayDestinationIpPortTranslationNatRule(const ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
@@ -17362,32 +14940,25 @@ VpcClient::ModifyNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient:
 
 void VpcClient::ModifyNatGatewayDestinationIpPortTranslationNatRuleAsync(const ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest& request, const ModifyNatGatewayDestinationIpPortTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest&;
-    using Resp = ModifyNatGatewayDestinationIpPortTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNatGatewayDestinationIpPortTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNatGatewayDestinationIpPortTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNatGatewayDestinationIpPortTranslationNatRuleOutcomeCallable VpcClient::ModifyNatGatewayDestinationIpPortTranslationNatRuleCallable(const ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNatGatewayDestinationIpPortTranslationNatRuleOutcome>>();
-    ModifyNatGatewayDestinationIpPortTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNatGatewayDestinationIpPortTranslationNatRuleRequest&,
-        ModifyNatGatewayDestinationIpPortTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNatGatewayDestinationIpPortTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNatGatewayDestinationIpPortTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNatGatewaySourceIpTranslationNatRuleOutcome VpcClient::ModifyNatGatewaySourceIpTranslationNatRule(const ModifyNatGatewaySourceIpTranslationNatRuleRequest &request)
@@ -17412,32 +14983,25 @@ VpcClient::ModifyNatGatewaySourceIpTranslationNatRuleOutcome VpcClient::ModifyNa
 
 void VpcClient::ModifyNatGatewaySourceIpTranslationNatRuleAsync(const ModifyNatGatewaySourceIpTranslationNatRuleRequest& request, const ModifyNatGatewaySourceIpTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNatGatewaySourceIpTranslationNatRuleRequest&;
-    using Resp = ModifyNatGatewaySourceIpTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNatGatewaySourceIpTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNatGatewaySourceIpTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNatGatewaySourceIpTranslationNatRuleOutcomeCallable VpcClient::ModifyNatGatewaySourceIpTranslationNatRuleCallable(const ModifyNatGatewaySourceIpTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNatGatewaySourceIpTranslationNatRuleOutcome>>();
-    ModifyNatGatewaySourceIpTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNatGatewaySourceIpTranslationNatRuleRequest&,
-        ModifyNatGatewaySourceIpTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNatGatewaySourceIpTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNatGatewaySourceIpTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNetDetectOutcome VpcClient::ModifyNetDetect(const ModifyNetDetectRequest &request)
@@ -17462,32 +15026,25 @@ VpcClient::ModifyNetDetectOutcome VpcClient::ModifyNetDetect(const ModifyNetDete
 
 void VpcClient::ModifyNetDetectAsync(const ModifyNetDetectRequest& request, const ModifyNetDetectAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetDetectRequest&;
-    using Resp = ModifyNetDetectResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetDetect(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetDetect", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNetDetectOutcomeCallable VpcClient::ModifyNetDetectCallable(const ModifyNetDetectRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetDetectOutcome>>();
-    ModifyNetDetectAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNetDetectRequest&,
-        ModifyNetDetectOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetDetectOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetDetect(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNetworkAclAttributeOutcome VpcClient::ModifyNetworkAclAttribute(const ModifyNetworkAclAttributeRequest &request)
@@ -17512,32 +15069,25 @@ VpcClient::ModifyNetworkAclAttributeOutcome VpcClient::ModifyNetworkAclAttribute
 
 void VpcClient::ModifyNetworkAclAttributeAsync(const ModifyNetworkAclAttributeRequest& request, const ModifyNetworkAclAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetworkAclAttributeRequest&;
-    using Resp = ModifyNetworkAclAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetworkAclAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetworkAclAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNetworkAclAttributeOutcomeCallable VpcClient::ModifyNetworkAclAttributeCallable(const ModifyNetworkAclAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetworkAclAttributeOutcome>>();
-    ModifyNetworkAclAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNetworkAclAttributeRequest&,
-        ModifyNetworkAclAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetworkAclAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetworkAclAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNetworkAclEntriesOutcome VpcClient::ModifyNetworkAclEntries(const ModifyNetworkAclEntriesRequest &request)
@@ -17562,32 +15112,25 @@ VpcClient::ModifyNetworkAclEntriesOutcome VpcClient::ModifyNetworkAclEntries(con
 
 void VpcClient::ModifyNetworkAclEntriesAsync(const ModifyNetworkAclEntriesRequest& request, const ModifyNetworkAclEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetworkAclEntriesRequest&;
-    using Resp = ModifyNetworkAclEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetworkAclEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetworkAclEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNetworkAclEntriesOutcomeCallable VpcClient::ModifyNetworkAclEntriesCallable(const ModifyNetworkAclEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetworkAclEntriesOutcome>>();
-    ModifyNetworkAclEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNetworkAclEntriesRequest&,
-        ModifyNetworkAclEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetworkAclEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetworkAclEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNetworkAclQuintupleEntriesOutcome VpcClient::ModifyNetworkAclQuintupleEntries(const ModifyNetworkAclQuintupleEntriesRequest &request)
@@ -17612,32 +15155,25 @@ VpcClient::ModifyNetworkAclQuintupleEntriesOutcome VpcClient::ModifyNetworkAclQu
 
 void VpcClient::ModifyNetworkAclQuintupleEntriesAsync(const ModifyNetworkAclQuintupleEntriesRequest& request, const ModifyNetworkAclQuintupleEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetworkAclQuintupleEntriesRequest&;
-    using Resp = ModifyNetworkAclQuintupleEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetworkAclQuintupleEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetworkAclQuintupleEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNetworkAclQuintupleEntriesOutcomeCallable VpcClient::ModifyNetworkAclQuintupleEntriesCallable(const ModifyNetworkAclQuintupleEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetworkAclQuintupleEntriesOutcome>>();
-    ModifyNetworkAclQuintupleEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNetworkAclQuintupleEntriesRequest&,
-        ModifyNetworkAclQuintupleEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetworkAclQuintupleEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetworkAclQuintupleEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNetworkInterfaceAttributeOutcome VpcClient::ModifyNetworkInterfaceAttribute(const ModifyNetworkInterfaceAttributeRequest &request)
@@ -17662,32 +15198,25 @@ VpcClient::ModifyNetworkInterfaceAttributeOutcome VpcClient::ModifyNetworkInterf
 
 void VpcClient::ModifyNetworkInterfaceAttributeAsync(const ModifyNetworkInterfaceAttributeRequest& request, const ModifyNetworkInterfaceAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetworkInterfaceAttributeRequest&;
-    using Resp = ModifyNetworkInterfaceAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetworkInterfaceAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetworkInterfaceAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNetworkInterfaceAttributeOutcomeCallable VpcClient::ModifyNetworkInterfaceAttributeCallable(const ModifyNetworkInterfaceAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetworkInterfaceAttributeOutcome>>();
-    ModifyNetworkInterfaceAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNetworkInterfaceAttributeRequest&,
-        ModifyNetworkInterfaceAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetworkInterfaceAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetworkInterfaceAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyNetworkInterfaceQosOutcome VpcClient::ModifyNetworkInterfaceQos(const ModifyNetworkInterfaceQosRequest &request)
@@ -17712,32 +15241,25 @@ VpcClient::ModifyNetworkInterfaceQosOutcome VpcClient::ModifyNetworkInterfaceQos
 
 void VpcClient::ModifyNetworkInterfaceQosAsync(const ModifyNetworkInterfaceQosRequest& request, const ModifyNetworkInterfaceQosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyNetworkInterfaceQosRequest&;
-    using Resp = ModifyNetworkInterfaceQosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyNetworkInterfaceQos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyNetworkInterfaceQos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyNetworkInterfaceQosOutcomeCallable VpcClient::ModifyNetworkInterfaceQosCallable(const ModifyNetworkInterfaceQosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyNetworkInterfaceQosOutcome>>();
-    ModifyNetworkInterfaceQosAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyNetworkInterfaceQosRequest&,
-        ModifyNetworkInterfaceQosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyNetworkInterfaceQosOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyNetworkInterfaceQos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyPrivateIpAddressesAttributeOutcome VpcClient::ModifyPrivateIpAddressesAttribute(const ModifyPrivateIpAddressesAttributeRequest &request)
@@ -17762,32 +15284,25 @@ VpcClient::ModifyPrivateIpAddressesAttributeOutcome VpcClient::ModifyPrivateIpAd
 
 void VpcClient::ModifyPrivateIpAddressesAttributeAsync(const ModifyPrivateIpAddressesAttributeRequest& request, const ModifyPrivateIpAddressesAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrivateIpAddressesAttributeRequest&;
-    using Resp = ModifyPrivateIpAddressesAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrivateIpAddressesAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrivateIpAddressesAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyPrivateIpAddressesAttributeOutcomeCallable VpcClient::ModifyPrivateIpAddressesAttributeCallable(const ModifyPrivateIpAddressesAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrivateIpAddressesAttributeOutcome>>();
-    ModifyPrivateIpAddressesAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyPrivateIpAddressesAttributeRequest&,
-        ModifyPrivateIpAddressesAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrivateIpAddressesAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrivateIpAddressesAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyPrivateNatGatewayAttributeOutcome VpcClient::ModifyPrivateNatGatewayAttribute(const ModifyPrivateNatGatewayAttributeRequest &request)
@@ -17812,32 +15327,25 @@ VpcClient::ModifyPrivateNatGatewayAttributeOutcome VpcClient::ModifyPrivateNatGa
 
 void VpcClient::ModifyPrivateNatGatewayAttributeAsync(const ModifyPrivateNatGatewayAttributeRequest& request, const ModifyPrivateNatGatewayAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrivateNatGatewayAttributeRequest&;
-    using Resp = ModifyPrivateNatGatewayAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrivateNatGatewayAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrivateNatGatewayAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyPrivateNatGatewayAttributeOutcomeCallable VpcClient::ModifyPrivateNatGatewayAttributeCallable(const ModifyPrivateNatGatewayAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrivateNatGatewayAttributeOutcome>>();
-    ModifyPrivateNatGatewayAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyPrivateNatGatewayAttributeRequest&,
-        ModifyPrivateNatGatewayAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrivateNatGatewayAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrivateNatGatewayAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome VpcClient::ModifyPrivateNatGatewayDestinationIpPortTranslationNatRule(const ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
@@ -17862,32 +15370,25 @@ VpcClient::ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome Vpc
 
 void VpcClient::ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleAsync(const ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleRequest& request, const ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleRequest&;
-    using Resp = ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrivateNatGatewayDestinationIpPortTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrivateNatGatewayDestinationIpPortTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleOutcomeCallable VpcClient::ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleCallable(const ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome>>();
-    ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleRequest&,
-        ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrivateNatGatewayDestinationIpPortTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrivateNatGatewayDestinationIpPortTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyPrivateNatGatewayTranslationAclRuleOutcome VpcClient::ModifyPrivateNatGatewayTranslationAclRule(const ModifyPrivateNatGatewayTranslationAclRuleRequest &request)
@@ -17912,32 +15413,25 @@ VpcClient::ModifyPrivateNatGatewayTranslationAclRuleOutcome VpcClient::ModifyPri
 
 void VpcClient::ModifyPrivateNatGatewayTranslationAclRuleAsync(const ModifyPrivateNatGatewayTranslationAclRuleRequest& request, const ModifyPrivateNatGatewayTranslationAclRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrivateNatGatewayTranslationAclRuleRequest&;
-    using Resp = ModifyPrivateNatGatewayTranslationAclRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrivateNatGatewayTranslationAclRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrivateNatGatewayTranslationAclRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyPrivateNatGatewayTranslationAclRuleOutcomeCallable VpcClient::ModifyPrivateNatGatewayTranslationAclRuleCallable(const ModifyPrivateNatGatewayTranslationAclRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrivateNatGatewayTranslationAclRuleOutcome>>();
-    ModifyPrivateNatGatewayTranslationAclRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyPrivateNatGatewayTranslationAclRuleRequest&,
-        ModifyPrivateNatGatewayTranslationAclRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrivateNatGatewayTranslationAclRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrivateNatGatewayTranslationAclRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyPrivateNatGatewayTranslationNatRuleOutcome VpcClient::ModifyPrivateNatGatewayTranslationNatRule(const ModifyPrivateNatGatewayTranslationNatRuleRequest &request)
@@ -17962,32 +15456,25 @@ VpcClient::ModifyPrivateNatGatewayTranslationNatRuleOutcome VpcClient::ModifyPri
 
 void VpcClient::ModifyPrivateNatGatewayTranslationNatRuleAsync(const ModifyPrivateNatGatewayTranslationNatRuleRequest& request, const ModifyPrivateNatGatewayTranslationNatRuleAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyPrivateNatGatewayTranslationNatRuleRequest&;
-    using Resp = ModifyPrivateNatGatewayTranslationNatRuleResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyPrivateNatGatewayTranslationNatRule(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyPrivateNatGatewayTranslationNatRule", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyPrivateNatGatewayTranslationNatRuleOutcomeCallable VpcClient::ModifyPrivateNatGatewayTranslationNatRuleCallable(const ModifyPrivateNatGatewayTranslationNatRuleRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyPrivateNatGatewayTranslationNatRuleOutcome>>();
-    ModifyPrivateNatGatewayTranslationNatRuleAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyPrivateNatGatewayTranslationNatRuleRequest&,
-        ModifyPrivateNatGatewayTranslationNatRuleOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyPrivateNatGatewayTranslationNatRuleOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyPrivateNatGatewayTranslationNatRule(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyReserveIpAddressOutcome VpcClient::ModifyReserveIpAddress(const ModifyReserveIpAddressRequest &request)
@@ -18012,32 +15499,25 @@ VpcClient::ModifyReserveIpAddressOutcome VpcClient::ModifyReserveIpAddress(const
 
 void VpcClient::ModifyReserveIpAddressAsync(const ModifyReserveIpAddressRequest& request, const ModifyReserveIpAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyReserveIpAddressRequest&;
-    using Resp = ModifyReserveIpAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyReserveIpAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyReserveIpAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyReserveIpAddressOutcomeCallable VpcClient::ModifyReserveIpAddressCallable(const ModifyReserveIpAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyReserveIpAddressOutcome>>();
-    ModifyReserveIpAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyReserveIpAddressRequest&,
-        ModifyReserveIpAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyReserveIpAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyReserveIpAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyRoutePolicyAttributeOutcome VpcClient::ModifyRoutePolicyAttribute(const ModifyRoutePolicyAttributeRequest &request)
@@ -18062,32 +15542,25 @@ VpcClient::ModifyRoutePolicyAttributeOutcome VpcClient::ModifyRoutePolicyAttribu
 
 void VpcClient::ModifyRoutePolicyAttributeAsync(const ModifyRoutePolicyAttributeRequest& request, const ModifyRoutePolicyAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRoutePolicyAttributeRequest&;
-    using Resp = ModifyRoutePolicyAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRoutePolicyAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRoutePolicyAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyRoutePolicyAttributeOutcomeCallable VpcClient::ModifyRoutePolicyAttributeCallable(const ModifyRoutePolicyAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRoutePolicyAttributeOutcome>>();
-    ModifyRoutePolicyAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyRoutePolicyAttributeRequest&,
-        ModifyRoutePolicyAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRoutePolicyAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRoutePolicyAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyRouteTableAttributeOutcome VpcClient::ModifyRouteTableAttribute(const ModifyRouteTableAttributeRequest &request)
@@ -18112,32 +15585,25 @@ VpcClient::ModifyRouteTableAttributeOutcome VpcClient::ModifyRouteTableAttribute
 
 void VpcClient::ModifyRouteTableAttributeAsync(const ModifyRouteTableAttributeRequest& request, const ModifyRouteTableAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRouteTableAttributeRequest&;
-    using Resp = ModifyRouteTableAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRouteTableAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRouteTableAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyRouteTableAttributeOutcomeCallable VpcClient::ModifyRouteTableAttributeCallable(const ModifyRouteTableAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRouteTableAttributeOutcome>>();
-    ModifyRouteTableAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyRouteTableAttributeRequest&,
-        ModifyRouteTableAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRouteTableAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRouteTableAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyRouteTableSelectionPoliciesOutcome VpcClient::ModifyRouteTableSelectionPolicies(const ModifyRouteTableSelectionPoliciesRequest &request)
@@ -18162,32 +15628,25 @@ VpcClient::ModifyRouteTableSelectionPoliciesOutcome VpcClient::ModifyRouteTableS
 
 void VpcClient::ModifyRouteTableSelectionPoliciesAsync(const ModifyRouteTableSelectionPoliciesRequest& request, const ModifyRouteTableSelectionPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyRouteTableSelectionPoliciesRequest&;
-    using Resp = ModifyRouteTableSelectionPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyRouteTableSelectionPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyRouteTableSelectionPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyRouteTableSelectionPoliciesOutcomeCallable VpcClient::ModifyRouteTableSelectionPoliciesCallable(const ModifyRouteTableSelectionPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyRouteTableSelectionPoliciesOutcome>>();
-    ModifyRouteTableSelectionPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyRouteTableSelectionPoliciesRequest&,
-        ModifyRouteTableSelectionPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyRouteTableSelectionPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyRouteTableSelectionPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifySecurityGroupAttributeOutcome VpcClient::ModifySecurityGroupAttribute(const ModifySecurityGroupAttributeRequest &request)
@@ -18212,32 +15671,25 @@ VpcClient::ModifySecurityGroupAttributeOutcome VpcClient::ModifySecurityGroupAtt
 
 void VpcClient::ModifySecurityGroupAttributeAsync(const ModifySecurityGroupAttributeRequest& request, const ModifySecurityGroupAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySecurityGroupAttributeRequest&;
-    using Resp = ModifySecurityGroupAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySecurityGroupAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySecurityGroupAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifySecurityGroupAttributeOutcomeCallable VpcClient::ModifySecurityGroupAttributeCallable(const ModifySecurityGroupAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySecurityGroupAttributeOutcome>>();
-    ModifySecurityGroupAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifySecurityGroupAttributeRequest&,
-        ModifySecurityGroupAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySecurityGroupAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySecurityGroupAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifySecurityGroupPoliciesOutcome VpcClient::ModifySecurityGroupPolicies(const ModifySecurityGroupPoliciesRequest &request)
@@ -18262,32 +15714,25 @@ VpcClient::ModifySecurityGroupPoliciesOutcome VpcClient::ModifySecurityGroupPoli
 
 void VpcClient::ModifySecurityGroupPoliciesAsync(const ModifySecurityGroupPoliciesRequest& request, const ModifySecurityGroupPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySecurityGroupPoliciesRequest&;
-    using Resp = ModifySecurityGroupPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySecurityGroupPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySecurityGroupPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifySecurityGroupPoliciesOutcomeCallable VpcClient::ModifySecurityGroupPoliciesCallable(const ModifySecurityGroupPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySecurityGroupPoliciesOutcome>>();
-    ModifySecurityGroupPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifySecurityGroupPoliciesRequest&,
-        ModifySecurityGroupPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySecurityGroupPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySecurityGroupPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyServiceTemplateAttributeOutcome VpcClient::ModifyServiceTemplateAttribute(const ModifyServiceTemplateAttributeRequest &request)
@@ -18312,32 +15757,25 @@ VpcClient::ModifyServiceTemplateAttributeOutcome VpcClient::ModifyServiceTemplat
 
 void VpcClient::ModifyServiceTemplateAttributeAsync(const ModifyServiceTemplateAttributeRequest& request, const ModifyServiceTemplateAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyServiceTemplateAttributeRequest&;
-    using Resp = ModifyServiceTemplateAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyServiceTemplateAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyServiceTemplateAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyServiceTemplateAttributeOutcomeCallable VpcClient::ModifyServiceTemplateAttributeCallable(const ModifyServiceTemplateAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyServiceTemplateAttributeOutcome>>();
-    ModifyServiceTemplateAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyServiceTemplateAttributeRequest&,
-        ModifyServiceTemplateAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyServiceTemplateAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyServiceTemplateAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyServiceTemplateGroupAttributeOutcome VpcClient::ModifyServiceTemplateGroupAttribute(const ModifyServiceTemplateGroupAttributeRequest &request)
@@ -18362,32 +15800,25 @@ VpcClient::ModifyServiceTemplateGroupAttributeOutcome VpcClient::ModifyServiceTe
 
 void VpcClient::ModifyServiceTemplateGroupAttributeAsync(const ModifyServiceTemplateGroupAttributeRequest& request, const ModifyServiceTemplateGroupAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyServiceTemplateGroupAttributeRequest&;
-    using Resp = ModifyServiceTemplateGroupAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyServiceTemplateGroupAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyServiceTemplateGroupAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyServiceTemplateGroupAttributeOutcomeCallable VpcClient::ModifyServiceTemplateGroupAttributeCallable(const ModifyServiceTemplateGroupAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyServiceTemplateGroupAttributeOutcome>>();
-    ModifyServiceTemplateGroupAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyServiceTemplateGroupAttributeRequest&,
-        ModifyServiceTemplateGroupAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyServiceTemplateGroupAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyServiceTemplateGroupAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifySnapshotPoliciesOutcome VpcClient::ModifySnapshotPolicies(const ModifySnapshotPoliciesRequest &request)
@@ -18412,32 +15843,25 @@ VpcClient::ModifySnapshotPoliciesOutcome VpcClient::ModifySnapshotPolicies(const
 
 void VpcClient::ModifySnapshotPoliciesAsync(const ModifySnapshotPoliciesRequest& request, const ModifySnapshotPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySnapshotPoliciesRequest&;
-    using Resp = ModifySnapshotPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySnapshotPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySnapshotPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifySnapshotPoliciesOutcomeCallable VpcClient::ModifySnapshotPoliciesCallable(const ModifySnapshotPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySnapshotPoliciesOutcome>>();
-    ModifySnapshotPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifySnapshotPoliciesRequest&,
-        ModifySnapshotPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySnapshotPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySnapshotPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifySubnetAttributeOutcome VpcClient::ModifySubnetAttribute(const ModifySubnetAttributeRequest &request)
@@ -18462,32 +15886,25 @@ VpcClient::ModifySubnetAttributeOutcome VpcClient::ModifySubnetAttribute(const M
 
 void VpcClient::ModifySubnetAttributeAsync(const ModifySubnetAttributeRequest& request, const ModifySubnetAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifySubnetAttributeRequest&;
-    using Resp = ModifySubnetAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifySubnetAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifySubnetAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifySubnetAttributeOutcomeCallable VpcClient::ModifySubnetAttributeCallable(const ModifySubnetAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifySubnetAttributeOutcome>>();
-    ModifySubnetAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifySubnetAttributeRequest&,
-        ModifySubnetAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifySubnetAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifySubnetAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyTemplateMemberOutcome VpcClient::ModifyTemplateMember(const ModifyTemplateMemberRequest &request)
@@ -18512,32 +15929,25 @@ VpcClient::ModifyTemplateMemberOutcome VpcClient::ModifyTemplateMember(const Mod
 
 void VpcClient::ModifyTemplateMemberAsync(const ModifyTemplateMemberRequest& request, const ModifyTemplateMemberAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTemplateMemberRequest&;
-    using Resp = ModifyTemplateMemberResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTemplateMember(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTemplateMember", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyTemplateMemberOutcomeCallable VpcClient::ModifyTemplateMemberCallable(const ModifyTemplateMemberRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTemplateMemberOutcome>>();
-    ModifyTemplateMemberAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyTemplateMemberRequest&,
-        ModifyTemplateMemberOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTemplateMemberOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTemplateMember(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyTrafficMirrorAttributeOutcome VpcClient::ModifyTrafficMirrorAttribute(const ModifyTrafficMirrorAttributeRequest &request)
@@ -18562,32 +15972,25 @@ VpcClient::ModifyTrafficMirrorAttributeOutcome VpcClient::ModifyTrafficMirrorAtt
 
 void VpcClient::ModifyTrafficMirrorAttributeAsync(const ModifyTrafficMirrorAttributeRequest& request, const ModifyTrafficMirrorAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyTrafficMirrorAttributeRequest&;
-    using Resp = ModifyTrafficMirrorAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyTrafficMirrorAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyTrafficMirrorAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyTrafficMirrorAttributeOutcomeCallable VpcClient::ModifyTrafficMirrorAttributeCallable(const ModifyTrafficMirrorAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyTrafficMirrorAttributeOutcome>>();
-    ModifyTrafficMirrorAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyTrafficMirrorAttributeRequest&,
-        ModifyTrafficMirrorAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyTrafficMirrorAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyTrafficMirrorAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpcAttributeOutcome VpcClient::ModifyVpcAttribute(const ModifyVpcAttributeRequest &request)
@@ -18612,32 +16015,25 @@ VpcClient::ModifyVpcAttributeOutcome VpcClient::ModifyVpcAttribute(const ModifyV
 
 void VpcClient::ModifyVpcAttributeAsync(const ModifyVpcAttributeRequest& request, const ModifyVpcAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpcAttributeRequest&;
-    using Resp = ModifyVpcAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpcAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpcAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpcAttributeOutcomeCallable VpcClient::ModifyVpcAttributeCallable(const ModifyVpcAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpcAttributeOutcome>>();
-    ModifyVpcAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpcAttributeRequest&,
-        ModifyVpcAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpcAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpcAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpcEndPointAttributeOutcome VpcClient::ModifyVpcEndPointAttribute(const ModifyVpcEndPointAttributeRequest &request)
@@ -18662,32 +16058,25 @@ VpcClient::ModifyVpcEndPointAttributeOutcome VpcClient::ModifyVpcEndPointAttribu
 
 void VpcClient::ModifyVpcEndPointAttributeAsync(const ModifyVpcEndPointAttributeRequest& request, const ModifyVpcEndPointAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpcEndPointAttributeRequest&;
-    using Resp = ModifyVpcEndPointAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpcEndPointAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpcEndPointAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpcEndPointAttributeOutcomeCallable VpcClient::ModifyVpcEndPointAttributeCallable(const ModifyVpcEndPointAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpcEndPointAttributeOutcome>>();
-    ModifyVpcEndPointAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpcEndPointAttributeRequest&,
-        ModifyVpcEndPointAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpcEndPointAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpcEndPointAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpcEndPointServiceAttributeOutcome VpcClient::ModifyVpcEndPointServiceAttribute(const ModifyVpcEndPointServiceAttributeRequest &request)
@@ -18712,32 +16101,25 @@ VpcClient::ModifyVpcEndPointServiceAttributeOutcome VpcClient::ModifyVpcEndPoint
 
 void VpcClient::ModifyVpcEndPointServiceAttributeAsync(const ModifyVpcEndPointServiceAttributeRequest& request, const ModifyVpcEndPointServiceAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpcEndPointServiceAttributeRequest&;
-    using Resp = ModifyVpcEndPointServiceAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpcEndPointServiceAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpcEndPointServiceAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpcEndPointServiceAttributeOutcomeCallable VpcClient::ModifyVpcEndPointServiceAttributeCallable(const ModifyVpcEndPointServiceAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpcEndPointServiceAttributeOutcome>>();
-    ModifyVpcEndPointServiceAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpcEndPointServiceAttributeRequest&,
-        ModifyVpcEndPointServiceAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpcEndPointServiceAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpcEndPointServiceAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpcEndPointServiceWhiteListOutcome VpcClient::ModifyVpcEndPointServiceWhiteList(const ModifyVpcEndPointServiceWhiteListRequest &request)
@@ -18762,32 +16144,25 @@ VpcClient::ModifyVpcEndPointServiceWhiteListOutcome VpcClient::ModifyVpcEndPoint
 
 void VpcClient::ModifyVpcEndPointServiceWhiteListAsync(const ModifyVpcEndPointServiceWhiteListRequest& request, const ModifyVpcEndPointServiceWhiteListAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpcEndPointServiceWhiteListRequest&;
-    using Resp = ModifyVpcEndPointServiceWhiteListResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpcEndPointServiceWhiteList(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpcEndPointServiceWhiteList", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpcEndPointServiceWhiteListOutcomeCallable VpcClient::ModifyVpcEndPointServiceWhiteListCallable(const ModifyVpcEndPointServiceWhiteListRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpcEndPointServiceWhiteListOutcome>>();
-    ModifyVpcEndPointServiceWhiteListAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpcEndPointServiceWhiteListRequest&,
-        ModifyVpcEndPointServiceWhiteListOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpcEndPointServiceWhiteListOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpcEndPointServiceWhiteList(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpcPeeringConnectionOutcome VpcClient::ModifyVpcPeeringConnection(const ModifyVpcPeeringConnectionRequest &request)
@@ -18812,32 +16187,25 @@ VpcClient::ModifyVpcPeeringConnectionOutcome VpcClient::ModifyVpcPeeringConnecti
 
 void VpcClient::ModifyVpcPeeringConnectionAsync(const ModifyVpcPeeringConnectionRequest& request, const ModifyVpcPeeringConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpcPeeringConnectionRequest&;
-    using Resp = ModifyVpcPeeringConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpcPeeringConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpcPeeringConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpcPeeringConnectionOutcomeCallable VpcClient::ModifyVpcPeeringConnectionCallable(const ModifyVpcPeeringConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpcPeeringConnectionOutcome>>();
-    ModifyVpcPeeringConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpcPeeringConnectionRequest&,
-        ModifyVpcPeeringConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpcPeeringConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpcPeeringConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpnConnectionAttributeOutcome VpcClient::ModifyVpnConnectionAttribute(const ModifyVpnConnectionAttributeRequest &request)
@@ -18862,32 +16230,25 @@ VpcClient::ModifyVpnConnectionAttributeOutcome VpcClient::ModifyVpnConnectionAtt
 
 void VpcClient::ModifyVpnConnectionAttributeAsync(const ModifyVpnConnectionAttributeRequest& request, const ModifyVpnConnectionAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpnConnectionAttributeRequest&;
-    using Resp = ModifyVpnConnectionAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpnConnectionAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpnConnectionAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpnConnectionAttributeOutcomeCallable VpcClient::ModifyVpnConnectionAttributeCallable(const ModifyVpnConnectionAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpnConnectionAttributeOutcome>>();
-    ModifyVpnConnectionAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpnConnectionAttributeRequest&,
-        ModifyVpnConnectionAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpnConnectionAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpnConnectionAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpnGatewayAttributeOutcome VpcClient::ModifyVpnGatewayAttribute(const ModifyVpnGatewayAttributeRequest &request)
@@ -18912,32 +16273,25 @@ VpcClient::ModifyVpnGatewayAttributeOutcome VpcClient::ModifyVpnGatewayAttribute
 
 void VpcClient::ModifyVpnGatewayAttributeAsync(const ModifyVpnGatewayAttributeRequest& request, const ModifyVpnGatewayAttributeAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpnGatewayAttributeRequest&;
-    using Resp = ModifyVpnGatewayAttributeResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpnGatewayAttribute(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpnGatewayAttribute", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpnGatewayAttributeOutcomeCallable VpcClient::ModifyVpnGatewayAttributeCallable(const ModifyVpnGatewayAttributeRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpnGatewayAttributeOutcome>>();
-    ModifyVpnGatewayAttributeAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpnGatewayAttributeRequest&,
-        ModifyVpnGatewayAttributeOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpnGatewayAttributeOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpnGatewayAttribute(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpnGatewayCcnRoutesOutcome VpcClient::ModifyVpnGatewayCcnRoutes(const ModifyVpnGatewayCcnRoutesRequest &request)
@@ -18962,32 +16316,25 @@ VpcClient::ModifyVpnGatewayCcnRoutesOutcome VpcClient::ModifyVpnGatewayCcnRoutes
 
 void VpcClient::ModifyVpnGatewayCcnRoutesAsync(const ModifyVpnGatewayCcnRoutesRequest& request, const ModifyVpnGatewayCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpnGatewayCcnRoutesRequest&;
-    using Resp = ModifyVpnGatewayCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpnGatewayCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpnGatewayCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpnGatewayCcnRoutesOutcomeCallable VpcClient::ModifyVpnGatewayCcnRoutesCallable(const ModifyVpnGatewayCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpnGatewayCcnRoutesOutcome>>();
-    ModifyVpnGatewayCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpnGatewayCcnRoutesRequest&,
-        ModifyVpnGatewayCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpnGatewayCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpnGatewayCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpnGatewayRoutesOutcome VpcClient::ModifyVpnGatewayRoutes(const ModifyVpnGatewayRoutesRequest &request)
@@ -19012,32 +16359,25 @@ VpcClient::ModifyVpnGatewayRoutesOutcome VpcClient::ModifyVpnGatewayRoutes(const
 
 void VpcClient::ModifyVpnGatewayRoutesAsync(const ModifyVpnGatewayRoutesRequest& request, const ModifyVpnGatewayRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpnGatewayRoutesRequest&;
-    using Resp = ModifyVpnGatewayRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpnGatewayRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpnGatewayRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpnGatewayRoutesOutcomeCallable VpcClient::ModifyVpnGatewayRoutesCallable(const ModifyVpnGatewayRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpnGatewayRoutesOutcome>>();
-    ModifyVpnGatewayRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpnGatewayRoutesRequest&,
-        ModifyVpnGatewayRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpnGatewayRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpnGatewayRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpnGatewaySslClientCertOutcome VpcClient::ModifyVpnGatewaySslClientCert(const ModifyVpnGatewaySslClientCertRequest &request)
@@ -19062,32 +16402,25 @@ VpcClient::ModifyVpnGatewaySslClientCertOutcome VpcClient::ModifyVpnGatewaySslCl
 
 void VpcClient::ModifyVpnGatewaySslClientCertAsync(const ModifyVpnGatewaySslClientCertRequest& request, const ModifyVpnGatewaySslClientCertAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpnGatewaySslClientCertRequest&;
-    using Resp = ModifyVpnGatewaySslClientCertResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpnGatewaySslClientCert(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpnGatewaySslClientCert", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpnGatewaySslClientCertOutcomeCallable VpcClient::ModifyVpnGatewaySslClientCertCallable(const ModifyVpnGatewaySslClientCertRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpnGatewaySslClientCertOutcome>>();
-    ModifyVpnGatewaySslClientCertAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpnGatewaySslClientCertRequest&,
-        ModifyVpnGatewaySslClientCertOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpnGatewaySslClientCertOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpnGatewaySslClientCert(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ModifyVpnGatewaySslServerOutcome VpcClient::ModifyVpnGatewaySslServer(const ModifyVpnGatewaySslServerRequest &request)
@@ -19112,32 +16445,25 @@ VpcClient::ModifyVpnGatewaySslServerOutcome VpcClient::ModifyVpnGatewaySslServer
 
 void VpcClient::ModifyVpnGatewaySslServerAsync(const ModifyVpnGatewaySslServerRequest& request, const ModifyVpnGatewaySslServerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ModifyVpnGatewaySslServerRequest&;
-    using Resp = ModifyVpnGatewaySslServerResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ModifyVpnGatewaySslServer(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ModifyVpnGatewaySslServer", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ModifyVpnGatewaySslServerOutcomeCallable VpcClient::ModifyVpnGatewaySslServerCallable(const ModifyVpnGatewaySslServerRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ModifyVpnGatewaySslServerOutcome>>();
-    ModifyVpnGatewaySslServerAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ModifyVpnGatewaySslServerRequest&,
-        ModifyVpnGatewaySslServerOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ModifyVpnGatewaySslServerOutcome()>>(
+        [this, request]()
+        {
+            return this->ModifyVpnGatewaySslServer(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::NotifyRoutesOutcome VpcClient::NotifyRoutes(const NotifyRoutesRequest &request)
@@ -19162,32 +16488,25 @@ VpcClient::NotifyRoutesOutcome VpcClient::NotifyRoutes(const NotifyRoutesRequest
 
 void VpcClient::NotifyRoutesAsync(const NotifyRoutesRequest& request, const NotifyRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const NotifyRoutesRequest&;
-    using Resp = NotifyRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->NotifyRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "NotifyRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::NotifyRoutesOutcomeCallable VpcClient::NotifyRoutesCallable(const NotifyRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<NotifyRoutesOutcome>>();
-    NotifyRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const NotifyRoutesRequest&,
-        NotifyRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<NotifyRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->NotifyRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::RefreshDirectConnectGatewayRouteToNatGatewayOutcome VpcClient::RefreshDirectConnectGatewayRouteToNatGateway(const RefreshDirectConnectGatewayRouteToNatGatewayRequest &request)
@@ -19212,32 +16531,25 @@ VpcClient::RefreshDirectConnectGatewayRouteToNatGatewayOutcome VpcClient::Refres
 
 void VpcClient::RefreshDirectConnectGatewayRouteToNatGatewayAsync(const RefreshDirectConnectGatewayRouteToNatGatewayRequest& request, const RefreshDirectConnectGatewayRouteToNatGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RefreshDirectConnectGatewayRouteToNatGatewayRequest&;
-    using Resp = RefreshDirectConnectGatewayRouteToNatGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RefreshDirectConnectGatewayRouteToNatGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RefreshDirectConnectGatewayRouteToNatGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::RefreshDirectConnectGatewayRouteToNatGatewayOutcomeCallable VpcClient::RefreshDirectConnectGatewayRouteToNatGatewayCallable(const RefreshDirectConnectGatewayRouteToNatGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RefreshDirectConnectGatewayRouteToNatGatewayOutcome>>();
-    RefreshDirectConnectGatewayRouteToNatGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const RefreshDirectConnectGatewayRouteToNatGatewayRequest&,
-        RefreshDirectConnectGatewayRouteToNatGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RefreshDirectConnectGatewayRouteToNatGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->RefreshDirectConnectGatewayRouteToNatGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::RejectAttachCcnInstancesOutcome VpcClient::RejectAttachCcnInstances(const RejectAttachCcnInstancesRequest &request)
@@ -19262,32 +16574,25 @@ VpcClient::RejectAttachCcnInstancesOutcome VpcClient::RejectAttachCcnInstances(c
 
 void VpcClient::RejectAttachCcnInstancesAsync(const RejectAttachCcnInstancesRequest& request, const RejectAttachCcnInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RejectAttachCcnInstancesRequest&;
-    using Resp = RejectAttachCcnInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RejectAttachCcnInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RejectAttachCcnInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::RejectAttachCcnInstancesOutcomeCallable VpcClient::RejectAttachCcnInstancesCallable(const RejectAttachCcnInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RejectAttachCcnInstancesOutcome>>();
-    RejectAttachCcnInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const RejectAttachCcnInstancesRequest&,
-        RejectAttachCcnInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RejectAttachCcnInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->RejectAttachCcnInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::RejectVpcPeeringConnectionOutcome VpcClient::RejectVpcPeeringConnection(const RejectVpcPeeringConnectionRequest &request)
@@ -19312,32 +16617,25 @@ VpcClient::RejectVpcPeeringConnectionOutcome VpcClient::RejectVpcPeeringConnecti
 
 void VpcClient::RejectVpcPeeringConnectionAsync(const RejectVpcPeeringConnectionRequest& request, const RejectVpcPeeringConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RejectVpcPeeringConnectionRequest&;
-    using Resp = RejectVpcPeeringConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RejectVpcPeeringConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RejectVpcPeeringConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::RejectVpcPeeringConnectionOutcomeCallable VpcClient::RejectVpcPeeringConnectionCallable(const RejectVpcPeeringConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RejectVpcPeeringConnectionOutcome>>();
-    RejectVpcPeeringConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const RejectVpcPeeringConnectionRequest&,
-        RejectVpcPeeringConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RejectVpcPeeringConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->RejectVpcPeeringConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReleaseAddressesOutcome VpcClient::ReleaseAddresses(const ReleaseAddressesRequest &request)
@@ -19362,32 +16660,25 @@ VpcClient::ReleaseAddressesOutcome VpcClient::ReleaseAddresses(const ReleaseAddr
 
 void VpcClient::ReleaseAddressesAsync(const ReleaseAddressesRequest& request, const ReleaseAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReleaseAddressesRequest&;
-    using Resp = ReleaseAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReleaseAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReleaseAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReleaseAddressesOutcomeCallable VpcClient::ReleaseAddressesCallable(const ReleaseAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReleaseAddressesOutcome>>();
-    ReleaseAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReleaseAddressesRequest&,
-        ReleaseAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReleaseAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReleaseAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReleaseIPv6AddressesOutcome VpcClient::ReleaseIPv6Addresses(const ReleaseIPv6AddressesRequest &request)
@@ -19412,32 +16703,25 @@ VpcClient::ReleaseIPv6AddressesOutcome VpcClient::ReleaseIPv6Addresses(const Rel
 
 void VpcClient::ReleaseIPv6AddressesAsync(const ReleaseIPv6AddressesRequest& request, const ReleaseIPv6AddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReleaseIPv6AddressesRequest&;
-    using Resp = ReleaseIPv6AddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReleaseIPv6Addresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReleaseIPv6Addresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReleaseIPv6AddressesOutcomeCallable VpcClient::ReleaseIPv6AddressesCallable(const ReleaseIPv6AddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReleaseIPv6AddressesOutcome>>();
-    ReleaseIPv6AddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReleaseIPv6AddressesRequest&,
-        ReleaseIPv6AddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReleaseIPv6AddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReleaseIPv6Addresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReleaseIp6AddressesBandwidthOutcome VpcClient::ReleaseIp6AddressesBandwidth(const ReleaseIp6AddressesBandwidthRequest &request)
@@ -19462,32 +16746,25 @@ VpcClient::ReleaseIp6AddressesBandwidthOutcome VpcClient::ReleaseIp6AddressesBan
 
 void VpcClient::ReleaseIp6AddressesBandwidthAsync(const ReleaseIp6AddressesBandwidthRequest& request, const ReleaseIp6AddressesBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReleaseIp6AddressesBandwidthRequest&;
-    using Resp = ReleaseIp6AddressesBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReleaseIp6AddressesBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReleaseIp6AddressesBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReleaseIp6AddressesBandwidthOutcomeCallable VpcClient::ReleaseIp6AddressesBandwidthCallable(const ReleaseIp6AddressesBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReleaseIp6AddressesBandwidthOutcome>>();
-    ReleaseIp6AddressesBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReleaseIp6AddressesBandwidthRequest&,
-        ReleaseIp6AddressesBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReleaseIp6AddressesBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->ReleaseIp6AddressesBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::RemoveBandwidthPackageResourcesOutcome VpcClient::RemoveBandwidthPackageResources(const RemoveBandwidthPackageResourcesRequest &request)
@@ -19512,32 +16789,25 @@ VpcClient::RemoveBandwidthPackageResourcesOutcome VpcClient::RemoveBandwidthPack
 
 void VpcClient::RemoveBandwidthPackageResourcesAsync(const RemoveBandwidthPackageResourcesRequest& request, const RemoveBandwidthPackageResourcesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveBandwidthPackageResourcesRequest&;
-    using Resp = RemoveBandwidthPackageResourcesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveBandwidthPackageResources(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveBandwidthPackageResources", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::RemoveBandwidthPackageResourcesOutcomeCallable VpcClient::RemoveBandwidthPackageResourcesCallable(const RemoveBandwidthPackageResourcesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveBandwidthPackageResourcesOutcome>>();
-    RemoveBandwidthPackageResourcesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const RemoveBandwidthPackageResourcesRequest&,
-        RemoveBandwidthPackageResourcesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveBandwidthPackageResourcesOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveBandwidthPackageResources(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::RemoveIp6RulesOutcome VpcClient::RemoveIp6Rules(const RemoveIp6RulesRequest &request)
@@ -19562,32 +16832,25 @@ VpcClient::RemoveIp6RulesOutcome VpcClient::RemoveIp6Rules(const RemoveIp6RulesR
 
 void VpcClient::RemoveIp6RulesAsync(const RemoveIp6RulesRequest& request, const RemoveIp6RulesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RemoveIp6RulesRequest&;
-    using Resp = RemoveIp6RulesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RemoveIp6Rules(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RemoveIp6Rules", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::RemoveIp6RulesOutcomeCallable VpcClient::RemoveIp6RulesCallable(const RemoveIp6RulesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RemoveIp6RulesOutcome>>();
-    RemoveIp6RulesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const RemoveIp6RulesRequest&,
-        RemoveIp6RulesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RemoveIp6RulesOutcome()>>(
+        [this, request]()
+        {
+            return this->RemoveIp6Rules(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::RenewAddressesOutcome VpcClient::RenewAddresses(const RenewAddressesRequest &request)
@@ -19612,32 +16875,25 @@ VpcClient::RenewAddressesOutcome VpcClient::RenewAddresses(const RenewAddressesR
 
 void VpcClient::RenewAddressesAsync(const RenewAddressesRequest& request, const RenewAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewAddressesRequest&;
-    using Resp = RenewAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::RenewAddressesOutcomeCallable VpcClient::RenewAddressesCallable(const RenewAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewAddressesOutcome>>();
-    RenewAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const RenewAddressesRequest&,
-        RenewAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::RenewVpnGatewayOutcome VpcClient::RenewVpnGateway(const RenewVpnGatewayRequest &request)
@@ -19662,32 +16918,25 @@ VpcClient::RenewVpnGatewayOutcome VpcClient::RenewVpnGateway(const RenewVpnGatew
 
 void VpcClient::RenewVpnGatewayAsync(const RenewVpnGatewayRequest& request, const RenewVpnGatewayAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RenewVpnGatewayRequest&;
-    using Resp = RenewVpnGatewayResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RenewVpnGateway(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RenewVpnGateway", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::RenewVpnGatewayOutcomeCallable VpcClient::RenewVpnGatewayCallable(const RenewVpnGatewayRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RenewVpnGatewayOutcome>>();
-    RenewVpnGatewayAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const RenewVpnGatewayRequest&,
-        RenewVpnGatewayOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RenewVpnGatewayOutcome()>>(
+        [this, request]()
+        {
+            return this->RenewVpnGateway(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceCcnRouteTableBroadcastPolicysOutcome VpcClient::ReplaceCcnRouteTableBroadcastPolicys(const ReplaceCcnRouteTableBroadcastPolicysRequest &request)
@@ -19712,32 +16961,25 @@ VpcClient::ReplaceCcnRouteTableBroadcastPolicysOutcome VpcClient::ReplaceCcnRout
 
 void VpcClient::ReplaceCcnRouteTableBroadcastPolicysAsync(const ReplaceCcnRouteTableBroadcastPolicysRequest& request, const ReplaceCcnRouteTableBroadcastPolicysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceCcnRouteTableBroadcastPolicysRequest&;
-    using Resp = ReplaceCcnRouteTableBroadcastPolicysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceCcnRouteTableBroadcastPolicys(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceCcnRouteTableBroadcastPolicys", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceCcnRouteTableBroadcastPolicysOutcomeCallable VpcClient::ReplaceCcnRouteTableBroadcastPolicysCallable(const ReplaceCcnRouteTableBroadcastPolicysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceCcnRouteTableBroadcastPolicysOutcome>>();
-    ReplaceCcnRouteTableBroadcastPolicysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceCcnRouteTableBroadcastPolicysRequest&,
-        ReplaceCcnRouteTableBroadcastPolicysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceCcnRouteTableBroadcastPolicysOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceCcnRouteTableBroadcastPolicys(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceCcnRouteTableInputPolicysOutcome VpcClient::ReplaceCcnRouteTableInputPolicys(const ReplaceCcnRouteTableInputPolicysRequest &request)
@@ -19762,32 +17004,25 @@ VpcClient::ReplaceCcnRouteTableInputPolicysOutcome VpcClient::ReplaceCcnRouteTab
 
 void VpcClient::ReplaceCcnRouteTableInputPolicysAsync(const ReplaceCcnRouteTableInputPolicysRequest& request, const ReplaceCcnRouteTableInputPolicysAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceCcnRouteTableInputPolicysRequest&;
-    using Resp = ReplaceCcnRouteTableInputPolicysResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceCcnRouteTableInputPolicys(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceCcnRouteTableInputPolicys", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceCcnRouteTableInputPolicysOutcomeCallable VpcClient::ReplaceCcnRouteTableInputPolicysCallable(const ReplaceCcnRouteTableInputPolicysRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceCcnRouteTableInputPolicysOutcome>>();
-    ReplaceCcnRouteTableInputPolicysAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceCcnRouteTableInputPolicysRequest&,
-        ReplaceCcnRouteTableInputPolicysOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceCcnRouteTableInputPolicysOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceCcnRouteTableInputPolicys(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceDirectConnectGatewayCcnRoutesOutcome VpcClient::ReplaceDirectConnectGatewayCcnRoutes(const ReplaceDirectConnectGatewayCcnRoutesRequest &request)
@@ -19812,32 +17047,25 @@ VpcClient::ReplaceDirectConnectGatewayCcnRoutesOutcome VpcClient::ReplaceDirectC
 
 void VpcClient::ReplaceDirectConnectGatewayCcnRoutesAsync(const ReplaceDirectConnectGatewayCcnRoutesRequest& request, const ReplaceDirectConnectGatewayCcnRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceDirectConnectGatewayCcnRoutesRequest&;
-    using Resp = ReplaceDirectConnectGatewayCcnRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceDirectConnectGatewayCcnRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceDirectConnectGatewayCcnRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceDirectConnectGatewayCcnRoutesOutcomeCallable VpcClient::ReplaceDirectConnectGatewayCcnRoutesCallable(const ReplaceDirectConnectGatewayCcnRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceDirectConnectGatewayCcnRoutesOutcome>>();
-    ReplaceDirectConnectGatewayCcnRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceDirectConnectGatewayCcnRoutesRequest&,
-        ReplaceDirectConnectGatewayCcnRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceDirectConnectGatewayCcnRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceDirectConnectGatewayCcnRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceHighPriorityRouteTableAssociationOutcome VpcClient::ReplaceHighPriorityRouteTableAssociation(const ReplaceHighPriorityRouteTableAssociationRequest &request)
@@ -19862,32 +17090,25 @@ VpcClient::ReplaceHighPriorityRouteTableAssociationOutcome VpcClient::ReplaceHig
 
 void VpcClient::ReplaceHighPriorityRouteTableAssociationAsync(const ReplaceHighPriorityRouteTableAssociationRequest& request, const ReplaceHighPriorityRouteTableAssociationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceHighPriorityRouteTableAssociationRequest&;
-    using Resp = ReplaceHighPriorityRouteTableAssociationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceHighPriorityRouteTableAssociation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceHighPriorityRouteTableAssociation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceHighPriorityRouteTableAssociationOutcomeCallable VpcClient::ReplaceHighPriorityRouteTableAssociationCallable(const ReplaceHighPriorityRouteTableAssociationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceHighPriorityRouteTableAssociationOutcome>>();
-    ReplaceHighPriorityRouteTableAssociationAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceHighPriorityRouteTableAssociationRequest&,
-        ReplaceHighPriorityRouteTableAssociationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceHighPriorityRouteTableAssociationOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceHighPriorityRouteTableAssociation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceHighPriorityRoutesOutcome VpcClient::ReplaceHighPriorityRoutes(const ReplaceHighPriorityRoutesRequest &request)
@@ -19912,32 +17133,25 @@ VpcClient::ReplaceHighPriorityRoutesOutcome VpcClient::ReplaceHighPriorityRoutes
 
 void VpcClient::ReplaceHighPriorityRoutesAsync(const ReplaceHighPriorityRoutesRequest& request, const ReplaceHighPriorityRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceHighPriorityRoutesRequest&;
-    using Resp = ReplaceHighPriorityRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceHighPriorityRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceHighPriorityRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceHighPriorityRoutesOutcomeCallable VpcClient::ReplaceHighPriorityRoutesCallable(const ReplaceHighPriorityRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceHighPriorityRoutesOutcome>>();
-    ReplaceHighPriorityRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceHighPriorityRoutesRequest&,
-        ReplaceHighPriorityRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceHighPriorityRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceHighPriorityRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceRoutePolicyAssociationsOutcome VpcClient::ReplaceRoutePolicyAssociations(const ReplaceRoutePolicyAssociationsRequest &request)
@@ -19962,32 +17176,25 @@ VpcClient::ReplaceRoutePolicyAssociationsOutcome VpcClient::ReplaceRoutePolicyAs
 
 void VpcClient::ReplaceRoutePolicyAssociationsAsync(const ReplaceRoutePolicyAssociationsRequest& request, const ReplaceRoutePolicyAssociationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceRoutePolicyAssociationsRequest&;
-    using Resp = ReplaceRoutePolicyAssociationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceRoutePolicyAssociations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceRoutePolicyAssociations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceRoutePolicyAssociationsOutcomeCallable VpcClient::ReplaceRoutePolicyAssociationsCallable(const ReplaceRoutePolicyAssociationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceRoutePolicyAssociationsOutcome>>();
-    ReplaceRoutePolicyAssociationsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceRoutePolicyAssociationsRequest&,
-        ReplaceRoutePolicyAssociationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceRoutePolicyAssociationsOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceRoutePolicyAssociations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceRoutePolicyEntriesOutcome VpcClient::ReplaceRoutePolicyEntries(const ReplaceRoutePolicyEntriesRequest &request)
@@ -20012,32 +17219,25 @@ VpcClient::ReplaceRoutePolicyEntriesOutcome VpcClient::ReplaceRoutePolicyEntries
 
 void VpcClient::ReplaceRoutePolicyEntriesAsync(const ReplaceRoutePolicyEntriesRequest& request, const ReplaceRoutePolicyEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceRoutePolicyEntriesRequest&;
-    using Resp = ReplaceRoutePolicyEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceRoutePolicyEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceRoutePolicyEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceRoutePolicyEntriesOutcomeCallable VpcClient::ReplaceRoutePolicyEntriesCallable(const ReplaceRoutePolicyEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceRoutePolicyEntriesOutcome>>();
-    ReplaceRoutePolicyEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceRoutePolicyEntriesRequest&,
-        ReplaceRoutePolicyEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceRoutePolicyEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceRoutePolicyEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceRouteTableAssociationOutcome VpcClient::ReplaceRouteTableAssociation(const ReplaceRouteTableAssociationRequest &request)
@@ -20062,32 +17262,25 @@ VpcClient::ReplaceRouteTableAssociationOutcome VpcClient::ReplaceRouteTableAssoc
 
 void VpcClient::ReplaceRouteTableAssociationAsync(const ReplaceRouteTableAssociationRequest& request, const ReplaceRouteTableAssociationAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceRouteTableAssociationRequest&;
-    using Resp = ReplaceRouteTableAssociationResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceRouteTableAssociation(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceRouteTableAssociation", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceRouteTableAssociationOutcomeCallable VpcClient::ReplaceRouteTableAssociationCallable(const ReplaceRouteTableAssociationRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceRouteTableAssociationOutcome>>();
-    ReplaceRouteTableAssociationAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceRouteTableAssociationRequest&,
-        ReplaceRouteTableAssociationOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceRouteTableAssociationOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceRouteTableAssociation(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceRoutesOutcome VpcClient::ReplaceRoutes(const ReplaceRoutesRequest &request)
@@ -20112,32 +17305,25 @@ VpcClient::ReplaceRoutesOutcome VpcClient::ReplaceRoutes(const ReplaceRoutesRequ
 
 void VpcClient::ReplaceRoutesAsync(const ReplaceRoutesRequest& request, const ReplaceRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceRoutesRequest&;
-    using Resp = ReplaceRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceRoutesOutcomeCallable VpcClient::ReplaceRoutesCallable(const ReplaceRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceRoutesOutcome>>();
-    ReplaceRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceRoutesRequest&,
-        ReplaceRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceSecurityGroupPoliciesOutcome VpcClient::ReplaceSecurityGroupPolicies(const ReplaceSecurityGroupPoliciesRequest &request)
@@ -20162,32 +17348,25 @@ VpcClient::ReplaceSecurityGroupPoliciesOutcome VpcClient::ReplaceSecurityGroupPo
 
 void VpcClient::ReplaceSecurityGroupPoliciesAsync(const ReplaceSecurityGroupPoliciesRequest& request, const ReplaceSecurityGroupPoliciesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceSecurityGroupPoliciesRequest&;
-    using Resp = ReplaceSecurityGroupPoliciesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceSecurityGroupPolicies(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceSecurityGroupPolicies", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceSecurityGroupPoliciesOutcomeCallable VpcClient::ReplaceSecurityGroupPoliciesCallable(const ReplaceSecurityGroupPoliciesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceSecurityGroupPoliciesOutcome>>();
-    ReplaceSecurityGroupPoliciesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceSecurityGroupPoliciesRequest&,
-        ReplaceSecurityGroupPoliciesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceSecurityGroupPoliciesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceSecurityGroupPolicies(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReplaceSecurityGroupPolicyOutcome VpcClient::ReplaceSecurityGroupPolicy(const ReplaceSecurityGroupPolicyRequest &request)
@@ -20212,32 +17391,25 @@ VpcClient::ReplaceSecurityGroupPolicyOutcome VpcClient::ReplaceSecurityGroupPoli
 
 void VpcClient::ReplaceSecurityGroupPolicyAsync(const ReplaceSecurityGroupPolicyRequest& request, const ReplaceSecurityGroupPolicyAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReplaceSecurityGroupPolicyRequest&;
-    using Resp = ReplaceSecurityGroupPolicyResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReplaceSecurityGroupPolicy(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReplaceSecurityGroupPolicy", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReplaceSecurityGroupPolicyOutcomeCallable VpcClient::ReplaceSecurityGroupPolicyCallable(const ReplaceSecurityGroupPolicyRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReplaceSecurityGroupPolicyOutcome>>();
-    ReplaceSecurityGroupPolicyAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReplaceSecurityGroupPolicyRequest&,
-        ReplaceSecurityGroupPolicyOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReplaceSecurityGroupPolicyOutcome()>>(
+        [this, request]()
+        {
+            return this->ReplaceSecurityGroupPolicy(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetAttachCcnInstancesOutcome VpcClient::ResetAttachCcnInstances(const ResetAttachCcnInstancesRequest &request)
@@ -20262,32 +17434,25 @@ VpcClient::ResetAttachCcnInstancesOutcome VpcClient::ResetAttachCcnInstances(con
 
 void VpcClient::ResetAttachCcnInstancesAsync(const ResetAttachCcnInstancesRequest& request, const ResetAttachCcnInstancesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetAttachCcnInstancesRequest&;
-    using Resp = ResetAttachCcnInstancesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetAttachCcnInstances(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetAttachCcnInstances", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetAttachCcnInstancesOutcomeCallable VpcClient::ResetAttachCcnInstancesCallable(const ResetAttachCcnInstancesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetAttachCcnInstancesOutcome>>();
-    ResetAttachCcnInstancesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetAttachCcnInstancesRequest&,
-        ResetAttachCcnInstancesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetAttachCcnInstancesOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetAttachCcnInstances(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetHighPriorityRoutesOutcome VpcClient::ResetHighPriorityRoutes(const ResetHighPriorityRoutesRequest &request)
@@ -20312,32 +17477,25 @@ VpcClient::ResetHighPriorityRoutesOutcome VpcClient::ResetHighPriorityRoutes(con
 
 void VpcClient::ResetHighPriorityRoutesAsync(const ResetHighPriorityRoutesRequest& request, const ResetHighPriorityRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetHighPriorityRoutesRequest&;
-    using Resp = ResetHighPriorityRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetHighPriorityRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetHighPriorityRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetHighPriorityRoutesOutcomeCallable VpcClient::ResetHighPriorityRoutesCallable(const ResetHighPriorityRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetHighPriorityRoutesOutcome>>();
-    ResetHighPriorityRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetHighPriorityRoutesRequest&,
-        ResetHighPriorityRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetHighPriorityRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetHighPriorityRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetNatGatewayConnectionOutcome VpcClient::ResetNatGatewayConnection(const ResetNatGatewayConnectionRequest &request)
@@ -20362,32 +17520,25 @@ VpcClient::ResetNatGatewayConnectionOutcome VpcClient::ResetNatGatewayConnection
 
 void VpcClient::ResetNatGatewayConnectionAsync(const ResetNatGatewayConnectionRequest& request, const ResetNatGatewayConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetNatGatewayConnectionRequest&;
-    using Resp = ResetNatGatewayConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetNatGatewayConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetNatGatewayConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetNatGatewayConnectionOutcomeCallable VpcClient::ResetNatGatewayConnectionCallable(const ResetNatGatewayConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetNatGatewayConnectionOutcome>>();
-    ResetNatGatewayConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetNatGatewayConnectionRequest&,
-        ResetNatGatewayConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetNatGatewayConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetNatGatewayConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetRoutePolicyAssociationsOutcome VpcClient::ResetRoutePolicyAssociations(const ResetRoutePolicyAssociationsRequest &request)
@@ -20412,32 +17563,25 @@ VpcClient::ResetRoutePolicyAssociationsOutcome VpcClient::ResetRoutePolicyAssoci
 
 void VpcClient::ResetRoutePolicyAssociationsAsync(const ResetRoutePolicyAssociationsRequest& request, const ResetRoutePolicyAssociationsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetRoutePolicyAssociationsRequest&;
-    using Resp = ResetRoutePolicyAssociationsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetRoutePolicyAssociations(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetRoutePolicyAssociations", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetRoutePolicyAssociationsOutcomeCallable VpcClient::ResetRoutePolicyAssociationsCallable(const ResetRoutePolicyAssociationsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetRoutePolicyAssociationsOutcome>>();
-    ResetRoutePolicyAssociationsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetRoutePolicyAssociationsRequest&,
-        ResetRoutePolicyAssociationsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetRoutePolicyAssociationsOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetRoutePolicyAssociations(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetRoutePolicyEntriesOutcome VpcClient::ResetRoutePolicyEntries(const ResetRoutePolicyEntriesRequest &request)
@@ -20462,32 +17606,25 @@ VpcClient::ResetRoutePolicyEntriesOutcome VpcClient::ResetRoutePolicyEntries(con
 
 void VpcClient::ResetRoutePolicyEntriesAsync(const ResetRoutePolicyEntriesRequest& request, const ResetRoutePolicyEntriesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetRoutePolicyEntriesRequest&;
-    using Resp = ResetRoutePolicyEntriesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetRoutePolicyEntries(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetRoutePolicyEntries", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetRoutePolicyEntriesOutcomeCallable VpcClient::ResetRoutePolicyEntriesCallable(const ResetRoutePolicyEntriesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetRoutePolicyEntriesOutcome>>();
-    ResetRoutePolicyEntriesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetRoutePolicyEntriesRequest&,
-        ResetRoutePolicyEntriesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetRoutePolicyEntriesOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetRoutePolicyEntries(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetRoutesOutcome VpcClient::ResetRoutes(const ResetRoutesRequest &request)
@@ -20512,32 +17649,25 @@ VpcClient::ResetRoutesOutcome VpcClient::ResetRoutes(const ResetRoutesRequest &r
 
 void VpcClient::ResetRoutesAsync(const ResetRoutesRequest& request, const ResetRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetRoutesRequest&;
-    using Resp = ResetRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetRoutesOutcomeCallable VpcClient::ResetRoutesCallable(const ResetRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetRoutesOutcome>>();
-    ResetRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetRoutesRequest&,
-        ResetRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetTrafficMirrorFilterOutcome VpcClient::ResetTrafficMirrorFilter(const ResetTrafficMirrorFilterRequest &request)
@@ -20562,32 +17692,25 @@ VpcClient::ResetTrafficMirrorFilterOutcome VpcClient::ResetTrafficMirrorFilter(c
 
 void VpcClient::ResetTrafficMirrorFilterAsync(const ResetTrafficMirrorFilterRequest& request, const ResetTrafficMirrorFilterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetTrafficMirrorFilterRequest&;
-    using Resp = ResetTrafficMirrorFilterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetTrafficMirrorFilter(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetTrafficMirrorFilter", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetTrafficMirrorFilterOutcomeCallable VpcClient::ResetTrafficMirrorFilterCallable(const ResetTrafficMirrorFilterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetTrafficMirrorFilterOutcome>>();
-    ResetTrafficMirrorFilterAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetTrafficMirrorFilterRequest&,
-        ResetTrafficMirrorFilterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetTrafficMirrorFilterOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetTrafficMirrorFilter(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetTrafficMirrorSrcsOutcome VpcClient::ResetTrafficMirrorSrcs(const ResetTrafficMirrorSrcsRequest &request)
@@ -20612,32 +17735,25 @@ VpcClient::ResetTrafficMirrorSrcsOutcome VpcClient::ResetTrafficMirrorSrcs(const
 
 void VpcClient::ResetTrafficMirrorSrcsAsync(const ResetTrafficMirrorSrcsRequest& request, const ResetTrafficMirrorSrcsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetTrafficMirrorSrcsRequest&;
-    using Resp = ResetTrafficMirrorSrcsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetTrafficMirrorSrcs(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetTrafficMirrorSrcs", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetTrafficMirrorSrcsOutcomeCallable VpcClient::ResetTrafficMirrorSrcsCallable(const ResetTrafficMirrorSrcsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetTrafficMirrorSrcsOutcome>>();
-    ResetTrafficMirrorSrcsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetTrafficMirrorSrcsRequest&,
-        ResetTrafficMirrorSrcsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetTrafficMirrorSrcsOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetTrafficMirrorSrcs(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetTrafficMirrorTargetOutcome VpcClient::ResetTrafficMirrorTarget(const ResetTrafficMirrorTargetRequest &request)
@@ -20662,32 +17778,25 @@ VpcClient::ResetTrafficMirrorTargetOutcome VpcClient::ResetTrafficMirrorTarget(c
 
 void VpcClient::ResetTrafficMirrorTargetAsync(const ResetTrafficMirrorTargetRequest& request, const ResetTrafficMirrorTargetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetTrafficMirrorTargetRequest&;
-    using Resp = ResetTrafficMirrorTargetResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetTrafficMirrorTarget(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetTrafficMirrorTarget", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetTrafficMirrorTargetOutcomeCallable VpcClient::ResetTrafficMirrorTargetCallable(const ResetTrafficMirrorTargetRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetTrafficMirrorTargetOutcome>>();
-    ResetTrafficMirrorTargetAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetTrafficMirrorTargetRequest&,
-        ResetTrafficMirrorTargetOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetTrafficMirrorTargetOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetTrafficMirrorTarget(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetVpnConnectionOutcome VpcClient::ResetVpnConnection(const ResetVpnConnectionRequest &request)
@@ -20712,32 +17821,25 @@ VpcClient::ResetVpnConnectionOutcome VpcClient::ResetVpnConnection(const ResetVp
 
 void VpcClient::ResetVpnConnectionAsync(const ResetVpnConnectionRequest& request, const ResetVpnConnectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetVpnConnectionRequest&;
-    using Resp = ResetVpnConnectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetVpnConnection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetVpnConnection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetVpnConnectionOutcomeCallable VpcClient::ResetVpnConnectionCallable(const ResetVpnConnectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetVpnConnectionOutcome>>();
-    ResetVpnConnectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetVpnConnectionRequest&,
-        ResetVpnConnectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetVpnConnectionOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetVpnConnection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResetVpnGatewayInternetMaxBandwidthOutcome VpcClient::ResetVpnGatewayInternetMaxBandwidth(const ResetVpnGatewayInternetMaxBandwidthRequest &request)
@@ -20762,32 +17864,25 @@ VpcClient::ResetVpnGatewayInternetMaxBandwidthOutcome VpcClient::ResetVpnGateway
 
 void VpcClient::ResetVpnGatewayInternetMaxBandwidthAsync(const ResetVpnGatewayInternetMaxBandwidthRequest& request, const ResetVpnGatewayInternetMaxBandwidthAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResetVpnGatewayInternetMaxBandwidthRequest&;
-    using Resp = ResetVpnGatewayInternetMaxBandwidthResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResetVpnGatewayInternetMaxBandwidth(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResetVpnGatewayInternetMaxBandwidth", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResetVpnGatewayInternetMaxBandwidthOutcomeCallable VpcClient::ResetVpnGatewayInternetMaxBandwidthCallable(const ResetVpnGatewayInternetMaxBandwidthRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResetVpnGatewayInternetMaxBandwidthOutcome>>();
-    ResetVpnGatewayInternetMaxBandwidthAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResetVpnGatewayInternetMaxBandwidthRequest&,
-        ResetVpnGatewayInternetMaxBandwidthOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResetVpnGatewayInternetMaxBandwidthOutcome()>>(
+        [this, request]()
+        {
+            return this->ResetVpnGatewayInternetMaxBandwidth(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ResumeSnapshotInstanceOutcome VpcClient::ResumeSnapshotInstance(const ResumeSnapshotInstanceRequest &request)
@@ -20812,32 +17907,25 @@ VpcClient::ResumeSnapshotInstanceOutcome VpcClient::ResumeSnapshotInstance(const
 
 void VpcClient::ResumeSnapshotInstanceAsync(const ResumeSnapshotInstanceRequest& request, const ResumeSnapshotInstanceAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ResumeSnapshotInstanceRequest&;
-    using Resp = ResumeSnapshotInstanceResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ResumeSnapshotInstance(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ResumeSnapshotInstance", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ResumeSnapshotInstanceOutcomeCallable VpcClient::ResumeSnapshotInstanceCallable(const ResumeSnapshotInstanceRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ResumeSnapshotInstanceOutcome>>();
-    ResumeSnapshotInstanceAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ResumeSnapshotInstanceRequest&,
-        ResumeSnapshotInstanceOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ResumeSnapshotInstanceOutcome()>>(
+        [this, request]()
+        {
+            return this->ResumeSnapshotInstance(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::ReturnNormalAddressesOutcome VpcClient::ReturnNormalAddresses(const ReturnNormalAddressesRequest &request)
@@ -20862,32 +17950,25 @@ VpcClient::ReturnNormalAddressesOutcome VpcClient::ReturnNormalAddresses(const R
 
 void VpcClient::ReturnNormalAddressesAsync(const ReturnNormalAddressesRequest& request, const ReturnNormalAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ReturnNormalAddressesRequest&;
-    using Resp = ReturnNormalAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ReturnNormalAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ReturnNormalAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::ReturnNormalAddressesOutcomeCallable VpcClient::ReturnNormalAddressesCallable(const ReturnNormalAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ReturnNormalAddressesOutcome>>();
-    ReturnNormalAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const ReturnNormalAddressesRequest&,
-        ReturnNormalAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ReturnNormalAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->ReturnNormalAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::SetCcnRegionBandwidthLimitsOutcome VpcClient::SetCcnRegionBandwidthLimits(const SetCcnRegionBandwidthLimitsRequest &request)
@@ -20912,32 +17993,25 @@ VpcClient::SetCcnRegionBandwidthLimitsOutcome VpcClient::SetCcnRegionBandwidthLi
 
 void VpcClient::SetCcnRegionBandwidthLimitsAsync(const SetCcnRegionBandwidthLimitsRequest& request, const SetCcnRegionBandwidthLimitsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetCcnRegionBandwidthLimitsRequest&;
-    using Resp = SetCcnRegionBandwidthLimitsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetCcnRegionBandwidthLimits(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetCcnRegionBandwidthLimits", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::SetCcnRegionBandwidthLimitsOutcomeCallable VpcClient::SetCcnRegionBandwidthLimitsCallable(const SetCcnRegionBandwidthLimitsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetCcnRegionBandwidthLimitsOutcome>>();
-    SetCcnRegionBandwidthLimitsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const SetCcnRegionBandwidthLimitsRequest&,
-        SetCcnRegionBandwidthLimitsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetCcnRegionBandwidthLimitsOutcome()>>(
+        [this, request]()
+        {
+            return this->SetCcnRegionBandwidthLimits(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::SetVpnGatewaysRenewFlagOutcome VpcClient::SetVpnGatewaysRenewFlag(const SetVpnGatewaysRenewFlagRequest &request)
@@ -20962,32 +18036,25 @@ VpcClient::SetVpnGatewaysRenewFlagOutcome VpcClient::SetVpnGatewaysRenewFlag(con
 
 void VpcClient::SetVpnGatewaysRenewFlagAsync(const SetVpnGatewaysRenewFlagRequest& request, const SetVpnGatewaysRenewFlagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SetVpnGatewaysRenewFlagRequest&;
-    using Resp = SetVpnGatewaysRenewFlagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SetVpnGatewaysRenewFlag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SetVpnGatewaysRenewFlag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::SetVpnGatewaysRenewFlagOutcomeCallable VpcClient::SetVpnGatewaysRenewFlagCallable(const SetVpnGatewaysRenewFlagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SetVpnGatewaysRenewFlagOutcome>>();
-    SetVpnGatewaysRenewFlagAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const SetVpnGatewaysRenewFlagRequest&,
-        SetVpnGatewaysRenewFlagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SetVpnGatewaysRenewFlagOutcome()>>(
+        [this, request]()
+        {
+            return this->SetVpnGatewaysRenewFlag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::StartTrafficMirrorOutcome VpcClient::StartTrafficMirror(const StartTrafficMirrorRequest &request)
@@ -21012,32 +18079,25 @@ VpcClient::StartTrafficMirrorOutcome VpcClient::StartTrafficMirror(const StartTr
 
 void VpcClient::StartTrafficMirrorAsync(const StartTrafficMirrorRequest& request, const StartTrafficMirrorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StartTrafficMirrorRequest&;
-    using Resp = StartTrafficMirrorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StartTrafficMirror(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StartTrafficMirror", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::StartTrafficMirrorOutcomeCallable VpcClient::StartTrafficMirrorCallable(const StartTrafficMirrorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StartTrafficMirrorOutcome>>();
-    StartTrafficMirrorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const StartTrafficMirrorRequest&,
-        StartTrafficMirrorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StartTrafficMirrorOutcome()>>(
+        [this, request]()
+        {
+            return this->StartTrafficMirror(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::StopTrafficMirrorOutcome VpcClient::StopTrafficMirror(const StopTrafficMirrorRequest &request)
@@ -21062,32 +18122,25 @@ VpcClient::StopTrafficMirrorOutcome VpcClient::StopTrafficMirror(const StopTraff
 
 void VpcClient::StopTrafficMirrorAsync(const StopTrafficMirrorRequest& request, const StopTrafficMirrorAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const StopTrafficMirrorRequest&;
-    using Resp = StopTrafficMirrorResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->StopTrafficMirror(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "StopTrafficMirror", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::StopTrafficMirrorOutcomeCallable VpcClient::StopTrafficMirrorCallable(const StopTrafficMirrorRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<StopTrafficMirrorOutcome>>();
-    StopTrafficMirrorAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const StopTrafficMirrorRequest&,
-        StopTrafficMirrorOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<StopTrafficMirrorOutcome()>>(
+        [this, request]()
+        {
+            return this->StopTrafficMirror(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::TransformAddressOutcome VpcClient::TransformAddress(const TransformAddressRequest &request)
@@ -21112,32 +18165,25 @@ VpcClient::TransformAddressOutcome VpcClient::TransformAddress(const TransformAd
 
 void VpcClient::TransformAddressAsync(const TransformAddressRequest& request, const TransformAddressAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const TransformAddressRequest&;
-    using Resp = TransformAddressResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->TransformAddress(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "TransformAddress", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::TransformAddressOutcomeCallable VpcClient::TransformAddressCallable(const TransformAddressRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<TransformAddressOutcome>>();
-    TransformAddressAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const TransformAddressRequest&,
-        TransformAddressOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<TransformAddressOutcome()>>(
+        [this, request]()
+        {
+            return this->TransformAddress(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::UnassignIpv6AddressesOutcome VpcClient::UnassignIpv6Addresses(const UnassignIpv6AddressesRequest &request)
@@ -21162,32 +18208,25 @@ VpcClient::UnassignIpv6AddressesOutcome VpcClient::UnassignIpv6Addresses(const U
 
 void VpcClient::UnassignIpv6AddressesAsync(const UnassignIpv6AddressesRequest& request, const UnassignIpv6AddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnassignIpv6AddressesRequest&;
-    using Resp = UnassignIpv6AddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnassignIpv6Addresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnassignIpv6Addresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::UnassignIpv6AddressesOutcomeCallable VpcClient::UnassignIpv6AddressesCallable(const UnassignIpv6AddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnassignIpv6AddressesOutcome>>();
-    UnassignIpv6AddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const UnassignIpv6AddressesRequest&,
-        UnassignIpv6AddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnassignIpv6AddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->UnassignIpv6Addresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::UnassignIpv6CidrBlockOutcome VpcClient::UnassignIpv6CidrBlock(const UnassignIpv6CidrBlockRequest &request)
@@ -21212,32 +18251,25 @@ VpcClient::UnassignIpv6CidrBlockOutcome VpcClient::UnassignIpv6CidrBlock(const U
 
 void VpcClient::UnassignIpv6CidrBlockAsync(const UnassignIpv6CidrBlockRequest& request, const UnassignIpv6CidrBlockAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnassignIpv6CidrBlockRequest&;
-    using Resp = UnassignIpv6CidrBlockResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnassignIpv6CidrBlock(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnassignIpv6CidrBlock", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::UnassignIpv6CidrBlockOutcomeCallable VpcClient::UnassignIpv6CidrBlockCallable(const UnassignIpv6CidrBlockRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnassignIpv6CidrBlockOutcome>>();
-    UnassignIpv6CidrBlockAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const UnassignIpv6CidrBlockRequest&,
-        UnassignIpv6CidrBlockOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnassignIpv6CidrBlockOutcome()>>(
+        [this, request]()
+        {
+            return this->UnassignIpv6CidrBlock(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::UnassignIpv6SubnetCidrBlockOutcome VpcClient::UnassignIpv6SubnetCidrBlock(const UnassignIpv6SubnetCidrBlockRequest &request)
@@ -21262,32 +18294,25 @@ VpcClient::UnassignIpv6SubnetCidrBlockOutcome VpcClient::UnassignIpv6SubnetCidrB
 
 void VpcClient::UnassignIpv6SubnetCidrBlockAsync(const UnassignIpv6SubnetCidrBlockRequest& request, const UnassignIpv6SubnetCidrBlockAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnassignIpv6SubnetCidrBlockRequest&;
-    using Resp = UnassignIpv6SubnetCidrBlockResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnassignIpv6SubnetCidrBlock(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnassignIpv6SubnetCidrBlock", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::UnassignIpv6SubnetCidrBlockOutcomeCallable VpcClient::UnassignIpv6SubnetCidrBlockCallable(const UnassignIpv6SubnetCidrBlockRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnassignIpv6SubnetCidrBlockOutcome>>();
-    UnassignIpv6SubnetCidrBlockAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const UnassignIpv6SubnetCidrBlockRequest&,
-        UnassignIpv6SubnetCidrBlockOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnassignIpv6SubnetCidrBlockOutcome()>>(
+        [this, request]()
+        {
+            return this->UnassignIpv6SubnetCidrBlock(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::UnassignPrivateIpAddressesOutcome VpcClient::UnassignPrivateIpAddresses(const UnassignPrivateIpAddressesRequest &request)
@@ -21312,32 +18337,25 @@ VpcClient::UnassignPrivateIpAddressesOutcome VpcClient::UnassignPrivateIpAddress
 
 void VpcClient::UnassignPrivateIpAddressesAsync(const UnassignPrivateIpAddressesRequest& request, const UnassignPrivateIpAddressesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnassignPrivateIpAddressesRequest&;
-    using Resp = UnassignPrivateIpAddressesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnassignPrivateIpAddresses(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnassignPrivateIpAddresses", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::UnassignPrivateIpAddressesOutcomeCallable VpcClient::UnassignPrivateIpAddressesCallable(const UnassignPrivateIpAddressesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnassignPrivateIpAddressesOutcome>>();
-    UnassignPrivateIpAddressesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const UnassignPrivateIpAddressesRequest&,
-        UnassignPrivateIpAddressesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnassignPrivateIpAddressesOutcome()>>(
+        [this, request]()
+        {
+            return this->UnassignPrivateIpAddresses(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::UnlockCcnBandwidthsOutcome VpcClient::UnlockCcnBandwidths(const UnlockCcnBandwidthsRequest &request)
@@ -21362,32 +18380,25 @@ VpcClient::UnlockCcnBandwidthsOutcome VpcClient::UnlockCcnBandwidths(const Unloc
 
 void VpcClient::UnlockCcnBandwidthsAsync(const UnlockCcnBandwidthsRequest& request, const UnlockCcnBandwidthsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnlockCcnBandwidthsRequest&;
-    using Resp = UnlockCcnBandwidthsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnlockCcnBandwidths(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnlockCcnBandwidths", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::UnlockCcnBandwidthsOutcomeCallable VpcClient::UnlockCcnBandwidthsCallable(const UnlockCcnBandwidthsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnlockCcnBandwidthsOutcome>>();
-    UnlockCcnBandwidthsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const UnlockCcnBandwidthsRequest&,
-        UnlockCcnBandwidthsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnlockCcnBandwidthsOutcome()>>(
+        [this, request]()
+        {
+            return this->UnlockCcnBandwidths(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::UnlockCcnsOutcome VpcClient::UnlockCcns(const UnlockCcnsRequest &request)
@@ -21412,32 +18423,25 @@ VpcClient::UnlockCcnsOutcome VpcClient::UnlockCcns(const UnlockCcnsRequest &requ
 
 void VpcClient::UnlockCcnsAsync(const UnlockCcnsRequest& request, const UnlockCcnsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UnlockCcnsRequest&;
-    using Resp = UnlockCcnsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UnlockCcns(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UnlockCcns", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::UnlockCcnsOutcomeCallable VpcClient::UnlockCcnsCallable(const UnlockCcnsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UnlockCcnsOutcome>>();
-    UnlockCcnsAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const UnlockCcnsRequest&,
-        UnlockCcnsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UnlockCcnsOutcome()>>(
+        [this, request]()
+        {
+            return this->UnlockCcns(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::UpdateTrafficMirrorAllFilterOutcome VpcClient::UpdateTrafficMirrorAllFilter(const UpdateTrafficMirrorAllFilterRequest &request)
@@ -21462,32 +18466,25 @@ VpcClient::UpdateTrafficMirrorAllFilterOutcome VpcClient::UpdateTrafficMirrorAll
 
 void VpcClient::UpdateTrafficMirrorAllFilterAsync(const UpdateTrafficMirrorAllFilterRequest& request, const UpdateTrafficMirrorAllFilterAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateTrafficMirrorAllFilterRequest&;
-    using Resp = UpdateTrafficMirrorAllFilterResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateTrafficMirrorAllFilter(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateTrafficMirrorAllFilter", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::UpdateTrafficMirrorAllFilterOutcomeCallable VpcClient::UpdateTrafficMirrorAllFilterCallable(const UpdateTrafficMirrorAllFilterRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateTrafficMirrorAllFilterOutcome>>();
-    UpdateTrafficMirrorAllFilterAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const UpdateTrafficMirrorAllFilterRequest&,
-        UpdateTrafficMirrorAllFilterOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateTrafficMirrorAllFilterOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateTrafficMirrorAllFilter(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::UpdateTrafficMirrorDirectionOutcome VpcClient::UpdateTrafficMirrorDirection(const UpdateTrafficMirrorDirectionRequest &request)
@@ -21512,32 +18509,25 @@ VpcClient::UpdateTrafficMirrorDirectionOutcome VpcClient::UpdateTrafficMirrorDir
 
 void VpcClient::UpdateTrafficMirrorDirectionAsync(const UpdateTrafficMirrorDirectionRequest& request, const UpdateTrafficMirrorDirectionAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateTrafficMirrorDirectionRequest&;
-    using Resp = UpdateTrafficMirrorDirectionResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateTrafficMirrorDirection(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateTrafficMirrorDirection", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::UpdateTrafficMirrorDirectionOutcomeCallable VpcClient::UpdateTrafficMirrorDirectionCallable(const UpdateTrafficMirrorDirectionRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateTrafficMirrorDirectionOutcome>>();
-    UpdateTrafficMirrorDirectionAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const UpdateTrafficMirrorDirectionRequest&,
-        UpdateTrafficMirrorDirectionOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateTrafficMirrorDirectionOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateTrafficMirrorDirection(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 VpcClient::WithdrawNotifyRoutesOutcome VpcClient::WithdrawNotifyRoutes(const WithdrawNotifyRoutesRequest &request)
@@ -21562,31 +18552,24 @@ VpcClient::WithdrawNotifyRoutesOutcome VpcClient::WithdrawNotifyRoutes(const Wit
 
 void VpcClient::WithdrawNotifyRoutesAsync(const WithdrawNotifyRoutesRequest& request, const WithdrawNotifyRoutesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const WithdrawNotifyRoutesRequest&;
-    using Resp = WithdrawNotifyRoutesResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->WithdrawNotifyRoutes(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "WithdrawNotifyRoutes", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 VpcClient::WithdrawNotifyRoutesOutcomeCallable VpcClient::WithdrawNotifyRoutesCallable(const WithdrawNotifyRoutesRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<WithdrawNotifyRoutesOutcome>>();
-    WithdrawNotifyRoutesAsync(
-    request,
-    [prom](
-        const VpcClient*,
-        const WithdrawNotifyRoutesRequest&,
-        WithdrawNotifyRoutesOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<WithdrawNotifyRoutesOutcome()>>(
+        [this, request]()
+        {
+            return this->WithdrawNotifyRoutes(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

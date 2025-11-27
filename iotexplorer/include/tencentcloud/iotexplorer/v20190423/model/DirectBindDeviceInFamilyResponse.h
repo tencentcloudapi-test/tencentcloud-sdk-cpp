@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AppDeviceInfo;
+
                 /**
                 * DirectBindDeviceInFamily返回参数结构体
                 */

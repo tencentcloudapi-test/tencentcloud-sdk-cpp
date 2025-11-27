@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CovidItem;
+
                 /**
                 * 核酸报告结论
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     CovidItemsInfo();
-                    ~CovidItemsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

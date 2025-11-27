@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 日志搜索上下文
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     LogSearchContext();
-                    ~LogSearchContext() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

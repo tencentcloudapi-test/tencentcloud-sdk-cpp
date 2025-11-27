@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DescribeStreamAuthData;
+
                 /**
                 * DescribeStreamAuth返回参数结构体
                 */

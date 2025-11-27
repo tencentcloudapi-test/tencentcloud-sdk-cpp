@@ -33,6 +33,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceTag;
+                class DBParamValue;
+
                 /**
                 * CreateHourDCDBInstance请求参数结构体
                 */

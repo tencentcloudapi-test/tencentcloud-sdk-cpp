@@ -62,32 +62,25 @@ CaptchaClient::DescribeCaptchaAppIdInfoOutcome CaptchaClient::DescribeCaptchaApp
 
 void CaptchaClient::DescribeCaptchaAppIdInfoAsync(const DescribeCaptchaAppIdInfoRequest& request, const DescribeCaptchaAppIdInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaAppIdInfoRequest&;
-    using Resp = DescribeCaptchaAppIdInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaAppIdInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaAppIdInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaAppIdInfoOutcomeCallable CaptchaClient::DescribeCaptchaAppIdInfoCallable(const DescribeCaptchaAppIdInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaAppIdInfoOutcome>>();
-    DescribeCaptchaAppIdInfoAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaAppIdInfoRequest&,
-        DescribeCaptchaAppIdInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaAppIdInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaAppIdInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaDataOutcome CaptchaClient::DescribeCaptchaData(const DescribeCaptchaDataRequest &request)
@@ -112,32 +105,25 @@ CaptchaClient::DescribeCaptchaDataOutcome CaptchaClient::DescribeCaptchaData(con
 
 void CaptchaClient::DescribeCaptchaDataAsync(const DescribeCaptchaDataRequest& request, const DescribeCaptchaDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaDataRequest&;
-    using Resp = DescribeCaptchaDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaDataOutcomeCallable CaptchaClient::DescribeCaptchaDataCallable(const DescribeCaptchaDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaDataOutcome>>();
-    DescribeCaptchaDataAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaDataRequest&,
-        DescribeCaptchaDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaDataSumOutcome CaptchaClient::DescribeCaptchaDataSum(const DescribeCaptchaDataSumRequest &request)
@@ -162,32 +148,25 @@ CaptchaClient::DescribeCaptchaDataSumOutcome CaptchaClient::DescribeCaptchaDataS
 
 void CaptchaClient::DescribeCaptchaDataSumAsync(const DescribeCaptchaDataSumRequest& request, const DescribeCaptchaDataSumAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaDataSumRequest&;
-    using Resp = DescribeCaptchaDataSumResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaDataSum(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaDataSum", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaDataSumOutcomeCallable CaptchaClient::DescribeCaptchaDataSumCallable(const DescribeCaptchaDataSumRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaDataSumOutcome>>();
-    DescribeCaptchaDataSumAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaDataSumRequest&,
-        DescribeCaptchaDataSumOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaDataSumOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaDataSum(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaMiniDataOutcome CaptchaClient::DescribeCaptchaMiniData(const DescribeCaptchaMiniDataRequest &request)
@@ -212,32 +191,25 @@ CaptchaClient::DescribeCaptchaMiniDataOutcome CaptchaClient::DescribeCaptchaMini
 
 void CaptchaClient::DescribeCaptchaMiniDataAsync(const DescribeCaptchaMiniDataRequest& request, const DescribeCaptchaMiniDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaMiniDataRequest&;
-    using Resp = DescribeCaptchaMiniDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaMiniData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaMiniData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaMiniDataOutcomeCallable CaptchaClient::DescribeCaptchaMiniDataCallable(const DescribeCaptchaMiniDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaMiniDataOutcome>>();
-    DescribeCaptchaMiniDataAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaMiniDataRequest&,
-        DescribeCaptchaMiniDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaMiniDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaMiniData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaMiniDataSumOutcome CaptchaClient::DescribeCaptchaMiniDataSum(const DescribeCaptchaMiniDataSumRequest &request)
@@ -262,32 +234,25 @@ CaptchaClient::DescribeCaptchaMiniDataSumOutcome CaptchaClient::DescribeCaptchaM
 
 void CaptchaClient::DescribeCaptchaMiniDataSumAsync(const DescribeCaptchaMiniDataSumRequest& request, const DescribeCaptchaMiniDataSumAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaMiniDataSumRequest&;
-    using Resp = DescribeCaptchaMiniDataSumResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaMiniDataSum(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaMiniDataSum", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaMiniDataSumOutcomeCallable CaptchaClient::DescribeCaptchaMiniDataSumCallable(const DescribeCaptchaMiniDataSumRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaMiniDataSumOutcome>>();
-    DescribeCaptchaMiniDataSumAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaMiniDataSumRequest&,
-        DescribeCaptchaMiniDataSumOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaMiniDataSumOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaMiniDataSum(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaMiniOperDataOutcome CaptchaClient::DescribeCaptchaMiniOperData(const DescribeCaptchaMiniOperDataRequest &request)
@@ -312,32 +277,25 @@ CaptchaClient::DescribeCaptchaMiniOperDataOutcome CaptchaClient::DescribeCaptcha
 
 void CaptchaClient::DescribeCaptchaMiniOperDataAsync(const DescribeCaptchaMiniOperDataRequest& request, const DescribeCaptchaMiniOperDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaMiniOperDataRequest&;
-    using Resp = DescribeCaptchaMiniOperDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaMiniOperData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaMiniOperData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaMiniOperDataOutcomeCallable CaptchaClient::DescribeCaptchaMiniOperDataCallable(const DescribeCaptchaMiniOperDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaMiniOperDataOutcome>>();
-    DescribeCaptchaMiniOperDataAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaMiniOperDataRequest&,
-        DescribeCaptchaMiniOperDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaMiniOperDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaMiniOperData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaMiniResultOutcome CaptchaClient::DescribeCaptchaMiniResult(const DescribeCaptchaMiniResultRequest &request)
@@ -362,32 +320,25 @@ CaptchaClient::DescribeCaptchaMiniResultOutcome CaptchaClient::DescribeCaptchaMi
 
 void CaptchaClient::DescribeCaptchaMiniResultAsync(const DescribeCaptchaMiniResultRequest& request, const DescribeCaptchaMiniResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaMiniResultRequest&;
-    using Resp = DescribeCaptchaMiniResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaMiniResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaMiniResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaMiniResultOutcomeCallable CaptchaClient::DescribeCaptchaMiniResultCallable(const DescribeCaptchaMiniResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaMiniResultOutcome>>();
-    DescribeCaptchaMiniResultAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaMiniResultRequest&,
-        DescribeCaptchaMiniResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaMiniResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaMiniResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaMiniRiskResultOutcome CaptchaClient::DescribeCaptchaMiniRiskResult(const DescribeCaptchaMiniRiskResultRequest &request)
@@ -412,32 +363,25 @@ CaptchaClient::DescribeCaptchaMiniRiskResultOutcome CaptchaClient::DescribeCaptc
 
 void CaptchaClient::DescribeCaptchaMiniRiskResultAsync(const DescribeCaptchaMiniRiskResultRequest& request, const DescribeCaptchaMiniRiskResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaMiniRiskResultRequest&;
-    using Resp = DescribeCaptchaMiniRiskResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaMiniRiskResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaMiniRiskResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaMiniRiskResultOutcomeCallable CaptchaClient::DescribeCaptchaMiniRiskResultCallable(const DescribeCaptchaMiniRiskResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaMiniRiskResultOutcome>>();
-    DescribeCaptchaMiniRiskResultAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaMiniRiskResultRequest&,
-        DescribeCaptchaMiniRiskResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaMiniRiskResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaMiniRiskResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaOperDataOutcome CaptchaClient::DescribeCaptchaOperData(const DescribeCaptchaOperDataRequest &request)
@@ -462,32 +406,25 @@ CaptchaClient::DescribeCaptchaOperDataOutcome CaptchaClient::DescribeCaptchaOper
 
 void CaptchaClient::DescribeCaptchaOperDataAsync(const DescribeCaptchaOperDataRequest& request, const DescribeCaptchaOperDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaOperDataRequest&;
-    using Resp = DescribeCaptchaOperDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaOperData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaOperData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaOperDataOutcomeCallable CaptchaClient::DescribeCaptchaOperDataCallable(const DescribeCaptchaOperDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaOperDataOutcome>>();
-    DescribeCaptchaOperDataAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaOperDataRequest&,
-        DescribeCaptchaOperDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaOperDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaOperData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaRceResultOutcome CaptchaClient::DescribeCaptchaRceResult(const DescribeCaptchaRceResultRequest &request)
@@ -512,32 +449,25 @@ CaptchaClient::DescribeCaptchaRceResultOutcome CaptchaClient::DescribeCaptchaRce
 
 void CaptchaClient::DescribeCaptchaRceResultAsync(const DescribeCaptchaRceResultRequest& request, const DescribeCaptchaRceResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaRceResultRequest&;
-    using Resp = DescribeCaptchaRceResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaRceResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaRceResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaRceResultOutcomeCallable CaptchaClient::DescribeCaptchaRceResultCallable(const DescribeCaptchaRceResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaRceResultOutcome>>();
-    DescribeCaptchaRceResultAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaRceResultRequest&,
-        DescribeCaptchaRceResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaRceResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaRceResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaResultOutcome CaptchaClient::DescribeCaptchaResult(const DescribeCaptchaResultRequest &request)
@@ -562,32 +492,25 @@ CaptchaClient::DescribeCaptchaResultOutcome CaptchaClient::DescribeCaptchaResult
 
 void CaptchaClient::DescribeCaptchaResultAsync(const DescribeCaptchaResultRequest& request, const DescribeCaptchaResultAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaResultRequest&;
-    using Resp = DescribeCaptchaResultResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaResult(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaResult", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaResultOutcomeCallable CaptchaClient::DescribeCaptchaResultCallable(const DescribeCaptchaResultRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaResultOutcome>>();
-    DescribeCaptchaResultAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaResultRequest&,
-        DescribeCaptchaResultOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaResultOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaResult(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaTicketDataOutcome CaptchaClient::DescribeCaptchaTicketData(const DescribeCaptchaTicketDataRequest &request)
@@ -612,32 +535,25 @@ CaptchaClient::DescribeCaptchaTicketDataOutcome CaptchaClient::DescribeCaptchaTi
 
 void CaptchaClient::DescribeCaptchaTicketDataAsync(const DescribeCaptchaTicketDataRequest& request, const DescribeCaptchaTicketDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaTicketDataRequest&;
-    using Resp = DescribeCaptchaTicketDataResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaTicketData(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaTicketData", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaTicketDataOutcomeCallable CaptchaClient::DescribeCaptchaTicketDataCallable(const DescribeCaptchaTicketDataRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaTicketDataOutcome>>();
-    DescribeCaptchaTicketDataAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaTicketDataRequest&,
-        DescribeCaptchaTicketDataOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaTicketDataOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaTicketData(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::DescribeCaptchaUserAllAppIdOutcome CaptchaClient::DescribeCaptchaUserAllAppId(const DescribeCaptchaUserAllAppIdRequest &request)
@@ -662,32 +578,25 @@ CaptchaClient::DescribeCaptchaUserAllAppIdOutcome CaptchaClient::DescribeCaptcha
 
 void CaptchaClient::DescribeCaptchaUserAllAppIdAsync(const DescribeCaptchaUserAllAppIdRequest& request, const DescribeCaptchaUserAllAppIdAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeCaptchaUserAllAppIdRequest&;
-    using Resp = DescribeCaptchaUserAllAppIdResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeCaptchaUserAllAppId(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeCaptchaUserAllAppId", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::DescribeCaptchaUserAllAppIdOutcomeCallable CaptchaClient::DescribeCaptchaUserAllAppIdCallable(const DescribeCaptchaUserAllAppIdRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeCaptchaUserAllAppIdOutcome>>();
-    DescribeCaptchaUserAllAppIdAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const DescribeCaptchaUserAllAppIdRequest&,
-        DescribeCaptchaUserAllAppIdOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeCaptchaUserAllAppIdOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeCaptchaUserAllAppId(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::GetRequestStatisticsOutcome CaptchaClient::GetRequestStatistics(const GetRequestStatisticsRequest &request)
@@ -712,32 +621,25 @@ CaptchaClient::GetRequestStatisticsOutcome CaptchaClient::GetRequestStatistics(c
 
 void CaptchaClient::GetRequestStatisticsAsync(const GetRequestStatisticsRequest& request, const GetRequestStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetRequestStatisticsRequest&;
-    using Resp = GetRequestStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetRequestStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetRequestStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::GetRequestStatisticsOutcomeCallable CaptchaClient::GetRequestStatisticsCallable(const GetRequestStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetRequestStatisticsOutcome>>();
-    GetRequestStatisticsAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const GetRequestStatisticsRequest&,
-        GetRequestStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetRequestStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetRequestStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::GetTicketStatisticsOutcome CaptchaClient::GetTicketStatistics(const GetTicketStatisticsRequest &request)
@@ -762,32 +664,25 @@ CaptchaClient::GetTicketStatisticsOutcome CaptchaClient::GetTicketStatistics(con
 
 void CaptchaClient::GetTicketStatisticsAsync(const GetTicketStatisticsRequest& request, const GetTicketStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTicketStatisticsRequest&;
-    using Resp = GetTicketStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTicketStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTicketStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::GetTicketStatisticsOutcomeCallable CaptchaClient::GetTicketStatisticsCallable(const GetTicketStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTicketStatisticsOutcome>>();
-    GetTicketStatisticsAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const GetTicketStatisticsRequest&,
-        GetTicketStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTicketStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTicketStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::GetTotalRequestStatisticsOutcome CaptchaClient::GetTotalRequestStatistics(const GetTotalRequestStatisticsRequest &request)
@@ -812,32 +707,25 @@ CaptchaClient::GetTotalRequestStatisticsOutcome CaptchaClient::GetTotalRequestSt
 
 void CaptchaClient::GetTotalRequestStatisticsAsync(const GetTotalRequestStatisticsRequest& request, const GetTotalRequestStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTotalRequestStatisticsRequest&;
-    using Resp = GetTotalRequestStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTotalRequestStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTotalRequestStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::GetTotalRequestStatisticsOutcomeCallable CaptchaClient::GetTotalRequestStatisticsCallable(const GetTotalRequestStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTotalRequestStatisticsOutcome>>();
-    GetTotalRequestStatisticsAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const GetTotalRequestStatisticsRequest&,
-        GetTotalRequestStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTotalRequestStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTotalRequestStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::GetTotalTicketStatisticsOutcome CaptchaClient::GetTotalTicketStatistics(const GetTotalTicketStatisticsRequest &request)
@@ -862,32 +750,25 @@ CaptchaClient::GetTotalTicketStatisticsOutcome CaptchaClient::GetTotalTicketStat
 
 void CaptchaClient::GetTotalTicketStatisticsAsync(const GetTotalTicketStatisticsRequest& request, const GetTotalTicketStatisticsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const GetTotalTicketStatisticsRequest&;
-    using Resp = GetTotalTicketStatisticsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->GetTotalTicketStatistics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "GetTotalTicketStatistics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::GetTotalTicketStatisticsOutcomeCallable CaptchaClient::GetTotalTicketStatisticsCallable(const GetTotalTicketStatisticsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<GetTotalTicketStatisticsOutcome>>();
-    GetTotalTicketStatisticsAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const GetTotalTicketStatisticsRequest&,
-        GetTotalTicketStatisticsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<GetTotalTicketStatisticsOutcome()>>(
+        [this, request]()
+        {
+            return this->GetTotalTicketStatistics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 CaptchaClient::UpdateCaptchaAppIdInfoOutcome CaptchaClient::UpdateCaptchaAppIdInfo(const UpdateCaptchaAppIdInfoRequest &request)
@@ -912,31 +793,24 @@ CaptchaClient::UpdateCaptchaAppIdInfoOutcome CaptchaClient::UpdateCaptchaAppIdIn
 
 void CaptchaClient::UpdateCaptchaAppIdInfoAsync(const UpdateCaptchaAppIdInfoRequest& request, const UpdateCaptchaAppIdInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const UpdateCaptchaAppIdInfoRequest&;
-    using Resp = UpdateCaptchaAppIdInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->UpdateCaptchaAppIdInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "UpdateCaptchaAppIdInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 CaptchaClient::UpdateCaptchaAppIdInfoOutcomeCallable CaptchaClient::UpdateCaptchaAppIdInfoCallable(const UpdateCaptchaAppIdInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<UpdateCaptchaAppIdInfoOutcome>>();
-    UpdateCaptchaAppIdInfoAsync(
-    request,
-    [prom](
-        const CaptchaClient*,
-        const UpdateCaptchaAppIdInfoRequest&,
-        UpdateCaptchaAppIdInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<UpdateCaptchaAppIdInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->UpdateCaptchaAppIdInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

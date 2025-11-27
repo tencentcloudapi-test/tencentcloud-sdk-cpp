@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ListDatabasePage;
+
                 /**
                 * ListDatabase返回参数结构体
                 */

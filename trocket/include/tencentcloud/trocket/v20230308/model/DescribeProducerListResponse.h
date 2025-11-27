@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProducerInfo;
+
                 /**
                 * DescribeProducerList返回参数结构体
                 */

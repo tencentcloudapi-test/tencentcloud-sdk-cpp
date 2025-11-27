@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class DiagHistoryEventItem;
+
                 /**
                 * DescribeDBDiagEvents返回参数结构体
                 */

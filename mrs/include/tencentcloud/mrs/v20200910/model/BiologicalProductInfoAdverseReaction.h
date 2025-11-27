@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 不良反应
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     BiologicalProductInfoAdverseReaction();
-                    ~BiologicalProductInfoAdverseReaction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

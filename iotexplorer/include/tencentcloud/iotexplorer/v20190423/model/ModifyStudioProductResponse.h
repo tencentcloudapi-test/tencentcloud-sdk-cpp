@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ProductEntry;
+
                 /**
                 * ModifyStudioProduct返回参数结构体
                 */

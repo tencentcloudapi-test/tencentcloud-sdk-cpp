@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ResourceConfig;
+
                 /**
                 * 训练任务概要
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     TrainingJobSummary();
-                    ~TrainingJobSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

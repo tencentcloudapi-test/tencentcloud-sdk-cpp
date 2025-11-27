@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TraceItem;
+                class PhaseData;
+                class ChainData;
+
                 /**
                 * ModifyTraceData请求参数结构体
                 */

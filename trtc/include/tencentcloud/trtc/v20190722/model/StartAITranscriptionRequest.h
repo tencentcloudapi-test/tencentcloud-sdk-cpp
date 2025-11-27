@@ -34,6 +34,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TranscriptionParams;
+                class RecognizeConfig;
+                class TranslationConfig;
+
                 /**
                 * StartAITranscription请求参数结构体
                 */

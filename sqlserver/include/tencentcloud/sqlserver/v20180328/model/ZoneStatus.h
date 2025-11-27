@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 某个地域可用区下的规格售卖状态。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     ZoneStatus();
-                    ~ZoneStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

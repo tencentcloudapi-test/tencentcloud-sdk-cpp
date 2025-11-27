@@ -37,6 +37,10 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Condition;
+                class EventCondition;
+                class PolicyGroup;
+
                 /**
                 * 模板列表
                 */
@@ -44,7 +48,6 @@ namespace TencentCloud
                 {
                 public:
                     TemplateGroup();
-                    ~TemplateGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

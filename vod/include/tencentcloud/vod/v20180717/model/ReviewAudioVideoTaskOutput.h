@@ -36,6 +36,9 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class ReviewAudioVideoSegmentItem;
+                class ReviewImageResult;
+
                 /**
                 * 音视频审核任务的输出。
                 */
@@ -43,7 +46,6 @@ namespace TencentCloud
                 {
                 public:
                     ReviewAudioVideoTaskOutput();
-                    ~ReviewAudioVideoTaskOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

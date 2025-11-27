@@ -62,32 +62,25 @@ YinsudaClient::ApplyChorusOutcome YinsudaClient::ApplyChorus(const ApplyChorusRe
 
 void YinsudaClient::ApplyChorusAsync(const ApplyChorusRequest& request, const ApplyChorusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const ApplyChorusRequest&;
-    using Resp = ApplyChorusResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->ApplyChorus(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "ApplyChorus", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::ApplyChorusOutcomeCallable YinsudaClient::ApplyChorusCallable(const ApplyChorusRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<ApplyChorusOutcome>>();
-    ApplyChorusAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const ApplyChorusRequest&,
-        ApplyChorusOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<ApplyChorusOutcome()>>(
+        [this, request]()
+        {
+            return this->ApplyChorus(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::BatchDescribeKTVMusicDetailsOutcome YinsudaClient::BatchDescribeKTVMusicDetails(const BatchDescribeKTVMusicDetailsRequest &request)
@@ -112,32 +105,25 @@ YinsudaClient::BatchDescribeKTVMusicDetailsOutcome YinsudaClient::BatchDescribeK
 
 void YinsudaClient::BatchDescribeKTVMusicDetailsAsync(const BatchDescribeKTVMusicDetailsRequest& request, const BatchDescribeKTVMusicDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const BatchDescribeKTVMusicDetailsRequest&;
-    using Resp = BatchDescribeKTVMusicDetailsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->BatchDescribeKTVMusicDetails(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "BatchDescribeKTVMusicDetails", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::BatchDescribeKTVMusicDetailsOutcomeCallable YinsudaClient::BatchDescribeKTVMusicDetailsCallable(const BatchDescribeKTVMusicDetailsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<BatchDescribeKTVMusicDetailsOutcome>>();
-    BatchDescribeKTVMusicDetailsAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const BatchDescribeKTVMusicDetailsRequest&,
-        BatchDescribeKTVMusicDetailsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<BatchDescribeKTVMusicDetailsOutcome()>>(
+        [this, request]()
+        {
+            return this->BatchDescribeKTVMusicDetails(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::CreateKTVRobotOutcome YinsudaClient::CreateKTVRobot(const CreateKTVRobotRequest &request)
@@ -162,32 +148,25 @@ YinsudaClient::CreateKTVRobotOutcome YinsudaClient::CreateKTVRobot(const CreateK
 
 void YinsudaClient::CreateKTVRobotAsync(const CreateKTVRobotRequest& request, const CreateKTVRobotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const CreateKTVRobotRequest&;
-    using Resp = CreateKTVRobotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->CreateKTVRobot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "CreateKTVRobot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::CreateKTVRobotOutcomeCallable YinsudaClient::CreateKTVRobotCallable(const CreateKTVRobotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<CreateKTVRobotOutcome>>();
-    CreateKTVRobotAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const CreateKTVRobotRequest&,
-        CreateKTVRobotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<CreateKTVRobotOutcome()>>(
+        [this, request]()
+        {
+            return this->CreateKTVRobot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVMatchMusicsOutcome YinsudaClient::DescribeKTVMatchMusics(const DescribeKTVMatchMusicsRequest &request)
@@ -212,32 +191,25 @@ YinsudaClient::DescribeKTVMatchMusicsOutcome YinsudaClient::DescribeKTVMatchMusi
 
 void YinsudaClient::DescribeKTVMatchMusicsAsync(const DescribeKTVMatchMusicsRequest& request, const DescribeKTVMatchMusicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVMatchMusicsRequest&;
-    using Resp = DescribeKTVMatchMusicsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVMatchMusics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVMatchMusics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVMatchMusicsOutcomeCallable YinsudaClient::DescribeKTVMatchMusicsCallable(const DescribeKTVMatchMusicsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVMatchMusicsOutcome>>();
-    DescribeKTVMatchMusicsAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVMatchMusicsRequest&,
-        DescribeKTVMatchMusicsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVMatchMusicsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVMatchMusics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVMusicAccompanySegmentUrlOutcome YinsudaClient::DescribeKTVMusicAccompanySegmentUrl(const DescribeKTVMusicAccompanySegmentUrlRequest &request)
@@ -262,32 +234,25 @@ YinsudaClient::DescribeKTVMusicAccompanySegmentUrlOutcome YinsudaClient::Describ
 
 void YinsudaClient::DescribeKTVMusicAccompanySegmentUrlAsync(const DescribeKTVMusicAccompanySegmentUrlRequest& request, const DescribeKTVMusicAccompanySegmentUrlAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVMusicAccompanySegmentUrlRequest&;
-    using Resp = DescribeKTVMusicAccompanySegmentUrlResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVMusicAccompanySegmentUrl(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVMusicAccompanySegmentUrl", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVMusicAccompanySegmentUrlOutcomeCallable YinsudaClient::DescribeKTVMusicAccompanySegmentUrlCallable(const DescribeKTVMusicAccompanySegmentUrlRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVMusicAccompanySegmentUrlOutcome>>();
-    DescribeKTVMusicAccompanySegmentUrlAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVMusicAccompanySegmentUrlRequest&,
-        DescribeKTVMusicAccompanySegmentUrlOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVMusicAccompanySegmentUrlOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVMusicAccompanySegmentUrl(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVMusicAccompanySegmentUrlVipOutcome YinsudaClient::DescribeKTVMusicAccompanySegmentUrlVip(const DescribeKTVMusicAccompanySegmentUrlVipRequest &request)
@@ -312,32 +277,25 @@ YinsudaClient::DescribeKTVMusicAccompanySegmentUrlVipOutcome YinsudaClient::Desc
 
 void YinsudaClient::DescribeKTVMusicAccompanySegmentUrlVipAsync(const DescribeKTVMusicAccompanySegmentUrlVipRequest& request, const DescribeKTVMusicAccompanySegmentUrlVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVMusicAccompanySegmentUrlVipRequest&;
-    using Resp = DescribeKTVMusicAccompanySegmentUrlVipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVMusicAccompanySegmentUrlVip(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVMusicAccompanySegmentUrlVip", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVMusicAccompanySegmentUrlVipOutcomeCallable YinsudaClient::DescribeKTVMusicAccompanySegmentUrlVipCallable(const DescribeKTVMusicAccompanySegmentUrlVipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVMusicAccompanySegmentUrlVipOutcome>>();
-    DescribeKTVMusicAccompanySegmentUrlVipAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVMusicAccompanySegmentUrlVipRequest&,
-        DescribeKTVMusicAccompanySegmentUrlVipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVMusicAccompanySegmentUrlVipOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVMusicAccompanySegmentUrlVip(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVMusicsByTagOutcome YinsudaClient::DescribeKTVMusicsByTag(const DescribeKTVMusicsByTagRequest &request)
@@ -362,32 +320,25 @@ YinsudaClient::DescribeKTVMusicsByTagOutcome YinsudaClient::DescribeKTVMusicsByT
 
 void YinsudaClient::DescribeKTVMusicsByTagAsync(const DescribeKTVMusicsByTagRequest& request, const DescribeKTVMusicsByTagAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVMusicsByTagRequest&;
-    using Resp = DescribeKTVMusicsByTagResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVMusicsByTag(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVMusicsByTag", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVMusicsByTagOutcomeCallable YinsudaClient::DescribeKTVMusicsByTagCallable(const DescribeKTVMusicsByTagRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVMusicsByTagOutcome>>();
-    DescribeKTVMusicsByTagAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVMusicsByTagRequest&,
-        DescribeKTVMusicsByTagOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVMusicsByTagOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVMusicsByTag(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVPlaylistDetailOutcome YinsudaClient::DescribeKTVPlaylistDetail(const DescribeKTVPlaylistDetailRequest &request)
@@ -412,32 +363,25 @@ YinsudaClient::DescribeKTVPlaylistDetailOutcome YinsudaClient::DescribeKTVPlayli
 
 void YinsudaClient::DescribeKTVPlaylistDetailAsync(const DescribeKTVPlaylistDetailRequest& request, const DescribeKTVPlaylistDetailAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVPlaylistDetailRequest&;
-    using Resp = DescribeKTVPlaylistDetailResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVPlaylistDetail(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVPlaylistDetail", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVPlaylistDetailOutcomeCallable YinsudaClient::DescribeKTVPlaylistDetailCallable(const DescribeKTVPlaylistDetailRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVPlaylistDetailOutcome>>();
-    DescribeKTVPlaylistDetailAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVPlaylistDetailRequest&,
-        DescribeKTVPlaylistDetailOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVPlaylistDetailOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVPlaylistDetail(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVPlaylistsOutcome YinsudaClient::DescribeKTVPlaylists(const DescribeKTVPlaylistsRequest &request)
@@ -462,32 +406,25 @@ YinsudaClient::DescribeKTVPlaylistsOutcome YinsudaClient::DescribeKTVPlaylists(c
 
 void YinsudaClient::DescribeKTVPlaylistsAsync(const DescribeKTVPlaylistsRequest& request, const DescribeKTVPlaylistsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVPlaylistsRequest&;
-    using Resp = DescribeKTVPlaylistsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVPlaylists(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVPlaylists", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVPlaylistsOutcomeCallable YinsudaClient::DescribeKTVPlaylistsCallable(const DescribeKTVPlaylistsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVPlaylistsOutcome>>();
-    DescribeKTVPlaylistsAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVPlaylistsRequest&,
-        DescribeKTVPlaylistsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVPlaylistsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVPlaylists(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVRobotsOutcome YinsudaClient::DescribeKTVRobots(const DescribeKTVRobotsRequest &request)
@@ -512,32 +449,25 @@ YinsudaClient::DescribeKTVRobotsOutcome YinsudaClient::DescribeKTVRobots(const D
 
 void YinsudaClient::DescribeKTVRobotsAsync(const DescribeKTVRobotsRequest& request, const DescribeKTVRobotsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVRobotsRequest&;
-    using Resp = DescribeKTVRobotsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVRobots(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVRobots", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVRobotsOutcomeCallable YinsudaClient::DescribeKTVRobotsCallable(const DescribeKTVRobotsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVRobotsOutcome>>();
-    DescribeKTVRobotsAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVRobotsRequest&,
-        DescribeKTVRobotsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVRobotsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVRobots(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVSuggestionsOutcome YinsudaClient::DescribeKTVSuggestions(const DescribeKTVSuggestionsRequest &request)
@@ -562,32 +492,25 @@ YinsudaClient::DescribeKTVSuggestionsOutcome YinsudaClient::DescribeKTVSuggestio
 
 void YinsudaClient::DescribeKTVSuggestionsAsync(const DescribeKTVSuggestionsRequest& request, const DescribeKTVSuggestionsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVSuggestionsRequest&;
-    using Resp = DescribeKTVSuggestionsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVSuggestions(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVSuggestions", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVSuggestionsOutcomeCallable YinsudaClient::DescribeKTVSuggestionsCallable(const DescribeKTVSuggestionsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVSuggestionsOutcome>>();
-    DescribeKTVSuggestionsAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVSuggestionsRequest&,
-        DescribeKTVSuggestionsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVSuggestionsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVSuggestions(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeKTVTagsOutcome YinsudaClient::DescribeKTVTags(const DescribeKTVTagsRequest &request)
@@ -612,32 +535,25 @@ YinsudaClient::DescribeKTVTagsOutcome YinsudaClient::DescribeKTVTags(const Descr
 
 void YinsudaClient::DescribeKTVTagsAsync(const DescribeKTVTagsRequest& request, const DescribeKTVTagsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeKTVTagsRequest&;
-    using Resp = DescribeKTVTagsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeKTVTags(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeKTVTags", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeKTVTagsOutcomeCallable YinsudaClient::DescribeKTVTagsCallable(const DescribeKTVTagsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeKTVTagsOutcome>>();
-    DescribeKTVTagsAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeKTVTagsRequest&,
-        DescribeKTVTagsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeKTVTagsOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeKTVTags(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeLiveVipTradeInfosOutcome YinsudaClient::DescribeLiveVipTradeInfos(const DescribeLiveVipTradeInfosRequest &request)
@@ -662,32 +578,25 @@ YinsudaClient::DescribeLiveVipTradeInfosOutcome YinsudaClient::DescribeLiveVipTr
 
 void YinsudaClient::DescribeLiveVipTradeInfosAsync(const DescribeLiveVipTradeInfosRequest& request, const DescribeLiveVipTradeInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeLiveVipTradeInfosRequest&;
-    using Resp = DescribeLiveVipTradeInfosResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeLiveVipTradeInfos(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeLiveVipTradeInfos", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeLiveVipTradeInfosOutcomeCallable YinsudaClient::DescribeLiveVipTradeInfosCallable(const DescribeLiveVipTradeInfosRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeLiveVipTradeInfosOutcome>>();
-    DescribeLiveVipTradeInfosAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeLiveVipTradeInfosRequest&,
-        DescribeLiveVipTradeInfosOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeLiveVipTradeInfosOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeLiveVipTradeInfos(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeUserInfoOutcome YinsudaClient::DescribeUserInfo(const DescribeUserInfoRequest &request)
@@ -712,32 +621,25 @@ YinsudaClient::DescribeUserInfoOutcome YinsudaClient::DescribeUserInfo(const Des
 
 void YinsudaClient::DescribeUserInfoAsync(const DescribeUserInfoRequest& request, const DescribeUserInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeUserInfoRequest&;
-    using Resp = DescribeUserInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeUserInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeUserInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeUserInfoOutcomeCallable YinsudaClient::DescribeUserInfoCallable(const DescribeUserInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeUserInfoOutcome>>();
-    DescribeUserInfoAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeUserInfoRequest&,
-        DescribeUserInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeUserInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeUserInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DescribeVipUserInfoOutcome YinsudaClient::DescribeVipUserInfo(const DescribeVipUserInfoRequest &request)
@@ -762,32 +664,25 @@ YinsudaClient::DescribeVipUserInfoOutcome YinsudaClient::DescribeVipUserInfo(con
 
 void YinsudaClient::DescribeVipUserInfoAsync(const DescribeVipUserInfoRequest& request, const DescribeVipUserInfoAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DescribeVipUserInfoRequest&;
-    using Resp = DescribeVipUserInfoResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DescribeVipUserInfo(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DescribeVipUserInfo", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DescribeVipUserInfoOutcomeCallable YinsudaClient::DescribeVipUserInfoCallable(const DescribeVipUserInfoRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DescribeVipUserInfoOutcome>>();
-    DescribeVipUserInfoAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DescribeVipUserInfoRequest&,
-        DescribeVipUserInfoOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DescribeVipUserInfoOutcome()>>(
+        [this, request]()
+        {
+            return this->DescribeVipUserInfo(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::DestroyKTVRobotOutcome YinsudaClient::DestroyKTVRobot(const DestroyKTVRobotRequest &request)
@@ -812,32 +707,25 @@ YinsudaClient::DestroyKTVRobotOutcome YinsudaClient::DestroyKTVRobot(const Destr
 
 void YinsudaClient::DestroyKTVRobotAsync(const DestroyKTVRobotRequest& request, const DestroyKTVRobotAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const DestroyKTVRobotRequest&;
-    using Resp = DestroyKTVRobotResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->DestroyKTVRobot(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "DestroyKTVRobot", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::DestroyKTVRobotOutcomeCallable YinsudaClient::DestroyKTVRobotCallable(const DestroyKTVRobotRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<DestroyKTVRobotOutcome>>();
-    DestroyKTVRobotAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const DestroyKTVRobotRequest&,
-        DestroyKTVRobotOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<DestroyKTVRobotOutcome()>>(
+        [this, request]()
+        {
+            return this->DestroyKTVRobot(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::RechargeLiveVipOutcome YinsudaClient::RechargeLiveVip(const RechargeLiveVipRequest &request)
@@ -862,32 +750,25 @@ YinsudaClient::RechargeLiveVipOutcome YinsudaClient::RechargeLiveVip(const Recha
 
 void YinsudaClient::RechargeLiveVipAsync(const RechargeLiveVipRequest& request, const RechargeLiveVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RechargeLiveVipRequest&;
-    using Resp = RechargeLiveVipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RechargeLiveVip(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RechargeLiveVip", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::RechargeLiveVipOutcomeCallable YinsudaClient::RechargeLiveVipCallable(const RechargeLiveVipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RechargeLiveVipOutcome>>();
-    RechargeLiveVipAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const RechargeLiveVipRequest&,
-        RechargeLiveVipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RechargeLiveVipOutcome()>>(
+        [this, request]()
+        {
+            return this->RechargeLiveVip(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::RechargeVipOutcome YinsudaClient::RechargeVip(const RechargeVipRequest &request)
@@ -912,32 +793,25 @@ YinsudaClient::RechargeVipOutcome YinsudaClient::RechargeVip(const RechargeVipRe
 
 void YinsudaClient::RechargeVipAsync(const RechargeVipRequest& request, const RechargeVipAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const RechargeVipRequest&;
-    using Resp = RechargeVipResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->RechargeVip(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "RechargeVip", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::RechargeVipOutcomeCallable YinsudaClient::RechargeVipCallable(const RechargeVipRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<RechargeVipOutcome>>();
-    RechargeVipAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const RechargeVipRequest&,
-        RechargeVipOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<RechargeVipOutcome()>>(
+        [this, request]()
+        {
+            return this->RechargeVip(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::SearchKTVMusicsOutcome YinsudaClient::SearchKTVMusics(const SearchKTVMusicsRequest &request)
@@ -962,32 +836,25 @@ YinsudaClient::SearchKTVMusicsOutcome YinsudaClient::SearchKTVMusics(const Searc
 
 void YinsudaClient::SearchKTVMusicsAsync(const SearchKTVMusicsRequest& request, const SearchKTVMusicsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SearchKTVMusicsRequest&;
-    using Resp = SearchKTVMusicsResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SearchKTVMusics(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SearchKTVMusics", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::SearchKTVMusicsOutcomeCallable YinsudaClient::SearchKTVMusicsCallable(const SearchKTVMusicsRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SearchKTVMusicsOutcome>>();
-    SearchKTVMusicsAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const SearchKTVMusicsRequest&,
-        SearchKTVMusicsOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SearchKTVMusicsOutcome()>>(
+        [this, request]()
+        {
+            return this->SearchKTVMusics(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 
 YinsudaClient::SyncKTVRobotCommandOutcome YinsudaClient::SyncKTVRobotCommand(const SyncKTVRobotCommandRequest &request)
@@ -1012,31 +879,24 @@ YinsudaClient::SyncKTVRobotCommandOutcome YinsudaClient::SyncKTVRobotCommand(con
 
 void YinsudaClient::SyncKTVRobotCommandAsync(const SyncKTVRobotCommandRequest& request, const SyncKTVRobotCommandAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    using Req = const SyncKTVRobotCommandRequest&;
-    using Resp = SyncKTVRobotCommandResponse;
+    auto fn = [this, request, handler, context]()
+    {
+        handler(this, request, this->SyncKTVRobotCommand(request), context);
+    };
 
-    DoRequestAsync<Req, Resp>(
-        "SyncKTVRobotCommand", request, {{{"Content-Type", "application/json"}}},
-        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
-        {
-            handler(this, req, std::move(resp), context);
-        });
+    Executor::GetInstance()->Submit(new Runnable(fn));
 }
 
 YinsudaClient::SyncKTVRobotCommandOutcomeCallable YinsudaClient::SyncKTVRobotCommandCallable(const SyncKTVRobotCommandRequest &request)
 {
-    const auto prom = std::make_shared<std::promise<SyncKTVRobotCommandOutcome>>();
-    SyncKTVRobotCommandAsync(
-    request,
-    [prom](
-        const YinsudaClient*,
-        const SyncKTVRobotCommandRequest&,
-        SyncKTVRobotCommandOutcome resp,
-        const std::shared_ptr<const AsyncCallerContext>&
-    )
-    {
-        prom->set_value(resp);
-    });
-    return prom->get_future();
+    auto task = std::make_shared<std::packaged_task<SyncKTVRobotCommandOutcome()>>(
+        [this, request]()
+        {
+            return this->SyncKTVRobotCommand(request);
+        }
+    );
+
+    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
+    return task->get_future();
 }
 

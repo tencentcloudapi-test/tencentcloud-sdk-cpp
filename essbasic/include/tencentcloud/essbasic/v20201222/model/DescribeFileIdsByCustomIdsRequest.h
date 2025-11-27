@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class Caller;
+
                 /**
                 * DescribeFileIdsByCustomIds请求参数结构体
                 */

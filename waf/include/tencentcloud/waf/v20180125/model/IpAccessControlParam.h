@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * IP黑白名单参数结构体，主要用于IP黑白名单的导入。
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     IpAccessControlParam();
-                    ~IpAccessControlParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

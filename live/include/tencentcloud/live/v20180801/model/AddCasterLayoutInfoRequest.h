@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CasterLayoutInfo;
+
                 /**
                 * AddCasterLayoutInfo请求参数结构体
                 */

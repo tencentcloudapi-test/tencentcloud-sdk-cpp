@@ -34,6 +34,7 @@ namespace TencentCloud
         {
             namespace Model
             {
+
                 /**
                 * 报表嵌出数据结构-强鉴权
                 */
@@ -41,7 +42,6 @@ namespace TencentCloud
                 {
                 public:
                     EmbedTokenInfo();
-                    ~EmbedTokenInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

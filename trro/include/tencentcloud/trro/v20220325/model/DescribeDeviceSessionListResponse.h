@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SessionInfo;
+
                 /**
                 * DescribeDeviceSessionList返回参数结构体
                 */

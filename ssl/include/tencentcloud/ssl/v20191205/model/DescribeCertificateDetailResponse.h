@@ -38,6 +38,14 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class CertificateExtra;
+                class DvAuthDetail;
+                class SubmittedData;
+                class Tags;
+                class RootCertificates;
+                class DvAuths;
+                class CertBasicInfo;
+
                 /**
                 * DescribeCertificateDetail返回参数结构体
                 */

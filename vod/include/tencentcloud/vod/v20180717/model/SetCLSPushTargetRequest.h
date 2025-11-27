@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class AreaCLSTargetInfo;
+
                 /**
                 * SetCLSPushTarget请求参数结构体
                 */

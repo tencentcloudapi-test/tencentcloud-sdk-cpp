@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class BaselineRule;
+
                 /**
                 * DescribeBaselineRuleIgnoreList返回参数结构体
                 */

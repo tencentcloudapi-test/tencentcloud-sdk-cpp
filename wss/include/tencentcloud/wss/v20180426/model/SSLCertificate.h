@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class SSLProjectInfo;
+
                 /**
                 * 获取证书列表（SSLCertificate）返回参数键为 CertificateSet 的内容。
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     SSLCertificate();
-                    ~SSLCertificate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,6 +35,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class NumOrPercent;
+
                 /**
                 * 滚动更新策略
                 */
@@ -42,7 +44,6 @@ namespace TencentCloud
                 {
                 public:
                     RollingUpdate();
-                    ~RollingUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

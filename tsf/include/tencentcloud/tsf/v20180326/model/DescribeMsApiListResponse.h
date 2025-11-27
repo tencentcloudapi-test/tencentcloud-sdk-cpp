@@ -32,6 +32,8 @@ namespace TencentCloud
         {
             namespace Model
             {
+                class TsfApiListResponse;
+
                 /**
                 * DescribeMsApiList返回参数结构体
                 */
