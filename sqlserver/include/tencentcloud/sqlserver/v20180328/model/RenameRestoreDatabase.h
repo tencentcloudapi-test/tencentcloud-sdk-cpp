@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于RestoreInstance，RollbackInstance，CreateMigration、CloneDB、ModifyBackupMigration 等接口；对恢复的库进行重命名，且支持选择要恢复的库。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RenameRestoreDatabase();
+                    ~RenameRestoreDatabase() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

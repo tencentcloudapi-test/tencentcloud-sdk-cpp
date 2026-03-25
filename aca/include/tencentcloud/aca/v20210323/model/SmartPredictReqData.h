@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RequestCase;
-
                 /**
                 * 智能预测接口请求对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SmartPredictReqData();
+                    ~SmartPredictReqData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

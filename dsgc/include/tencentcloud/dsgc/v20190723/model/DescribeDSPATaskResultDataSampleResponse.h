@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DspaFieldResultDataSample;
-
                 /**
                 * DescribeDSPATaskResultDataSample返回参数结构体
                 */

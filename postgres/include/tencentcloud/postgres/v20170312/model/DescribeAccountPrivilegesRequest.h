@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DatabaseObject;
-
                 /**
                 * DescribeAccountPrivileges请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 启发式自定义时间缓存配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CacheConfig();
+                    ~CacheConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

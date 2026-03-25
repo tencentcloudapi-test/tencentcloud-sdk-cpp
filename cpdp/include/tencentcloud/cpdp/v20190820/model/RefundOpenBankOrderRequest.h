@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OpenBankProfitShareInfo;
-
                 /**
                 * RefundOpenBankOrder请求参数结构体
                 */

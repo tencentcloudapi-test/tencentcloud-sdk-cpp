@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DbauditTypesInfo;
-
                 /**
                 * DescribeDbauditInstanceType返回参数结构体
                 */

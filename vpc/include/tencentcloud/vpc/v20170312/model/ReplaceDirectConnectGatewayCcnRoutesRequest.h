@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DirectConnectGatewayCcnRoute;
-
                 /**
                 * ReplaceDirectConnectGatewayCcnRoutes请求参数结构体
                 */

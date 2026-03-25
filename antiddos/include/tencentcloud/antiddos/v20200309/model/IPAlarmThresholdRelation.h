@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceRelation;
-
                 /**
                 * 单IP告警阈值配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     IPAlarmThresholdRelation();
+                    ~IPAlarmThresholdRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

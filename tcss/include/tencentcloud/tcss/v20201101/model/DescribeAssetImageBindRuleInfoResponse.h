@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImagesBindRuleInfo;
-
                 /**
                 * DescribeAssetImageBindRuleInfo返回参数结构体
                 */

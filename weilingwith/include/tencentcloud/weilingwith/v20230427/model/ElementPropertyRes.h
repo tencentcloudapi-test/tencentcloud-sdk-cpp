@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ElementProperty;
-                class ElementCoordinates;
-                class ElementTranslate;
-
                 /**
                 * 构件属性信息响应体
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ElementPropertyRes();
+                    ~ElementPropertyRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

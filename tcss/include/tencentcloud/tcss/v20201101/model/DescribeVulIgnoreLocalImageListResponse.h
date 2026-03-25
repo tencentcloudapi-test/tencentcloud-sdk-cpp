@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulIgnoreLocalImage;
-
                 /**
                 * DescribeVulIgnoreLocalImageList返回参数结构体
                 */

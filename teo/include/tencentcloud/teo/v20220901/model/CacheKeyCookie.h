@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 自定义 Cache Key Cookie 配置参数。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CacheKeyCookie();
+                    ~CacheKeyCookie() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

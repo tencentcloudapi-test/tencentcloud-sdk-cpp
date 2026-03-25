@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filters;
-
                 /**
                 * DescribeEmergencyVulList请求参数结构体
                 */

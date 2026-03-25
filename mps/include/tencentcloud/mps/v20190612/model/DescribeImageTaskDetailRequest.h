@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeImageTaskDetail请求参数结构体
                 */

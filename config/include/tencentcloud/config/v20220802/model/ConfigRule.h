@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InputParameter;
-                class SourceConditionForManage;
-                class Annotation;
-                class TriggerType;
-                class InputParameterForManage;
-                class Tag;
-
                 /**
                 * 规则详情
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     ConfigRule();
+                    ~ConfigRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

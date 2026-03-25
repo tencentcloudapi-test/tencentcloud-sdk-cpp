@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 专线网关对象。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DirectConnectGateway();
+                    ~DirectConnectGateway() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

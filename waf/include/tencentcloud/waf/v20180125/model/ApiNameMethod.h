@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 带有请求方式的apiname结构体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ApiNameMethod();
+                    ~ApiNameMethod() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

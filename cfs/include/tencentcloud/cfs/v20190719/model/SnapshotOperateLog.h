@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 快照操作日志
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SnapshotOperateLog();
+                    ~SnapshotOperateLog() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

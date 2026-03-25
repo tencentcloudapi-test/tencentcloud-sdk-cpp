@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CcnInstanceWithoutRegion;
-
                 /**
                 * AssociateInstancesToCcnRouteTable请求参数结构体
                 */

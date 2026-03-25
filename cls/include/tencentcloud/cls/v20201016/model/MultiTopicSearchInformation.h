@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 多日志主题检索相关信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MultiTopicSearchInformation();
+                    ~MultiTopicSearchInformation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

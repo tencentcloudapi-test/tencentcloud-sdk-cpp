@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CompostionContext;
-                class CompositionContext;
-
                 /**
                 * EHOCR返回参数结构体
                 */

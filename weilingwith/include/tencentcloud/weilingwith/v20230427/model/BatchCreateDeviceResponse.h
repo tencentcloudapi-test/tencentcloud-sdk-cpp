@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchCreateDeviceRes;
-
                 /**
                 * BatchCreateDevice返回参数结构体
                 */

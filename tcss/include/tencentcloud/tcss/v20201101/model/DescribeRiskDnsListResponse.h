@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RiskDnsEventInfo;
-
                 /**
                 * DescribeRiskDnsList返回参数结构体
                 */

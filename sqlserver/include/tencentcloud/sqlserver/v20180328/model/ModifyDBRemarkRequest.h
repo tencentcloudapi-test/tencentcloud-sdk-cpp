@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DBRemark;
-
                 /**
                 * ModifyDBRemark请求参数结构体
                 */

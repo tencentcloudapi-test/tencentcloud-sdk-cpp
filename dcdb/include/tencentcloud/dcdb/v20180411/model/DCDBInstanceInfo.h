@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ShardInfo;
-                class ResourceTag;
-
                 /**
                 * 分布式数据库实例信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DCDBInstanceInfo();
+                    ~DCDBInstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

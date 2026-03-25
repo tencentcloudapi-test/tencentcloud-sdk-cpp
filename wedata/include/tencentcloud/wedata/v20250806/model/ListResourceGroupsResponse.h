@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExecutorResourceGroupData;
-
                 /**
                 * ListResourceGroups返回参数结构体
                 */

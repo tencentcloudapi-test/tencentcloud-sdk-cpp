@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ContractOrderInSubOrder;
-
                 /**
                 * ContractOrder请求参数结构体
                 */

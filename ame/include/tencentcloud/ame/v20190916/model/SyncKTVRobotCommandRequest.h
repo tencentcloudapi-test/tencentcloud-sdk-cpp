@@ -40,16 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PlayCommandInput;
-                class SetPlaylistCommandInput;
-                class SeekCommandInput;
-                class SetAudioParamCommandInput;
-                class SendMessageCommandInput;
-                class SetPlayModeCommandInput;
-                class SetDestroyModeCommandInput;
-                class SetVolumeCommandInput;
-                class SetRealVolumeCommandInput;
-
                 /**
                 * SyncKTVRobotCommand请求参数结构体
                 */

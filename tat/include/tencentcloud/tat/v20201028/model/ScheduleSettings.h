@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 周期执行器设置。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ScheduleSettings();
+                    ~ScheduleSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

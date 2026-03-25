@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 回档任务记录
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RestoreTask();
+                    ~RestoreTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

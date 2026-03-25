@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 错误信息及告警信息对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProcessStepTip();
+                    ~ProcessStepTip() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

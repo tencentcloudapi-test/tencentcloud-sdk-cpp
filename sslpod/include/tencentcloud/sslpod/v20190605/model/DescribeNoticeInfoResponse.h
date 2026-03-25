@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NoticeInfoResult;
-
                 /**
                 * DescribeNoticeInfo返回参数结构体
                 */

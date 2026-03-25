@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CheckBankCard2EVerification返回参数结构体
                 */

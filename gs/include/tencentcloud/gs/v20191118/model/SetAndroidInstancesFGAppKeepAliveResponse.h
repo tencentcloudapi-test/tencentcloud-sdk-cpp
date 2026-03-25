@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AndroidInstanceError;
-
                 /**
                 * SetAndroidInstancesFGAppKeepAlive返回参数结构体
                 */

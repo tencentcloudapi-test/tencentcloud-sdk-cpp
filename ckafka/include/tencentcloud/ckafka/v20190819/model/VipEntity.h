@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 虚拟IP实体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VipEntity();
+                    ~VipEntity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

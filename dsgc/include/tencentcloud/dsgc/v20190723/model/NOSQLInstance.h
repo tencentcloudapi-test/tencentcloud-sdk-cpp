@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * NOSQL类型的数据源实例
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NOSQLInstance();
+                    ~NOSQLInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

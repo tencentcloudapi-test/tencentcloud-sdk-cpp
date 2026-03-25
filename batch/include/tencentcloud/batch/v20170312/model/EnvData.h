@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SystemDisk;
-                class DataDisk;
-                class VirtualPrivateCloud;
-                class InternetAccessible;
-                class LoginSettings;
-                class EnhancedService;
-                class InstanceMarketOptionsRequest;
-                class InstanceTypeOptions;
-
                 /**
                 * 计算环境数据
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     EnvData();
+                    ~EnvData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

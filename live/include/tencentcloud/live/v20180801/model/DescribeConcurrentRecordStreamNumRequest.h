@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeConcurrentRecordStreamNum请求参数结构体
                 */

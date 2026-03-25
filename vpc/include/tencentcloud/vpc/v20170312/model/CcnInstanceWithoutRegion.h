@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ccn实例信息（不带地域属性）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CcnInstanceWithoutRegion();
+                    ~CcnInstanceWithoutRegion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

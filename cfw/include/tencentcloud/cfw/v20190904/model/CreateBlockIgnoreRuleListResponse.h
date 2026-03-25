@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IocListData;
-
                 /**
                 * CreateBlockIgnoreRuleList返回参数结构体
                 */

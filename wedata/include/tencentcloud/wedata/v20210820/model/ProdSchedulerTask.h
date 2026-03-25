@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据质量生产调度任务业务实体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProdSchedulerTask();
+                    ~ProdSchedulerTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

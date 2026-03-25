@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 任务视频cos授权信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CosAuthMode();
+                    ~CosAuthMode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

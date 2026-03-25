@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 消耗页数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PageUsage();
+                    ~PageUsage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

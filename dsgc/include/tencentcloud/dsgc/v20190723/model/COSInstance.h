@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * COS数据源实例信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     COSInstance();
+                    ~COSInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

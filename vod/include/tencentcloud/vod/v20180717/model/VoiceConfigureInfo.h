@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 音频（静音、低音、爆音）检测的控制参数。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VoiceConfigureInfo();
+                    ~VoiceConfigureInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

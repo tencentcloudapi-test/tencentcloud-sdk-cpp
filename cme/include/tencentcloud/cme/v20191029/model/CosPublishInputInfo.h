@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * COS 发布信息。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CosPublishInputInfo();
+                    ~CosPublishInputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

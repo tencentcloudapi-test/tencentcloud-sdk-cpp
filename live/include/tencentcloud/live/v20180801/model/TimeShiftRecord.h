@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 时移录制段。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TimeShiftRecord();
+                    ~TimeShiftRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

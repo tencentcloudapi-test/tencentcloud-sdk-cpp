@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ContractSyncInfo;
-                class SceneInfo;
-
                 /**
                 * SyncContractData请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 微信账号信息。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WeChatAccountInfo();
+                    ~WeChatAccountInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

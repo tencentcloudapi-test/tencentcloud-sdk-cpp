@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 后付费计费详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PostPaidEnvDeductInfo();
+                    ~PostPaidEnvDeductInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

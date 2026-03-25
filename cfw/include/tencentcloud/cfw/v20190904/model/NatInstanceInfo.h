@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Nat实例卡片详细信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NatInstanceInfo();
+                    ~NatInstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

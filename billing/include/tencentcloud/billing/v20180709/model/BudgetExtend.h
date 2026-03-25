@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BudgetWarn;
-                class WaveThresholdForm;
-                class BudgetSendInfoDto;
-                class BudgetConditionsForm;
-                class BudgetPlan;
-
                 /**
                 * 查询返回预算完整信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     BudgetExtend();
+                    ~BudgetExtend() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

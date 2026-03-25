@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryMemberTransactionDetailsResult;
-
                 /**
                 * QueryMemberTransactionDetails返回参数结构体
                 */

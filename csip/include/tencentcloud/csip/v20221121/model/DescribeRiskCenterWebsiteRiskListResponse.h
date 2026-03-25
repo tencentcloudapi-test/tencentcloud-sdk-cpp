@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WebsiteRisk;
-                class FilterDataObject;
-
                 /**
                 * DescribeRiskCenterWebsiteRiskList返回参数结构体
                 */

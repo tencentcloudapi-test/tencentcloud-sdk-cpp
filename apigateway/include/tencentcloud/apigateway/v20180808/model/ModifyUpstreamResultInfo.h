@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpstreamNode;
-                class UpstreamHealthChecker;
-                class K8sService;
-
                 /**
                 * 后端通道详细信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ModifyUpstreamResultInfo();
+                    ~ModifyUpstreamResultInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

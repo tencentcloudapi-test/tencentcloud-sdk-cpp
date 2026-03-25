@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class L7HealthConfig;
-
                 /**
                 * CreateL7HealthConfig请求参数结构体
                 */

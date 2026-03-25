@@ -51,24 +51,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EsInfo;
-                class Pair;
-                class StorageConf;
-                class StorageMountConf;
-                class LogOutputConf;
-                class EksService;
-                class MountedSettingConf;
-                class HealthCheckConfig;
-                class HorizontalAutoscaler;
-                class CronHorizontalAutoscaler;
-                class NodeInfo;
-                class WorkloadInfo;
-                class EnablePrometheusConf;
-                class Autoscaler;
-                class DeployStrategyConf;
-                class DescribeRunPodPage;
-                class Tag;
-
                 /**
                 * 版本信息
                 */
@@ -76,6 +58,7 @@ namespace TencentCloud
                 {
                 public:
                     TemServiceVersionInfo();
+                    ~TemServiceVersionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

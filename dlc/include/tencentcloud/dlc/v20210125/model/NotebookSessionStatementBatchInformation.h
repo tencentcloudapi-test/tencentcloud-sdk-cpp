@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NotebookSessionStatementInfo;
-
                 /**
                 * 按批提交Statement运行SQL任务。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NotebookSessionStatementBatchInformation();
+                    ~NotebookSessionStatementBatchInformation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

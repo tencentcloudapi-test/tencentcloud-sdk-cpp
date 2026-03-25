@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 防护目录列表集
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProtectDirInfo();
+                    ~ProtectDirInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

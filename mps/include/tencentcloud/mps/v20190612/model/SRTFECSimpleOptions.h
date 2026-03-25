@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SRT FEC 设置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SRTFECSimpleOptions();
+                    ~SRTFECSimpleOptions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

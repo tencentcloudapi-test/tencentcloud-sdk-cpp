@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EscapeWhiteListInfo;
-
                 /**
                 * DescribeEscapeWhiteList返回参数结构体
                 */

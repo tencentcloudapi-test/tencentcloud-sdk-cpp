@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserWhiteRuleItem;
-
                 /**
                 * ModifyAttackWhiteRule请求参数结构体
                 */

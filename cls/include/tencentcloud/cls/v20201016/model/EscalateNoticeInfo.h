@@ -20,6 +20,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
@@ -36,9 +37,7 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NoticeReceiver;
-                class WebCallback;
-
+                class EscalateNoticeInfo;
                 /**
                 * 升级通知
                 */
@@ -46,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     EscalateNoticeInfo();
+                    ~EscalateNoticeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 
@@ -172,14 +172,14 @@ namespace TencentCloud
                      * @return EscalateNotice 告警升级后下一个环节的通知渠道配置，最多可配置5个环节。
                      * 
                      */
-                    EscalateNoticeInfo GetEscalateNotice() const;
+                    std::shared_ptr<EscalateNoticeInfo> GetEscalateNotice() const;
 
                     /**
                      * 设置告警升级后下一个环节的通知渠道配置，最多可配置5个环节。
                      * @param _escalateNotice 告警升级后下一个环节的通知渠道配置，最多可配置5个环节。
                      * 
                      */
-                    void SetEscalateNotice(const EscalateNoticeInfo& _escalateNotice);
+                    void SetEscalateNotice(const std::shared_ptr<EscalateNoticeInfo>& _escalateNotice);
 
                     /**
                      * 判断参数 EscalateNotice 是否已赋值
@@ -226,7 +226,7 @@ namespace TencentCloud
                     /**
                      * 告警升级后下一个环节的通知渠道配置，最多可配置5个环节。
                      */
-                    EscalateNoticeInfo m_escalateNotice;
+                    std::shared_ptr<EscalateNoticeInfo> m_escalateNotice;
                     bool m_escalateNoticeHasBeenSet;
 
                 };

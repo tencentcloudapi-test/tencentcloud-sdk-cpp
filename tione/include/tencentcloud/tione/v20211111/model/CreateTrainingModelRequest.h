@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class CosPathInfo;
-                class ImageInfo;
-
                 /**
                 * CreateTrainingModel请求参数结构体
                 */

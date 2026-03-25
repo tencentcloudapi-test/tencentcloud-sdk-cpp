@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 敏感数据加密
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Encryption();
+                    ~Encryption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

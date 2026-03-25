@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChatArchivingMsgTypeVideo;
-
                 /**
                 * 会话存档数据详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ChatArchivingDetail();
+                    ~ChatArchivingDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

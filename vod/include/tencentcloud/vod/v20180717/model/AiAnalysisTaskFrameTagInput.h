@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 智能按帧标签任务输入类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AiAnalysisTaskFrameTagInput();
+                    ~AiAnalysisTaskFrameTagInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

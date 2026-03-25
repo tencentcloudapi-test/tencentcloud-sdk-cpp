@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 音画质重生结果文件输出。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RebuildMediaOutputConfig();
+                    ~RebuildMediaOutputConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

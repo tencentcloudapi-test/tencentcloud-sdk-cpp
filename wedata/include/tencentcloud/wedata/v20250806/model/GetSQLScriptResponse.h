@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SQLScript;
-
                 /**
                 * GetSQLScript返回参数结构体
                 */

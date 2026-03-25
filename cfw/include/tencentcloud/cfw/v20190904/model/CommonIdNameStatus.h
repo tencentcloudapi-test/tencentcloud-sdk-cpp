@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ID NAME STATUS 组合结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CommonIdNameStatus();
+                    ~CommonIdNameStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

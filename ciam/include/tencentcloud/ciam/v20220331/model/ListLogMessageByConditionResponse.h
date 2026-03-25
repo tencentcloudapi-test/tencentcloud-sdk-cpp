@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Pageable;
-                class LogMessage;
-
                 /**
                 * ListLogMessageByCondition返回参数结构体
                 */

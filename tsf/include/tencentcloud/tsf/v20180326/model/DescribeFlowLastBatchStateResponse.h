@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskFlowLastBatchState;
-
                 /**
                 * DescribeFlowLastBatchState返回参数结构体
                 */

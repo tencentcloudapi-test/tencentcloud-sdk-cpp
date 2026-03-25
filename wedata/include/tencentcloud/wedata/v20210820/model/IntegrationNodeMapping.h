@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IntegrationNodeSchema;
-                class IntegrationNodeSchemaMapping;
-                class RecordField;
-
                 /**
                 * 集成节点映射
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     IntegrationNodeMapping();
+                    ~IntegrationNodeMapping() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

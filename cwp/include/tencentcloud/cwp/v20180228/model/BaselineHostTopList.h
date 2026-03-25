@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaselineEventLevelInfo;
-
                 /**
                 * 基线影响服务器列表数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BaselineHostTopList();
+                    ~BaselineHostTopList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

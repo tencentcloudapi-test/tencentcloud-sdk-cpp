@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TcrRepoInfo;
-                class HealthCheckSettings;
-                class Env;
-                class VolumeMountInfo;
-                class LifeCycleHook;
-
                 /**
                 * 容器详细信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     ContainerInfo();
+                    ~ContainerInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

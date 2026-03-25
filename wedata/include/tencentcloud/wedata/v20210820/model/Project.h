@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaseUser;
-                class BaseTenant;
-                class BaseClusterInfo;
-                class WorkspaceExt;
-
                 /**
                 * 项目信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     Project();
+                    ~Project() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

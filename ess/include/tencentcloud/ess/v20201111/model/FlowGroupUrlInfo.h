@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowGroupApproverInfo;
-
                 /**
                 * 合同组相关信息，指定合同组子合同和签署方的信息，用于补充动态签署人。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FlowGroupUrlInfo();
+                    ~FlowGroupUrlInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

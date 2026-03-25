@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrivateIpAddressSpecification;
-                class NetworkInterfaceAttachment;
-                class Ipv6Address;
-                class Tag;
-
                 /**
                 * 弹性网卡
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     NetworkInterface();
+                    ~NetworkInterface() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

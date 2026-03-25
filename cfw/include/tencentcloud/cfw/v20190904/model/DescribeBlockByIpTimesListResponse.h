@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IpStatic;
-
                 /**
                 * DescribeBlockByIpTimesList返回参数结构体
                 */

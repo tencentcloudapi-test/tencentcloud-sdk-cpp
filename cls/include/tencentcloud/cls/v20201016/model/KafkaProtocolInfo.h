@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Kafka访问协议
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KafkaProtocolInfo();
+                    ~KafkaProtocolInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

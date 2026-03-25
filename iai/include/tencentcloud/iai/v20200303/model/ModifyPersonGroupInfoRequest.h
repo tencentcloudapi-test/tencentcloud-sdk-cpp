@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PersonExDescriptionInfo;
-
                 /**
                 * ModifyPersonGroupInfo请求参数结构体
                 */

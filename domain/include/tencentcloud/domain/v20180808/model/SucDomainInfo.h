@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 预释放域名预约参数补充成功信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SucDomainInfo();
+                    ~SucDomainInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

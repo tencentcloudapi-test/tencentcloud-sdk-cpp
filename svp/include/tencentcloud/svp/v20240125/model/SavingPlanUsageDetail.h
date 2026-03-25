@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 节省计划使用率数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SavingPlanUsageDetail();
+                    ~SavingPlanUsageDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

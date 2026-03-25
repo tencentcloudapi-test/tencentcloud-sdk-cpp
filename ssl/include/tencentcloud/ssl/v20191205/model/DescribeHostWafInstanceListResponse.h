@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WafInstanceDetail;
-
                 /**
                 * DescribeHostWafInstanceList返回参数结构体
                 */

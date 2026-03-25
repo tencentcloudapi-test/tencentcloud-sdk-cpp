@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 服务的调度策略配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SchedulingPolicy();
+                    ~SchedulingPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

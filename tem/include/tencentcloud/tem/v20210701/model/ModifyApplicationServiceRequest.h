@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EksService;
-                class ServicePortMapping;
-
                 /**
                 * ModifyApplicationService请求参数结构体
                 */

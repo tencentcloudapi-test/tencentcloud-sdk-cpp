@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AiAnalysisTaskFrameTagInput;
-                class AiAnalysisTaskFrameTagOutput;
-
                 /**
                 * 智能按帧标签结果类型
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AiAnalysisTaskFrameTagResult();
+                    ~AiAnalysisTaskFrameTagResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

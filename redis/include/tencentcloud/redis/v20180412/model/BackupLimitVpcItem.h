@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 已配置的备份文件下载地址对应的 VPC 信息。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BackupLimitVpcItem();
+                    ~BackupLimitVpcItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

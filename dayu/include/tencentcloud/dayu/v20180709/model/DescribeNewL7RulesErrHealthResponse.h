@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KeyValue;
-
                 /**
                 * DescribeNewL7RulesErrHealth返回参数结构体
                 */

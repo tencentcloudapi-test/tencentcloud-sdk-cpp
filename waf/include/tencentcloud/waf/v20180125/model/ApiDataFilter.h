@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * api资产列表过滤器
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ApiDataFilter();
+                    ~ApiDataFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

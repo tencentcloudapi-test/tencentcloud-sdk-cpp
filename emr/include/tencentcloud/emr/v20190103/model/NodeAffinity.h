@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeSelector;
-                class PreferredSchedulingTerm;
-
                 /**
                 * 节点亲和性设置
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     NodeAffinity();
+                    ~NodeAffinity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

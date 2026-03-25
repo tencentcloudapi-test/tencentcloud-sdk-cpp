@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Parameter;
-                class SqlAgentParameter;
-
                 /**
                 * ModifyAgentInstanceParameters请求参数结构体
                 */

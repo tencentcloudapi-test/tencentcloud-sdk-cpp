@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 代理相关应用信息，如集团主企业代子企业操作
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Agent();
+                    ~Agent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

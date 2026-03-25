@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateRedInvoiceResultData;
-
                 /**
                 * 红票结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateRedInvoiceResult();
+                    ~CreateRedInvoiceResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

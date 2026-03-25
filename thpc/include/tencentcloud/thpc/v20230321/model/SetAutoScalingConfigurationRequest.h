@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueueConfig;
-
                 /**
                 * SetAutoScalingConfiguration请求参数结构体
                 */

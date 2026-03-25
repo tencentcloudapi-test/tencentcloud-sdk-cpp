@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClusterCheckItem;
-
                 /**
                 * 风险项是检查完之后，有问题的检测项，并且加了一些检查结果信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterRiskItem();
+                    ~ClusterRiskItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

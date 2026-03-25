@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CloseProxyEndPoint请求参数结构体
                 */

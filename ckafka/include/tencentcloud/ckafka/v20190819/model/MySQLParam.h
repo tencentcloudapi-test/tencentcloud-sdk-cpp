@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordMapping;
-                class DropCls;
-
                 /**
                 * MySQL类型入参
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MySQLParam();
+                    ~MySQLParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ParamItem;
-
                 /**
                 * CreateParamTemplate请求参数结构体
                 */

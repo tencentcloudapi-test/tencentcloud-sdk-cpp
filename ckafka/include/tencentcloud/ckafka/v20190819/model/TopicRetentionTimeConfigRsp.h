@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Topic消息保留时间配置返回信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TopicRetentionTimeConfigRsp();
+                    ~TopicRetentionTimeConfigRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

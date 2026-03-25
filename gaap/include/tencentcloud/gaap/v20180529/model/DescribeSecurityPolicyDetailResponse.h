@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityPolicyRuleOut;
-
                 /**
                 * DescribeSecurityPolicyDetail返回参数结构体
                 */

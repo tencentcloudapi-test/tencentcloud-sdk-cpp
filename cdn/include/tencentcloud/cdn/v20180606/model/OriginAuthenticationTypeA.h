@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 回源鉴权高级配置TypeA
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OriginAuthenticationTypeA();
+                    ~OriginAuthenticationTypeA() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

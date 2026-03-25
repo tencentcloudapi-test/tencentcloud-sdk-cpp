@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 集群间绑定使用信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterRelationMeta();
+                    ~ClusterRelationMeta() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

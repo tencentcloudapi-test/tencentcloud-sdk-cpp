@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DatabaseResponseInfo;
-
                 /**
                 * DescribeDatabases返回参数结构体
                 */

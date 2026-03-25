@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IPAddress;
-                class ClusterCredential;
-                class EdgeClusterPublicLB;
-                class EdgeClusterInternalLB;
-
                 /**
                 * DescribeTKEEdgeClusterCredential返回参数结构体
                 */

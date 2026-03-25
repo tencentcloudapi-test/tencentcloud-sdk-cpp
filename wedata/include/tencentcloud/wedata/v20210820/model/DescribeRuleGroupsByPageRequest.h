@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filter;
-                class OrderField;
-
                 /**
                 * DescribeRuleGroupsByPage请求参数结构体
                 */

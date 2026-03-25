@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AscriptionInfo;
-                class FileAscriptionInfo;
-
                 /**
                 * IdentifyZone返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 按产品汇总产品详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BusinessSummaryOverviewItem();
+                    ~BusinessSummaryOverviewItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

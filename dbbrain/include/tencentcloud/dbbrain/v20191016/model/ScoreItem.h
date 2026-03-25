@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 诊断扣分项。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ScoreItem();
+                    ~ScoreItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

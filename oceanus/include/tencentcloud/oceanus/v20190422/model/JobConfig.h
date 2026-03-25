@@ -20,6 +20,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
@@ -40,13 +41,7 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Property;
-                class ResourceRefDetail;
-                class ClazzLevel;
-                class ExpertModeConfiguration;
-                class TraceModeConfiguration;
-                class JobGraph;
-
+                class JobConfig;
                 /**
                 * 作业配置详情
                 */
@@ -54,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     JobConfig();
+                    ~JobConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 
@@ -978,7 +974,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    JobConfig GetJobConfigItem() const;
+                    std::shared_ptr<JobConfig> GetJobConfigItem() const;
 
                     /**
                      * 设置运行中配置
@@ -987,7 +983,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetJobConfigItem(const JobConfig& _jobConfigItem);
+                    void SetJobConfigItem(const std::shared_ptr<JobConfig>& _jobConfigItem);
 
                     /**
                      * 判断参数 JobConfigItem 是否已赋值
@@ -1300,7 +1296,7 @@ namespace TencentCloud
                      * 运行中配置
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    JobConfig m_jobConfigItem;
+                    std::shared_ptr<JobConfig> m_jobConfigItem;
                     bool m_jobConfigItemHasBeenSet;
 
                     /**

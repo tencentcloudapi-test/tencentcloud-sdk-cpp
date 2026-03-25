@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 描述键值对过滤器，用于条件过滤查询，支持模糊查询。例如过滤ID、名称、状态等。
 若存在多个Filter时，Filter间的关系为逻辑与（AND）关系。
@@ -44,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AdvancedFilter();
+                    ~AdvancedFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

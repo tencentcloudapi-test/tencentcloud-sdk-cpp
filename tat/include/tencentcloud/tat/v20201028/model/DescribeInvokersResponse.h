@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Invoker;
-
                 /**
                 * DescribeInvokers返回参数结构体
                 */

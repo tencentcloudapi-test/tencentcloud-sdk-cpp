@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 创建/修改员工成功返回的信息
 现在支持saas/企微/H5端进行加入。
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SuccessCreateStaffData();
+                    ~SuccessCreateStaffData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

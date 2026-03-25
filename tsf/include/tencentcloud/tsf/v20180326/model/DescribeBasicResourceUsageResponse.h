@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OverviewBasicResourceUsage;
-
                 /**
                 * DescribeBasicResourceUsage返回参数结构体
                 */

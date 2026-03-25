@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 通用排序字段
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OrderFieldOptional();
+                    ~OrderFieldOptional() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

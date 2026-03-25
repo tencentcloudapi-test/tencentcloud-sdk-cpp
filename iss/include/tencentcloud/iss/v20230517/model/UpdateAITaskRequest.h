@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AITemplates;
-
                 /**
                 * UpdateAITask请求参数结构体
                 */

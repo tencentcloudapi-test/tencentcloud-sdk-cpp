@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ISPTypeItem;
-
                 /**
                 * AssignIpv6CidrBlocks请求参数结构体
                 */

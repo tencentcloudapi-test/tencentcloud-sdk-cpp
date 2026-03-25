@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 元数据加锁内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LockComponentInfo();
+                    ~LockComponentInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

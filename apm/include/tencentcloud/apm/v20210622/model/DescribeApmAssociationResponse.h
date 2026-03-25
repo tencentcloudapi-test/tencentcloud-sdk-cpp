@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApmAssociation;
-
                 /**
                 * DescribeApmAssociation返回参数结构体
                 */

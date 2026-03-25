@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 截图输出信息（2017 版）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SnapshotByTimeOffset2017();
+                    ~SnapshotByTimeOffset2017() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

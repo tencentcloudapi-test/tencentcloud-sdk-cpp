@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 仓库是否存在的返回值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RepoIsExistResp();
+                    ~RepoIsExistResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

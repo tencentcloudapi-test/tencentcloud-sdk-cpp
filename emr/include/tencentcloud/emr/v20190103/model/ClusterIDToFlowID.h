@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 集群id与流程id的mapping
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterIDToFlowID();
+                    ~ClusterIDToFlowID() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Policy;
-
                 /**
                 * DetachUserPolicy请求参数结构体
                 */

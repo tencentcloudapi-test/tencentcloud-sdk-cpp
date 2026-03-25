@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LineGroupItem;
-                class LineGroupSum;
-
                 /**
                 * DescribeLineGroupList返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AlarmStatusData;
-
                 /**
                 * 告警状态列表返回
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeAlarmStatusListRes();
+                    ~DescribeAlarmStatusListRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

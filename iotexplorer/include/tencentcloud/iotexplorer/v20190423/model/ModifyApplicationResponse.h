@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IotApplication;
-
                 /**
                 * ModifyApplication返回参数结构体
                 */

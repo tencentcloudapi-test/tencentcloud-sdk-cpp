@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InternetPrice;
-
                 /**
                 * InquiryPriceModifyAddressesBandwidth返回参数结构体
                 */

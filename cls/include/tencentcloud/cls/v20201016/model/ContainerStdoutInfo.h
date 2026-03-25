@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ContainerWorkLoadInfo;
-
                 /**
                 * 自建k8s-容器标准输出信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ContainerStdoutInfo();
+                    ~ContainerStdoutInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

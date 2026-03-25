@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 源站组里的源站健康状态。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OriginHealthStatus();
+                    ~OriginHealthStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

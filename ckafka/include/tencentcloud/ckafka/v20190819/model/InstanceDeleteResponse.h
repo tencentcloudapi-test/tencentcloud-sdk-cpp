@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 删除实例返回任务
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceDeleteResponse();
+                    ~InstanceDeleteResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

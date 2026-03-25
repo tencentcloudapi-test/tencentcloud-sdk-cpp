@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 合规化审批单
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CrossBorderCompliance();
+                    ~CrossBorderCompliance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

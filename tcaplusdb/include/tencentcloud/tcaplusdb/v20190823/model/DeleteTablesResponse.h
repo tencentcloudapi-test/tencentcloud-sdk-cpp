@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableResultNew;
-
                 /**
                 * DeleteTables返回参数结构体
                 */

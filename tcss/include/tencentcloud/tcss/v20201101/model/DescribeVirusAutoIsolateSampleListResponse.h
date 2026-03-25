@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VirusAutoIsolateSampleInfo;
-
                 /**
                 * DescribeVirusAutoIsolateSampleList返回参数结构体
                 */

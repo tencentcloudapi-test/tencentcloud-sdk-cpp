@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 智能压缩配置。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CompressionParameters();
+                    ~CompressionParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

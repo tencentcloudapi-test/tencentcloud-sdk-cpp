@@ -38,14 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkflowTrigger;
-                class TaskOutputStorage;
-                class MediaProcessTaskInput;
-                class AiContentReviewTaskInput;
-                class AiAnalysisTaskInput;
-                class AiRecognitionTaskInput;
-                class TaskNotifyConfig;
-
                 /**
                 * CreateWorkflow请求参数结构体
                 */

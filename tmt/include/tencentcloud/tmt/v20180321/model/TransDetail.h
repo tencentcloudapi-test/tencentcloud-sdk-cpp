@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BoundingBox;
-                class RotateParagraphRect;
-
                 /**
                 * 大模型图片翻译详情信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     TransDetail();
+                    ~TransDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

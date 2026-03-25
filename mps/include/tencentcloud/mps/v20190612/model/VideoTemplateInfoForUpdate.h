@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SegmentSpecificInfo;
-
                 /**
                 * 视频流配置参数
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VideoTemplateInfoForUpdate();
+                    ~VideoTemplateInfoForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

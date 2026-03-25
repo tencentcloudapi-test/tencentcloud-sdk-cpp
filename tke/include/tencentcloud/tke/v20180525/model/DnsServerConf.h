@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Eks 自定义域名服务器 配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DnsServerConf();
+                    ~DnsServerConf() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

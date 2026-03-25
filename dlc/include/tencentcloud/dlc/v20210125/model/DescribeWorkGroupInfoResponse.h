@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkGroupDetailInfo;
-
                 /**
                 * DescribeWorkGroupInfo返回参数结构体
                 */

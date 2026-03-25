@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 快手视频发布信息。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KuaishouPublishInfo();
+                    ~KuaishouPublishInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

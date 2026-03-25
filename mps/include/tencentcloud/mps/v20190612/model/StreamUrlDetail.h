@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 描述 URL 的完整信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     StreamUrlDetail();
+                    ~StreamUrlDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

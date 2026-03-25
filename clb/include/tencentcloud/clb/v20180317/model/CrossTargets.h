@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 跨域2.0云联网下子机和网卡信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CrossTargets();
+                    ~CrossTargets() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

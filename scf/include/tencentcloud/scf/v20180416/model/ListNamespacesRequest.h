@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SearchKey;
-
                 /**
                 * ListNamespaces请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataBackfill;
-
                 /**
                 * GetDataBackfillPlan返回参数结构体
                 */

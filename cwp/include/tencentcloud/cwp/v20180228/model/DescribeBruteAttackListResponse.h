@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BruteAttackInfo;
-
                 /**
                 * DescribeBruteAttackList返回参数结构体
                 */

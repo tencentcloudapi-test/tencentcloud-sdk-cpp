@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ECMZoneInstanceCountISP;
-                class ECMEnhancedService;
-
                 /**
                 * CreateECMInstances请求参数结构体
                 */

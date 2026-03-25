@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 查询与特定scenario关联的job的参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ScenarioRelatedJobsParams();
+                    ~ScenarioRelatedJobsParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

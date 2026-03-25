@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 运行时容器反弹shell事件描述信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ReverseShellEventDescription();
+                    ~ReverseShellEventDescription() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 参数是否可修改的详细信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ModifiableInfo();
+                    ~ModifiableInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServerCert;
-                class ClientCert;
-
                 /**
                 * 回源的自定义Https配置
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AdvanceHttps();
+                    ~AdvanceHttps() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

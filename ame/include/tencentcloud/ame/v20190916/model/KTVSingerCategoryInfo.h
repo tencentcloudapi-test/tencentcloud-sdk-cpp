@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * KTV歌手分类信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KTVSingerCategoryInfo();
+                    ~KTVSingerCategoryInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

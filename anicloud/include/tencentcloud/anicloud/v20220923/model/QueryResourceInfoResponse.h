@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Resource;
-
                 /**
                 * QueryResourceInfo返回参数结构体
                 */

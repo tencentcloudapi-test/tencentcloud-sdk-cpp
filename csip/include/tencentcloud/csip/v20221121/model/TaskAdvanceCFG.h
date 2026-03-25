@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PortRiskAdvanceCFGParamItem;
-                class TaskCenterVulRiskInputParam;
-                class TaskCenterWeakPwdRiskInputParam;
-                class TaskCenterCFGRiskInputParam;
-
                 /**
                 * 任务高级配置
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskAdvanceCFG();
+                    ~TaskAdvanceCFG() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

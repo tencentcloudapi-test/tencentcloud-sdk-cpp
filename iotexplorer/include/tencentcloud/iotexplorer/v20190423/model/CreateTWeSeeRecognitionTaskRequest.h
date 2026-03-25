@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VisionSummaryConfig;
-                class VisionObjectDetectConfig;
-
                 /**
                 * CreateTWeSeeRecognitionTask请求参数结构体
                 */

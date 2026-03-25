@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PageTaskTemplateInfo;
-
                 /**
                 * DescribeTaskTemplates返回参数结构体
                 */

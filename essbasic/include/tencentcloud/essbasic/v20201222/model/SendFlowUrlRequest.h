@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Caller;
-                class Component;
-                class SmsTemplate;
-
                 /**
                 * SendFlowUrl请求参数结构体
                 */

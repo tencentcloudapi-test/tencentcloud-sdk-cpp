@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrorInfo;
-
                 /**
                 * ClearEmbedToken返回参数结构体
                 */

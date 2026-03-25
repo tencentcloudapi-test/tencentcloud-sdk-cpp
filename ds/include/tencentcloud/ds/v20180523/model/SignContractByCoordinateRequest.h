@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SignLocation;
-
                 /**
                 * SignContractByCoordinate请求参数结构体
                 */

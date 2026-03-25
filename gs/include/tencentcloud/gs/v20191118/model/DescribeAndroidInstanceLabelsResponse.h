@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AndroidInstanceLabel;
-                class AndroidInstanceLabelDetail;
-
                 /**
                 * DescribeAndroidInstanceLabels返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TimeTemplateItem;
-
                 /**
                 * GetTimeTemplates返回参数结构体
                 */

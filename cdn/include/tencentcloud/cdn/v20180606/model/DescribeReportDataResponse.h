@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReportData;
-
                 /**
                 * DescribeReportData返回参数结构体
                 */

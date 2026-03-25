@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Kibana视图数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KibanaView();
+                    ~KibanaView() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

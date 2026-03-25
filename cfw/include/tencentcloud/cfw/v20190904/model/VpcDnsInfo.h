@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * nat防火墙 vpc dns 开关信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VpcDnsInfo();
+                    ~VpcDnsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

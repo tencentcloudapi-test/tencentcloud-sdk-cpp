@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataDisk;
-
                 /**
                 * CVM实例数据盘挂载配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceDataDiskMountSetting();
+                    ~InstanceDataDiskMountSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

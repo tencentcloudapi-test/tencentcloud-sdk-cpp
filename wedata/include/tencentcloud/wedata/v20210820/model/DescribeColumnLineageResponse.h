@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ColumnAggregationLineage;
-
                 /**
                 * DescribeColumnLineage返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-
                 /**
                 * CreateRocketMQCluster请求参数结构体
                 */

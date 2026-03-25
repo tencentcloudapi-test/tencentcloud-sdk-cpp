@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RedisNodeInfo;
-                class ResourceTag;
-
                 /**
                 * CloneInstances请求参数结构体
                 */

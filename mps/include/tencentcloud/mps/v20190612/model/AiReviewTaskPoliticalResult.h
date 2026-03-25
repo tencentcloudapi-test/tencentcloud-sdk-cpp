@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AiReviewPoliticalTaskInput;
-                class AiReviewPoliticalTaskOutput;
-
                 /**
                 * 内容审核涉敏任务结果类型
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewTaskPoliticalResult();
+                    ~AiReviewTaskPoliticalResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

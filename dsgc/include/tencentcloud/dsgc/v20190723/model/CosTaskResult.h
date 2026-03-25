@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrDescription;
-
                 /**
                 * cos批量操作返回结果结构体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CosTaskResult();
+                    ~CosTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

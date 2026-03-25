@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RetrievalLivenessExtraInfo;
-
                 /**
                 * 额外的详细信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ExtraInfo();
+                    ~ExtraInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

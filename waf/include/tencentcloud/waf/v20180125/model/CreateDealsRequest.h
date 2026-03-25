@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateDealsGoods;
-
                 /**
                 * CreateDeals请求参数结构体
                 */

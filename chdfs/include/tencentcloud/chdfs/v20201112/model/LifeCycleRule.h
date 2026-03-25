@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Transition;
-                class Summary;
-
                 /**
                 * 生命周期规则
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     LifeCycleRule();
+                    ~LifeCycleRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

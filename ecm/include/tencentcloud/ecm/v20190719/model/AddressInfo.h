@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PublicIPAddressInfo;
-                class PrivateIPAddressInfo;
-
                 /**
                 * ip地址相关信息结构体。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AddressInfo();
+                    ~AddressInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

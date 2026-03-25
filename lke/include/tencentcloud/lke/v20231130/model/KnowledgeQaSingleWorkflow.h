@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 问答知识库单工作流模式下指定单工作流配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KnowledgeQaSingleWorkflow();
+                    ~KnowledgeQaSingleWorkflow() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

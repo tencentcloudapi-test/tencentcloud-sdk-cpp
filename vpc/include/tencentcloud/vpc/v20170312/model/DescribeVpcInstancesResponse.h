@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CvmInstance;
-
                 /**
                 * DescribeVpcInstances返回参数结构体
                 */

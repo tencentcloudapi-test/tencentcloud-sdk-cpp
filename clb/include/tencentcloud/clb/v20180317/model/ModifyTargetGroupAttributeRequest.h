@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TargetGroupHealthCheck;
-
                 /**
                 * ModifyTargetGroupAttribute请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class XP2PDetailInfo;
-
                 /**
                 * DescribeLiveXP2PDetailInfoList返回参数结构体
                 */

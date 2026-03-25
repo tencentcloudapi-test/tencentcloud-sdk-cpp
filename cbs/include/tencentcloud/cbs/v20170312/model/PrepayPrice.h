@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetailPrice;
-
                 /**
                 * 预付费订单的费用。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PrepayPrice();
+                    ~PrepayPrice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

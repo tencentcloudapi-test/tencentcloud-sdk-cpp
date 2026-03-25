@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceQuota;
-                class LimitRange;
-
                 /**
                 * 计算集群配置。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterOption();
+                    ~ClusterOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

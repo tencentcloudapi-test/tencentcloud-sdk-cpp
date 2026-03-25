@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 新生儿信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NeonatalInfo();
+                    ~NeonatalInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

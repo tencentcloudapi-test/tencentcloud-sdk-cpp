@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * GetOpsAsyncJob请求参数结构体
                 */

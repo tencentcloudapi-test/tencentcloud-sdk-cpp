@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TcrRepoInfo;
-                class ScalableRule;
-
                 /**
                 * 镜像仓库
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageRepository();
+                    ~ImageRepository() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RemoteAuthenticationRule;
-
                 /**
                 * 远程鉴权规则配置，可以包含多种规则配置。
 RemoteAuthenticationRules和Server 互斥，只需要配置其中一个。
@@ -46,6 +44,7 @@ RemoteAuthenticationRules和Server 互斥，只需要配置其中一个。
                 {
                 public:
                     RemoteAuthentication();
+                    ~RemoteAuthentication() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 检索参数设置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RetrievalSetting();
+                    ~RetrievalSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

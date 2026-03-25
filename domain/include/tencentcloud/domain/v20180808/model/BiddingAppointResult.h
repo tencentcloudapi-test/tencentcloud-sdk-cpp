@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 我预定的域名结构体。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BiddingAppointResult();
+                    ~BiddingAppointResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

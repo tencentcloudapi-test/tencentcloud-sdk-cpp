@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 曲库包歌曲信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PackageItem();
+                    ~PackageItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

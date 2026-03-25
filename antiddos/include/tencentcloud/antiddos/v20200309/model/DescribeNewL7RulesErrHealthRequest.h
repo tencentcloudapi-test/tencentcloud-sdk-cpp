@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeNewL7RulesErrHealth请求参数结构体
                 */

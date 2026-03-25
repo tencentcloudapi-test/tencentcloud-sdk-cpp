@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 图片脱敏选项
 不填默认敏感信息都脱敏
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageMaskFlags();
+                    ~ImageMaskFlags() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

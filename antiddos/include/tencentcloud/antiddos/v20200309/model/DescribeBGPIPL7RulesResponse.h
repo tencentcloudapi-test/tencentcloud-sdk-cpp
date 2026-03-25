@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BGPIPL7RuleEntry;
-                class L7RuleHealth;
-
                 /**
                 * DescribeBGPIPL7Rules返回参数结构体
                 */

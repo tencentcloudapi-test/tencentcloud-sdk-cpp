@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskEventData;
-
                 /**
                 * SubmitTaskEvent返回参数结构体
                 */

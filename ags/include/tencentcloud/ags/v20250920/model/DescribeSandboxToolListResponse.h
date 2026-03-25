@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SandboxTool;
-
                 /**
                 * DescribeSandboxToolList返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 小程序码信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MiniAppCodeInfo();
+                    ~MiniAppCodeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

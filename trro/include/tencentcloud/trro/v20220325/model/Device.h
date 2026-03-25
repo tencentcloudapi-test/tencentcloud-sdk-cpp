@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 查询用户设备的授权绑定情况
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Device();
+                    ~Device() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

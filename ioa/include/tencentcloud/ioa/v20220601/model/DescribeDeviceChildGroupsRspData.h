@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceGroupDetail;
-
                 /**
                 * 查询设备组子分组详情响应结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeDeviceChildGroupsRspData();
+                    ~DescribeDeviceChildGroupsRspData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

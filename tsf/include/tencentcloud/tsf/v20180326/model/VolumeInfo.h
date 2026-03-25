@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConfigMapOption;
-                class EmptyDirOption;
-                class VolumeClaimTemplatesOption;
-
                 /**
                 * 容器卷挂载信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     VolumeInfo();
+                    ~VolumeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 去编码毛刺、伪影参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ArtifactReduction();
+                    ~ArtifactReduction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

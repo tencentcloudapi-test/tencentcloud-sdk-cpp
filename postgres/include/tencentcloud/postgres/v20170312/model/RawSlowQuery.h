@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 慢SQL查询接口返回 慢SQL列表详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RawSlowQuery();
+                    ~RawSlowQuery() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableInfo;
-
                 /**
                 * GetTable返回参数结构体
                 */

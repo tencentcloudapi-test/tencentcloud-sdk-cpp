@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 脚本内置压力模型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ScriptOrigin();
+                    ~ScriptOrigin() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

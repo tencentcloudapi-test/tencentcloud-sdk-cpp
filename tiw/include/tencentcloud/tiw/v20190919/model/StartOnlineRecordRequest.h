@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Concat;
-                class Whiteboard;
-                class MixStream;
-                class RecordControl;
-
                 /**
                 * StartOnlineRecord请求参数结构体
                 */

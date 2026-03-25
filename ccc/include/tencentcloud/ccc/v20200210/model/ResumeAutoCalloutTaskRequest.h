@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ResumeAutoCalloutTask请求参数结构体
                 */

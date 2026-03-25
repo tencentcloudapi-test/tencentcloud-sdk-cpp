@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CasterDisplayInfo;
-
                 /**
                 * CreateCasterPvw请求参数结构体
                 */

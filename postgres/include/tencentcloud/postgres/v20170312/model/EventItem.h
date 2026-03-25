@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EventInfo;
-
                 /**
                 * 修改参数条目，以参数为维度
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     EventItem();
+                    ~EventItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

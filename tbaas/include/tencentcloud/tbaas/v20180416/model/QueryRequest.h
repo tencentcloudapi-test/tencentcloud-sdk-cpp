@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PeerSet;
-
                 /**
                 * Query请求参数结构体
                 */

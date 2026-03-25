@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExternalContactTag;
-
                 /**
                 * 具备更多信息的添加了此外部联系人的企业成员信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FollowUserPro();
+                    ~FollowUserPro() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

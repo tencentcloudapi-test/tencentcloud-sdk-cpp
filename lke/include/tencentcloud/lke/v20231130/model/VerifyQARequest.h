@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QAList;
-
                 /**
                 * VerifyQA请求参数结构体
                 */

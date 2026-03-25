@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusClusterAgentPodConfig;
-                class Label;
-
                 /**
                 * 与腾讯云可观测平台融合托管 Prometheus 实例，关联集群基础信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusClusterAgentBasic();
+                    ~PrometheusClusterAgentBasic() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ResourceMetricSource 定义了如何根据已知类型的资源指标进行扩缩容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ResourceMetricSource();
+                    ~ResourceMetricSource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

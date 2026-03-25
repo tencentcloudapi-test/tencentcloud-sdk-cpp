@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DownloadVpnGatewaySslClientCert 使用
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SslClientConfig();
+                    ~SslClientConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

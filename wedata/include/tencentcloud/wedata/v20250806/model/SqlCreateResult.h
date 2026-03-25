@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 创建数据探索脚本文件夹返回类
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SqlCreateResult();
+                    ~SqlCreateResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

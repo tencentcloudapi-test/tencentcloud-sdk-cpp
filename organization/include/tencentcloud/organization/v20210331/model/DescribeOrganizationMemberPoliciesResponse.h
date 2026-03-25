@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OrgMemberPolicy;
-
                 /**
                 * DescribeOrganizationMemberPolicies返回参数结构体
                 */

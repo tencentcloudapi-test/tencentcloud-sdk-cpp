@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 速度值对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SpeedValue();
+                    ~SpeedValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

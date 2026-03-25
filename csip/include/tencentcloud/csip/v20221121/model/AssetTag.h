@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 安全中心资产标签
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AssetTag();
+                    ~AssetTag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

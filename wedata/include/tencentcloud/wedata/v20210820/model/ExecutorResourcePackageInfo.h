@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExecutorResourcePackageExtInfo;
-                class ExecutorResourcePackageUsageInfo;
-
                 /**
                 * 执行资源包
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ExecutorResourcePackageInfo();
+                    ~ExecutorResourcePackageInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

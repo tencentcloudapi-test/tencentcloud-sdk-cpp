@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ThreadMessageInCompleteDetailsObject;
-                class ThreadMessageAttachmentObject;
-
                 /**
                 * 会话消息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ThreadMessage();
+                    ~ThreadMessage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

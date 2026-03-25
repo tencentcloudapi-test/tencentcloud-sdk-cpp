@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ControllerStatus;
-
                 /**
                 * DescribeClusterControllers返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 日志采集的导出规则配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LogConfigExtractRule();
+                    ~LogConfigExtractRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

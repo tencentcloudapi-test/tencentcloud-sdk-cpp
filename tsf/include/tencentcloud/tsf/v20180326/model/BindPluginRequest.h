@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GatewayPluginBoundParam;
-
                 /**
                 * BindPlugin请求参数结构体
                 */

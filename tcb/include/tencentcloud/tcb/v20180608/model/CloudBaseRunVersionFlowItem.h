@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ObjectKV;
-
                 /**
                 * 版本流量占比
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudBaseRunVersionFlowItem();
+                    ~CloudBaseRunVersionFlowItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

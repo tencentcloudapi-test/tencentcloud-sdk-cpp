@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BusinessLogConfigSchema;
-                class BusinesLogConfigAssociatedGroup;
-                class BusinessLogConfigAssociatedGroup;
-
                 /**
                 * 业务日志配置
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     BusinessLogConfig();
+                    ~BusinessLogConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

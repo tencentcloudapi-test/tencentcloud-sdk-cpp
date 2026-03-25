@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 默认内网调用信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DefaultInnerCallInfo();
+                    ~DefaultInnerCallInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

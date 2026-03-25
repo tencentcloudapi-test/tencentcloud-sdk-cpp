@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DatahubResource;
-                class Connection;
-                class TransformParam;
-                class TransformsParam;
-                class Tag;
-
                 /**
                 * 查询Datahub任务信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeDatahubTaskRes();
+                    ~DescribeDatahubTaskRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取黑石负载均衡端口相关信息时返回的监听器信息（四层和七层）。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LoadBalancerPortInfoListener();
+                    ~LoadBalancerPortInfoListener() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

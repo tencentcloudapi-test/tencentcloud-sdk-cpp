@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 合同-支付方式列表响应对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ContractPayListResult();
+                    ~ContractPayListResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

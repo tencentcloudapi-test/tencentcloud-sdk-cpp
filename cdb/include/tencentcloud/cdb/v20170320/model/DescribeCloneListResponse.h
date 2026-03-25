@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloneItem;
-
                 /**
                 * DescribeCloneList返回参数结构体
                 */

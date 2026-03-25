@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BinlogConfigInfo;
-
                 /**
                 * ModifyBinlogConfig请求参数结构体
                 */

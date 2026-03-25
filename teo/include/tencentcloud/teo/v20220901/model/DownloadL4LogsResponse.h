@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class L4OfflineLog;
-
                 /**
                 * DownloadL4Logs返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplayLeakageEmail;
-
                 /**
                 * DescribeLeakageEmails返回参数结构体
                 */

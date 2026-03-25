@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModifyVirtualDeviceGroupsReqItem;
-
                 /**
                 * ModifyVirtualDeviceGroups请求参数结构体
                 */

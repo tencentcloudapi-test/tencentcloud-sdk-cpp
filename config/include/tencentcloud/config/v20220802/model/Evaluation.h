@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Annotation;
-
                 /**
                 * 自定义规则评估结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Evaluation();
+                    ~Evaluation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

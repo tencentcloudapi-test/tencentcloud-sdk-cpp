@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LoginOutHeader;
-                class LoginOutData;
-
                 /**
                 * LoginOutHisTool请求参数结构体
                 */

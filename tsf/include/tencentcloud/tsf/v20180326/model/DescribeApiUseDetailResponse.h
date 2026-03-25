@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupApiUseStatistics;
-
                 /**
                 * DescribeApiUseDetail返回参数结构体
                 */

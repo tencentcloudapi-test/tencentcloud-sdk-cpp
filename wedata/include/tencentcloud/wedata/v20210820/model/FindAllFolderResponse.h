@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FolderDsDto;
-
                 /**
                 * FindAllFolder返回参数结构体
                 */

@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * MainlandPermitOCR请求参数结构体
                 */

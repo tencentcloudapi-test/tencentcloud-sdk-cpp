@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Record;
-
                 /**
                 * GetSessionDetails返回参数结构体
                 */

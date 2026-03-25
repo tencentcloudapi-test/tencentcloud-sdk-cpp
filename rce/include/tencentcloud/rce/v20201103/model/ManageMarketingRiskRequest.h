@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InputManageMarketingRisk;
-                class InputCryptoManageMarketingRisk;
-
                 /**
                 * ManageMarketingRisk请求参数结构体
                 */

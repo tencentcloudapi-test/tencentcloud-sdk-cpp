@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AttrLabelRefer;
-                class UpdatePeriodInfo;
-
                 /**
                 * ModifyDoc请求参数结构体
                 */

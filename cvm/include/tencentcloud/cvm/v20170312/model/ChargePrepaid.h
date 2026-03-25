@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 描述预付费模式，即包年包月相关参数。包括购买时长和自动续费逻辑等。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ChargePrepaid();
+                    ~ChargePrepaid() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

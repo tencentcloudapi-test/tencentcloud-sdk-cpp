@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UsagePlanBindSecretStatus;
-
                 /**
                 * DescribeUsagePlanSecretIds返回参数结构体
                 */

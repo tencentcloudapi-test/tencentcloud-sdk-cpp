@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MaterialBasicInfo;
-                class VideoMaterial;
-                class AudioMaterial;
-                class ImageMaterial;
-                class LinkMaterial;
-                class VideoEditTemplateMaterial;
-                class OtherMaterial;
-
                 /**
                 * 媒体详情信息
                 */
@@ -56,6 +48,7 @@ namespace TencentCloud
                 {
                 public:
                     MaterialInfo();
+                    ~MaterialInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

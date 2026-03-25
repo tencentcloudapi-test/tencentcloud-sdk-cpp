@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DefaultSetting;
-
                 /**
                 * 资源调度-容量调度器的全局设置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CapacityGlobalConfig();
+                    ~CapacityGlobalConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 手机模型识别检测
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PhoneDetect();
+                    ~PhoneDetect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

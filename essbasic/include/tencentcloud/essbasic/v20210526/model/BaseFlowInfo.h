@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FormField;
-                class CcInfo;
-                class Component;
-                class CommonFlowApprover;
-
                 /**
                 * 基础流程信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     BaseFlowInfo();
+                    ~BaseFlowInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

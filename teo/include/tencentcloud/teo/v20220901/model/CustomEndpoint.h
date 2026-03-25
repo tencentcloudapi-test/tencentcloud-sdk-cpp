@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Header;
-
                 /**
                 * 实时日志投递到自定义 HTTP(S) 接口的配置信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CustomEndpoint();
+                    ~CustomEndpoint() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

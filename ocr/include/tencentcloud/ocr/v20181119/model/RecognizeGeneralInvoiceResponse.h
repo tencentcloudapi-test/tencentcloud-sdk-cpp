@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InvoiceItem;
-
                 /**
                 * RecognizeGeneralInvoice返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskParams;
-
                 /**
                 * GetTaskStatus返回参数结构体
                 */

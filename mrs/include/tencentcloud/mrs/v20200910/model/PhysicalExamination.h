@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GeneralExaminationBaseItem;
-                class InternalMedicineBaseItem;
-                class SurgeryBaseItem;
-                class StomatologyBaseItem;
-                class OphthalmologyBaseItem;
-                class OtolaryngologyBaseItem;
-                class GynaecologyBaseItem;
-                class KeyValueItem;
-
                 /**
                 * 体检报告综合信息
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     PhysicalExamination();
+                    ~PhysicalExamination() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

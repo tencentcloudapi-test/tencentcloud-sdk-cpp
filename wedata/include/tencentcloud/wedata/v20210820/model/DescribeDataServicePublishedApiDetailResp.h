@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataServiceRequestParam;
-                class DataServiceResponseParam;
-
                 /**
                 * 查询数据服务API的发布态信息详情出参
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeDataServicePublishedApiDetailResp();
+                    ~DescribeDataServicePublishedApiDetailResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Address;
-
                 /**
                 * 此结构体 (SubOrganizationDetail) 用于描述子机构或子企业的详情信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SubOrganizationDetail();
+                    ~SubOrganizationDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

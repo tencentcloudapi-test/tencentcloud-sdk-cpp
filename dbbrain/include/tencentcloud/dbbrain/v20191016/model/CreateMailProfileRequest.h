@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProfileInfo;
-
                 /**
                 * CreateMailProfile请求参数结构体
                 */

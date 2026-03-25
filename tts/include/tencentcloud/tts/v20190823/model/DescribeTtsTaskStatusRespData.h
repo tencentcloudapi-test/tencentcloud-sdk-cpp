@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Subtitle;
-
                 /**
                 * 获取异步合成结果的返回参数
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeTtsTaskStatusRespData();
+                    ~DescribeTtsTaskStatusRespData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

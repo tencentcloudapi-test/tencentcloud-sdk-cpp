@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 地域资源实例数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RegionInstanceCount();
+                    ~RegionInstanceCount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

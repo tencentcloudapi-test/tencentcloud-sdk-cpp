@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Place;
-
                 /**
                 * 异地登录白名单
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LoginWhiteLists();
+                    ~LoginWhiteLists() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

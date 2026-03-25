@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProtocolPort;
-                class Env;
-                class HealthCheckSettings;
-
                 /**
                 * 容器部署组详情
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ContainerGroupDetail();
+                    ~ContainerGroupDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

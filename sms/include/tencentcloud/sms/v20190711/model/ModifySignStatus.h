@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 修改签名响应
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ModifySignStatus();
+                    ~ModifySignStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

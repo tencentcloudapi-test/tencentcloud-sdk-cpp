@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 翼扬安全资源使用情况
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ResourceUsageInfoData();
+                    ~ResourceUsageInfoData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

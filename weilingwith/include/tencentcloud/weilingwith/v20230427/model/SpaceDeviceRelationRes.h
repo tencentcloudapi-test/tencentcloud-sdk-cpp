@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SpaceDeviceRelation;
-
                 /**
                 * 设备-空间绑定关系响应体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SpaceDeviceRelationRes();
+                    ~SpaceDeviceRelationRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

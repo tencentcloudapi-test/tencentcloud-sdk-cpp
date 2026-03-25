@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DocBehavior;
-
                 /**
                 * ReportAction请求参数结构体
                 */

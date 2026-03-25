@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PeakNetworkRegionInfo;
-
                 /**
                 * DescribePeakNetworkOverview返回参数结构体
                 */

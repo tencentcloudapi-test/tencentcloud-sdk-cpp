@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 订阅的数据库表信息，用于配置和查询订阅任务接口。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SubscribeObject();
+                    ~SubscribeObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

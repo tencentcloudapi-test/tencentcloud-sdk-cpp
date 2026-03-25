@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InvoiceDetectInfo;
-
                 /**
                 * MixedInvoiceDetect返回参数结构体
                 */

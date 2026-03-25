@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 策略类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MonitorTypeNamespace();
+                    ~MonitorTypeNamespace() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Knowledge;
-                class UserLocation;
-
                 /**
                 * 知识注入相关的参数信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     WebSearchOptions();
+                    ~WebSearchOptions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

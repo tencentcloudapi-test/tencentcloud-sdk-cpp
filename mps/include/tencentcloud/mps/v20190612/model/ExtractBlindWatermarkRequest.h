@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaInputInfo;
-                class TaskNotifyConfig;
-                class ExtractBlindWatermarkTaskConfig;
-
                 /**
                 * ExtractBlindWatermark请求参数结构体
                 */

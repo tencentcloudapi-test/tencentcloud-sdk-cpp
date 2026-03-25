@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 公有云数据源结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PublicDataSourceFS();
+                    ~PublicDataSourceFS() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 头像位置坐标
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageCoordinates();
+                    ~ImageCoordinates() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

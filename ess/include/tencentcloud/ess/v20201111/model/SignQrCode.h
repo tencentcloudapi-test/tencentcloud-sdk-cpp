@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 签署二维码的基本信息，用于创建二维码，用户可扫描该二维码进行签署操作。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SignQrCode();
+                    ~SignQrCode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

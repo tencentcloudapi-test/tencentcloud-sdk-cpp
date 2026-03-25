@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZoneSetting;
-                class Tag;
-
                 /**
                 * Serverless HBase实例信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     SLInstanceInfo();
+                    ~SLInstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

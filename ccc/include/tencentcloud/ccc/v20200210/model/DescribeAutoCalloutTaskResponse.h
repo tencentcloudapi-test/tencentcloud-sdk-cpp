@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AutoCalloutTaskCalleeInfo;
-
                 /**
                 * DescribeAutoCalloutTask返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 安全执行动作为封禁的附加参数。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DenyActionParameters();
+                    ~DenyActionParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

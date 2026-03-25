@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 库空间统计数据。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SchemaSpaceData();
+                    ~SchemaSpaceData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

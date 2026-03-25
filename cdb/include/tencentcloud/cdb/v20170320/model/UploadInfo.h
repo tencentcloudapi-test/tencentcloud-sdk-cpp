@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 文件上传描述
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UploadInfo();
+                    ~UploadInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

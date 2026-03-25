@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DuplicateHosts;
-
                 /**
                 * CreateBanWhiteList返回参数结构体
                 */

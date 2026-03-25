@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 安全日志-日志投递cls设置信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SecLogDeliveryClsSettingInfo();
+                    ~SecLogDeliveryClsSettingInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

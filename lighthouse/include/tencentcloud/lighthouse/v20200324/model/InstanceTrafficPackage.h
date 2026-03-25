@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TrafficPackage;
-
                 /**
                 * 实例流量包详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceTrafficPackage();
+                    ~InstanceTrafficPackage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

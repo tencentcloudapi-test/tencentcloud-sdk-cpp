@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainFilter;
-
                 /**
                 * DescribeDomains请求参数结构体
                 */

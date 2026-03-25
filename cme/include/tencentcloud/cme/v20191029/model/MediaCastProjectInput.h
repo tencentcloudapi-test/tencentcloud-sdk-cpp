@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaCastSourceInfo;
-                class MediaCastDestinationInfo;
-                class MediaCastOutputMediaSetting;
-                class MediaCastPlaySetting;
-
                 /**
                 * 点播转直播项目输入信息。
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaCastProjectInput();
+                    ~MediaCastProjectInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

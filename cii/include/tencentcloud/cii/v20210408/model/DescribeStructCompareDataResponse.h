@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CompareMetricsData;
-                class ReviewDataTaskInfo;
-
                 /**
                 * DescribeStructCompareData返回参数结构体
                 */

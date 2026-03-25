@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 单个进程漏洞防御插件状态
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VulDefencePluginDetail();
+                    ~VulDefencePluginDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

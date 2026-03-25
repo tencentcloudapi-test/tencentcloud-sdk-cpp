@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkflowSchedulerOpsDto;
-
                 /**
                 * DescribeWorkflowInfoById返回参数结构体
                 */

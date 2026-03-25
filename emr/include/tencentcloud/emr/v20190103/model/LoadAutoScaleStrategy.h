@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class LoadMetricsConditions;
-
                 /**
                 * 自动扩缩容基于负载指标的规则
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     LoadAutoScaleStrategy();
+                    ~LoadAutoScaleStrategy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

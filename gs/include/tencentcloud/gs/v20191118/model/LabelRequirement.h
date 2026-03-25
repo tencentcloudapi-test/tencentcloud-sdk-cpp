@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 标签要求
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LabelRequirement();
+                    ~LabelRequirement() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

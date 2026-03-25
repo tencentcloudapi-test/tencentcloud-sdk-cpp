@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * https 服务端证书配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DefaultServerCertInfo();
+                    ~DefaultServerCertInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

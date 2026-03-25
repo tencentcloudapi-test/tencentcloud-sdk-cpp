@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Entity;
-
                 /**
                 * 分类删除事件。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ClassDeletedEvent();
+                    ~ClassDeletedEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

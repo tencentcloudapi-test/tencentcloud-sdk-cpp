@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RemoteAddrInfo;
-
                 /**
                 * 查询国标设备地址列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeDeviceAddrList();
+                    ~DescribeDeviceAddrList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SparkSQL批任务信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BatchSqlTask();
+                    ~BatchSqlTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

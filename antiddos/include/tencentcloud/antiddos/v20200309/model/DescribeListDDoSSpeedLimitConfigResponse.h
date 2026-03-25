@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DDoSSpeedLimitConfigRelation;
-
                 /**
                 * DescribeListDDoSSpeedLimitConfig返回参数结构体
                 */

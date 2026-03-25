@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Coord;
-
                 /**
                 * 广告文字识别结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AdvertiseTextDetection();
+                    ~AdvertiseTextDetection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

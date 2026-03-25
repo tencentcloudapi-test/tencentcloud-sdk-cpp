@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonOption;
-                class AvailableZoneScatterScheduleRule;
-                class CustomPodSchedule;
-                class CustomTolerateSchedule;
-
                 /**
                 * tsf 容器集群节点调度策略
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     SchedulingStrategy();
+                    ~SchedulingStrategy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

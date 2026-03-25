@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 地区运营商明细数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DistrictIspInfo();
+                    ~DistrictIspInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

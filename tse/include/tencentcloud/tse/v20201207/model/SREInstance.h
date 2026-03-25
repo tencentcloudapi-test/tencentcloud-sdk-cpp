@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EnvInfo;
-                class VpcInfo;
-                class ServiceGovernanceInfo;
-                class KVPair;
-                class DescribeInstanceRegionInfo;
-                class StorageOption;
-                class ZookeeperRegionInfo;
-
                 /**
                 * 微服务注册引擎实例
                 */
@@ -56,6 +48,7 @@ namespace TencentCloud
                 {
                 public:
                     SREInstance();
+                    ~SREInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

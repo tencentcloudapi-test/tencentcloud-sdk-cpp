@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Rocketmq消息消费track信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RocketMQMessageTrack();
+                    ~RocketMQMessageTrack() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 查询取回任务详情返回数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AddRecordRetrieveTaskData();
+                    ~AddRecordRetrieveTaskData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

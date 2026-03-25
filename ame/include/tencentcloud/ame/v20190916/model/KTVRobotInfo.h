@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SetAudioParamCommandInput;
-                class JoinRoomInput;
-                class SetPlayModeCommandInput;
-                class SetVolumeCommandInput;
-                class SetRealVolumeCommandInput;
-
                 /**
                 * 机器人信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     KTVRobotInfo();
+                    ~KTVRobotInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

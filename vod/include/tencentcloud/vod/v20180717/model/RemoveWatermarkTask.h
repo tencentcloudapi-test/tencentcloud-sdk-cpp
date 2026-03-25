@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RemoveWaterMarkTaskInput;
-                class RemoveWaterMarkTaskOutput;
-
                 /**
                 * 智能去除水印任务信息，仅当 TaskType 为 RemoveWatermark，该字段有值。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     RemoveWatermarkTask();
+                    ~RemoveWatermarkTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

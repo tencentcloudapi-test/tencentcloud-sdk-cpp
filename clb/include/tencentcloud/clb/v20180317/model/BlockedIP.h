@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 加入了12306黑名单的IP
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BlockedIP();
+                    ~BlockedIP() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

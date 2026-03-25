@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 设置实例扩展事件阈值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EventConfig();
+                    ~EventConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

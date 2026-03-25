@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 更新员工信息成功返回的数据信息， 仅支持未实名的用户进行更新
 会通过短信、企微消息或者H5Url 链接
@@ -44,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     SuccessUpdateStaffData();
+                    ~SuccessUpdateStaffData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

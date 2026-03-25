@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 等保资产组记录
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ComplianceCheckDetail();
+                    ~ComplianceCheckDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NamedComputeEnv;
-                class Placement;
-
                 /**
                 * CreateComputeEnv请求参数结构体
                 */

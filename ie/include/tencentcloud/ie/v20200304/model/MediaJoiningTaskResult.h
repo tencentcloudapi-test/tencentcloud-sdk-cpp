@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskResultFile;
-
                 /**
                 * 编辑处理/拼接任务/处理结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaJoiningTaskResult();
+                    ~MediaJoiningTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

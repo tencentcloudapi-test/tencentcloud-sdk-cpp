@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 修改容器逃逸扫描策略开关信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EscapeRuleEnabled();
+                    ~EscapeRuleEnabled() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

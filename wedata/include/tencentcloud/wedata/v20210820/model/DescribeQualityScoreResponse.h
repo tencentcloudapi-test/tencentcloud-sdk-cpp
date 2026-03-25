@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QualityScore;
-
                 /**
                 * DescribeQualityScore返回参数结构体
                 */

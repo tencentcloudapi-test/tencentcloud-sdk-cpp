@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 接入k8s 的认证信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterCredential();
+                    ~ClusterCredential() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

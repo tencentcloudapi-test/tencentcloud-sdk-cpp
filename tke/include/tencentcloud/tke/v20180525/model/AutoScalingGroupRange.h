@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 集群关联的伸缩组最大实例数最小值实例数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AutoScalingGroupRange();
+                    ~AutoScalingGroupRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 恶意请求列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RiskDnsList();
+                    ~RiskDnsList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

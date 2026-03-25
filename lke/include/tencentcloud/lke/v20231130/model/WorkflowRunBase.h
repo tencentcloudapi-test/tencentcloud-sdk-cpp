@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 工作流运行实例的基本信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowRunBase();
+                    ~WorkflowRunBase() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

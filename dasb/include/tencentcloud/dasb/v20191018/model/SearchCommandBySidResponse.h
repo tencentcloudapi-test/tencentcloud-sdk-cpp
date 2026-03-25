@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Command;
-
                 /**
                 * SearchCommandBySid返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PSTNSession;
-
                 /**
                 * DescribeTelSession返回参数结构体
                 */

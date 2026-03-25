@@ -39,15 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScaleOutNodeConfig;
-                class InstanceChargePrepaid;
-                class ScriptBootstrapActionConfig;
-                class Tag;
-                class PodSpecInfo;
-                class NodeResourceSpec;
-                class ScaleOutServiceConfGroupsInfo;
-                class NodeMark;
-
                 /**
                 * ScaleOutCluster请求参数结构体
                 */

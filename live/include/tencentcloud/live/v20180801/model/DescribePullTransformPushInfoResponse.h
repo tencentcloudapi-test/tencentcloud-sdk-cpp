@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskDurationInfo;
-
                 /**
                 * DescribePullTransformPushInfo返回参数结构体
                 */

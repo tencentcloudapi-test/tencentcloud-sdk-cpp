@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EventList;
-
                 /**
                 * DescribeUserEvent返回参数结构体
                 */

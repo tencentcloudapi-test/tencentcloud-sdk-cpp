@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Sql Gateway返回数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ResultData();
+                    ~ResultData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

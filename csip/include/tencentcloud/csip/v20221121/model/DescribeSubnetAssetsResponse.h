@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubnetAsset;
-                class FilterDataObject;
-
                 /**
                 * DescribeSubnetAssets返回参数结构体
                 */

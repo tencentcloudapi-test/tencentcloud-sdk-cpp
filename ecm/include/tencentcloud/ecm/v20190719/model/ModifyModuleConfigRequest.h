@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SystemDisk;
-                class DataDisk;
-
                 /**
                 * ModifyModuleConfig请求参数结构体
                 */

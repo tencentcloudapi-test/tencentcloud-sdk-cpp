@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CapacityGlobalConfig;
-                class FairGlobalConfig;
-
                 /**
                 * DescribeGlobalConfig返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据资产报告-rdb的敏感数据规则分布
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RuleDistribution();
+                    ~RuleDistribution() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

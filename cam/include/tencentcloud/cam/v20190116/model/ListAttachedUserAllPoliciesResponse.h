@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AttachedUserPolicy;
-
                 /**
                 * ListAttachedUserAllPolicies返回参数结构体
                 */

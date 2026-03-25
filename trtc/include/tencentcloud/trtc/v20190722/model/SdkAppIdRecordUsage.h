@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordUsage;
-
                 /**
                 * SdkAppId级别录制时长数据。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SdkAppIdRecordUsage();
+                    ~SdkAppIdRecordUsage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

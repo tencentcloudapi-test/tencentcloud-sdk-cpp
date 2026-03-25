@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 有效大模型安全包信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LLMPkg();
+                    ~LLMPkg() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

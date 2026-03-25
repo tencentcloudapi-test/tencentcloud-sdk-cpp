@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Web 安全 Challenge 挑战的附加参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ChallengeActionParameters();
+                    ~ChallengeActionParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

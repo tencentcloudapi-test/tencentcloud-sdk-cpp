@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ISUP智能安全接入 API返回数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ISAPIOutputData();
+                    ~ISAPIOutputData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -20,6 +20,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
@@ -34,7 +35,7 @@ namespace TencentCloud
         {
             namespace Model
             {
-
+                class AgentToolRspParam;
                 /**
                 * Agent工具的响应参数定义
                 */
@@ -42,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AgentToolRspParam();
+                    ~AgentToolRspParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 
@@ -114,14 +116,14 @@ namespace TencentCloud
                      * @return SubParams 子参数,ParamType 是OBJECT 或 ARRAY<>类型有用
                      * 
                      */
-                    std::vector<AgentToolRspParam> GetSubParams() const;
+                    std::vector<std::shared_ptr<AgentToolRspParam>> GetSubParams() const;
 
                     /**
                      * 设置子参数,ParamType 是OBJECT 或 ARRAY<>类型有用
                      * @param _subParams 子参数,ParamType 是OBJECT 或 ARRAY<>类型有用
                      * 
                      */
-                    void SetSubParams(const std::vector<AgentToolRspParam>& _subParams);
+                    void SetSubParams(const std::vector<std::shared_ptr<AgentToolRspParam>>& _subParams);
 
                     /**
                      * 判断参数 SubParams 是否已赋值
@@ -216,7 +218,7 @@ namespace TencentCloud
                     /**
                      * 子参数,ParamType 是OBJECT 或 ARRAY<>类型有用
                      */
-                    std::vector<AgentToolRspParam> m_subParams;
+                    std::vector<std::shared_ptr<AgentToolRspParam>> m_subParams;
                     bool m_subParamsHasBeenSet;
 
                     /**

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分路径分片回源配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RangeOriginPullRule();
+                    ~RangeOriginPullRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

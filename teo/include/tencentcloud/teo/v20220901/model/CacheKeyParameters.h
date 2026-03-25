@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CacheKeyQueryString;
-                class CacheKeyHeader;
-                class CacheKeyCookie;
-
                 /**
                 * 自定义 Cache Key 配置参数。该配置参数的 FullURLCache 和 QueryString 采用组合表达，具体示例可以参考：
 - 查询字符串全部保留。开启忽略大小写。
@@ -100,6 +96,7 @@ namespace TencentCloud
                 {
                 public:
                     CacheKeyParameters();
+                    ~CacheKeyParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

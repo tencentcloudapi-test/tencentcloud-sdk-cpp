@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 告警策略中监控任务的执行时间点
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MonitorTime();
+                    ~MonitorTime() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

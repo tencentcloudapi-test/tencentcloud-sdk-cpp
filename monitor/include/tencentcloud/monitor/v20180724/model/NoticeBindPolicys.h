@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 通知模板与策略绑定关系
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NoticeBindPolicys();
+                    ~NoticeBindPolicys() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -40,16 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LoginSettings;
-                class SceneSoftwareConfig;
-                class InstanceChargePrepaid;
-                class ScriptBootstrapActionConfig;
-                class Tag;
-                class CustomMetaDBInfo;
-                class DependService;
-                class ZoneResourceConfiguration;
-                class NodeMark;
-
                 /**
                 * CreateCluster请求参数结构体
                 */

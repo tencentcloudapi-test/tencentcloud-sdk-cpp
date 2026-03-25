@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 天御信鸽取数平台接口出参
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TransportGeneralInterfaceOutput();
+                    ~TransportGeneralInterfaceOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

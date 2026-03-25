@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataTransformTaskInfo;
-
                 /**
                 * DescribeDataTransformInfo返回参数结构体
                 */

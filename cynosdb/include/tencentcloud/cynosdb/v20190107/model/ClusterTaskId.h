@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 集群任务ID
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterTaskId();
+                    ~ClusterTaskId() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordTask;
-
                 /**
                 * DescribeRecordTask返回参数结构体
                 */

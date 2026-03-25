@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosPermission;
-
                 /**
                 * 用户角色
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     UserRole();
+                    ~UserRole() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

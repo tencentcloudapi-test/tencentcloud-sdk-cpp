@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordingRuleSet;
-
                 /**
                 * DescribeRecordingRules返回参数结构体
                 */

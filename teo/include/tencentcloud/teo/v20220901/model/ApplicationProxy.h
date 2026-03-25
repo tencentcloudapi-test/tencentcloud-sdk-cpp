@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Ipv6;
-                class ApplicationProxyRule;
-                class AccelerateMainland;
-
                 /**
                 * 应用代理实例
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ApplicationProxy();
+                    ~ApplicationProxy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

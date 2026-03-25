@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * RenewPostpaidDBInstance请求参数结构体
                 */

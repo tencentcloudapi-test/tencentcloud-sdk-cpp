@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupInfo;
-
                 /**
                 * DescribeConsumerGroups返回参数结构体
                 */

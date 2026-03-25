@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 跳转事件的结构体，其中包括认证期间收录，授权书审核，企业认证的回跳事件。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     JumpEvent();
+                    ~JumpEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

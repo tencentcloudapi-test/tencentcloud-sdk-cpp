@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreateCheckComponent的入口参数,用于批量安装防御容器
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterCreateComponentItem();
+                    ~ClusterCreateComponentItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取ws token label
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GetWsTokenReq_Label();
+                    ~GetWsTokenReq_Label() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

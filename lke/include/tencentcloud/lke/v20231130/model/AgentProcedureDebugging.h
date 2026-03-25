@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QuoteInfo;
-                class AgentReference;
-
                 /**
                 * Agent思考过程调试信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AgentProcedureDebugging();
+                    ~AgentProcedureDebugging() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

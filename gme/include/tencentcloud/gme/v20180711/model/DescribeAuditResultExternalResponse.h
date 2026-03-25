@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuditResultDetailExternal;
-
                 /**
                 * DescribeAuditResultExternal返回参数结构体
                 */

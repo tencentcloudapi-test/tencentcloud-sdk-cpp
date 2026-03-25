@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实例GPU信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GPUInfo();
+                    ~GPUInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

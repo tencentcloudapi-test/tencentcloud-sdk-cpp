@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 正在运行的任务列表项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RunningTaskItem();
+                    ~RunningTaskItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

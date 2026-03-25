@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UnbindTrafficMirrorReceiver;
-
                 /**
                 * UnbindTrafficMirrorReceivers请求参数结构体
                 */

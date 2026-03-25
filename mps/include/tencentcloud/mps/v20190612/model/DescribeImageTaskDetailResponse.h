@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageProcessTaskResult;
-
                 /**
                 * DescribeImageTaskDetail返回参数结构体
                 */

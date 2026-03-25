@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleInfo;
-
                 /**
                 * CreateIndex请求参数结构体
                 */

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageInfo;
-                class AssetFilters;
-
                 /**
                 * CreateAssetImageRegistryScanTask请求参数结构体
                 */

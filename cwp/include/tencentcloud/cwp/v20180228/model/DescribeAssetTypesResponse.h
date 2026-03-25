@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetType;
-
                 /**
                 * DescribeAssetTypes返回参数结构体
                 */

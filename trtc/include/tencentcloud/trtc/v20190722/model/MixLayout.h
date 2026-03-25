@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用户自定义混流布局参数列表。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MixLayout();
+                    ~MixLayout() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

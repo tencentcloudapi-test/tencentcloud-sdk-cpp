@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChatDetail;
-
                 /**
                 * DescribeChatDetail返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * redis延迟分布区间详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CmdCostGroup();
+                    ~CmdCostGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

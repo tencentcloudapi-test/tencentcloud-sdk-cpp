@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Cage;
-
                 /**
                 * 机房管理单元
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     IdcUnit();
+                    ~IdcUnit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

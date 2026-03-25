@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceIdentifier;
-
                 /**
                 * ApplyFirewallTemplate请求参数结构体
                 */

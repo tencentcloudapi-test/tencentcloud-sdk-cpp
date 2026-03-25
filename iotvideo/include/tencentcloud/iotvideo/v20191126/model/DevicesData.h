@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 设备列表元素所包含的设备基本信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DevicesData();
+                    ~DevicesData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

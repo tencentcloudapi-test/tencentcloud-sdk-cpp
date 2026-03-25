@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WebhookTrigger;
-
                 /**
                 * DescribeWebhookTrigger返回参数结构体
                 */

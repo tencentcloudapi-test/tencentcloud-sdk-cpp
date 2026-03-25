@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChainMakerContractResult;
-
                 /**
                 * InvokeChainMakerDemoContract返回参数结构体
                 */

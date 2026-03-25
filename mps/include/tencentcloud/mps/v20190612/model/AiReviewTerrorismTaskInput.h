@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 内容审核涉敏任务输入参数类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewTerrorismTaskInput();
+                    ~AiReviewTerrorismTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

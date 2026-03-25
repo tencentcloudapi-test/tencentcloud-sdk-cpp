@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WaterPrintRelation;
-
                 /**
                 * DescribeListWaterPrintConfig返回参数结构体
                 */

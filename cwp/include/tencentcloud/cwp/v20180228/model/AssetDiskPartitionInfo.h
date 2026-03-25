@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 资产管理磁盘分区信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AssetDiskPartitionInfo();
+                    ~AssetDiskPartitionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

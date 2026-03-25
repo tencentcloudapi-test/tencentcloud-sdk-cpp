@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 跨地域备份各地域备份信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CrossRegionBackupItem();
+                    ~CrossRegionBackupItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

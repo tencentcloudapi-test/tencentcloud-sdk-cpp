@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 批量添加白名单：重复情况重复列表实体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DuplicateHosts();
+                    ~DuplicateHosts() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

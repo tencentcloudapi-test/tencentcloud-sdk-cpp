@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DspaDiscoveryTaskDbResult;
-
                 /**
                 * DescribeDSPADiscoveryTaskResult返回参数结构体
                 */

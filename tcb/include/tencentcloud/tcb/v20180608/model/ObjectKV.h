@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Key-Value类型，模拟的 object 类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ObjectKV();
+                    ~ObjectKV() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

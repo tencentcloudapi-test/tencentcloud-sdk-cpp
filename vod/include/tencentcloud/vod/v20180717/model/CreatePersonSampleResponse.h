@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AiSamplePerson;
-                class AiSampleFailFaceInfo;
-
                 /**
                 * CreatePersonSample返回参数结构体
                 */

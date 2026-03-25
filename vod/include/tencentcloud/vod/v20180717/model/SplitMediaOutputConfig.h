@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频拆条的结果文件输出。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SplitMediaOutputConfig();
+                    ~SplitMediaOutputConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

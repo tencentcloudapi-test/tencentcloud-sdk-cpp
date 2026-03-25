@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * QueryCloudRefundOrder请求参数结构体
                 */

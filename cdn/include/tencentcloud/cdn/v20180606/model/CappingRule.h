@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 下行限速配置规则，最多可配置 100 条
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CappingRule();
+                    ~CappingRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

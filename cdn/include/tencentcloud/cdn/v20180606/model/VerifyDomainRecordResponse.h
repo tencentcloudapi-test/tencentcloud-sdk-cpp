@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * VerifyDomainRecord返回参数结构体
                 */

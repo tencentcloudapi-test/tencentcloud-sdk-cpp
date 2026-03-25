@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * api提取规则内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ApiSecExtractRule();
+                    ~ApiSecExtractRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

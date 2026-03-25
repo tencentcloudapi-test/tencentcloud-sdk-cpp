@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 组织目录下的通道信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OrganizationChannelInfo();
+                    ~OrganizationChannelInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

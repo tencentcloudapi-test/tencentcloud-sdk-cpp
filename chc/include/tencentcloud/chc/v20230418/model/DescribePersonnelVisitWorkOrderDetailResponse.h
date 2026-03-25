@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OrderStep;
-                class PersonnelVisitBaseInfo;
-                class Personnel;
-                class PersonnelVisitCar;
-
                 /**
                 * DescribePersonnelVisitWorkOrderDetail返回参数结构体
                 */

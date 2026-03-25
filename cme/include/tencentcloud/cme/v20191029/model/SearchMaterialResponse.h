@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MaterialInfo;
-
                 /**
                 * SearchMaterial返回参数结构体
                 */

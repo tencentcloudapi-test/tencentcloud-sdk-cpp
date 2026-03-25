@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 白板板书结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SnapshotResult();
+                    ~SnapshotResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

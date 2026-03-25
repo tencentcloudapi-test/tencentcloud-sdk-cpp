@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StatementInformation;
-
                 /**
                 * CreateSparkSessionBatchSQL返回参数结构体
                 */

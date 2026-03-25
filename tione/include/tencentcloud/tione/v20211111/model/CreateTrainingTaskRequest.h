@@ -40,16 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceConfigInfo;
-                class Tag;
-                class ImageInfo;
-                class CosPathInfo;
-                class StartCmdInfo;
-                class DataConfig;
-                class LogConfig;
-                class EncodedStartCmdInfo;
-                class CodeRepoConfig;
-
                 /**
                 * CreateTrainingTask请求参数结构体
                 */

@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribePhoneAlarmFlowTotalCount返回参数结构体
                 */

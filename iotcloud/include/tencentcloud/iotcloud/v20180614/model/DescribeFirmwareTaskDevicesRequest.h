@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SearchKeyword;
-
                 /**
                 * DescribeFirmwareTaskDevices请求参数结构体
                 */

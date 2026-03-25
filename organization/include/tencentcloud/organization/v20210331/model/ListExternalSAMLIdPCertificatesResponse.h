@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SAMLIdPCertificate;
-
                 /**
                 * ListExternalSAMLIdPCertificates返回参数结构体
                 */

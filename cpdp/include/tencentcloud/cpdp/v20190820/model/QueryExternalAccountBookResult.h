@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 查询第三方电子记账本余额返回值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryExternalAccountBookResult();
+                    ~QueryExternalAccountBookResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

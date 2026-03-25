@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * RollbackInstanceRefresh返回参数结构体
                 */

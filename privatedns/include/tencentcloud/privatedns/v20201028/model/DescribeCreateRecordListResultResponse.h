@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordsInfoResult;
-
                 /**
                 * DescribeCreateRecordListResult返回参数结构体
                 */

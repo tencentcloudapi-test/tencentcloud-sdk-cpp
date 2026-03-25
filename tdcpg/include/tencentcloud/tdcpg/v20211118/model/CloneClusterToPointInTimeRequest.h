@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CloneClusterToPointInTime请求参数结构体
                 */

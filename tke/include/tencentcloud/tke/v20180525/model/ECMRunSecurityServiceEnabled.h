@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ECM云镜服务
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ECMRunSecurityServiceEnabled();
+                    ~ECMRunSecurityServiceEnabled() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

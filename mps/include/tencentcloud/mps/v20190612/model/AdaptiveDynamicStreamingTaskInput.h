@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WatermarkInput;
-                class BlindWatermarkInput;
-                class TaskOutputStorage;
-                class AddOnSubtitle;
-                class DrmInfo;
-                class SubtitleTemplate;
-
                 /**
                 * 对视频转自适应码流的输入参数类型
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     AdaptiveDynamicStreamingTaskInput();
+                    ~AdaptiveDynamicStreamingTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

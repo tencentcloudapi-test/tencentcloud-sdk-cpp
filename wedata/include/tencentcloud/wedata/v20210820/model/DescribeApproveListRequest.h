@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FilterOptional;
-                class OrderFieldOptional;
-
                 /**
                 * DescribeApproveList请求参数结构体
                 */

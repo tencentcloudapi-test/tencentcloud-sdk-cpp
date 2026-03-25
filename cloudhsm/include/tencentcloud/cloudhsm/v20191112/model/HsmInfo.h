@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VsmInfo;
-
                 /**
                 * 支持的加密机类型信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     HsmInfo();
+                    ~HsmInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TokenValidation;
-
                 /**
                 * bot-token配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BotToken();
+                    ~BotToken() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

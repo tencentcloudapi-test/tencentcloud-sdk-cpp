@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceDiskSizeInfo;
-
                 /**
                 * RAID和设备分区结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DeviceClassPartitionInfo();
+                    ~DeviceClassPartitionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

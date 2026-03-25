@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopAssetStat;
-
                 /**
                 * 数据资产报告-涉敏top的资产
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TopAsset();
+                    ~TopAsset() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableRollbackResultNew;
-
                 /**
                 * RollbackTables返回参数结构体
                 */

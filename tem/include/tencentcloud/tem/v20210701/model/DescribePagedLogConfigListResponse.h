@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogConfigListPage;
-
                 /**
                 * DescribePagedLogConfigList返回参数结构体
                 */

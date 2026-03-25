@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class McpServerEnv;
-
                 /**
                 * CreateMcpServer请求参数结构体
                 */

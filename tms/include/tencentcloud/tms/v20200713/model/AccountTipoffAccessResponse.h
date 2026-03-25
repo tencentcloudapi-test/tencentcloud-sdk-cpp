@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TipoffResponse;
-
                 /**
                 * AccountTipoffAccess返回参数结构体
                 */

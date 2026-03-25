@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplayEnterprise;
-
                 /**
                 * DescribeEnterprises返回参数结构体
                 */

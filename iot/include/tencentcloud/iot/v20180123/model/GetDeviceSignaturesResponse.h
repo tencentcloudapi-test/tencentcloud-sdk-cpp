@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceSignature;
-
                 /**
                 * GetDeviceSignatures返回参数结构体
                 */

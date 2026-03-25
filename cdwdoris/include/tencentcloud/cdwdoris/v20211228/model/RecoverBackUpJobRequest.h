@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosSourceInfo;
-
                 /**
                 * RecoverBackUpJob请求参数结构体
                 */

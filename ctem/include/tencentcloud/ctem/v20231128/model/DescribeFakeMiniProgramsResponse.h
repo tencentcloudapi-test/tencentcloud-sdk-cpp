@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplayFakeMiniProgram;
-
                 /**
                 * DescribeFakeMiniPrograms返回参数结构体
                 */

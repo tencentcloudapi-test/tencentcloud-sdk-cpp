@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AiReviewPornTaskInput;
-                class AiReviewPornTaskOutput;
-
                 /**
                 * 音视频审核涉及令人反感的信息的任务结果类型
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewTaskPornResult();
+                    ~AiReviewTaskPornResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

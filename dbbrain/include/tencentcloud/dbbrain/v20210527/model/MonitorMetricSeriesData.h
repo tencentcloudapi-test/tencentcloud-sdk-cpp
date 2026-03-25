@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MonitorMetric;
-
                 /**
                 * 单位时间间隔内的监控指标数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MonitorMetricSeriesData();
+                    ~MonitorMetricSeriesData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

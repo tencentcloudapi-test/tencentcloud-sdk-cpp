@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LifeCycleData;
-                class ChannelInfo;
-
                 /**
                 * AddRecordPlan请求参数结构体
                 */

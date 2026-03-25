@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KeyValueRecord;
-
                 /**
                 * DescribePolicyCase返回参数结构体
                 */

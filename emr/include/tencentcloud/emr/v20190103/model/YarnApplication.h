@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Yarn 运行的Application信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     YarnApplication();
+                    ~YarnApplication() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

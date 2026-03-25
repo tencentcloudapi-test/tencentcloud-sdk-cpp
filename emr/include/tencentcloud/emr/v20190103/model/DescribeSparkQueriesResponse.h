@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SparkQuery;
-
                 /**
                 * DescribeSparkQueries返回参数结构体
                 */

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IndexesToBuild;
-                class IndexesToDrop;
-
                 /**
                 * Mongodb索引项
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MongoDBIndex();
+                    ~MongoDBIndex() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

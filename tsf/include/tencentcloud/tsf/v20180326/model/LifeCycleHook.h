@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HttpGetOption;
-
                 /**
                 * LifeCycleHook
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LifeCycleHook();
+                    ~LifeCycleHook() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PriceTag;
-
                 /**
                 * 商品售卖信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ProductSKU();
+                    ~ProductSKU() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 语音全文识别任务控制参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AsrFullTextConfigureInfo();
+                    ~AsrFullTextConfigureInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

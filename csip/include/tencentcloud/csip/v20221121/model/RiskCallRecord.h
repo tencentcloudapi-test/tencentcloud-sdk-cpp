@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 风险调用记录详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RiskCallRecord();
+                    ~RiskCallRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

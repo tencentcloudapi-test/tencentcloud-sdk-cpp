@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 免疫程序和剂量
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BiologicalProductInfoDosage();
+                    ~BiologicalProductInfoDosage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

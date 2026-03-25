@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DailyPlayStatInfo;
-
                 /**
                 * DescribeDailyMediaPlayStat返回参数结构体
                 */

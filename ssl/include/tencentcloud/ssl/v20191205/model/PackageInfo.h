@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PackageTransferOutInfo;
-
                 /**
                 * 权益包基本信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PackageInfo();
+                    ~PackageInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

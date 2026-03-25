@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServerDetailInfo;
-                class ProxyDetailInfo;
-                class KafkaInfo;
-
                 /**
                 * 集群详细信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterInfo();
+                    ~ClusterInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

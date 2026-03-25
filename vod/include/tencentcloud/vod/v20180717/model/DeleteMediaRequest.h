@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaDeleteItem;
-
                 /**
                 * DeleteMedia请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RunTimeFilters;
-
                 /**
                 * DescribeVulDefenceHost请求参数结构体
                 */

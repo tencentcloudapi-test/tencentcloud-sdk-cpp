@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SelectedItems;
-
                 /**
                 * 被选中的范围
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SelectedRange();
+                    ~SelectedRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

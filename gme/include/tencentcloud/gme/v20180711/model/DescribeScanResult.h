@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScanPiece;
-
                 /**
                 * 语音检测结果返回
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeScanResult();
+                    ~DescribeScanResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

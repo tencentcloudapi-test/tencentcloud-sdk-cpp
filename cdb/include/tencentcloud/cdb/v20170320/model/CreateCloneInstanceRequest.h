@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagInfo;
-                class ClusterTopology;
-
                 /**
                 * CreateCloneInstance请求参数结构体
                 */

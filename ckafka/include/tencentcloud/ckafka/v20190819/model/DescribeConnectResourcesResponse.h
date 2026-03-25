@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeConnectResourcesResp;
-
                 /**
                 * DescribeConnectResources返回参数结构体
                 */

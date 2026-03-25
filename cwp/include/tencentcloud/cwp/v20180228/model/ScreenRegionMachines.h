@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScreenMachine;
-
                 /**
                 * 大屏主机3D图 列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ScreenRegionMachines();
+                    ~ScreenRegionMachines() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

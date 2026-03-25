@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 阻断白名单展示列表，包含了机器的信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BanWhiteListDetail();
+                    ~BanWhiteListDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

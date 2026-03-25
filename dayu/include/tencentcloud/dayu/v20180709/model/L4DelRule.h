@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 删除l4规则接口
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     L4DelRule();
+                    ~L4DelRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

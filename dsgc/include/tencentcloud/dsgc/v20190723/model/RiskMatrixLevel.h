@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于生成默认的风险级别矩阵
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RiskMatrixLevel();
+                    ~RiskMatrixLevel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

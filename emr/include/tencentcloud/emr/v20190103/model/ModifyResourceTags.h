@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-
                 /**
                 * 强制修改标签
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ModifyResourceTags();
+                    ~ModifyResourceTags() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

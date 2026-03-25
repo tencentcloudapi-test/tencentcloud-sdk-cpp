@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UsagePlanInfo;
-
                 /**
                 * ModifyUsagePlan返回参数结构体
                 */

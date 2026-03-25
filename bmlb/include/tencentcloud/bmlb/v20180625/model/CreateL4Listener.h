@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于创建四层监听器的监听器信息。目前一个负载均衡下面最多允许创建50个监听器。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateL4Listener();
+                    ~CreateL4Listener() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

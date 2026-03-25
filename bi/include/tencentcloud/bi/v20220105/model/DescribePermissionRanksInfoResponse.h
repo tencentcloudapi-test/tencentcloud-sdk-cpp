@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrorInfo;
-                class RankInfo;
-
                 /**
                 * DescribePermissionRanksInfo返回参数结构体
                 */

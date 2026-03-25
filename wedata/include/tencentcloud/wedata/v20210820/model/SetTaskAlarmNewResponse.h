@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchOperateResult;
-
                 /**
                 * SetTaskAlarmNew返回参数结构体
                 */

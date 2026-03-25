@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 关系策略权限
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OrgPermission();
+                    ~OrgPermission() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

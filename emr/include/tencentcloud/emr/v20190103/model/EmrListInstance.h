@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class SoftDependInfo;
-
                 /**
                 * 集群列表返回示例
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     EmrListInstance();
+                    ~EmrListInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

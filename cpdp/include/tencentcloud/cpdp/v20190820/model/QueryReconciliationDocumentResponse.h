@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileItem;
-
                 /**
                 * QueryReconciliationDocument返回参数结构体
                 */

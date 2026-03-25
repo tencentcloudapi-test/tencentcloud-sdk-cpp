@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ElementProfile;
-
                 /**
                 * 构件分页查询响应体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ElementProfilePageRes();
+                    ~ElementProfilePageRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

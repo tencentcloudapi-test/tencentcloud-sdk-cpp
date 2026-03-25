@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频画面黑边、白边、黑屏、白屏检测的控制参数。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BlackWhiteEdgeConfigureInfoForUpdate();
+                    ~BlackWhiteEdgeConfigureInfoForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

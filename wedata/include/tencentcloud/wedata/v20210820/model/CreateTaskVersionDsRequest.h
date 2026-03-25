@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchCreateTaskVersionDTO;
-
                 /**
                 * CreateTaskVersionDs请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosToken;
-
                 /**
                 * CreateCosToken返回参数结构体
                 */

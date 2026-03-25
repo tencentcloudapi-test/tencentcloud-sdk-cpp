@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PGroupRuleInfo;
-
                 /**
                 * DescribeCfsRules返回参数结构体
                 */

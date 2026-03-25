@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceOpsDto;
-
                 /**
                 * 补录计划实例集合
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MakePlanInstanceOpsDtoCollection();
+                    ~MakePlanInstanceOpsDtoCollection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

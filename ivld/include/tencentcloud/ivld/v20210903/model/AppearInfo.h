@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TextAppearInfo;
-                class VideoAppearInfo;
-
                 /**
                 * 出现信息结构
 
@@ -49,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     AppearInfo();
+                    ~AppearInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

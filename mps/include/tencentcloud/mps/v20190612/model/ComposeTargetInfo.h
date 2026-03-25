@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComposeVideoStream;
-                class ComposeAudioStream;
-
                 /**
                 * 视频编辑/合成任务 目标视频信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ComposeTargetInfo();
+                    ~ComposeTargetInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

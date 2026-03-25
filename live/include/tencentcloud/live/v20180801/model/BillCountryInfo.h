@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BillDataInfo;
-
                 /**
                 * 海外分区直播带宽出参国家带宽信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BillCountryInfo();
+                    ~BillCountryInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

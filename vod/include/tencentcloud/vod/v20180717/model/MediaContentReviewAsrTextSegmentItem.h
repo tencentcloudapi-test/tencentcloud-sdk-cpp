@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 音视频审核 Asr 文字的嫌疑片段
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaContentReviewAsrTextSegmentItem();
+                    ~MediaContentReviewAsrTextSegmentItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

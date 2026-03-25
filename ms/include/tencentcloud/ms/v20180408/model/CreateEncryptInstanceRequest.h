@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AndroidAppInfo;
-                class AndroidPlan;
-                class AppletInfo;
-                class IOSInfo;
-
                 /**
                 * CreateEncryptInstance请求参数结构体
                 */

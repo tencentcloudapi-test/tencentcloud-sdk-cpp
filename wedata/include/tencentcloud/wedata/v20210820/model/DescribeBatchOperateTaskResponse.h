@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeBatchOperateTaskPage;
-
                 /**
                 * DescribeBatchOperateTask返回参数结构体
                 */

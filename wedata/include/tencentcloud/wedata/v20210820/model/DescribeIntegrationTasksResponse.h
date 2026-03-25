@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IntegrationTaskInfo;
-
                 /**
                 * DescribeIntegrationTasks返回参数结构体
                 */

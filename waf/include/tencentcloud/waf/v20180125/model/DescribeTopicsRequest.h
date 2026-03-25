@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FilterCls;
-
                 /**
                 * DescribeTopics请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplicationTokenInfo;
-
                 /**
                 * CreateApplicationToken返回参数结构体
                 */

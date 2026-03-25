@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 绑定快照策略的文件系统信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FileSystemByPolicy();
+                    ~FileSystemByPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

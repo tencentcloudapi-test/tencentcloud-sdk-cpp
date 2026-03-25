@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EffectiveMachineInfo;
-
                 /**
                 * DescribeImportMachineInfo返回参数结构体
                 */

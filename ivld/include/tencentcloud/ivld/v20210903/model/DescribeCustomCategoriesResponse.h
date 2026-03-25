@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomCategory;
-
                 /**
                 * DescribeCustomCategories返回参数结构体
                 */

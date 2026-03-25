@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreatePolicyGroupCondition;
-                class CreatePolicyGroupEventCondition;
-
                 /**
                 * CreatePolicyGroup请求参数结构体
                 */

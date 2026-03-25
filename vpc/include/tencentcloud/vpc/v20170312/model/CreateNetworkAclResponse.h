@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NetworkAcl;
-
                 /**
                 * CreateNetworkAcl返回参数结构体
                 */

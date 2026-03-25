@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 设置推拉流鉴权返回数据结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AddStreamAuthData();
+                    ~AddStreamAuthData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

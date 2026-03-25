@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SimpleCacheRule;
-                class Revalidate;
-
                 /**
                 * 缓存配置基础版本
 默认情况下所有文件缓存过期时间为 30 天
@@ -49,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     SimpleCache();
+                    ~SimpleCache() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

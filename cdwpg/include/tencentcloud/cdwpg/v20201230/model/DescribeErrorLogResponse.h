@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrorLogDetail;
-
                 /**
                 * DescribeErrorLog返回参数结构体
                 */

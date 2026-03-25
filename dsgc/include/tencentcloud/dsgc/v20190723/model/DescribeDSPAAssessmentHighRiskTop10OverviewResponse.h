@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HighRiskAssetsDetail;
-
                 /**
                 * DescribeDSPAAssessmentHighRiskTop10Overview返回参数结构体
                 */

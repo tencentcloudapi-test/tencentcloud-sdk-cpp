@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RTMPPullSourceAddress;
-
                 /**
                 * 创建的输入RTMP拉流的配置信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateInputRTMPPullSettings();
+                    ~CreateInputRTMPPullSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

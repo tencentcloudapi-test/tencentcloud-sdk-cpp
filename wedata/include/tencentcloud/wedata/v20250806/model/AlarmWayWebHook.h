@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 告警渠道 企业微信群/钉钉群/飞书群 等webhook地址配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AlarmWayWebHook();
+                    ~AlarmWayWebHook() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

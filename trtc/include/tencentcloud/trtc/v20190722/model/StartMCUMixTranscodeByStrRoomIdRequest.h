@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OutputParams;
-                class EncodeParams;
-                class LayoutParams;
-                class PublishCdnParams;
-
                 /**
                 * StartMCUMixTranscodeByStrRoomId请求参数结构体
                 */

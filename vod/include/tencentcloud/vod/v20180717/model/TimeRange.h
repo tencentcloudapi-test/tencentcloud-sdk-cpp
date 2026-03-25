@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于描述一个时间段的通用数据类型。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TimeRange();
+                    ~TimeRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

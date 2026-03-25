@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AudioInfo;
-                class MultiLevelTag;
-
                 /**
                 * 音频文件分析结果数据
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AudioData();
+                    ~AudioData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

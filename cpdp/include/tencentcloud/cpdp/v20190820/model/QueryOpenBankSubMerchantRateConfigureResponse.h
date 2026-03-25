@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryOpenBankSubMerchantRateConfigureResult;
-
                 /**
                 * QueryOpenBankSubMerchantRateConfigure返回参数结构体
                 */

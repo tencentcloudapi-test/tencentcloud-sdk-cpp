@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReconstructDocumentFailedPage;
-
                 /**
                 * ReconstructDocumentSSE返回参数结构体
                 */

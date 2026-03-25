@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeployStrategyConf;
-                class DeployServiceBatchDetail;
-                class DescribeRunPodPage;
-
                 /**
                 * 分批发布详情
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TemDeployApplicationDetailInfo();
+                    ~TemDeployApplicationDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

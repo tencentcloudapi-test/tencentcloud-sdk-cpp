@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 微服务网关API限流规则
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ApiRateLimitRule();
+                    ~ApiRateLimitRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

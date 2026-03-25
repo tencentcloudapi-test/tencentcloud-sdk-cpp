@@ -41,17 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaInputInfo;
-                class TaskOutputStorage;
-                class MediaProcessTaskInput;
-                class AiContentReviewTaskInput;
-                class AiAnalysisTaskInput;
-                class AiRecognitionTaskInput;
-                class AiQualityControlTaskInput;
-                class SmartSubtitlesTaskInput;
-                class SmartEraseTaskInput;
-                class TaskNotifyConfig;
-
                 /**
                 * ProcessMedia请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SuccessCode;
-
                 /**
                 * ModifyResourceRenewFlag返回参数结构体
                 */

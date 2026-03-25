@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuthToken;
-
                 /**
                 * ModifyModelServiceAuthToken请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 微工卡预核身结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WechatPreAuthResult();
+                    ~WechatPreAuthResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

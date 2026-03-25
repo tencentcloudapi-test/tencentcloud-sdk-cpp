@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 资源包明细说明
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SalePackageSpec();
+                    ~SalePackageSpec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

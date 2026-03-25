@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiParameterType;
-                class ApiDetailSampleHistory;
-
                 /**
                 * DescribeApiDetail返回参数结构体
                 */

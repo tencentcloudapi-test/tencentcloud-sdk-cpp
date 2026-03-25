@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssessmentTemplate;
-
                 /**
                 * DescribeDSPAAssessmentTemplates返回参数结构体
                 */

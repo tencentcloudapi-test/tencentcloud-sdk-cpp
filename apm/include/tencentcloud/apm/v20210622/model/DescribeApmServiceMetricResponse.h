@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApmServiceMetric;
-
                 /**
                 * DescribeApmServiceMetric返回参数结构体
                 */

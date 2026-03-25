@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FunctionRuleCondition;
-                class FunctionRegionSelection;
-                class FunctionWeightedSelection;
-
                 /**
                 * 边缘函数触发规则。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     FunctionRule();
+                    ~FunctionRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

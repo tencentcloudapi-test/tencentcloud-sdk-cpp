@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AutoScalingGroupRange;
-
                 /**
                 * 集群伸缩组属性
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterAsGroupAttribute();
+                    ~ClusterAsGroupAttribute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

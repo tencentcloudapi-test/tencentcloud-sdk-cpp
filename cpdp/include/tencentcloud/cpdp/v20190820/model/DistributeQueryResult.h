@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MultiApplyOrder;
-
                 /**
                 * 分账结果响应对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DistributeQueryResult();
+                    ~DistributeQueryResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

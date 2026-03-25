@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordCountInfo;
-                class RecordListItem;
-
                 /**
                 * DescribeRecordFilterList返回参数结构体
                 */

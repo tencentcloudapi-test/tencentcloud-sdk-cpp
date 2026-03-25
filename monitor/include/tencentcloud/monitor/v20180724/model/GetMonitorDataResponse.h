@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataPoint;
-
                 /**
                 * GetMonitorData返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class File3D;
-
                 /**
                 * QueryHunyuanTo3DRapidJob返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TWeCall设备激活信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TWeCallActiveInfo();
+                    ~TWeCallActiveInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

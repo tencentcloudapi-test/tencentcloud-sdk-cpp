@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ListGrantServiceAccessAction节点
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ListGrantServiceAccessActionNode();
+                    ~ListGrantServiceAccessActionNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

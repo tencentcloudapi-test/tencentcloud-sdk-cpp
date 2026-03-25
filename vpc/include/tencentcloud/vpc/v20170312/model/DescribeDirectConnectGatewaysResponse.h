@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DirectConnectGateway;
-
                 /**
                 * DescribeDirectConnectGateways返回参数结构体
                 */

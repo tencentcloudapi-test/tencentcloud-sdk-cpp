@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MixLayout;
-                class WaterMark;
-
                 /**
                 * 录制的混流布局参数。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MixLayoutParams();
+                    ~MixLayoutParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

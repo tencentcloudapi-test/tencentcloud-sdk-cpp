@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreateSinglePayment接口返回响应
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateSinglePaymentData();
+                    ~CreateSinglePaymentData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

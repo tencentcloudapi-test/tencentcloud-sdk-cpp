@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 目标检测算法检测到的目标详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VisionDetectedObject();
+                    ~VisionDetectedObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CdbZoneDataResult;
-
                 /**
                 * DescribeCdbZoneConfig返回参数结构体
                 */

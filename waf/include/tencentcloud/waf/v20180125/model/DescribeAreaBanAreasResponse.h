@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeAreaBanAreasRsp;
-
                 /**
                 * DescribeAreaBanAreas返回参数结构体
                 */

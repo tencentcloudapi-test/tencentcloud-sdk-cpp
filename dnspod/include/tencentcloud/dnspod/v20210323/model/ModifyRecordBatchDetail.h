@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchRecordInfo;
-
                 /**
                 * 批量添加记录返回结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ModifyRecordBatchDetail();
+                    ~ModifyRecordBatchDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

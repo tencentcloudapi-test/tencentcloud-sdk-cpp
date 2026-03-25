@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CodeFolderNode;
-
                 /**
                 * GetCodeFolder返回参数结构体
                 */

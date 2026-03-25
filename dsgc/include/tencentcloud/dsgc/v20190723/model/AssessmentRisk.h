@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityProduct;
-
                 /**
                 * DSPA评估风险项
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AssessmentRisk();
+                    ~AssessmentRisk() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

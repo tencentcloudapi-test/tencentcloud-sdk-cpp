@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulAffectedImageComponentInfo;
-
                 /**
                 * 受漏洞影响的镜像信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VulAffectedImageInfo();
+                    ~VulAffectedImageInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

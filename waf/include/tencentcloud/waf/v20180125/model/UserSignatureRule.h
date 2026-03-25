@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用户特征规则描述
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UserSignatureRule();
+                    ~UserSignatureRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

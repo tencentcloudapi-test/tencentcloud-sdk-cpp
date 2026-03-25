@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Condition;
-
                 /**
                 * DescribeSoftwareInformation请求参数结构体
                 */

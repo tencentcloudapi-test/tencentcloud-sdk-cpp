@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TimeRange;
-
                 /**
                 * DescribeRoundPlays请求参数结构体
                 */

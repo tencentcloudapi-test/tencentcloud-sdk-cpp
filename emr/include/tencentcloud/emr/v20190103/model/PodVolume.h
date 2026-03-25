@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PersistentVolumeContext;
-                class HostVolumeContext;
-
                 /**
                 * Pod的存储设备描述信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     PodVolume();
+                    ~PodVolume() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

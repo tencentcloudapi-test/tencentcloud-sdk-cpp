@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClassicalHealth;
-
                 /**
                 * DescribeClassicalLBHealthStatus返回参数结构体
                 */

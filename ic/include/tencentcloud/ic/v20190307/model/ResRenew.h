@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云api 卡片续费
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ResRenew();
+                    ~ResRenew() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

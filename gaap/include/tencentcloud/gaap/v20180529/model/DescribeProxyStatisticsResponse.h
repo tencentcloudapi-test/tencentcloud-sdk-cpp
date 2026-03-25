@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MetricStatisticsInfo;
-
                 /**
                 * DescribeProxyStatistics返回参数结构体
                 */

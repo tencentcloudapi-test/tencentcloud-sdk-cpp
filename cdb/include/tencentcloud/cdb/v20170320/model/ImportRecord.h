@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 导入任务记录
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ImportRecord();
+                    ~ImportRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

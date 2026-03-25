@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonMetrics;
-                class SparkMonitorMetrics;
-                class PrestoMonitorMetrics;
-
                 /**
                 * 任务实例。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskResponseInfo();
+                    ~TaskResponseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

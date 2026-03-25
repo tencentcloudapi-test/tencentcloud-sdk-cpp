@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordPlanOptData;
-
                 /**
                 * UpdateRecordPlan返回参数结构体
                 */

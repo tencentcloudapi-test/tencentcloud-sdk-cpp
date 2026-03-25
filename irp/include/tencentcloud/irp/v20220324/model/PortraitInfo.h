@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserIdInfo;
-                class TagInfo;
-                class AuthorInfo;
-                class DislikeInfo;
-
                 /**
                 * 画像信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     PortraitInfo();
+                    ~PortraitInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

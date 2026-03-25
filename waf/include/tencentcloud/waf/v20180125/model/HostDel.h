@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CLB-WAF删除域名参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HostDel();
+                    ~HostDel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

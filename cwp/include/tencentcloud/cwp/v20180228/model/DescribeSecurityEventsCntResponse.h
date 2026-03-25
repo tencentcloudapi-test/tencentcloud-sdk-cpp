@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityEventInfo;
-
                 /**
                 * DescribeSecurityEventsCnt返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAlarmTable;
-
                 /**
                 * DescribeSecurityAlarmTableList返回参数结构体
                 */

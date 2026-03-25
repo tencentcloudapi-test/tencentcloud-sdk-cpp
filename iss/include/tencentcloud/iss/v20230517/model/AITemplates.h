@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AIConfig;
-                class SnapshotConfig;
-
                 /**
                 * AI模板信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AITemplates();
+                    ~AITemplates() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DatabaseMeta;
-
                 /**
                 * DescribeDatabaseMetas返回参数结构体
                 */

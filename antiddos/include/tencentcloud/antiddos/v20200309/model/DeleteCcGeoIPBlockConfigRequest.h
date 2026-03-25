@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CcGeoIPBlockConfig;
-
                 /**
                 * DeleteCcGeoIPBlockConfig请求参数结构体
                 */

@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClassificationConfigureInfo;
-                class TagConfigureInfo;
-                class CoverConfigureInfo;
-                class FrameTagConfigureInfo;
-
                 /**
                 * CreateAIAnalysisTemplate请求参数结构体
                 */

@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServerCertInfo;
-                class MutualTLS;
-                class UpstreamCertInfo;
-
                 /**
                 * ModifyHostsCertificate请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 专属集群相关信息，用于查询用户的专属集群列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DedicatedCluster();
+                    ~DedicatedCluster() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

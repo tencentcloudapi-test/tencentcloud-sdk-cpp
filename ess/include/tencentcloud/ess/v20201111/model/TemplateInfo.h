@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Recipient;
-                class Component;
-                class FileInfo;
-                class UserFlowType;
-                class SealInfo;
-
                 /**
                 * 此结构体 (TemplateInfo) 用于描述模板的信息。
 
@@ -61,6 +55,7 @@ namespace TencentCloud
                 {
                 public:
                     TemplateInfo();
+                    ~TemplateInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

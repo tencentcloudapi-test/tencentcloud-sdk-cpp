@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Alias;
-
                 /**
                 * ListAliases返回参数结构体
                 */

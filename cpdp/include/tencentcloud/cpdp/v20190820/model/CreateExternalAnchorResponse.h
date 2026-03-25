@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateExternalAnchorData;
-
                 /**
                 * CreateExternalAnchor返回参数结构体
                 */

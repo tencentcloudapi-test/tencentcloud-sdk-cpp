@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DependsOnItem;
-
                 /**
                 * 账号工厂基线项
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AccountFactoryItem();
+                    ~AccountFactoryItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

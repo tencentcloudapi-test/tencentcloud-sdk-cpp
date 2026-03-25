@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WedaUser;
-
                 /**
                 * DescribeRelatedUsers返回参数结构体
                 */

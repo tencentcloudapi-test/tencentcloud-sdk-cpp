@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 智能拆条结果项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     StripTaskResultItem();
+                    ~StripTaskResultItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ThresholdValue;
-
                 /**
                 * 对比结果项
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CompareResultItem();
+                    ~CompareResultItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

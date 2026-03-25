@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BackupStreamGroupInfo;
-
                 /**
                 * DescribeBackupStreamList返回参数结构体
                 */

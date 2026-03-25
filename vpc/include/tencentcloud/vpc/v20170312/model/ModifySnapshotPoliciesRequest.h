@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchModifySnapshotPolicy;
-
                 /**
                 * ModifySnapshotPolicies请求参数结构体
                 */

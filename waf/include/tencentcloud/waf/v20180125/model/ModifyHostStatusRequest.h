@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HostStatus;
-
                 /**
                 * ModifyHostStatus请求参数结构体
                 */

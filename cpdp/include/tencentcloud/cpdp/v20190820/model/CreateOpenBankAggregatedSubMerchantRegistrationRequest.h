@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LegalPersonInfo;
-                class BusinessLicenseInfo;
-                class NaturalPersonInfo;
-                class SettleInfo;
-                class OutSubMerchantExtensionInfo;
-
                 /**
                 * CreateOpenBankAggregatedSubMerchantRegistration请求参数结构体
                 */

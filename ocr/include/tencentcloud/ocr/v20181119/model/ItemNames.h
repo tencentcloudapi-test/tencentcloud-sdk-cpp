@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 自定义抽取需要的字段名称、字段类型、字段提示词。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ItemNames();
+                    ~ItemNames() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

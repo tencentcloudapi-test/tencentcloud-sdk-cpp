@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-                class HostResource;
-                class Tag;
-
                 /**
                 * 专用宿主机实例详细信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     HostItem();
+                    ~HostItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

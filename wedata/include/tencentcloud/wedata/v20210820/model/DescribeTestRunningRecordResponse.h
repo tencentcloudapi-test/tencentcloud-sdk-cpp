@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TestRunningRecord;
-
                 /**
                 * DescribeTestRunningRecord返回参数结构体
                 */

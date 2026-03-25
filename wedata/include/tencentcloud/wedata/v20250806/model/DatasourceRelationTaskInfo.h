@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RelateTask;
-
                 /**
                 * 数据源关联任务信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DatasourceRelationTaskInfo();
+                    ~DatasourceRelationTaskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

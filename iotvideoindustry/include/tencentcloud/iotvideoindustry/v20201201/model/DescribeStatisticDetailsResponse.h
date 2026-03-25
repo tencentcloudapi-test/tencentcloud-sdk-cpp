@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StatisticItem;
-
                 /**
                 * DescribeStatisticDetails返回参数结构体
                 */

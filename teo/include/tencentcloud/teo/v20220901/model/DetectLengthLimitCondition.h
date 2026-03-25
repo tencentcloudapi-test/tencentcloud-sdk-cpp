@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 检测长度限制配置条件。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DetectLengthLimitCondition();
+                    ~DetectLengthLimitCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

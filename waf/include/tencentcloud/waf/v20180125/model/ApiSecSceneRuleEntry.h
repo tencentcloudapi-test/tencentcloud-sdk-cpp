@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * api安全用户自定义场景规则结构体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ApiSecSceneRuleEntry();
+                    ~ApiSecSceneRuleEntry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

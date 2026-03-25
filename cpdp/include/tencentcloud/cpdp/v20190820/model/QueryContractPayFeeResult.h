@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PayDataResult;
-                class PayFeeDataResult;
-
                 /**
                 * 支付方式费率及自定义表单项
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryContractPayFeeResult();
+                    ~QueryContractPayFeeResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

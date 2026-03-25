@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CmdTemplate;
-
                 /**
                 * DescribeCmdTemplates返回参数结构体
                 */

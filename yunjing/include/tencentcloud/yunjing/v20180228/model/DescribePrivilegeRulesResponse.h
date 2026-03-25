@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrivilegeRule;
-
                 /**
                 * DescribePrivilegeRules返回参数结构体
                 */

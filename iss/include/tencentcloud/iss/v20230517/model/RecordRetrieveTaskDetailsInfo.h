@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 录像取回任务详情基础信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RecordRetrieveTaskDetailsInfo();
+                    ~RecordRetrieveTaskDetailsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

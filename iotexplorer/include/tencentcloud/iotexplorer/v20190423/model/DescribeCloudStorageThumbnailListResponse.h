@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ThumbnailURLInfoList;
-
                 /**
                 * DescribeCloudStorageThumbnailList返回参数结构体
                 */

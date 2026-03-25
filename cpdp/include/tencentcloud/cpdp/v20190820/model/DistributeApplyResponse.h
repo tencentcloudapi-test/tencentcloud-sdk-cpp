@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DistributeMultiApplyResult;
-
                 /**
                 * DistributeApply返回参数结构体
                 */

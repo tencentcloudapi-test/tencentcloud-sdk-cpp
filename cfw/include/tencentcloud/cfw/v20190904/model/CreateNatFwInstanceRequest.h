@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NewModeItems;
-                class FwCidrInfo;
-
                 /**
                 * CreateNatFwInstance请求参数结构体
                 */

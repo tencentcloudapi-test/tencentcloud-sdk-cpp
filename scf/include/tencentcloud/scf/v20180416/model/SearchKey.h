@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 包含搜索关键字和对应的内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SearchKey();
+                    ~SearchKey() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

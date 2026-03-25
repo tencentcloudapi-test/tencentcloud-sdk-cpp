@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AiContentReviewTaskInput;
-                class AiContentReviewResult;
-
                 /**
                 * 编排视频审核任务结果类型
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ScheduleReviewTaskResult();
+                    ~ScheduleReviewTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分账信息结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OpenBankProfitShareRespInfo();
+                    ~OpenBankProfitShareRespInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

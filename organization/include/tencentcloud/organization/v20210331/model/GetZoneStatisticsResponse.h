@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZoneStatistics;
-
                 /**
                 * GetZoneStatistics返回参数结构体
                 */

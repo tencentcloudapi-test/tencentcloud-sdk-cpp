@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TsfPageFileConfigRelease;
-
                 /**
                 * DescribeFileConfigReleases返回参数结构体
                 */

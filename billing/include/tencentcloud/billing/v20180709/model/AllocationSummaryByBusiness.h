@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分账账单按产品汇总明细
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AllocationSummaryByBusiness();
+                    ~AllocationSummaryByBusiness() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

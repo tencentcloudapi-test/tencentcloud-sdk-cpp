@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HLSConfigureInfo;
-                class MP4ConfigureInfo;
-
                 /**
                 * 直播录制模板详情
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     LiveRecordTemplate();
+                    ~LiveRecordTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

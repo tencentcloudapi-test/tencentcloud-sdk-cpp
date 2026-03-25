@@ -62,25 +62,32 @@ CtemClient::CreateAppOutcome CtemClient::CreateApp(const CreateAppRequest &reque
 
 void CtemClient::CreateAppAsync(const CreateAppRequest& request, const CreateAppAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateApp(request), context);
-    };
+    using Req = const CreateAppRequest&;
+    using Resp = CreateAppResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateApp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateAppOutcomeCallable CtemClient::CreateAppCallable(const CreateAppRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateAppOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateApp(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateAppOutcome>>();
+    CreateAppAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateAppRequest&,
+        CreateAppOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateAssetOutcome CtemClient::CreateAsset(const CreateAssetRequest &request)
@@ -105,25 +112,32 @@ CtemClient::CreateAssetOutcome CtemClient::CreateAsset(const CreateAssetRequest 
 
 void CtemClient::CreateAssetAsync(const CreateAssetRequest& request, const CreateAssetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateAsset(request), context);
-    };
+    using Req = const CreateAssetRequest&;
+    using Resp = CreateAssetResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateAsset", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateAssetOutcomeCallable CtemClient::CreateAssetCallable(const CreateAssetRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateAssetOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateAsset(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateAssetOutcome>>();
+    CreateAssetAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateAssetRequest&,
+        CreateAssetOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateCustomerOutcome CtemClient::CreateCustomer(const CreateCustomerRequest &request)
@@ -148,25 +162,32 @@ CtemClient::CreateCustomerOutcome CtemClient::CreateCustomer(const CreateCustome
 
 void CtemClient::CreateCustomerAsync(const CreateCustomerRequest& request, const CreateCustomerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateCustomer(request), context);
-    };
+    using Req = const CreateCustomerRequest&;
+    using Resp = CreateCustomerResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateCustomer", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateCustomerOutcomeCallable CtemClient::CreateCustomerCallable(const CreateCustomerRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateCustomerOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateCustomer(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateCustomerOutcome>>();
+    CreateCustomerAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateCustomerRequest&,
+        CreateCustomerOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateDomainOutcome CtemClient::CreateDomain(const CreateDomainRequest &request)
@@ -191,25 +212,32 @@ CtemClient::CreateDomainOutcome CtemClient::CreateDomain(const CreateDomainReque
 
 void CtemClient::CreateDomainAsync(const CreateDomainRequest& request, const CreateDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateDomain(request), context);
-    };
+    using Req = const CreateDomainRequest&;
+    using Resp = CreateDomainResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateDomainOutcomeCallable CtemClient::CreateDomainCallable(const CreateDomainRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateDomainOutcome>>();
+    CreateDomainAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateDomainRequest&,
+        CreateDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateEnterpriseOutcome CtemClient::CreateEnterprise(const CreateEnterpriseRequest &request)
@@ -234,25 +262,32 @@ CtemClient::CreateEnterpriseOutcome CtemClient::CreateEnterprise(const CreateEnt
 
 void CtemClient::CreateEnterpriseAsync(const CreateEnterpriseRequest& request, const CreateEnterpriseAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateEnterprise(request), context);
-    };
+    using Req = const CreateEnterpriseRequest&;
+    using Resp = CreateEnterpriseResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateEnterprise", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateEnterpriseOutcomeCallable CtemClient::CreateEnterpriseCallable(const CreateEnterpriseRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateEnterpriseOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateEnterprise(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateEnterpriseOutcome>>();
+    CreateEnterpriseAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateEnterpriseRequest&,
+        CreateEnterpriseOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateHttpOutcome CtemClient::CreateHttp(const CreateHttpRequest &request)
@@ -277,25 +312,32 @@ CtemClient::CreateHttpOutcome CtemClient::CreateHttp(const CreateHttpRequest &re
 
 void CtemClient::CreateHttpAsync(const CreateHttpRequest& request, const CreateHttpAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateHttp(request), context);
-    };
+    using Req = const CreateHttpRequest&;
+    using Resp = CreateHttpResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateHttp", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateHttpOutcomeCallable CtemClient::CreateHttpCallable(const CreateHttpRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateHttpOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateHttp(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateHttpOutcome>>();
+    CreateHttpAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateHttpRequest&,
+        CreateHttpOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateJobRecordOutcome CtemClient::CreateJobRecord(const CreateJobRecordRequest &request)
@@ -320,25 +362,32 @@ CtemClient::CreateJobRecordOutcome CtemClient::CreateJobRecord(const CreateJobRe
 
 void CtemClient::CreateJobRecordAsync(const CreateJobRecordRequest& request, const CreateJobRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateJobRecord(request), context);
-    };
+    using Req = const CreateJobRecordRequest&;
+    using Resp = CreateJobRecordResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateJobRecord", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateJobRecordOutcomeCallable CtemClient::CreateJobRecordCallable(const CreateJobRecordRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateJobRecordOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateJobRecord(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateJobRecordOutcome>>();
+    CreateJobRecordAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateJobRecordRequest&,
+        CreateJobRecordOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateManageOutcome CtemClient::CreateManage(const CreateManageRequest &request)
@@ -363,25 +412,32 @@ CtemClient::CreateManageOutcome CtemClient::CreateManage(const CreateManageReque
 
 void CtemClient::CreateManageAsync(const CreateManageRequest& request, const CreateManageAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateManage(request), context);
-    };
+    using Req = const CreateManageRequest&;
+    using Resp = CreateManageResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateManage", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateManageOutcomeCallable CtemClient::CreateManageCallable(const CreateManageRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateManageOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateManage(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateManageOutcome>>();
+    CreateManageAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateManageRequest&,
+        CreateManageOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreatePortOutcome CtemClient::CreatePort(const CreatePortRequest &request)
@@ -406,25 +462,32 @@ CtemClient::CreatePortOutcome CtemClient::CreatePort(const CreatePortRequest &re
 
 void CtemClient::CreatePortAsync(const CreatePortRequest& request, const CreatePortAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreatePort(request), context);
-    };
+    using Req = const CreatePortRequest&;
+    using Resp = CreatePortResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreatePort", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreatePortOutcomeCallable CtemClient::CreatePortCallable(const CreatePortRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreatePortOutcome()>>(
-        [this, request]()
-        {
-            return this->CreatePort(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreatePortOutcome>>();
+    CreatePortAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreatePortRequest&,
+        CreatePortOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateSeedsOutcome CtemClient::CreateSeeds(const CreateSeedsRequest &request)
@@ -449,25 +512,32 @@ CtemClient::CreateSeedsOutcome CtemClient::CreateSeeds(const CreateSeedsRequest 
 
 void CtemClient::CreateSeedsAsync(const CreateSeedsRequest& request, const CreateSeedsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateSeeds(request), context);
-    };
+    using Req = const CreateSeedsRequest&;
+    using Resp = CreateSeedsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateSeeds", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateSeedsOutcomeCallable CtemClient::CreateSeedsCallable(const CreateSeedsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateSeedsOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateSeeds(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateSeedsOutcome>>();
+    CreateSeedsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateSeedsRequest&,
+        CreateSeedsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateSubDomainOutcome CtemClient::CreateSubDomain(const CreateSubDomainRequest &request)
@@ -492,25 +562,32 @@ CtemClient::CreateSubDomainOutcome CtemClient::CreateSubDomain(const CreateSubDo
 
 void CtemClient::CreateSubDomainAsync(const CreateSubDomainRequest& request, const CreateSubDomainAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateSubDomain(request), context);
-    };
+    using Req = const CreateSubDomainRequest&;
+    using Resp = CreateSubDomainResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateSubDomain", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateSubDomainOutcomeCallable CtemClient::CreateSubDomainCallable(const CreateSubDomainRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateSubDomainOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateSubDomain(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateSubDomainOutcome>>();
+    CreateSubDomainAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateSubDomainRequest&,
+        CreateSubDomainOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateSuspiciousAssetOutcome CtemClient::CreateSuspiciousAsset(const CreateSuspiciousAssetRequest &request)
@@ -535,25 +612,32 @@ CtemClient::CreateSuspiciousAssetOutcome CtemClient::CreateSuspiciousAsset(const
 
 void CtemClient::CreateSuspiciousAssetAsync(const CreateSuspiciousAssetRequest& request, const CreateSuspiciousAssetAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateSuspiciousAsset(request), context);
-    };
+    using Req = const CreateSuspiciousAssetRequest&;
+    using Resp = CreateSuspiciousAssetResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateSuspiciousAsset", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateSuspiciousAssetOutcomeCallable CtemClient::CreateSuspiciousAssetCallable(const CreateSuspiciousAssetRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateSuspiciousAssetOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateSuspiciousAsset(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateSuspiciousAssetOutcome>>();
+    CreateSuspiciousAssetAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateSuspiciousAssetRequest&,
+        CreateSuspiciousAssetOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateWechatAppletOutcome CtemClient::CreateWechatApplet(const CreateWechatAppletRequest &request)
@@ -578,25 +662,32 @@ CtemClient::CreateWechatAppletOutcome CtemClient::CreateWechatApplet(const Creat
 
 void CtemClient::CreateWechatAppletAsync(const CreateWechatAppletRequest& request, const CreateWechatAppletAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateWechatApplet(request), context);
-    };
+    using Req = const CreateWechatAppletRequest&;
+    using Resp = CreateWechatAppletResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateWechatApplet", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateWechatAppletOutcomeCallable CtemClient::CreateWechatAppletCallable(const CreateWechatAppletRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateWechatAppletOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateWechatApplet(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateWechatAppletOutcome>>();
+    CreateWechatAppletAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateWechatAppletRequest&,
+        CreateWechatAppletOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::CreateWechatOfficialAccountOutcome CtemClient::CreateWechatOfficialAccount(const CreateWechatOfficialAccountRequest &request)
@@ -621,25 +712,32 @@ CtemClient::CreateWechatOfficialAccountOutcome CtemClient::CreateWechatOfficialA
 
 void CtemClient::CreateWechatOfficialAccountAsync(const CreateWechatOfficialAccountRequest& request, const CreateWechatOfficialAccountAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->CreateWechatOfficialAccount(request), context);
-    };
+    using Req = const CreateWechatOfficialAccountRequest&;
+    using Resp = CreateWechatOfficialAccountResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "CreateWechatOfficialAccount", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::CreateWechatOfficialAccountOutcomeCallable CtemClient::CreateWechatOfficialAccountCallable(const CreateWechatOfficialAccountRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<CreateWechatOfficialAccountOutcome()>>(
-        [this, request]()
-        {
-            return this->CreateWechatOfficialAccount(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<CreateWechatOfficialAccountOutcome>>();
+    CreateWechatOfficialAccountAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const CreateWechatOfficialAccountRequest&,
+        CreateWechatOfficialAccountOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteAppsOutcome CtemClient::DeleteApps(const DeleteAppsRequest &request)
@@ -664,25 +762,32 @@ CtemClient::DeleteAppsOutcome CtemClient::DeleteApps(const DeleteAppsRequest &re
 
 void CtemClient::DeleteAppsAsync(const DeleteAppsRequest& request, const DeleteAppsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteApps(request), context);
-    };
+    using Req = const DeleteAppsRequest&;
+    using Resp = DeleteAppsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteApps", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteAppsOutcomeCallable CtemClient::DeleteAppsCallable(const DeleteAppsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteAppsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteApps(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteAppsOutcome>>();
+    DeleteAppsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteAppsRequest&,
+        DeleteAppsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteAssetsOutcome CtemClient::DeleteAssets(const DeleteAssetsRequest &request)
@@ -707,25 +812,32 @@ CtemClient::DeleteAssetsOutcome CtemClient::DeleteAssets(const DeleteAssetsReque
 
 void CtemClient::DeleteAssetsAsync(const DeleteAssetsRequest& request, const DeleteAssetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteAssets(request), context);
-    };
+    using Req = const DeleteAssetsRequest&;
+    using Resp = DeleteAssetsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteAssets", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteAssetsOutcomeCallable CtemClient::DeleteAssetsCallable(const DeleteAssetsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteAssetsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteAssets(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteAssetsOutcome>>();
+    DeleteAssetsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteAssetsRequest&,
+        DeleteAssetsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteDomainsOutcome CtemClient::DeleteDomains(const DeleteDomainsRequest &request)
@@ -750,25 +862,32 @@ CtemClient::DeleteDomainsOutcome CtemClient::DeleteDomains(const DeleteDomainsRe
 
 void CtemClient::DeleteDomainsAsync(const DeleteDomainsRequest& request, const DeleteDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteDomains(request), context);
-    };
+    using Req = const DeleteDomainsRequest&;
+    using Resp = DeleteDomainsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteDomainsOutcomeCallable CtemClient::DeleteDomainsCallable(const DeleteDomainsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteDomains(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteDomainsOutcome>>();
+    DeleteDomainsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteDomainsRequest&,
+        DeleteDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteEnterprisesOutcome CtemClient::DeleteEnterprises(const DeleteEnterprisesRequest &request)
@@ -793,25 +912,32 @@ CtemClient::DeleteEnterprisesOutcome CtemClient::DeleteEnterprises(const DeleteE
 
 void CtemClient::DeleteEnterprisesAsync(const DeleteEnterprisesRequest& request, const DeleteEnterprisesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteEnterprises(request), context);
-    };
+    using Req = const DeleteEnterprisesRequest&;
+    using Resp = DeleteEnterprisesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteEnterprises", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteEnterprisesOutcomeCallable CtemClient::DeleteEnterprisesCallable(const DeleteEnterprisesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteEnterprisesOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteEnterprises(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteEnterprisesOutcome>>();
+    DeleteEnterprisesAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteEnterprisesRequest&,
+        DeleteEnterprisesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteHttpsOutcome CtemClient::DeleteHttps(const DeleteHttpsRequest &request)
@@ -836,25 +962,32 @@ CtemClient::DeleteHttpsOutcome CtemClient::DeleteHttps(const DeleteHttpsRequest 
 
 void CtemClient::DeleteHttpsAsync(const DeleteHttpsRequest& request, const DeleteHttpsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteHttps(request), context);
-    };
+    using Req = const DeleteHttpsRequest&;
+    using Resp = DeleteHttpsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteHttps", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteHttpsOutcomeCallable CtemClient::DeleteHttpsCallable(const DeleteHttpsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteHttpsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteHttps(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteHttpsOutcome>>();
+    DeleteHttpsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteHttpsRequest&,
+        DeleteHttpsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteManagesOutcome CtemClient::DeleteManages(const DeleteManagesRequest &request)
@@ -879,25 +1012,32 @@ CtemClient::DeleteManagesOutcome CtemClient::DeleteManages(const DeleteManagesRe
 
 void CtemClient::DeleteManagesAsync(const DeleteManagesRequest& request, const DeleteManagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteManages(request), context);
-    };
+    using Req = const DeleteManagesRequest&;
+    using Resp = DeleteManagesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteManages", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteManagesOutcomeCallable CtemClient::DeleteManagesCallable(const DeleteManagesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteManagesOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteManages(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteManagesOutcome>>();
+    DeleteManagesAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteManagesRequest&,
+        DeleteManagesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeletePortsOutcome CtemClient::DeletePorts(const DeletePortsRequest &request)
@@ -922,25 +1062,32 @@ CtemClient::DeletePortsOutcome CtemClient::DeletePorts(const DeletePortsRequest 
 
 void CtemClient::DeletePortsAsync(const DeletePortsRequest& request, const DeletePortsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeletePorts(request), context);
-    };
+    using Req = const DeletePortsRequest&;
+    using Resp = DeletePortsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeletePorts", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeletePortsOutcomeCallable CtemClient::DeletePortsCallable(const DeletePortsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeletePortsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeletePorts(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeletePortsOutcome>>();
+    DeletePortsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeletePortsRequest&,
+        DeletePortsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteSeedsOutcome CtemClient::DeleteSeeds(const DeleteSeedsRequest &request)
@@ -965,25 +1112,32 @@ CtemClient::DeleteSeedsOutcome CtemClient::DeleteSeeds(const DeleteSeedsRequest 
 
 void CtemClient::DeleteSeedsAsync(const DeleteSeedsRequest& request, const DeleteSeedsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteSeeds(request), context);
-    };
+    using Req = const DeleteSeedsRequest&;
+    using Resp = DeleteSeedsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteSeeds", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteSeedsOutcomeCallable CtemClient::DeleteSeedsCallable(const DeleteSeedsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteSeedsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteSeeds(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteSeedsOutcome>>();
+    DeleteSeedsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteSeedsRequest&,
+        DeleteSeedsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteSubDomainsOutcome CtemClient::DeleteSubDomains(const DeleteSubDomainsRequest &request)
@@ -1008,25 +1162,32 @@ CtemClient::DeleteSubDomainsOutcome CtemClient::DeleteSubDomains(const DeleteSub
 
 void CtemClient::DeleteSubDomainsAsync(const DeleteSubDomainsRequest& request, const DeleteSubDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteSubDomains(request), context);
-    };
+    using Req = const DeleteSubDomainsRequest&;
+    using Resp = DeleteSubDomainsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteSubDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteSubDomainsOutcomeCallable CtemClient::DeleteSubDomainsCallable(const DeleteSubDomainsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteSubDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteSubDomains(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteSubDomainsOutcome>>();
+    DeleteSubDomainsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteSubDomainsRequest&,
+        DeleteSubDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteSuspiciousAssetsOutcome CtemClient::DeleteSuspiciousAssets(const DeleteSuspiciousAssetsRequest &request)
@@ -1051,25 +1212,32 @@ CtemClient::DeleteSuspiciousAssetsOutcome CtemClient::DeleteSuspiciousAssets(con
 
 void CtemClient::DeleteSuspiciousAssetsAsync(const DeleteSuspiciousAssetsRequest& request, const DeleteSuspiciousAssetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteSuspiciousAssets(request), context);
-    };
+    using Req = const DeleteSuspiciousAssetsRequest&;
+    using Resp = DeleteSuspiciousAssetsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteSuspiciousAssets", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteSuspiciousAssetsOutcomeCallable CtemClient::DeleteSuspiciousAssetsCallable(const DeleteSuspiciousAssetsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteSuspiciousAssetsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteSuspiciousAssets(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteSuspiciousAssetsOutcome>>();
+    DeleteSuspiciousAssetsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteSuspiciousAssetsRequest&,
+        DeleteSuspiciousAssetsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteWechatAppletsOutcome CtemClient::DeleteWechatApplets(const DeleteWechatAppletsRequest &request)
@@ -1094,25 +1262,32 @@ CtemClient::DeleteWechatAppletsOutcome CtemClient::DeleteWechatApplets(const Del
 
 void CtemClient::DeleteWechatAppletsAsync(const DeleteWechatAppletsRequest& request, const DeleteWechatAppletsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteWechatApplets(request), context);
-    };
+    using Req = const DeleteWechatAppletsRequest&;
+    using Resp = DeleteWechatAppletsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteWechatApplets", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteWechatAppletsOutcomeCallable CtemClient::DeleteWechatAppletsCallable(const DeleteWechatAppletsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteWechatAppletsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteWechatApplets(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteWechatAppletsOutcome>>();
+    DeleteWechatAppletsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteWechatAppletsRequest&,
+        DeleteWechatAppletsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DeleteWechatOfficialAccountsOutcome CtemClient::DeleteWechatOfficialAccounts(const DeleteWechatOfficialAccountsRequest &request)
@@ -1137,25 +1312,32 @@ CtemClient::DeleteWechatOfficialAccountsOutcome CtemClient::DeleteWechatOfficial
 
 void CtemClient::DeleteWechatOfficialAccountsAsync(const DeleteWechatOfficialAccountsRequest& request, const DeleteWechatOfficialAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DeleteWechatOfficialAccounts(request), context);
-    };
+    using Req = const DeleteWechatOfficialAccountsRequest&;
+    using Resp = DeleteWechatOfficialAccountsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DeleteWechatOfficialAccounts", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DeleteWechatOfficialAccountsOutcomeCallable CtemClient::DeleteWechatOfficialAccountsCallable(const DeleteWechatOfficialAccountsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DeleteWechatOfficialAccountsOutcome()>>(
-        [this, request]()
-        {
-            return this->DeleteWechatOfficialAccounts(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DeleteWechatOfficialAccountsOutcome>>();
+    DeleteWechatOfficialAccountsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DeleteWechatOfficialAccountsRequest&,
+        DeleteWechatOfficialAccountsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeApiSecsOutcome CtemClient::DescribeApiSecs(const DescribeApiSecsRequest &request)
@@ -1180,25 +1362,32 @@ CtemClient::DescribeApiSecsOutcome CtemClient::DescribeApiSecs(const DescribeApi
 
 void CtemClient::DescribeApiSecsAsync(const DescribeApiSecsRequest& request, const DescribeApiSecsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApiSecs(request), context);
-    };
+    using Req = const DescribeApiSecsRequest&;
+    using Resp = DescribeApiSecsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApiSecs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeApiSecsOutcomeCallable CtemClient::DescribeApiSecsCallable(const DescribeApiSecsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeApiSecsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApiSecs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeApiSecsOutcome>>();
+    DescribeApiSecsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeApiSecsRequest&,
+        DescribeApiSecsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeAppsOutcome CtemClient::DescribeApps(const DescribeAppsRequest &request)
@@ -1223,25 +1412,32 @@ CtemClient::DescribeAppsOutcome CtemClient::DescribeApps(const DescribeAppsReque
 
 void CtemClient::DescribeAppsAsync(const DescribeAppsRequest& request, const DescribeAppsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeApps(request), context);
-    };
+    using Req = const DescribeAppsRequest&;
+    using Resp = DescribeAppsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeApps", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeAppsOutcomeCallable CtemClient::DescribeAppsCallable(const DescribeAppsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeAppsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeApps(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeAppsOutcome>>();
+    DescribeAppsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeAppsRequest&,
+        DescribeAppsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeAssetsOutcome CtemClient::DescribeAssets(const DescribeAssetsRequest &request)
@@ -1266,25 +1462,32 @@ CtemClient::DescribeAssetsOutcome CtemClient::DescribeAssets(const DescribeAsset
 
 void CtemClient::DescribeAssetsAsync(const DescribeAssetsRequest& request, const DescribeAssetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeAssets(request), context);
-    };
+    using Req = const DescribeAssetsRequest&;
+    using Resp = DescribeAssetsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeAssets", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeAssetsOutcomeCallable CtemClient::DescribeAssetsCallable(const DescribeAssetsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeAssetsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeAssets(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeAssetsOutcome>>();
+    DescribeAssetsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeAssetsRequest&,
+        DescribeAssetsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeConfigsOutcome CtemClient::DescribeConfigs(const DescribeConfigsRequest &request)
@@ -1309,25 +1512,32 @@ CtemClient::DescribeConfigsOutcome CtemClient::DescribeConfigs(const DescribeCon
 
 void CtemClient::DescribeConfigsAsync(const DescribeConfigsRequest& request, const DescribeConfigsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeConfigs(request), context);
-    };
+    using Req = const DescribeConfigsRequest&;
+    using Resp = DescribeConfigsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeConfigs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeConfigsOutcomeCallable CtemClient::DescribeConfigsCallable(const DescribeConfigsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeConfigsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeConfigs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeConfigsOutcome>>();
+    DescribeConfigsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeConfigsRequest&,
+        DescribeConfigsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeCustomersOutcome CtemClient::DescribeCustomers(const DescribeCustomersRequest &request)
@@ -1352,25 +1562,32 @@ CtemClient::DescribeCustomersOutcome CtemClient::DescribeCustomers(const Describ
 
 void CtemClient::DescribeCustomersAsync(const DescribeCustomersRequest& request, const DescribeCustomersAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeCustomers(request), context);
-    };
+    using Req = const DescribeCustomersRequest&;
+    using Resp = DescribeCustomersResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeCustomers", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeCustomersOutcomeCallable CtemClient::DescribeCustomersCallable(const DescribeCustomersRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeCustomersOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeCustomers(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeCustomersOutcome>>();
+    DescribeCustomersAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeCustomersRequest&,
+        DescribeCustomersOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeDarkWebsOutcome CtemClient::DescribeDarkWebs(const DescribeDarkWebsRequest &request)
@@ -1395,25 +1612,32 @@ CtemClient::DescribeDarkWebsOutcome CtemClient::DescribeDarkWebs(const DescribeD
 
 void CtemClient::DescribeDarkWebsAsync(const DescribeDarkWebsRequest& request, const DescribeDarkWebsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDarkWebs(request), context);
-    };
+    using Req = const DescribeDarkWebsRequest&;
+    using Resp = DescribeDarkWebsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeDarkWebs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeDarkWebsOutcomeCallable CtemClient::DescribeDarkWebsCallable(const DescribeDarkWebsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeDarkWebsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDarkWebs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeDarkWebsOutcome>>();
+    DescribeDarkWebsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeDarkWebsRequest&,
+        DescribeDarkWebsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeDomainsOutcome CtemClient::DescribeDomains(const DescribeDomainsRequest &request)
@@ -1438,25 +1662,32 @@ CtemClient::DescribeDomainsOutcome CtemClient::DescribeDomains(const DescribeDom
 
 void CtemClient::DescribeDomainsAsync(const DescribeDomainsRequest& request, const DescribeDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeDomains(request), context);
-    };
+    using Req = const DescribeDomainsRequest&;
+    using Resp = DescribeDomainsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeDomainsOutcomeCallable CtemClient::DescribeDomainsCallable(const DescribeDomainsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeDomains(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeDomainsOutcome>>();
+    DescribeDomainsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeDomainsRequest&,
+        DescribeDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeEnterprisesOutcome CtemClient::DescribeEnterprises(const DescribeEnterprisesRequest &request)
@@ -1481,25 +1712,32 @@ CtemClient::DescribeEnterprisesOutcome CtemClient::DescribeEnterprises(const Des
 
 void CtemClient::DescribeEnterprisesAsync(const DescribeEnterprisesRequest& request, const DescribeEnterprisesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeEnterprises(request), context);
-    };
+    using Req = const DescribeEnterprisesRequest&;
+    using Resp = DescribeEnterprisesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeEnterprises", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeEnterprisesOutcomeCallable CtemClient::DescribeEnterprisesCallable(const DescribeEnterprisesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeEnterprisesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeEnterprises(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeEnterprisesOutcome>>();
+    DescribeEnterprisesAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeEnterprisesRequest&,
+        DescribeEnterprisesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeFakeAppsOutcome CtemClient::DescribeFakeApps(const DescribeFakeAppsRequest &request)
@@ -1524,25 +1762,32 @@ CtemClient::DescribeFakeAppsOutcome CtemClient::DescribeFakeApps(const DescribeF
 
 void CtemClient::DescribeFakeAppsAsync(const DescribeFakeAppsRequest& request, const DescribeFakeAppsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeFakeApps(request), context);
-    };
+    using Req = const DescribeFakeAppsRequest&;
+    using Resp = DescribeFakeAppsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeFakeApps", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeFakeAppsOutcomeCallable CtemClient::DescribeFakeAppsCallable(const DescribeFakeAppsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeFakeAppsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeFakeApps(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeFakeAppsOutcome>>();
+    DescribeFakeAppsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeFakeAppsRequest&,
+        DescribeFakeAppsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeFakeMiniProgramsOutcome CtemClient::DescribeFakeMiniPrograms(const DescribeFakeMiniProgramsRequest &request)
@@ -1567,25 +1812,32 @@ CtemClient::DescribeFakeMiniProgramsOutcome CtemClient::DescribeFakeMiniPrograms
 
 void CtemClient::DescribeFakeMiniProgramsAsync(const DescribeFakeMiniProgramsRequest& request, const DescribeFakeMiniProgramsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeFakeMiniPrograms(request), context);
-    };
+    using Req = const DescribeFakeMiniProgramsRequest&;
+    using Resp = DescribeFakeMiniProgramsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeFakeMiniPrograms", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeFakeMiniProgramsOutcomeCallable CtemClient::DescribeFakeMiniProgramsCallable(const DescribeFakeMiniProgramsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeFakeMiniProgramsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeFakeMiniPrograms(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeFakeMiniProgramsOutcome>>();
+    DescribeFakeMiniProgramsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeFakeMiniProgramsRequest&,
+        DescribeFakeMiniProgramsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeFakeWebsitesOutcome CtemClient::DescribeFakeWebsites(const DescribeFakeWebsitesRequest &request)
@@ -1610,25 +1862,32 @@ CtemClient::DescribeFakeWebsitesOutcome CtemClient::DescribeFakeWebsites(const D
 
 void CtemClient::DescribeFakeWebsitesAsync(const DescribeFakeWebsitesRequest& request, const DescribeFakeWebsitesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeFakeWebsites(request), context);
-    };
+    using Req = const DescribeFakeWebsitesRequest&;
+    using Resp = DescribeFakeWebsitesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeFakeWebsites", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeFakeWebsitesOutcomeCallable CtemClient::DescribeFakeWebsitesCallable(const DescribeFakeWebsitesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeFakeWebsitesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeFakeWebsites(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeFakeWebsitesOutcome>>();
+    DescribeFakeWebsitesAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeFakeWebsitesRequest&,
+        DescribeFakeWebsitesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeFakeWechatOfficialsOutcome CtemClient::DescribeFakeWechatOfficials(const DescribeFakeWechatOfficialsRequest &request)
@@ -1653,25 +1912,32 @@ CtemClient::DescribeFakeWechatOfficialsOutcome CtemClient::DescribeFakeWechatOff
 
 void CtemClient::DescribeFakeWechatOfficialsAsync(const DescribeFakeWechatOfficialsRequest& request, const DescribeFakeWechatOfficialsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeFakeWechatOfficials(request), context);
-    };
+    using Req = const DescribeFakeWechatOfficialsRequest&;
+    using Resp = DescribeFakeWechatOfficialsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeFakeWechatOfficials", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeFakeWechatOfficialsOutcomeCallable CtemClient::DescribeFakeWechatOfficialsCallable(const DescribeFakeWechatOfficialsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeFakeWechatOfficialsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeFakeWechatOfficials(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeFakeWechatOfficialsOutcome>>();
+    DescribeFakeWechatOfficialsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeFakeWechatOfficialsRequest&,
+        DescribeFakeWechatOfficialsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeGithubsOutcome CtemClient::DescribeGithubs(const DescribeGithubsRequest &request)
@@ -1696,25 +1962,32 @@ CtemClient::DescribeGithubsOutcome CtemClient::DescribeGithubs(const DescribeGit
 
 void CtemClient::DescribeGithubsAsync(const DescribeGithubsRequest& request, const DescribeGithubsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeGithubs(request), context);
-    };
+    using Req = const DescribeGithubsRequest&;
+    using Resp = DescribeGithubsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeGithubs", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeGithubsOutcomeCallable CtemClient::DescribeGithubsCallable(const DescribeGithubsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeGithubsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeGithubs(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeGithubsOutcome>>();
+    DescribeGithubsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeGithubsRequest&,
+        DescribeGithubsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeHttpsOutcome CtemClient::DescribeHttps(const DescribeHttpsRequest &request)
@@ -1739,25 +2012,32 @@ CtemClient::DescribeHttpsOutcome CtemClient::DescribeHttps(const DescribeHttpsRe
 
 void CtemClient::DescribeHttpsAsync(const DescribeHttpsRequest& request, const DescribeHttpsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeHttps(request), context);
-    };
+    using Req = const DescribeHttpsRequest&;
+    using Resp = DescribeHttpsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeHttps", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeHttpsOutcomeCallable CtemClient::DescribeHttpsCallable(const DescribeHttpsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeHttpsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeHttps(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeHttpsOutcome>>();
+    DescribeHttpsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeHttpsRequest&,
+        DescribeHttpsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeJobRecordDetailsOutcome CtemClient::DescribeJobRecordDetails(const DescribeJobRecordDetailsRequest &request)
@@ -1782,25 +2062,32 @@ CtemClient::DescribeJobRecordDetailsOutcome CtemClient::DescribeJobRecordDetails
 
 void CtemClient::DescribeJobRecordDetailsAsync(const DescribeJobRecordDetailsRequest& request, const DescribeJobRecordDetailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeJobRecordDetails(request), context);
-    };
+    using Req = const DescribeJobRecordDetailsRequest&;
+    using Resp = DescribeJobRecordDetailsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeJobRecordDetails", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeJobRecordDetailsOutcomeCallable CtemClient::DescribeJobRecordDetailsCallable(const DescribeJobRecordDetailsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeJobRecordDetailsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeJobRecordDetails(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeJobRecordDetailsOutcome>>();
+    DescribeJobRecordDetailsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeJobRecordDetailsRequest&,
+        DescribeJobRecordDetailsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeJobRecordsOutcome CtemClient::DescribeJobRecords(const DescribeJobRecordsRequest &request)
@@ -1825,25 +2112,32 @@ CtemClient::DescribeJobRecordsOutcome CtemClient::DescribeJobRecords(const Descr
 
 void CtemClient::DescribeJobRecordsAsync(const DescribeJobRecordsRequest& request, const DescribeJobRecordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeJobRecords(request), context);
-    };
+    using Req = const DescribeJobRecordsRequest&;
+    using Resp = DescribeJobRecordsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeJobRecords", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeJobRecordsOutcomeCallable CtemClient::DescribeJobRecordsCallable(const DescribeJobRecordsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeJobRecordsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeJobRecords(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeJobRecordsOutcome>>();
+    DescribeJobRecordsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeJobRecordsRequest&,
+        DescribeJobRecordsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeLeakageCodesOutcome CtemClient::DescribeLeakageCodes(const DescribeLeakageCodesRequest &request)
@@ -1868,25 +2162,32 @@ CtemClient::DescribeLeakageCodesOutcome CtemClient::DescribeLeakageCodes(const D
 
 void CtemClient::DescribeLeakageCodesAsync(const DescribeLeakageCodesRequest& request, const DescribeLeakageCodesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeLeakageCodes(request), context);
-    };
+    using Req = const DescribeLeakageCodesRequest&;
+    using Resp = DescribeLeakageCodesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeLeakageCodes", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeLeakageCodesOutcomeCallable CtemClient::DescribeLeakageCodesCallable(const DescribeLeakageCodesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeLeakageCodesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeLeakageCodes(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeLeakageCodesOutcome>>();
+    DescribeLeakageCodesAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeLeakageCodesRequest&,
+        DescribeLeakageCodesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeLeakageDatasOutcome CtemClient::DescribeLeakageDatas(const DescribeLeakageDatasRequest &request)
@@ -1911,25 +2212,32 @@ CtemClient::DescribeLeakageDatasOutcome CtemClient::DescribeLeakageDatas(const D
 
 void CtemClient::DescribeLeakageDatasAsync(const DescribeLeakageDatasRequest& request, const DescribeLeakageDatasAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeLeakageDatas(request), context);
-    };
+    using Req = const DescribeLeakageDatasRequest&;
+    using Resp = DescribeLeakageDatasResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeLeakageDatas", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeLeakageDatasOutcomeCallable CtemClient::DescribeLeakageDatasCallable(const DescribeLeakageDatasRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeLeakageDatasOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeLeakageDatas(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeLeakageDatasOutcome>>();
+    DescribeLeakageDatasAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeLeakageDatasRequest&,
+        DescribeLeakageDatasOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeLeakageEmailsOutcome CtemClient::DescribeLeakageEmails(const DescribeLeakageEmailsRequest &request)
@@ -1954,25 +2262,32 @@ CtemClient::DescribeLeakageEmailsOutcome CtemClient::DescribeLeakageEmails(const
 
 void CtemClient::DescribeLeakageEmailsAsync(const DescribeLeakageEmailsRequest& request, const DescribeLeakageEmailsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeLeakageEmails(request), context);
-    };
+    using Req = const DescribeLeakageEmailsRequest&;
+    using Resp = DescribeLeakageEmailsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeLeakageEmails", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeLeakageEmailsOutcomeCallable CtemClient::DescribeLeakageEmailsCallable(const DescribeLeakageEmailsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeLeakageEmailsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeLeakageEmails(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeLeakageEmailsOutcome>>();
+    DescribeLeakageEmailsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeLeakageEmailsRequest&,
+        DescribeLeakageEmailsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeManagesOutcome CtemClient::DescribeManages(const DescribeManagesRequest &request)
@@ -1997,25 +2312,32 @@ CtemClient::DescribeManagesOutcome CtemClient::DescribeManages(const DescribeMan
 
 void CtemClient::DescribeManagesAsync(const DescribeManagesRequest& request, const DescribeManagesAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeManages(request), context);
-    };
+    using Req = const DescribeManagesRequest&;
+    using Resp = DescribeManagesResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeManages", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeManagesOutcomeCallable CtemClient::DescribeManagesCallable(const DescribeManagesRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeManagesOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeManages(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeManagesOutcome>>();
+    DescribeManagesAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeManagesRequest&,
+        DescribeManagesOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeNetDisksOutcome CtemClient::DescribeNetDisks(const DescribeNetDisksRequest &request)
@@ -2040,25 +2362,32 @@ CtemClient::DescribeNetDisksOutcome CtemClient::DescribeNetDisks(const DescribeN
 
 void CtemClient::DescribeNetDisksAsync(const DescribeNetDisksRequest& request, const DescribeNetDisksAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeNetDisks(request), context);
-    };
+    using Req = const DescribeNetDisksRequest&;
+    using Resp = DescribeNetDisksResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeNetDisks", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeNetDisksOutcomeCallable CtemClient::DescribeNetDisksCallable(const DescribeNetDisksRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeNetDisksOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeNetDisks(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeNetDisksOutcome>>();
+    DescribeNetDisksAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeNetDisksRequest&,
+        DescribeNetDisksOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribePortsOutcome CtemClient::DescribePorts(const DescribePortsRequest &request)
@@ -2083,25 +2412,32 @@ CtemClient::DescribePortsOutcome CtemClient::DescribePorts(const DescribePortsRe
 
 void CtemClient::DescribePortsAsync(const DescribePortsRequest& request, const DescribePortsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribePorts(request), context);
-    };
+    using Req = const DescribePortsRequest&;
+    using Resp = DescribePortsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribePorts", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribePortsOutcomeCallable CtemClient::DescribePortsCallable(const DescribePortsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribePortsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribePorts(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribePortsOutcome>>();
+    DescribePortsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribePortsRequest&,
+        DescribePortsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeSeedsOutcome CtemClient::DescribeSeeds(const DescribeSeedsRequest &request)
@@ -2126,25 +2462,32 @@ CtemClient::DescribeSeedsOutcome CtemClient::DescribeSeeds(const DescribeSeedsRe
 
 void CtemClient::DescribeSeedsAsync(const DescribeSeedsRequest& request, const DescribeSeedsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSeeds(request), context);
-    };
+    using Req = const DescribeSeedsRequest&;
+    using Resp = DescribeSeedsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSeeds", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeSeedsOutcomeCallable CtemClient::DescribeSeedsCallable(const DescribeSeedsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSeedsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSeeds(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSeedsOutcome>>();
+    DescribeSeedsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeSeedsRequest&,
+        DescribeSeedsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeSensitiveInfosOutcome CtemClient::DescribeSensitiveInfos(const DescribeSensitiveInfosRequest &request)
@@ -2169,25 +2512,32 @@ CtemClient::DescribeSensitiveInfosOutcome CtemClient::DescribeSensitiveInfos(con
 
 void CtemClient::DescribeSensitiveInfosAsync(const DescribeSensitiveInfosRequest& request, const DescribeSensitiveInfosAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSensitiveInfos(request), context);
-    };
+    using Req = const DescribeSensitiveInfosRequest&;
+    using Resp = DescribeSensitiveInfosResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSensitiveInfos", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeSensitiveInfosOutcomeCallable CtemClient::DescribeSensitiveInfosCallable(const DescribeSensitiveInfosRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSensitiveInfosOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSensitiveInfos(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSensitiveInfosOutcome>>();
+    DescribeSensitiveInfosAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeSensitiveInfosRequest&,
+        DescribeSensitiveInfosOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeSubDomainsOutcome CtemClient::DescribeSubDomains(const DescribeSubDomainsRequest &request)
@@ -2212,25 +2562,32 @@ CtemClient::DescribeSubDomainsOutcome CtemClient::DescribeSubDomains(const Descr
 
 void CtemClient::DescribeSubDomainsAsync(const DescribeSubDomainsRequest& request, const DescribeSubDomainsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSubDomains(request), context);
-    };
+    using Req = const DescribeSubDomainsRequest&;
+    using Resp = DescribeSubDomainsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSubDomains", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeSubDomainsOutcomeCallable CtemClient::DescribeSubDomainsCallable(const DescribeSubDomainsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSubDomainsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSubDomains(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSubDomainsOutcome>>();
+    DescribeSubDomainsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeSubDomainsRequest&,
+        DescribeSubDomainsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeSuspiciousAssetsOutcome CtemClient::DescribeSuspiciousAssets(const DescribeSuspiciousAssetsRequest &request)
@@ -2255,25 +2612,32 @@ CtemClient::DescribeSuspiciousAssetsOutcome CtemClient::DescribeSuspiciousAssets
 
 void CtemClient::DescribeSuspiciousAssetsAsync(const DescribeSuspiciousAssetsRequest& request, const DescribeSuspiciousAssetsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeSuspiciousAssets(request), context);
-    };
+    using Req = const DescribeSuspiciousAssetsRequest&;
+    using Resp = DescribeSuspiciousAssetsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeSuspiciousAssets", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeSuspiciousAssetsOutcomeCallable CtemClient::DescribeSuspiciousAssetsCallable(const DescribeSuspiciousAssetsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeSuspiciousAssetsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeSuspiciousAssets(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeSuspiciousAssetsOutcome>>();
+    DescribeSuspiciousAssetsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeSuspiciousAssetsRequest&,
+        DescribeSuspiciousAssetsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeVulsOutcome CtemClient::DescribeVuls(const DescribeVulsRequest &request)
@@ -2298,25 +2662,32 @@ CtemClient::DescribeVulsOutcome CtemClient::DescribeVuls(const DescribeVulsReque
 
 void CtemClient::DescribeVulsAsync(const DescribeVulsRequest& request, const DescribeVulsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeVuls(request), context);
-    };
+    using Req = const DescribeVulsRequest&;
+    using Resp = DescribeVulsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeVuls", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeVulsOutcomeCallable CtemClient::DescribeVulsCallable(const DescribeVulsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeVulsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeVuls(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeVulsOutcome>>();
+    DescribeVulsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeVulsRequest&,
+        DescribeVulsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeWeakPasswordsOutcome CtemClient::DescribeWeakPasswords(const DescribeWeakPasswordsRequest &request)
@@ -2341,25 +2712,32 @@ CtemClient::DescribeWeakPasswordsOutcome CtemClient::DescribeWeakPasswords(const
 
 void CtemClient::DescribeWeakPasswordsAsync(const DescribeWeakPasswordsRequest& request, const DescribeWeakPasswordsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeWeakPasswords(request), context);
-    };
+    using Req = const DescribeWeakPasswordsRequest&;
+    using Resp = DescribeWeakPasswordsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeWeakPasswords", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeWeakPasswordsOutcomeCallable CtemClient::DescribeWeakPasswordsCallable(const DescribeWeakPasswordsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeWeakPasswordsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeWeakPasswords(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeWeakPasswordsOutcome>>();
+    DescribeWeakPasswordsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeWeakPasswordsRequest&,
+        DescribeWeakPasswordsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeWechatAppletsOutcome CtemClient::DescribeWechatApplets(const DescribeWechatAppletsRequest &request)
@@ -2384,25 +2762,32 @@ CtemClient::DescribeWechatAppletsOutcome CtemClient::DescribeWechatApplets(const
 
 void CtemClient::DescribeWechatAppletsAsync(const DescribeWechatAppletsRequest& request, const DescribeWechatAppletsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeWechatApplets(request), context);
-    };
+    using Req = const DescribeWechatAppletsRequest&;
+    using Resp = DescribeWechatAppletsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeWechatApplets", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeWechatAppletsOutcomeCallable CtemClient::DescribeWechatAppletsCallable(const DescribeWechatAppletsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeWechatAppletsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeWechatApplets(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeWechatAppletsOutcome>>();
+    DescribeWechatAppletsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeWechatAppletsRequest&,
+        DescribeWechatAppletsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::DescribeWechatOfficialAccountsOutcome CtemClient::DescribeWechatOfficialAccounts(const DescribeWechatOfficialAccountsRequest &request)
@@ -2427,25 +2812,32 @@ CtemClient::DescribeWechatOfficialAccountsOutcome CtemClient::DescribeWechatOffi
 
 void CtemClient::DescribeWechatOfficialAccountsAsync(const DescribeWechatOfficialAccountsRequest& request, const DescribeWechatOfficialAccountsAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->DescribeWechatOfficialAccounts(request), context);
-    };
+    using Req = const DescribeWechatOfficialAccountsRequest&;
+    using Resp = DescribeWechatOfficialAccountsResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "DescribeWechatOfficialAccounts", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::DescribeWechatOfficialAccountsOutcomeCallable CtemClient::DescribeWechatOfficialAccountsCallable(const DescribeWechatOfficialAccountsRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<DescribeWechatOfficialAccountsOutcome()>>(
-        [this, request]()
-        {
-            return this->DescribeWechatOfficialAccounts(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<DescribeWechatOfficialAccountsOutcome>>();
+    DescribeWechatOfficialAccountsAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const DescribeWechatOfficialAccountsRequest&,
+        DescribeWechatOfficialAccountsOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::IgnoreDataOutcome CtemClient::IgnoreData(const IgnoreDataRequest &request)
@@ -2470,25 +2862,32 @@ CtemClient::IgnoreDataOutcome CtemClient::IgnoreData(const IgnoreDataRequest &re
 
 void CtemClient::IgnoreDataAsync(const IgnoreDataRequest& request, const IgnoreDataAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->IgnoreData(request), context);
-    };
+    using Req = const IgnoreDataRequest&;
+    using Resp = IgnoreDataResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "IgnoreData", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::IgnoreDataOutcomeCallable CtemClient::IgnoreDataCallable(const IgnoreDataRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<IgnoreDataOutcome()>>(
-        [this, request]()
-        {
-            return this->IgnoreData(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<IgnoreDataOutcome>>();
+    IgnoreDataAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const IgnoreDataRequest&,
+        IgnoreDataOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::ModifyCustomerOutcome CtemClient::ModifyCustomer(const ModifyCustomerRequest &request)
@@ -2513,25 +2912,32 @@ CtemClient::ModifyCustomerOutcome CtemClient::ModifyCustomer(const ModifyCustome
 
 void CtemClient::ModifyCustomerAsync(const ModifyCustomerRequest& request, const ModifyCustomerAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyCustomer(request), context);
-    };
+    using Req = const ModifyCustomerRequest&;
+    using Resp = ModifyCustomerResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyCustomer", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::ModifyCustomerOutcomeCallable CtemClient::ModifyCustomerCallable(const ModifyCustomerRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyCustomerOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyCustomer(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyCustomerOutcome>>();
+    ModifyCustomerAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const ModifyCustomerRequest&,
+        ModifyCustomerOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::ModifyLabelOutcome CtemClient::ModifyLabel(const ModifyLabelRequest &request)
@@ -2556,25 +2962,32 @@ CtemClient::ModifyLabelOutcome CtemClient::ModifyLabel(const ModifyLabelRequest 
 
 void CtemClient::ModifyLabelAsync(const ModifyLabelRequest& request, const ModifyLabelAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifyLabel(request), context);
-    };
+    using Req = const ModifyLabelRequest&;
+    using Resp = ModifyLabelResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifyLabel", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::ModifyLabelOutcomeCallable CtemClient::ModifyLabelCallable(const ModifyLabelRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifyLabelOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifyLabel(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifyLabelOutcome>>();
+    ModifyLabelAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const ModifyLabelRequest&,
+        ModifyLabelOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::ModifySeedStatusOutcome CtemClient::ModifySeedStatus(const ModifySeedStatusRequest &request)
@@ -2599,25 +3012,32 @@ CtemClient::ModifySeedStatusOutcome CtemClient::ModifySeedStatus(const ModifySee
 
 void CtemClient::ModifySeedStatusAsync(const ModifySeedStatusRequest& request, const ModifySeedStatusAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->ModifySeedStatus(request), context);
-    };
+    using Req = const ModifySeedStatusRequest&;
+    using Resp = ModifySeedStatusResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "ModifySeedStatus", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::ModifySeedStatusOutcomeCallable CtemClient::ModifySeedStatusCallable(const ModifySeedStatusRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<ModifySeedStatusOutcome()>>(
-        [this, request]()
-        {
-            return this->ModifySeedStatus(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<ModifySeedStatusOutcome>>();
+    ModifySeedStatusAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const ModifySeedStatusRequest&,
+        ModifySeedStatusOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 
 CtemClient::StopJobRecordOutcome CtemClient::StopJobRecord(const StopJobRecordRequest &request)
@@ -2642,24 +3062,31 @@ CtemClient::StopJobRecordOutcome CtemClient::StopJobRecord(const StopJobRecordRe
 
 void CtemClient::StopJobRecordAsync(const StopJobRecordRequest& request, const StopJobRecordAsyncHandler& handler, const std::shared_ptr<const AsyncCallerContext>& context)
 {
-    auto fn = [this, request, handler, context]()
-    {
-        handler(this, request, this->StopJobRecord(request), context);
-    };
+    using Req = const StopJobRecordRequest&;
+    using Resp = StopJobRecordResponse;
 
-    Executor::GetInstance()->Submit(new Runnable(fn));
+    DoRequestAsync<Req, Resp>(
+        "StopJobRecord", request, {{{"Content-Type", "application/json"}}},
+        [this, context, handler](Req req, Outcome<Core::Error, Resp> resp)
+        {
+            handler(this, req, std::move(resp), context);
+        });
 }
 
 CtemClient::StopJobRecordOutcomeCallable CtemClient::StopJobRecordCallable(const StopJobRecordRequest &request)
 {
-    auto task = std::make_shared<std::packaged_task<StopJobRecordOutcome()>>(
-        [this, request]()
-        {
-            return this->StopJobRecord(request);
-        }
-    );
-
-    Executor::GetInstance()->Submit(new Runnable([task]() { (*task)(); }));
-    return task->get_future();
+    const auto prom = std::make_shared<std::promise<StopJobRecordOutcome>>();
+    StopJobRecordAsync(
+    request,
+    [prom](
+        const CtemClient*,
+        const StopJobRecordRequest&,
+        StopJobRecordOutcome resp,
+        const std::shared_ptr<const AsyncCallerContext>&
+    )
+    {
+        prom->set_value(resp);
+    });
+    return prom->get_future();
 }
 

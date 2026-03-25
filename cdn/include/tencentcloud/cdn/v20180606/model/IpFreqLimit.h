@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 单节点单 IP 访问限频配置，默认为关闭状态
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IpFreqLimit();
+                    ~IpFreqLimit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

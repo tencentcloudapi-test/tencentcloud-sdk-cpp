@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LaneGroup;
-
                 /**
                 * ModifyGroupLane请求参数结构体
                 */

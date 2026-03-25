@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagSpec;
-
                 /**
                 * DescribeProjects请求参数结构体
                 */

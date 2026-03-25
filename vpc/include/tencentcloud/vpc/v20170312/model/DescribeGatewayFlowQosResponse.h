@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GatewayQos;
-
                 /**
                 * DescribeGatewayFlowQos返回参数结构体
                 */

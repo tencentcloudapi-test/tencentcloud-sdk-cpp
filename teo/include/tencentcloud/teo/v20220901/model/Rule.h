@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleAndConditions;
-                class Action;
-                class SubRuleItem;
-
                 /**
                 * 规则引擎规则项，Conditions 数组内多个项的关系为 或，内层 Conditions 列表内多个项的关系为 且。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     Rule();
+                    ~Rule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

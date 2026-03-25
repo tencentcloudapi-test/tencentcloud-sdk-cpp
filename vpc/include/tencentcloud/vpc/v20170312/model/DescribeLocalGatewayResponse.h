@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LocalGateway;
-
                 /**
                 * DescribeLocalGateway返回参数结构体
                 */

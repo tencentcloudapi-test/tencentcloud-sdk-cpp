@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetectLabelItem;
-
                 /**
                 * DetectLabel返回参数结构体
                 */

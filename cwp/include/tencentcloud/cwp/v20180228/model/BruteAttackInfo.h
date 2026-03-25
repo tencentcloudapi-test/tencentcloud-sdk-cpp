@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineExtraInfo;
-
                 /**
                 * 密码破解列表实体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BruteAttackInfo();
+                    ~BruteAttackInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

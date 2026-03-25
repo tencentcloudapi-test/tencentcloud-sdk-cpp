@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetUserBaseInfo;
-
                 /**
                 * DescribeAssetUserList返回参数结构体
                 */

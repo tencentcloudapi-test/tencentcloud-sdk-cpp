@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 域名的地区加速信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AccelerateAreaInfo();
+                    ~AccelerateAreaInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

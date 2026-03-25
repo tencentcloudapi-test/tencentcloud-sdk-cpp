@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用户的三要素：姓名，证件号，证件类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UserThreeFactor();
+                    ~UserThreeFactor() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

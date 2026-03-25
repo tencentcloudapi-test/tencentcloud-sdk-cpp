@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 转换集群log bin开关
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SwitchClusterLogBin();
+                    ~SwitchClusterLogBin() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

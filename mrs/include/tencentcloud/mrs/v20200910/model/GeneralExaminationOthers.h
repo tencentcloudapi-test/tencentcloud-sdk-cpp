@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KeyValueItem;
-                class ValueUnitItem;
-                class ChestCircumferenceItem;
-
                 /**
                 * 体检报告-其他项
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     GeneralExaminationOthers();
+                    ~GeneralExaminationOthers() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

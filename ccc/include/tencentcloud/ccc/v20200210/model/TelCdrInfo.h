@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SeatUserInfo;
-                class ServeParticipant;
-                class IVRKeyPressedElement;
-
                 /**
                 * 电话话单信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TelCdrInfo();
+                    ~TelCdrInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

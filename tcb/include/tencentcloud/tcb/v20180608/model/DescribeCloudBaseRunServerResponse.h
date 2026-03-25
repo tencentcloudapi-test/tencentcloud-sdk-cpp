@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudBaseRunServerVersionItem;
-
                 /**
                 * DescribeCloudBaseRunServer返回参数结构体
                 */

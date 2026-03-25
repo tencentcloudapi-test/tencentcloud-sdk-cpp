@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 增值税发票项目明细
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VatInvoiceItem();
+                    ~VatInvoiceItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

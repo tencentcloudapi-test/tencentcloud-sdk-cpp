@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeKongIpRestrictionResult;
-
                 /**
                 * DescribeCloudNativeAPIGatewayIPRestriction返回参数结构体
                 */

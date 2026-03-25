@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeActionListRes;
-
                 /**
                 * DescribeActionList返回参数结构体
                 */

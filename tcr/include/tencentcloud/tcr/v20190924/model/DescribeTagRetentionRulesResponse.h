@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RetentionPolicy;
-
                 /**
                 * DescribeTagRetentionRules返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 网关设备数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GatewayDevice();
+                    ~GatewayDevice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

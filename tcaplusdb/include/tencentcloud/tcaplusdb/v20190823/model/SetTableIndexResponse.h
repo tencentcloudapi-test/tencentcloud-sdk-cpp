@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableResultNew;
-
                 /**
                 * SetTableIndex返回参数结构体
                 */

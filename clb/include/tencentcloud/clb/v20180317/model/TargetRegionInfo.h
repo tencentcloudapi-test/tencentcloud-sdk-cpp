@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 负载均衡实例所绑定的后端服务的信息，包括所属地域、所属网络。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TargetRegionInfo();
+                    ~TargetRegionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

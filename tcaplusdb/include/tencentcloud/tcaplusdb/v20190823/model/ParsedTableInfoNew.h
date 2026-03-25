@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrorInfo;
-
                 /**
                 * 从IDL表描述文件中解析出来的表信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ParsedTableInfoNew();
+                    ~ParsedTableInfoNew() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

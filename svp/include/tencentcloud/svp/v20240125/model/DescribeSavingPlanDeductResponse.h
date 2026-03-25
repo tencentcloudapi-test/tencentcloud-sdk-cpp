@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SavingPlanDeductDetail;
-
                 /**
                 * DescribeSavingPlanDeduct返回参数结构体
                 */

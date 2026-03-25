@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IntegrationNodeSchema;
-
                 /**
                 * GetIntegrationNodeColumnSchema返回参数结构体
                 */

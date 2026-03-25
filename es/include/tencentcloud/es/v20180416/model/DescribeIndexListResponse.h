@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IndexMetaField;
-
                 /**
                 * DescribeIndexList返回参数结构体
                 */

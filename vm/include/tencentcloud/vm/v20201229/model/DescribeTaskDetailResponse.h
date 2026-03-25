@@ -38,14 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskLabel;
-                class MediaInfo;
-                class InputInfo;
-                class ImageSegments;
-                class AudioSegments;
-                class SegmentCosUrlList;
-                class RcbAsr;
-
                 /**
                 * DescribeTaskDetail返回参数结构体
                 */

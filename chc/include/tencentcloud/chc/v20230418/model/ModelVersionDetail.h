@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TemplateOption;
-
                 /**
                 * 带有园区评估记录的型号详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ModelVersionDetail();
+                    ~ModelVersionDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChemicalProductInfo;
-                class BiologicalProductInfo;
-
                 /**
                 * DrugInstructionObject返回参数结构体
                 */

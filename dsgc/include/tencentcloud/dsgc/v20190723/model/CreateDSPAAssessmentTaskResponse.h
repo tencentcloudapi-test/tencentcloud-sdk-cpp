@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreateDSPAAssessmentTask返回参数结构体
                 */

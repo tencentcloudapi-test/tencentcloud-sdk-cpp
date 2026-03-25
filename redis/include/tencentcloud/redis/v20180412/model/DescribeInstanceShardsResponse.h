@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceClusterShard;
-
                 /**
                 * DescribeInstanceShards返回参数结构体
                 */

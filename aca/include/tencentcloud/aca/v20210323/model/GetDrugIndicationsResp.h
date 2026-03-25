@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DocInfo;
-
                 /**
                 * 药品适应症响应
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     GetDrugIndicationsResp();
+                    ~GetDrugIndicationsResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

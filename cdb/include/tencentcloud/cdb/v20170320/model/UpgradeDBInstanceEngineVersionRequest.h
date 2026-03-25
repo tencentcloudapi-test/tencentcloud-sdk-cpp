@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpgradeEngineVersionParams;
-
                 /**
                 * UpgradeDBInstanceEngineVersion请求参数结构体
                 */

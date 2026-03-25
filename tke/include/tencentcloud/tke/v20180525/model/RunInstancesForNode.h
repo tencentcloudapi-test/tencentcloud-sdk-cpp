@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceAdvancedSettings;
-
                 /**
                 * 不同角色的节点配置参数
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RunInstancesForNode();
+                    ~RunInstancesForNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

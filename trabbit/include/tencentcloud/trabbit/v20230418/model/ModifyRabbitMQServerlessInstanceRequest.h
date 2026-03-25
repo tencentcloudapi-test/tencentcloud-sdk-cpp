@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RabbitMQServerlessTag;
-
                 /**
                 * ModifyRabbitMQServerlessInstance请求参数结构体
                 */

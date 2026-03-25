@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CacheConfigCache;
-                class CacheConfigNoCache;
-                class CacheConfigFollowOrigin;
-
                 /**
                 * 路径缓存缓存配置（三种缓存模式中选取一种）
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     RuleCacheConfig();
+                    ~RuleCacheConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

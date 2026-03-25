@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LocalBinlogConfig;
-                class LocalBinlogConfigDefault;
-
                 /**
                 * DescribeLocalBinlogConfig返回参数结构体
                 */

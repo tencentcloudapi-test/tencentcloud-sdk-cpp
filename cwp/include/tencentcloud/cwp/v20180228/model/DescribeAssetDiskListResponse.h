@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetDiskPartitionInfo;
-
                 /**
                 * DescribeAssetDiskList返回参数结构体
                 */

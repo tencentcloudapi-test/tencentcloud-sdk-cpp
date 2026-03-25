@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BindDevInfo;
-
                 /**
                 * DescribeBindDev返回参数结构体
                 */

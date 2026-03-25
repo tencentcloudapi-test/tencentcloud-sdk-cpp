@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EmptyRes;
-
                 /**
                 * StopVideoStreaming返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataManipulationResult;
-
                 /**
                 * DataManipulation返回参数结构体
                 */

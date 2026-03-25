@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineTag;
-                class RegionInfo;
-                class Tags;
-                class MachineExtraInfo;
-
                 /**
                 * 主机列表
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     Machine();
+                    ~Machine() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

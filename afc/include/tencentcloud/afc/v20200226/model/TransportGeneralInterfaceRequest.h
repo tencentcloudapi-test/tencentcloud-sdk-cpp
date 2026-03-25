@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TransportGeneralInterfaceInput;
-
                 /**
                 * TransportGeneralInterface请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeRelatedTasksByTaskIdResp;
-
                 /**
                 * DescribeRelatedTasksByTaskId返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MPSSubTaskResult;
-
                 /**
                 * MPS 媒体处理任务信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ProcessMediaByMPS();
+                    ~ProcessMediaByMPS() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InputDeleteNameListData;
-
                 /**
                 * DeleteNameListData请求参数结构体
                 */

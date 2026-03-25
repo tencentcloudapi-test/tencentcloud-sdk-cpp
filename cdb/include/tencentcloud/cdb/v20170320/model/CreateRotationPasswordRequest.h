@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Account;
-
                 /**
                 * CreateRotationPassword请求参数结构体
                 */

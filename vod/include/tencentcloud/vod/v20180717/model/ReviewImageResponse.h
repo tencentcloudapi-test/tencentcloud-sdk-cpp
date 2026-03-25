@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ContentReviewResult;
-                class ReviewImageResult;
-
                 /**
                 * ReviewImage返回参数结构体
                 */

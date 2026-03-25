@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CdbSellConfig;
-                class CdbRegionSellConf;
-
                 /**
                 * 各地域可售卖的规格配置
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CdbZoneDataResult();
+                    ~CdbZoneDataResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

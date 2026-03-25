@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CompliancePolicyItemSummary;
-
                 /**
                 * DescribeComplianceTaskPolicyItemSummaryList返回参数结构体
                 */

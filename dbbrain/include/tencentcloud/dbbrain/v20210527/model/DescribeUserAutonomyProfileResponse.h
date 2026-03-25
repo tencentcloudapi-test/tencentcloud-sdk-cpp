@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AutonomyUserProfileInfo;
-
                 /**
                 * DescribeUserAutonomyProfile返回参数结构体
                 */

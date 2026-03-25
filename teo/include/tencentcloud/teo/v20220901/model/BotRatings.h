@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-
                 /**
                 * 基于客户端和请求特征，将请求来源分为人类来源请求、合法 Bot 请求、疑似 Bot 请求和高风险 Bot 请求，并提供请求处置选项。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BotRatings();
+                    ~BotRatings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

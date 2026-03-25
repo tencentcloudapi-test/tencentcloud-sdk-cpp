@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云盘版 RW 节点的配置。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ReadWriteNode();
+                    ~ReadWriteNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

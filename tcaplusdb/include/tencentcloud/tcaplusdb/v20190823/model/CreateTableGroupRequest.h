@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagInfoUnit;
-
                 /**
                 * CreateTableGroup请求参数结构体
                 */

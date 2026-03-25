@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PullPushWatermarkInfo;
-
                 /**
                 * ModifyLivePullStreamTask请求参数结构体
                 */

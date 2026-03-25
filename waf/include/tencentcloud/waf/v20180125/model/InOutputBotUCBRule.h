@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InOutputUCBRuleEntry;
-                class JobDateTime;
-                class UCBActionProportion;
-
                 /**
                 * 修改/新增自定义规则的入参，查询自定义规则列表时的出参
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     InOutputBotUCBRule();
+                    ~InOutputBotUCBRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

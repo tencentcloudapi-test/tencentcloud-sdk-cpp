@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AiAnalysisTaskClassificationInput;
-                class AiAnalysisTaskClassificationOutput;
-
                 /**
                 * 智能分类任务结果类型
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AiAnalysisTaskClassificationResult();
+                    ~AiAnalysisTaskClassificationResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

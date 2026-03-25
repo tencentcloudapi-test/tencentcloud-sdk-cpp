@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UseDefaultRepoParameters;
-                class Tag;
-
                 /**
                 * CreateApplication请求参数结构体
                 */

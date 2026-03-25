@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-
                 /**
                 * DescribeTagValuesSeq返回参数结构体
                 */

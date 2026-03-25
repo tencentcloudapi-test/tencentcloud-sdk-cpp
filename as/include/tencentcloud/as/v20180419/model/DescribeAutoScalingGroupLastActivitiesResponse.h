@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Activity;
-
                 /**
                 * DescribeAutoScalingGroupLastActivities返回参数结构体
                 */

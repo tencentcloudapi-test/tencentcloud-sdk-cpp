@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于创建集群价格清单-节点组成部分价格
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PartDetailPriceItem();
+                    ~PartDetailPriceItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

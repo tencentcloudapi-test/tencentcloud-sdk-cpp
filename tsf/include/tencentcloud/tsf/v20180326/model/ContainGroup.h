@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 部署组列表（应用下钻界面的）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ContainGroup();
+                    ~ContainGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

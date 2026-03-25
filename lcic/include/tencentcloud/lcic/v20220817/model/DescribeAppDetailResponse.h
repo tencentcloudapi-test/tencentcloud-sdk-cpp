@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AppConfig;
-                class SceneItem;
-                class TransferItem;
-
                 /**
                 * DescribeAppDetail返回参数结构体
                 */

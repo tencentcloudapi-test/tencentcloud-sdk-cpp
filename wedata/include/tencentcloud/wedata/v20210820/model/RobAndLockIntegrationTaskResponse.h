@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RobLockState;
-
                 /**
                 * RobAndLockIntegrationTask返回参数结构体
                 */

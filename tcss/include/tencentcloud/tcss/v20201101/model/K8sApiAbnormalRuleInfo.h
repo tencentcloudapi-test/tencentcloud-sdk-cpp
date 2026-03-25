@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class K8sApiAbnormalRuleScopeInfo;
-
                 /**
                 * k8a api 异常请求规则详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     K8sApiAbnormalRuleInfo();
+                    ~K8sApiAbnormalRuleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

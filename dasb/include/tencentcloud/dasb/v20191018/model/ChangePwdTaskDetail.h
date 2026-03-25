@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Device;
-
                 /**
                 * 查询改密计划详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ChangePwdTaskDetail();
+                    ~ChangePwdTaskDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

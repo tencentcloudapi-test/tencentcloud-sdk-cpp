@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 订单变配参数对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OrderModifyObject();
+                    ~OrderModifyObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

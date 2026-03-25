@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RiskDnsPolicy;
-
                 /**
                 * ModifyRiskDnsPolicy请求参数结构体
                 */

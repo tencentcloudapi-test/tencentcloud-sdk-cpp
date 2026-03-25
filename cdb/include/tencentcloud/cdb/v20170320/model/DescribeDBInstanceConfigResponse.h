@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SlaveConfig;
-                class BackupConfig;
-
                 /**
                 * DescribeDBInstanceConfig返回参数结构体
                 */

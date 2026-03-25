@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Endpoint;
-
                 /**
                 * 数据同步配置多节点数据库的节点信息。多节点数据库，如tdsqlmysql使用该结构；单节点数据库，如mysql使用Endpoint。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SyncDBEndpointInfos();
+                    ~SyncDBEndpointInfos() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 按 Key 闪回键值对
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FBKeyValue();
+                    ~FBKeyValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

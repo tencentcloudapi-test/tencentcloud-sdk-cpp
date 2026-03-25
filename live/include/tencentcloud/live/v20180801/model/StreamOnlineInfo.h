@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PublishTime;
-
                 /**
                 * 查询当前正在推流的信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     StreamOnlineInfo();
+                    ~StreamOnlineInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

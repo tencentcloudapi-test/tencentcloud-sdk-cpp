@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QuotaEntity;
-                class PodSaleSpec;
-
                 /**
                 * DescribeCvmQuota返回参数结构体
                 */

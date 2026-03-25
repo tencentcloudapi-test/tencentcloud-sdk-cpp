@@ -41,17 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EsInfo;
-                class Pair;
-                class StorageConf;
-                class StorageMountConf;
-                class LogOutputConf;
-                class PortMapping;
-                class MountedSettingConf;
-                class EksService;
-                class DeployStrategyConf;
-                class HealthCheckConfig;
-
                 /**
                 * DeployServiceV2请求参数结构体
                 */

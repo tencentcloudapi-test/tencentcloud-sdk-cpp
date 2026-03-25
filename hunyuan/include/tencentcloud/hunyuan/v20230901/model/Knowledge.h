@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 外部知识
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Knowledge();
+                    ~Knowledge() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

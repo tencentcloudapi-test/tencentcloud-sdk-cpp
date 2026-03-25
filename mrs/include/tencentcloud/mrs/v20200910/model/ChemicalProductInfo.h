@@ -57,30 +57,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChemicalProductInfoName;
-                class ChemicalProductInfoActiveIngredient;
-                class ChemicalProductInfoAppearance;
-                class ChemicalProductInfoIndications;
-                class ChemicalProductInfoBrochure;
-                class ChemicalProductInfoDosage;
-                class ChemicalProductInfoAdverseReaction;
-                class ChemicalProductInfoContraindications;
-                class ChemicalProductInfoPrecautions;
-                class ChemicalProductInfoPregnancyLactationUse;
-                class ChemicalProductInfoPediatricUse;
-                class ChemicalProductInfoGeriatricUse;
-                class ChemicalProductInfoInteractions;
-                class ChemicalProductInfoOverdose;
-                class ChemicalProductInfoClinicalTrial;
-                class ChemicalProductInfoPharmacologyToxicology;
-                class ChemicalProductInfoPharmacokinetics;
-                class ChemicalProductInfoStorage;
-                class ChemicalProductInfoPackaging;
-                class ChemicalProductInfoValidityPeriod;
-                class ChemicalProductInfoExecutiveStandards;
-                class ChemicalProductInfoApproval;
-                class ChemicalProductInfoManufacturer;
-
                 /**
                 * 药品说明书消息定义
                 */
@@ -88,6 +64,7 @@ namespace TencentCloud
                 {
                 public:
                     ChemicalProductInfo();
+                    ~ChemicalProductInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

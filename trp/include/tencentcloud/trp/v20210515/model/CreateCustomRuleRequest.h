@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CodePart;
-
                 /**
                 * CreateCustomRule请求参数结构体
                 */

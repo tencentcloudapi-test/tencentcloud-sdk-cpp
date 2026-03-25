@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IntegrateRole;
-
                 /**
                 * DescribeIntegrationRoles返回参数结构体
                 */

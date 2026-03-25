@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ViewImage;
-
                 /**
                 * SubmitHunyuanTo3DProJob请求参数结构体
                 */

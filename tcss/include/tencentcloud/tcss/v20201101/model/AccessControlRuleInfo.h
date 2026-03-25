@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessControlChildRuleInfo;
-                class AccessControlSystemChildRuleInfo;
-
                 /**
                 * 容器运行时，访问控制策略信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AccessControlRuleInfo();
+                    ~AccessControlRuleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceStatistics;
-
                 /**
                 * DescribeSubnetResourceDashboard返回参数结构体
                 */

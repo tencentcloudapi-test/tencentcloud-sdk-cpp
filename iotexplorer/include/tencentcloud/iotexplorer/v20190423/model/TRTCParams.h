@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TRTC 的参数 可以用来加入房间
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TRTCParams();
+                    ~TRTCParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

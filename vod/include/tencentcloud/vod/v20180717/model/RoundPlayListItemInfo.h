@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 轮播播放节目信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RoundPlayListItemInfo();
+                    ~RoundPlayListItemInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

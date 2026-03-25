@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchDomainOperateErrors;
-
                 /**
                 * ModifyLiveDomainCertBindings返回参数结构体
                 */

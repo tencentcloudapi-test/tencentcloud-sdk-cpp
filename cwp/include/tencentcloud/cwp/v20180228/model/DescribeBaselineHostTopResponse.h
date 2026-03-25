@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaselineHostTopList;
-
                 /**
                 * DescribeBaselineHostTop返回参数结构体
                 */

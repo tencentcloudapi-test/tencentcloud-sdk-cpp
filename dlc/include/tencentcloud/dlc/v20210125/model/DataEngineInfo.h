@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagInfo;
-                class CrontabResumeSuspendStrategy;
-                class NetworkConnection;
-                class SessionResourceTemplate;
-                class AccessInfo;
-                class ScheduleElasticityConf;
-
                 /**
                 * DataEngine详细信息
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     DataEngineInfo();
+                    ~DataEngineInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

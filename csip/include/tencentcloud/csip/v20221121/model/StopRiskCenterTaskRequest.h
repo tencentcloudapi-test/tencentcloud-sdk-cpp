@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskIdListKey;
-
                 /**
                 * StopRiskCenterTask请求参数结构体
                 */

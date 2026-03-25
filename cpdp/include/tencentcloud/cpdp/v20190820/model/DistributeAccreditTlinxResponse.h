@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DistributeAccreditResult;
-
                 /**
                 * DistributeAccreditTlinx返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class File;
-
                 /**
                 * CreateCRRightFile请求参数结构体
                 */

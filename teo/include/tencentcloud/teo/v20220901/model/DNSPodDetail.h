@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DNSPod 托管类型站点参数详情。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DNSPodDetail();
+                    ~DNSPodDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

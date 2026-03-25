@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * api分组已绑定的网关部署组
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GatewayDeployGroup();
+                    ~GatewayDeployGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Route;
-
                 /**
                 * ReplaceRoutes返回参数结构体
                 */

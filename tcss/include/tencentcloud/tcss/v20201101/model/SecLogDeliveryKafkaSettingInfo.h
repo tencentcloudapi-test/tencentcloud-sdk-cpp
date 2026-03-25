@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 安全日志日志投递kafka设置详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SecLogDeliveryKafkaSettingInfo();
+                    ~SecLogDeliveryKafkaSettingInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

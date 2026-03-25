@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 容器安全运行时，文件属性信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FileAttributeInfo();
+                    ~FileAttributeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

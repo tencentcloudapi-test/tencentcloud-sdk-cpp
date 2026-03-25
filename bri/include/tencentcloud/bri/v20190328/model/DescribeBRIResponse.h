@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BRIResponse;
-
                 /**
                 * DescribeBRI返回参数结构体
                 */

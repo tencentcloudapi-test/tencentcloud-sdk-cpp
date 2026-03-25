@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Entity;
-                class Resource;
-
                 /**
                 * RevokeResourceAuthorization请求参数结构体
                 */

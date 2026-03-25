@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 列表过滤条件，模糊匹配
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ListFilter();
+                    ~ListFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

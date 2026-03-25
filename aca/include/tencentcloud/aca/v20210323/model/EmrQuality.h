@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 病历质控
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EmrQuality();
+                    ~EmrQuality() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

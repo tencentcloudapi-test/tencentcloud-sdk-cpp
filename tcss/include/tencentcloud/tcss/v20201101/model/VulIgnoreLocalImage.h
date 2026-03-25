@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 漏洞扫描忽略的本地镜像
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VulIgnoreLocalImage();
+                    ~VulIgnoreLocalImage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

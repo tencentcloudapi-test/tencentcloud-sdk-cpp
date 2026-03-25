@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Hardware;
-
                 /**
                 * AddHardware返回参数结构体
                 */

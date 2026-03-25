@@ -43,16 +43,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Application;
-                class AnonymousComputeEnv;
-                class RedirectInfo;
-                class RedirectLocalInfo;
-                class InputMapping;
-                class OutputMapping;
-                class OutputMappingConfig;
-                class EnvVar;
-                class Authentication;
-
                 /**
                 * 任务
                 */
@@ -60,6 +50,7 @@ namespace TencentCloud
                 {
                 public:
                     Task();
+                    ~Task() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

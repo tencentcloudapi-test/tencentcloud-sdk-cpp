@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExternalContactSimpleInfo;
-
                 /**
                 * QueryExternalContactList返回参数结构体
                 */

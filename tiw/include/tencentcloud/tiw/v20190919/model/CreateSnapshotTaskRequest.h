@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SnapshotWhiteboard;
-                class SnapshotCOS;
-
                 /**
                 * CreateSnapshotTask请求参数结构体
                 */

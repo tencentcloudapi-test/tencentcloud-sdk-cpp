@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-
                 /**
                 * 会话速率和周期特征校验配置。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SessionRateControl();
+                    ~SessionRateControl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AllocationRuleExpression;
-
                 /**
                 * ModifyGatherRule请求参数结构体
                 */

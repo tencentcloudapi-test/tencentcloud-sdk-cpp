@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RouteResponse;
-
                 /**
                 * DescribeRoute返回参数结构体
                 */

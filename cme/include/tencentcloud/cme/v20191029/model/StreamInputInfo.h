@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VodPullInputInfo;
-                class LivePullInputInfo;
-                class RtmpPushInputInfo;
-
                 /**
                 * 输入流信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     StreamInputInfo();
+                    ~StreamInputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

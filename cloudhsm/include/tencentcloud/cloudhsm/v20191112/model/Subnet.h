@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Subnet对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Subnet();
+                    ~Subnet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

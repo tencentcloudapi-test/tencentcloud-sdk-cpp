@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 访问命令
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SourceCommand();
+                    ~SourceCommand() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

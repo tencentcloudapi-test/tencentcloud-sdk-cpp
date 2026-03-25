@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 授权订单对象内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LicenseOrder();
+                    ~LicenseOrder() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

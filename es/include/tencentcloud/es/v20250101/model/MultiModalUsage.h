@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 多模态向量化消耗tokens和images数量
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MultiModalUsage();
+                    ~MultiModalUsage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

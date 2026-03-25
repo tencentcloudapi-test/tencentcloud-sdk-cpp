@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BillDataInfo;
-
                 /**
                 * DescribeBillBandwidthAndFluxList返回参数结构体
                 */

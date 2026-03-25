@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ModifyClusterExtraArgsTaskState请求参数结构体
                 */

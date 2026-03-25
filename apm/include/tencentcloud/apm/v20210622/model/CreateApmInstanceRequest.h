@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApmTag;
-
                 /**
                 * CreateApmInstance请求参数结构体
                 */

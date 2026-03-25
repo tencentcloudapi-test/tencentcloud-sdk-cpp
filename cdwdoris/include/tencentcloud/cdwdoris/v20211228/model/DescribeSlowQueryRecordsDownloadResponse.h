@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeSlowQueryRecordsDownload返回参数结构体
                 */

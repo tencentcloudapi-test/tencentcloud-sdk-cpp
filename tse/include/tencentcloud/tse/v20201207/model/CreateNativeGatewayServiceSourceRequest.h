@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SourceInfo;
-
                 /**
                 * CreateNativeGatewayServiceSource请求参数结构体
                 */

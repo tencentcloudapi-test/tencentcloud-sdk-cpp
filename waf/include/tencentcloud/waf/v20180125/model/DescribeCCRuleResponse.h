@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CCRuleData;
-
                 /**
                 * DescribeCCRule返回参数结构体
                 */

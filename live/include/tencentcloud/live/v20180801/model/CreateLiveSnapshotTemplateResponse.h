@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreateLiveSnapshotTemplate返回参数结构体
                 */

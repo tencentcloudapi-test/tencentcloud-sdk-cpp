@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SRTAddressDestination;
-                class OutputSRTSourceAddressResp;
-                class SRTFECFullOptions;
-
                 /**
                 * 查询输出的SRT配置信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeOutputSRTSettings();
+                    ~DescribeOutputSRTSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

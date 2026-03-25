@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 客户端订阅详情，可用于辅助判断哪些客户端订阅关系不一致
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClientSubscriptionInfo();
+                    ~ClientSubscriptionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

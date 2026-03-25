@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Route;
-
                 /**
                 * 路由冲突对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RouteConflict();
+                    ~RouteConflict() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

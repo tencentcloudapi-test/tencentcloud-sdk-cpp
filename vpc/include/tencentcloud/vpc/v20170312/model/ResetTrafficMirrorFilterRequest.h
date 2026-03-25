@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TrafficMirrorFilter;
-
                 /**
                 * ResetTrafficMirrorFilter请求参数结构体
                 */

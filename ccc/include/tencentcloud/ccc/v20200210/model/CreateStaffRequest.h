@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SeatUserInfo;
-
                 /**
                 * CreateStaff请求参数结构体
                 */

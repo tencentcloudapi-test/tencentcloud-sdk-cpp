@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 调整播放进度指令参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SeekCommandInput();
+                    ~SeekCommandInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

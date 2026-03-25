@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WithdrawItem;
-
                 /**
                 * QueryBankWithdrawCashDetails返回参数结构体
                 */

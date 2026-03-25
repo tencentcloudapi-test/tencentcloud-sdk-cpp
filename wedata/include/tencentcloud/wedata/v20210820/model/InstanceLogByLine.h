@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JobLogErrorTip;
-                class ExtensionInfoVO;
-
                 /**
                 * 日志信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceLogByLine();
+                    ~InstanceLogByLine() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

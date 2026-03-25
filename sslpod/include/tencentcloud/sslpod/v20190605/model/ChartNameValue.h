@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 通用图表键值对
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ChartNameValue();
+                    ~ChartNameValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * FairPlay，WideVine，PlayReady 等Drm加密方式。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SpekeDrm();
+                    ~SpekeDrm() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

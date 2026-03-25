@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetBaseInfoResponse;
-
                 /**
                 * DescribeCVMAssetInfo返回参数结构体
                 */

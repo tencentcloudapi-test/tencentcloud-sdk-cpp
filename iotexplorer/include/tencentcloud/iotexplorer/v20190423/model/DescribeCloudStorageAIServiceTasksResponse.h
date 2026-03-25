@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudStorageAIServiceTask;
-
                 /**
                 * DescribeCloudStorageAIServiceTasks返回参数结构体
                 */

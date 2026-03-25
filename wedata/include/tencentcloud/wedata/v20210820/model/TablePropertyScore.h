@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 按天更新的表的资产评分
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TablePropertyScore();
+                    ~TablePropertyScore() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

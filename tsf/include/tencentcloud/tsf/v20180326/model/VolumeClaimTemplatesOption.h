@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * VolumeClaim模板项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VolumeClaimTemplatesOption();
+                    ~VolumeClaimTemplatesOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

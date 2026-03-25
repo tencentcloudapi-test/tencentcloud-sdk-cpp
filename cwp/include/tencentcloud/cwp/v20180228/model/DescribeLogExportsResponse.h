@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExportInfo;
-
                 /**
                 * DescribeLogExports返回参数结构体
                 */

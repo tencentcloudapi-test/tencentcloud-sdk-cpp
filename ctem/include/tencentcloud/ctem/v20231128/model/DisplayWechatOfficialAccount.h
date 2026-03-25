@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplayToolCommon;
-
                 /**
                 * 微信公众号详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DisplayWechatOfficialAccount();
+                    ~DisplayWechatOfficialAccount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

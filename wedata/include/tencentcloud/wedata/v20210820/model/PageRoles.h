@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaseRole;
-
                 /**
                 * 角色列表分页信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PageRoles();
+                    ~PageRoles() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

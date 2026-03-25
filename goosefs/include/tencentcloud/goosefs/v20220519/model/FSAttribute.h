@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GooseFSxAttribute;
-                class Tag;
-                class ChargeAttribute;
-
                 /**
                 * 文件系统属性
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     FSAttribute();
+                    ~FSAttribute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

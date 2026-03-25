@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplayToolCommon;
-
                 /**
                 * 敏感信息泄露数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DisplaySensitiveInfo();
+                    ~DisplaySensitiveInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

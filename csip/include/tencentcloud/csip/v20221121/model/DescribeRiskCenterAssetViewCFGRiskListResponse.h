@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetViewCFGRisk;
-                class FilterDataObject;
-
                 /**
                 * DescribeRiskCenterAssetViewCFGRiskList返回参数结构体
                 */

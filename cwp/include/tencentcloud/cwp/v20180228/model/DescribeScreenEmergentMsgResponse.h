@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScreenEmergentMsg;
-
                 /**
                 * DescribeScreenEmergentMsg返回参数结构体
                 */

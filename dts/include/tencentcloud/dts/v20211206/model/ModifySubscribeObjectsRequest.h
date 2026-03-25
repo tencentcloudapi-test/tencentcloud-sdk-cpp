@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModifiedSubscribeObject;
-                class DistributeRule;
-                class PipelineInfo;
-
                 /**
                 * ModifySubscribeObjects请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataCategory;
-
                 /**
                 * DescribeDSPACategories返回参数结构体
                 */

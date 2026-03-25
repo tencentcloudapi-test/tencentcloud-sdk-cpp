@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListGrantServiceAccessNode;
-
                 /**
                 * ListPoliciesGrantingServiceAccess返回参数结构体
                 */

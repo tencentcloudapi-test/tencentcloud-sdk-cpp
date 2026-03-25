@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScheduleStrategy;
-                class BackupTableContent;
-
                 /**
                 * DescribeBackUpSchedule返回参数结构体
                 */

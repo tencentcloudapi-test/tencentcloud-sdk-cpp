@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 热词库查询返回结果集
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AsrHotwordsSet();
+                    ~AsrHotwordsSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

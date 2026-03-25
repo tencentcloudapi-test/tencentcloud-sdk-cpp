@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoRotationMode;
-                class TTSMode;
-                class AsrResult;
-                class ShotInfo;
-
                 /**
                 * CreateVideoSummaryTask请求参数结构体
                 */

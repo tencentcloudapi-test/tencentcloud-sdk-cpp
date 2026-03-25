@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordField;
-
                 /**
                 * DescribeIntegrationTask请求参数结构体
                 */

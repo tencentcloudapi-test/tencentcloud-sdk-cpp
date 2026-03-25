@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-
                 /**
                 * ModifyExtendedService请求参数结构体
                 */

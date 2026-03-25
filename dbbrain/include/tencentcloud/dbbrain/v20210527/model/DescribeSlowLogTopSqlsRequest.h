@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SchemaItem;
-
                 /**
                 * DescribeSlowLogTopSqls请求参数结构体
                 */

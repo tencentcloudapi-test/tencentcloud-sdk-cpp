@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SmsFreeQuota;
-
                 /**
                 * DescribeSmsQuotas返回参数结构体
                 */

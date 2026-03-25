@@ -40,16 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-                class ManagerNode;
-                class ComputeNode;
-                class VirtualPrivateCloud;
-                class LoginSettings;
-                class StorageOption;
-                class LoginNode;
-                class Tag;
-                class NodeScript;
-
                 /**
                 * CreateCluster请求参数结构体
                 */

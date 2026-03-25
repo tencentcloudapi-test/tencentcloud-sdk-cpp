@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 工单的常用信息返回
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WorkOrderData();
+                    ~WorkOrderData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

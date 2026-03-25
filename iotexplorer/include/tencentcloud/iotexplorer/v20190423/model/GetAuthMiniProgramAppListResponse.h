@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuthMiniProgramAppInfo;
-
                 /**
                 * GetAuthMiniProgramAppList返回参数结构体
                 */

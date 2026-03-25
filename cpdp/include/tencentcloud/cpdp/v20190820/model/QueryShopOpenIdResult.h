@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取门店OpenId响应对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryShopOpenIdResult();
+                    ~QueryShopOpenIdResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

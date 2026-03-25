@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeSpecFamily;
-
                 /**
                 * 节点机型类型
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NodeSpecType();
+                    ~NodeSpecType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

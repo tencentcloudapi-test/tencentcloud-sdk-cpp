@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ESTaskResultDetail;
-
                 /**
                 * DescribeDSPAESDiscoveryTaskResultDetail返回参数结构体
                 */

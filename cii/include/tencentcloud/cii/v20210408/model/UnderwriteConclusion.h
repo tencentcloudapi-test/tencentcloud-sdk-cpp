@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 核保结论 机器结论和人工结论统一数据结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UnderwriteConclusion();
+                    ~UnderwriteConclusion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

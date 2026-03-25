@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StageCloudApiRequest;
-
                 /**
                 * SubmitTaskTestRun请求参数结构体
                 */

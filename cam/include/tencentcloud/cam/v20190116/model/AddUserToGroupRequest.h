@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupIdOfUidInfo;
-
                 /**
                 * AddUserToGroup请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QAQuery;
-
                 /**
                 * ExportQAList请求参数结构体
                 */

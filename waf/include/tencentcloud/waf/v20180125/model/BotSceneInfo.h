@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BotSceneMatchCondition;
-                class BotSceneActionRule;
-                class BotToken;
-
                 /**
                 * 场景的详细配置信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     BotSceneInfo();
+                    ~BotSceneInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

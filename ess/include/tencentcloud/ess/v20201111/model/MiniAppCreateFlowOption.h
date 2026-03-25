@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 小程序发起合同可选项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MiniAppCreateFlowOption();
+                    ~MiniAppCreateFlowOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

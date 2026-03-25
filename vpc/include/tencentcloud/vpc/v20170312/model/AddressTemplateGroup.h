@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AddressTemplateItem;
-                class Tag;
-
                 /**
                 * IP地址模板集合
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AddressTemplateGroup();
+                    ~AddressTemplateGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 导播台文字水印配置。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CasterMarkWordInfo();
+                    ~CasterMarkWordInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

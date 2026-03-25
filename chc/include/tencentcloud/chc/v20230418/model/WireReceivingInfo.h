@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 线材收货信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WireReceivingInfo();
+                    ~WireReceivingInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

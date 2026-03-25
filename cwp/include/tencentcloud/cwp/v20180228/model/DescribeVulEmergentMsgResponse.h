@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulEmergentMsgInfo;
-
                 /**
                 * DescribeVulEmergentMsg返回参数结构体
                 */

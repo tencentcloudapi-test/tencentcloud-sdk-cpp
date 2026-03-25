@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeRenewPriceDetail;
-
                 /**
                 * InquirePriceRenewEmr返回参数结构体
                 */

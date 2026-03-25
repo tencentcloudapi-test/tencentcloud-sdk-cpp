@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Layer4Rule;
-                class Layer7Rule;
-
                 /**
                 * DescribeListListener返回参数结构体
                 */

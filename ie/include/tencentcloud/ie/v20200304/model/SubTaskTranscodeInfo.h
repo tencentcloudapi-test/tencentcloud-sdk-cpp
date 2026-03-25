@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TargetInfo;
-                class EditInfo;
-                class VideoInfo;
-                class AudioInfo;
-                class MuxInfo;
-
                 /**
                 * 画质重生子任务参数信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     SubTaskTranscodeInfo();
+                    ~SubTaskTranscodeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

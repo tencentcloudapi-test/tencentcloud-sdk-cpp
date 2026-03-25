@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 账单筛选条件对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Conditions();
+                    ~Conditions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

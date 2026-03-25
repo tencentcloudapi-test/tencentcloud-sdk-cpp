@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OpenBankSceneInfo;
-                class OpenBankProfitShareInfo;
-                class OpenBankStoreInfo;
-                class OpenBankPayLimitInfo;
-
                 /**
                 * CreateOpenBankUnifiedOrder请求参数结构体
                 */

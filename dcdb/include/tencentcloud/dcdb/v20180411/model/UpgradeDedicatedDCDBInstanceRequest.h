@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AddShardConfig;
-                class ExpandShardConfig;
-                class SplitShardConfig;
-
                 /**
                 * UpgradeDedicatedDCDBInstance请求参数结构体
                 */

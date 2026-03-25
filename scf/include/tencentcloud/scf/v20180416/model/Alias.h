@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RoutingConfig;
-
                 /**
                 * 函数的版本别名
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Alias();
+                    ~Alias() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

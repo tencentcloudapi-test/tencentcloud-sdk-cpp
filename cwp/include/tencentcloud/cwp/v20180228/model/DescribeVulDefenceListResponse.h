@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulDefenceRangeDetail;
-
                 /**
                 * DescribeVulDefenceList返回参数结构体
                 */

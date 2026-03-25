@@ -44,17 +44,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SurgeryHeadNeck;
-                class SurgeryThyroid;
-                class SurgeryBreast;
-                class SurgeryLymphNode;
-                class SurgerySpinalExtremities;
-                class SurgerySkin;
-                class SurgeryAnorectal;
-                class SurgeryUrogenitalSystem;
-                class KeyValueItem;
-                class SurgeryBriefSummary;
-
                 /**
                 * 体检报告-外科
                 */
@@ -62,6 +51,7 @@ namespace TencentCloud
                 {
                 public:
                     SurgeryBaseItem();
+                    ~SurgeryBaseItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

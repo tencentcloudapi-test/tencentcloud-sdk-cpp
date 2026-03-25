@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * OpenSecurityPolicy返回参数结构体
                 */

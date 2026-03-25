@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VoiceTypeInfo;
-
                 /**
                 * GetVRSVoiceTypeInfo返回参数结构体
                 */

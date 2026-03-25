@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 根据cve_id查询漏洞详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VulInfoByCveId();
+                    ~VulInfoByCveId() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

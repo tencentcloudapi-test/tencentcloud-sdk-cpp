@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Deals;
-
                 /**
                 * CreateDeal返回参数结构体
                 */

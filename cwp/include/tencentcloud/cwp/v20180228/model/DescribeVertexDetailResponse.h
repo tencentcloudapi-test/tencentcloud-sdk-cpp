@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VertexDetail;
-
                 /**
                 * DescribeVertexDetail返回参数结构体
                 */

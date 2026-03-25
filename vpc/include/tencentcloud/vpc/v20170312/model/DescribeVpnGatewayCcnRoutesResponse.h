@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpngwCcnRoutes;
-
                 /**
                 * DescribeVpnGatewayCcnRoutes返回参数结构体
                 */

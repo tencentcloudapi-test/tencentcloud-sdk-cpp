@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LiveStreamFaceRecognitionResult;
-                class LiveStreamAsrWordsRecognitionResult;
-                class LiveStreamOcrWordsRecognitionResult;
-                class LiveStreamAsrFullTextRecognitionResult;
-                class LiveStreamOcrFullTextRecognitionResult;
-                class LiveStreamTransTextRecognitionResult;
-                class LiveStreamObjectRecognitionResult;
-                class LiveStreamTagRecognitionResult;
-
                 /**
                 * 直播流 AI 识别结果
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     LiveStreamAiRecognitionResultItem();
+                    ~LiveStreamAiRecognitionResultItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

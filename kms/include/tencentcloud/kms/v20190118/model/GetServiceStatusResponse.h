@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExclusiveHSM;
-                class DestinationSyncConfig;
-
                 /**
                 * GetServiceStatus返回参数结构体
                 */

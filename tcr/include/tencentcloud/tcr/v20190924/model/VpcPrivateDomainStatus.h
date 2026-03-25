@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * vpc私有域名解析状态
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VpcPrivateDomainStatus();
+                    ~VpcPrivateDomainStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

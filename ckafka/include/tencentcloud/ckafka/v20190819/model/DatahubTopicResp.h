@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Datahub Topic 响应
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DatahubTopicResp();
+                    ~DatahubTopicResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

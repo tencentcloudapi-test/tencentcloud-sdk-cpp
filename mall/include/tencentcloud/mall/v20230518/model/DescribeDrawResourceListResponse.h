@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceDrawListType;
-
                 /**
                 * DescribeDrawResourceList返回参数结构体
                 */

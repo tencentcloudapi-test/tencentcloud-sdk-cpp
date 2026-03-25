@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CategoryRuleStatistic;
-
                 /**
                 * DescribeDSPACategoryRuleStatistic返回参数结构体
                 */

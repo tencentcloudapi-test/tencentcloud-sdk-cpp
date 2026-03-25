@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 定时扩缩容配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TimerScale();
+                    ~TimerScale() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

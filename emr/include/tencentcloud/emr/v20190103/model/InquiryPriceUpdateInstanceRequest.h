@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpdateInstanceSettings;
-                class Placement;
-
                 /**
                 * InquiryPriceUpdateInstance请求参数结构体
                 */

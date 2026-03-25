@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PhysicalBaseItem;
-
                 /**
                 * 体检报告信息-包含单位
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ValueUnitItem();
+                    ~ValueUnitItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

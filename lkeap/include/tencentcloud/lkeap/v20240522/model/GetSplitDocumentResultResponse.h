@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SplitDocumentFailedPage;
-                class DocumentUsage;
-                class ErrorInfo;
-
                 /**
                 * GetSplitDocumentResult返回参数结构体
                 */

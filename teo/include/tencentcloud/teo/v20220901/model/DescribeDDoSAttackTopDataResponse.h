@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopEntry;
-
                 /**
                 * DescribeDDoSAttackTopData返回参数结构体
                 */

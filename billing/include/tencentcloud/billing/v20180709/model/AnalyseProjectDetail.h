@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 成本分析项目返回复杂类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AnalyseProjectDetail();
+                    ~AnalyseProjectDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EndpointsConf;
-                class CertConf;
-                class WafConf;
-                class Tag;
-
                 /**
                 * CreateCustomDomain请求参数结构体
                 */

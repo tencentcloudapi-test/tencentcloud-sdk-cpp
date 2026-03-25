@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * HTTP类型监听器信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HTTPListener();
+                    ~HTTPListener() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

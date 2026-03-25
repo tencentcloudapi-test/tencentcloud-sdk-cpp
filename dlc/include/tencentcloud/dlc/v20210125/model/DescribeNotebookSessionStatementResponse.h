@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NotebookSessionStatementInfo;
-
                 /**
                 * DescribeNotebookSessionStatement返回参数结构体
                 */

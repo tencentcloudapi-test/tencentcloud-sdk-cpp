@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TextArithmetic;
-
                 /**
                 * ArithmeticOCR返回参数结构体
                 */

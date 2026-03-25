@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudNativeAPIGatewayCanaryRule;
-
                 /**
                 * 灰度规则 Priority - Rule
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CanaryPriorityRule();
+                    ~CanaryPriorityRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

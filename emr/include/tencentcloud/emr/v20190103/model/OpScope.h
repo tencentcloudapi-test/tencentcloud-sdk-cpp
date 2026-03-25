@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceBasicRestartInfo;
-
                 /**
                 * 操作范围
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     OpScope();
+                    ~OpScope() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

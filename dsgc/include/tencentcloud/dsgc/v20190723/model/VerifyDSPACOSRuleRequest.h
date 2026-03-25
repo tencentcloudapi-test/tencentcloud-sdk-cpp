@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScanTaskCOSRules;
-
                 /**
                 * VerifyDSPACOSRule请求参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordField;
-
                 /**
                 * 集成节点schema
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     IntegrationNodeSchema();
+                    ~IntegrationNodeSchema() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

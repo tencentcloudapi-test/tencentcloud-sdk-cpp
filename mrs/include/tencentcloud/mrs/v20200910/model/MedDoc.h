@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Advice;
-                class DiagCertItem;
-                class DiseaseMedicalHistory;
-                class PersonalMedicalHistory;
-                class ObstericalMedicalHistory;
-                class FamilyMedicalHistory;
-                class MenstrualMedicalHistory;
-                class TreatmentRecord;
-
                 /**
                 * 医学资料
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     MedDoc();
+                    ~MedDoc() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

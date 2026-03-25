@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ThreadMessageInCompleteDetailsObject;
-                class ThreadMessageAttachmentObject;
-
                 /**
                 * GetThreadMessage返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AlarmPolicyTriggerTask;
-
                 /**
                 * ModifyAlarmPolicyTasks请求参数结构体
                 */

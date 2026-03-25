@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PartialModule;
-                class SkipCondition;
-
                 /**
                 * 例外规则的生效范围。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ExceptUserRuleScope();
+                    ~ExceptUserRuleScope() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 文档列表筛选标识位
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DocFilterFlag();
+                    ~DocFilterFlag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

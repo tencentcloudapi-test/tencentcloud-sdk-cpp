@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Parameter;
-
                 /**
                 * ModifyInstancePasswordComplexity请求参数结构体
                 */

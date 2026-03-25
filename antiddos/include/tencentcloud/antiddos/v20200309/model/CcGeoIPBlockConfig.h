@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DDoS防护的区域封禁配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CcGeoIPBlockConfig();
+                    ~CcGeoIPBlockConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribePolicyGroupInfoCondition;
-                class DescribePolicyGroupInfoEventCondition;
-                class DescribePolicyGroupInfoReceiverInfo;
-                class DescribePolicyGroupInfoCallback;
-                class DescribePolicyGroupInfoConditionTpl;
-
                 /**
                 * DescribePolicyGroupInfo返回参数结构体
                 */

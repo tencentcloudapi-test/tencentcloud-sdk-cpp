@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IpInfo;
-
                 /**
                 * BindIpsToNatGateway请求参数结构体
                 */

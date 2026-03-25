@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * cvm 自动扩盘参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AutoScaleDiskInfo();
+                    ~AutoScaleDiskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

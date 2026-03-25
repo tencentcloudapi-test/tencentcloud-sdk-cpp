@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 约束类型值的范围
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ConstraintRange();
+                    ~ConstraintRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

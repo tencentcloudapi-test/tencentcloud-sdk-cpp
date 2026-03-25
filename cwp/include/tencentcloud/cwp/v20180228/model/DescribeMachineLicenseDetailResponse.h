@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineLicenseDetail;
-
                 /**
                 * DescribeMachineLicenseDetail返回参数结构体
                 */

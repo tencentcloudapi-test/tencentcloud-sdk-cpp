@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Template;
-                class CycleEmailParam;
-                class TimedEmailParam;
-
                 /**
                 * 发送任务数据
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     SendTaskData();
+                    ~SendTaskData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

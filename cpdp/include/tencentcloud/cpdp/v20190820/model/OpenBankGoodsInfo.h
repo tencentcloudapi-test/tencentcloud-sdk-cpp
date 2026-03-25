@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云企付-商品信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OpenBankGoodsInfo();
+                    ~OpenBankGoodsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

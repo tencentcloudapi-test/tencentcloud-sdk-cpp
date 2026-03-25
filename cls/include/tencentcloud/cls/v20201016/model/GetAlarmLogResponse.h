@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogInfo;
-                class LogItems;
-                class Column;
-
                 /**
                 * GetAlarmLog返回参数结构体
                 */

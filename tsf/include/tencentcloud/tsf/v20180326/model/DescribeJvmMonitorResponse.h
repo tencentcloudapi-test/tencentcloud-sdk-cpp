@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JvmMonitorData;
-
                 /**
                 * DescribeJvmMonitor返回参数结构体
                 */

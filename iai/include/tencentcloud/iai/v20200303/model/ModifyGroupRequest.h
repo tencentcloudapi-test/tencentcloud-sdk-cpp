@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupExDescriptionInfo;
-
                 /**
                 * ModifyGroup请求参数结构体
                 */

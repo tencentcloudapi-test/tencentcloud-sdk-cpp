@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 推流时间。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PublishTime();
+                    ~PublishTime() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosInputInfo;
-                class UrlInputInfo;
-                class S3InputInfo;
-                class VODInputInfo;
-
                 /**
                 * 媒体处理的输入对象信息。
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaInputInfo();
+                    ~MediaInputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

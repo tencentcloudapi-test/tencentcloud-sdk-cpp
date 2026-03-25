@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BanWhiteList;
-
                 /**
                 * CreateBanWhiteList请求参数结构体
                 */

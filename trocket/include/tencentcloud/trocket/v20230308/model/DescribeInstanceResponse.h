@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class Endpoint;
-                class ZoneScheduledItem;
-
                 /**
                 * DescribeInstance返回参数结构体
                 */

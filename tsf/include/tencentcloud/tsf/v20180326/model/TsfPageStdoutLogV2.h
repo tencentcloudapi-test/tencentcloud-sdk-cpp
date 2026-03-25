@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StdoutLogV2;
-
                 /**
                 * 标准输出日志列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageStdoutLogV2();
+                    ~TsfPageStdoutLogV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

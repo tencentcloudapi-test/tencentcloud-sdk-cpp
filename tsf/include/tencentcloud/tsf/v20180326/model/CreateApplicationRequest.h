@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceConfig;
-                class ServiceGovernanceConfig;
-
                 /**
                 * CreateApplication请求参数结构体
                 */

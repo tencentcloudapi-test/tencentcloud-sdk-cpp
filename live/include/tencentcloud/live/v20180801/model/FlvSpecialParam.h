@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * flv格式特殊配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FlvSpecialParam();
+                    ~FlvSpecialParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

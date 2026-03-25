@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FinancialLLMViolationReason;
-
                 /**
                 * 金融大模型审校 违规明细
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FinancialLLMViolationDetail();
+                    ~FinancialLLMViolationDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

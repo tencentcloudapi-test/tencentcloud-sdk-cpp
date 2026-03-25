@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于唯一查找用户的过滤器。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UserFilter();
+                    ~UserFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

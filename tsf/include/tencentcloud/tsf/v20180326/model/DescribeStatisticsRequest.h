@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MetricDimensionValue;
-
                 /**
                 * DescribeStatistics请求参数结构体
                 */

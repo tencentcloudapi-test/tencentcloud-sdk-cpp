@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClientNodeAttribute;
-
                 /**
                 * DescribeClientNodes返回参数结构体
                 */

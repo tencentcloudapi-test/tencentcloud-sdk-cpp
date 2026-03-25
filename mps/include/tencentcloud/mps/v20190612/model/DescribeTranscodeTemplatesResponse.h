@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TranscodeTemplate;
-
                 /**
                 * DescribeTranscodeTemplates返回参数结构体
                 */

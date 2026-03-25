@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WeightInfo;
-
                 /**
                 * ModifyDimensionWeight请求参数结构体
                 */

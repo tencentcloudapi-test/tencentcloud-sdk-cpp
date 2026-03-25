@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusTag;
-
                 /**
                 * DescribeGrafanaInstances请求参数结构体
                 */

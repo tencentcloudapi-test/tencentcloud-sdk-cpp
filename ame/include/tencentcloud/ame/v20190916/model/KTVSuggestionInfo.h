@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 即使广播曲库联想词信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KTVSuggestionInfo();
+                    ~KTVSuggestionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

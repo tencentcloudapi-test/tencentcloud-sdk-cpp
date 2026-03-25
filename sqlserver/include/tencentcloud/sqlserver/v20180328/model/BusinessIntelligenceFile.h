@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileAction;
-
                 /**
                 * 商业智能服务文件类型
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BusinessIntelligenceFile();
+                    ~BusinessIntelligenceFile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

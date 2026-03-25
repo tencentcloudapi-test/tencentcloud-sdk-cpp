@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainBatchLogSet;
-
                 /**
                 * DescribeBatchOperationLogs返回参数结构体
                 */

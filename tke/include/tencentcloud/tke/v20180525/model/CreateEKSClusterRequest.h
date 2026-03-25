@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DnsServerConf;
-                class TagSpecification;
-                class SubnetInfos;
-
                 /**
                 * CreateEKSCluster请求参数结构体
                 */

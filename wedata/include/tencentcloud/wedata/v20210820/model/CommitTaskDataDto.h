@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 提交任务数据结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CommitTaskDataDto();
+                    ~CommitTaskDataDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

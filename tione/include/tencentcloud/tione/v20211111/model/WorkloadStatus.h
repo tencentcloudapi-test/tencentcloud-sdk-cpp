@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StatefulSetCondition;
-
                 /**
                 * 工作负载的状态
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     WorkloadStatus();
+                    ~WorkloadStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

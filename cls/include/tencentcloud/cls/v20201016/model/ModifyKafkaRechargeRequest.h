@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KafkaProtocolInfo;
-                class LogRechargeRuleInfo;
-                class UserKafkaMeta;
-
                 /**
                 * ModifyKafkaRecharge请求参数结构体
                 */

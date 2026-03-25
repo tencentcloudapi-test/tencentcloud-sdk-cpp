@@ -39,15 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClusterCIDRSettings;
-                class RunInstancesForNode;
-                class ClusterBasicSettings;
-                class ClusterAdvancedSettings;
-                class InstanceAdvancedSettings;
-                class ExistedInstancesForNode;
-                class InstanceDataDiskMountSetting;
-                class ExtensionAddon;
-
                 /**
                 * CreateCluster请求参数结构体
                 */

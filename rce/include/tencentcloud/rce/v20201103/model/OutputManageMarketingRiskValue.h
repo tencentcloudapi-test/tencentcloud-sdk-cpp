@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 全栈式风控引擎出参值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OutputManageMarketingRiskValue();
+                    ~OutputManageMarketingRiskValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KTVMatchRule;
-
                 /**
                 * DescribeKTVMatchMusics请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OutputModifyNameListFront;
-
                 /**
                 * ModifyNameListData返回参数结构体
                 */

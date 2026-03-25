@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EndPointService;
-
                 /**
                 * CreateVpcEndPointService返回参数结构体
                 */

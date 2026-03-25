@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CdcCluster;
-
                 /**
                 * CDC场景下负载均衡WAF的地域信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CdcRegion();
+                    ~CdcRegion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

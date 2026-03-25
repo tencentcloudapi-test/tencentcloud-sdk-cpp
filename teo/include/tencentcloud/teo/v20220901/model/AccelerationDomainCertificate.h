@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CertificateInfo;
-                class MutualTLS;
-                class UpstreamCertInfo;
-
                 /**
                 * 加速域名所对应的证书信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     AccelerationDomainCertificate();
+                    ~AccelerationDomainCertificate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

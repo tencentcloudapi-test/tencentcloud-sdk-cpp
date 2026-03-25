@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 退款子单
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudSubOrderRefund();
+                    ~CloudSubOrderRefund() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

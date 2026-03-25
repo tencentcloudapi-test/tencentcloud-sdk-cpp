@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribePublicNetworkResult;
-
                 /**
                 * DescribePublicNetwork返回参数结构体
                 */

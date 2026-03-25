@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DependencyPackage;
-
                 /**
                 * ModifySparkApp请求参数结构体
                 */

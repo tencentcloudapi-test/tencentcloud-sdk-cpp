@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BackfillInstanceCollection;
-
                 /**
                 * ListDataBackfillInstances返回参数结构体
                 */

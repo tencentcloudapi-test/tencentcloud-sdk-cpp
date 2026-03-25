@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * API密钥简略信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     APIKeyInfo();
+                    ~APIKeyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DownInfo;
-                class SubTaskTranscodeInfo;
-                class SaveInfo;
-                class CallbackInfo;
-
                 /**
                 * CreateMediaQualityRestorationTask请求参数结构体
                 */

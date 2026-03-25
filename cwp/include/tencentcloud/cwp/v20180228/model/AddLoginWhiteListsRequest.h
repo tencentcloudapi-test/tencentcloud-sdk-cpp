@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HostLoginWhiteObj;
-
                 /**
                 * AddLoginWhiteLists请求参数结构体
                 */

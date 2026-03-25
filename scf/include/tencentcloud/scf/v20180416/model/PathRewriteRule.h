@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 路径路由重写规则
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PathRewriteRule();
+                    ~PathRewriteRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

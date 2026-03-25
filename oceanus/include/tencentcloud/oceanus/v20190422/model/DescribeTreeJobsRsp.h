@@ -20,6 +20,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
@@ -35,8 +36,7 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TreeJobSets;
-
+                class DescribeTreeJobsRsp;
                 /**
                 * 自定义树结构遍历子节点
                 */
@@ -44,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeTreeJobsRsp();
+                    ~DescribeTreeJobsRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 
@@ -155,7 +156,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    std::vector<DescribeTreeJobsRsp> GetChildren() const;
+                    std::vector<std::shared_ptr<DescribeTreeJobsRsp>> GetChildren() const;
 
                     /**
                      * 设置迭代子目录
@@ -164,7 +165,7 @@ namespace TencentCloud
 注意：此字段可能返回 null，表示取不到有效值。
                      * 
                      */
-                    void SetChildren(const std::vector<DescribeTreeJobsRsp>& _children);
+                    void SetChildren(const std::vector<std::shared_ptr<DescribeTreeJobsRsp>>& _children);
 
                     /**
                      * 判断参数 Children 是否已赋值
@@ -282,7 +283,7 @@ namespace TencentCloud
                      * 迭代子目录
 注意：此字段可能返回 null，表示取不到有效值。
                      */
-                    std::vector<DescribeTreeJobsRsp> m_children;
+                    std::vector<std::shared_ptr<DescribeTreeJobsRsp>> m_children;
                     bool m_childrenHasBeenSet;
 
                     /**

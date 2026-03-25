@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WeComTagDetail;
-
                 /**
                 * CreateChannelCode请求参数结构体
                 */

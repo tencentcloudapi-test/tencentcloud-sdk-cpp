@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplayGithub;
-
                 /**
                 * DescribeGithubs返回参数结构体
                 */

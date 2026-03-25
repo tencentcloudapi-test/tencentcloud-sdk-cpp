@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 通过复杂类型识别传入的不同类型参数值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TokenRuleEntryValue();
+                    ~TokenRuleEntryValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

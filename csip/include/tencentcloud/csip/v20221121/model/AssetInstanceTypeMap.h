@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FilterDataObject;
-
                 /**
                 * 资产类型和实例类型的映射
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AssetInstanceTypeMap();
+                    ~AssetInstanceTypeMap() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

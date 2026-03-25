@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpcDnsInfo;
-
                 /**
                 * DescribeNatFwVpcDnsLst返回参数结构体
                 */

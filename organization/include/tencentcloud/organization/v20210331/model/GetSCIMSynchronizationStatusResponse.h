@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * GetSCIMSynchronizationStatus返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DspaSafeGuard;
-
                 /**
                 * 关系型数据库资产详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DspaRDBDataAssetDetail();
+                    ~DspaRDBDataAssetDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

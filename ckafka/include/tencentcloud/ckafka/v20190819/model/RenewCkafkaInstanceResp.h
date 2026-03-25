@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * RenewCkafkaInstance接口出参bigDealIds
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RenewCkafkaInstanceResp();
+                    ~RenewCkafkaInstanceResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

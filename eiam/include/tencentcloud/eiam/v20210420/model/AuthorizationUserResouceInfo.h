@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InheritedForm;
-
                 /**
                 * 返回符合条件的用户数据列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AuthorizationUserResouceInfo();
+                    ~AuthorizationUserResouceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

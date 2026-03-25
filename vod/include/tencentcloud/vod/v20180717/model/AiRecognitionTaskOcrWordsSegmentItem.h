@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 文本识别片段。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AiRecognitionTaskOcrWordsSegmentItem();
+                    ~AiRecognitionTaskOcrWordsSegmentItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

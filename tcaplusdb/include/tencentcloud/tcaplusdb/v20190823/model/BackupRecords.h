@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 备份记录
 作为出参时，每个字段都会填充
@@ -44,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     BackupRecords();
+                    ~BackupRecords() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

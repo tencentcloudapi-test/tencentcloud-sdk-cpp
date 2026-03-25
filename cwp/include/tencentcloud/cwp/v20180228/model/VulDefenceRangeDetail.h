@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 漏洞防御范围详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VulDefenceRangeDetail();
+                    ~VulDefenceRangeDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

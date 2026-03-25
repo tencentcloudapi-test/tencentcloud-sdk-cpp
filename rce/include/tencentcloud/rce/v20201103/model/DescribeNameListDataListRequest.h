@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InputDescribeDataListFront;
-
                 /**
                 * DescribeNameListDataList请求参数结构体
                 */

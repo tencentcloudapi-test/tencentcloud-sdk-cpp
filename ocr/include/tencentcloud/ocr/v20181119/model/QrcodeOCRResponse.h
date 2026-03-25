@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QrcodeResultsInfo;
-                class QrcodeImgSize;
-
                 /**
                 * QrcodeOCR返回参数结构体
                 */

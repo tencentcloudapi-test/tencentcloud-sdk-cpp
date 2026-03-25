@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IncrementalMigrationHttpOriginConfig;
-
                 /**
                 * 增量迁移策略信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     IncrementalMigrationStrategyInfo();
+                    ~IncrementalMigrationStrategyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

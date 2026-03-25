@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Capabilities;
-
                 /**
                 * cloudrun安全特性
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SecurityContext();
+                    ~SecurityContext() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

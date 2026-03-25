@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 失败预约预释放域名信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FailReservedDomainInfo();
+                    ~FailReservedDomainInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

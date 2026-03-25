@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CollectionFolderOpsDto;
-
                 /**
                 * DescribeAllByFolderNew返回参数结构体
                 */

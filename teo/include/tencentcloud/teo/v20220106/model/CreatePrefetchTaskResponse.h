@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FailReason;
-
                 /**
                 * CreatePrefetchTask返回参数结构体
                 */

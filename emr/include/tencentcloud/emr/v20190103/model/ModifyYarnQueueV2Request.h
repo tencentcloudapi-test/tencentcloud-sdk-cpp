@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConfigModifyInfoV2;
-
                 /**
                 * ModifyYarnQueueV2请求参数结构体
                 */

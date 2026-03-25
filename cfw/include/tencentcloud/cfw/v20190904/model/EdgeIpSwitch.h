@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 开启、关闭 防火墙互联网边界开关
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EdgeIpSwitch();
+                    ~EdgeIpSwitch() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

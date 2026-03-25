@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UnHandleEvent;
-
                 /**
                 * DescribeUnHandleEventTabList返回参数结构体
                 */

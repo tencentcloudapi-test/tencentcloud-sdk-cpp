@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Options;
-                class Objects;
-                class Endpoint;
-                class SyncDBEndpointInfos;
-                class TagItem;
-                class SyncDetailInfo;
-
                 /**
                 * 同步任务信息
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     SyncJobInfo();
+                    ~SyncJobInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RawSmartSubtitleParameter;
-
                 /**
                 * 智能字幕翻译的输入。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SmartSubtitleTaskResultInput();
+                    ~SmartSubtitleTaskResultInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * kms加密参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KMSConfiguration();
+                    ~KMSConfiguration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

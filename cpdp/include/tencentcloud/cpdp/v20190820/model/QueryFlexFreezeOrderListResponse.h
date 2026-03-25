@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FreezeOrders;
-
                 /**
                 * QueryFlexFreezeOrderList返回参数结构体
                 */

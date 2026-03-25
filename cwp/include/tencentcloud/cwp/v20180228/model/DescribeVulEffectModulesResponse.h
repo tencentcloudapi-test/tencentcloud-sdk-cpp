@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulEffectModuleInfo;
-
                 /**
                 * DescribeVulEffectModules返回参数结构体
                 */

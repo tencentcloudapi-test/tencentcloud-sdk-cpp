@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IdentityPolicy;
-
                 /**
                 * UpdateOrganizationIdentity请求参数结构体
                 */

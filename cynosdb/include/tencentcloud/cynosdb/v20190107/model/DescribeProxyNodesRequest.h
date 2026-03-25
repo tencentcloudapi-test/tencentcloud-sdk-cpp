@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryFilter;
-
                 /**
                 * DescribeProxyNodes请求参数结构体
                 */

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KafkaParam;
-                class TopicParam;
-
                 /**
                 * 数据处理规则失败处理
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     FailureParam();
+                    ~FailureParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

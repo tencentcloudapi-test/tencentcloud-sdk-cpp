@@ -41,17 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MigrateAction;
-                class MigrateDetailInfo;
-                class DBEndpointInfo;
-                class CompareTaskInfo;
-                class TagItem;
-                class MigrateOption;
-                class CheckStepInfo;
-                class TradeInfo;
-                class ErrorInfoItem;
-                class RateLimitOption;
-
                 /**
                 * DescribeMigrationDetail返回参数结构体
                 */

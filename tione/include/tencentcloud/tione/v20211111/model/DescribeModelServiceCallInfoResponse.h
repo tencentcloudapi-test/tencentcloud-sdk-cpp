@@ -37,13 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceCallInfo;
-                class InferGatewayCallInfo;
-                class DefaultNginxGatewayCallInfo;
-                class TJCallInfo;
-                class IntranetCallInfo;
-                class ServiceCallInfoV2;
-
                 /**
                 * DescribeModelServiceCallInfo返回参数结构体
                 */

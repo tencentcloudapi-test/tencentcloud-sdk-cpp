@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TransferDetailRequest;
-
                 /**
                 * CreateTransferBatch请求参数结构体
                 */

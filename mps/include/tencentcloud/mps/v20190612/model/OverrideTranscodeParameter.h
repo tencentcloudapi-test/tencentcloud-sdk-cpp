@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoTemplateInfoForUpdate;
-                class AudioTemplateInfoForUpdate;
-                class TEHDConfigForUpdate;
-                class SubtitleTemplate;
-                class MediaInputInfo;
-                class AddOnSubtitle;
-
                 /**
                 * 自定义转码的规格参数。用于覆盖模板中对应参数值。
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     OverrideTranscodeParameter();
+                    ~OverrideTranscodeParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

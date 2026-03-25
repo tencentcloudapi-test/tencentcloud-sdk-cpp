@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TranslationDelta;
-                class TranslationMessage;
-
                 /**
                 * 翻译接口返回的回复，支持多个
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     TranslationChoice();
+                    ~TranslationChoice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

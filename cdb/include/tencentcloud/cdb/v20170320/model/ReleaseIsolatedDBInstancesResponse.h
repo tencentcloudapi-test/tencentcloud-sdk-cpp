@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReleaseResult;
-
                 /**
                 * ReleaseIsolatedDBInstances返回参数结构体
                 */

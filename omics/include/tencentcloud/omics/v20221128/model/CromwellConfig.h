@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Cromwell工作流引擎设置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CromwellConfig();
+                    ~CromwellConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

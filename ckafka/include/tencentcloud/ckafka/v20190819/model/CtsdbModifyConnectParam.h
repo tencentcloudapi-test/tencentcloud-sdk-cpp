@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Ctsdb连接源参数(更新)
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CtsdbModifyConnectParam();
+                    ~CtsdbModifyConnectParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

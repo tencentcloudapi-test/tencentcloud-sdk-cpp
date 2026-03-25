@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FrameTagRec;
-                class SubtitleRec;
-
                 /**
                 * 媒体识别任务参数
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaRecognitionInfo();
+                    ~MediaRecognitionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

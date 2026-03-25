@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FolderOpsDto;
-                class WorkflowCanvasOpsDto;
-                class ProjectBaseInfoOpsRequest;
-
                 /**
                 * DescribeAllByFolderNew请求参数结构体
                 */

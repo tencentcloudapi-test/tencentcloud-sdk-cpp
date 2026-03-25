@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CancelOrganizationPolicySubAccount请求参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Label;
-
                 /**
                 * sample附带原始查询语句中的metric, aggregation
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CustomSample();
+                    ~CustomSample() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

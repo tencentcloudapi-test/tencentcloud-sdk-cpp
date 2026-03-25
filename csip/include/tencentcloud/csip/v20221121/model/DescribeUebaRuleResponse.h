@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UebaRule;
-                class FilterDataObject;
-
                 /**
                 * DescribeUebaRule返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Resource;
-
                 /**
                 * 描述带宽包信息的结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BandwidthPackage();
+                    ~BandwidthPackage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

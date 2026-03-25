@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * IP地址模板
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AddressTemplateSpecification();
+                    ~AddressTemplateSpecification() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

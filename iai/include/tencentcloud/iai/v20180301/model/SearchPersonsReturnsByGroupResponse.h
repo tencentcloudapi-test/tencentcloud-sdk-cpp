@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResultsReturnsByGroup;
-
                 /**
                 * SearchPersonsReturnsByGroup返回参数结构体
                 */

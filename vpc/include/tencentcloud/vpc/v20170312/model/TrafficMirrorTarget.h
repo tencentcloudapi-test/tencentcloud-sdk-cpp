@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 流量镜像采集目标类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TrafficMirrorTarget();
+                    ~TrafficMirrorTarget() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

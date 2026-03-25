@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DevicesBindInfoL4Listener;
-                class DevicesBindInfoL7Listener;
-
                 /**
                 * 获取设备绑定信息时返回的设备被绑定所在的负载均衡信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DevicesBindInfoLoadBalancer();
+                    ~DevicesBindInfoLoadBalancer() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

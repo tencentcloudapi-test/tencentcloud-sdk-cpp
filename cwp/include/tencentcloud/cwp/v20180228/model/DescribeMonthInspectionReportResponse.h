@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MonthInspectionReport;
-
                 /**
                 * DescribeMonthInspectionReport返回参数结构体
                 */

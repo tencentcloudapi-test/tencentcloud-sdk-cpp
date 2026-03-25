@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BanConfig;
-                class CustomLogConfig;
-
                 /**
                 * 安全网关自定义配置
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     WxGatewayCustomConfig();
+                    ~WxGatewayCustomConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

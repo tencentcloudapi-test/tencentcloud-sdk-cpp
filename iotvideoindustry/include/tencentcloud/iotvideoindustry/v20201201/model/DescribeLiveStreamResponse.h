@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StreamAddress;
-
                 /**
                 * DescribeLiveStream返回参数结构体
                 */

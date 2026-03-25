@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云托管服务 Vpc 配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VpcConf();
+                    ~VpcConf() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

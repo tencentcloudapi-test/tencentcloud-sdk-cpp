@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据库代理，读写分离实例权重
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProxyInstanceWeight();
+                    ~ProxyInstanceWeight() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

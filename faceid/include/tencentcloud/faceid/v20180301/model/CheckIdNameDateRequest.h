@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Encryption;
-
                 /**
                 * CheckIdNameDate请求参数结构体
                 */

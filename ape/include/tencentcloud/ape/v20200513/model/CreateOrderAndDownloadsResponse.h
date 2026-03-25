@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DownloadInfo;
-
                 /**
                 * CreateOrderAndDownloads返回参数结构体
                 */

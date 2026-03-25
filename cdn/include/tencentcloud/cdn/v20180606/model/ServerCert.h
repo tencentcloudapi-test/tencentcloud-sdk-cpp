@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * https 加速服务端证书配置：
 + 支持使用托管至 SSL 证书管理的证书进行部署
@@ -44,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ServerCert();
+                    ~ServerCert() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

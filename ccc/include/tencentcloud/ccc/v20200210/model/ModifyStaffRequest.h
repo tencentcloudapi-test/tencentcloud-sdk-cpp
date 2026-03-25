@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ForwardingConfig;
-
                 /**
                 * ModifyStaff请求参数结构体
                 */

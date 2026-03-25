@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tags;
-
                 /**
                 * UploadCertificate请求参数结构体
                 */

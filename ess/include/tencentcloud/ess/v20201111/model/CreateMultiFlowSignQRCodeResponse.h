@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SignQrCode;
-                class SignUrl;
-
                 /**
                 * CreateMultiFlowSignQRCode返回参数结构体
                 */

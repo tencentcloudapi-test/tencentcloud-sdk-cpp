@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogIdentity;
-
                 /**
                 * DescribeLogs返回参数结构体
                 */

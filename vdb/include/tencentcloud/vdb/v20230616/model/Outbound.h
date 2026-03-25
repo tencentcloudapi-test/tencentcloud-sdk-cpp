@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 安全组出站规则
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Outbound();
+                    ~Outbound() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

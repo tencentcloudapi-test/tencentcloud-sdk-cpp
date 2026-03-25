@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 漏洞趋势-攻击趋势、影响用户、影响资产
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VulTrend();
+                    ~VulTrend() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

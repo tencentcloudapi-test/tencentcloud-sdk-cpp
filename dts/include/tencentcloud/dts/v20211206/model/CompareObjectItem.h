@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CompareTableItem;
-                class CompareViewItem;
-
                 /**
                 * 一致性校验库表对象
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CompareObjectItem();
+                    ~CompareObjectItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

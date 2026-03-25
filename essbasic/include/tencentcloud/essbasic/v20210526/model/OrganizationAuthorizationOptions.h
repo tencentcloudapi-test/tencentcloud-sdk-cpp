@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 企业认证可选项，其中包括 社会信用代码是否一致，企业名称是否一致，法人是否一致， 对公打款账号是否一致等信息。
 代表生成链接的时候指定的这些信息不能被用户修改。
@@ -45,6 +44,7 @@ p.s. 注意这些选项一旦传递，相关的信息也不会被上传的营业
                 {
                 public:
                     OrganizationAuthorizationOptions();
+                    ~OrganizationAuthorizationOptions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

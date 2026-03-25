@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RewriteLocationMap;
-
                 /**
                 * ManualRewrite请求参数结构体
                 */

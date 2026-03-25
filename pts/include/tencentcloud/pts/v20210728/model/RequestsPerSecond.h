@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * RPS模式的施压配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RequestsPerSecond();
+                    ~RequestsPerSecond() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 封禁列表和放通列表结构体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BanAndAllowRuleDel();
+                    ~BanAndAllowRuleDel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

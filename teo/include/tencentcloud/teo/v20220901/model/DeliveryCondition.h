@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryCondition;
-
                 /**
                 * 实时日志投递条件，用于定义投递日志范围。DeliveryCondition 数组内多个项的关系为“或”，内层 Conditions 数组内多个项的关系为“且”。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DeliveryCondition();
+                    ~DeliveryCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

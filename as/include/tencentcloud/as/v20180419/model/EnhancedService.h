@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RunSecurityServiceEnabled;
-                class RunMonitorServiceEnabled;
-                class RunAutomationServiceEnabled;
-
                 /**
                 * 描述了实例的增强服务启用情况与其设置，如云安全，云监控，自动化助手等实例 Agent。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     EnhancedService();
+                    ~EnhancedService() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

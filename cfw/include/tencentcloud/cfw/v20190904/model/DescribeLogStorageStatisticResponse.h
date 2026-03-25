@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StorageHistogram;
-                class StorageHistogramShow;
-
                 /**
                 * DescribeLogStorageStatistic返回参数结构体
                 */

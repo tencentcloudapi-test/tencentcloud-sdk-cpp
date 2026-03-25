@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScanIgnoreVul;
-
                 /**
                 * DescribeScanIgnoreVulList返回参数结构体
                 */

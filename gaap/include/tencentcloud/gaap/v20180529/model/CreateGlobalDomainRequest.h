@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagPair;
-
                 /**
                 * CreateGlobalDomain请求参数结构体
                 */

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TreeJobSets;
-                class DescribeTreeJobsRsp;
-
                 /**
                 * DescribeTreeJobs返回参数结构体
                 */

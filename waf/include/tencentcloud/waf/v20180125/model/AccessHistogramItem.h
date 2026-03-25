@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于接口DescribeAccessHistogram 的出参
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AccessHistogramItem();
+                    ~AccessHistogramItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

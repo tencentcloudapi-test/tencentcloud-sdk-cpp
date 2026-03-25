@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AwsSQS;
-
                 /**
                 * AWS S3 文件是上传触发器。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AwsS3FileUploadTrigger();
+                    ~AwsS3FileUploadTrigger() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

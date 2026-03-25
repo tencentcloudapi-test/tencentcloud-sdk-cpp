@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RemindFlowRecords;
-
                 /**
                 * CreateFlowReminds返回参数结构体
                 */

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Hsts;
-                class ServerCertInfo;
-
                 /**
                 * 域名 https 加速配置，默认为关闭状态
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     Https();
+                    ~Https() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

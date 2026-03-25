@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CbsVolume;
-                class NfsVolume;
-
                 /**
                 * EKS Instance Volume,  可选包括CbsVolume和NfsVolume
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     EksCiVolume();
+                    ~EksCiVolume() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

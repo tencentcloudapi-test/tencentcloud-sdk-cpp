@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 按表名查询的查询条件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TableNameFilter();
+                    ~TableNameFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

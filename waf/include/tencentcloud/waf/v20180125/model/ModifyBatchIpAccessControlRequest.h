@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JobDateTime;
-
                 /**
                 * ModifyBatchIpAccessControl请求参数结构体
                 */

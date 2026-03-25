@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SyncJobInfo;
-
                 /**
                 * DescribeSyncJobs返回参数结构体
                 */

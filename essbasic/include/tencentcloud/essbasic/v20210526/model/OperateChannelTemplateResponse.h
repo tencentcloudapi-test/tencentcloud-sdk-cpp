@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuthFailMessage;
-
                 /**
                 * OperateChannelTemplate返回参数结构体
                 */

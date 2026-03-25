@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TemplateContent;
-
                 /**
                 * UpdateEmailTemplate请求参数结构体
                 */

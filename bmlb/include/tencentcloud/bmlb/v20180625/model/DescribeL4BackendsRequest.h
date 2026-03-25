@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeL4Backend;
-
                 /**
                 * DescribeL4Backends请求参数结构体
                 */

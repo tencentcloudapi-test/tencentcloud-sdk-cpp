@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogConfig;
-
                 /**
                 * DescribeLogConfig返回参数结构体
                 */

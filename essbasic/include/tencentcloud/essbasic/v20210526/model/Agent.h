@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserInfo;
-
                 /**
                 * 应用相关信息, 整体应用的层级图如下
 
@@ -47,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     Agent();
+                    ~Agent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

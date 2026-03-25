@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DMSTableInfo;
-
                 /**
                 * DescribeDMSTables返回参数结构体
                 */

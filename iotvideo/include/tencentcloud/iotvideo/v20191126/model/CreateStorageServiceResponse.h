@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StorageOrder;
-
                 /**
                 * CreateStorageService返回参数结构体
                 */

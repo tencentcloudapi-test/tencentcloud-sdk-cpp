@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SearchItem;
-
                 /**
                 * DescribeServiceNodeInfos请求参数结构体
                 */

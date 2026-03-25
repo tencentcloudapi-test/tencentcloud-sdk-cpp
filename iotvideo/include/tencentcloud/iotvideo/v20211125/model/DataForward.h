@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据转发描述
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DataForward();
+                    ~DataForward() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

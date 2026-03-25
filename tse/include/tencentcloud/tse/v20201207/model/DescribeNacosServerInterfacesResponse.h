@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NacosServerInterface;
-
                 /**
                 * DescribeNacosServerInterfaces返回参数结构体
                 */

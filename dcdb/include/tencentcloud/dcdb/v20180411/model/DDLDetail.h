@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DDL任务执行详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DDLDetail();
+                    ~DDLDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 容器 env 的 FieldRef
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FieldRef();
+                    ~FieldRef() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RowColumnConfig;
-
                 /**
                 * CreatePermissionRanks请求参数结构体
                 */

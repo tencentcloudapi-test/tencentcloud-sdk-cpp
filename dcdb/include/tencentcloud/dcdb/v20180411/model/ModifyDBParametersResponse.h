@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ParamModifyResult;
-
                 /**
                 * ModifyDBParameters返回参数结构体
                 */

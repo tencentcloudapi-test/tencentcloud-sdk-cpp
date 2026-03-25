@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RiskInfo;
-                class Abnormals;
-                class DrugList;
-
                 /**
                 * 合理用药信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     RationalDrugInfo();
+                    ~RationalDrugInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

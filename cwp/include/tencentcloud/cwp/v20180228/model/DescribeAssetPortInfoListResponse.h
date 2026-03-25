@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetPortBaseInfo;
-
                 /**
                 * DescribeAssetPortInfoList返回参数结构体
                 */

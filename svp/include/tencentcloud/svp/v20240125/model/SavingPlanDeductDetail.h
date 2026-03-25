@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 节省计划抵扣明细
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SavingPlanDeductDetail();
+                    ~SavingPlanDeductDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

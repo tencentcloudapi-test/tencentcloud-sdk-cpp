@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FiltersItemNew;
-
                 /**
                 * DescribeAttackWhiteRule请求参数结构体
                 */

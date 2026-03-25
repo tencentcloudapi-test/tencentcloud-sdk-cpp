@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SuccessCode;
-
                 /**
                 * CreateNewL7RulesUpload返回参数结构体
                 */

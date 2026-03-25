@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchOperateResultOpsDto;
-
                 /**
                 * KillOpsMakePlanInstances返回参数结构体
                 */

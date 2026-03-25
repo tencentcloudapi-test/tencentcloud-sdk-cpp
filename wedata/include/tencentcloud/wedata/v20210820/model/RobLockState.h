@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 抢锁状态：是否可以抢锁和当前持锁人
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RobLockState();
+                    ~RobLockState() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

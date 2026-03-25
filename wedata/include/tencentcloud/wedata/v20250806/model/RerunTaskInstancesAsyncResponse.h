@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OpsAsyncResponse;
-
                 /**
                 * RerunTaskInstancesAsync返回参数结构体
                 */

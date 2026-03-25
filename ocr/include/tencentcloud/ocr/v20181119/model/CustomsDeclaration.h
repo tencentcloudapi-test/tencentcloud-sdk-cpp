@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OtherInvoiceItem;
-
                 /**
                 * 海关进/出口货物报关单
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CustomsDeclaration();
+                    ~CustomsDeclaration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

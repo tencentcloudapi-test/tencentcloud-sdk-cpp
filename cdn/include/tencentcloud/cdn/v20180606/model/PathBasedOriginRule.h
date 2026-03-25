@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分路径回源规则
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PathBasedOriginRule();
+                    ~PathBasedOriginRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

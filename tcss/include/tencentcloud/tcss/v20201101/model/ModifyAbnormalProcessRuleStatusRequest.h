@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ModifyAbnormalProcessRuleStatus请求参数结构体
                 */

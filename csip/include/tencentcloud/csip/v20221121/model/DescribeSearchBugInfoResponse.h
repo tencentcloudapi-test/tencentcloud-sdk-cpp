@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataSearchBug;
-
                 /**
                 * DescribeSearchBugInfo返回参数结构体
                 */

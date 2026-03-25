@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 全部指标数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MetricAllData();
+                    ~MetricAllData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 发送自定义信息指令参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SendMessageCommandInput();
+                    ~SendMessageCommandInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

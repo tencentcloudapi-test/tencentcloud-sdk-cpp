@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InvokerRecord;
-
                 /**
                 * DescribeInvokerRecords返回参数结构体
                 */

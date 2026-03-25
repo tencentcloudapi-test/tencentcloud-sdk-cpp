@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 路由接收策略绑定。用来绑定路由表和路由接收策略以及绑定的优先级。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RoutePolicyAssociation();
+                    ~RoutePolicyAssociation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

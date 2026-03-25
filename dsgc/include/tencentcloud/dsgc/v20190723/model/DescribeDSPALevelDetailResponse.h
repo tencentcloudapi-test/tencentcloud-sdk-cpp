@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LevelItem;
-
                 /**
                 * DescribeDSPALevelDetail返回参数结构体
                 */

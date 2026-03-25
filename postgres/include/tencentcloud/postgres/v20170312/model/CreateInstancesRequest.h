@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DBNode;
-                class Tag;
-
                 /**
                 * CreateInstances请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeRunDetail;
-
                 /**
                 * DescribeNodeRun返回参数结构体
                 */

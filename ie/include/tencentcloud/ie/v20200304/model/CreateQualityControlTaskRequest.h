@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QualityControlInfo;
-                class DownInfo;
-                class CallbackInfo;
-
                 /**
                 * CreateQualityControlTask请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 未处置事件信息汇总
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UnHandleEventDetail();
+                    ~UnHandleEventDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

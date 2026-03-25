@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PortraitImageInfo;
-
                 /**
                 * PassportOCR返回参数结构体
                 */

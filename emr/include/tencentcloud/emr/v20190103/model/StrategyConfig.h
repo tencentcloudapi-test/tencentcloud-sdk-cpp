@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Arg;
-
                 /**
                 * 重启/停止/启动服务/监控的配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     StrategyConfig();
+                    ~StrategyConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

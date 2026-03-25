@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CorrectData;
-
                 /**
                 * 图像识别批改接口返回的作文文本信息或批改信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CompostionContext();
+                    ~CompostionContext() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

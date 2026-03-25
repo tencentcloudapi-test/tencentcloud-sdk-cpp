@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkflowTaskCountOpsDto;
-
                 /**
                 * DescribeWorkflowTaskCount返回参数结构体
                 */

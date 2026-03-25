@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubscribeObject;
-
                 /**
                 * ActivateSubscribe请求参数结构体
                 */

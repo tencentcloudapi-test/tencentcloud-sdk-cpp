@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * HAI 实例的网络配置和消耗情况
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NetworkStatus();
+                    ~NetworkStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

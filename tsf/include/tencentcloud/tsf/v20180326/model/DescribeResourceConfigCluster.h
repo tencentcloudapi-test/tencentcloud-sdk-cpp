@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeResourceConfigClusterContainer;
-
                 /**
                 * 返回给前端的控制信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeResourceConfigCluster();
+                    ~DescribeResourceConfigCluster() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

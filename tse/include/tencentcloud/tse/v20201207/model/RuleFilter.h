@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 限流规则的Filter
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RuleFilter();
+                    ~RuleFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

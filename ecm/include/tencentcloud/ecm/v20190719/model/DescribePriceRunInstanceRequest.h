@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SystemDisk;
-                class DataDisk;
-
                 /**
                 * DescribePriceRunInstance请求参数结构体
                 */

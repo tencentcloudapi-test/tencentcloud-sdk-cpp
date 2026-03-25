@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TechnicalMetadata;
-                class BusinessMetadata;
-
                 /**
                 * 数据库信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     TableInfo();
+                    ~TableInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

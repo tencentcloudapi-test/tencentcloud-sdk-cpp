@@ -37,13 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class McuAudioParams;
-                class McuVideoParams;
-                class SingleSubscribeParams;
-                class McuPublishCdnParam;
-                class McuSeiParams;
-                class McuFeedBackRoomParams;
-
                 /**
                 * UpdatePublishCdnStream请求参数结构体
                 */

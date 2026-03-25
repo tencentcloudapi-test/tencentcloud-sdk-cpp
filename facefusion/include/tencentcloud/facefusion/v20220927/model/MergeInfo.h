@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FaceRect;
-
                 /**
                 * 人脸图片和待被融合的素材模板图的人脸位置信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MergeInfo();
+                    ~MergeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

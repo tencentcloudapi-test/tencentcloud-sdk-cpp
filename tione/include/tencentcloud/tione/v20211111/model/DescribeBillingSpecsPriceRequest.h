@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SpecUnit;
-
                 /**
                 * DescribeBillingSpecsPrice请求参数结构体
                 */

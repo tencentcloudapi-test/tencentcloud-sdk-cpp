@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SSLCertificate;
-
                 /**
                 * DescribeCertList返回参数结构体
                 */

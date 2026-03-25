@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * RocketMQtopic分布情况
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RocketMQTopicDistribution();
+                    ~RocketMQTopicDistribution() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

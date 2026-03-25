@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EraseArea;
-                class EraseTimeArea;
-
                 /**
                 * 智能擦除模板去字幕配置
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     UpdateSmartEraseSubtitleConfig();
+                    ~UpdateSmartEraseSubtitleConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

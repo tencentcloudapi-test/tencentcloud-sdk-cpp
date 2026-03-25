@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ThreadToolResources;
-
                 /**
                 * CreateThread返回参数结构体
                 */

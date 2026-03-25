@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeTree;
-                class DistinctOrNetServiceInfo;
-
                 /**
                 * DescribeNodeGroups返回参数结构体
                 */

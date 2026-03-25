@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FunctionLog;
-                class LogSearchContext;
-
                 /**
                 * GetFunctionLogs返回参数结构体
                 */

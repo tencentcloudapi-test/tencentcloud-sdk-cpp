@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RabbitMQPermission;
-
                 /**
                 * DescribeRabbitMQPermission返回参数结构体
                 */

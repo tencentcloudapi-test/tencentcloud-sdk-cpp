@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceDownloadLogInfo;
-
                 /**
                 * DescribeInstanceLogFile返回参数结构体
                 */

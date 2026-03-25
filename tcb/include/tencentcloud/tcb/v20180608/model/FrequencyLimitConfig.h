@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 安全网关版本路由信息限额配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FrequencyLimitConfig();
+                    ~FrequencyLimitConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

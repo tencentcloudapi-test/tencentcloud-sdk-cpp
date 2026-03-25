@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineSetScaling;
-                class MachineUpgradeSettings;
-                class InstanceChargePrepaid;
-                class Disk;
-                class ManagementConfig;
-                class LifecycleConfig;
-                class DataDisk;
-                class GPUConfig;
-
                 /**
                 * 修改原生节点池参数
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     UpdateNativeNodePoolParam();
+                    ~UpdateNativeNodePoolParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

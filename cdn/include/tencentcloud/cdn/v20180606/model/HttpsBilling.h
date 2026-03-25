@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * HTTPS服务，若关闭，下发配置拦截https请求，开启时会产生计费
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HttpsBilling();
+                    ~HttpsBilling() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

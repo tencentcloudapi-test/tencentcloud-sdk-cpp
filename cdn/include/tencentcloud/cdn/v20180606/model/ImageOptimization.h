@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WebpAdapter;
-                class TpgAdapter;
-                class GuetzliAdapter;
-                class AvifAdapter;
-
                 /**
                 * ImageOptimization配置
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageOptimization();
+                    ~ImageOptimization() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

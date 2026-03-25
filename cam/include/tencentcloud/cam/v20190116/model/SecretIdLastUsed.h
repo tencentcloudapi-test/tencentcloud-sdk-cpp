@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 密钥最后使用时间
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SecretIdLastUsed();
+                    ~SecretIdLastUsed() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

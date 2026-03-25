@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Scenario;
-
                 /**
                 * DescribeScenarios返回参数结构体
                 */

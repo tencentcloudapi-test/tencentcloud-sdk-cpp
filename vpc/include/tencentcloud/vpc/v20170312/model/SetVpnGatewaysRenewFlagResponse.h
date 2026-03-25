@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SetVpnGatewaysRenewFlag返回参数结构体
                 */

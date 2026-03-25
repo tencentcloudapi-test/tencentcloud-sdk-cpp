@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoLicenseEntity;
-
                 /**
                 * DescribeVideoLicense返回参数结构体
                 */

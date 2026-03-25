@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SchedulerTaskInstanceInfo;
-
                 /**
                 * BatchRerunIntegrationTaskInstances请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 节点本地盘信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LocalDiskInfo();
+                    ~LocalDiskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

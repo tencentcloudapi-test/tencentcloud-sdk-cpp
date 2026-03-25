@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InsL7Rules;
-
                 /**
                 * 使用证书的规则集合
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CertIdInsL7Rules();
+                    ~CertIdInsL7Rules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

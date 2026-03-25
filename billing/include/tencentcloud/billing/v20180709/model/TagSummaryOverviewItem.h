@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 按标签汇总消费详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TagSummaryOverviewItem();
+                    ~TagSummaryOverviewItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

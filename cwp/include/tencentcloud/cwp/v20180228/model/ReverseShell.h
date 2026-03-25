@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineExtraInfo;
-
                 /**
                 * 反弹Shell数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ReverseShell();
+                    ~ReverseShell() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

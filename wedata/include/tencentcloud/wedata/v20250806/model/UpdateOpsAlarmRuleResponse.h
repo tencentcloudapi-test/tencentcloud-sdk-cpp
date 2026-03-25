@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModifyAlarmRuleResult;
-
                 /**
                 * UpdateOpsAlarmRule返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OpenBankFormInfo;
-
                 /**
                 * 云企付-下单跳转参数，用于小程序前端跳转
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     OpenBankOrderRedirectInfo();
+                    ~OpenBankOrderRedirectInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

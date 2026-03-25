@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取用户所在的用户组列表功能中用户组属性搜索条件。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UserGroupInformationSearchCriteria();
+                    ~UserGroupInformationSearchCriteria() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

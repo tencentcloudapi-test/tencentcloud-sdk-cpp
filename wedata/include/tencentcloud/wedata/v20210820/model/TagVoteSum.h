@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 基于表的标签统计信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TagVoteSum();
+                    ~TagVoteSum() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

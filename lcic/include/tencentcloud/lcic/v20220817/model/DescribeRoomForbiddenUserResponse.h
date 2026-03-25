@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MutedAccountList;
-
                 /**
                 * DescribeRoomForbiddenUser返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SpecInfo;
-
                 /**
                 * DescribeEngineNodeSpec返回参数结构体
                 */

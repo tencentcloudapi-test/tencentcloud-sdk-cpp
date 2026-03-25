@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileUploadURL;
-
                 /**
                 * DescribeFileUploadURL返回参数结构体
                 */

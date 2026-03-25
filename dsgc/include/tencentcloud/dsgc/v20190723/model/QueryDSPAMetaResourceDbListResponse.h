@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DbRelationStatusItem;
-
                 /**
                 * QueryDSPAMetaResourceDbList返回参数结构体
                 */

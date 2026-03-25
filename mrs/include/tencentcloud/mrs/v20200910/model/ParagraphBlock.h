@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 文本块
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ParagraphBlock();
+                    ~ParagraphBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

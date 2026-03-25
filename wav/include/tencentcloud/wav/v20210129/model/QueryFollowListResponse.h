@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FollowInfo;
-
                 /**
                 * QueryFollowList返回参数结构体
                 */

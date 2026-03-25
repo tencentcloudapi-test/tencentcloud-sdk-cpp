@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CountryAreaMap;
-                class ProxyAccessInfo;
-
                 /**
                 * 统一域名解析的DNS记录
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     GlobalDns();
+                    ~GlobalDns() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeniedAction;
-
                 /**
                 * 磁盘操作限制列表详细信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DiskDeniedActions();
+                    ~DiskDeniedActions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

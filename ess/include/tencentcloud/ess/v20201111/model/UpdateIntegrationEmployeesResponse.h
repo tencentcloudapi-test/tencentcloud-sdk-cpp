@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SuccessUpdateStaffData;
-                class FailedUpdateStaffData;
-
                 /**
                 * UpdateIntegrationEmployees返回参数结构体
                 */

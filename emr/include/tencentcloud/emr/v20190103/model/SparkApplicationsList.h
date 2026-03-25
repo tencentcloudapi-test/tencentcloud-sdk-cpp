@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * spark任务列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SparkApplicationsList();
+                    ~SparkApplicationsList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

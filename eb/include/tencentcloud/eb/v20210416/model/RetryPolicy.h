@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用来描述一个ckafka投递目标的重试策略
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RetryPolicy();
+                    ~RetryPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-
                 /**
                 * 物理专线信息列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DirectConnect();
+                    ~DirectConnect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * eipid与aclid关联关系
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EipAclMap();
+                    ~EipAclMap() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * StarRocks 查询信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     StarRocksQueryInfo();
+                    ~StarRocksQueryInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

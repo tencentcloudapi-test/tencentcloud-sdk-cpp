@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RouteConflict;
-
                 /**
                 * DescribeRouteConflicts返回参数结构体
                 */

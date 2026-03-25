@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SignInfo;
-
                 /**
                 * CreateContractByUpload请求参数结构体
                 */

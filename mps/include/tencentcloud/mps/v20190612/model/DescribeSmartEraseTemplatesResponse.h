@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SmartEraseTemplateItem;
-
                 /**
                 * DescribeSmartEraseTemplates返回参数结构体
                 */

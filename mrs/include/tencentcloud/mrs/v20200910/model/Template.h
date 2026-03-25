@@ -58,31 +58,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PatientInfo;
-                class ReportInfo;
-                class Check;
-                class PathologyReport;
-                class MedDoc;
-                class DiagCert;
-                class FirstPage;
-                class Indicator;
-                class MedicalRecordInfo;
-                class Hospitalization;
-                class Surgery;
-                class Electrocardiogram;
-                class Endoscopy;
-                class Prescription;
-                class VaccineCertificate;
-                class PathologyV2;
-                class Exame;
-                class DischargeInfoBlock;
-                class IndicatorV3;
-                class CovidItemsInfo;
-                class Maternity;
-                class EyeItemsInfo;
-                class BirthCert;
-                class TimelineInformation;
-
                 /**
                 * 报告模板
                 */
@@ -90,6 +65,7 @@ namespace TencentCloud
                 {
                 public:
                     Template();
+                    ~Template() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

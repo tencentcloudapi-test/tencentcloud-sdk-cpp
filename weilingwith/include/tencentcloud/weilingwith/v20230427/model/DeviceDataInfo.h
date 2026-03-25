@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceSpaceInfo;
-                class DeviceLocation;
-                class CustomFieldInfo;
-
                 /**
                 * 设备数据信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     DeviceDataInfo();
+                    ~DeviceDataInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

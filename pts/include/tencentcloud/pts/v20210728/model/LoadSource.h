@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 发压host来源
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LoadSource();
+                    ~LoadSource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

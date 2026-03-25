@@ -62,35 +62,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileUploadTask;
-                class ProcedureTask;
-                class FileDeleteTask;
-                class PullUploadTask;
-                class EditMediaTask;
-                class SplitMediaTask;
-                class ComposeMediaTask;
-                class ClipTask2017;
-                class TranscodeTask2017;
-                class CreateImageSpriteTask2017;
-                class ConcatTask2017;
-                class SnapshotByTimeOffsetTask2017;
-                class WechatPublishTask;
-                class WechatMiniProgramPublishTask;
-                class RemoveWatermarkTask;
-                class RestoreMediaTask;
-                class RebuildMediaTask;
-                class ExtractTraceWatermarkTask;
-                class ExtractCopyRightWatermarkTask;
-                class ReviewAudioVideoTask;
-                class ReduceMediaBitrateTask;
-                class DescribeFileAttributesTask;
-                class QualityInspectTask;
-                class QualityEnhanceTask;
-                class MediaCastEvent;
-                class PersistenceCompleteTask;
-                class ComplexAdaptiveDynamicStreamingTask;
-                class ProcessMediaByMPS;
-
                 /**
                 * 事件通知内容，其中，TranscodeCompleteEvent、ConcatCompleteEvent、ClipCompleteEvent、CreateImageSpriteCompleteEvent、SnapshotByTimeOffsetCompleteEvent 为兼容 2017 版接口发起任务的事件通知。
                 */
@@ -98,6 +69,7 @@ namespace TencentCloud
                 {
                 public:
                     EventContent();
+                    ~EventContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

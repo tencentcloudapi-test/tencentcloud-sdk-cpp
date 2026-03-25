@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MeshConfig;
-                class Cluster;
-
                 /**
                 * ModifyMesh请求参数结构体
                 */

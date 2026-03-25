@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReportTypeVersion;
-
                 /**
                 * TextToObject请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 采用日志响应时间RT范围
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ReactionTimeRange();
+                    ~ReactionTimeRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class L7RuleEntry;
-                class L7RuleHealth;
-
                 /**
                 * DescribleL7Rules返回参数结构体
                 */

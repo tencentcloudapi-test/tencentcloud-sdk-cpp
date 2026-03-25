@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RawInfo;
-
                 /**
                 * 视频流查询结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VideoRecordStreamRes();
+                    ~VideoRecordStreamRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

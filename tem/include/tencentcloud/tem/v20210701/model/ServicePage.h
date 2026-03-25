@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TemService;
-
                 /**
                 * 服务分页
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ServicePage();
+                    ~ServicePage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

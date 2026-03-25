@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StructuredOutputConfig;
-
                 /**
                 * Agent高级设置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AgentAdvancedConfig();
+                    ~AgentAdvancedConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

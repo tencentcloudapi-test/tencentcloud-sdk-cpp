@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 代理商完税证明
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AgentTaxPayment();
+                    ~AgentTaxPayment() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

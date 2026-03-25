@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProjectPage;
-
                 /**
                 * DescribeTenantProjects返回参数结构体
                 */

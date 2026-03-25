@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SourceFieldInfo;
-                class Partition;
-                class Property;
-                class TableBaseInfo;
-
                 /**
                 * GenHiveTableDDLSql请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EsAcl;
-
                 /**
                 * UpdateServerlessSpace请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 内容审核 Ocr 文字鉴黄任务输入参数类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewPornOcrTaskInput();
+                    ~AiReviewPornOcrTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SelfOperation;
-                class PowerOffConfirm;
-
                 /**
                 * CreateRackOffWorkOrder请求参数结构体
                 */

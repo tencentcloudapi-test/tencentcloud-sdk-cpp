@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 资源调度的默认设置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DefaultSetting();
+                    ~DefaultSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

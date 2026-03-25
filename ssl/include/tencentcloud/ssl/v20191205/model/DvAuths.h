@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 返回参数键为 DvAuths 的内容。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DvAuths();
+                    ~DvAuths() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

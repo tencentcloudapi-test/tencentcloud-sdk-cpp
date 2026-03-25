@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplyDeclareResult;
-
                 /**
                 * ApplyApplicationMaterial返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaInfo;
-
                 /**
                 * DescribeMedias返回参数结构体
                 */

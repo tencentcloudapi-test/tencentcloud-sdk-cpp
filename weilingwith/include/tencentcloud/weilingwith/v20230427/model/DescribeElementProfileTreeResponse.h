@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ElementProfileTreeRes;
-
                 /**
                 * DescribeElementProfileTree返回参数结构体
                 */

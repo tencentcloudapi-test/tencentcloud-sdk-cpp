@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WebSearchFilter;
-
                 /**
                 * DescribeSecurityAlarmTableList请求参数结构体
                 */

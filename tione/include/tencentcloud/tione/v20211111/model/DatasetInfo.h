@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class CosPathInfo;
-                class CFSConfig;
-
                 /**
                 * 数据集详情
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     DatasetInfo();
+                    ~DatasetInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

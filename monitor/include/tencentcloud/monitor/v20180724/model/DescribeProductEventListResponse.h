@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeProductEventListEvents;
-                class DescribeProductEventListOverView;
-
                 /**
                 * DescribeProductEventList返回参数结构体
                 */

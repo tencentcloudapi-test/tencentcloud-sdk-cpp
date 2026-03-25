@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineInfo;
-
                 /**
                 * ModifyClusterMachine请求参数结构体
                 */

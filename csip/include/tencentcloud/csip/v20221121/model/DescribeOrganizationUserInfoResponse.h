@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OrganizationUserInfo;
-                class FilterDataObject;
-
                 /**
                 * DescribeOrganizationUserInfo返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 服务共享弹性网卡设置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceEIP();
+                    ~ServiceEIP() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

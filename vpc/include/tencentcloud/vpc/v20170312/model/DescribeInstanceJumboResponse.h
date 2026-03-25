@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceJumbo;
-
                 /**
                 * DescribeInstanceJumbo返回参数结构体
                 */

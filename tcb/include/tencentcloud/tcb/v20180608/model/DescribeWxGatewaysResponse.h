@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GatewayItem;
-
                 /**
                 * DescribeWxGateways返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 值支持一拆多，即将一个值拆为一个数组
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SplitParam();
+                    ~SplitParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

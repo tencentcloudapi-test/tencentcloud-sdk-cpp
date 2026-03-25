@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NotificationType;
-
                 /**
                 * 任务批次超时通知。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RunGroupTimeoutNotification();
+                    ~RunGroupTimeoutNotification() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 批量防护失败的域名以及对应的原因。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BatchDomainResult();
+                    ~BatchDomainResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

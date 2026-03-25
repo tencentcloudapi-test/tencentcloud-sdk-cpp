@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云录像回放url
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RecordPlaybackUrl();
+                    ~RecordPlaybackUrl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

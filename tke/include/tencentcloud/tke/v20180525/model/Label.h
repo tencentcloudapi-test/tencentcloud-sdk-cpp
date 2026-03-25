@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * k8s中标签，一般以数组的方式存在
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Label();
+                    ~Label() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

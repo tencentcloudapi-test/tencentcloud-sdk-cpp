@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StarRocksQueryInfo;
-
                 /**
                 * DescribeStarRocksQueryInfo返回参数结构体
                 */

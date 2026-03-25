@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagWithCreate;
-
                 /**
                 * CreateTaskFromAction请求参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SpecAvailability;
-
                 /**
                 * 运营商类型信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TypeInfo();
+                    ~TypeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

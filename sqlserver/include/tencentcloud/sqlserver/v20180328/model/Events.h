@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实例扩展事件详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Events();
+                    ~Events() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

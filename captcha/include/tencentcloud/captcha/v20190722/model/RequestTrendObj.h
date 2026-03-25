@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 验证码请求趋势图obj
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RequestTrendObj();
+                    ~RequestTrendObj() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

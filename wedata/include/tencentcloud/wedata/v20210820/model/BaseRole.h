@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RolePrivilege;
-                class BaseUser;
-
                 /**
                 * 基础角色对象
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     BaseRole();
+                    ~BaseRole() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

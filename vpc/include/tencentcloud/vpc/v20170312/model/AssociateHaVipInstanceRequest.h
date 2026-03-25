@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HaVipAssociation;
-
                 /**
                 * AssociateHaVipInstance请求参数结构体
                 */

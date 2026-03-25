@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulInfoByCveId;
-
                 /**
                 * DescribeVulCveIdInfo返回参数结构体
                 */

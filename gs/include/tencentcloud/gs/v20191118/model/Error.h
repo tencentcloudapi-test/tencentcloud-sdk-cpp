@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 错误信息，用于批量接口中返回部分操作错误
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Error();
+                    ~Error() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

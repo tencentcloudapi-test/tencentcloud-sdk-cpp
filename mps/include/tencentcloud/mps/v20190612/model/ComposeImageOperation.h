@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频编辑/合成任务 视频图像转换操作。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ComposeImageOperation();
+                    ~ComposeImageOperation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

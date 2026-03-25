@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Part;
-                class BlockInfo;
-                class Coord;
-
                 /**
                 * 内窥部位
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     EndoscopyOrgan();
+                    ~EndoscopyOrgan() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

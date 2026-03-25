@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OtherInvoiceItem;
-
                 /**
                 * 海外发票
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     OverseasInvoice();
+                    ~OverseasInvoice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

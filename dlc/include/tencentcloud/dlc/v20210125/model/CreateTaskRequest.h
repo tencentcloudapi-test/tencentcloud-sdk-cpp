@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Task;
-                class KVPair;
-
                 /**
                 * CreateTask请求参数结构体
                 */

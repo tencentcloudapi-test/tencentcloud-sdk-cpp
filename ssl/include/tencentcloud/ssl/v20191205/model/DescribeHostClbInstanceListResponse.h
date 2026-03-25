@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClbInstanceDetail;
-
                 /**
                 * DescribeHostClbInstanceList返回参数结构体
                 */

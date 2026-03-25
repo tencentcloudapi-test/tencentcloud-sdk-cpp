@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class NoticeReceiver;
-                class WebCallback;
-                class NoticeRule;
-                class AlarmNoticeDeliverConfig;
-
                 /**
                 * 告警通知渠道组详细配置
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     AlarmNotice();
+                    ~AlarmNotice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 边缘计算集群公网访问负载均衡信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EdgeClusterPublicLB();
+                    ~EdgeClusterPublicLB() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

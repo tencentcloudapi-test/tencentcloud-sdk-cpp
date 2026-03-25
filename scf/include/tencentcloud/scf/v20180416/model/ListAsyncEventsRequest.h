@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TimeInterval;
-
                 /**
                 * ListAsyncEvents请求参数结构体
                 */

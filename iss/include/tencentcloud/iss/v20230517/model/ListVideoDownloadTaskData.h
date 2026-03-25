@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoDownloadTask;
-
                 /**
                 * 本地录像下载任务列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ListVideoDownloadTaskData();
+                    ~ListVideoDownloadTaskData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

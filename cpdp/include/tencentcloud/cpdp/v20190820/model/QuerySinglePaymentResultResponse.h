@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QuerySinglePaymentResultData;
-
                 /**
                 * QuerySinglePaymentResult返回参数结构体
                 */

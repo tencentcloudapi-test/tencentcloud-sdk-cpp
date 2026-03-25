@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DealPriceDetail;
-
                 /**
                 * DescribeAgentDealsPriceDetailByDealName返回参数结构体
                 */

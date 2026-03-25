@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 属性标签引用
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AttributeLabelReferItem();
+                    ~AttributeLabelReferItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

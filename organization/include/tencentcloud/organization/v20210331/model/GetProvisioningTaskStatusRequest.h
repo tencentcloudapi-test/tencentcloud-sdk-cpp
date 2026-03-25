@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * GetProvisioningTaskStatus请求参数结构体
                 */

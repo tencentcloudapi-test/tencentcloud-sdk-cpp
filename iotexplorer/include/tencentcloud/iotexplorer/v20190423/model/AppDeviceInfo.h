@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云api直接绑定设备出参
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AppDeviceInfo();
+                    ~AppDeviceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

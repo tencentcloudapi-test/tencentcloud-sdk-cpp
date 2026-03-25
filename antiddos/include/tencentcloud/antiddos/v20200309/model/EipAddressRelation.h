@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 高防弹性公网IP关联信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EipAddressRelation();
+                    ~EipAddressRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WebCallbackInfo;
-
                 /**
                 * DescribeWebCallbacks返回参数结构体
                 */

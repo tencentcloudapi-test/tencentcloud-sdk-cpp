@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * EKS Instance Nfs Volume
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NfsVolume();
+                    ~NfsVolume() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

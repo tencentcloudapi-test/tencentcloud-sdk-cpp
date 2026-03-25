@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IgnoreRuleEffectHostInfo;
-
                 /**
                 * DescribeIgnoreRuleEffectHostList返回参数结构体
                 */

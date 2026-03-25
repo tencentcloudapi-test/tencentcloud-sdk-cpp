@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceReport;
-                class Tag;
-                class TeleOperatorCard;
-
                 /**
                 * 云兔连接详细信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     LinkDetailInfo();
+                    ~LinkDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

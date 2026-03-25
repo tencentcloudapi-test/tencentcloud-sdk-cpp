@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TrafficMirrorReciversStatus;
-
                 /**
                 * DescribeTrafficMirrorReceiverHealthStatus返回参数结构体
                 */

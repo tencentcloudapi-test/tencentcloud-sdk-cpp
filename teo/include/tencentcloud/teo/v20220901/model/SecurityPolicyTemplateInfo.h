@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BindDomainInfo;
-
                 /**
                 * 策略模板信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SecurityPolicyTemplateInfo();
+                    ~SecurityPolicyTemplateInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

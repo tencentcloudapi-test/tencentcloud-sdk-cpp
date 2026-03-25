@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupInfo;
-                class DeviceBaseInfo;
-
                 /**
                 * GetGroupDetail返回参数结构体
                 */

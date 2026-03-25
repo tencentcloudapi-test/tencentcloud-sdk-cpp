@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpcPrivateIpAddress;
-
                 /**
                 * DescribeVpcPrivateIpAddresses返回参数结构体
                 */

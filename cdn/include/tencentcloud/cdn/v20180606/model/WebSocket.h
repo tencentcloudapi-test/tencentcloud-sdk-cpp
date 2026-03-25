@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * WebSocket配置
 WebSocket 为ECDN产品功能，如需使用请通过ECDN域名配置.
@@ -43,6 +42,7 @@ WebSocket 为ECDN产品功能，如需使用请通过ECDN域名配置.
                 {
                 public:
                     WebSocket();
+                    ~WebSocket() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

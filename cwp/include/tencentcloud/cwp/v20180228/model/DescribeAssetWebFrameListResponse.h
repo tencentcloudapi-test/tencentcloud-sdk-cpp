@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetWebFrameBaseInfo;
-
                 /**
                 * DescribeAssetWebFrameList返回参数结构体
                 */

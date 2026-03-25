@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleAndConditions;
-                class Action;
-
                 /**
                 * 嵌套规则信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     SubRule();
+                    ~SubRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

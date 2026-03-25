@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class User;
-
                 /**
                 * DescribeUsers返回参数结构体
                 */

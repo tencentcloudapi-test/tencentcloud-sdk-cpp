@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 私网网关Snat转发规则修改
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TranslationNatRuleDiff();
+                    ~TranslationNatRuleDiff() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

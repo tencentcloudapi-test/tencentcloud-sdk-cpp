@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 虚拟机部署组列表简要字段
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VmGroupSimple();
+                    ~VmGroupSimple() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

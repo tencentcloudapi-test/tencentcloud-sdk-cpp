@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TakeMusicOffShelves;
-
                 /**
                 * TakeMusicOffShelves请求参数结构体
                 */

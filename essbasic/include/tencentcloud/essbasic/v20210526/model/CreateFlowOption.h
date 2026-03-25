@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SignComponentConfig;
-                class CreateResultPageConfig;
-
                 /**
                 * 创建合同个性化参数
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateFlowOption();
+                    ~CreateFlowOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

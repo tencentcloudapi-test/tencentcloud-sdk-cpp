@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PathMapping;
-
                 /**
                 * ModifySubDomain请求参数结构体
                 */

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SpeedValue;
-                class PortSegment;
-
                 /**
                 * DDoS访问限速配置
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DDoSSpeedLimitConfig();
+                    ~DDoSSpeedLimitConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

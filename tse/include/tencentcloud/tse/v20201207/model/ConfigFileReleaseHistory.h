@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConfigFileTag;
-                class ConfigFilePersistent;
-
                 /**
                 * 配置文件发布历史
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ConfigFileReleaseHistory();
+                    ~ConfigFileReleaseHistory() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

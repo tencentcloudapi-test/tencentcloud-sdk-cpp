@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TextLib;
-
                 /**
                 * DescribeTextLib返回参数结构体
                 */

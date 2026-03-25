@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ValueParam;
-
                 /**
                 * 数据处理——数据处理参数
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SMTParam();
+                    ~SMTParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

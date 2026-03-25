@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DbTaskResult;
-
                 /**
                 * BindDSPAResourceDatabases返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 音量均衡配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VolumeBalanceConfig();
+                    ~VolumeBalanceConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

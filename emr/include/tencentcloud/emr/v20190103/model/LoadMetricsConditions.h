@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LoadMetricsCondition;
-
                 /**
                 * 负载指标
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LoadMetricsConditions();
+                    ~LoadMetricsConditions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

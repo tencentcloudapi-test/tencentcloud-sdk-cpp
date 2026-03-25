@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowStatistics;
-
                 /**
                 * 流的统计数据列表。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FlowStatisticsArray();
+                    ~FlowStatisticsArray() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 操作系统转换的目标操作系统信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TargetOS();
+                    ~TargetOS() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

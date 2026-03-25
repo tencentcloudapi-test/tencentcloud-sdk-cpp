@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RumPvInfo;
-
                 /**
                 * DescribePvList返回参数结构体
                 */

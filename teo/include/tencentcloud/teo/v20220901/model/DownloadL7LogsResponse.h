@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class L7OfflineLog;
-
                 /**
                 * DownloadL7Logs返回参数结构体
                 */

@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceAdvancedSettings;
-                class EnhancedService;
-                class LoginSettings;
-                class NodePoolOption;
-
                 /**
                 * AddExistedInstances请求参数结构体
                 */

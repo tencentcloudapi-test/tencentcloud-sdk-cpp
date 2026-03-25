@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MusicAlbumCoverInfo;
-
                 /**
                 * 歌曲专辑信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MusicAlbumInfo();
+                    ~MusicAlbumInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

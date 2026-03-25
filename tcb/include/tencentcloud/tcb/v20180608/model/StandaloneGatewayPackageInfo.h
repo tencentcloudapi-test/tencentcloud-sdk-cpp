@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 小租户网关套餐配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     StandaloneGatewayPackageInfo();
+                    ~StandaloneGatewayPackageInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

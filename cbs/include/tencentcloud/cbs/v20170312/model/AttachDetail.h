@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 描述一个实例已挂载和可挂载数据盘的数量。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AttachDetail();
+                    ~AttachDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

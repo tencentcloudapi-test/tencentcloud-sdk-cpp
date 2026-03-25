@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceRoute;
-                class RouteFilter;
-
                 /**
                 * DescribeSecurityGroupRoutes请求参数结构体
                 */

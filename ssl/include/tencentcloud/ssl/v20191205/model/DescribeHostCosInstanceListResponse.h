@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosInstanceDetail;
-
                 /**
                 * DescribeHostCosInstanceList返回参数结构体
                 */

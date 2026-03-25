@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 客户端连接信息，包括客户端IP和连接数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClientConnection();
+                    ~ClientConnection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

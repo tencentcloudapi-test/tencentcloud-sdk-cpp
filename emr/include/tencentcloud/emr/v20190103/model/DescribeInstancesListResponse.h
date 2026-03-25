@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EmrListInstance;
-
                 /**
                 * DescribeInstancesList返回参数结构体
                 */

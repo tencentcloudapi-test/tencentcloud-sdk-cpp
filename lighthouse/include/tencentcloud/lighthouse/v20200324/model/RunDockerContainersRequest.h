@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DockerContainerConfiguration;
-
                 /**
                 * RunDockerContainers请求参数结构体
                 */

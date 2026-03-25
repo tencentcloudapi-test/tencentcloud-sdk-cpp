@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云联网（CCN）关联实例（Instance）对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CcnAttachedInstance();
+                    ~CcnAttachedInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

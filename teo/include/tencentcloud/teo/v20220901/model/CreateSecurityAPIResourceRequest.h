@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class APIResource;
-
                 /**
                 * CreateSecurityAPIResource请求参数结构体
                 */

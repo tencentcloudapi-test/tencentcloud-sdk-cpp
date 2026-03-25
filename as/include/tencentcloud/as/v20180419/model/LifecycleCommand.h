@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 远程命令执行对象。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LifecycleCommand();
+                    ~LifecycleCommand() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

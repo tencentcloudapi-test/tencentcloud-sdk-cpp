@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageRect;
-
                 /**
                 * 图像主体区域。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Box();
+                    ~Box() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

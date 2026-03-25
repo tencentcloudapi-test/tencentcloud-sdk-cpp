@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CacheTag;
-
                 /**
                 * CreatePurgeTask请求参数结构体
                 */

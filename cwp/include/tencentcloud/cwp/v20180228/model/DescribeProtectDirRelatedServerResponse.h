@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProtectDirRelatedServer;
-
                 /**
                 * DescribeProtectDirRelatedServer返回参数结构体
                 */

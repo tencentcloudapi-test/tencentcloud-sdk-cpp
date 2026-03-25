@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescAcItem;
-
                 /**
                 * DescribeAclRule返回参数结构体
                 */

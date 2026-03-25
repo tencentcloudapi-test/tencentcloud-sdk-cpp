@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TemplatesMetadata;
-
                 /**
                 * ListEmailTemplates返回参数结构体
                 */

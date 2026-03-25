@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 规格可用性
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SpecAvailability();
+                    ~SpecAvailability() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

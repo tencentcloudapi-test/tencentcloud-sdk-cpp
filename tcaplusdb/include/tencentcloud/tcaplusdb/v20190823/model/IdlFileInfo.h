@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 表定义描述文件详情，包含文件内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IdlFileInfo();
+                    ~IdlFileInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

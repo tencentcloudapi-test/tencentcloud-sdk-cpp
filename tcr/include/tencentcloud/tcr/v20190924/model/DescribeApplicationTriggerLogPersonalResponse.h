@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeApplicationTriggerLogPersonalResp;
-
                 /**
                 * DescribeApplicationTriggerLogPersonal返回参数结构体
                 */

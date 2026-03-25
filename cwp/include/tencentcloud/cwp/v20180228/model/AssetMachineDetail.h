@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetNetworkCardInfo;
-                class AssetDiskPartitionInfo;
-                class MachineExtraInfo;
-
                 /**
                 * 资产指纹中服务器列表的基本信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     AssetMachineDetail();
+                    ~AssetMachineDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

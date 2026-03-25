@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceTag;
-
                 /**
                 * DescribeSubAppIds请求参数结构体
                 */

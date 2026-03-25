@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 访问密钥列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AccessKey();
+                    ~AccessKey() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

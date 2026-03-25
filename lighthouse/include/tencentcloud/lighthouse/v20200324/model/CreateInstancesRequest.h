@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceChargePrepaid;
-                class LoginConfiguration;
-                class DockerContainerConfiguration;
-                class Tag;
-                class Command;
-
                 /**
                 * CreateInstances请求参数结构体
                 */

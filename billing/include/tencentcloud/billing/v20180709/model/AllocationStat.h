@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AllocationAverageData;
-
                 /**
                 * 分账账单趋势图
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AllocationStat();
+                    ~AllocationStat() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

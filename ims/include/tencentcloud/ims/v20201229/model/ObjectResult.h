@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ObjectDetail;
-
                 /**
                 * 用于返回实体检测结果详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ObjectResult();
+                    ~ObjectResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

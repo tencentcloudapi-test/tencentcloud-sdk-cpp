@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Step;
-                class BootstrapAction;
-                class Configuration;
-                class ClusterSetting;
-
                 /**
                 * RunJobFlow请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PowerOffConfirm;
-
                 /**
                 * CreatePowerOffWorkOrder请求参数结构体
                 */

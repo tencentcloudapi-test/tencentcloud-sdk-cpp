@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserInfo;
-                class Agent;
-
                 /**
                 * DescribeFileUrls请求参数结构体
                 */

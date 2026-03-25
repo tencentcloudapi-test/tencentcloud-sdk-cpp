@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EmbeddingData;
-
                 /**
                 * 多模态特征向量
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MultiModalEmbeddingData();
+                    ~MultiModalEmbeddingData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 企业证照单个字段的内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EnterpriseLicenseInfo();
+                    ~EnterpriseLicenseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

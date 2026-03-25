@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FaceInfo;
-
                 /**
                 * DetectFace返回参数结构体
                 */

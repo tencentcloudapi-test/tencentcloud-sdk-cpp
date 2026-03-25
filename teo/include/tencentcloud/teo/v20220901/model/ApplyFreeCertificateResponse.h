@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DnsVerification;
-                class FileVerification;
-
                 /**
                 * ApplyFreeCertificate返回参数结构体
                 */

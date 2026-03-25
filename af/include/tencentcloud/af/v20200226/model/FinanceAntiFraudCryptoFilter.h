@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 借贷反欺诈密文业务入参
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FinanceAntiFraudCryptoFilter();
+                    ~FinanceAntiFraudCryptoFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

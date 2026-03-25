@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusTemplateSyncTarget;
-
                 /**
                 * DeletePrometheusTemplateSync请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProtocolPort;
-
                 /**
                 * DescribeBizTrend请求参数结构体
                 */

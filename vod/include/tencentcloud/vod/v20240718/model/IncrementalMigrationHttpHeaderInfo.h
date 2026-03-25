@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IncrementalMigrationHttpHeader;
-
                 /**
                 * 增量迁移回源 HTTP Header 信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     IncrementalMigrationHttpHeaderInfo();
+                    ~IncrementalMigrationHttpHeaderInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

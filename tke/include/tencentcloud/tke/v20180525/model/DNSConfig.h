@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DNSConfigOption;
-
                 /**
                 * 自定义DNS配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DNSConfig();
+                    ~DNSConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

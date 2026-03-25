@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SelectedTableInfoNew;
-                class TagInfoUnit;
-
                 /**
                 * ModifyTableTags请求参数结构体
                 */

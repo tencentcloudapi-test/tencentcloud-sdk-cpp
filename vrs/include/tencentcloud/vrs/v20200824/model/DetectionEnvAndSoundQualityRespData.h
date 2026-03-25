@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Words;
-
                 /**
                 * 环境检测和音频检测响应
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DetectionEnvAndSoundQualityRespData();
+                    ~DetectionEnvAndSoundQualityRespData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

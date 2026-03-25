@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskView;
-                class Dependence;
-                class TaskMetrics;
-                class TaskInstanceMetrics;
-                class Tag;
-
                 /**
                 * DescribeJob返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZonesInfo;
-
                 /**
                 * 分片节点可用区选择
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ShardZoneChooseInfo();
+                    ~ShardZoneChooseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

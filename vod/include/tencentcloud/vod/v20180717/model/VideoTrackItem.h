@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AudioTransform;
-                class ImageTransform;
-
                 /**
                 * 视频轨的视频片段信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     VideoTrackItem();
+                    ~VideoTrackItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

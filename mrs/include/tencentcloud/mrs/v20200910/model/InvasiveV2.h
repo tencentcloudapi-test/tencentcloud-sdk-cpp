@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Part;
-                class Coord;
-
                 /**
                 * 侵犯
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     InvasiveV2();
+                    ~InvasiveV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

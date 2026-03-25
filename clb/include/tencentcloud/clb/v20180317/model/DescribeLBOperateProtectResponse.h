@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LBOperateProtectInfo;
-
                 /**
                 * DescribeLBOperateProtect返回参数结构体
                 */

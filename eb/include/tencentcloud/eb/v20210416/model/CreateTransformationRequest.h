@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Transformation;
-
                 /**
                 * CreateTransformation请求参数结构体
                 */

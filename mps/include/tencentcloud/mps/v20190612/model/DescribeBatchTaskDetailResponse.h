@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchSubTaskResult;
-                class TaskNotifyConfig;
-
                 /**
                 * DescribeBatchTaskDetail返回参数结构体
                 */

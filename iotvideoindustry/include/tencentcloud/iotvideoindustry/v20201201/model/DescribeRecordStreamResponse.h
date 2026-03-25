@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeRecordStreamData;
-
                 /**
                 * DescribeRecordStream返回参数结构体
                 */

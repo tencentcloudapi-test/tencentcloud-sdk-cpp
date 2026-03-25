@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AudioVolumeParam;
-
                 /**
                 * 音频操作
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AudioTransform();
+                    ~AudioTransform() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

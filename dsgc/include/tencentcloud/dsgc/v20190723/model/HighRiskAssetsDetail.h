@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 高风险资产详情信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HighRiskAssetsDetail();
+                    ~HighRiskAssetsDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainShareUserInfo;
-
                 /**
                 * DescribeDomainShareUserList返回参数结构体
                 */

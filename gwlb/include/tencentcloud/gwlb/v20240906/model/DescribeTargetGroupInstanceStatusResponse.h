@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TargetGroupInstanceStatus;
-
                 /**
                 * DescribeTargetGroupInstanceStatus返回参数结构体
                 */

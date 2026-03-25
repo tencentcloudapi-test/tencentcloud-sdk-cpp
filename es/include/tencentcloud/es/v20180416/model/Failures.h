@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 索引备份失败的数据结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Failures();
+                    ~Failures() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

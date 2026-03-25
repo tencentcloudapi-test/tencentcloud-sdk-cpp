@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Base64编码的header触发规则
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Base64EncodedTriggerRule();
+                    ~Base64EncodedTriggerRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

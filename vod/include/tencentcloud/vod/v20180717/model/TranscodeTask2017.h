@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TranscodePlayInfo2017;
-
                 /**
                 * 视频转码任务信息，该结构仅用于对 2017 版[视频转码](https://cloud.tencent.com/document/product/266/7822)接口发起的任务。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TranscodeTask2017();
+                    ~TranscodeTask2017() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

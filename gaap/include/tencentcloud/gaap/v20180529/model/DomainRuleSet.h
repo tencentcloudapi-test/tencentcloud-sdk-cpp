@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleInfo;
-                class CertificateAliasInfo;
-
                 /**
                 * 按照域名分类的7层监听器转发规则信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DomainRuleSet();
+                    ~DomainRuleSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

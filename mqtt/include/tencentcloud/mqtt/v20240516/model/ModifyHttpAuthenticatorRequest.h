@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HeaderItem;
-                class BodyItem;
-
                 /**
                 * ModifyHttpAuthenticator请求参数结构体
                 */

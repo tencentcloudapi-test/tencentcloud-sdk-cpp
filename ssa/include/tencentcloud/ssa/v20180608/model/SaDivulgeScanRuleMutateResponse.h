@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SaDivulgeScanRuleSetList;
-
                 /**
                 * SaDivulgeScanRuleMutate返回参数结构体
                 */

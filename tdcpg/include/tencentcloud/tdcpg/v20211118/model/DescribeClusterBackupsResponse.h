@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Backup;
-
                 /**
                 * DescribeClusterBackups返回参数结构体
                 */

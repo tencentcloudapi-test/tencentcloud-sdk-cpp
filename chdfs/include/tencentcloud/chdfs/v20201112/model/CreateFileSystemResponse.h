@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileSystem;
-
                 /**
                 * CreateFileSystem返回参数结构体
                 */

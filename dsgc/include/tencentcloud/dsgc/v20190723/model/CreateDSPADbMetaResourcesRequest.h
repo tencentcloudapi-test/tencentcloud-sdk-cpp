@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DspaCloudResourceMeta;
-                class CloudResourceItem;
-
                 /**
                 * CreateDSPADbMetaResources请求参数结构体
                 */

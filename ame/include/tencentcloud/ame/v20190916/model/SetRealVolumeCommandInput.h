@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 设置真实音量。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SetRealVolumeCommandInput();
+                    ~SetRealVolumeCommandInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

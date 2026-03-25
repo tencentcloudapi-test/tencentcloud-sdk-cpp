@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DynamicFlowResult;
-
                 /**
                 * ChannelCreateDynamicFlowApprover返回参数结构体
                 */

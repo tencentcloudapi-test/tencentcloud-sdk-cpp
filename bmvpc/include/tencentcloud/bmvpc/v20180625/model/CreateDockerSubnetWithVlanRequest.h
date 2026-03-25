@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubnetCreateInputInfo;
-
                 /**
                 * CreateDockerSubnetWithVlan请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 部署记录详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DeployRecordDetail();
+                    ~DeployRecordDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

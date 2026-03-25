@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagInfo;
-
                 /**
                 * 推荐物料信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DocItem();
+                    ~DocItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

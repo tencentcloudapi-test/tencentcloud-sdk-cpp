@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Label;
-                class Field;
-
                 /**
                 * 单条详细拨测数据
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DetailedSingleDataDefine();
+                    ~DetailedSingleDataDefine() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

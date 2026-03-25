@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GatherResourceSummary;
-
                 /**
                 * DescribeGatherResource返回参数结构体
                 */

@@ -54,30 +54,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProcedureTask;
-                class EditMediaTask;
-                class WechatPublishTask;
-                class ComposeMediaTask;
-                class SplitMediaTask;
-                class WechatMiniProgramPublishTask;
-                class PullUploadTask;
-                class TranscodeTask2017;
-                class ConcatTask2017;
-                class ClipTask2017;
-                class CreateImageSpriteTask2017;
-                class SnapshotByTimeOffsetTask2017;
-                class RemoveWatermarkTask;
-                class RebuildMediaTask;
-                class ExtractTraceWatermarkTask;
-                class ExtractCopyRightWatermarkTask;
-                class ReviewAudioVideoTask;
-                class ReduceMediaBitrateTask;
-                class DescribeFileAttributesTask;
-                class QualityInspectTask;
-                class QualityEnhanceTask;
-                class ComplexAdaptiveDynamicStreamingTask;
-                class ProcessMediaByMPS;
-
                 /**
                 * DescribeTaskDetail返回参数结构体
                 */

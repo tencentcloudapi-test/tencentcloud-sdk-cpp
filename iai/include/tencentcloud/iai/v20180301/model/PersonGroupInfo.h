@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 包含此人员的人员库及描述字段内容列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PersonGroupInfo();
+                    ~PersonGroupInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

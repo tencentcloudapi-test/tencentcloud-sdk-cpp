@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 证书异步任务ID
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CertTaskId();
+                    ~CertTaskId() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

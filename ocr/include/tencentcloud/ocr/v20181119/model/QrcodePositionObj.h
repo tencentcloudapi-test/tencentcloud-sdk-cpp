@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Coord;
-
                 /**
                 * 二维码/条形码坐标信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     QrcodePositionObj();
+                    ~QrcodePositionObj() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

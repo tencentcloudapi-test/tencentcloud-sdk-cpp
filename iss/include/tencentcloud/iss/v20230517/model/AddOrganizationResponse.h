@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AddOrgData;
-
                 /**
                 * AddOrganization返回参数结构体
                 */

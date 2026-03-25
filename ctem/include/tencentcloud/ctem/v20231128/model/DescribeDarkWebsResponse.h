@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplayDarkWeb;
-
                 /**
                 * DescribeDarkWebs返回参数结构体
                 */

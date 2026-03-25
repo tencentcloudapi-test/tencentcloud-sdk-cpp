@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MonitorMetricSeriesData;
-
                 /**
                 * DescribeDBPerfTimeSeries返回参数结构体
                 */

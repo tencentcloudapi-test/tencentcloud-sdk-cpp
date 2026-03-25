@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Variable;
-                class CalleeAttribute;
-                class TimeRange;
-
                 /**
                 * CreatePredictiveDialingCampaign请求参数结构体
                 */

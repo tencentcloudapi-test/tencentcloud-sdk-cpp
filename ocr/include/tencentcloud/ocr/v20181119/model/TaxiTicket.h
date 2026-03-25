@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 出租车发票
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TaxiTicket();
+                    ~TaxiTicket() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

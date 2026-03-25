@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Reference;
-
                 /**
                 * ChatTranslations请求参数结构体
                 */

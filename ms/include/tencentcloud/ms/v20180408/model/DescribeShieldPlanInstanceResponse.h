@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BindInfo;
-                class ShieldPlanInfo;
-                class ResourceServiceInfo;
-
                 /**
                 * DescribeShieldPlanInstance返回参数结构体
                 */

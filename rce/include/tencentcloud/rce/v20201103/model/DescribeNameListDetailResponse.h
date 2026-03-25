@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OutputDescribeNameListDetailFront;
-
                 /**
                 * DescribeNameListDetail返回参数结构体
                 */

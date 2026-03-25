@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AlertType;
-                class AlertListAggregations;
-
                 /**
                 * 告警列表响应数据
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AlertListData();
+                    ~AlertListData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

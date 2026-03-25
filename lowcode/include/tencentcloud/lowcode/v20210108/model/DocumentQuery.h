@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 删除文档时查询入参
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DocumentQuery();
+                    ~DocumentQuery() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

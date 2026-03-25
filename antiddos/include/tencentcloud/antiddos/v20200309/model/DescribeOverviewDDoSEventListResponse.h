@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OverviewDDoSEvent;
-
                 /**
                 * DescribeOverviewDDoSEventList返回参数结构体
                 */

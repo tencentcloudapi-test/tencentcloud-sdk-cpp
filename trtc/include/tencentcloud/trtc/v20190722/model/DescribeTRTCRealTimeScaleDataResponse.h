@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TRTCDataResult;
-
                 /**
                 * DescribeTRTCRealTimeScaleData返回参数结构体
                 */

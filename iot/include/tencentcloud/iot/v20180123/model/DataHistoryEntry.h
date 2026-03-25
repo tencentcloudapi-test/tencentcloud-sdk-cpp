@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据历史条目
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DataHistoryEntry();
+                    ~DataHistoryEntry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

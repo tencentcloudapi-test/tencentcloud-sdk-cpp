@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Whois联系信息地址
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WhoisContactAddress();
+                    ~WhoisContactAddress() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

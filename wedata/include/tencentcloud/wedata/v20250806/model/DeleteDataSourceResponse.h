@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataSourceStatus;
-
                 /**
                 * DeleteDataSource返回参数结构体
                 */

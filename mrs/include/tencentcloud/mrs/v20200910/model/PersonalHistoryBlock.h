@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BirthPlaceBlock;
-                class SmokeHistoryBlock;
-                class MenstrualHistoryBlock;
-                class ObstetricalHistoryBlock;
-                class FamilyHistoryBlock;
-
                 /**
                 * 个人史
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     PersonalHistoryBlock();
+                    ~PersonalHistoryBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

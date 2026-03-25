@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实时录制白板参数，例如白板宽高等
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Whiteboard();
+                    ~Whiteboard() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

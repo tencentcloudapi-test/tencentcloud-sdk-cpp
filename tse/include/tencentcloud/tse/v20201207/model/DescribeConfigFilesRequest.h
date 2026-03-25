@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConfigFileTag;
-
                 /**
                 * DescribeConfigFiles请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessRule;
-
                 /**
                 * DescribeAccessRules返回参数结构体
                 */

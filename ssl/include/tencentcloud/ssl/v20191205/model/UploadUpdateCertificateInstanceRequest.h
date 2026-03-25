@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceTypeRegions;
-
                 /**
                 * UploadUpdateCertificateInstance请求参数结构体
                 */

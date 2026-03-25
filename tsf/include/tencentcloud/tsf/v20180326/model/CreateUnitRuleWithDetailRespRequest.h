@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UnitRuleItem;
-
                 /**
                 * CreateUnitRuleWithDetailResp请求参数结构体
                 */

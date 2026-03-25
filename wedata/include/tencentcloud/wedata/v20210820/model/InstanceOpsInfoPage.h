@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceOpsDto;
-
                 /**
                 * 任务运行历史分页记录
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceOpsInfoPage();
+                    ~InstanceOpsInfoPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

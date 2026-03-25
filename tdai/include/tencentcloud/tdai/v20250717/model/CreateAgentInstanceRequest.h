@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Parameter;
-                class TagItem;
-
                 /**
                 * CreateAgentInstance请求参数结构体
                 */

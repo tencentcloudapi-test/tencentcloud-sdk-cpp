@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SetProductsForbiddenStatus请求参数结构体
                 */

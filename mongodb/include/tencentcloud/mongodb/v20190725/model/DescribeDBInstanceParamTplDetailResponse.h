@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceEnumParam;
-                class InstanceIntegerParam;
-                class InstanceTextParam;
-                class InstanceMultiParam;
-
                 /**
                 * DescribeDBInstanceParamTplDetail返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Caller;
-
                 /**
                 * DescribeCustomFlowIdsByFlowId请求参数结构体
                 */

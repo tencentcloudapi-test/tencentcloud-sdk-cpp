@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Probe;
-                class Exec;
-                class HttpGet;
-                class TcpSocket;
-
                 /**
                 * 健康探针
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     LivenessOrReadinessProbe();
+                    ~LivenessOrReadinessProbe() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

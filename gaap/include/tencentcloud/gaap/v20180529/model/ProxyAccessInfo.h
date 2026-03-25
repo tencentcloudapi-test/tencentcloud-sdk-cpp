@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IPDetail;
-
                 /**
                 * 加速通道接入点详细信息(包含id、地域、ip等）
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ProxyAccessInfo();
+                    ~ProxyAccessInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Instance;
-
                 /**
                 * GetMonitorData请求参数结构体
                 */

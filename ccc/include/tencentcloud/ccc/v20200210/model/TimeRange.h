@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 时间范围，24 小时制，格式为 09:00:00
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TimeRange();
+                    ~TimeRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

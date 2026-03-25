@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分路径的http头部设置规则。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HttpHeaderPathRule();
+                    ~HttpHeaderPathRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

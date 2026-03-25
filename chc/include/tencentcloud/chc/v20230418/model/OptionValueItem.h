@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 型号选项下拉框中的选项值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OptionValueItem();
+                    ~OptionValueItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FieldInfo;
-                class KafkaInfo;
-
                 /**
                 * 附带被选中字段信息的表格列表
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     SelectedTableWithField();
+                    ~SelectedTableWithField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

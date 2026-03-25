@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AlarmPolicyCondition;
-                class AlarmPolicyEventCondition;
-
                 /**
                 * 告警条件模板
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ConditionsTemp();
+                    ~ConditionsTemp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

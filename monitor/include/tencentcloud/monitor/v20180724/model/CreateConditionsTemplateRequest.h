@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModifyConditionsTemplateRequestCondition;
-                class ModifyConditionsTemplateRequestEventCondition;
-
                 /**
                 * CreateConditionsTemplate请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowBrief;
-
                 /**
                 * DescribeFlowBriefs返回参数结构体
                 */

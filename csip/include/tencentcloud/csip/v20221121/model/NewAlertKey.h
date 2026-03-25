@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 该结构体用来传入告警的key，以更新告警的status
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NewAlertKey();
+                    ~NewAlertKey() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ModifySnapshotsSharePermission返回参数结构体
                 */

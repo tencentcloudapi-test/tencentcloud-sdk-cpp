@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CopyJobResult;
-
                 /**
                 * CopyJobs返回参数结构体
                 */

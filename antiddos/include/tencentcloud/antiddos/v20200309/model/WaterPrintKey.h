@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 生成的水印密钥
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WaterPrintKey();
+                    ~WaterPrintKey() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

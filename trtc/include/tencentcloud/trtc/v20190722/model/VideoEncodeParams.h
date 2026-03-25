@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频转码参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VideoEncodeParams();
+                    ~VideoEncodeParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HttpHeaderParam;
-
                 /**
                 * 域名的定制错误响应配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DomainErrorPageInfo();
+                    ~DomainErrorPageInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

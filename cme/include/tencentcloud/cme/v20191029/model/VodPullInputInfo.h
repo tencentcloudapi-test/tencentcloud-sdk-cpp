@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 点播拉流信息，包括输入拉流地址和播放次数。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VodPullInputInfo();
+                    ~VodPullInputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

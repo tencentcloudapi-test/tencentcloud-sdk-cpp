@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListenerInfo;
-
                 /**
                 * 内部接口使用，返回可以查询统计数据的通道和对应的监听器信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ProxySimpleInfo();
+                    ~ProxySimpleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

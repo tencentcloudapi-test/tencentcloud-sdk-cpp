@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataDisk;
-                class SystemDisk;
-
                 /**
                 * ResizeInstanceDisks请求参数结构体
                 */

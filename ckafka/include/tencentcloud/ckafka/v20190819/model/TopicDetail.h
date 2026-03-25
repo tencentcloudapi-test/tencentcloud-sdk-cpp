@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Config;
-                class TopicRetentionTimeConfigRsp;
-                class Tag;
-
                 /**
                 * 主题详情
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TopicDetail();
+                    ~TopicDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

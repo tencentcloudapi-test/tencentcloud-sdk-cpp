@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 容器安全 主机镜像关联列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageHost();
+                    ~ImageHost() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

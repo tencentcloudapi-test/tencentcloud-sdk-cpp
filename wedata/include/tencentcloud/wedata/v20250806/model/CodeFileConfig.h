@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NotebookSessionInfo;
-
                 /**
                 * 数据探索脚本配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CodeFileConfig();
+                    ~CodeFileConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataMaskStrategyPolicy;
-
                 /**
                 * AttachDataMaskPolicy请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChannelListInfo;
-
                 /**
                 * ListChannel返回参数结构体
                 */

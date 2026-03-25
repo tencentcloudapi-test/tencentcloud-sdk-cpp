@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ShareMember;
-
                 /**
                 * AddShareUnitMembers请求参数结构体
                 */

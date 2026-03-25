@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MaternityDesc;
-                class MaternitySummary;
-
                 /**
                 * 孕产报告
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     Maternity();
+                    ~Maternity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GovernanceInstanceUpdate;
-
                 /**
                 * DeleteGovernanceInstances请求参数结构体
                 */

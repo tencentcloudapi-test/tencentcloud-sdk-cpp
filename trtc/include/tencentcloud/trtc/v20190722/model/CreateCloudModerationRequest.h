@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModerationParams;
-                class ModerationStorageParams;
-
                 /**
                 * CreateCloudModeration请求参数结构体
                 */

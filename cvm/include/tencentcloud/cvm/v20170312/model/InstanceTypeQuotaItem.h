@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Externals;
-                class LocalDiskType;
-                class ItemPrice;
-
                 /**
                 * 描述实例机型配额信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceTypeQuotaItem();
+                    ~InstanceTypeQuotaItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

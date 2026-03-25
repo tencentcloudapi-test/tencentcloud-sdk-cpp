@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QureyKnowledgeDocumentSet;
-
                 /**
                 * 删除文档出参
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeKnowledgeDocumentSetListRsp();
+                    ~DescribeKnowledgeDocumentSetListRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

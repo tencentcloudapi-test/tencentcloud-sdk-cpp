@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ParamInfo;
-                class GeneralTaskParam;
-
                 /**
                 * UpdateWorkflowInfo请求参数结构体
                 */

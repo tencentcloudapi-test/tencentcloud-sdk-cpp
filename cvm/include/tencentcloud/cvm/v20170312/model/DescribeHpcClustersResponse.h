@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HpcClusterInfo;
-
                 /**
                 * DescribeHpcClusters返回参数结构体
                 */

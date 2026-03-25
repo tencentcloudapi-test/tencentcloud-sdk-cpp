@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataTemplate;
-
                 /**
                 * AddProduct请求参数结构体
                 */

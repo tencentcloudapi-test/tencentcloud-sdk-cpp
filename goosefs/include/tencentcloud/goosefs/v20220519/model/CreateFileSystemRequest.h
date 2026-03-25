@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class GooseFSxBuildElement;
-
                 /**
                 * CreateFileSystem请求参数结构体
                 */

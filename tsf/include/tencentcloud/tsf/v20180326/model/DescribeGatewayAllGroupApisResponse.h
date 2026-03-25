@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GatewayVo;
-
                 /**
                 * DescribeGatewayAllGroupApis返回参数结构体
                 */

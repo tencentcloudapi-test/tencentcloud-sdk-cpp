@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InquireCkafkaPriceResp;
-
                 /**
                 * InquireCkafkaPrice返回参数结构体
                 */

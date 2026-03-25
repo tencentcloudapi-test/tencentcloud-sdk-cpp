@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MixLayoutParams;
-                class SubscribeStreamUserIds;
-
                 /**
                 * ModifyCloudRecording请求参数结构体
                 */

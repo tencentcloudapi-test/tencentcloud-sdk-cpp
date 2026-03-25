@@ -43,16 +43,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Image;
-                class SimpleModule;
-                class Position;
-                class Internet;
-                class InstanceTypeConfig;
-                class Tag;
-                class DiskInfo;
-                class VirtualPrivateCloud;
-                class PhysicalPosition;
-
                 /**
                 * 用于描述实例相关的信息。
                 */
@@ -60,6 +50,7 @@ namespace TencentCloud
                 {
                 public:
                     Instance();
+                    ~Instance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

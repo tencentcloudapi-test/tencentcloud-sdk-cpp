@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskLabel;
-                class InputInfo;
-                class AudioSegments;
-                class MediaInfo;
-
                 /**
                 * DescribeTaskDetail返回参数结构体
                 */

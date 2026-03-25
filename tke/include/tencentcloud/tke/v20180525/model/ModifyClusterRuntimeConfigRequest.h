@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuntimeConfig;
-                class NodePoolRuntime;
-
                 /**
                 * ModifyClusterRuntimeConfig请求参数结构体
                 */

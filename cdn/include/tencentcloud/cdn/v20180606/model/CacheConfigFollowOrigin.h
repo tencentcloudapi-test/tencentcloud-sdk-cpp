@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HeuristicCache;
-
                 /**
                 * 路径缓存遵循源站配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CacheConfigFollowOrigin();
+                    ~CacheConfigFollowOrigin() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RegionInstance;
-
                 /**
                 * DescribeRegions返回参数结构体
                 */

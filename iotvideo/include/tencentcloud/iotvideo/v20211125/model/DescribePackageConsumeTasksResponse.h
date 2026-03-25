@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PackageConsumeTask;
-
                 /**
                 * DescribePackageConsumeTasks返回参数结构体
                 */

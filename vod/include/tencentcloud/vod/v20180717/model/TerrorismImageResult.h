@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 图片画面审核涉及令人不安全的信息的任务结果类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TerrorismImageResult();
+                    ~TerrorismImageResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

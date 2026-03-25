@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GoodNews;
-
                 /**
                 * GenerateDealsAndPayNew请求参数结构体
                 */

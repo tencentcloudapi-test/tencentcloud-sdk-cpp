@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaPreknownInfo;
-                class AudioMetadata;
-                class ImageMetadata;
-                class TextMetadata;
-                class MediaMetadata;
-
                 /**
                 * 任务信息
 
@@ -67,6 +61,7 @@ TaskStatus定义如下:
                 {
                 public:
                     TaskInfo();
+                    ~TaskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogResObject;
-
                 /**
                 * SearchClsLog返回参数结构体
                 */

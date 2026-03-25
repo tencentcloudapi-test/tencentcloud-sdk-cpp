@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CacheKey中包含请求参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryString();
+                    ~QueryString() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LineageProperty;
-
                 /**
                 * LineageProcess 血缘产出过程
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LineageProcess();
+                    ~LineageProcess() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

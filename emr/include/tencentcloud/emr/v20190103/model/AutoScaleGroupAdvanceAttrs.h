@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComputeResourceAdvanceParams;
-
                 /**
                 * 自动伸缩组高级设置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AutoScaleGroupAdvanceAttrs();
+                    ~AutoScaleGroupAdvanceAttrs() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

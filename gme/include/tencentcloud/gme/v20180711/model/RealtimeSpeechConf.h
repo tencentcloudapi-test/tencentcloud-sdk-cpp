@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实时语音配置数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RealtimeSpeechConf();
+                    ~RealtimeSpeechConf() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

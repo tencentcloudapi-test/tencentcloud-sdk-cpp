@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DDosProtectionConfig;
-
                 /**
                 * 四层代理实例。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     L4Proxy();
+                    ~L4Proxy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

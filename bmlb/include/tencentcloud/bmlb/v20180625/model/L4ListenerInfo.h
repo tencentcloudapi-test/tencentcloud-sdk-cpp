@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 查询绑定了某主机的四层监听器时返回的四层监听器信息。
 
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     L4ListenerInfo();
+                    ~L4ListenerInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

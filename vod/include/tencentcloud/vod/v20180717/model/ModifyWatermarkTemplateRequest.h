@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageWatermarkInputForUpdate;
-                class TextWatermarkTemplateInputForUpdate;
-                class SvgWatermarkInputForUpdate;
-
                 /**
                 * ModifyWatermarkTemplate请求参数结构体
                 */

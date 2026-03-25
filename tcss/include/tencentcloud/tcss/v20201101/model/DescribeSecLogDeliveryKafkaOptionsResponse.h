@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CKafkaInstanceInfo;
-                class RegionInfo;
-
                 /**
                 * DescribeSecLogDeliveryKafkaOptions返回参数结构体
                 */

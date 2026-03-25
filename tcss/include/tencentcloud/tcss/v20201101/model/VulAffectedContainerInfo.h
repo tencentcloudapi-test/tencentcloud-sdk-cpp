@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 受漏洞影响的容器信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VulAffectedContainerInfo();
+                    ~VulAffectedContainerInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

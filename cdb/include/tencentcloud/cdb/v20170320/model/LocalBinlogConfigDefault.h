@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 本地 binlog 保留策略默认配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LocalBinlogConfigDefault();
+                    ~LocalBinlogConfigDefault() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

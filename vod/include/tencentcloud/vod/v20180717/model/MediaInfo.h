@@ -46,19 +46,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaBasicInfo;
-                class MediaMetaData;
-                class MediaTranscodeInfo;
-                class MediaAnimatedGraphicsInfo;
-                class MediaSampleSnapshotInfo;
-                class MediaImageSpriteInfo;
-                class MediaSnapshotByTimeOffsetInfo;
-                class MediaKeyFrameDescInfo;
-                class MediaAdaptiveDynamicStreamingInfo;
-                class MediaMiniProgramReviewInfo;
-                class MediaSubtitleInfo;
-                class FileReviewInfo;
-
                 /**
                 * 点播文件信息
                 */
@@ -66,6 +53,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaInfo();
+                    ~MediaInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

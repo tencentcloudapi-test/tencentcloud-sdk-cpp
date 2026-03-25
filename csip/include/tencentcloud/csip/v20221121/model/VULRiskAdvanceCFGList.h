@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceSupport;
-
                 /**
                 * 漏洞风险高级配置列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VULRiskAdvanceCFGList();
+                    ~VULRiskAdvanceCFGList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConsumerClient;
-                class TopicConsumeStats;
-
                 /**
                 * DescribeConsumerClient返回参数结构体
                 */

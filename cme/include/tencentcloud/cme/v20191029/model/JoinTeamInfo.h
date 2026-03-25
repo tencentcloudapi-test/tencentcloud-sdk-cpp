@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 加入的团队信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     JoinTeamInfo();
+                    ~JoinTeamInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

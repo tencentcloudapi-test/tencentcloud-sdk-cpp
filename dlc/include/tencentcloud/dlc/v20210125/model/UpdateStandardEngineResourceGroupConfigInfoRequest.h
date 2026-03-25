@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpdateConfContext;
-
                 /**
                 * UpdateStandardEngineResourceGroupConfigInfo请求参数结构体
                 */

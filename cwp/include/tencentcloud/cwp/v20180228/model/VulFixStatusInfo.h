@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulFixStatusHostInfo;
-
                 /**
                 * 查看漏洞修复详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VulFixStatusInfo();
+                    ~VulFixStatusInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

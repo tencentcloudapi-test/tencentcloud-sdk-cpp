@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DeleteInstanceCustomizedDomain请求参数结构体
                 */

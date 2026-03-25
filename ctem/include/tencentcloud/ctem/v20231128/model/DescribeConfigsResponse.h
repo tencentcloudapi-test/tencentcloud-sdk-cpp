@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplayConfig;
-
                 /**
                 * DescribeConfigs返回参数结构体
                 */

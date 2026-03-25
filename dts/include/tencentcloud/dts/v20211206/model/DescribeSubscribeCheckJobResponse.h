@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubscribeCheckStepInfo;
-
                 /**
                 * DescribeSubscribeCheckJob返回参数结构体
                 */

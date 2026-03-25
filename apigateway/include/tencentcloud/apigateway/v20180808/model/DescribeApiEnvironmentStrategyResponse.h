@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiEnvironmentStrategyStatus;
-
                 /**
                 * DescribeApiEnvironmentStrategy返回参数结构体
                 */

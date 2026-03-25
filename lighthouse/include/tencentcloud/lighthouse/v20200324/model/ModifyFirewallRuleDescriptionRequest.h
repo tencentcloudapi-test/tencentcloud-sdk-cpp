@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FirewallRule;
-
                 /**
                 * ModifyFirewallRuleDescription请求参数结构体
                 */

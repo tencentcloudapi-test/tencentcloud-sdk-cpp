@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实例可用区及对应的实例创建数目及运营商的组合；
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ZoneInstanceCountISP();
+                    ~ZoneInstanceCountISP() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

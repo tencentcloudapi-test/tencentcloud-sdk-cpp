@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 异步重试配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RetryConfig();
+                    ~RetryConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

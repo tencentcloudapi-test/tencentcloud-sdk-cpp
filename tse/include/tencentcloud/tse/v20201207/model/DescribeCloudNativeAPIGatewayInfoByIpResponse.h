@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeInstanceInfoByIpResult;
-
                 /**
                 * DescribeCloudNativeAPIGatewayInfoByIp返回参数结构体
                 */

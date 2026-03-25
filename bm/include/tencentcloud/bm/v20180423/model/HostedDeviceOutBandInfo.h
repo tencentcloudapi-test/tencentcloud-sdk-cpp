@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 托管设备带外信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HostedDeviceOutBandInfo();
+                    ~HostedDeviceOutBandInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

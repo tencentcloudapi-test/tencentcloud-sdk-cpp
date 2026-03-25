@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EventListenerDTO;
-
                 /**
                 * RegisterDsEventListener返回参数结构体
                 */

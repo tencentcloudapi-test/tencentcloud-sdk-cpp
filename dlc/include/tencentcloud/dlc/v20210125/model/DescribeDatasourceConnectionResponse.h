@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DatasourceConnectionInfo;
-
                 /**
                 * DescribeDatasourceConnection返回参数结构体
                 */

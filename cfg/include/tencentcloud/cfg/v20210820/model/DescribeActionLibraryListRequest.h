@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ActionFilter;
-
                 /**
                 * DescribeActionLibraryList请求参数结构体
                 */

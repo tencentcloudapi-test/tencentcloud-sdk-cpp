@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpdateSyncProgressRegion;
-
                 /**
                 * 更新异步任务进度
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     UpdateSyncProgress();
+                    ~UpdateSyncProgress() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RiskSyscallWhiteListInfo;
-
                 /**
                 * AddEditRiskSyscallWhiteList请求参数结构体
                 */

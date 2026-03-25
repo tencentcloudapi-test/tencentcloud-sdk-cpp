@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取成员列表入参payload
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GetIndustryV1HomeMembersReqPayload();
+                    ~GetIndustryV1HomeMembersReqPayload() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

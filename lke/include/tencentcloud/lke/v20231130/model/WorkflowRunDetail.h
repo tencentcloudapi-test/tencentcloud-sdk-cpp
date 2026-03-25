@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomVariable;
-
                 /**
                 * 工作流运行实例详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowRunDetail();
+                    ~WorkflowRunDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

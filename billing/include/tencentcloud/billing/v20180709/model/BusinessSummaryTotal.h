@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 按产品汇总总费用
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BusinessSummaryTotal();
+                    ~BusinessSummaryTotal() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

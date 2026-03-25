@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BrowserImpersonationDetectionRule;
-
                 /**
                 * 浏览器伪造识别规则（原主动特征识别规则）的配置。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BrowserImpersonationDetection();
+                    ~BrowserImpersonationDetection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

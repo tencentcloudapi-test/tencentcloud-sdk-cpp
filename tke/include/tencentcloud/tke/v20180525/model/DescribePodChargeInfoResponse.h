@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PodChargeInfo;
-
                 /**
                 * DescribePodChargeInfo返回参数结构体
                 */

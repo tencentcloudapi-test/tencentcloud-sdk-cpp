@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PathMapping;
-
                 /**
                 * 服务自定义域名路径映射
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceSubDomainMappings();
+                    ~ServiceSubDomainMappings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

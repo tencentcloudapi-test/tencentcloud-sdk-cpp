@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MakePlanOpsDtoCollection;
-
                 /**
                 * DescribeOpsMakePlans返回参数结构体
                 */

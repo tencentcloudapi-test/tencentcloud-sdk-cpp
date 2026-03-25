@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 主题占用Broker磁盘大小
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BrokerTopicData();
+                    ~BrokerTopicData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

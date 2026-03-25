@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecLogDeliveryKafkaSettingInfo;
-
                 /**
                 * ModifySecLogDeliveryKafkaSetting请求参数结构体
                 */

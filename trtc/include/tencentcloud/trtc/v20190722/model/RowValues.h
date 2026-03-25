@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SeriesInfo类型的二维数组
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RowValues();
+                    ~RowValues() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaAiAnalysisCoverItem;
-                class TaskOutputStorage;
-
                 /**
                 * 智能封面结果信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AiAnalysisTaskCoverOutput();
+                    ~AiAnalysisTaskCoverOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

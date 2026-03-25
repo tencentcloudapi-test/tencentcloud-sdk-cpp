@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineTag;
-                class MachineExtraInfo;
-
                 /**
                 * 资源管理数据库列表信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AssetDatabaseBaseInfo();
+                    ~AssetDatabaseBaseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 源站防护IP白名单
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IPWhitelist();
+                    ~IPWhitelist() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

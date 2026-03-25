@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataSourceInfo;
-
                 /**
                 * ListDataSources返回参数结构体
                 */

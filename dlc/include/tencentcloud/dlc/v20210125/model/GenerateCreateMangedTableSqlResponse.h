@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Execution;
-
                 /**
                 * GenerateCreateMangedTableSql返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IPAlarmThresholdRelation;
-
                 /**
                 * CreateIPAlarmThresholdConfig请求参数结构体
                 */

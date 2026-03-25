@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SpaceType;
-
                 /**
                 * 空间分类列表响应体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SpaceTypeListRes();
+                    ~SpaceTypeListRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

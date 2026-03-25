@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Whiteboard;
-                class WhiteboardPushBackupParam;
-                class AuthParam;
-
                 /**
                 * StartWhiteboardPush请求参数结构体
                 */

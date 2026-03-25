@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UrlRedirectRule;
-
                 /**
                 * 访问URL重写配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     UrlRedirect();
+                    ~UrlRedirect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

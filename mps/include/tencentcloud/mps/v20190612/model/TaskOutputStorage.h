@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosOutputStorage;
-                class S3OutputStorage;
-                class VODOutputStorage;
-
                 /**
                 * 媒体处理输出对象信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskOutputStorage();
+                    ~TaskOutputStorage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

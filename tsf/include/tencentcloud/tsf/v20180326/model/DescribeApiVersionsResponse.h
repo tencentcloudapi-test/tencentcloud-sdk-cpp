@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiVersionArray;
-
                 /**
                 * DescribeApiVersions返回参数结构体
                 */

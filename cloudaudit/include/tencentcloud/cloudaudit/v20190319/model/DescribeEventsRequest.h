@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LookupAttribute;
-
                 /**
                 * DescribeEvents请求参数结构体
                 */

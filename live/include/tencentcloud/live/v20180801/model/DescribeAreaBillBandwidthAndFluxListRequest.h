@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeAreaBillBandwidthAndFluxList请求参数结构体
                 */

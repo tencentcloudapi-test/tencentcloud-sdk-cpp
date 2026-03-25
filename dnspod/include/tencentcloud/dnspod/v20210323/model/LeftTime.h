@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 批量生成文件剩余时间
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LeftTime();
+                    ~LeftTime() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

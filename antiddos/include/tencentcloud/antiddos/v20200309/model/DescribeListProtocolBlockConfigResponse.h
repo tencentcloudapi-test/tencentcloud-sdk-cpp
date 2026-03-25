@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProtocolBlockRelation;
-
                 /**
                 * DescribeListProtocolBlockConfig返回参数结构体
                 */

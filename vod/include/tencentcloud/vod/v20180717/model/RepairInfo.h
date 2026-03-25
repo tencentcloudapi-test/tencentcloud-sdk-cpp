@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 画质修复控制参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RepairInfo();
+                    ~RepairInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

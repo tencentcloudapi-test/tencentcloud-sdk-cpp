@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CoverTaskResultItem;
-
                 /**
                 * 智能封面结果信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CoverTaskResult();
+                    ~CoverTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

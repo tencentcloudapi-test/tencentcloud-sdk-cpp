@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowApproverInfo;
-                class Component;
-
                 /**
                 * 合同组中每个子合同的发起信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     FlowFileInfo();
+                    ~FlowFileInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

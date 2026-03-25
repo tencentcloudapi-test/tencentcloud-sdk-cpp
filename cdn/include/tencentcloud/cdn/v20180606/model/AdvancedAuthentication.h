@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AdvancedAuthenticationTypeA;
-                class AdvancedAuthenticationTypeB;
-                class AdvancedAuthenticationTypeC;
-                class AdvancedAuthenticationTypeD;
-                class AdvancedAuthenticationTypeE;
-                class AdvancedAuthenticationTypeF;
-
                 /**
                 * 时间戳防盗链高级版配置，白名单功能
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     AdvancedAuthentication();
+                    ~AdvancedAuthentication() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

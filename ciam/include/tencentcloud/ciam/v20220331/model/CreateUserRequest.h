@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MemberMap;
-
                 /**
                 * CreateUser请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccountDetail;
-
                 /**
                 * DescribeAccounts返回参数结构体
                 */

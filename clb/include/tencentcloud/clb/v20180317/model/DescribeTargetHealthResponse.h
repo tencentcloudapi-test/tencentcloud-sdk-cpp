@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LoadBalancerHealth;
-
                 /**
                 * DescribeTargetHealth返回参数结构体
                 */

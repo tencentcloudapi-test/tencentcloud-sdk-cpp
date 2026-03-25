@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CodeItem;
-
                 /**
                 * CreateTraceCodes请求参数结构体
                 */

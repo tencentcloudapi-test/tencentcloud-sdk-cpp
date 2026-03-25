@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 周报列表。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WeeklyReport();
+                    ~WeeklyReport() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

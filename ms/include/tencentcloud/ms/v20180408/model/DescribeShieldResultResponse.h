@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AppDetailInfo;
-                class ShieldInfo;
-
                 /**
                 * DescribeShieldResult返回参数结构体
                 */

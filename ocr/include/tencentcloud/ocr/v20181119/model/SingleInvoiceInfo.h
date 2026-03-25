@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 混贴票据中单张发票的内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SingleInvoiceInfo();
+                    ~SingleInvoiceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

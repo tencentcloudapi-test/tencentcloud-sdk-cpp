@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 置放群组配置数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DisasterRecoverGroupQuota();
+                    ~DisasterRecoverGroupQuota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreateAddressUnsubscribeConfig请求参数结构体
                 */

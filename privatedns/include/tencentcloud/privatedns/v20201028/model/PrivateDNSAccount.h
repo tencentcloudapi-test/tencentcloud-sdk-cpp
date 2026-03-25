@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 私有域解析账号
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PrivateDNSAccount();
+                    ~PrivateDNSAccount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

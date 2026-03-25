@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 合作商竞价详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ReserveBidInfo();
+                    ~ReserveBidInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

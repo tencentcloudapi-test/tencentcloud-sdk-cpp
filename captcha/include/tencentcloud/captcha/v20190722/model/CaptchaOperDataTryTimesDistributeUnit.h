@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeCaptchaOperData方法 尝试次数分布 type = 4
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CaptchaOperDataTryTimesDistributeUnit();
+                    ~CaptchaOperDataTryTimesDistributeUnit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

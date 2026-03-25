@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 展示apm业务系统与其他云产品关联关系返回体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ApmAssociation();
+                    ~ApmAssociation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

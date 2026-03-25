@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClusterConfigsInfoFromEMR;
-
                 /**
                 * DescribeClusterConfigs返回参数结构体
                 */

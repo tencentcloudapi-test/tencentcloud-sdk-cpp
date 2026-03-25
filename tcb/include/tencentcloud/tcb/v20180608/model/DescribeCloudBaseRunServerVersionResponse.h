@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HpaPolicy;
-                class TkeClusterInfo;
-
                 /**
                 * DescribeCloudBaseRunServerVersion返回参数结构体
                 */

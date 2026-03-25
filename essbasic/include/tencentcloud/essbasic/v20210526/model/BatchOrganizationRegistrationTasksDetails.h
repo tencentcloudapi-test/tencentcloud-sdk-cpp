@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 批量认证企业任务详情信息，其中包括 TaskId，状态信息等
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BatchOrganizationRegistrationTasksDetails();
+                    ~BatchOrganizationRegistrationTasksDetails() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

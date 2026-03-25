@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UploadDelta;
-
                 /**
                 * 流式输出消息数据体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     UploadChoice();
+                    ~UploadChoice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

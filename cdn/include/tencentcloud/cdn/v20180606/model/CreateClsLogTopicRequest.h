@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainAreaConfig;
-
                 /**
                 * CreateClsLogTopic请求参数结构体
                 */

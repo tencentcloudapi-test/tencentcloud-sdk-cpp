@@ -38,14 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityPolicyDatabase;
-                class IKEOptionsSpecification;
-                class IPSECOptionsSpecification;
-                class Tag;
-                class CreateVpnConnRoute;
-                class BgpConfig;
-                class HealthCheckConfig;
-
                 /**
                 * CreateVpnConnection请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CcnRegionBandwidthLimit;
-
                 /**
                 * SetCcnRegionBandwidthLimits请求参数结构体
                 */

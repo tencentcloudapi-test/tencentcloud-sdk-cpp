@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * topic消息堆积、占用磁盘排行
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TopicMessageHeapRanking();
+                    ~TopicMessageHeapRanking() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

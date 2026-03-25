@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeInfos;
-
                 /**
                 * DescribeInstanceNodesRole返回参数结构体
                 */

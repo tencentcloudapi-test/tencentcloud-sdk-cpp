@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TextVehicleFront;
-                class TextVehicleBack;
-                class TextTractorVehicleBack;
-
                 /**
                 * VehicleLicenseOCR返回参数结构体
                 */

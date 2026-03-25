@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OrderResource;
-
                 /**
                 * CreateWhiteListOrder返回参数结构体
                 */

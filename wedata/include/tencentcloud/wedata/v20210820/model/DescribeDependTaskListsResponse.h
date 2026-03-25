@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskOpsDto;
-
                 /**
                 * DescribeDependTaskLists返回参数结构体
                 */

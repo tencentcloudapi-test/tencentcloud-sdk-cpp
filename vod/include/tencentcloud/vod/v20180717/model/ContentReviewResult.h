@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PornImageResult;
-                class TerrorismImageResult;
-                class PoliticalImageResult;
-                class ContentReviewOcrResult;
-
                 /**
                 * 图片智能内容识别任务结果
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     ContentReviewResult();
+                    ~ContentReviewResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

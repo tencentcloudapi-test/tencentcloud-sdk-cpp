@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReservedInstanceSpec;
-                class InstanceChargePrepaid;
-
                 /**
                 * CreateReservedInstances请求参数结构体
                 */

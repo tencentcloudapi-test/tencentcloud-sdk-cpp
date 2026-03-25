@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ParamInfo;
-
                 /**
                 * 操作资源DTO
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AsyncResourceVO();
+                    ~AsyncResourceVO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

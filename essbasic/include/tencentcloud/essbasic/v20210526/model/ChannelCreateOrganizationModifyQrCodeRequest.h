@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-
                 /**
                 * ChannelCreateOrganizationModifyQrCode请求参数结构体
                 */

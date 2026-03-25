@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 取消任务响应
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CancelVRSTaskRsp();
+                    ~CancelVRSTaskRsp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

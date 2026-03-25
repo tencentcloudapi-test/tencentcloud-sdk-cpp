@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosInfo;
-
                 /**
                 * 图片水印信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PicMarkInfoItem();
+                    ~PicMarkInfoItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

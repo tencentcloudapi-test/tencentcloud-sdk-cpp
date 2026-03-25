@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LaunchConfiguration;
-
                 /**
                 * DescribeLaunchConfigurations返回参数结构体
                 */

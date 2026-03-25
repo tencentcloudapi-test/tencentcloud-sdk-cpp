@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataEngineConfigInstanceInfo;
-
                 /**
                 * DescribeUserDataEngineConfig返回参数结构体
                 */

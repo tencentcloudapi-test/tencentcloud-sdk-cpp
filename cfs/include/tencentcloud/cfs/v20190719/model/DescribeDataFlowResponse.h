@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataFlowInfo;
-
                 /**
                 * DescribeDataFlow返回参数结构体
                 */

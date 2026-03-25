@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SmartEraseSubtitleConfig;
-                class SmartEraseWatermarkConfig;
-                class SmartErasePrivacyConfig;
-
                 /**
                 * CreateSmartEraseTemplate请求参数结构体
                 */

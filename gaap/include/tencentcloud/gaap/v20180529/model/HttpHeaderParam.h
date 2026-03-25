@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 描述HTTP的包头参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HttpHeaderParam();
+                    ~HttpHeaderParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetectorGroup;
-
                 /**
                 * DescribeDetectors返回参数结构体
                 */

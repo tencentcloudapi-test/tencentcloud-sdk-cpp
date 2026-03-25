@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filters;
-
                 /**
                 * ExportRansomDefenseMachineList请求参数结构体
                 */

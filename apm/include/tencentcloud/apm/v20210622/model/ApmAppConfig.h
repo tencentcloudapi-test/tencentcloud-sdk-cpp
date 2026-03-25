@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Instrument;
-                class AgentOperationConfigView;
-
                 /**
                 * 查询应用配置返回参数
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ApmAppConfig();
+                    ~ApmAppConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

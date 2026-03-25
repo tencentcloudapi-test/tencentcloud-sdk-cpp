@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VatInvoiceUserInfo;
-                class VatInvoiceGoodsInfo;
-                class AirTicketInfo;
-                class RailwayTicketInfo;
-
                 /**
                 * VerifyOfdVatInvoiceOCR返回参数结构体
                 */

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GitInfo;
-                class CosFileInfo;
-
                 /**
                 * 应用版本。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ApplicationVersion();
+                    ~ApplicationVersion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

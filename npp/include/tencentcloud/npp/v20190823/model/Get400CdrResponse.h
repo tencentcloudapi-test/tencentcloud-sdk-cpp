@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VirturalNumCdr;
-
                 /**
                 * Get400Cdr返回参数结构体
                 */

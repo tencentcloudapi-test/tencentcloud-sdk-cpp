@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InsuranceResult;
-                class UnderwriteConclusion;
-
                 /**
                 * 核保结果输出
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     UnderwriteOutput();
+                    ~UnderwriteOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GetWsTokenReq_Label;
-
                 /**
                 * GetWsToken请求参数结构体
                 */

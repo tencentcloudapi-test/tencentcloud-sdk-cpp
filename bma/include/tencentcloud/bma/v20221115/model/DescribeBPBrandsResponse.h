@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BrandData;
-
                 /**
                 * DescribeBPBrands返回参数结构体
                 */

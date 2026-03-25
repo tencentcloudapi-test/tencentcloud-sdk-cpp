@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceCLSDeliveryInfo;
-
                 /**
                 * DescribeInstanceCLSLogDelivery返回参数结构体
                 */

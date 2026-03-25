@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * S3协议参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     S3Options();
+                    ~S3Options() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

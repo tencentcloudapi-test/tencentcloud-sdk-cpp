@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomConfig;
-                class Rule;
-
                 /**
                 * DescribeProxyCustomConf返回参数结构体
                 */

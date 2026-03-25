@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PostCLSFlowInfo;
-
                 /**
                 * DescribePostCLSFlows返回参数结构体
                 */

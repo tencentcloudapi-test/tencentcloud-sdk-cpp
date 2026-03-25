@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filter;
-                class Order;
-
                 /**
                 * DescribeGroupsSTD请求参数结构体
                 */

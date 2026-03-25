@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CompareAbstractInfo;
-                class CompareDetailInfo;
-
                 /**
                 * DescribeCompareReport返回参数结构体
                 */

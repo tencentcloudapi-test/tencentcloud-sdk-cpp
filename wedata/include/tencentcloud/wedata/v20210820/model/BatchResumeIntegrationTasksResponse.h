@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * BatchResumeIntegrationTasks返回参数结构体
                 */

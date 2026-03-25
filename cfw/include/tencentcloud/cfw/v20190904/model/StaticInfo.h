@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * StaticInfo 告警柱形图统计信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     StaticInfo();
+                    ~StaticInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

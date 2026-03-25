@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileInfo;
-
                 /**
                 * DescribeFileInfoByJobId返回参数结构体
                 */

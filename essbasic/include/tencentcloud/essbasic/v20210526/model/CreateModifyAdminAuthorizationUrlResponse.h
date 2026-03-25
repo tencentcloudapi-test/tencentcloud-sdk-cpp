@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreateModifyAdminAuthorizationUrl返回参数结构体
                 */

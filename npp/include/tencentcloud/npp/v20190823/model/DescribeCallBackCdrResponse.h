@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CallBackCdr;
-
                 /**
                 * DescribeCallBackCdr返回参数结构体
                 */

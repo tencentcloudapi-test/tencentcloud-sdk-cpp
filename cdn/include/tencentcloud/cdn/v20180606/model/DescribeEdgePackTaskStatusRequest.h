@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EdgePackTaskFilter;
-
                 /**
                 * DescribeEdgePackTaskStatus请求参数结构体
                 */

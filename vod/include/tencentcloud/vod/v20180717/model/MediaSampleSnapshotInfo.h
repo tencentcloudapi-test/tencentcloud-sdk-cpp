@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaSampleSnapshotItem;
-
                 /**
                 * 点播文件采样截图信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaSampleSnapshotInfo();
+                    ~MediaSampleSnapshotInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

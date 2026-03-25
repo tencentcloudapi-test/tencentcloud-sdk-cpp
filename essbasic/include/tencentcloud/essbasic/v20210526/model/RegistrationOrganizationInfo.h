@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 企业认证信息参数， 需要保证这些参数跟营业执照中的信息一致。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RegistrationOrganizationInfo();
+                    ~RegistrationOrganizationInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

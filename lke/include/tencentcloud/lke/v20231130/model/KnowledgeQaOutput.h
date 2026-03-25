@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InputBoxConfig;
-
                 /**
                 * 应用管理输出配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     KnowledgeQaOutput();
+                    ~KnowledgeQaOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

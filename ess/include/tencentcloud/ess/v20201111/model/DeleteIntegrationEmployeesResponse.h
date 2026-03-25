@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeleteStaffsResult;
-
                 /**
                 * DeleteIntegrationEmployees返回参数结构体
                 */

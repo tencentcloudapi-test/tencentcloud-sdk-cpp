@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopHotKeys;
-
                 /**
                 * DescribeRedisTopHotKeys返回参数结构体
                 */

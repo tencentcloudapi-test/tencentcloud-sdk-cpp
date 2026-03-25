@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageTag;
-
                 /**
                 * DetectEnvelope返回参数结构体
                 */

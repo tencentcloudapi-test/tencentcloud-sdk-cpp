@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class APMKVItem;
-                class APMKV;
-
                 /**
                 * 指标维度信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ApmField();
+                    ~ApmField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

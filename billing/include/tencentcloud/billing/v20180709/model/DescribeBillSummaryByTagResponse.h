@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagSummaryOverviewItem;
-                class SummaryTotal;
-
                 /**
                 * DescribeBillSummaryByTag返回参数结构体
                 */

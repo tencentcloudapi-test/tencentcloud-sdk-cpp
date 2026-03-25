@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomDnsHost;
-
                 /**
                 * DescribeCustomDnsHostSet返回参数结构体
                 */

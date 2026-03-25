@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * kibana公网域名白名单参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KibanaPublicAcl();
+                    ~KibanaPublicAcl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

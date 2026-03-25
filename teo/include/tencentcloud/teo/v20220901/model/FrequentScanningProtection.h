@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-
                 /**
                 * 高频扫描防护配置选项，当某一访客的请求频繁命中「配置为拦截」的托管规则时，在一段时间内封禁该访客所有请求。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FrequentScanningProtection();
+                    ~FrequentScanningProtection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

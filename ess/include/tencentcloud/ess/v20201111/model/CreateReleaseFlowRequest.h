@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserInfo;
-                class RelieveInfo;
-                class Agent;
-                class ReleasedApprover;
-
                 /**
                 * CreateReleaseFlow请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 对账单文件下载链接
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FlexBillDownloadUrlResult();
+                    ~FlexBillDownloadUrlResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

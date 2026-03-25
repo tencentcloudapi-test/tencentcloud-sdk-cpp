@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BudgetWarn;
-                class BudgetConditionsForm;
-                class WaveThresholdForm;
-
                 /**
                 * CreateBudget请求参数结构体
                 */

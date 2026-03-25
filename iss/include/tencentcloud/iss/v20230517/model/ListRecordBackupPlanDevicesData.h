@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordPlanChannelInfo;
-
                 /**
                 * 查询录像上云计划关联通道的返回数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ListRecordBackupPlanDevicesData();
+                    ~ListRecordBackupPlanDevicesData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

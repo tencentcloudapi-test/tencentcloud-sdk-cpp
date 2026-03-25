@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * es聚合数据类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Bucket();
+                    ~Bucket() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

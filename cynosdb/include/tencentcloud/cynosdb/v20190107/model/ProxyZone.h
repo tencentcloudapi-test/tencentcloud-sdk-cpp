@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * proxy节点可用区内个数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProxyZone();
+                    ~ProxyZone() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

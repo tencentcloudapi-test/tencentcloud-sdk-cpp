@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * AI转人工配置项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AITransferItem();
+                    ~AITransferItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

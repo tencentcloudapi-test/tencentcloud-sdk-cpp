@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * EnableApplicationAutoscaler请求参数结构体
                 */

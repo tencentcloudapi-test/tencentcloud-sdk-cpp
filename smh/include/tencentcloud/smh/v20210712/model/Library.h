@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LibraryExtension;
-
                 /**
                 * PaaS 服务媒体库信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Library();
+                    ~Library() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

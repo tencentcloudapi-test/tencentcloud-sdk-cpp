@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConfigHistory;
-
                 /**
                 * DescribeDBConfigHistory返回参数结构体
                 */

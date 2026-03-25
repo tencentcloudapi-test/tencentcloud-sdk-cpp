@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BindProductInfo;
-
                 /**
                 * DescribePrivateCABindedProducts返回参数结构体
                 */

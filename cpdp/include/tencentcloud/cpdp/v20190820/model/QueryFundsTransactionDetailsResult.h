@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FundsTransactionItem;
-
                 /**
                 * 查询会员资金交易信息列表结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryFundsTransactionDetailsResult();
+                    ~QueryFundsTransactionDetailsResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

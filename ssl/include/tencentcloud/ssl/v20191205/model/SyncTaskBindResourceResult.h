@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BindResourceResult;
-                class Error;
-
                 /**
                 * 异步任务证书关联云资源结果
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     SyncTaskBindResourceResult();
+                    ~SyncTaskBindResourceResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

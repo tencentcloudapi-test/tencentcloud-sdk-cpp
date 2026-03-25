@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filter;
-
                 /**
                 * DescribeRocketMQSmoothMigrationTaskList请求参数结构体
                 */

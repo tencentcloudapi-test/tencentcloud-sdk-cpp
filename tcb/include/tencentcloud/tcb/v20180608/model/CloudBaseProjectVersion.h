@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CodeSource;
-                class KVPair;
-
                 /**
                 * 云开发项目版本
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudBaseProjectVersion();
+                    ~CloudBaseProjectVersion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

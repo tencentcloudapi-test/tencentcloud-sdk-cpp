@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomImageProcess;
-
                 /**
                 * DescribeCustomImageProcess返回参数结构体
                 */

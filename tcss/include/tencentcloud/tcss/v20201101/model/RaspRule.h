@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * rasp白名单规则
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RaspRule();
+                    ~RaspRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

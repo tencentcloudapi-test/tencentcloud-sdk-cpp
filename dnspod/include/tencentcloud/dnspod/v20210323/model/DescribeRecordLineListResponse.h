@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LineInfo;
-                class LineGroupInfo;
-
                 /**
                 * DescribeRecordLineList返回参数结构体
                 */

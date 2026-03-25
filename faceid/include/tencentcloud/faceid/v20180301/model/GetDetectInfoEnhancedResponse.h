@@ -39,15 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetectInfoText;
-                class DetectInfoIdCardData;
-                class DetectInfoBestFrame;
-                class DetectInfoVideoData;
-                class Encryption;
-                class IntentionVerifyData;
-                class IntentionQuestionResult;
-                class IntentionActionResult;
-
                 /**
                 * GetDetectInfoEnhanced返回参数结构体
                 */

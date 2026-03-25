@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OrderStep;
-                class DeviceHistory;
-                class DeviceOrderBaseInfo;
-
                 /**
                 * DescribeDeviceWorkOrderDetail返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * RDMA配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RDMAConfig();
+                    ~RDMAConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

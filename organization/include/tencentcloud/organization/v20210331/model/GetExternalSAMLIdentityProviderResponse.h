@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SAMLIdentityProviderConfiguration;
-
                 /**
                 * GetExternalSAMLIdentityProvider返回参数结构体
                 */

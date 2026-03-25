@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DDoSGeoIPBlockConfig;
-
                 /**
                 * DeleteDDoSGeoIPBlockConfig请求参数结构体
                 */

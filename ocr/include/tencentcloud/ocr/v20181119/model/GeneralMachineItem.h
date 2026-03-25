@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 通用机打发票条目
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GeneralMachineItem();
+                    ~GeneralMachineItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

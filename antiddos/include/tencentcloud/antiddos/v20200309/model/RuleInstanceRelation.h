@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 四七层规则对应实例与IP的关系
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RuleInstanceRelation();
+                    ~RuleInstanceRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

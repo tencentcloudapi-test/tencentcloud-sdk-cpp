@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DDoS告警阈值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DDoSAlarmThreshold();
+                    ~DDoSAlarmThreshold() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogsetInfo;
-
                 /**
                 * DescribeLogsets返回参数结构体
                 */

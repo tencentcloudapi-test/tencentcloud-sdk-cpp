@@ -46,19 +46,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MySQLConnectParam;
-                class PostgreSQLConnectParam;
-                class DtsConnectParam;
-                class MongoDBConnectParam;
-                class EsConnectParam;
-                class ClickHouseConnectParam;
-                class MariaDBConnectParam;
-                class SQLServerConnectParam;
-                class CtsdbConnectParam;
-                class DorisConnectParam;
-                class KafkaConnectParam;
-                class MqttConnectParam;
-
                 /**
                 * 查询连接源具体数据的返参
                 */
@@ -66,6 +53,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeConnectResourceResp();
+                    ~DescribeConnectResourceResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IPExpireInfo;
-
                 /**
                 * IP 网段组
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     IPGroup();
+                    ~IPGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

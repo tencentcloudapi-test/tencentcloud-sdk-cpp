@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * GetFaceidRiskInfoToken返回参数结构体
                 */

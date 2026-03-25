@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EnvData;
-                class MountDataDisk;
-                class InputMapping;
-                class Authentication;
-                class Notification;
-                class Tag;
-
                 /**
                 * 计算环境创建信息。
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     ComputeEnvCreateInfo();
+                    ~ComputeEnvCreateInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

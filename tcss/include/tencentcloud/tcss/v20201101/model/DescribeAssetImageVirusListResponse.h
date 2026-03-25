@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageVirusInfo;
-
                 /**
                 * DescribeAssetImageVirusList返回参数结构体
                 */

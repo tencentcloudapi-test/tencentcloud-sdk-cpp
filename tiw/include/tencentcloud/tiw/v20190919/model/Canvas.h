@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LayoutParams;
-
                 /**
                 * 混流画布参数
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Canvas();
+                    ~Canvas() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

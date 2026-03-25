@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Emr集群列表实例自定义查询过滤
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Filters();
+                    ~Filters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

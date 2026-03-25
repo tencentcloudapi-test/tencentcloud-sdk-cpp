@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SQLStopResult;
-
                 /**
                 * StopSQLScriptRun返回参数结构体
                 */

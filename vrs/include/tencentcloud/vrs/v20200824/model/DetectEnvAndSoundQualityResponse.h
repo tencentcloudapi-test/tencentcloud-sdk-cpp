@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetectionEnvAndSoundQualityRespData;
-
                 /**
                 * DetectEnvAndSoundQuality返回参数结构体
                 */

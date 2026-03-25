@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuthToken;
-
                 /**
                 * V2版本的服务调用信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceCallInfoV2();
+                    ~ServiceCallInfoV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

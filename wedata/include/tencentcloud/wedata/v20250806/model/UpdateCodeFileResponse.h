@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CodeFile;
-
                 /**
                 * UpdateCodeFile返回参数结构体
                 */

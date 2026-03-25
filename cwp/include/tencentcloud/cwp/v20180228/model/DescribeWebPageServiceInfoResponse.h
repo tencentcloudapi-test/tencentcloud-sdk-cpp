@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProtectMachineInfo;
-                class ProtectMachine;
-
                 /**
                 * DescribeWebPageServiceInfo返回参数结构体
                 */

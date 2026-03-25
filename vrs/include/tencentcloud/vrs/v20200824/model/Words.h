@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 音频检测提示信息：
 1.检测字是否存在多读、 少读、 错读等
@@ -44,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     Words();
+                    ~Words() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

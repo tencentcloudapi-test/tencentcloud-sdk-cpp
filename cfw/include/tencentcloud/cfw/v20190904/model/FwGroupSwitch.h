@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 多种VPC墙模式开关结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FwGroupSwitch();
+                    ~FwGroupSwitch() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

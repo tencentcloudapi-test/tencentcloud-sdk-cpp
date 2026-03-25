@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BackupLimitClusterRestriction;
-
                 /**
                 * DescribeBackupDownloadRestriction返回参数结构体
                 */

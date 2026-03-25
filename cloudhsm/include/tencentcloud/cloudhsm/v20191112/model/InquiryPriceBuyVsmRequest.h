@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * InquiryPriceBuyVsm请求参数结构体
                 */

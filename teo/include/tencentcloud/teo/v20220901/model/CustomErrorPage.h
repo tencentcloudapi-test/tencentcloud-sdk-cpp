@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrorPageReference;
-
                 /**
                 * 自定义错误码页面结构体。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CustomErrorPage();
+                    ~CustomErrorPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

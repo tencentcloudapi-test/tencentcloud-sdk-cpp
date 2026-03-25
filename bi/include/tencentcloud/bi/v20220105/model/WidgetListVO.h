@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WidgetVO;
-
                 /**
                 * 页面组件信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     WidgetListVO();
+                    ~WidgetListVO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

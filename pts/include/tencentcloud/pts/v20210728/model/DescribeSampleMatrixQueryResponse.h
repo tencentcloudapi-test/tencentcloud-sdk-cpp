@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomSampleMatrix;
-
                 /**
                 * DescribeSampleMatrixQuery返回参数结构体
                 */

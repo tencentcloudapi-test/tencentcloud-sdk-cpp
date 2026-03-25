@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisplaySensitiveInfo;
-
                 /**
                 * DescribeSensitiveInfos返回参数结构体
                 */

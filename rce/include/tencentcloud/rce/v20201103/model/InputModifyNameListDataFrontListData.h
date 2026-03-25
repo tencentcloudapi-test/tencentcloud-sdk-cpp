@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InputModifyNameListDataFront;
-
                 /**
                 * 修改黑白名单数据入参
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InputModifyNameListDataFrontListData();
+                    ~InputModifyNameListDataFrontListData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

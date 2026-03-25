@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StepDetailInfo;
-
                 /**
                 * 迁移执行过程信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MigrateDetailInfo();
+                    ~MigrateDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

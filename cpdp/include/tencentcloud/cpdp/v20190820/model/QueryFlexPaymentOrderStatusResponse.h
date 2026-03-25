@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PaymentOrderStatusResult;
-
                 /**
                 * QueryFlexPaymentOrderStatus返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MonitorTypeInfo;
-
                 /**
                 * DescribeMonitorTypes返回参数结构体
                 */

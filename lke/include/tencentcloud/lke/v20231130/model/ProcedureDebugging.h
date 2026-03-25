@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HistorySummary;
-                class KnowledgeSummary;
-                class TaskFlowSummary;
-                class WorkFlowSummary;
-                class AgentDebugInfo;
-
                 /**
                 * 调试信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     ProcedureDebugging();
+                    ~ProcedureDebugging() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

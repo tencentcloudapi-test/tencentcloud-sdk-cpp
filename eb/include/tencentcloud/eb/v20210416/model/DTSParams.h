@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Data Transfer Service参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DTSParams();
+                    ~DTSParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

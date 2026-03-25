@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrorInfo;
-                class CompareTablesInfo;
-
                 /**
                 * 合服结果
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MergeTableResult();
+                    ~MergeTableResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

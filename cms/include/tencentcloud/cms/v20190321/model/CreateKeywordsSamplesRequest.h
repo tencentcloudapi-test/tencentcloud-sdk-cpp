@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserKeyword;
-
                 /**
                 * CreateKeywordsSamples请求参数结构体
                 */

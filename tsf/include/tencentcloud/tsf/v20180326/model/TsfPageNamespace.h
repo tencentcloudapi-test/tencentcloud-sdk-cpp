@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Namespace;
-
                 /**
                 * Tsf命名空间分页对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageNamespace();
+                    ~TsfPageNamespace() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

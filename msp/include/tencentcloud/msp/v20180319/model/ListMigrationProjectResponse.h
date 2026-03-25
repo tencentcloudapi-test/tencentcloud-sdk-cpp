@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Project;
-
                 /**
                 * ListMigrationProject返回参数结构体
                 */

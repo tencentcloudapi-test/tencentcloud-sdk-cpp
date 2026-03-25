@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Storage;
-                class Filter;
-
                 /**
                 * CreateEventsAuditTrack请求参数结构体
                 */

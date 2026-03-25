@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceProviderAccountBalanceResult;
-
                 /**
                 * QueryFlexServiceProviderAccountBalance返回参数结构体
                 */

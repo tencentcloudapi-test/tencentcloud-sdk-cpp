@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceTagRes;
-
                 /**
                 * DescribeDeviceTagList返回参数结构体
                 */

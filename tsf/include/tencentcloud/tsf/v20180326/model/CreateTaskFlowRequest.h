@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskRule;
-                class TaskFlowEdge;
-
                 /**
                 * CreateTaskFlow请求参数结构体
                 */

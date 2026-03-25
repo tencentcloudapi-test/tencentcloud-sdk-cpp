@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProcedureDebugging;
-
                 /**
                 * 执行过程信息记录
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Procedure();
+                    ~Procedure() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

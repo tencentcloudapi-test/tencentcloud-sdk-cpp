@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BiopsyPart;
-                class EndoscopyDesc;
-                class Summary;
-
                 /**
                 * 内窥镜报告
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     Endoscopy();
+                    ~Endoscopy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

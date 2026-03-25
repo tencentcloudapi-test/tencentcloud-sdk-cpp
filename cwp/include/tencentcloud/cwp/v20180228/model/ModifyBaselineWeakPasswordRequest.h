@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaselineWeakPassword;
-
                 /**
                 * ModifyBaselineWeakPassword请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineSimple;
-
                 /**
                 * DescribeMachinesSimple返回参数结构体
                 */

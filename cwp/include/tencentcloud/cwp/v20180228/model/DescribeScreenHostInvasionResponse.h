@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScreenDefendAttackLog;
-                class ScreenInvasion;
-                class ScreenVulInfo;
-                class ScreenBaselineInfo;
-
                 /**
                 * DescribeScreenHostInvasion返回参数结构体
                 */

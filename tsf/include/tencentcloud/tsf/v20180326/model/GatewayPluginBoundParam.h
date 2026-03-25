@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 微服务网关插件绑定对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GatewayPluginBoundParam();
+                    ~GatewayPluginBoundParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

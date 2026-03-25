@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * bot自定义规则动作灰度
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UCBActionProportion();
+                    ~UCBActionProportion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

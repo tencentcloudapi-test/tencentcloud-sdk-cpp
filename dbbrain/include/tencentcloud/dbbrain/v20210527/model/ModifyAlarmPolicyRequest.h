@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceID;
-                class TemplateInfo;
-                class AlarmsRules;
-
                 /**
                 * ModifyAlarmPolicy请求参数结构体
                 */

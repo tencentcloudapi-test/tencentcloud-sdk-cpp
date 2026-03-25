@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 敏感数据识别规则扩展参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DatagovRuleExtendParameter();
+                    ~DatagovRuleExtendParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

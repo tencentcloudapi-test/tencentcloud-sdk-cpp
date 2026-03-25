@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据库重命名返回参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DBRenameRes();
+                    ~DBRenameRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

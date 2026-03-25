@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 服务响应数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceData();
+                    ~ServiceData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

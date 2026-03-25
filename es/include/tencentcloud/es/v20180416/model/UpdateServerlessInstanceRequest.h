@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KibanaPublicAcl;
-
                 /**
                 * UpdateServerlessInstance请求参数结构体
                 */

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class COSOptions;
-                class S3Options;
-
                 /**
                 * BackUpAndroidInstanceToStorage请求参数结构体
                 */

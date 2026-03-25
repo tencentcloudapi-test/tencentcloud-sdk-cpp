@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PiechartItem;
-
                 /**
                 * DescribeAttackType返回参数结构体
                 */

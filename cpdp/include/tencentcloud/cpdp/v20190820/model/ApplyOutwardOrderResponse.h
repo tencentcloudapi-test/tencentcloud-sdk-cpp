@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplyOutwardOrderResult;
-
                 /**
                 * ApplyOutwardOrder返回参数结构体
                 */

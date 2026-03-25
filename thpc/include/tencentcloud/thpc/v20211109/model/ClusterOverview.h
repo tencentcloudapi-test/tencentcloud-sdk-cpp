@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-                class ComputeNodeOverview;
-                class ManagerNodeOverview;
-                class LoginNodeOverview;
-
                 /**
                 * 集群概览信息。
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterOverview();
+                    ~ClusterOverview() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

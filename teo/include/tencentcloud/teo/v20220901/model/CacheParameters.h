@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FollowOrigin;
-                class NoCache;
-                class CustomTime;
-
                 /**
                 * 节点缓存 TTL 配置参数。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     CacheParameters();
+                    ~CacheParameters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

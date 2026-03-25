@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 列表查询返回的每条记录的操作属性
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BaseStateAction();
+                    ~BaseStateAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

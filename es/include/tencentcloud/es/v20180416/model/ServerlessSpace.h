@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EsAcl;
-                class DiData;
-                class VpcInfo;
-                class TagInfo;
-
                 /**
                 * Serverless索引空间信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     ServerlessSpace();
+                    ~ServerlessSpace() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

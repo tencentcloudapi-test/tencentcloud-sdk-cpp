@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AndroidPlan;
-                class AppletPlan;
-                class IOSPlan;
-                class SDKPlan;
-
                 /**
                 * DescribeEncryptPlan返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EmptyRes;
-
                 /**
                 * AddAlarmProcessRecord返回参数结构体
                 */

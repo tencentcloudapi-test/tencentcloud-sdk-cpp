@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceInfo;
-                class AssetZone;
-
                 /**
                 * DescribeSourceAsset返回参数结构体
                 */

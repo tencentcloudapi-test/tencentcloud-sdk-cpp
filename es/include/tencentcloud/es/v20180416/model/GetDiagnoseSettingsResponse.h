@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DiagnoseJobMeta;
-
                 /**
                 * GetDiagnoseSettings返回参数结构体
                 */

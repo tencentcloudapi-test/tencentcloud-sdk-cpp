@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实例开通或者关闭互通组后的状态
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     InterInstanceFlow();
+                    ~InterInstanceFlow() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

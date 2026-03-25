@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * MongoDB连接源参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MongoDBConnectParam();
+                    ~MongoDBConnectParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

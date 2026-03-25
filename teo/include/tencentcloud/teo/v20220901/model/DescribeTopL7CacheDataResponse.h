@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopDataRecord;
-
                 /**
                 * DescribeTopL7CacheData返回参数结构体
                 */

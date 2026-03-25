@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AiAnalysisTaskHorizontalToVerticalInput;
-                class AiAnalysisTaskHorizontalToVerticalOutput;
-
                 /**
                 * 智能横转竖结果类型
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AiAnalysisTaskHorizontalToVerticalResult();
+                    ~AiAnalysisTaskHorizontalToVerticalResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

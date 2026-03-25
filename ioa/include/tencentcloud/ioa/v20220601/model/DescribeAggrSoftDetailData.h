@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SoftVersionAndNum;
-
                 /**
                 * 聚合软件详情数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeAggrSoftDetailData();
+                    ~DescribeAggrSoftDetailData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

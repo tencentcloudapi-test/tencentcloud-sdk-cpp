@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceRelation;
-                class BGPInstanceSpecification;
-                class BGPInstanceUsages;
-                class RegionInfo;
-                class PackInfo;
-                class EipProductInfo;
-                class TagInfo;
-
                 /**
                 * 高防包资产实例信息
                 */
@@ -56,6 +48,7 @@ namespace TencentCloud
                 {
                 public:
                     BGPInstance();
+                    ~BGPInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

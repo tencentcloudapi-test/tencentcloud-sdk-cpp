@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EndorserGroup;
-
                 /**
                 * GetTransactionDetailForUser返回参数结构体
                 */

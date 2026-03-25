@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResponseQueryContract;
-
                 /**
                 * QueryContract返回参数结构体
                 */

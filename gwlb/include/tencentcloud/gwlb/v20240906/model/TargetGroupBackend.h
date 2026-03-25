@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 目标组绑定的后端服务器
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TargetGroupBackend();
+                    ~TargetGroupBackend() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class ExtensiveClusters;
-                class CrossRegionConfig;
-
                 /**
                 * 负载均衡配置
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     LoadBalancer();
+                    ~LoadBalancer() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

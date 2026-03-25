@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeCustomRulesRspRuleListItem;
-
                 /**
                 * DescribeCustomRuleList返回参数结构体
                 */

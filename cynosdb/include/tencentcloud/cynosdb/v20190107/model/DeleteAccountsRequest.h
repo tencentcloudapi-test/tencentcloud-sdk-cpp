@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InputAccount;
-
                 /**
                 * DeleteAccounts请求参数结构体
                 */

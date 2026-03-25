@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EksCiVolume;
-                class Container;
-                class ImageRegistryCredential;
-
                 /**
                 * UpdateEKSContainerInstance请求参数结构体
                 */

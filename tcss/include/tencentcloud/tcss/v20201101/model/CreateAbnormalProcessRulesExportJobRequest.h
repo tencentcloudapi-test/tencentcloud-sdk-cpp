@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RunTimeFilters;
-
                 /**
                 * CreateAbnormalProcessRulesExportJob请求参数结构体
                 */

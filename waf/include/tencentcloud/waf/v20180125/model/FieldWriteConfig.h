@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 设置哪些字段是否存储或转发
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FieldWriteConfig();
+                    ~FieldWriteConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TsfLoadBalanceConf 出参使用
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TsfLoadBalanceConfResp();
+                    ~TsfLoadBalanceConfResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

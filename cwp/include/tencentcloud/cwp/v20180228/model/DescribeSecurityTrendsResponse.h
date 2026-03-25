@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityTrend;
-
                 /**
                 * DescribeSecurityTrends返回参数结构体
                 */

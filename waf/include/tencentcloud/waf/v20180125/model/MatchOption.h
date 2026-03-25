@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 限流规则中匹配条件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MatchOption();
+                    ~MatchOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

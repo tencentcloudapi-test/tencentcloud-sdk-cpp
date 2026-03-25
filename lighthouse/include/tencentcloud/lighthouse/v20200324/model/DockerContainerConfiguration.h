@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ContainerEnv;
-                class DockerContainerPublishPort;
-                class DockerContainerVolume;
-
                 /**
                 * Docker容器创建时的配置
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     DockerContainerConfiguration();
+                    ~DockerContainerConfiguration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

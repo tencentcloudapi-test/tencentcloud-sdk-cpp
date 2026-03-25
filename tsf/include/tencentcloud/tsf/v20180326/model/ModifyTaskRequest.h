@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskRule;
-                class ShardArgument;
-                class AdvanceSettings;
-
                 /**
                 * ModifyTask请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 告警接收人的关联策略使用信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WebHookReceiverUsage();
+                    ~WebHookReceiverUsage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

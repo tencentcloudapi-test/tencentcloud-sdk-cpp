@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 安全日志接入对象详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SecLogJoinObjectInfo();
+                    ~SecLogJoinObjectInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

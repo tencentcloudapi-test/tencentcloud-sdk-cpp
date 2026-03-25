@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CloseAsyncRecognitionTask请求参数结构体
                 */

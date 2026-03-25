@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DebugLogEntry;
-
                 /**
                 * GetDebugLog返回参数结构体
                 */

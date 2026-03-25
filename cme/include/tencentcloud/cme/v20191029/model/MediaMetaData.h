@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoStreamInfo;
-                class AudioStreamInfo;
-
                 /**
                 * 文件元信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaMetaData();
+                    ~MediaMetaData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

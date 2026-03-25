@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetailData;
-
                 /**
                 * 云硬盘的仓库级别信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SetInfo();
+                    ~SetInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

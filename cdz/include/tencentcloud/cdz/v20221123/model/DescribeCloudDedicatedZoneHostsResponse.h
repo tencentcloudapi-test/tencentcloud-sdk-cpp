@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudDedicatedZoneHostsInfo;
-
                 /**
                 * DescribeCloudDedicatedZoneHosts返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApmAppConfig;
-
                 /**
                 * DescribeApmApplicationConfig返回参数结构体
                 */

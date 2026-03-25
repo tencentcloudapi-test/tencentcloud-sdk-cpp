@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * NAT网关可用区集合
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NatZoneInfo();
+                    ~NatZoneInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SREInstance;
-
                 /**
                 * DescribeSREInstances返回参数结构体
                 */

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AddNodeList;
-                class RemoveNodeList;
-
                 /**
                 * ModifyDBInstanceSpec请求参数结构体
                 */

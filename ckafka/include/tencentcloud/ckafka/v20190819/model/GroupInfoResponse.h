@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupInfoMember;
-
                 /**
                 * GroupInfo返回数据的实体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     GroupInfoResponse();
+                    ~GroupInfoResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

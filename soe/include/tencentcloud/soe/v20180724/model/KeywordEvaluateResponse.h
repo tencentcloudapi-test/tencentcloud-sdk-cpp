@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KeywordScore;
-
                 /**
                 * KeywordEvaluate返回参数结构体
                 */

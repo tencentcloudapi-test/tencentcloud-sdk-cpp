@@ -45,21 +45,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Trigger;
-                class VpcConfig;
-                class Environment;
-                class Tag;
-                class EipOutConfig;
-                class AccessInfo;
-                class LayerVersionInfo;
-                class DeadLetterConfig;
-                class PublicNetConfigOut;
-                class CfsConfig;
-                class StatusReason;
-                class ImageConfig;
-                class ProtocolParams;
-                class IntranetConfigOut;
-
                 /**
                 * GetFunction返回参数结构体
                 */

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Extraction;
-                class EtlFilter;
-                class Transform;
-
                 /**
                 * 一个转换器
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     Transformation();
+                    ~Transformation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SdkAppIdBuyInfo;
-                class PackageBuyInfo;
-
                 /**
                 * DescribeCCCBuyInfoList返回参数结构体
                 */

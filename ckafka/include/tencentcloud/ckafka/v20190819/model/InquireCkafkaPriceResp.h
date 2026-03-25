@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InquiryPrice;
-
                 /**
                 * InquireCkafkaPrice接口询价返回值
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InquireCkafkaPriceResp();
+                    ~InquireCkafkaPriceResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

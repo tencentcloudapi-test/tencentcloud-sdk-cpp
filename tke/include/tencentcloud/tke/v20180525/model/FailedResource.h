@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 修改标签失败的资源
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FailedResource();
+                    ~FailedResource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

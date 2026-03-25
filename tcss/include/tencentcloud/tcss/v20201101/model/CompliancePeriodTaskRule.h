@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 表示一个定时任务的周期设置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CompliancePeriodTaskRule();
+                    ~CompliancePeriodTaskRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 返回连接源的Id
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ConnectResourceResourceIdResp();
+                    ~ConnectResourceResourceIdResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

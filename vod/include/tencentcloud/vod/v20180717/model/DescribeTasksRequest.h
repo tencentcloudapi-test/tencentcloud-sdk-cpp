@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TimeRange;
-                class SortBy;
-
                 /**
                 * DescribeTasks请求参数结构体
                 */

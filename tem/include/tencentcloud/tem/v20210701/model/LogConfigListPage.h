@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogConfig;
-
                 /**
                 * LogConfig 列表结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LogConfigListPage();
+                    ~LogConfigListPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StatusCodeCacheRule;
-
                 /**
                 * 状态码缓存过期配置，默认情况下会对 404 状态码缓存 10 秒
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     StatusCodeCache();
+                    ~StatusCodeCache() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

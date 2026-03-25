@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceSettings;
-                class SpotMixedAllocationPolicy;
-                class InstanceNameIndexSettings;
-
                 /**
                 * ModifyAutoScalingGroup请求参数结构体
                 */

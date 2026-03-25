@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HttpCodeValue;
-
                 /**
                 * HTTP返回码和统计数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     HttpCodeInfo();
+                    ~HttpCodeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

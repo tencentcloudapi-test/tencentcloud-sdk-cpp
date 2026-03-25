@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CCLevelPolicy;
-
                 /**
                 * DescribeCCLevelList返回参数结构体
                 */

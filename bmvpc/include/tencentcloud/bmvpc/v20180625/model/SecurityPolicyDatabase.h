@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SecurityPolicyDatabase策略
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SecurityPolicyDatabase();
+                    ~SecurityPolicyDatabase() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

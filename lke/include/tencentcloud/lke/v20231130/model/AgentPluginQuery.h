@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AgentInput;
-
                 /**
                 * 应用配置MCP插件query信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AgentPluginQuery();
+                    ~AgentPluginQuery() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DCN详情条目
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DcnDetailItem();
+                    ~DcnDetailItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceIdentifier;
-
                 /**
                 * 防火墙模板应用记录详情。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FirewallTemplateApplyRecordDetail();
+                    ~FirewallTemplateApplyRecordDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

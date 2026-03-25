@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Component;
-
                 /**
                 * 目录流程签署区
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CatalogComponents();
+                    ~CatalogComponents() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

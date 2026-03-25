@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DBInstance;
-
                 /**
                 * DescribeDBInstanceAttribute返回参数结构体
                 */

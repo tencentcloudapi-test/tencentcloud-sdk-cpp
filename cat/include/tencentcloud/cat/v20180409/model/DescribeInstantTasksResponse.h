@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SingleInstantTask;
-
                 /**
                 * DescribeInstantTasks返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 指标数据的解释
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MetricObjectMeaning();
+                    ~MetricObjectMeaning() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

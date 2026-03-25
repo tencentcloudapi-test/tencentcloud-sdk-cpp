@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RoleConfiguration;
-
                 /**
                 * CreateRoleConfiguration返回参数结构体
                 */

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComposeSourceMedia;
-                class ComposeTrackTime;
-                class ComposeAudioOperation;
-
                 /**
                 * 视频编辑/合成任务 音频元素信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ComposeAudioItem();
+                    ~ComposeAudioItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

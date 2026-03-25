@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SCFParams;
-                class CkafkaTargetParams;
-                class ESTargetParams;
-
                 /**
                 * TargetDescription描述
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TargetDescription();
+                    ~TargetDescription() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

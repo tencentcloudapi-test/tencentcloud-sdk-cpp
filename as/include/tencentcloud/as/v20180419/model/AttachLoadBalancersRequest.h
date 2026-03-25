@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ForwardLoadBalancer;
-
                 /**
                 * AttachLoadBalancers请求参数结构体
                 */

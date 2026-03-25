@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComplianceCheckDetail;
-
                 /**
                 * DescribeComplianceDetail返回参数结构体
                 */

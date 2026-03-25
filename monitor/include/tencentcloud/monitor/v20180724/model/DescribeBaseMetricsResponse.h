@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MetricSet;
-
                 /**
                 * DescribeBaseMetrics返回参数结构体
                 */

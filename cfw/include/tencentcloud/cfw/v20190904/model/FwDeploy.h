@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 防火墙部署输入参数列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FwDeploy();
+                    ~FwDeploy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

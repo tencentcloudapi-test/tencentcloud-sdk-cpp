@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Ext;
-
                 /**
                 * CreateProduct请求参数结构体
                 */

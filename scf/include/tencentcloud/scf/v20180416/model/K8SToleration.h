@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Kubernetes污点容忍，使用时请注意您的Kubernetes版本所支持的字段情况。
 可参考 https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/taint-and-toleration/
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     K8SToleration();
+                    ~K8SToleration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

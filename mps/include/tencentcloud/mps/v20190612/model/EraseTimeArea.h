@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EraseArea;
-
                 /**
                 * 智能擦除，指定擦除区域配置。
 对指定时间段内的指定区域直接进行擦除。
@@ -46,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     EraseTimeArea();
+                    ~EraseTimeArea() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskCodeResult;
-
                 /**
                 * GetTaskCode返回参数结构体
                 */

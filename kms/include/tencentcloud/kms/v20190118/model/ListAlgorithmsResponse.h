@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AlgorithmInfo;
-
                 /**
                 * ListAlgorithms返回参数结构体
                 */

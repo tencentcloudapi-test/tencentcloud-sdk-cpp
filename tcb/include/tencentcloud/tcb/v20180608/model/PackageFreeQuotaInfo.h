@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 后付费免费额度
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PackageFreeQuotaInfo();
+                    ~PackageFreeQuotaInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

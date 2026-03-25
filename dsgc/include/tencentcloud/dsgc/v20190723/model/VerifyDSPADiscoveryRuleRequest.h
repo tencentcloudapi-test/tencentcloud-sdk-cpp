@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataRules;
-
                 /**
                 * VerifyDSPADiscoveryRule请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MappedBucket;
-
                 /**
                 * AttachFileSystemBucket请求参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KnowledgeQaWorkflowInfo;
-
                 /**
                 * 应用配置关联的agent信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     KnowledgeQaAgent();
+                    ~KnowledgeQaAgent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

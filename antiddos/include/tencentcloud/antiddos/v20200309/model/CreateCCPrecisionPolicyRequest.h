@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CCPrecisionPlyRecord;
-
                 /**
                 * CreateCCPrecisionPolicy请求参数结构体
                 */

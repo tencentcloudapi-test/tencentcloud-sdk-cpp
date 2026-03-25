@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AISearchInfo;
-
                 /**
                 * DescribeAISearchTaskAsync返回参数结构体
                 */

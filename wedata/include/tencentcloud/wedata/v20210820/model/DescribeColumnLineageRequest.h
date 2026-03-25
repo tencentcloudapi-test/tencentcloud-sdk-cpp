@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ColumnLineageInfo;
-                class RecordField;
-
                 /**
                 * DescribeColumnLineage请求参数结构体
                 */

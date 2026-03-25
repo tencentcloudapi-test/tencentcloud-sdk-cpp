@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * PutMusicOnTheShelves返回参数结构体
                 */

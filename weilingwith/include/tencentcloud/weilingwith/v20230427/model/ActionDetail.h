@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LinkRule;
-
                 /**
                 * 详细动作信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ActionDetail();
+                    ~ActionDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

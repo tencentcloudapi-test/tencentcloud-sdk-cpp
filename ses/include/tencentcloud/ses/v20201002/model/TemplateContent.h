@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 模板内容，TEXT和HTML必须至少存在一项，建议使用TEXT和HTML的组合
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TemplateContent();
+                    ~TemplateContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

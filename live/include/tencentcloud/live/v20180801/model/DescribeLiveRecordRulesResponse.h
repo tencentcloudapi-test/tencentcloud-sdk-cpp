@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleInfo;
-
                 /**
                 * DescribeLiveRecordRules返回参数结构体
                 */

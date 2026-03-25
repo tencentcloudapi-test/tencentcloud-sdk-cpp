@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RedisBigKeyTask;
-
                 /**
                 * DescribeRedisBigKeyAnalysisTasks返回参数结构体
                 */

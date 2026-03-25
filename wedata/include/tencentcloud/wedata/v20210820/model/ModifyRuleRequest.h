@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CompareRule;
-                class RuleFieldConfig;
-
                 /**
                 * ModifyRule请求参数结构体
                 */

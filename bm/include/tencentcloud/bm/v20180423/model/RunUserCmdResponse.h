@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SuccessTaskInfo;
-                class FailedTaskInfo;
-
                 /**
                 * RunUserCmd返回参数结构体
                 */

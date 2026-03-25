@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChainTransaction;
-
                 /**
                 * CreateTDidByHost返回参数结构体
                 */

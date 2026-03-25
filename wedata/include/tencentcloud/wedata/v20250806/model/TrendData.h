@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 资源组指标趋势
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TrendData();
+                    ~TrendData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

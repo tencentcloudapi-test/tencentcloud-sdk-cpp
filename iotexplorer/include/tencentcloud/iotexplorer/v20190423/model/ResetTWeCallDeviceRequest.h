@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TWeCallInfo;
-
                 /**
                 * ResetTWeCallDevice请求参数结构体
                 */

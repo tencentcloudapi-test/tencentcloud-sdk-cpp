@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Grafana 告警渠道
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GrafanaNotificationChannel();
+                    ~GrafanaNotificationChannel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

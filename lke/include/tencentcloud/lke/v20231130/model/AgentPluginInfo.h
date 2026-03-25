@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AgentPluginHeader;
-                class AgentModelInfo;
-                class AgentKnowledgeQAPlugin;
-                class AgentPluginQuery;
-
                 /**
                 * Agent 的插件信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     AgentPluginInfo();
+                    ~AgentPluginInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

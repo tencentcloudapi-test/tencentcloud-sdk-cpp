@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Switch;
-
                 /**
                 * DescribeLogSwitches返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 患者家族病史
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PatientFamilyHistory();
+                    ~PatientFamilyHistory() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

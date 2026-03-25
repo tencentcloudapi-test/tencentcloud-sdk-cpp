@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateInstancePreResp;
-
                 /**
                 * ModifyInstancePre返回参数结构体
                 */

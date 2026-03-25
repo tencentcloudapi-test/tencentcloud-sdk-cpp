@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudBaseRunImageInfo;
-                class CloudBaseCodeRepoDetail;
-
                 /**
                 * CloudRunServiceSimpleVersionSnapshot 信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudRunServiceSimpleVersionSnapshot();
+                    ~CloudRunServiceSimpleVersionSnapshot() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

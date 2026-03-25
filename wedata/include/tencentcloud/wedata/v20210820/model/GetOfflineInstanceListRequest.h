@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SearchCondition;
-
                 /**
                 * GetOfflineInstanceList请求参数结构体
                 */

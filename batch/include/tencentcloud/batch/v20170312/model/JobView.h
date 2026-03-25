@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-                class TaskMetrics;
-                class Tag;
-
                 /**
                 * 作业信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     JobView();
+                    ~JobView() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

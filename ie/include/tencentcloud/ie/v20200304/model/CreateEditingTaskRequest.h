@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EditingInfo;
-                class DownInfo;
-                class SaveInfo;
-                class CallbackInfo;
-
                 /**
                 * CreateEditingTask请求参数结构体
                 */

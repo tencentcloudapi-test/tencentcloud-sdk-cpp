@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZoneResource;
-
                 /**
                 * DescribeGatewayLoadBalancersResources返回参数结构体
                 */

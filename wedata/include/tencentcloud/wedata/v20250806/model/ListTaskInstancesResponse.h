@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskInstancePage;
-
                 /**
                 * ListTaskInstances返回参数结构体
                 */

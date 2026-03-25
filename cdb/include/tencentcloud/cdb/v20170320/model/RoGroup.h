@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RoInstanceInfo;
-
                 /**
                 * 只读组参数
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RoGroup();
+                    ~RoGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

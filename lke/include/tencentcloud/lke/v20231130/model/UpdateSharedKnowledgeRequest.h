@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KnowledgeUpdateInfo;
-
                 /**
                 * UpdateSharedKnowledge请求参数结构体
                 */

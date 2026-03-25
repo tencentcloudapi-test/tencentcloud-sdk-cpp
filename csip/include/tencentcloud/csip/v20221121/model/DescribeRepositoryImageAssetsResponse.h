@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RepositoryImageVO;
-                class FilterDataObject;
-
                 /**
                 * DescribeRepositoryImageAssets返回参数结构体
                 */

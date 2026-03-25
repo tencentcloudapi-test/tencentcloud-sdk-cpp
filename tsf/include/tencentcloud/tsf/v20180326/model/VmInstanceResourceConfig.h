@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 虚拟机实例相关的参数配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VmInstanceResourceConfig();
+                    ~VmInstanceResourceConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

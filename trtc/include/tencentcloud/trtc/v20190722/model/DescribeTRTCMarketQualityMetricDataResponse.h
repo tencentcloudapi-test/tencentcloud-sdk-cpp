@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TRTCDataResp;
-
                 /**
                 * DescribeTRTCMarketQualityMetricData返回参数结构体
                 */

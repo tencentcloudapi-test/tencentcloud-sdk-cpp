@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TrainingTaskSetItem;
-
                 /**
                 * DescribeTrainingTasks返回参数结构体
                 */

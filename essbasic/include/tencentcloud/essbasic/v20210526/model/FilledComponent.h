@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 文档内的填充控件返回结构体，返回控件的基本信息和填写内容值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FilledComponent();
+                    ~FilledComponent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

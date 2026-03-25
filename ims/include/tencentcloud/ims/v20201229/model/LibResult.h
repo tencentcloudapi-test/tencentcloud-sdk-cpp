@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LibDetail;
-
                 /**
                 * 用于返回黑白库比对结果的详细信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LibResult();
+                    ~LibResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DLC 数据目录访问权限
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DLCCatalogAccess();
+                    ~DLCCatalogAccess() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

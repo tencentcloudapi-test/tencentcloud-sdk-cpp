@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class AssistantCidr;
-                class ISPIPv6CidrBlock;
-
                 /**
                 * 私有网络(VPC) 对象。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     VpcInfo();
+                    ~VpcInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

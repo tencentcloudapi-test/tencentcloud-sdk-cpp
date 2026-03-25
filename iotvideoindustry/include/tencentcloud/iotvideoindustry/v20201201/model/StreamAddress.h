@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 拉流地址，只有在推流情况下才有
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     StreamAddress();
+                    ~StreamAddress() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

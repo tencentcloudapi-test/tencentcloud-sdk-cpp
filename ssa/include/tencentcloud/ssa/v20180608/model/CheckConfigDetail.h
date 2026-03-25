@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云安全配置检查项详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CheckConfigDetail();
+                    ~CheckConfigDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

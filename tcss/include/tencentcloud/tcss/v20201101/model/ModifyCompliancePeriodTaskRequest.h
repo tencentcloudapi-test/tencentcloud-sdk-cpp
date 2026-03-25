@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CompliancePeriodTaskRule;
-                class ComplianceBenchmarkStandardEnable;
-
                 /**
                 * ModifyCompliancePeriodTask请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 直播 AI Ocr 单词识别结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LiveStreamOcrWordsRecognitionResult();
+                    ~LiveStreamOcrWordsRecognitionResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

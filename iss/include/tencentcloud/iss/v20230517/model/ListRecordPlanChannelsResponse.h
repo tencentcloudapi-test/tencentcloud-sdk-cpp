@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListRecordPlanChannelsData;
-
                 /**
                 * ListRecordPlanChannels返回参数结构体
                 */

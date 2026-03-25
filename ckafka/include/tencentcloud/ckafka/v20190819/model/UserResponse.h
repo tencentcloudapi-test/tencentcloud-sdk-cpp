@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class User;
-
                 /**
                 * 用户返回实体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     UserResponse();
+                    ~UserResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

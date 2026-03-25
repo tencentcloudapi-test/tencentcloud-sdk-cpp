@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 计费详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ChargeDetail();
+                    ~ChargeDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

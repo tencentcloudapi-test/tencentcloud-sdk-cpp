@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessKeyAlarmInfo;
-                class AKInfo;
-                class SourceIPVpcInfo;
-
                 /**
                 * 访问密钥资产信息（源IP角度）
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     SourceIPAsset();
+                    ~SourceIPAsset() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

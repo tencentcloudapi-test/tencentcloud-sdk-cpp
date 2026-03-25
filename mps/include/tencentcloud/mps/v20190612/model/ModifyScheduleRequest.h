@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkflowTrigger;
-                class Activity;
-                class TaskOutputStorage;
-                class TaskNotifyConfig;
-
                 /**
                 * ModifySchedule请求参数结构体
                 */

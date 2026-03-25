@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 组织成员被授权的策略
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OrgMemberPolicy();
+                    ~OrgMemberPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PostPaidQuota;
-                class PrePaidQuota;
-                class SpotPaidQuota;
-                class ImageQuota;
-                class DisasterRecoverGroupQuota;
-
                 /**
                 * 配额详情
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     AccountQuota();
+                    ~AccountQuota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

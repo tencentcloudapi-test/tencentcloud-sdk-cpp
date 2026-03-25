@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuthenticationTypeA;
-                class AuthenticationTypeB;
-                class AuthenticationTypeC;
-                class AuthenticationTypeD;
-
                 /**
                 * 时间戳防盗链配置
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     Authentication();
+                    ~Authentication() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

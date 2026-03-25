@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 证书详情，包括证书ID， 证书名字，证书类型，证书内容以及密钥内容。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CertificateDetail();
+                    ~CertificateDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

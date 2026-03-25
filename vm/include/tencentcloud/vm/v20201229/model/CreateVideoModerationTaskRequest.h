@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskInput;
-
                 /**
                 * CreateVideoModerationTask请求参数结构体
                 */

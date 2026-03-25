@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 统计折线图通用结构体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IpStatic();
+                    ~IpStatic() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

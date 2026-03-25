@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Dimension;
-
                 /**
                 * DescribeJobMonitorData请求参数结构体
                 */

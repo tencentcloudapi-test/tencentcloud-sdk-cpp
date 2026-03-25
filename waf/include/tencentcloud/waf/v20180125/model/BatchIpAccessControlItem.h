@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JobDateTime;
-
                 /**
                 * 批量多域名黑白名单列表Ip
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BatchIpAccessControlItem();
+                    ~BatchIpAccessControlItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

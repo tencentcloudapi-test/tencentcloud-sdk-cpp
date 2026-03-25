@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryOrderOutSubOrderList;
-                class OldChannelExternalUserInfo;
-                class OldAttachmentInfo;
-
                 /**
                 * 查询订单接口的出参，订单列表
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryOrderOutOrderList();
+                    ~QueryOrderOutOrderList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * FreezeTasksByWorkflowIds请求参数结构体
                 */

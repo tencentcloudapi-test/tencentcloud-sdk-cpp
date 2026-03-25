@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiUsagePlan;
-
                 /**
                 * 服务绑定使用计划列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceUsagePlanSet();
+                    ~ServiceUsagePlanSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SaleInfo;
-
                 /**
                 * zone信息实体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ZoneInfo();
+                    ~ZoneInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

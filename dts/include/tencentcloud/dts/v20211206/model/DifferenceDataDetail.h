@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DifferenceData;
-
                 /**
                 * mongodb数据不一致性详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DifferenceDataDetail();
+                    ~DifferenceDataDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

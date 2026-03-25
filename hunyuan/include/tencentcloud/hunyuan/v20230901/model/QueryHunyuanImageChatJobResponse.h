@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class History;
-
                 /**
                 * QueryHunyuanImageChatJob返回参数结构体
                 */

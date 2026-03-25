@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TreeResourceItem;
-                class DescribeTreeResourcesRsp;
-
                 /**
                 * DescribeTreeResources返回参数结构体
                 */

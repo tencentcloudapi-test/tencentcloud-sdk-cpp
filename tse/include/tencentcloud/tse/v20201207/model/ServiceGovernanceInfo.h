@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BoundK8SInfo;
-                class VpcInfo;
-                class PolarisCLSTopicInfo;
-
                 /**
                 * 服务治理相关的信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceGovernanceInfo();
+                    ~ServiceGovernanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

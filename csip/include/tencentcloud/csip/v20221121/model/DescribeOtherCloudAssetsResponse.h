@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DBAssetVO;
-                class FilterDataObject;
-
                 /**
                 * DescribeOtherCloudAssets返回参数结构体
                 */

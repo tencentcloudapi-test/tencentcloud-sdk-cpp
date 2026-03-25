@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VULBaseInfo;
-                class FilterDataObject;
-
                 /**
                 * DescribeVULList返回参数结构体
                 */

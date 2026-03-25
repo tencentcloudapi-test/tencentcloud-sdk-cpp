@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AutoUpgradeClusterLevel;
-                class ClusterProperty;
-
                 /**
                 * ModifyClusterAttribute返回参数结构体
                 */

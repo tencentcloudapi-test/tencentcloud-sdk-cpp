@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DDoS高级策略的禁用协议选项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DDoSPolicyDropOption();
+                    ~DDoSPolicyDropOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

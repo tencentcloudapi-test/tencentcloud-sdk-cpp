@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonTimeWindow;
-
                 /**
                 * DescribeBackupConfig返回参数结构体
                 */

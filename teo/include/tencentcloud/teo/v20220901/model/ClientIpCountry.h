@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 回源时携带客户端IP所属地域信息，值的格式为ISO-3166-1两位字母代码。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClientIpCountry();
+                    ~ClientIpCountry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

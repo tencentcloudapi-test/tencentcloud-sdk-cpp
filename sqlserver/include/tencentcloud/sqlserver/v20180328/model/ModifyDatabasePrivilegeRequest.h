@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataBasePrivilegeModifyInfo;
-
                 /**
                 * ModifyDatabasePrivilege请求参数结构体
                 */

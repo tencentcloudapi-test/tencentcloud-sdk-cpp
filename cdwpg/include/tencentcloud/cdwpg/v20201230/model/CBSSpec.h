@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 磁盘规格
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CBSSpec();
+                    ~CBSSpec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

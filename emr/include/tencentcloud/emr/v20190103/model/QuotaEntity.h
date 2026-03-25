@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取CVM配额
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     QuotaEntity();
+                    ~QuotaEntity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

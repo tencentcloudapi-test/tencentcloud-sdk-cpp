@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlySecMiniAppTaskData;
-
                 /**
                 * DescribeFlySecMiniAppScanTaskList返回参数结构体
                 */

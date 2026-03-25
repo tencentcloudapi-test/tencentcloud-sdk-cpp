@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AsrResult;
-                class ShotInfo;
-                class TextSegMatchShotScore;
-
                 /**
                 * DescribeVideoSummaryDetail返回参数结构体
                 */

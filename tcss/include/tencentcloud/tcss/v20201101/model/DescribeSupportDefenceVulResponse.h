@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SupportDefenceVul;
-
                 /**
                 * DescribeSupportDefenceVul返回参数结构体
                 */

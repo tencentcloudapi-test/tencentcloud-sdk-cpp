@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeDLPFileDetectTaskResult;
-
                 /**
                 * DescribeDLPFileDetectTaskResult返回参数结构体
                 */

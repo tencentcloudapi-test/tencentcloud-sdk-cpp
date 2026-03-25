@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SpecInfo;
-
                 /**
                 * 包括地域的产品规格配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ProductSpec();
+                    ~ProductSpec() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

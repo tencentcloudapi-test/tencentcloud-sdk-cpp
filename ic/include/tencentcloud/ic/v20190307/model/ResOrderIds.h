@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 订单ID集合
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ResOrderIds();
+                    ~ResOrderIds() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 函数类型或函数分类
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FunctionTypeOrKind();
+                    ~FunctionTypeOrKind() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

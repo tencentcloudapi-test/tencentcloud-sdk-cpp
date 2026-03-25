@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserInfo;
-                class ApproverRestriction;
-                class Agent;
-                class ApproverComponentLimitType;
-
                 /**
                 * CreateMultiFlowSignQRCode请求参数结构体
                 */

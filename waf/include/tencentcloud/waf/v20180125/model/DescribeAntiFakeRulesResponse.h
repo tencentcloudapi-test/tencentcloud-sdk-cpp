@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CacheUrlItems;
-
                 /**
                 * DescribeAntiFakeRules返回参数结构体
                 */

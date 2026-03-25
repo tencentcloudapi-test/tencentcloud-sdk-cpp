@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 批量发送消息内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BatchContent();
+                    ~BatchContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

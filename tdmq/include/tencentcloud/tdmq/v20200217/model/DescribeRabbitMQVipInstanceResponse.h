@@ -39,15 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RabbitMQClusterInfo;
-                class RabbitMQClusterSpecInfo;
-                class RabbitMQClusterAccessInfo;
-                class RabbitMQClusterWhiteListInfo;
-                class VirtualHostQuota;
-                class ExchangeQuota;
-                class QueueQuota;
-                class RabbitMQUserQuota;
-
                 /**
                 * DescribeRabbitMQVipInstance返回参数结构体
                 */

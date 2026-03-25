@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProjectLimit;
-
                 /**
                 * DescribeProjectLimits返回参数结构体
                 */

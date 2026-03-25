@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApolloEnvParam;
-                class InstanceTagInfo;
-                class EngineAdmin;
-                class EngineRegionInfo;
-                class StorageOption;
-
                 /**
                 * CreateEngine请求参数结构体
                 */

@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Part;
-                class Size;
-                class HistologyLevel;
-                class HistologyType;
-                class IHCInfo;
-                class BlockInfo;
-                class Invas;
-                class Lymph;
-
                 /**
                 * 病理报告
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     PathologyReport();
+                    ~PathologyReport() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

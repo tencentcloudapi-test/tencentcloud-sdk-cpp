@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实例诊断历史事件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DiagHistoryEventItem();
+                    ~DiagHistoryEventItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EnvInfo;
-
                 /**
                 * DescribeCloudRunEnvs返回参数结构体
                 */

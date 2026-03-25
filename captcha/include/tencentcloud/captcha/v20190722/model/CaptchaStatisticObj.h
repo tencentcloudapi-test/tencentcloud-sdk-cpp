@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RequestTrendObj;
-                class InterceptPerTrendObj;
-                class TicketCheckTrendObj;
-
                 /**
                 * 验证码统计图Obj
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     CaptchaStatisticObj();
+                    ~CaptchaStatisticObj() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

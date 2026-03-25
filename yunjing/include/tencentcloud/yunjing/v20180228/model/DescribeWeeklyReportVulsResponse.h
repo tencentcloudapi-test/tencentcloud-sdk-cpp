@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WeeklyReportVul;
-
                 /**
                 * DescribeWeeklyReportVuls返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AbstractRuntimeMC;
-
                 /**
                 * ListDeployableRuntimesMC返回参数结构体
                 */

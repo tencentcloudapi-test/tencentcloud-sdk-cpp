@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AiReviewPoliticalOcrTaskInput;
-                class AiReviewPoliticalOcrTaskOutput;
-
                 /**
                 * 音视频审核 Ocr 文字涉及令人不适宜信息、违规任务结果类型
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewTaskPoliticalOcrResult();
+                    ~AiReviewTaskPoliticalOcrResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

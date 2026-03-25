@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filter;
-                class TagPair;
-
                 /**
                 * DescribeProxies请求参数结构体
                 */

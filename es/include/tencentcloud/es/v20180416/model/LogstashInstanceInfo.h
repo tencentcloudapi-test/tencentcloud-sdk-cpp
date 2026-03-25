@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogstashNodeInfo;
-                class LogstashExtendedFile;
-                class OperationDuration;
-                class TagInfo;
-                class ZoneDetail;
-
                 /**
                 * Logstash实例详细信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     LogstashInstanceInfo();
+                    ~LogstashInstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

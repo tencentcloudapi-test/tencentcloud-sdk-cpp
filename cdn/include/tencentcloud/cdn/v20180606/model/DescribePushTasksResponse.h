@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PushTask;
-
                 /**
                 * DescribePushTasks返回参数结构体
                 */

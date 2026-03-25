@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DedicatedClusterTypeInfo;
-                class CosInfo;
-                class CbsInfo;
-
                 /**
                 * CreateDedicatedClusterOrder请求参数结构体
                 */

@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceOpsDto;
-                class InstanceApiOpsRequest;
-                class ProjectBaseInfoOpsRequest;
-
                 /**
                 * DagInstances请求参数结构体
                 */

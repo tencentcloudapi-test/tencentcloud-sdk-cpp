@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonFilter;
-
                 /**
                 * DescribeEnterpriseSecurityGroupRuleList请求参数结构体
                 */

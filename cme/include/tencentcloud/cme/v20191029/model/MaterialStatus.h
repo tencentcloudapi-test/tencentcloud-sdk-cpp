@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 素材的状态，目前仅包含素材编辑可用状态。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MaterialStatus();
+                    ~MaterialStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

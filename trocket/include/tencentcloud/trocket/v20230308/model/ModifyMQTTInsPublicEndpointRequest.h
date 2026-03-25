@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PublicAccessRule;
-
                 /**
                 * ModifyMQTTInsPublicEndpoint请求参数结构体
                 */

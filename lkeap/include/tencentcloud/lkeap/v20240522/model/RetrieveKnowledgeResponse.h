@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RetrievalRecord;
-
                 /**
                 * RetrieveKnowledge返回参数结构体
                 */

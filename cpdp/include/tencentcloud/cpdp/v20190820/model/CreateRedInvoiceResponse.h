@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateRedInvoiceResult;
-
                 /**
                 * CreateRedInvoice返回参数结构体
                 */

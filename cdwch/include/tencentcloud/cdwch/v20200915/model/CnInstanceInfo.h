@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceStateInfo;
-                class CNResource;
-
                 /**
                 * 云原生实例详情
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CnInstanceInfo();
+                    ~CnInstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

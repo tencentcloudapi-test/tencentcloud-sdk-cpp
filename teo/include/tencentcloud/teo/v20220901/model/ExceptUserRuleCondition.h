@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 例外规则生效的具体条件。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ExceptUserRuleCondition();
+                    ~ExceptUserRuleCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

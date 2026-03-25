@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogstashPipelineInfo;
-
                 /**
                 * DescribeLogstashPipelines返回参数结构体
                 */

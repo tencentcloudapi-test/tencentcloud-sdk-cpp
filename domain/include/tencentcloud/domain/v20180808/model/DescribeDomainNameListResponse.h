@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainList;
-
                 /**
                 * DescribeDomainNameList返回参数结构体
                 */

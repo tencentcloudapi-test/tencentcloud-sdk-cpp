@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PassportRecognizeInfos;
-
                 /**
                 * MLIDPassportOCR返回参数结构体
                 */

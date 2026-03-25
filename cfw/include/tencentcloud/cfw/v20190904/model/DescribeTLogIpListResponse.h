@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StaticInfo;
-
                 /**
                 * DescribeTLogIpList返回参数结构体
                 */

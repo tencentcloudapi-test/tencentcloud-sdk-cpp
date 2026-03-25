@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RocketMQTopicDistribution;
-                class RocketMQMigrationTopicDistribution;
-
                 /**
                 * DescribeRocketMQSmoothMigrationTask返回参数结构体
                 */

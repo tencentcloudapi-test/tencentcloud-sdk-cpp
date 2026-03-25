@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云硬盘备份点。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DiskBackup();
+                    ~DiskBackup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

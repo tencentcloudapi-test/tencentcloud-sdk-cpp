@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryCondition;
-
                 /**
                 * DescribeTimingL4Data请求参数结构体
                 */

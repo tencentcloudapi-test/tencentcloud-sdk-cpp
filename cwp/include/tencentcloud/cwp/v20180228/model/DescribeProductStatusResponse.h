@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProductStatusInfo;
-
                 /**
                 * DescribeProductStatus返回参数结构体
                 */

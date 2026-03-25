@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateLoadBalancerBzConf;
-
                 /**
                 * CreateLoadBalancers请求参数结构体
                 */

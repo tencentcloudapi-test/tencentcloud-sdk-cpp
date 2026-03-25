@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PriceResource;
-                class EmrPrice;
-
                 /**
                 * InquiryPriceScaleOutInstance返回参数结构体
                 */

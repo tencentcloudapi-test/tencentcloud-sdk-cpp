@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Load;
-                class TestData;
-                class ScriptInfo;
-                class ProtocolInfo;
-                class FileInfo;
-                class SLAPolicy;
-                class DomainNameConfig;
-                class NotificationHook;
-
                 /**
                 * 场景列表
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     Scenario();
+                    ~Scenario() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

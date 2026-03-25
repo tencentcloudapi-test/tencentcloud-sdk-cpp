@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * session定义
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SessionItem();
+                    ~SessionItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

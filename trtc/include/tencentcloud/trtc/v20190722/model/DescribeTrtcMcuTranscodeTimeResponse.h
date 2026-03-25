@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OneSdkAppIdTranscodeTimeUsagesInfo;
-
                 /**
                 * DescribeTrtcMcuTranscodeTime返回参数结构体
                 */

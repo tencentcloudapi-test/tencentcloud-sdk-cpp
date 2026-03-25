@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * nat网关流量监控明细。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NatGatewayFlowMonitorDetail();
+                    ~NatGatewayFlowMonitorDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

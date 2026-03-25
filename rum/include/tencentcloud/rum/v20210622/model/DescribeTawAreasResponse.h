@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RumAreaInfo;
-
                 /**
                 * DescribeTawAreas返回参数结构体
                 */

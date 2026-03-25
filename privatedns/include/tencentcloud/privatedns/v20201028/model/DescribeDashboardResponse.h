@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowUsage;
-
                 /**
                 * DescribeDashboard返回参数结构体
                 */

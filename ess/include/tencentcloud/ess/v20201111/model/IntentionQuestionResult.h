@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 意愿核身问答模式结果。若未使用该意愿核身功能，该字段返回值可以不处理。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IntentionQuestionResult();
+                    ~IntentionQuestionResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

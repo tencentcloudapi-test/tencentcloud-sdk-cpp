@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowForwardInfo;
-                class Agent;
-
                 /**
                 * CreateFlowForwards请求参数结构体
                 */

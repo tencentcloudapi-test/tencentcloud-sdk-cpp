@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserCmd;
-
                 /**
                 * DescribeUserCmds返回参数结构体
                 */

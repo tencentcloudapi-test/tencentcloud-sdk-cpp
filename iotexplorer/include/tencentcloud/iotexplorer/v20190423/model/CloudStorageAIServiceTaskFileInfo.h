@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudStorageAIServiceTaskVideoMetaInfo;
-                class CloudStorageAIServiceTaskFileLabel;
-
                 /**
                 * 云存 AI 任务输出文件信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudStorageAIServiceTaskFileInfo();
+                    ~CloudStorageAIServiceTaskFileInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

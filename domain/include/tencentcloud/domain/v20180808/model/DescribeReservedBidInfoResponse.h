@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReserveBidInfo;
-
                 /**
                 * DescribeReservedBidInfo返回参数结构体
                 */

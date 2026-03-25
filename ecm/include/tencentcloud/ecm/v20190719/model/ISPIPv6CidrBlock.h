@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 多运营商IPv6 Cidr Block
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ISPIPv6CidrBlock();
+                    ~ISPIPv6CidrBlock() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

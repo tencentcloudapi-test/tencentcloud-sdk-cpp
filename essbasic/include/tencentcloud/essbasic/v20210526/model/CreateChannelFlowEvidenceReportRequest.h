@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-                class UserInfo;
-
                 /**
                 * CreateChannelFlowEvidenceReport请求参数结构体
                 */

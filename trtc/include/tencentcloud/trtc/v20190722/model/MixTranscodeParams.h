@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoParams;
-                class AudioParams;
-
                 /**
                 * 录制的音视频转码参数。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MixTranscodeParams();
+                    ~MixTranscodeParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

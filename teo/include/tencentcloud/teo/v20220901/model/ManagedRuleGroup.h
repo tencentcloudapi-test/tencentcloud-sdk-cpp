@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-                class ManagedRuleAction;
-                class ManagedRuleGroupMeta;
-
                 /**
                 * 托管规则组配置。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ManagedRuleGroup();
+                    ~ManagedRuleGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

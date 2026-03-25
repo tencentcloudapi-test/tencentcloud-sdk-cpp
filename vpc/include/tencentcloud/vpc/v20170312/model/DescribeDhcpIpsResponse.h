@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DhcpIp;
-
                 /**
                 * DescribeDhcpIps返回参数结构体
                 */

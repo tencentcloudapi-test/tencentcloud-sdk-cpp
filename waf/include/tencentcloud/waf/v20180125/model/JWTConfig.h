@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecretInfo;
-                class TokenRuleEntry;
-
                 /**
                 * 当用户选择JWS/JWE会话管理方式的时候，上传的配置信息以及校验规则
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     JWTConfig();
+                    ~JWTConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

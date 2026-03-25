@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 认证凭据Token
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AuthToken();
+                    ~AuthToken() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

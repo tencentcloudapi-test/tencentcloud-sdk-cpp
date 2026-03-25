@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EngineResourceGroupConfigPair;
-
                 /**
                 * 标准引擎资源组，配置相关信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     StandardEngineResourceGroupConfigInfo();
+                    ~StandardEngineResourceGroupConfigInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

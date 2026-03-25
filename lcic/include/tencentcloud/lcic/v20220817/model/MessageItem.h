@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomMsgContent;
-
                 /**
                 * 单条消息体内容
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MessageItem();
+                    ~MessageItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

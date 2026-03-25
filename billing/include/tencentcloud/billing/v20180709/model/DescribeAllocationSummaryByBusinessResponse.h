@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AllocationOverviewTotal;
-                class AllocationSummaryByBusiness;
-
                 /**
                 * DescribeAllocationSummaryByBusiness返回参数结构体
                 */

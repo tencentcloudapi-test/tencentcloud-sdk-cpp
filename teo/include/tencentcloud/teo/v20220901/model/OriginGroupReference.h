@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 源站组引用服务。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OriginGroupReference();
+                    ~OriginGroupReference() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HealthCheck;
-                class CertificateInput;
-                class MultiCertInfo;
-
                 /**
                 * ModifyListener请求参数结构体
                 */

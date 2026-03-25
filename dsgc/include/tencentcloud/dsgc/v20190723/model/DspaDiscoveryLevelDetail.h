@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LevelItem;
-                class DspaDiscoveryComplianceGroup;
-
                 /**
                 * 敏感数据分级信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DspaDiscoveryLevelDetail();
+                    ~DspaDiscoveryLevelDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RunOption;
-                class NFOption;
-
                 /**
                 * RetryRuns请求参数结构体
                 */

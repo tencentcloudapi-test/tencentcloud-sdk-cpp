@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class L4ProxyRule;
-
                 /**
                 * ModifyL4ProxyRules请求参数结构体
                 */

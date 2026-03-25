@@ -37,13 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserInfo;
-                class Agent;
-                class MiniAppCreateApproverInfo;
-                class CcInfo;
-                class MiniAppCreateFlowOption;
-                class MiniAppCreateFlowPageOption;
-
                 /**
                 * CreateMiniAppPrepareFlow请求参数结构体
                 */

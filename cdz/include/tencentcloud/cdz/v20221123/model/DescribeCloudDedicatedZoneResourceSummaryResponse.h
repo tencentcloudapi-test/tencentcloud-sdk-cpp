@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudDedicatedZoneResourceSummaryInfo;
-                class ExtraInfo;
-
                 /**
                 * DescribeCloudDedicatedZoneResourceSummary返回参数结构体
                 */

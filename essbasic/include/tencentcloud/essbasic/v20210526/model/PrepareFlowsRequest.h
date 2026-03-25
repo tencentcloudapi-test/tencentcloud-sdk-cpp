@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-                class FlowInfo;
-                class UserInfo;
-
                 /**
                 * PrepareFlows请求参数结构体
                 */

@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ESAsset;
-                class TopAsset;
-                class ESAssetDBDetail;
-
                 /**
                 * DescribeESAssetSensitiveDistribution返回参数结构体
                 */

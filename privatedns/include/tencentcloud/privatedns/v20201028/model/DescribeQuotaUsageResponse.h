@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TldQuota;
-
                 /**
                 * DescribeQuotaUsage返回参数结构体
                 */

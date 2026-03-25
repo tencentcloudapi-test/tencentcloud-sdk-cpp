@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeFlySecMiniAppScanReportList请求参数结构体
                 */

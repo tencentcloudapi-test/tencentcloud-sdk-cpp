@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskExtDsVO;
-
                 /**
                 * UpdateCodeTemplate请求参数结构体
                 */

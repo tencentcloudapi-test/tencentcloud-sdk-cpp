@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Label;
-                class SamplePair;
-
                 /**
                 * 连续指标采样内容
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     SampleStream();
+                    ~SampleStream() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

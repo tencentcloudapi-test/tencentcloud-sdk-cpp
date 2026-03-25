@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Entity;
-                class PresetTagInfo;
-                class MaterialTagInfo;
-
                 /**
                 * 媒体基本信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     MaterialBasicInfo();
+                    ~MaterialBasicInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

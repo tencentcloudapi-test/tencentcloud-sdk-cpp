@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageEncodeConfig;
-                class ImageEnhanceConfig;
-                class ImageEraseConfig;
-                class BlindWatermarkConfig;
-                class BeautyConfig;
-
                 /**
                 * 图片任务输入参数
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageTaskInput();
+                    ~ImageTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

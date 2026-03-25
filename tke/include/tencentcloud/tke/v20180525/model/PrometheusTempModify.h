@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusConfigItem;
-                class PrometheusAlertPolicyItem;
-
                 /**
                 * 云原生Prometheus模板可修改项
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusTempModify();
+                    ~PrometheusTempModify() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

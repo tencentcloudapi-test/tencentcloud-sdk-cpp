@@ -61,34 +61,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VatInvoiceInfo;
-                class VatElectronicInfo;
-                class MachinePrintedInvoice;
-                class BusInvoice;
-                class ShippingInvoice;
-                class TollInvoice;
-                class OtherInvoice;
-                class MotorVehicleSaleInvoice;
-                class UsedCarPurchaseInvoice;
-                class VatInvoiceRoll;
-                class TaxiTicket;
-                class QuotaInvoice;
-                class AirTransport;
-                class NonTaxIncomeBill;
-                class TrainTicket;
-                class MedicalInvoice;
-                class ElectronicTrainTicketFull;
-                class ElectronicFlightTicketFull;
-                class TaxPayment;
-                class CustomsPaymentReceipt;
-                class BankSlip;
-                class OnlineTaxiItinerary;
-                class CustomsDeclaration;
-                class OverseasInvoice;
-                class ShoppingReceipt;
-                class SaleInventory;
-                class ElectronicTollSummary;
-
                 /**
                 * 混贴票据中单张发票的内容
                 */
@@ -96,6 +68,7 @@ namespace TencentCloud
                 {
                 public:
                     SingleInvoiceItem();
+                    ~SingleInvoiceItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

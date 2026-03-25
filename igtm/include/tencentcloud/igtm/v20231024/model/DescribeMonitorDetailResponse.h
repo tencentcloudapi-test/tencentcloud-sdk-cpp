@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MonitorDetail;
-
                 /**
                 * DescribeMonitorDetail返回参数结构体
                 */

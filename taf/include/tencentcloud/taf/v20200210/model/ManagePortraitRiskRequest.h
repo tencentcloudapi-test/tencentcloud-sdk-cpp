@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ManagePortraitRiskInput;
-
                 /**
                 * ManagePortraitRisk请求参数结构体
                 */

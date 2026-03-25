@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Table、Topic路由
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TableMapping();
+                    ~TableMapping() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

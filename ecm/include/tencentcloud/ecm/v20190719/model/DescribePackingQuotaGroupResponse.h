@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PackingQuotaGroup;
-
                 /**
                 * DescribePackingQuotaGroup返回参数结构体
                 */

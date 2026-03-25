@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComposeSourceMedia;
-                class ComposeTrackTime;
-                class ComposeImageOperation;
-
                 /**
                 * 视频编辑/合成任务 图片元素信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ComposeImageItem();
+                    ~ComposeImageItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RemoteWrite;
-
                 /**
                 * ModifyRemoteURLs请求参数结构体
                 */

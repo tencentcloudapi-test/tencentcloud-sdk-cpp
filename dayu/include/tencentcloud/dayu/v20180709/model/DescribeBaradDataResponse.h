@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaradData;
-
                 /**
                 * DescribeBaradData返回参数结构体
                 */

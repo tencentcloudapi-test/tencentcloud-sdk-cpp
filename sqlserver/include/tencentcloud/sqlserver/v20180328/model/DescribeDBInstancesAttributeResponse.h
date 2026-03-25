@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TDEConfigAttribute;
-                class SSLConfig;
-                class DrReadableInfo;
-                class OldVip;
-
                 /**
                 * DescribeDBInstancesAttribute返回参数结构体
                 */

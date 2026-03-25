@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CCN路由策略对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CcnRoute();
+                    ~CcnRoute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

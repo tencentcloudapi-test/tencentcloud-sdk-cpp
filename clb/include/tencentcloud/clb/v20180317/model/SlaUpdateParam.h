@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 升级为性能容量型参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SlaUpdateParam();
+                    ~SlaUpdateParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

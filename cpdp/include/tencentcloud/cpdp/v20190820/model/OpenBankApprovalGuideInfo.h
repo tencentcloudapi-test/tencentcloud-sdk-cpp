@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 银行复核指引。银行侧返回网银授权指引链接，一般PC网银，手机网银链接
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OpenBankApprovalGuideInfo();
+                    ~OpenBankApprovalGuideInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

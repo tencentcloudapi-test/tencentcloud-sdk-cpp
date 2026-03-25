@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScheduleSettings;
-
                 /**
                 * ModifyInvoker请求参数结构体
                 */

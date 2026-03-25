@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 需要修改的人员库自定义描述字段key-value
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GroupExDescriptionInfo();
+                    ~GroupExDescriptionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

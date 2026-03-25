@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModifySignStatus;
-
                 /**
                 * ModifySmsSign返回参数结构体
                 */

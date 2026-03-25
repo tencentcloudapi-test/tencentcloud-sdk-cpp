@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IncidentVertexInfo;
-
                 /**
                 * DescribeAlarmIncidentNodes返回参数结构体
                 */

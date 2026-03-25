@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskId;
-
                 /**
                 * StartGroup返回参数结构体
                 */

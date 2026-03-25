@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 自定义容忍调度规则列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CustomTolerateSchedule();
+                    ~CustomTolerateSchedule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

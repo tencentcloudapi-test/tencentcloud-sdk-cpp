@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExtractRuleInfo;
-
                 /**
                 * CreateCosRecharge请求参数结构体
                 */

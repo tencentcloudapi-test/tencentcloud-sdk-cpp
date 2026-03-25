@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-
                 /**
                 * 按权重分配的 SecurityAction。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SecurityWeightedAction();
+                    ~SecurityWeightedAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

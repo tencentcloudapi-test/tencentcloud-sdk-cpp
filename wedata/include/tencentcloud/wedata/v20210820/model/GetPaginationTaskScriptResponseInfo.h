@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取任务脚本内容返回体
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GetPaginationTaskScriptResponseInfo();
+                    ~GetPaginationTaskScriptResponseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

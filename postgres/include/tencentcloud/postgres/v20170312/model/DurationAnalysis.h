@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 慢SQL耗时分段分析
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DurationAnalysis();
+                    ~DurationAnalysis() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

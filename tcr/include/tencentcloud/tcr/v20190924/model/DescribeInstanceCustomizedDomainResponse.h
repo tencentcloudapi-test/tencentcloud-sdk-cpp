@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomizedDomainInfo;
-
                 /**
                 * DescribeInstanceCustomizedDomain返回参数结构体
                 */

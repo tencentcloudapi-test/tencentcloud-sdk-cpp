@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NoticeContent;
-
                 /**
                 * 通知内容模板信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NoticeContentTemplate();
+                    ~NoticeContentTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

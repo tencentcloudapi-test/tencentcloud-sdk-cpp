@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 小写字符解析
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LowercaseParam();
+                    ~LowercaseParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

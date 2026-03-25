@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PolicyDetail;
-
                 /**
                 * AddPermissionPolicyToRoleConfiguration请求参数结构体
                 */

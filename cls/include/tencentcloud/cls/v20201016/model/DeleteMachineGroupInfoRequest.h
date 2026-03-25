@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineGroupTypeInfo;
-
                 /**
                 * DeleteMachineGroupInfo请求参数结构体
                 */

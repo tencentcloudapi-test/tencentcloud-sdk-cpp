@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频片头片尾识别任务控制参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HeadTailConfigureInfo();
+                    ~HeadTailConfigureInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

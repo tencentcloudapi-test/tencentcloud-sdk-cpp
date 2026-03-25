@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetailedRolePerm;
-
                 /**
                 * CreateRocketMQEnvironmentRole请求参数结构体
                 */

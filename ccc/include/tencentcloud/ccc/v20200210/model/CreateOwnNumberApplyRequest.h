@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OwnNumberApplyDetailItem;
-
                 /**
                 * CreateOwnNumberApply请求参数结构体
                 */

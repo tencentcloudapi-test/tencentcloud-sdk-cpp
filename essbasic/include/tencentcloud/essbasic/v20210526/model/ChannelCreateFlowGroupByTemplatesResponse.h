@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskInfo;
-                class FlowGroupApprovers;
-
                 /**
                 * ChannelCreateFlowGroupByTemplates返回参数结构体
                 */

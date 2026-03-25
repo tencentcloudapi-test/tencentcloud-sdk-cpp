@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaInputInfo;
-
                 /**
                 * 视频评测任务的视频来源信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     EvaluationMediaInputInfo();
+                    ~EvaluationMediaInputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Approximate;
-
                 /**
                 * 用户位置详细信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     UserLocation();
+                    ~UserLocation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 元数据拆分存储Etcd配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EtcdOverrideConfig();
+                    ~EtcdOverrideConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

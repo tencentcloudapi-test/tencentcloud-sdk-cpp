@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 探测节点
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NodeDefineExt();
+                    ~NodeDefineExt() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

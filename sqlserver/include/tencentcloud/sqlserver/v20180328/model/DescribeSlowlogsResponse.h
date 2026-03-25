@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SlowlogInfo;
-                class SlowLog;
-
                 /**
                 * DescribeSlowlogs返回参数结构体
                 */

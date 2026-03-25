@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MetricThreshold;
-
                 /**
                 * 自治用户配置详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AutonomyUserProfileInfo();
+                    ~AutonomyUserProfileInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StrUserIdInfo;
-                class UserPortraitInfo;
-
                 /**
                 * DescribeGoodsRecommend请求参数结构体
                 */

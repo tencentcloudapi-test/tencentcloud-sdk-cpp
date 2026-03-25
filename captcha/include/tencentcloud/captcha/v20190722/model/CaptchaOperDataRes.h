@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CaptchaOperDataLoadTimeUnit;
-                class CaptchaOperDataInterceptUnit;
-                class CaptchaOperDataTryTimesUnit;
-                class CaptchaOperDataTryTimesDistributeUnit;
-
                 /**
                 * DescribeCaptchaOperData 接口 返回数据类型集合
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     CaptchaOperDataRes();
+                    ~CaptchaOperDataRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

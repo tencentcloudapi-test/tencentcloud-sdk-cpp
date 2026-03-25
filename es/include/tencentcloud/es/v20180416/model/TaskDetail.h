@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubTaskDetail;
-                class ProcessDetail;
-
                 /**
                 * 实例操作记录中的流程任务信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskDetail();
+                    ~TaskDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

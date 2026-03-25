@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Table;
-
                 /**
                 * DescribeNoPrimaryKeyTables返回参数结构体
                 */

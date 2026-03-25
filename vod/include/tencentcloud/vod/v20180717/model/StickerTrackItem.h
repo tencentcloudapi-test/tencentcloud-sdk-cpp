@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageTransform;
-
                 /**
                 * 贴图轨上的贴图信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     StickerTrackItem();
+                    ~StickerTrackItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

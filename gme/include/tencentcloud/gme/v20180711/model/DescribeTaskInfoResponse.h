@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubscribeRecordUserIds;
-
                 /**
                 * DescribeTaskInfo返回参数结构体
                 */

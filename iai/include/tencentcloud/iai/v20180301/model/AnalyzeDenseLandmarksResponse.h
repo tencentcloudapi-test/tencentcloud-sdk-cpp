@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DenseFaceShape;
-
                 /**
                 * AnalyzeDenseLandmarks返回参数结构体
                 */

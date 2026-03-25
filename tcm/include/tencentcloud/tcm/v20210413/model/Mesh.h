@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Cluster;
-                class MeshConfig;
-                class MeshStatus;
-                class Tag;
-
                 /**
                 * Mesh信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     Mesh();
+                    ~Mesh() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

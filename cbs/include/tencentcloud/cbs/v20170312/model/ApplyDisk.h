@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 本参数用于快照组回滚接口的入参，表示回滚的云盘、快照列表。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ApplyDisk();
+                    ~ApplyDisk() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

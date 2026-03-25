@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 小程序发起页面个性化配置参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MiniAppCreateFlowPageOption();
+                    ~MiniAppCreateFlowPageOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

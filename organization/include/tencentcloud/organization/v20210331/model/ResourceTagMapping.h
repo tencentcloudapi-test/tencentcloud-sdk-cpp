@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagComplianceDetails;
-                class Tags;
-
                 /**
                 * 资源及关联的标签
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ResourceTagMapping();
+                    ~ResourceTagMapping() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Caller;
-                class FileUrl;
-
                 /**
                 * 此结构体 (Seal) 用于描述电子印章的信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     Seal();
+                    ~Seal() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

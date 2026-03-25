@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filter;
-
                 /**
                 * DescribeRabbitMQServerlessVirtualHost请求参数结构体
                 */

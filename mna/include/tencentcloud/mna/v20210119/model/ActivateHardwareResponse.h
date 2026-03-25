@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ActivateHardware;
-
                 /**
                 * ActivateHardware返回参数结构体
                 */

@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AttributeItem;
-                class Eye;
-                class Eyebrow;
-                class Hair;
-                class Hat;
-                class HeadPose;
-                class Mouth;
-
                 /**
                 * 人脸属性信息，根据 FaceAttributesType 输入的类型，返回年龄（Age）、颜值（Beauty） 
 情绪（Emotion）、眼睛信息（Eye）、眉毛（Eyebrow）、性别（Gender） 
@@ -60,6 +52,7 @@ namespace TencentCloud
                 {
                 public:
                     FaceDetailAttributesInfo();
+                    ~FaceDetailAttributesInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StatusStatistic;
-
                 /**
                 * DescribeFirmwareTaskDistribution返回参数结构体
                 */

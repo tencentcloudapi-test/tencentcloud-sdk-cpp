@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * type FailOverOption struct 
 { FailOverType string json:"FailOverType" // 新增 冷/热备 COLDSTANDBY、HOTSTANDBY }
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FailOverOption();
+                    ~FailOverOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

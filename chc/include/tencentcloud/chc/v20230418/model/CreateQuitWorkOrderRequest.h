@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SelfOperation;
-                class PowerOffConfirm;
-                class LogisticsReceipt;
-                class CustomerReceipt;
-
                 /**
                 * CreateQuitWorkOrder请求参数结构体
                 */

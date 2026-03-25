@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServerlessDi;
-                class TagInfo;
-
                 /**
                 * CreateServerlessInstance请求参数结构体
                 */

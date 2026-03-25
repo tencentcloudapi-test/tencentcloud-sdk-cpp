@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileSystemDataSource;
-
                 /**
                 * 输出数据配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     OutputDataConfig();
+                    ~OutputDataConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

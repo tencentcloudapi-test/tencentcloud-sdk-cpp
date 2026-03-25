@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 解除协议的签署人，如不指定，默认使用待解除流程(原流程)中的签署人。</br>
 `注意`:
@@ -52,6 +51,7 @@ namespace TencentCloud
                 {
                 public:
                     ReleasedApprover();
+                    ~ReleasedApprover() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

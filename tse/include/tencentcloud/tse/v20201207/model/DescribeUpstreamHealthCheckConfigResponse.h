@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpstreamHealthCheckConfig;
-
                 /**
                 * DescribeUpstreamHealthCheckConfig返回参数结构体
                 */

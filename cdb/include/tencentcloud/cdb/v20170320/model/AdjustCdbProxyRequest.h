@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyNodeCustom;
-
                 /**
                 * AdjustCdbProxy请求参数结构体
                 */

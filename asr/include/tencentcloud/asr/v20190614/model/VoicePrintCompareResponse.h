@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VoicePrintCompareData;
-
                 /**
                 * VoicePrintCompare返回参数结构体
                 */

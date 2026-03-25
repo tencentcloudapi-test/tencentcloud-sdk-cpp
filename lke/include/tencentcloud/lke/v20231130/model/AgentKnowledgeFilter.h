@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AgentKnowledgeFilterDocAndAnswer;
-                class AgentKnowledgeFilterTag;
-                class AgentKnowledge;
-
                 /**
                 * 知识检索筛选范围
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     AgentKnowledgeFilter();
+                    ~AgentKnowledgeFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

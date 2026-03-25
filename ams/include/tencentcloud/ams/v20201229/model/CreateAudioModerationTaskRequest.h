@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskInput;
-                class User;
-
                 /**
                 * CreateAudioModerationTask请求参数结构体
                 */

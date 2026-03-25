@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 批量删除记录详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DeleteRecordBatchDetail();
+                    ~DeleteRecordBatchDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

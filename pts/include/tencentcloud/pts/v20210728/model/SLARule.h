@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SLALabel;
-
                 /**
                 * SLA 规则
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SLARule();
+                    ~SLARule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MemberInfo;
-
                 /**
                 * DeleteTemplateMember请求参数结构体
                 */

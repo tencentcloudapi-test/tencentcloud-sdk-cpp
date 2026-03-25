@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 关系型数据库线程
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MySqlProcess();
+                    ~MySqlProcess() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

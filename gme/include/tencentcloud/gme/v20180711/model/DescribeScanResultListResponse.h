@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeScanResult;
-
                 /**
                 * DescribeScanResultList返回参数结构体
                 */

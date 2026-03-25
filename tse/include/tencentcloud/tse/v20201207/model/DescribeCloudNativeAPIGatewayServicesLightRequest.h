@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListFilter;
-
                 /**
                 * DescribeCloudNativeAPIGatewayServicesLight请求参数结构体
                 */

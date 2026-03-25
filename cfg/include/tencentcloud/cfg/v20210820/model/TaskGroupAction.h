@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskGroupInstance;
-
                 /**
                 * 任务分组动作
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskGroupAction();
+                    ~TaskGroupAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

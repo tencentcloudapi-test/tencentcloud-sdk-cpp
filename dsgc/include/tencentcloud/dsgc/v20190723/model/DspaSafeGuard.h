@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分类分级扫描结果字段的保护措施
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DspaSafeGuard();
+                    ~DspaSafeGuard() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

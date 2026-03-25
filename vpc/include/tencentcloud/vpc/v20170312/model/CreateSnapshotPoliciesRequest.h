@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SnapshotPolicy;
-                class Tag;
-
                 /**
                 * CreateSnapshotPolicies请求参数结构体
                 */

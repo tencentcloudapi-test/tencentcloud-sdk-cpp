@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IngressGateway;
-                class EgressGateway;
-                class IstiodConfig;
-                class DeployConfig;
-                class AutoInjectionNamespaceState;
-
                 /**
                 * 集群配置
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterConfig();
+                    ~ClusterConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

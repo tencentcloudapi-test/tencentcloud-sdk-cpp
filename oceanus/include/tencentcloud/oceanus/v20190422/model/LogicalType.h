@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SqlGateway返回LogicalType类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LogicalType();
+                    ~LogicalType() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

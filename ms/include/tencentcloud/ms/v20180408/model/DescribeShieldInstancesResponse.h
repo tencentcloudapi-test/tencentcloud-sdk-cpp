@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AppSetInfo;
-
                 /**
                 * DescribeShieldInstances返回参数结构体
                 */

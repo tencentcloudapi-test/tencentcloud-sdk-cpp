@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * proxy调度时各个可用区有无调度任务
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ZoneScheduledItem();
+                    ~ZoneScheduledItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

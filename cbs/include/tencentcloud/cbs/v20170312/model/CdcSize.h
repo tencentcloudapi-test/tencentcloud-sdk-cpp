@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 显示独享集群的大小
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CdcSize();
+                    ~CdcSize() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

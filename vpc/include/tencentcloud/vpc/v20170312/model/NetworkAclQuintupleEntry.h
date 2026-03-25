@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 网络ACL五元组Entry
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NetworkAclQuintupleEntry();
+                    ~NetworkAclQuintupleEntry() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

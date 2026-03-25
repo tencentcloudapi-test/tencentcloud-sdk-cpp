@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-                class Filter;
-
                 /**
                 * DescribeUserFlowType请求参数结构体
                 */

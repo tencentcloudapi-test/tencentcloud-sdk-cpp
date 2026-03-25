@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PortMapping;
-                class ServicePortMapping;
-
                 /**
                 * eks service info
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     EksService();
+                    ~EksService() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

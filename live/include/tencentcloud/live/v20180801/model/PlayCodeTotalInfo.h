@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 各状态码的总次数，支持大多数的 HTTP 协议返回码。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PlayCodeTotalInfo();
+                    ~PlayCodeTotalInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

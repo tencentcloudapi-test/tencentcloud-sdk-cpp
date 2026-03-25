@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainAnalyticsDetail;
-                class DomainAnalyticsInfo;
-                class DomainAliasAnalyticsItem;
-
                 /**
                 * DescribeDomainAnalytics返回参数结构体
                 */

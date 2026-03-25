@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaselineDetail;
-
                 /**
                 * DescribeBaselineDetail返回参数结构体
                 */

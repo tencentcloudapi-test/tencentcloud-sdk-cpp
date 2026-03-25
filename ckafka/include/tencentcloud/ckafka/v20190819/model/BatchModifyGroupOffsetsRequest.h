@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Partitions;
-
                 /**
                 * BatchModifyGroupOffsets请求参数结构体
                 */

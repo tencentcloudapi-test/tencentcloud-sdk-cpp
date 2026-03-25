@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Identification;
-
                 /**
                 * DescribeIdentifications返回参数结构体
                 */

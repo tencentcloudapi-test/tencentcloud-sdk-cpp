@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * s3源站回源鉴权。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AwsPrivateAccess();
+                    ~AwsPrivateAccess() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AlarmIndicatorInfo;
-                class QuietPeriod;
-                class AlarmReceiverGroup;
-
                 /**
                 * 任务告警信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskAlarmInfo();
+                    ~TaskAlarmInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

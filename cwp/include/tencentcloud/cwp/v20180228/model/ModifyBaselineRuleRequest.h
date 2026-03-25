@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaselineRule;
-                class Filter;
-
                 /**
                 * ModifyBaselineRule请求参数结构体
                 */

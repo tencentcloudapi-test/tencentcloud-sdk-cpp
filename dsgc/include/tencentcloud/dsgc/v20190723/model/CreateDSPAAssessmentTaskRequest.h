@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DiscoveryCondition;
-
                 /**
                 * CreateDSPAAssessmentTask请求参数结构体
                 */

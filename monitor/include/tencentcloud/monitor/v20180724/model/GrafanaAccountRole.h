@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Grafana可视化服务 账号权限
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GrafanaAccountRole();
+                    ~GrafanaAccountRole() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

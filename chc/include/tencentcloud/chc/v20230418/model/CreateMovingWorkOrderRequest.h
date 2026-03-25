@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceRackOn;
-
                 /**
                 * CreateMovingWorkOrder请求参数结构体
                 */

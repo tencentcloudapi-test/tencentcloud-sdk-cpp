@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TalkBasicConfigInfo;
-                class TalkSTTConfigInfo;
-                class TalkLLMConfigInfo;
-                class TalkTTSConfigInfo;
-                class TalkConversationConfigInfo;
-
                 /**
                 * twetalk连接配置信息。
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     TalkProductConfigV2Info();
+                    ~TalkProductConfigV2Info() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

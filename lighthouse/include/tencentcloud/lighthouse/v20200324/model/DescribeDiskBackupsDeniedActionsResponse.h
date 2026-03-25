@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DiskBackupDeniedActions;
-
                 /**
                 * DescribeDiskBackupsDeniedActions返回参数结构体
                 */

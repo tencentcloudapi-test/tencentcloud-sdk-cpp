@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AdministrationData;
-
                 /**
                 * 根据Tag获取行政区划列表返回结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeAdministrationByTagRes();
+                    ~DescribeAdministrationByTagRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

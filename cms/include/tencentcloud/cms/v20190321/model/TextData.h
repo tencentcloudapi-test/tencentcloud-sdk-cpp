@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TextOutputRes;
-                class RiskDetails;
-                class TextOutputID;
-                class TextOutputComm;
-                class DetailResult;
-                class CustomResult;
-
                 /**
                 * 文本识别结果详情
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     TextData();
+                    ~TextData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

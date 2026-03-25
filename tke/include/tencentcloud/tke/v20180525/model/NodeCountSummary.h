@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ManuallyAdded;
-                class AutoscalingAdded;
-
                 /**
                 * 节点统计列表
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     NodeCountSummary();
+                    ~NodeCountSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

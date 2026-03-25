@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupInfoResponse;
-
                 /**
                 * DescribeTopicSubscribeGroup接口出参
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TopicSubscribeGroup();
+                    ~TopicSubscribeGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

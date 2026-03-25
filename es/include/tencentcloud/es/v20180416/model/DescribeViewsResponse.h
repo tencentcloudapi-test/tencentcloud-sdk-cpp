@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClusterView;
-                class NodeView;
-                class KibanaView;
-
                 /**
                 * DescribeViews返回参数结构体
                 */

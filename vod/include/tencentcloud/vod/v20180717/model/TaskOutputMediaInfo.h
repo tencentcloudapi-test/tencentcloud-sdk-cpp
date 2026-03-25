@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaBasicInfo;
-
                 /**
                 * 视频处理任务的输出媒体文件信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskOutputMediaInfo();
+                    ~TaskOutputMediaInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

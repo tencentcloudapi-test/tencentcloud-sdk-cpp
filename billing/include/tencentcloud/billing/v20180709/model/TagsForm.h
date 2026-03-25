@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 预算管理自定义费用范围，tag 参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TagsForm();
+                    ~TagsForm() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReconstructDocumentFailedPage;
-                class DocumentUsage;
-                class ErrorInfo;
-
                 /**
                 * GetReconstructDocumentResult返回参数结构体
                 */

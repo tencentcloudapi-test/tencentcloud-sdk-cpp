@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RoleTags;
-
                 /**
                 * 角色详细信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RoleInfo();
+                    ~RoleInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScalingDownResp;
-
                 /**
                 * InstanceScalingDown返回参数结构体
                 */

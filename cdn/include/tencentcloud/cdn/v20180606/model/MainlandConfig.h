@@ -61,34 +61,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Authentication;
-                class BandwidthAlert;
-                class Cache;
-                class CacheKey;
-                class Compression;
-                class DownstreamCapping;
-                class ErrorPage;
-                class FollowRedirect;
-                class ForceRedirect;
-                class Https;
-                class IpFilter;
-                class IpFreqLimit;
-                class MaxAge;
-                class Origin;
-                class OriginPullOptimization;
-                class RangeOriginPull;
-                class Referer;
-                class RequestHeader;
-                class ResponseHeader;
-                class ResponseHeaderCache;
-                class Seo;
-                class StatusCodeCache;
-                class VideoSeek;
-                class AwsPrivateAccess;
-                class OssPrivateAccess;
-                class HwPrivateAccess;
-                class QnPrivateAccess;
-
                 /**
                 * 域名国内地区特殊配置。分地区特殊配置。UpdateDomainConfig接口只支持修改部分地区配置，为了兼容旧版本配置，本类型会列出旧版本所有可能存在差异的配置列表，支持修改的配置列表如下：
 + Authentication
@@ -102,6 +74,7 @@ namespace TencentCloud
                 {
                 public:
                     MainlandConfig();
+                    ~MainlandConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

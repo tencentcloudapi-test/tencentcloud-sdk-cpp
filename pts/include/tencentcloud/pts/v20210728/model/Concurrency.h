@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Stage;
-
                 /**
                 * 并发模式的施压配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Concurrency();
+                    ~Concurrency() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

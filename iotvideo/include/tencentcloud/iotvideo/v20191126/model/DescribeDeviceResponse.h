@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceData;
-
                 /**
                 * DescribeDevice返回参数结构体
                 */

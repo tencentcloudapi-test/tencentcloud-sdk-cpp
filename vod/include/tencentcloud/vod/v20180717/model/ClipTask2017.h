@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClipFileInfo2017;
-
                 /**
                 * 视频剪辑任务信息，该结构仅用于对 2017 版[视频剪辑](https://cloud.tencent.com/document/product/266/10156)接口发起的任务。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ClipTask2017();
+                    ~ClipTask2017() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Label;
-
                 /**
                 * CreateExternalCluster请求参数结构体
                 */

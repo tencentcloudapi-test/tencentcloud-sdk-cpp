@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecondLevelBackupMissingTimestamps;
-
                 /**
                 * DescribeSecondLevelBackupInfo返回参数结构体
                 */

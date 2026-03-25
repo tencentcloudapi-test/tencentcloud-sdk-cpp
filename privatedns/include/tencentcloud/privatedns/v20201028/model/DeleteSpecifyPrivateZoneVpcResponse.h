@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpcInfo;
-                class AccountVpcInfo;
-
                 /**
                 * DeleteSpecifyPrivateZoneVpc返回参数结构体
                 */

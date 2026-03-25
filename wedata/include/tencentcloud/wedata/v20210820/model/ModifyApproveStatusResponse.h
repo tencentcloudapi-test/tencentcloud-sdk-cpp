@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApproveModify;
-
                 /**
                 * ModifyApproveStatus返回参数结构体
                 */

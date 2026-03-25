@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryOpenBankDownLoadUrlResult;
-
                 /**
                 * QueryOpenBankDownLoadUrl返回参数结构体
                 */

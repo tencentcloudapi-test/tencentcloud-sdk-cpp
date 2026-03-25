@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserGroup;
-                class Pageable;
-
                 /**
                 * ListUserGroups返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CostItem;
-
                 /**
                 * 探测任务套餐
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DetectTaskPackage();
+                    ~DetectTaskPackage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

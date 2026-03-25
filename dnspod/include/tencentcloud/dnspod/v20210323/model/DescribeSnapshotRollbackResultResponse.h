@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SnapshotRecord;
-
                 /**
                 * DescribeSnapshotRollbackResult返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModifyNetworkAddress;
-
                 /**
                 * ModifyDBInstanceNetworkAddress请求参数结构体
                 */

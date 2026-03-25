@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StrToStrMap;
-                class CreateMakeDatetimeInfo;
-
                 /**
                 * 补录计划
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MakePlanOpsDto();
+                    ~MakePlanOpsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

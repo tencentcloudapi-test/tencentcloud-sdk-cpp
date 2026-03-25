@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopDetailDataMore;
-
                 /**
                 * 排序类型数据结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TopDataMore();
+                    ~TopDataMore() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

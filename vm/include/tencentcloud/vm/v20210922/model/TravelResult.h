@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 出行结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TravelResult();
+                    ~TravelResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

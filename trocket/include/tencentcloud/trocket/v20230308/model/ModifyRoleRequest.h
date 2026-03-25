@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetailedRolePerm;
-
                 /**
                 * ModifyRole请求参数结构体
                 */

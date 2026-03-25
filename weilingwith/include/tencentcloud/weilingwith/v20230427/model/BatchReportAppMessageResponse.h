@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchReportAppMessageRes;
-
                 /**
                 * BatchReportAppMessage返回参数结构体
                 */

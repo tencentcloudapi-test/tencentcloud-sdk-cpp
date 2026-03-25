@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频编码配置中的音频设置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VideoEncodingPresetAudioSetting();
+                    ~VideoEncodingPresetAudioSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

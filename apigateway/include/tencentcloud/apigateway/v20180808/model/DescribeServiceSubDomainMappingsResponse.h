@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceSubDomainMappings;
-
                 /**
                 * DescribeServiceSubDomainMappings返回参数结构体
                 */

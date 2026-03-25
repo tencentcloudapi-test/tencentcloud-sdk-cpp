@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Aggregation;
-
                 /**
                 * DescribeIndexRecommendAggregationSlowLogs返回参数结构体
                 */

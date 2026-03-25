@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 共享单元资源
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ShareUnitResource();
+                    ~ShareUnitResource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

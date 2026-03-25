@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkGroupIdSetOfUserId;
-
                 /**
                 * UnbindWorkGroupsFromUser请求参数结构体
                 */

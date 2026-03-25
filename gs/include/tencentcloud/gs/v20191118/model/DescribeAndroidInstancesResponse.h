@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AndroidInstance;
-
                 /**
                 * DescribeAndroidInstances返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 卡证字段信息返回值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ContentInfo();
+                    ~ContentInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KnowledgeQaConfig;
-                class SummaryConfig;
-                class ClassifyConfig;
-
                 /**
                 * 应用配置
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     AppConfig();
+                    ~AppConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

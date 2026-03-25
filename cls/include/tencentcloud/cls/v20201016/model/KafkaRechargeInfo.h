@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KafkaProtocolInfo;
-                class LogRechargeRuleInfo;
-                class UserKafkaMeta;
-
                 /**
                 * Kafka导入配置信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     KafkaRechargeInfo();
+                    ~KafkaRechargeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

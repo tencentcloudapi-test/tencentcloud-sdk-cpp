@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeVulIgnoreRegistryImageList请求参数结构体
                 */

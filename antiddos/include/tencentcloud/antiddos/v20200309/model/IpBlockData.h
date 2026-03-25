@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * IP封堵记录
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IpBlockData();
+                    ~IpBlockData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NetDetails;
-
                 /**
                 * GetFlowStatistic返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleEngineItem;
-
                 /**
                 * DescribeL7AccRules返回参数结构体
                 */

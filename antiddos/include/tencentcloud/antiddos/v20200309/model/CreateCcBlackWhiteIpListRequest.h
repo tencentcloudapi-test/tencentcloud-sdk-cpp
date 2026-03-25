@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IpSegment;
-
                 /**
                 * CreateCcBlackWhiteIpList请求参数结构体
                 */

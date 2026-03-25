@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 开启prometheus监控配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EnablePrometheusConf();
+                    ~EnablePrometheusConf() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

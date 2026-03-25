@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NetDetectIpState;
-
                 /**
                 * 网络探测验证结果。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NetDetectState();
+                    ~NetDetectState() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

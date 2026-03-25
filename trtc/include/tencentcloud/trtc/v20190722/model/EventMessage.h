@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 事件信息，包括，事件时间戳，事件ID,
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EventMessage();
+                    ~EventMessage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

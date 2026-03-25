@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DCDBShardInfo;
-
                 /**
                 * DescribeDCDBShards返回参数结构体
                 */

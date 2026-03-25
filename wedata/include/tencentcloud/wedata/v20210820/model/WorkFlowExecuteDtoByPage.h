@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkFlowExecuteDto;
-
                 /**
                 * 分页查询工作流画布运行起止时间
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     WorkFlowExecuteDtoByPage();
+                    ~WorkFlowExecuteDtoByPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

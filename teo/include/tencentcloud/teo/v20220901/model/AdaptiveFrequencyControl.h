@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-
                 /**
                 * 自适应频控
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AdaptiveFrequencyControl();
+                    ~AdaptiveFrequencyControl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

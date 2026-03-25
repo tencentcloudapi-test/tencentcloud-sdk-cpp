@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SpecConfig;
-
                 /**
                 * DescribeShardSpec返回参数结构体
                 */

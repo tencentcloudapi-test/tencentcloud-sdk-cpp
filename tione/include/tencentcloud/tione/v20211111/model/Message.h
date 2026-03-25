@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MultiModalContent;
-
                 /**
                 * 对话输入内容
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Message();
+                    ~Message() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

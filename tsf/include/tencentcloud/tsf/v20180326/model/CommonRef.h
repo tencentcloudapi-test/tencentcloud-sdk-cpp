@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ValueFrom 通用结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CommonRef();
+                    ~CommonRef() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JobRecordProgress;
-
                 /**
                 * 任务详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DisplayJobRecord();
+                    ~DisplayJobRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

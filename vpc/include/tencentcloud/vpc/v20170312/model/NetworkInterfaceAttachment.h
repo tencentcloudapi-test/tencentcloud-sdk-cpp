@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 弹性网卡绑定关系
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NetworkInterfaceAttachment();
+                    ~NetworkInterfaceAttachment() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CorrectData;
-
                 /**
                 * ECC返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 基线项部署任务信息列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BaselineStepTaskInfo();
+                    ~BaselineStepTaskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

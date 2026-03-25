@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AddTemplateStatus;
-
                 /**
                 * AddSmsTemplate返回参数结构体
                 */

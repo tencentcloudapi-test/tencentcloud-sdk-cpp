@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用户执行TAT命令的数据结构。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Command();
+                    ~Command() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

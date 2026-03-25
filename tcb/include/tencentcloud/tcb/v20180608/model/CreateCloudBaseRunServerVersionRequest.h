@@ -41,17 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudBaseRunImageInfo;
-                class CloudBaseCodeRepoDetail;
-                class CloudBaseRunImageSecretInfo;
-                class CloudBaseRunVolumeMount;
-                class CloudBaseEsInfo;
-                class CloudBaseRunSideSpec;
-                class CloudBaseSecurityContext;
-                class CloudRunServiceVolume;
-                class CloudBaseRunServiceVolumeMount;
-                class HpaPolicy;
-
                 /**
                 * CreateCloudBaseRunServerVersion请求参数结构体
                 */

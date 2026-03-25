@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskExtInfo;
-                class ParamInfo;
-                class DependencyConfig;
-
                 /**
                 * ModifyTaskInfo请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MusicOpenDetail;
-
                 /**
                 * DescribeCloudMusicPurchased返回参数结构体
                 */

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MappedBucket;
-                class ClientClusterManagerNodeInfo;
-
                 /**
                 * GooseFSx文件系统的属性
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     GooseFSxAttribute();
+                    ~GooseFSxAttribute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

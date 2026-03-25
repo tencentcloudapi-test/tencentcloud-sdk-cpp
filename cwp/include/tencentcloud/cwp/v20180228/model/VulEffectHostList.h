@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tags;
-                class MachineExtraInfo;
-
                 /**
                 * 漏洞影响主机列表
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     VulEffectHostList();
+                    ~VulEffectHostList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

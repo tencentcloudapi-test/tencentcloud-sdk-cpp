@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 项目空间楼栋数量与建筑面积出参
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SpaceDataStats();
+                    ~SpaceDataStats() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

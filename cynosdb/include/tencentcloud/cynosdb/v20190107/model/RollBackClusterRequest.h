@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RollbackDatabase;
-                class RollbackTable;
-
                 /**
                 * RollBackCluster请求参数结构体
                 */

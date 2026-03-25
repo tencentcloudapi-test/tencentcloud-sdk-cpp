@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 登录和敏感操作flag（校验方式是单选）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LoginActionFlag();
+                    ~LoginActionFlag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 该数据结构表示具有发布订阅关系的两个数据库。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DatabaseTuple();
+                    ~DatabaseTuple() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

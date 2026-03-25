@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagSpecification;
-
                 /**
                 * CreateDisasterRecoverGroup请求参数结构体
                 */

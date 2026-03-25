@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpnGatewayRouteModify;
-
                 /**
                 * ModifyVpnGatewayRoutes请求参数结构体
                 */

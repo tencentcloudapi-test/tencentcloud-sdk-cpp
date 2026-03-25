@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ItemCoord;
-
                 /**
                 * 识别出的算术式信息及评估结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Item();
+                    ~Item() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

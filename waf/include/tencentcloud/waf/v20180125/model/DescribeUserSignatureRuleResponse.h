@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserSignatureRule;
-
                 /**
                 * DescribeUserSignatureRule返回参数结构体
                 */

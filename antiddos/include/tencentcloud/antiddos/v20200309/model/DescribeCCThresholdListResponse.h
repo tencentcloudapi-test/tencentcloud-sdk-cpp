@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CCThresholdPolicy;
-
                 /**
                 * DescribeCCThresholdList返回参数结构体
                 */

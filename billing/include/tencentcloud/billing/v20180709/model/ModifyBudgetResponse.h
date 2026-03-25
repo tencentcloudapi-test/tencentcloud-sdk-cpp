@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BudgetInfoApiResponse;
-
                 /**
                 * ModifyBudget返回参数结构体
                 */

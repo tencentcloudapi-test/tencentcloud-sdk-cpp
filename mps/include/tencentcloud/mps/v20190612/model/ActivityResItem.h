@@ -47,20 +47,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaProcessTaskTranscodeResult;
-                class MediaProcessTaskAnimatedGraphicResult;
-                class MediaProcessTaskSnapshotByTimeOffsetResult;
-                class MediaProcessTaskSampleSnapshotResult;
-                class MediaProcessTaskImageSpriteResult;
-                class MediaProcessTaskAdaptiveDynamicStreamingResult;
-                class ScheduleRecognitionTaskResult;
-                class ScheduleReviewTaskResult;
-                class ScheduleAnalysisTaskResult;
-                class ScheduleQualityControlTaskResult;
-                class ScheduleExecRuleTaskResult;
-                class ScheduleSmartSubtitleTaskResult;
-                class SmartEraseTaskResult;
-
                 /**
                 * 编排子任务输出
                 */
@@ -68,6 +54,7 @@ namespace TencentCloud
                 {
                 public:
                     ActivityResItem();
+                    ~ActivityResItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

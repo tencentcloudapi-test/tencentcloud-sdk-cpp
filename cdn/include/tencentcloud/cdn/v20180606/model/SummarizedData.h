@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 明细数据的汇总值，各指标根据其特性不同拥有不同汇总方式
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SummarizedData();
+                    ~SummarizedData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

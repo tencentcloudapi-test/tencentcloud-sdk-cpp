@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 查询某个指定SCP策略关联的目标列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ListTargetsForPolicyNode();
+                    ~ListTargetsForPolicyNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

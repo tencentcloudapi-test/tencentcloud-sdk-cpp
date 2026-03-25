@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SwitcherPgmOutputConfig;
-
                 /**
                 * 导播台项目输入信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SwitcherProjectInput();
+                    ~SwitcherProjectInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

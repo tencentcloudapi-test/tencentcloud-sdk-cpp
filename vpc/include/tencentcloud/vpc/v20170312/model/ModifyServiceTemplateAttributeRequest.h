@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServicesInfo;
-
                 /**
                 * ModifyServiceTemplateAttribute请求参数结构体
                 */

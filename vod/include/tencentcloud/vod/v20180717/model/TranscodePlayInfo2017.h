@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频转码播放信息（2017 版）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TranscodePlayInfo2017();
+                    ~TranscodePlayInfo2017() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

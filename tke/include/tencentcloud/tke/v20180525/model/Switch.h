@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SwitchInfo;
-
                 /**
                 * 集群日志开关集合
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Switch();
+                    ~Switch() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

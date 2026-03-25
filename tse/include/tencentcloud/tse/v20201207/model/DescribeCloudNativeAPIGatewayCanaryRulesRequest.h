@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeCloudNativeAPIGatewayCanaryRules请求参数结构体
                 */

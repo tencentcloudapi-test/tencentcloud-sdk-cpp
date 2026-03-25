@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * x08新创建的账号
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NewAccount();
+                    ~NewAccount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

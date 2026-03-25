@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 开启、关闭TDE数据库加密
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DBTDEEncrypt();
+                    ~DBTDEEncrypt() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

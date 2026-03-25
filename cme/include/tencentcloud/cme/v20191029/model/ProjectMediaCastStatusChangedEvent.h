@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaCastSourceInterruptInfo;
-                class MediaCastDestinationInterruptInfo;
-
                 /**
                 *  点播转直播项目状态变更事件。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ProjectMediaCastStatusChangedEvent();
+                    ~ProjectMediaCastStatusChangedEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

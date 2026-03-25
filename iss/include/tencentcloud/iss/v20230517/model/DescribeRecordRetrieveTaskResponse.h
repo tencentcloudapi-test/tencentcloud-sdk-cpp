@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeRecordRetrieveTaskData;
-
                 /**
                 * DescribeRecordRetrieveTask返回参数结构体
                 */

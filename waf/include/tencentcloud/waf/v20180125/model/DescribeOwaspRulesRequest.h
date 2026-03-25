@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FiltersItemNew;
-
                 /**
                 * DescribeOwaspRules请求参数结构体
                 */

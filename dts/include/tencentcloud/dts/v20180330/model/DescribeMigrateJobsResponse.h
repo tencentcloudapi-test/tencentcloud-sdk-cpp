@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MigrateJobInfo;
-
                 /**
                 * DescribeMigrateJobs返回参数结构体
                 */

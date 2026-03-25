@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpcInfo;
-                class TagInfo;
-                class AccountVpcInfoOutput;
-
                 /**
                 * 私有域信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     PrivateZone();
+                    ~PrivateZone() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

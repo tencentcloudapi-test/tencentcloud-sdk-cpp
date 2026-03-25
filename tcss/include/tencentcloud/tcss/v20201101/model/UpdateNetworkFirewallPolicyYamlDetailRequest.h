@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * UpdateNetworkFirewallPolicyYamlDetail请求参数结构体
                 */

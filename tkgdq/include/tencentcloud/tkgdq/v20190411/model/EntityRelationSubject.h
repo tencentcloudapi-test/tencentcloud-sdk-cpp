@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实体关系查询返回Subject
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EntityRelationSubject();
+                    ~EntityRelationSubject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

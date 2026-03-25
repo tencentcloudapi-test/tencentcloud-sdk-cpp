@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CollectConfig;
-
                 /**
                 * 采集配置信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CollectInfo();
+                    ~CollectInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

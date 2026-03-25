@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeTtsTaskStatusRespData;
-
                 /**
                 * DescribeTtsTaskStatus返回参数结构体
                 */

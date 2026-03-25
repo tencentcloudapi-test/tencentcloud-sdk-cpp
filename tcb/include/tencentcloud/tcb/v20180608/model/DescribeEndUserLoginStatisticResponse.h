@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LoginStatistic;
-
                 /**
                 * DescribeEndUserLoginStatistic返回参数结构体
                 */

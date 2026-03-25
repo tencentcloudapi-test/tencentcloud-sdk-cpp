@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-
                 /**
                 * 流量防盗刷（仅适用中国大陆地区）的具体配置。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BandwidthAbuseDefense();
+                    ~BandwidthAbuseDefense() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

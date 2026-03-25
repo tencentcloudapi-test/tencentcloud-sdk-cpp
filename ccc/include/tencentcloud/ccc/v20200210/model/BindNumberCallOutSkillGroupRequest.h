@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * BindNumberCallOutSkillGroup请求参数结构体
                 */

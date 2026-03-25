@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CcnRouteTableInputPolicy;
-
                 /**
                 * 云联网路由接收策略列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CcnRouteTableInputPolicys();
+                    ~CcnRouteTableInputPolicys() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

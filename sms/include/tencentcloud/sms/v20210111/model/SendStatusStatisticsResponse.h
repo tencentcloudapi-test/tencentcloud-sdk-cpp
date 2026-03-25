@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SendStatusStatistics;
-
                 /**
                 * SendStatusStatistics返回参数结构体
                 */

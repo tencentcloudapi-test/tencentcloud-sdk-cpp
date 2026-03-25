@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 登录节点概览。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LoginNodeOverview();
+                    ~LoginNodeOverview() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

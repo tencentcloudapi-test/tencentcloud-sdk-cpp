@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CodeDetail;
-
                 /**
                 * 图片二维码详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CodeDetect();
+                    ~CodeDetect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

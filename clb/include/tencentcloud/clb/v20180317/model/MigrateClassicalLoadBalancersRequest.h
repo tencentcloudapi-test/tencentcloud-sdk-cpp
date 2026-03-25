@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExclusiveCluster;
-
                 /**
                 * MigrateClassicalLoadBalancers请求参数结构体
                 */

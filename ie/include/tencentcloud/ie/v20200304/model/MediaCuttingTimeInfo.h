@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IntervalTime;
-                class SectionTime;
-
                 /**
                 * 编辑处理/剪切任务/时间信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaCuttingTimeInfo();
+                    ~MediaCuttingTimeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

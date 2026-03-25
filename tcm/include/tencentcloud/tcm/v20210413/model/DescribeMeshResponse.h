@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Mesh;
-
                 /**
                 * DescribeMesh返回参数结构体
                 */

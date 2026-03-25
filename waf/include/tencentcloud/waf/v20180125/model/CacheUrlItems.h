@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 防篡改url元素
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CacheUrlItems();
+                    ~CacheUrlItems() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

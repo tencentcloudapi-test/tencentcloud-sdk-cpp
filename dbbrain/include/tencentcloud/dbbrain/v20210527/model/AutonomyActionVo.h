@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * redis自治事件任务详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AutonomyActionVo();
+                    ~AutonomyActionVo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

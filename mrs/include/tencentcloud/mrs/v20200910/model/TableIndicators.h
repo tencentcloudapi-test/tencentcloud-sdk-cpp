@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IndicatorItemV2;
-                class BaseItem;
-
                 /**
                 * 检验报告结构
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     TableIndicators();
+                    ~TableIndicators() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

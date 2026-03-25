@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * mongo的资产统计结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MongoAsset();
+                    ~MongoAsset() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

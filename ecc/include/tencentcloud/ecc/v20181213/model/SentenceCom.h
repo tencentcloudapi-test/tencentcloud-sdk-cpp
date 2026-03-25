@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SentenceSuggest;
-                class SentenceItem;
-
                 /**
                 * 批改结果按句点评的详细信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     SentenceCom();
+                    ~SentenceCom() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DockerContainerConfiguration;
-                class LoginConfiguration;
-
                 /**
                 * ResetInstance请求参数结构体
                 */

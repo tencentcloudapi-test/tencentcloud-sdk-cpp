@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 工单详情中的工单流程步骤
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OrderStep();
+                    ~OrderStep() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

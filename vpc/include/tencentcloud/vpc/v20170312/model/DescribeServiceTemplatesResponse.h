@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceTemplate;
-
                 /**
                 * DescribeServiceTemplates返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WarningsData;
-
                 /**
                 * DescribeWarnings返回参数结构体
                 */

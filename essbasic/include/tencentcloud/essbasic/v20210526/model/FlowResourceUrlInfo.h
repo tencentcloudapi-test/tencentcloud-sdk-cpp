@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceUrlInfo;
-
                 /**
                 * 流程对应资源链接信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FlowResourceUrlInfo();
+                    ~FlowResourceUrlInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

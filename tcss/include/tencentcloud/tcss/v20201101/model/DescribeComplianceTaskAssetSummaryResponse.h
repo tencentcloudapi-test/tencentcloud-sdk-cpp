@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComplianceAssetSummary;
-
                 /**
                 * DescribeComplianceTaskAssetSummary返回参数结构体
                 */

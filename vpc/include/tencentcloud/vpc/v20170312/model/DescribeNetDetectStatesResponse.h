@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NetDetectState;
-
                 /**
                 * DescribeNetDetectStates返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusTemp;
-
                 /**
                 * CreatePrometheusTemp请求参数结构体
                 */

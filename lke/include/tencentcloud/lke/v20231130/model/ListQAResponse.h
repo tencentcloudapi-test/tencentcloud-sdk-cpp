@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListQaItem;
-
                 /**
                 * ListQA返回参数结构体
                 */

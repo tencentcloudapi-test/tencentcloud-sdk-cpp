@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-                class MinimalRequestBodyTransferRate;
-                class RequestBodyTransferTimeout;
-
                 /**
                 * 慢速攻击防护的具体配置。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     SlowAttackDefense();
+                    ~SlowAttackDefense() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

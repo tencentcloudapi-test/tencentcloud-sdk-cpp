@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FinanceAntiFraudRecord;
-
                 /**
                 * DescribeAntiFraud返回参数结构体
                 */

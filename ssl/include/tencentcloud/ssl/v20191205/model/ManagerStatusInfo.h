@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ManagerPreAuditDomain;
-
                 /**
                 * 管理人的四种审核状态
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ManagerStatusInfo();
+                    ~ManagerStatusInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

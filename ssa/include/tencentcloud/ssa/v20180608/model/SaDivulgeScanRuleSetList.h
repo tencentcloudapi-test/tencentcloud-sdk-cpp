@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 设置_泄露监测产品监测扫描规则策略
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SaDivulgeScanRuleSetList();
+                    ~SaDivulgeScanRuleSetList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

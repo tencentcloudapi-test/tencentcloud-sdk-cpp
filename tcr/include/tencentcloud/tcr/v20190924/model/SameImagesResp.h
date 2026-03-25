@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 指定tag镜像内容相同的tag列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SameImagesResp();
+                    ~SameImagesResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

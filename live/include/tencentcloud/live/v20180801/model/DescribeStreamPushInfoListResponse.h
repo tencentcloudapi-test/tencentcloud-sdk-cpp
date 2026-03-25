@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PushQualityData;
-
                 /**
                 * DescribeStreamPushInfoList返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConsumerRecord;
-
                 /**
                 * FetchMessageListByOffset返回参数结构体
                 */

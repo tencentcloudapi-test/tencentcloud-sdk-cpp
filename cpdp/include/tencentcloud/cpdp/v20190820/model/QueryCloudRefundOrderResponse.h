@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudSubRefundItem;
-
                 /**
                 * QueryCloudRefundOrder返回参数结构体
                 */

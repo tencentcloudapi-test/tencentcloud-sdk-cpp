@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CertificateInfo;
-
                 /**
                 * 刷新证书信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RenewCertificate();
+                    ~RenewCertificate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

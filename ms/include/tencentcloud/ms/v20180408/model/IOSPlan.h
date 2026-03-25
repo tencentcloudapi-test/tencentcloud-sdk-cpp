@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 渠道合作IOS源码混淆配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IOSPlan();
+                    ~IOSPlan() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

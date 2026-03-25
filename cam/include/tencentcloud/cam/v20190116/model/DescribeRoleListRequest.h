@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RoleTags;
-
                 /**
                 * DescribeRoleList请求参数结构体
                 */

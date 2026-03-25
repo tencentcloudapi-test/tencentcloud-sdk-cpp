@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SchemaItem数组
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SchemaItem();
+                    ~SchemaItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

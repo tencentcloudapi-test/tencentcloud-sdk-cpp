@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AgentShell;
-
                 /**
                 * DescribeAgentShell返回参数结构体
                 */

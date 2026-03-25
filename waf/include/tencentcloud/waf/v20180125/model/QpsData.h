@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取弹性qps的默认相关值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     QpsData();
+                    ~QpsData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

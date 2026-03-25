@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 加速区域支持的能力，包括支持的网络类型等等。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SupportFeature();
+                    ~SupportFeature() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

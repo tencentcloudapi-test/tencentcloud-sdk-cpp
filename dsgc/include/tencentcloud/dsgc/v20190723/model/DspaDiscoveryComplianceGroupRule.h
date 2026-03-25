@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 合规组中规则信息，用于合规组列表中规则信息展示
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DspaDiscoveryComplianceGroupRule();
+                    ~DspaDiscoveryComplianceGroupRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

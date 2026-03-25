@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CoolDownPolicyInfo;
-
                 /**
                 * DescribeCoolDownPolicies返回参数结构体
                 */

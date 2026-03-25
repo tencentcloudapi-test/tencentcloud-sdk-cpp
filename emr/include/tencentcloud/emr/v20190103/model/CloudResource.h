@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VolumeSetting;
-                class ExternalAccess;
-                class NodeAffinity;
-                class Disk;
-
                 /**
                 * 容器集群Pod请求资源信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudResource();
+                    ~CloudResource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

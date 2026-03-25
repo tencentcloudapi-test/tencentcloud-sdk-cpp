@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 查询旁路转码计费时长。
 查询时间小于等于1天时，返回每5分钟粒度的数据；查询时间大于1天时，返回按天汇总的数据。
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SdkAppIdTrtcMcuTranscodeTimeUsage();
+                    ~SdkAppIdTrtcMcuTranscodeTimeUsage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

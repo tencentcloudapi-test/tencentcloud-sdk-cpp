@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Aspect;
-
                 /**
                 * 四个维度的得分
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ScoreCategory();
+                    ~ScoreCategory() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

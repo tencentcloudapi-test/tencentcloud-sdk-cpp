@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataAuthorizationInfo;
-
                 /**
                 * DescribeFinanceFraudUltimate请求参数结构体
                 */

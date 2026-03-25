@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Polygon;
-
                 /**
                 * 发票字段坐标信息。包括字段英文名称、字段值所在位置的四点坐标、字段所属行号，具体内容请点击左侧链接。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ItemPolygonInfo();
+                    ~ItemPolygonInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

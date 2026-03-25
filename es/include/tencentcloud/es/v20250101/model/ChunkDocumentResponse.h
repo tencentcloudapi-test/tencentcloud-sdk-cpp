@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Chunk;
-                class Usage;
-
                 /**
                 * ChunkDocument返回参数结构体
                 */

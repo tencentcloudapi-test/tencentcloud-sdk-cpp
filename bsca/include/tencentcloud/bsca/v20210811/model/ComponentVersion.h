@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PURL;
-                class ComponentVersionInfo;
-
                 /**
                 * 描述一个组件版本。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ComponentVersion();
+                    ~ComponentVersion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

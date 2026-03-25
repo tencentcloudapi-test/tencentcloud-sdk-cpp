@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaProcessTaskResult;
-
                 /**
                 * DescribeMediaProcessTaskResult返回参数结构体
                 */

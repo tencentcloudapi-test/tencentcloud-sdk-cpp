@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SnapshotStatistics;
-
                 /**
                 * DescribeCfsSnapshotOverview返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineExtraInfo;
-
                 /**
                 * 基线主机检测
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BaselineHostDetect();
+                    ~BaselineHostDetect() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

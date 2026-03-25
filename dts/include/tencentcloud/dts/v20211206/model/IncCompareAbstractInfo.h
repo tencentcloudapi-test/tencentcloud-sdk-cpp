@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 增量校验阶段的摘要信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IncCompareAbstractInfo();
+                    ~IncCompareAbstractInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

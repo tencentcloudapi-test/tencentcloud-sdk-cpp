@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FirmwareTaskInfo;
-
                 /**
                 * DescribeFirmwareTasks返回参数结构体
                 */

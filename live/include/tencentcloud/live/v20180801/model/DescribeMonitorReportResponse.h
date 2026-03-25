@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MPSResult;
-                class DiagnoseResult;
-
                 /**
                 * DescribeMonitorReport返回参数结构体
                 */

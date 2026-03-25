@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LoRaFrequencyEntry;
-
                 /**
                 * CreateLoRaFrequency返回参数结构体
                 */

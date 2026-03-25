@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 漏洞信息产品支持状态
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProductSupport();
+                    ~ProductSupport() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

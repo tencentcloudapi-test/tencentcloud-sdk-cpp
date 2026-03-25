@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplyOpenBankSubMerchantSignOnlineResult;
-
                 /**
                 * ApplyOpenBankSubMerchantSignOnline返回参数结构体
                 */

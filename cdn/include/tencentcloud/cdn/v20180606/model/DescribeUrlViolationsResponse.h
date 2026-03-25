@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ViolationUrl;
-
                 /**
                 * DescribeUrlViolations返回参数结构体
                 */

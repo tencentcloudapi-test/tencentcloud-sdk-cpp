@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubmitWorkflow;
-
                 /**
                 * SubmitWorkflow返回参数结构体
                 */

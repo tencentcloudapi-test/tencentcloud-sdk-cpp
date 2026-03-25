@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Storage;
-                class Filter;
-
                 /**
                 * DescribeAuditTrack返回参数结构体
                 */

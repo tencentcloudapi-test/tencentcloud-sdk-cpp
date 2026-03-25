@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpdateRecordBackupPlanModify;
-
                 /**
                 * UpdateRecordBackupPlan请求参数结构体
                 */

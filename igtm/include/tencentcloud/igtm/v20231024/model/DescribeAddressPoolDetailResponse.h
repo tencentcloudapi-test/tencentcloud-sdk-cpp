@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AddressPoolDetail;
-                class Address;
-
                 /**
                 * DescribeAddressPoolDetail返回参数结构体
                 */

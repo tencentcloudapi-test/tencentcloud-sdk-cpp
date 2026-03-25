@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProdSchedulerTask;
-
                 /**
                 * ModifyExecStrategy请求参数结构体
                 */

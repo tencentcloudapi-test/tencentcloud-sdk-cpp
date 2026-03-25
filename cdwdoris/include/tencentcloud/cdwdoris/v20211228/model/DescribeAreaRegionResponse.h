@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RegionAreaInfo;
-                class FrontEndRule;
-
                 /**
                 * DescribeAreaRegion返回参数结构体
                 */

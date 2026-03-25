@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * mongo输出聚合设置。输出默认 Change Event
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PipelineInfo();
+                    ~PipelineInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CheckStep;
-
                 /**
                 * DescribeMigrationCheckJob返回参数结构体
                 */

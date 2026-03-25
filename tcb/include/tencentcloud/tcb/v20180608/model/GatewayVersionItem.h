@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WxGatewayCustomConfig;
-
                 /**
                 * 网关版本详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     GatewayVersionItem();
+                    ~GatewayVersionItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WithdrawBill;
-
                 /**
                 * ApplyReWithdrawal请求参数结构体
                 */

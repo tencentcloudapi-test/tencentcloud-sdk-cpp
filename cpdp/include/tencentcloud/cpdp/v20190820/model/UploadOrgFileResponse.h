@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UploadFileResult;
-
                 /**
                 * UploadOrgFile返回参数结构体
                 */

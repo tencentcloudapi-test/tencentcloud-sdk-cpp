@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class APIGWParams;
-                class CkafkaParams;
-                class DTSParams;
-                class TDMQParams;
-
                 /**
                 * ConnectionDescription描述
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     ConnectionDescription();
+                    ~ConnectionDescription() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

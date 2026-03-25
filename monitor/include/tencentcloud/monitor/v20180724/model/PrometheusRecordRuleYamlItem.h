@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * prometheus聚合规则实例详情，包含所属集群ID
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusRecordRuleYamlItem();
+                    ~PrometheusRecordRuleYamlItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

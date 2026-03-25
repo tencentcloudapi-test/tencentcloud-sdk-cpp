@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OutputDescribeUserUsageCntData;
-
                 /**
                 * DescribeUserUsageCnt返回参数结构体
                 */

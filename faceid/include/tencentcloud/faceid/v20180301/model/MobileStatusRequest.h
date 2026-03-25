@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Encryption;
-
                 /**
                 * MobileStatus请求参数结构体
                 */

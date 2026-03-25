@@ -44,20 +44,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-                class InstanceChargePrepaid;
-                class SystemDisk;
-                class DataDisk;
-                class VirtualPrivateCloud;
-                class InternetAccessible;
-                class LoginSettings;
-                class EnhancedService;
-                class TagSpecification;
-                class InstanceMarketOptionsRequest;
-                class Metadata;
-                class CpuTopology;
-                class LaunchTemplate;
-
                 /**
                 * InquiryPriceRunInstances请求参数结构体
                 */

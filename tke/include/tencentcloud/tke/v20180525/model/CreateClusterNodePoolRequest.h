@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceAdvancedSettings;
-                class Label;
-                class Taint;
-                class AnnotationValue;
-                class Tag;
-
                 /**
                 * CreateClusterNodePool请求参数结构体
                 */

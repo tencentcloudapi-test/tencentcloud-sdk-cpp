@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CmqDeadLetterSource;
-                class CmqDeadLetterPolicy;
-                class CmqTransactionPolicy;
-                class Tag;
-
                 /**
                 * cmq 批量queue属性信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     CmqQueue();
+                    ~CmqQueue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

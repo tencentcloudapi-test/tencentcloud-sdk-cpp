@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComposeMediaTaskInput;
-                class ComposeMediaTaskOutput;
-                class MediaMetaData;
-
                 /**
                 * 制作媒体文件任务信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ComposeMediaTask();
+                    ~ComposeMediaTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AppDevice;
-
                 /**
                 * AppGetDevices返回参数结构体
                 */

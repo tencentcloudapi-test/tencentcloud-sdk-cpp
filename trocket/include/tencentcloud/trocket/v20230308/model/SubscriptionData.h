@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClientSubscriptionInfo;
-
                 /**
                 * 主题与消费组的订阅关系数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SubscriptionData();
+                    ~SubscriptionData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

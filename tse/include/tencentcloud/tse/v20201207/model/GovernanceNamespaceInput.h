@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 治理中心命名空间输入参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GovernanceNamespaceInput();
+                    ~GovernanceNamespaceInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

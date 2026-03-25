@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 角色对象，postgresql独有参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RoleItem();
+                    ~RoleItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

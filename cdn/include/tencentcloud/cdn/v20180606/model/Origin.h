@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PathRule;
-                class PathBasedOriginRule;
-                class OriginSni;
-                class AdvanceHttps;
-
                 /**
                 * 源站配置复杂类型，支持以下配置：
 + 源站指定为单个域名
@@ -57,6 +52,7 @@ namespace TencentCloud
                 {
                 public:
                     Origin();
+                    ~Origin() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

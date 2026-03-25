@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskId;
-
                 /**
                 * DeployGroup返回参数结构体
                 */

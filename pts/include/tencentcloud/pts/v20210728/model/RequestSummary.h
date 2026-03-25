@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 压测请求明细
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RequestSummary();
+                    ~RequestSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

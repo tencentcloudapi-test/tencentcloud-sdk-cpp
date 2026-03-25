@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CLBMultiRegion;
-
                 /**
                 * 多环境网络信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     EnvAddressInfo();
+                    ~EnvAddressInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

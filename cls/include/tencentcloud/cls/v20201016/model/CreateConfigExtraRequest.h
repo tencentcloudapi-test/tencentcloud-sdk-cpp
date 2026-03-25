@@ -37,13 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HostFileInfo;
-                class ContainerFileInfo;
-                class ContainerStdoutInfo;
-                class ExtractRuleInfo;
-                class ExcludePathInfo;
-                class CollectInfo;
-
                 /**
                 * CreateConfigExtra请求参数结构体
                 */

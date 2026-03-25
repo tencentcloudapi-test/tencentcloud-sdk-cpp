@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Choice;
-                class TokenUsage;
-                class WebContent;
-
                 /**
                 * ChatCompletions返回参数结构体
                 */

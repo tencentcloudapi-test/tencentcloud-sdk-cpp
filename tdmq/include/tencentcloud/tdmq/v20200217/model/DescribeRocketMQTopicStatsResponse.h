@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopicStats;
-
                 /**
                 * DescribeRocketMQTopicStats返回参数结构体
                 */

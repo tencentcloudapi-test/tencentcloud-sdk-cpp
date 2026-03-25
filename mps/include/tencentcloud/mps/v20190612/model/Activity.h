@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ActivityPara;
-
                 /**
                 * 编排原子任务
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Activity();
+                    ~Activity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

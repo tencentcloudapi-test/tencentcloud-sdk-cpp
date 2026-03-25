@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Pageable;
-                class QueryUserFilter;
-                class Sort;
-
                 /**
                 * DescribeUser请求参数结构体
                 */

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filter;
-                class SortBy;
-
                 /**
                 * DescribeIncrementalMigrationStrategyInfos请求参数结构体
                 */

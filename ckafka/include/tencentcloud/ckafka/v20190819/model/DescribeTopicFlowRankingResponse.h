@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopicFlowRankingResult;
-
                 /**
                 * DescribeTopicFlowRanking返回参数结构体
                 */

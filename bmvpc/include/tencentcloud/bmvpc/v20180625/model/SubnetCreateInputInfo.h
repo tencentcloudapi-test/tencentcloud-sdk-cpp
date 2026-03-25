@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 创建子网时的子网类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SubnetCreateInputInfo();
+                    ~SubnetCreateInputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

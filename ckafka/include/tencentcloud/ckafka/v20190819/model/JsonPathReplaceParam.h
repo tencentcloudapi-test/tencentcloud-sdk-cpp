@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据处理——Value处理参数——Jsonpath替换参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     JsonPathReplaceParam();
+                    ~JsonPathReplaceParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

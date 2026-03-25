@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MongodbShardInfo;
-                class MongoDBInstance;
-                class TagInfo;
-
                 /**
                 * 实例详情
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     MongoDBInstanceDetail();
+                    ~MongoDBInstanceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

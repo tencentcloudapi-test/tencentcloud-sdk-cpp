@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskInfo;
-                class Data;
-                class ImageData;
-                class AudioData;
-                class TextData;
-
                 /**
                 * DescribeTaskDetail返回参数结构体
                 */

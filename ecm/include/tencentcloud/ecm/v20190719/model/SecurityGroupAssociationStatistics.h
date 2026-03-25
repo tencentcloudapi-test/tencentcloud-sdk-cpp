@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceStatistic;
-
                 /**
                 * 安全组关联的资源统计
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SecurityGroupAssociationStatistics();
+                    ~SecurityGroupAssociationStatistics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClassifiedPersonInfo;
-
                 /**
                 * 带类型树的已分类人物信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MultiLevelPersonInfo();
+                    ~MultiLevelPersonInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

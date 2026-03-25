@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LicenseResourceInfo;
-
                 /**
                 * DescribeVcubeResourcesList返回参数结构体
                 */

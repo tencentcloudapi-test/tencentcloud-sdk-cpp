@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 网络集群策略自定义规则
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NetworkPeer();
+                    ~NetworkPeer() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

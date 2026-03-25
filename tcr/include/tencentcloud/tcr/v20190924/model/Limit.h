@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 共享镜像仓库用户配额
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Limit();
+                    ~Limit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

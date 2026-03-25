@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HttpHeaderParam;
-
                 /**
                 * CreateCustomHeader请求参数结构体
                 */

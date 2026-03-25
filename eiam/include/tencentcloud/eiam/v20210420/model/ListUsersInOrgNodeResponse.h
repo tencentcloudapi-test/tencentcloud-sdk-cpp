@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OrgNodeChildUserInfo;
-                class UserInfo;
-
                 /**
                 * ListUsersInOrgNode返回参数结构体
                 */

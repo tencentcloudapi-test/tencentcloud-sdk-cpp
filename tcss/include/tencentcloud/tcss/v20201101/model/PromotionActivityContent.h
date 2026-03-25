@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 促销活动内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PromotionActivityContent();
+                    ~PromotionActivityContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

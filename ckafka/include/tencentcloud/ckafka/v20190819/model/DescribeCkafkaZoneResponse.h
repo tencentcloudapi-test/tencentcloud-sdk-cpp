@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZoneResponse;
-
                 /**
                 * DescribeCkafkaZone返回参数结构体
                 */

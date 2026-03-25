@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeConnectInfoResultDTO;
-
                 /**
                 * DescribeTopicProduceConnection返回参数结构体
                 */

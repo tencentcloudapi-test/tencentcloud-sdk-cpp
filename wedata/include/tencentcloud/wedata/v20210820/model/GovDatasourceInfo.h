@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据源信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GovDatasourceInfo();
+                    ~GovDatasourceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

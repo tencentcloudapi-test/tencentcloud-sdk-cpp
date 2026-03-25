@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KVMap;
-
                 /**
                 * RerunTaskInstancesAsync请求参数结构体
                 */

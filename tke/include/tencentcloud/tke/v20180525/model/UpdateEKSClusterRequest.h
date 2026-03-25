@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClusterPublicLB;
-                class ClusterInternalLB;
-                class DnsServerConf;
-
                 /**
                 * UpdateEKSCluster请求参数结构体
                 */

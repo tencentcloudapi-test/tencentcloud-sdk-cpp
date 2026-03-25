@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Paging;
-                class AggrSoftDeviceRow;
-
                 /**
                 * 聚合软件-已安装终端列表
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeAggrSoftDeviceListData();
+                    ~DescribeAggrSoftDeviceListData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HostInfo;
-                class Place;
-
                 /**
                 * ModifyLoginWhiteRecord请求参数结构体
                 */

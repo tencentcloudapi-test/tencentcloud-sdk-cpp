@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 应用使用容器部署时需要的额外资源
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ContainerAdditionalResourceRequirement();
+                    ~ContainerAdditionalResourceRequirement() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

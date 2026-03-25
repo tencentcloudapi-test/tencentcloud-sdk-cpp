@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainRuleId;
-
                 /**
                 * ModifyCustomRuleStatus请求参数结构体
                 */

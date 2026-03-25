@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Subnet;
-                class NetworkAclEntry;
-                class Tag;
-
                 /**
                 * 网络ACL
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     NetworkAcl();
+                    ~NetworkAcl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

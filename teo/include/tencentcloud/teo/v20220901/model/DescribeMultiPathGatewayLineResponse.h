@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MultiPathGatewayLine;
-
                 /**
                 * DescribeMultiPathGatewayLine返回参数结构体
                 */

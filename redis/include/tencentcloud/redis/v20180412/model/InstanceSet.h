@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceNode;
-                class InstanceTagInfo;
-                class RedisNodeInfo;
-
                 /**
                 * 实例详细信息列表。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceSet();
+                    ~InstanceSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

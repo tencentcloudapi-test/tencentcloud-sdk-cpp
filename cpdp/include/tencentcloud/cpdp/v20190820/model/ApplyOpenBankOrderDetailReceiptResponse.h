@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplyOpenBankOrderDetailReceiptResult;
-
                 /**
                 * ApplyOpenBankOrderDetailReceipt返回参数结构体
                 */

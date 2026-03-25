@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Ip6RuleInfo;
-
                 /**
                 * AddIp6Rules请求参数结构体
                 */

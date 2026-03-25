@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 返回配置的文件内容（key-value）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ConfigKeyValue();
+                    ~ConfigKeyValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

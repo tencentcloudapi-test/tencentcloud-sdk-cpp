@@ -42,18 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DtsConnectParam;
-                class MongoDBConnectParam;
-                class EsConnectParam;
-                class ClickHouseConnectParam;
-                class MySQLConnectParam;
-                class PostgreSQLConnectParam;
-                class MariaDBConnectParam;
-                class SQLServerConnectParam;
-                class DorisConnectParam;
-                class KafkaConnectParam;
-                class MqttConnectParam;
-
                 /**
                 * CreateConnectResource请求参数结构体
                 */

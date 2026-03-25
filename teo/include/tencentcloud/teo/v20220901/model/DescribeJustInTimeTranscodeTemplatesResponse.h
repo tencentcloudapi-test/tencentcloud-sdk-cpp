@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JustInTimeTranscodeTemplate;
-
                 /**
                 * DescribeJustInTimeTranscodeTemplates返回参数结构体
                 */

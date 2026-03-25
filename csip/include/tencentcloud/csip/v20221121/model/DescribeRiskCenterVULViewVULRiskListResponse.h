@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VULViewVULRisk;
-                class FilterDataObject;
-
                 /**
                 * DescribeRiskCenterVULViewVULRiskList返回参数结构体
                 */

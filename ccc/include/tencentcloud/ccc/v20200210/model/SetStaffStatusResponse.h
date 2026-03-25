@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SetStaffStatusRspItem;
-
                 /**
                 * SetStaffStatus返回参数结构体
                 */

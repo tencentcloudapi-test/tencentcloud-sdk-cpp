@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Condition;
-                class Filter;
-                class Sort;
-
                 /**
                 * DescribeDevices请求参数结构体
                 */

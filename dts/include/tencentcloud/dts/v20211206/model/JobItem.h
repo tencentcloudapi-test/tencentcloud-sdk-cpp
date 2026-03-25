@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MigrateAction;
-                class MigrateDetailInfo;
-                class DBEndpointInfo;
-                class CompareTaskInfo;
-                class TradeInfo;
-                class TagItem;
-
                 /**
                 * 迁移任务列表
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     JobItem();
+                    ~JobItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

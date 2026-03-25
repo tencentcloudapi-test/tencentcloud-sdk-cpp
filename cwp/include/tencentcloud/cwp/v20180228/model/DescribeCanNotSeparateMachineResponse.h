@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CanNotSeparateInfo;
-
                 /**
                 * DescribeCanNotSeparateMachine返回参数结构体
                 */

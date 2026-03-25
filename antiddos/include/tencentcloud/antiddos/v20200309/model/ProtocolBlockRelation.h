@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProtocolBlockConfig;
-                class InstanceRelation;
-
                 /**
                 * 协议封禁相关信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ProtocolBlockRelation();
+                    ~ProtocolBlockRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

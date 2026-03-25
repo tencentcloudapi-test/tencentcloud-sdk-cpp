@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 流式转文本用量数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     StreamTextStatisticsItem();
+                    ~StreamTextStatisticsItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

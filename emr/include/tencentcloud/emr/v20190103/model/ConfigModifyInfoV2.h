@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ItemSeq;
-                class ConfigSetInfo;
-
                 /**
                 * 资源调度 - 队列修改信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ConfigModifyInfoV2();
+                    ~ConfigModifyInfoV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

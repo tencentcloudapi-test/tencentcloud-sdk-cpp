@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetailSet;
-
                 /**
                 * DescribeDosageDetailByDate返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CandidateDsDTo;
-
                 /**
                 * 属性类型扩展
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskTypeExtDsVO();
+                    ~TaskTypeExtDsVO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

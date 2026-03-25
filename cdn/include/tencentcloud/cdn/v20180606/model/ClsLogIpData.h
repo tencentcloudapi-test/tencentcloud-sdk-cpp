@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 通过Cls日志，计算出来的IP每秒访问数量
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClsLogIpData();
+                    ~ClsLogIpData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

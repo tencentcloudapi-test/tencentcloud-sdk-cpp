@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpgradeProxy;
-
                 /**
                 * UpgradeInstance请求参数结构体
                 */

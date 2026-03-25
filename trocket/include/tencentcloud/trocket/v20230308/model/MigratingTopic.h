@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 迁移中的主题
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MigratingTopic();
+                    ~MigratingTopic() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

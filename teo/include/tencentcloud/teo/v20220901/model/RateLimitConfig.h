@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RateLimitUserRule;
-                class RateLimitTemplate;
-                class RateLimitIntelligence;
-
                 /**
                 * 速率限制规则
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     RateLimitConfig();
+                    ~RateLimitConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class APM;
-                class TracingZipkin;
-
                 /**
                 * ModifyTracingConfig请求参数结构体
                 */

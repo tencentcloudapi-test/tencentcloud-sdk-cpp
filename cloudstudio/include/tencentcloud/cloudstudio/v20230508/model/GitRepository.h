@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Git 仓库
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GitRepository();
+                    ~GitRepository() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HpaPolicy;
-                class TimerScale;
-                class VpcConf;
-                class VolumeConf;
-
                 /**
                 * 服务配置入参
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     DiffConfigItem();
+                    ~DiffConfigItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApproveType;
-
                 /**
                 * DescribeApproveTypeList返回参数结构体
                 */

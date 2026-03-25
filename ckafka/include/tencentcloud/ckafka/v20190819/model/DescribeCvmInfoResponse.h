@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListCvmAndIpInfoRsp;
-
                 /**
                 * DescribeCvmInfo返回参数结构体
                 */

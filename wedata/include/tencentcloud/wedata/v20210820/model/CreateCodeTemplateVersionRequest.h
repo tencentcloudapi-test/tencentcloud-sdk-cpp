@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskFormParams;
-
                 /**
                 * CreateCodeTemplateVersion请求参数结构体
                 */

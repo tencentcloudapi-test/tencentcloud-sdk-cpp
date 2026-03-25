@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VersionInstance;
-
                 /**
                 * DescribeVersions返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyInstanceWeight;
-
                 /**
                 * CreateProxyEndPoint请求参数结构体
                 */

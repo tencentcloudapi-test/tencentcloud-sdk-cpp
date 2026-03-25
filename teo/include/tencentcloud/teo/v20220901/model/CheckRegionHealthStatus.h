@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OriginHealthStatus;
-
                 /**
                 * 各个健康检查区域下源站的健康状态。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CheckRegionHealthStatus();
+                    ~CheckRegionHealthStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

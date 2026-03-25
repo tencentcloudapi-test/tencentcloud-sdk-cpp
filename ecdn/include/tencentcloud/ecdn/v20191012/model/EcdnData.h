@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TimestampData;
-
                 /**
                 * 访问明细数据类型
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     EcdnData();
+                    ~EcdnData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

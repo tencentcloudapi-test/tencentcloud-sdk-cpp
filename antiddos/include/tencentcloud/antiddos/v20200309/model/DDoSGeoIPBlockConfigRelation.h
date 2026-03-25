@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DDoSGeoIPBlockConfig;
-                class InstanceRelation;
-
                 /**
                 * DDoS区域封禁配置相关信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DDoSGeoIPBlockConfigRelation();
+                    ~DDoSGeoIPBlockConfigRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

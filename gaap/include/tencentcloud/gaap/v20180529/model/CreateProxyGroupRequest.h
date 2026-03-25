@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagPair;
-                class AccessConfiguration;
-
                 /**
                 * CreateProxyGroup请求参数结构体
                 */

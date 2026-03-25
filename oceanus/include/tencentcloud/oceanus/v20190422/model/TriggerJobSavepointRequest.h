@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TriggerJobSavepoint请求参数结构体
                 */

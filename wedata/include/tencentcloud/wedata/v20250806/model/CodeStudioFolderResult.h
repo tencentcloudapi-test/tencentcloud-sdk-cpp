@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CodeStudio文件夹对象操作结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CodeStudioFolderResult();
+                    ~CodeStudioFolderResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

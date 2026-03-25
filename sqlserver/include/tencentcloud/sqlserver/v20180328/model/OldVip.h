@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于返回实例存在的未回收的ip数量
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OldVip();
+                    ~OldVip() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

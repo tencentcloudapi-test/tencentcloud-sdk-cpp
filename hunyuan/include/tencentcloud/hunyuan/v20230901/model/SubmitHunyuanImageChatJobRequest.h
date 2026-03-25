@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogoParam;
-
                 /**
                 * SubmitHunyuanImageChatJob请求参数结构体
                 */

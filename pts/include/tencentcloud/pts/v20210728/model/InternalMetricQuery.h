@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Label;
-                class Filter;
-
                 /**
                 * 查询结构封装
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     InternalMetricQuery();
+                    ~InternalMetricQuery() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

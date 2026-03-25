@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 合并回源配置项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OriginCombine();
+                    ~OriginCombine() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

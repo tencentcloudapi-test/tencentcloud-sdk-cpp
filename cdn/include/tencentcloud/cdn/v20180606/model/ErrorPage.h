@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrorPageRule;
-
                 /**
                 * 状态码重定向配置，默认为关闭状态
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ErrorPage();
+                    ~ErrorPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

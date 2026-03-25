@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 主备切换日志
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SwitchLog();
+                    ~SwitchLog() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

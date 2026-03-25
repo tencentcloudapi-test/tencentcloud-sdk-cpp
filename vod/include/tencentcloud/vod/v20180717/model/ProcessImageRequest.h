@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageContentReviewInput;
-
                 /**
                 * ProcessImage请求参数结构体
                 */

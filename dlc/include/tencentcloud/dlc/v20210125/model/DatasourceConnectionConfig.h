@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MysqlInfo;
-                class HiveInfo;
-                class KafkaInfo;
-                class OtherDatasourceConnection;
-                class DataSourceInfo;
-                class ElasticsearchInfo;
-                class TCHouseD;
-                class TccHive;
-
                 /**
                 * 数据源属性
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     DatasourceConnectionConfig();
+                    ~DatasourceConnectionConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

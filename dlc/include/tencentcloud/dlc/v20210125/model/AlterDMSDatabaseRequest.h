@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Asset;
-
                 /**
                 * AlterDMSDatabase请求参数结构体
                 */

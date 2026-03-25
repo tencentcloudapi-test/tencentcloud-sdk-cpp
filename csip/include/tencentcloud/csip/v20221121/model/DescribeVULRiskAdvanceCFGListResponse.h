@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VULRiskAdvanceCFGList;
-                class FilterDataObject;
-
                 /**
                 * DescribeVULRiskAdvanceCFGList返回参数结构体
                 */

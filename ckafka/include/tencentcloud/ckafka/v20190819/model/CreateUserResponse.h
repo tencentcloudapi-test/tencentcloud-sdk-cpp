@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JgwOperateResponse;
-
                 /**
                 * CreateUser返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkflowExtOpsDto;
-
                 /**
                 * 用户生产工作流列表分页
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowExtOpsDtoPage();
+                    ~WorkflowExtOpsDtoPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

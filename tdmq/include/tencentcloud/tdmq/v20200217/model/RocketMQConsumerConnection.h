@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 在线消费者情况
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RocketMQConsumerConnection();
+                    ~RocketMQConsumerConnection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

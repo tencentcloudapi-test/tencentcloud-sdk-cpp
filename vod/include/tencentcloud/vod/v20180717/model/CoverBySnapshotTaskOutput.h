@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 对视频截图做封面任务输出类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CoverBySnapshotTaskOutput();
+                    ~CoverBySnapshotTaskOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

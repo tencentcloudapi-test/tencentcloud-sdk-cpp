@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WatermarkCycleConfigForUpdate;
-
                 /**
                 * SVG水印模板输入参数
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SvgWatermarkInputForUpdate();
+                    ~SvgWatermarkInputForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

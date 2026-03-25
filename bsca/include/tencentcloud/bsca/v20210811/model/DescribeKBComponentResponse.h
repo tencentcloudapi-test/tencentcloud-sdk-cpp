@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Component;
-
                 /**
                 * DescribeKBComponent返回参数结构体
                 */

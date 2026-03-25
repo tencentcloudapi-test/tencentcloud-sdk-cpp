@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Sort;
-
                 /**
                 * DescribeTablePartitions请求参数结构体
                 */

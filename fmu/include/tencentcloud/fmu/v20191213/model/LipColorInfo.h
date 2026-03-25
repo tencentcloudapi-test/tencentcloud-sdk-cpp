@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RGBAInfo;
-                class FaceRect;
-
                 /**
                 * 唇色信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     LipColorInfo();
+                    ~LipColorInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

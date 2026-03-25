@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SmsSid;
-
                 /**
                 * SendSms返回参数结构体
                 */

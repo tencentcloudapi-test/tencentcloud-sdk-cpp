@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConsumptionSummaryTotal;
-                class ConsumptionProjectSummaryDataItem;
-
                 /**
                 * DescribeCostSummaryByProject返回参数结构体
                 */

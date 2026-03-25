@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 创建嵌入式页面url个性化参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EmbedUrlOption();
+                    ~EmbedUrlOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

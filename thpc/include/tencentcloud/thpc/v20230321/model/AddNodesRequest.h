@@ -38,14 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-                class VirtualPrivateCloud;
-                class InstanceChargePrepaid;
-                class SystemDisk;
-                class DataDisk;
-                class InternetAccessible;
-                class LoginSettings;
-
                 /**
                 * AddNodes请求参数结构体
                 */

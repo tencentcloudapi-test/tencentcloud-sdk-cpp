@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * nat fw 实例展示的过滤列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NatFwFilter();
+                    ~NatFwFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

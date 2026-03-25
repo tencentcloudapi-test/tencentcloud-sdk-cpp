@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Entity;
-                class ThirdPartyPublishInfo;
-
                 /**
                 * 多媒体创作引擎导出信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CMEExportInfo();
+                    ~CMEExportInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

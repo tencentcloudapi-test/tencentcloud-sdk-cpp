@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 消费者客户端
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ConsumerClient();
+                    ~ConsumerClient() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

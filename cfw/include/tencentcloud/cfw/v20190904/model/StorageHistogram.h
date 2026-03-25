@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 日志存储统计柱形图
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     StorageHistogram();
+                    ~StorageHistogram() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

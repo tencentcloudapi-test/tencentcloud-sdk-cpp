@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VirtualPrivateCloud;
-                class ChcDeployExtraConfig;
-
                 /**
                 * ConfigureChcDeployVpc请求参数结构体
                 */

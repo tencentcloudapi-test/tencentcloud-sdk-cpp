@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceItem;
-
                 /**
                 * ModifyBindSceneDevice请求参数结构体
                 */

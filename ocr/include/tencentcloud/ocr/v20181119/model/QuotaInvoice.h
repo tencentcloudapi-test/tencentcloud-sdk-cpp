@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 定额发票
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     QuotaInvoice();
+                    ~QuotaInvoice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

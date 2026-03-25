@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云联网（CCN）地域出带宽上限。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CcnRegionBandwidthLimitInfo();
+                    ~CcnRegionBandwidthLimitInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

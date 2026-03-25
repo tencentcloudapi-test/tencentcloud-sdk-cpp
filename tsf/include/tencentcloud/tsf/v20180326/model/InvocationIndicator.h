@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IndicatorCoord;
-
                 /**
                 * 服务调用监控指标
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InvocationIndicator();
+                    ~InvocationIndicator() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

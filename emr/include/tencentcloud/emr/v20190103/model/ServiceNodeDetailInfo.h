@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceProcessFunctionInfo;
-                class HealthStatus;
-                class RestartPolicy;
-
                 /**
                 * 服务进程信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceNodeDetailInfo();
+                    ~ServiceNodeDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

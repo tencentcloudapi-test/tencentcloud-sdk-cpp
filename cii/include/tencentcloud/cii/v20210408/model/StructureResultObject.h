@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OcrRecognise;
-
                 /**
                 * 结构化结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     StructureResultObject();
+                    ~StructureResultObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

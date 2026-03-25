@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 竞价混合模式下，各计费类型实例的分配策略。包括按量计费实例和竞价计费实例。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SpotMixedAllocationPolicy();
+                    ~SpotMixedAllocationPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

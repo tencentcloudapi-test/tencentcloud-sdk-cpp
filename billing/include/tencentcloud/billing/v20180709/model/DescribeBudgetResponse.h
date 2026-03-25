@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataForBudgetInfoPage;
-
                 /**
                 * DescribeBudget返回参数结构体
                 */

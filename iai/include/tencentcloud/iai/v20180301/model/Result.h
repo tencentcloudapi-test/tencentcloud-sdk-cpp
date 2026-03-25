@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Candidate;
-                class FaceRect;
-
                 /**
                 * 人脸的识别结果
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     Result();
+                    ~Result() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

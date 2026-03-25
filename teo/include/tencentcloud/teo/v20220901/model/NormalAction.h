@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleNormalActionParams;
-
                 /**
                 * 规则引擎常规类型的动作
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NormalAction();
+                    ~NormalAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

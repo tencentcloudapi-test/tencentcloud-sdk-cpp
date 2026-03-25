@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Location;
-                class OcrHitInfo;
-
                 /**
                 * 用于返回OCR文本结果详情，图片中的文本越多，可能导致接口返回时间增加。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     OcrTextDetail();
+                    ~OcrTextDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

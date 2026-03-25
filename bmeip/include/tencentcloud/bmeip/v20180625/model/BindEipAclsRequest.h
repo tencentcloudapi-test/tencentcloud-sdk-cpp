@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EipAclMap;
-
                 /**
                 * BindEipAcls请求参数结构体
                 */

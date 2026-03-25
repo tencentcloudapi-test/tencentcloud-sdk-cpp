@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RiskCallRecord;
-
                 /**
                 * DescribeRiskCallRecord返回参数结构体
                 */

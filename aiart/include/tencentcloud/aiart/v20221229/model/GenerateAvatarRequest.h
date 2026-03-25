@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogoParam;
-
                 /**
                 * GenerateAvatar请求参数结构体
                 */

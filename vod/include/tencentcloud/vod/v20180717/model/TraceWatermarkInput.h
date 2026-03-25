@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 溯源水印参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TraceWatermarkInput();
+                    ~TraceWatermarkInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

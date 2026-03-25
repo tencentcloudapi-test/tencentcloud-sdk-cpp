@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageResultsResultDetailLocation;
-                class HitInfo;
-
                 /**
                 * 具体场景下的图片识别结果
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageResultsResultDetail();
+                    ~ImageResultsResultDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

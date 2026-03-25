@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SourceClusterGroupConfig;
-
                 /**
                 * ImportSourceClusterConsumerGroups请求参数结构体
                 */

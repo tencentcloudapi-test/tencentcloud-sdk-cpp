@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AclConfigRelation;
-
                 /**
                 * DescribeListPortAclList返回参数结构体
                 */

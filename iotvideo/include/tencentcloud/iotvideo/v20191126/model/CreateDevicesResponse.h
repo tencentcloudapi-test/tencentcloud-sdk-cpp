@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceCertificate;
-
                 /**
                 * CreateDevices返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频分类识别结果项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClassificationTaskResultItem();
+                    ~ClassificationTaskResultItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

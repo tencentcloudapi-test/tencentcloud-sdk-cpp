@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 自动变配集群等级
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AutoUpgradeClusterLevel();
+                    ~AutoUpgradeClusterLevel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

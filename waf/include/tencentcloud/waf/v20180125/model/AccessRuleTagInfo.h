@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessKeyValueInfo;
-
                 /**
                 * DescribeAccessIndex接口的出参
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AccessRuleTagInfo();
+                    ~AccessRuleTagInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

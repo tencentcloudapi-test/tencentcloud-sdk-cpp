@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OtherCHDFSBinding;
-
                 /**
                 * DescribeOtherCHDFSBindingList返回参数结构体
                 */

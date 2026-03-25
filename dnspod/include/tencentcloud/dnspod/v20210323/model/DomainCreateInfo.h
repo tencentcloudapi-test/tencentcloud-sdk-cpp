@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 域名信息（创建域名时返回）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DomainCreateInfo();
+                    ~DomainCreateInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

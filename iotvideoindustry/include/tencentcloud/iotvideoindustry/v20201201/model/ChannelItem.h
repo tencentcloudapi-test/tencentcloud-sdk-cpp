@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * GB28181通道
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ChannelItem();
+                    ~ChannelItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

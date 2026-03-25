@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssignmentData;
-
                 /**
                 * QueryAssignment返回参数结构体
                 */

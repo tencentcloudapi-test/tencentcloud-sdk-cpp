@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IocListData;
-
                 /**
                 * DeleteBlockIgnoreRuleList请求参数结构体
                 */

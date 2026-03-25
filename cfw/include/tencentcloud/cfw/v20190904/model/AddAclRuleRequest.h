@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateRuleItem;
-
                 /**
                 * AddAclRule请求参数结构体
                 */

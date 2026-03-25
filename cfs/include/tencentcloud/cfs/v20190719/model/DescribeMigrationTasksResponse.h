@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MigrationTaskInfo;
-
                 /**
                 * DescribeMigrationTasks返回参数结构体
                 */

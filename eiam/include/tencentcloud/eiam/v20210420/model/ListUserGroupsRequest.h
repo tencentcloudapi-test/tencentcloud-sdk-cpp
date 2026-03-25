@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserGroupInfoSearchCriteria;
-                class SortCondition;
-
                 /**
                 * ListUserGroups请求参数结构体
                 */

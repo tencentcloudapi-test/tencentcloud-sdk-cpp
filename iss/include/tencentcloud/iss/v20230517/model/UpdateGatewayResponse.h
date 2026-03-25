@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpdateGatewayData;
-
                 /**
                 * UpdateGateway返回参数结构体
                 */

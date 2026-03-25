@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 联网搜索选项。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OnlineSearchOptions();
+                    ~OnlineSearchOptions() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

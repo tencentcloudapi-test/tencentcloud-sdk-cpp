@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-                class ComputeNode;
-                class ComputeNodeMetrics;
-                class Tag;
-
                 /**
                 * DescribeComputeEnv返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagList;
-
                 /**
                 * 发信域名验证列表结构体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     EmailIdentity();
+                    ~EmailIdentity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

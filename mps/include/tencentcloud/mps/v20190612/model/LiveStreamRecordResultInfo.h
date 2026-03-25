@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LiveRecordFile;
-
                 /**
                 * 直播流录制结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LiveStreamRecordResultInfo();
+                    ~LiveStreamRecordResultInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

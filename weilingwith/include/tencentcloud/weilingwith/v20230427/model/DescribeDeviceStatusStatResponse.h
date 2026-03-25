@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceStatusStatRes;
-
                 /**
                 * DescribeDeviceStatusStat返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 开发空间-脚本相关响应
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ScriptInfoResponse();
+                    ~ScriptInfoResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

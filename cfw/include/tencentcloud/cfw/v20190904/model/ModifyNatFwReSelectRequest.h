@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FwCidrInfo;
-
                 /**
                 * ModifyNatFwReSelect请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * {
 "Clazz": "c1", // java类全路径
@@ -45,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ClazzLevel();
+                    ~ClazzLevel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

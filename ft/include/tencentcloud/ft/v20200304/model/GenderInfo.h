@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FaceRect;
-
                 /**
                 * 人脸转换性别信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     GenderInfo();
+                    ~GenderInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

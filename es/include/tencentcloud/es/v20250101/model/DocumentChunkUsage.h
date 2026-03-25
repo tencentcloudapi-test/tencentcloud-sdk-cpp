@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 文档切片用量
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DocumentChunkUsage();
+                    ~DocumentChunkUsage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityProduct;
-                class AccountRisk;
-                class PrivilegeRisk;
-                class AKSKLeak;
-
                 /**
                 * DescribeDSPAAssessmentLatestRiskDetailInfo返回参数结构体
                 */

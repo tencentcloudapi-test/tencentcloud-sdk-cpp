@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubTaskResultItem;
-
                 /**
                 * 画质重生任务结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MediaQualityRestorationTaskResult();
+                    ~MediaQualityRestorationTaskResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

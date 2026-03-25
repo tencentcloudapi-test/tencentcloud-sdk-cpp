@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateDeviceSucceeded;
-                class CreateDeviceFailed;
-
                 /**
                 * 批量新增设备接口返回结果
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     BatchCreateDeviceRes();
+                    ~BatchCreateDeviceRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

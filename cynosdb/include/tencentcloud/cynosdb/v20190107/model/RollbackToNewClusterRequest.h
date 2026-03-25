@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class ParamItem;
-                class InstanceInitInfo;
-                class RollbackDatabase;
-                class RollbackTable;
-
                 /**
                 * RollbackToNewCluster请求参数结构体
                 */

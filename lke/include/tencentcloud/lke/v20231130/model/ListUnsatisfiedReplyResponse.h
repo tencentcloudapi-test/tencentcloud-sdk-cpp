@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UnsatisfiedReply;
-
                 /**
                 * ListUnsatisfiedReply返回参数结构体
                 */

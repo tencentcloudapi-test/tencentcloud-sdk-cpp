@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubAppIdInfo;
-
                 /**
                 * DescribeSubAppIds返回参数结构体
                 */

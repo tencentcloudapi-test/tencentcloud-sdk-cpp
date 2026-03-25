@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComplianceGroupRuleIdInfo;
-
                 /**
                 * ModifyDSPAComplianceGroup请求参数结构体
                 */

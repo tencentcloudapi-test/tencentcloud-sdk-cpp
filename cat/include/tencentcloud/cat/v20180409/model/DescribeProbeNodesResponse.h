@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeDefine;
-
                 /**
                 * DescribeProbeNodes返回参数结构体
                 */

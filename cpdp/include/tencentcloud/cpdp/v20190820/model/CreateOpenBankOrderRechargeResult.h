@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OpenBankRechargeRedirectInfo;
-
                 /**
                 * 云企付-充值下单返回响应
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateOpenBankOrderRechargeResult();
+                    ~CreateOpenBankOrderRechargeResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

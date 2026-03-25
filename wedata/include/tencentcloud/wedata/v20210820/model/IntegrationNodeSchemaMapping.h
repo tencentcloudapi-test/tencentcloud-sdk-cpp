@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 集成节点schema映射
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IntegrationNodeSchemaMapping();
+                    ~IntegrationNodeSchemaMapping() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 基于签名的 Key 防盗链信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UrlSignatureAuthPolicy();
+                    ~UrlSignatureAuthPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryOpenBankProfitSharePayeeResult;
-
                 /**
                 * QueryOpenBankProfitSharePayee返回参数结构体
                 */

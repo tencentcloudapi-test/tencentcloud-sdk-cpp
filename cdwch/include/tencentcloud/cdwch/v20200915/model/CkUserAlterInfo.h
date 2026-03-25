@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 新增或是修改ck用户
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CkUserAlterInfo();
+                    ~CkUserAlterInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

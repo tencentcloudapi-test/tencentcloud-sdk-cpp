@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 边缘容器集群master自定义参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     EdgeClusterExtraArgs();
+                    ~EdgeClusterExtraArgs() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

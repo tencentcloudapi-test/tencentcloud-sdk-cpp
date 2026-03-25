@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Pod PVC存储方式描述
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PersistentVolumeContext();
+                    ~PersistentVolumeContext() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

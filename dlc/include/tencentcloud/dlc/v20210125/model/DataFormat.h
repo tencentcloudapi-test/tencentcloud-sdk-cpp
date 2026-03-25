@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TextFile;
-                class CSV;
-                class Other;
-
                 /**
                 * 数据表数据格式。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     DataFormat();
+                    ~DataFormat() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NativeGatewayServerGroups;
-
                 /**
                 * DescribeNativeGatewayServerGroups返回参数结构体
                 */

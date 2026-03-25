@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeSignListStatus;
-
                 /**
                 * DescribeSmsSignList返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModuleItem;
-
                 /**
                 * DescribeModule返回参数结构体
                 */

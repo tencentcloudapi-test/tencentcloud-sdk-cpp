@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 敏感等级分布
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SensitiveLevel();
+                    ~SensitiveLevel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

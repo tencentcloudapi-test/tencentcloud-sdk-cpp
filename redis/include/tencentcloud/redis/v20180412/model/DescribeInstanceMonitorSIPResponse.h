@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SourceInfo;
-
                 /**
                 * DescribeInstanceMonitorSIP返回参数结构体
                 */

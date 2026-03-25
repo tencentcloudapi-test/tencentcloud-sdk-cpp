@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TelCdrInfo;
-
                 /**
                 * DescribeTelCdr返回参数结构体
                 */

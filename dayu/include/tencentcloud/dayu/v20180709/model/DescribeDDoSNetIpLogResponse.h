@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KeyValueRecord;
-
                 /**
                 * DescribeDDoSNetIpLog返回参数结构体
                 */

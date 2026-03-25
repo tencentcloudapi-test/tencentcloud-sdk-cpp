@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NatSwitchListData;
-                class CommonIdName;
-                class CommonIdNameStatus;
-
                 /**
                 * DescribeNatFwSwitch返回参数结构体
                 */

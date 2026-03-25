@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrivateIpAddressSpecification;
-
                 /**
                 * RemovePrivateIpAddresses请求参数结构体
                 */

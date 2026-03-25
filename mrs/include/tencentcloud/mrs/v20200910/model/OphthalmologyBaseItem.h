@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OphthalmologyBareEyeSight;
-                class OphthalmologyCorrectedVisualAcuity;
-                class OphthalmologyColourVision;
-                class OphthalmologyFundoscopy;
-                class KeyValueItem;
-                class OphthalmologyBriefSummary;
-
                 /**
                 * 体检报告-眼科
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     OphthalmologyBaseItem();
+                    ~OphthalmologyBaseItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

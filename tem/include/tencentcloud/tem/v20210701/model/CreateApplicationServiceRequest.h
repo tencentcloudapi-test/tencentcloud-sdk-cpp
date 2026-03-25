@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServicePortMapping;
-
                 /**
                 * CreateApplicationService请求参数结构体
                 */

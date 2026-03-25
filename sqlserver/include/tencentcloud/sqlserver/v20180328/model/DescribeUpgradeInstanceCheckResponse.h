@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CheckItem;
-
                 /**
                 * DescribeUpgradeInstanceCheck返回参数结构体
                 */

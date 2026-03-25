@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * AI时延明细
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AILatencyDetail();
+                    ~AILatencyDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

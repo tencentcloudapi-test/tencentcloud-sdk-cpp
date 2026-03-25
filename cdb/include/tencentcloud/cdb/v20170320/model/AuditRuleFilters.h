@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleFilters;
-
                 /**
                 * 审计规则的过滤条件
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AuditRuleFilters();
+                    ~AuditRuleFilters() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

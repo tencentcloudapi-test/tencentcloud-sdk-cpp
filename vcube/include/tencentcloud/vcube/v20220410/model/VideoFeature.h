@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 视频功能描述模型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VideoFeature();
+                    ~VideoFeature() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

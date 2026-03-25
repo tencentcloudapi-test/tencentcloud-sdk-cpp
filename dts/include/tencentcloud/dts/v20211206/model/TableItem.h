@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 表对象集合，当 TableMode 为 partial 时，此项需要填写
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TableItem();
+                    ~TableItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

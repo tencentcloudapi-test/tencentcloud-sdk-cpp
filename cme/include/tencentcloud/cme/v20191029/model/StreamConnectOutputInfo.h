@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StreamConnectOutput;
-
                 /**
                 * 云转推输出源信息，包含输出源和输出源转推状态。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     StreamConnectOutputInfo();
+                    ~StreamConnectOutputInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PackagePriority;
-
                 /**
                 * ModifyResourcePackagesDeductionPriority请求参数结构体
                 */

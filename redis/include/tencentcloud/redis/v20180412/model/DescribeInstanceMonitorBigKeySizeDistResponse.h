@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DelayDistribution;
-
                 /**
                 * DescribeInstanceMonitorBigKeySizeDist返回参数结构体
                 */

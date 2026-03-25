@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 预付费套餐计费参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PrepaidPlanParam();
+                    ~PrepaidPlanParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

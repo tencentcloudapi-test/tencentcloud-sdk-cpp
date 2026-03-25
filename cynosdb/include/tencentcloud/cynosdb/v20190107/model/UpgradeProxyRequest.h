@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyZone;
-
                 /**
                 * UpgradeProxy请求参数结构体
                 */

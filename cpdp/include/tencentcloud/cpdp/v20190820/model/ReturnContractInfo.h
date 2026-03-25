@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ContractInfo;
-                class ChannelReturnContractInfo;
-                class ExternalReturnContractInfo;
-
                 /**
                 * 返回的合约信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ReturnContractInfo();
+                    ~ReturnContractInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

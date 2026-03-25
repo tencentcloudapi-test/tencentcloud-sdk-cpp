@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProfileInfo;
-
                 /**
                 * 用户配置的相关信息，包括邮件配置。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     UserProfile();
+                    ~UserProfile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 导播台项目状态变更事件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProjectSwitcherStatusChangedEvent();
+                    ~ProjectSwitcherStatusChangedEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

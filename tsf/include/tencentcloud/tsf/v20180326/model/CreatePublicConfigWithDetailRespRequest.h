@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreatePublicConfigWithDetailResp请求参数结构体
                 */

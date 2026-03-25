@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NormQueryItem;
-
                 /**
                 * 慢SQL日志
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SlowLogDetail();
+                    ~SlowLogDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

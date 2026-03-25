@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LinuxNodeAttribute;
-
                 /**
                 * BatchDeleteClientNodes请求参数结构体
                 */

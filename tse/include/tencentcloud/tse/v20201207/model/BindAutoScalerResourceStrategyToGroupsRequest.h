@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * BindAutoScalerResourceStrategyToGroups请求参数结构体
                 */

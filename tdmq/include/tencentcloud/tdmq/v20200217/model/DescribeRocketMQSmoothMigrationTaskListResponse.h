@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RocketMQSmoothMigrationTaskItem;
-
                 /**
                 * DescribeRocketMQSmoothMigrationTaskList返回参数结构体
                 */

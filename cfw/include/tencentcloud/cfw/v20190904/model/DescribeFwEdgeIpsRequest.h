@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonFilter;
-
                 /**
                 * DescribeFwEdgeIps请求参数结构体
                 */

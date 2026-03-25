@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Pod HostPath挂载方式描述
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HostVolumeContext();
+                    ~HostVolumeContext() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

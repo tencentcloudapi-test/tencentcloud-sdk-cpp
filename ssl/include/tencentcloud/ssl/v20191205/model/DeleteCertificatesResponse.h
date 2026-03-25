@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchDeleteFail;
-                class CertTaskId;
-
                 /**
                 * DeleteCertificates返回参数结构体
                 */

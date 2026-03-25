@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Spark监控数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SparkMonitorMetrics();
+                    ~SparkMonitorMetrics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChcHost;
-
                 /**
                 * DescribeChcHosts返回参数结构体
                 */

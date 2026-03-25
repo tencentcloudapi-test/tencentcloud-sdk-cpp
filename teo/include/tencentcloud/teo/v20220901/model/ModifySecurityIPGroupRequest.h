@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IPGroup;
-
                 /**
                 * ModifySecurityIPGroup请求参数结构体
                 */

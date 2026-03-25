@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SslVpnClient;
-
                 /**
                 * DescribeVpnGatewaySslClients返回参数结构体
                 */

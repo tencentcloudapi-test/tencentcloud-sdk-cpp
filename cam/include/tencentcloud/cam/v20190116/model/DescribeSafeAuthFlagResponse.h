@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LoginActionFlag;
-                class OffsiteFlag;
-
                 /**
                 * DescribeSafeAuthFlag返回参数结构体
                 */

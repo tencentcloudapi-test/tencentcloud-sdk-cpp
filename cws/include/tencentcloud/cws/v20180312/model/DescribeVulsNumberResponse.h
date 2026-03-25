@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MonitorMiniSite;
-
                 /**
                 * DescribeVulsNumber返回参数结构体
                 */

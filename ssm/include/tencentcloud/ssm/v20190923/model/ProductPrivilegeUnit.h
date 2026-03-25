@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 凭据关联产品时被赋予的权限
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProductPrivilegeUnit();
+                    ~ProductPrivilegeUnit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClusterCheckTaskItem;
-
                 /**
                 * CreateClusterCheckTask请求参数结构体
                 */

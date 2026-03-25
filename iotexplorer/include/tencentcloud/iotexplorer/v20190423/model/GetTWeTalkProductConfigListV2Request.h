@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * GetTWeTalkProductConfigListV2请求参数结构体
                 */

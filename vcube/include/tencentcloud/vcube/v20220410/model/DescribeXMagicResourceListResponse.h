@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class XMagicResourceSimpleInfo;
-
                 /**
                 * DescribeXMagicResourceList返回参数结构体
                 */

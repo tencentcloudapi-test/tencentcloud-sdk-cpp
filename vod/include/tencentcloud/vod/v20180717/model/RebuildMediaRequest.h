@@ -44,20 +44,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RepairInfo;
-                class VideoFrameInterpolationInfo;
-                class SuperResolutionInfo;
-                class HDRInfo;
-                class VideoDenoiseInfo;
-                class AudioDenoiseInfo;
-                class ColorEnhanceInfo;
-                class SharpEnhanceInfo;
-                class FaceEnhanceInfo;
-                class LowLightEnhanceInfo;
-                class ScratchRepairInfo;
-                class ArtifactRepairInfo;
-                class RebuildMediaTargetInfo;
-
                 /**
                 * RebuildMedia请求参数结构体
                 */

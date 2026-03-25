@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudNativeAPIGatewayConfig;
-
                 /**
                 * 查询客户端公网信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribePublicNetworkResult();
+                    ~DescribePublicNetworkResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

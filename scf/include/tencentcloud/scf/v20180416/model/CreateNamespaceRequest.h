@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NamespaceResourceEnv;
-
                 /**
                 * CreateNamespace请求参数结构体
                 */

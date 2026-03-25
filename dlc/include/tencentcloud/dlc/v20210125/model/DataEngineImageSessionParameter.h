@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 集群Session配置信息.
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DataEngineImageSessionParameter();
+                    ~DataEngineImageSessionParameter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

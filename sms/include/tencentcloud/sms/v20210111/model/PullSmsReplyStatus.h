@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 短信回复状态
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PullSmsReplyStatus();
+                    ~PullSmsReplyStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

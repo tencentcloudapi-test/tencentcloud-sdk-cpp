@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReqUserRule;
-
                 /**
                 * ModifyUserSignatureRule请求参数结构体
                 */

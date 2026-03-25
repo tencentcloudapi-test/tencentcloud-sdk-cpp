@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaPreknownInfo;
-
                 /**
                 * CreateTask请求参数结构体
                 */

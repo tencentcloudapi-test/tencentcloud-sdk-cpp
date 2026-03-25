@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-                class UserThreeFactor;
-                class UserInfo;
-
                 /**
                 * ChannelDisableUserAutoSign请求参数结构体
                 */

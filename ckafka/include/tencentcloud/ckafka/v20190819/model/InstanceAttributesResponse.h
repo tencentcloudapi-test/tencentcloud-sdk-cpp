@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VipEntity;
-                class InstanceConfigDO;
-                class Tag;
-                class DynamicRetentionTime;
-                class DynamicDiskConfig;
-
                 /**
                 * 实例属性返回结果对象
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceAttributesResponse();
+                    ~InstanceAttributesResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

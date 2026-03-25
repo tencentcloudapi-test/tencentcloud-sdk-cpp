@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分账单元id和名称
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AllocationUnit();
+                    ~AllocationUnit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

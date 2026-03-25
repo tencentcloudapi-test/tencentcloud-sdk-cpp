@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupInfo;
-                class WordItem;
-                class SealInfo;
-
                 /**
                 * ExtractDocBasic返回参数结构体
                 */

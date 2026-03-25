@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableBaseInfo;
-                class TColumn;
-                class TPartition;
-                class Property;
-
                 /**
                 * AssignMangedTableProperties请求参数结构体
                 */

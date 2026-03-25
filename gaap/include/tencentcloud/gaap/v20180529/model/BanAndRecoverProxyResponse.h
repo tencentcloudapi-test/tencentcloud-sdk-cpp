@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * BanAndRecoverProxy返回参数结构体
                 */

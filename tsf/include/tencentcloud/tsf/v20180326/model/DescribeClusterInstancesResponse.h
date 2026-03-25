@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TsfPageInstance;
-
                 /**
                 * DescribeClusterInstances返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplyStatus;
-
                 /**
                 * UpdateApply请求参数结构体
                 */

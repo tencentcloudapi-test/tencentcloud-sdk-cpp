@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DimensionScore;
-
                 /**
                 * DescribeDimensionScore返回参数结构体
                 */

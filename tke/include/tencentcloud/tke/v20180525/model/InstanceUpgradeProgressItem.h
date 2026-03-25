@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceUpgradePreCheckResult;
-                class TaskStepInfo;
-
                 /**
                 * 某个节点的升级进度
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceUpgradeProgressItem();
+                    ~InstanceUpgradeProgressItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

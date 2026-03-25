@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MigrationDetail;
-                class MigrationAction;
-                class DBRenameRes;
-
                 /**
                 * 冷备迁移导入
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     Migration();
+                    ~Migration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

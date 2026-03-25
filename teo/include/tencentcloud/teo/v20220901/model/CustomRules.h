@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomRule;
-
                 /**
                 * Web安全的自定义规则结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CustomRules();
+                    ~CustomRules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

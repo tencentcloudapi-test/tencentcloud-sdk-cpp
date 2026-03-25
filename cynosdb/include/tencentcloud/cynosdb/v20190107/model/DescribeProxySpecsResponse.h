@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxySpec;
-
                 /**
                 * DescribeProxySpecs返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CasterOutputInfo;
-
                 /**
                 * ModifyCasterOutputInfo请求参数结构体
                 */

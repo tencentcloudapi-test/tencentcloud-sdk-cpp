@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuditRule;
-
                 /**
                 * DescribeAuditRules返回参数结构体
                 */

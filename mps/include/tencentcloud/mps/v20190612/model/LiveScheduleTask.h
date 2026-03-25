@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LiveActivityResult;
-
                 /**
                 * 直播编排任务信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LiveScheduleTask();
+                    ~LiveScheduleTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

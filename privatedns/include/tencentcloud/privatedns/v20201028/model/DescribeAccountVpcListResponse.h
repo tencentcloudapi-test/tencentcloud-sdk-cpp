@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccountVpcInfoOut;
-
                 /**
                 * DescribeAccountVpcList返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * IP在线查询的字段信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IpField();
+                    ~IpField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

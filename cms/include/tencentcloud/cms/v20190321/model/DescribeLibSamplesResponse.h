@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserKeywordInfo;
-
                 /**
                 * DescribeLibSamples返回参数结构体
                 */

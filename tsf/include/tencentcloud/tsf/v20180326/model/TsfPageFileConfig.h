@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileConfig;
-
                 /**
                 * 文件配置项列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageFileConfig();
+                    ~TsfPageFileConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

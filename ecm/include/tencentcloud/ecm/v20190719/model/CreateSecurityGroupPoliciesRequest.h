@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityGroupPolicySet;
-
                 /**
                 * CreateSecurityGroupPolicies请求参数结构体
                 */

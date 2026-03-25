@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CdnPlayStatData;
-
                 /**
                 * 某省份某运营商在某段时间内的带宽，流量，请求数和并发数
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     GroupProIspDataInfo();
+                    ~GroupProIspDataInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Permission;
-
                 /**
                 * 权限树中的权限组
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PermissionGroup();
+                    ~PermissionGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

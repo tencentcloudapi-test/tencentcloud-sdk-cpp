@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableBaseInfo;
-                class TColumn;
-                class TPartition;
-                class Property;
-
                 /**
                 * CreateTcIcebergTable请求参数结构体
                 */

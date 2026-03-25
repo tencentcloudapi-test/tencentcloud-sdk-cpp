@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Property;
-
                 /**
                 * 专家模式  计算节点的配置信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NodeConfig();
+                    ~NodeConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

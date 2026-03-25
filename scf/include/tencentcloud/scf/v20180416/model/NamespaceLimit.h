@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TriggerCount;
-
                 /**
                 * 命名空间限制
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NamespaceLimit();
+                    ~NamespaceLimit() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

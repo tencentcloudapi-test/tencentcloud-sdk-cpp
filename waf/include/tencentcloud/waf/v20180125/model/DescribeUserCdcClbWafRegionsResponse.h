@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CdcRegion;
-
                 /**
                 * DescribeUserCdcClbWafRegions返回参数结构体
                 */

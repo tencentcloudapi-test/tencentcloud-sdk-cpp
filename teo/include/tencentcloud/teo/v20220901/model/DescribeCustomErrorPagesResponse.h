@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomErrorPage;
-
                 /**
                 * DescribeCustomErrorPages返回参数结构体
                 */

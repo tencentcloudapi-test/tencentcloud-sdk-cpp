@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeGatewayVersionData;
-
                 /**
                 * DescribeGatewayVersion返回参数结构体
                 */

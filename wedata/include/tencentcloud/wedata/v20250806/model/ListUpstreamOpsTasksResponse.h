@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ParentDependencyConfigPage;
-
                 /**
                 * ListUpstreamOpsTasks返回参数结构体
                 */

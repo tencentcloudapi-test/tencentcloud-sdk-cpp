@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceGroupMetrics;
-
                 /**
                 * GetResourceGroupMetrics返回参数结构体
                 */

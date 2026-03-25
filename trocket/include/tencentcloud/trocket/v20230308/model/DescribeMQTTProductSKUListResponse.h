@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MQTTProductSkuItem;
-
                 /**
                 * DescribeMQTTProductSKUList返回参数结构体
                 */

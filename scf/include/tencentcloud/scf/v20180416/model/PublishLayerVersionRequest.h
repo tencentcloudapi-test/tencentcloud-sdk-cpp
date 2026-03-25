@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Code;
-                class Tag;
-
                 /**
                 * PublishLayerVersion请求参数结构体
                 */

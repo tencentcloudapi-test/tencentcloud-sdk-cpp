@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Task;
-                class TaskDependence;
-
                 /**
                 * 提交Job作业信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     Job();
+                    ~Job() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

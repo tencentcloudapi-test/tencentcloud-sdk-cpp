@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubnetInfo;
-
                 /**
                 * DescribeSubnetByDevice返回参数结构体
                 */

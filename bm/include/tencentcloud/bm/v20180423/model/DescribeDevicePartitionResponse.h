@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DevicePartition;
-
                 /**
                 * DescribeDevicePartition返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CustomFileIdMap;
-
                 /**
                 * DescribeFileIdsByCustomIds返回参数结构体
                 */

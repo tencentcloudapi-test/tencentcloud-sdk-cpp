@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AddressPool;
-
                 /**
                 * DescribeAddressPoolList返回参数结构体
                 */

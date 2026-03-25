@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IpTraceLogEntry;
-
                 /**
                 * QueryIpTraceLog返回参数结构体
                 */

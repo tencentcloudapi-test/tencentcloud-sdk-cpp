@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ParamInfo;
-                class RoGroup;
-                class TagInfo;
-                class ClusterTopology;
-
                 /**
                 * CreateDBInstance请求参数结构体
                 */

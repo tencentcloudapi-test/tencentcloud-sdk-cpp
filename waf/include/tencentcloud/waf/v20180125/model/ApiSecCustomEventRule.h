@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiNameOp;
-                class ApiSecSceneRuleEntry;
-
                 /**
                 * api安全自定义事件规则结构体
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ApiSecCustomEventRule();
+                    ~ApiSecCustomEventRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

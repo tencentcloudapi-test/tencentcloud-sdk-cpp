@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GovDatasourceInfo;
-                class OperateOption;
-
                 /**
                 * 数据源元数据
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DatabaseMeta();
+                    ~DatabaseMeta() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

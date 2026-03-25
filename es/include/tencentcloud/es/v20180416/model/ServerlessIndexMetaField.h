@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServerlessIndexOptionsField;
-                class ServerlessIndexSettingsField;
-                class ServerlessIndexNetworkField;
-                class TagInfo;
-
                 /**
                 * 索引元数据字段
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     ServerlessIndexMetaField();
+                    ~ServerlessIndexMetaField() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

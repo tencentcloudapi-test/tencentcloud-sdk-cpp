@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudNativeAPIGatewayNodeConfig;
-                class CloudNativeAPIGatewayVpcConfig;
-                class InstanceTagInfo;
-                class InstancePort;
-
                 /**
                 * 获取云原生API网关基础信息响应结果。
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeCloudNativeAPIGatewayResult();
+                    ~DescribeCloudNativeAPIGatewayResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

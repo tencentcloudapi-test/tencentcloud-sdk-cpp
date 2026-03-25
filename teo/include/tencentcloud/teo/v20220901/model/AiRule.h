@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * AI规则引擎防护
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AiRule();
+                    ~AiRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

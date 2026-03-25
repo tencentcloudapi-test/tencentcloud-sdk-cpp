@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RoutingConfig;
-
                 /**
                 * GetAlias返回参数结构体
                 */

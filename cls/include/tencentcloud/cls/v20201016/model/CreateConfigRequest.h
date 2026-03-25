@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExtractRuleInfo;
-                class ExcludePathInfo;
-
                 /**
                 * CreateConfig请求参数结构体
                 */

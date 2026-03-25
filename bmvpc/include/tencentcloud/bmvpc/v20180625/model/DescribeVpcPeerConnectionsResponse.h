@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpcPeerConnection;
-
                 /**
                 * DescribeVpcPeerConnections返回参数结构体
                 */

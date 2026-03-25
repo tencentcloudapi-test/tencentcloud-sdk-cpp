@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryShopOpenIdResult;
-
                 /**
                 * QueryShopOpenId返回参数结构体
                 */

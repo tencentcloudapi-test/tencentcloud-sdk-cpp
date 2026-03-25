@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageScanInquireInfo;
-
                 /**
                 * DescribeImageAuthorizedInfo返回参数结构体
                 */

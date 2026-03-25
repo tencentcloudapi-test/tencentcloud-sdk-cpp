@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeProperty;
-                class ReplicateSetInfo;
-
                 /**
                 * DescribeDBInstanceNodeProperty返回参数结构体
                 */

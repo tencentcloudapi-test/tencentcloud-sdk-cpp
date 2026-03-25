@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusNotificationItem;
-
                 /**
                 * DescribePrometheusGlobalNotification返回参数结构体
                 */

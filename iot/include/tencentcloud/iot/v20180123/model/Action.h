@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopicAction;
-                class ServiceAction;
-                class CkafkaAction;
-
                 /**
                 * 规则引擎转发动作
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     Action();
+                    ~Action() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

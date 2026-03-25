@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogDeliveryInfo;
-
                 /**
                 * DescribeInstanceLogDelivery返回参数结构体
                 */

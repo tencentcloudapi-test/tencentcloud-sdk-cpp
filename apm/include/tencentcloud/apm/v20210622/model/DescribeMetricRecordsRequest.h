@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryMetricItem;
-                class Filter;
-                class OrderBy;
-
                 /**
                 * DescribeMetricRecords请求参数结构体
                 */

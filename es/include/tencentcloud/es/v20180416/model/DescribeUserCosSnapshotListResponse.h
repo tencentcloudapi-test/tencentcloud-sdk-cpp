@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosSnapShotInfo;
-
                 /**
                 * DescribeUserCosSnapshotList返回参数结构体
                 */

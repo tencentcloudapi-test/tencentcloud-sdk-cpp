@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyStatus;
-
                 /**
                 * DescribeProxiesStatus返回参数结构体
                 */

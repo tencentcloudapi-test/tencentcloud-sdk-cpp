@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 创建策略传入的事件告警条件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CreatePolicyGroupEventCondition();
+                    ~CreatePolicyGroupEventCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageAutoAuthorizedTask;
-
                 /**
                 * DescribeImageAutoAuthorizedTaskList返回参数结构体
                 */

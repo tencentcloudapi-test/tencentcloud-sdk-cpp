@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PageByNoParams;
-
                 /**
                 * DescribeAlarmNotifyHistories请求参数结构体
                 */

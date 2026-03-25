@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JWTConfig;
-                class TokenRuleEntry;
-
                 /**
                 * Token有效性校验规则
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     TokenVerifyRule();
+                    ~TokenVerifyRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

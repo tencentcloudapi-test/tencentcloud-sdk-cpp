@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AudioTransform;
-
                 /**
                 * 音频轨道上的音频片段信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AudioTrackItem();
+                    ~AudioTrackItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

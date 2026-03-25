@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 添加删除客户端节点列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LinuxNodeAttribute();
+                    ~LinuxNodeAttribute() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

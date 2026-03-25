@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplicationForPage;
-
                 /**
                 * 应用分页信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageApplication();
+                    ~TsfPageApplication() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

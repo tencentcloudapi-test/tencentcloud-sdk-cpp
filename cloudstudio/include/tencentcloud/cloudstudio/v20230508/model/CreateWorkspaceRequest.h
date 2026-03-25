@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GitRepository;
-                class Env;
-                class LifeCycle;
-
                 /**
                 * CreateWorkspace请求参数结构体
                 */

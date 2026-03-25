@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpdateTaskBrief;
-
                 /**
                 * UpdateTask请求参数结构体
                 */

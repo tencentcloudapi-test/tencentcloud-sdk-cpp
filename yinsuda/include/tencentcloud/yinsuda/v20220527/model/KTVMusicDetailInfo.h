@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KTVMusicBaseInfo;
-                class ChorusClip;
-                class KTVBPMInfo;
-
                 /**
                 * 歌曲详细信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     KTVMusicDetailInfo();
+                    ~KTVMusicDetailInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

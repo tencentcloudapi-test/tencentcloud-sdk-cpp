@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChainTransaction;
-
                 /**
                 * DeactivateTDid返回参数结构体
                 */

@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagSpecification;
-                class SystemDisk;
-                class DataDisk;
-
                 /**
                 * CreateModule请求参数结构体
                 */

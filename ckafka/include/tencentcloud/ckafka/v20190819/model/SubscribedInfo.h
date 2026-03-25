@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PartitionOffset;
-
                 /**
                 * 订阅信息实体
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SubscribedInfo();
+                    ~SubscribedInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

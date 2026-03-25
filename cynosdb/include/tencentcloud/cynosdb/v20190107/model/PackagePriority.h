@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 资源包抵扣优先级
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PackagePriority();
+                    ~PackagePriority() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuthToken;
-
                 /**
                 * BuildDataFlowAuthToken返回参数结构体
                 */

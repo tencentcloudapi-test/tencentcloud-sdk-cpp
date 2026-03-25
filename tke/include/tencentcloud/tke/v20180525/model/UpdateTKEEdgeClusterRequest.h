@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EdgeClusterPublicLB;
-                class EdgeClusterInternalLB;
-
                 /**
                 * UpdateTKEEdgeCluster请求参数结构体
                 */

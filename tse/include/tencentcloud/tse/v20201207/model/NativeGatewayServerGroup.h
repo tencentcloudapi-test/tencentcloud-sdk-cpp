@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudNativeAPIGatewayNodeConfig;
-                class CloudNativeAPIGatewayStrategy;
-
                 /**
                 * 云原生网关分组信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     NativeGatewayServerGroup();
+                    ~NativeGatewayServerGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

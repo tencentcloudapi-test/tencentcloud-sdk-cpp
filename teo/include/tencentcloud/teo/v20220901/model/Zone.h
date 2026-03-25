@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-                class Resource;
-                class NSDetail;
-                class CNAMEDetail;
-                class DNSPodDetail;
-                class OwnershipVerification;
-                class VanityNameServers;
-                class VanityNameServersIps;
-
                 /**
                 * 站点详情。
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     Zone();
+                    ~Zone() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

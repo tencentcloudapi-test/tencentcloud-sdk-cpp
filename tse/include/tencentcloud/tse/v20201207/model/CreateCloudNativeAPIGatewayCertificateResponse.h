@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CertificateInfo;
-
                 /**
                 * CreateCloudNativeAPIGatewayCertificate返回参数结构体
                 */

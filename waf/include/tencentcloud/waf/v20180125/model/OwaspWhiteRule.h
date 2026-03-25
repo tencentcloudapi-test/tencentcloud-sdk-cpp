@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Strategy;
-                class JobDateTime;
-
                 /**
                 * 规则引擎白名单
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     OwaspWhiteRule();
+                    ~OwaspWhiteRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

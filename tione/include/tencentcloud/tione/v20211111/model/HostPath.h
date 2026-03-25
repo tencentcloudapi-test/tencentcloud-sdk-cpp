@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 主机路径挂载配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HostPath();
+                    ~HostPath() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

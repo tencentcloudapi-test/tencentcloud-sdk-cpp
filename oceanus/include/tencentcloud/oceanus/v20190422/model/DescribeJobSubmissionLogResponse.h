@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JobInstanceForSubmissionLog;
-                class LogContent;
-
                 /**
                 * DescribeJobSubmissionLog返回参数结构体
                 */

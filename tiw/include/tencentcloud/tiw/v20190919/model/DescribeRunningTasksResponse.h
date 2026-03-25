@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RunningTaskItem;
-
                 /**
                 * DescribeRunningTasks返回参数结构体
                 */

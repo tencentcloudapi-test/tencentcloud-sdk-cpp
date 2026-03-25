@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaContentReviewPoliticalSegmentItem;
-
                 /**
                 * 涉及令人不适宜的信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AiReviewPoliticalTaskOutput();
+                    ~AiReviewPoliticalTaskOutput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

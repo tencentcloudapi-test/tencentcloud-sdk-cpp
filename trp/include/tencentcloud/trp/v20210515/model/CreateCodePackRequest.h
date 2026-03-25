@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PackSpec;
-
                 /**
                 * CreateCodePack请求参数结构体
                 */

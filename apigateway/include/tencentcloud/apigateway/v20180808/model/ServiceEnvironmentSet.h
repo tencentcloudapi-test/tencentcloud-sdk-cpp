@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Environment;
-
                 /**
                 * 服务绑定环境详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceEnvironmentSet();
+                    ~ServiceEnvironmentSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

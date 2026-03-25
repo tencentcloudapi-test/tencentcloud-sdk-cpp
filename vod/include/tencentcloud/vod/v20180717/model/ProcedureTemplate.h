@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaProcessTaskInput;
-                class AiContentReviewTaskInput;
-                class AiAnalysisTaskInput;
-                class AiRecognitionTaskInput;
-                class WechatMiniProgramPublishTaskInput;
-                class ProcedureReviewAudioVideoTaskInput;
-
                 /**
                 * 任务流模板详情
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     ProcedureTemplate();
+                    ~ProcedureTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

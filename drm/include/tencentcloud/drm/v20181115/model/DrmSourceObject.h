@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于DRM加密的源对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DrmSourceObject();
+                    ~DrmSourceObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

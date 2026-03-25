@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Stat;
-
                 /**
                 * DescribeSearchStatsGraph返回参数结构体
                 */

@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HealthCheckSettings;
-                class AgentProfile;
-                class WarmupSetting;
-
                 /**
                 * DeployGroup请求参数结构体
                 */

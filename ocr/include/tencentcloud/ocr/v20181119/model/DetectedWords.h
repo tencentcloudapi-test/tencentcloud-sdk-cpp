@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 识别出来的单字信息包括单字（包括单字Character和单字置信度confidence）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DetectedWords();
+                    ~DetectedWords() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

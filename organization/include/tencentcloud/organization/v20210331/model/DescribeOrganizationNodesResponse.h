@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OrgNode;
-
                 /**
                 * DescribeOrganizationNodes返回参数结构体
                 */

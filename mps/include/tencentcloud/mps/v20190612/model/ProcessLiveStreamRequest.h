@@ -37,13 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LiveStreamTaskNotifyConfig;
-                class TaskOutputStorage;
-                class AiContentReviewTaskInput;
-                class AiRecognitionTaskInput;
-                class AiAnalysisTaskInput;
-                class AiQualityControlTaskInput;
-
                 /**
                 * ProcessLiveStream请求参数结构体
                 */

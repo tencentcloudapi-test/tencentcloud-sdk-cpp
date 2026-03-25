@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceFamilyTypeConfig;
-                class PeakBase;
-
                 /**
                 * PeakFamilyInfo 按机型类别分类的cpu等数据的峰值信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     PeakFamilyInfo();
+                    ~PeakFamilyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

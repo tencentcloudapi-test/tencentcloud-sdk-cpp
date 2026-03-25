@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 质检项配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     QualityControlItemConfig();
+                    ~QualityControlItemConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

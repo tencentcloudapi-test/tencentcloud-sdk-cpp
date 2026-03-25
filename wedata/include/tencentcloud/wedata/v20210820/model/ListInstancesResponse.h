@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstancePageVO;
-
                 /**
                 * ListInstances返回参数结构体
                 */

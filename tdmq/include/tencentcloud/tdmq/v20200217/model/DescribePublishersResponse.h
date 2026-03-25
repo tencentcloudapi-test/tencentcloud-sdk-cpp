@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Publisher;
-
                 /**
                 * DescribePublishers返回参数结构体
                 */

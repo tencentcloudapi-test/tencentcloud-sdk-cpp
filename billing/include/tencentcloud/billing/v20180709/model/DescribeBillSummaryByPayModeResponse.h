@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PayModeSummaryOverviewItem;
-
                 /**
                 * DescribeBillSummaryByPayMode返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GatewayFlowMonitorDetail;
-
                 /**
                 * DescribeGatewayFlowMonitorDetail返回参数结构体
                 */

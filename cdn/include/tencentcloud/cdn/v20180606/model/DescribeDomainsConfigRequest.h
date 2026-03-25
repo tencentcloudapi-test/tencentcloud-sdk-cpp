@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainFilter;
-                class Sort;
-
                 /**
                 * DescribeDomainsConfig请求参数结构体
                 */

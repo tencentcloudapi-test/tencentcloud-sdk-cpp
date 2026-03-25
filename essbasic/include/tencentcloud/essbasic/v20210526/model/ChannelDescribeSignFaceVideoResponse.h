@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DetectInfoVideoData;
-                class IntentionQuestionResult;
-                class IntentionActionResult;
-
                 /**
                 * ChannelDescribeSignFaceVideo返回参数结构体
                 */

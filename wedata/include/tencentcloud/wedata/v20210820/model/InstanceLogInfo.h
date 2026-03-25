@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AttributeItemDTO;
-
                 /**
                 * 实例日志简述信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceLogInfo();
+                    ~InstanceLogInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

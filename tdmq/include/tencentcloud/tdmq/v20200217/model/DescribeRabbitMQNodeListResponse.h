@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RabbitMQPrivateNode;
-
                 /**
                 * DescribeRabbitMQNodeList返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UnderwriteOutput;
-
                 /**
                 * DescribeUnderwriteTask返回参数结构体
                 */

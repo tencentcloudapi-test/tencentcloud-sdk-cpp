@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScreenshotTask;
-
                 /**
                 * DescribeScreenshotTask返回参数结构体
                 */

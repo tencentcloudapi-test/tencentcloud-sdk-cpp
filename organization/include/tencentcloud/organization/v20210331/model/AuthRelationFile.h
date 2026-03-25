@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 野鹤实名互信申请证明文件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AuthRelationFile();
+                    ~AuthRelationFile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

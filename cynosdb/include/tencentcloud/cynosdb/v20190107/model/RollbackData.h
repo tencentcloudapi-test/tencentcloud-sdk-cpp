@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RollbackDatabase;
-                class RollbackTable;
-                class RollbackProcessInfo;
-
                 /**
                 * 回档任务信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     RollbackData();
+                    ~RollbackData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

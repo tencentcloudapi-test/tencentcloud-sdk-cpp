@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MetricDataCurve;
-
                 /**
                 * DescribeInvocationMetricDataCurve返回参数结构体
                 */

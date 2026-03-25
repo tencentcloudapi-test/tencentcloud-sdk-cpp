@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessLogItem;
-
                 /**
                 * 日志KeyValue对数组，用于搜索访问日志
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AccessLogItems();
+                    ~AccessLogItems() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

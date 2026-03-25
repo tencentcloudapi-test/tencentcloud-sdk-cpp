@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PythonSparkImage;
-
                 /**
                 * DescribeDataEnginePythonSparkImages返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Job资源监控查询维度
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Dimension();
+                    ~Dimension() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

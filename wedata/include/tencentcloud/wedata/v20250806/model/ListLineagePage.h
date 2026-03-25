@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LineageNodeInfo;
-
                 /**
                 * ListLineagePage
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ListLineagePage();
+                    ~ListLineagePage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

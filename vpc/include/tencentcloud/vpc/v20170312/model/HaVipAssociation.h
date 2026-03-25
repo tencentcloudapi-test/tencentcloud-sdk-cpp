@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * HaVip绑定的子机/网卡（用于限制HaVip飘移的范围，并不是真正的飘移动作）。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HaVipAssociation();
+                    ~HaVipAssociation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 自定义库/黑白库明细
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LibDetail();
+                    ~LibDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

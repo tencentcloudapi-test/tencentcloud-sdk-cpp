@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ColumnValueConfig;
-
                 /**
                 * 字段变量
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FieldConfig();
+                    ~FieldConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

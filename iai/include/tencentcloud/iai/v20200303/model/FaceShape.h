@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Point;
-
                 /**
                 * 五官定位（人脸关键点）具体信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FaceShape();
+                    ~FaceShape() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

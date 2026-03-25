@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Coord;
-
                 /**
                 * 单字在原图中的坐标，以四个顶点坐标表示，以左上角为起点，顺时针返回。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DetectedWordCoordPoint();
+                    ~DetectedWordCoordPoint() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

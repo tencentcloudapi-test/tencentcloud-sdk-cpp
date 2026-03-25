@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowBatchApproverInfo;
-
                 /**
                 * 批量签署合同相关信息，指定批量签署合同和签署方的信息，用于补充动态签署人。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FlowBatchUrlInfo();
+                    ~FlowBatchUrlInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PornImgReviewTemplateInfoForUpdate;
-                class PornAsrReviewTemplateInfoForUpdate;
-                class PornOcrReviewTemplateInfoForUpdate;
-
                 /**
                 * 鉴别涉及令人反感的信息的任务控制参数。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     PornConfigureInfoForUpdate();
+                    ~PornConfigureInfoForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

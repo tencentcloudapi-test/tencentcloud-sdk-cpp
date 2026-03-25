@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BillTransactionInfo;
-
                 /**
                 * DescribeBillList返回参数结构体
                 */

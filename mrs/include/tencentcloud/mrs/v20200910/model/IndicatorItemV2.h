@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BaseItem;
-
                 /**
                 * 检验指标项结构v2
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     IndicatorItemV2();
+                    ~IndicatorItemV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

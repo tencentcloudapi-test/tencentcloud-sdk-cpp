@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApproveOpinion;
-                class ApproveUser;
-
                 /**
                 * 状态节点
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     StatusNode();
+                    ~StatusNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

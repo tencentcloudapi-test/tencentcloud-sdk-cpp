@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogHistogramInfo;
-
                 /**
                 * GetAttackHistogram返回参数结构体
                 */

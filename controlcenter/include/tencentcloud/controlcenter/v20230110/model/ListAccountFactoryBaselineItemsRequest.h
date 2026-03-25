@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ListAccountFactoryBaselineItems请求参数结构体
                 */

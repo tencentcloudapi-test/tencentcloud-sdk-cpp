@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 指定某个Layer版本
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LayerVersionSimple();
+                    ~LayerVersionSimple() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

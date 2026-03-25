@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 可用区筛选列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BillZoneId();
+                    ~BillZoneId() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

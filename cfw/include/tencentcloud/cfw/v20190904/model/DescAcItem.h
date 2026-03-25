@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BetaInfoByACL;
-
                 /**
                 * 访问控制列表对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescAcItem();
+                    ~DescAcItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OwnershipVerification;
-                class VanityNameServers;
-                class VanityNameServersIps;
-
                 /**
                 * NS 接入类型站点参数详情。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     NSDetail();
+                    ~NSDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

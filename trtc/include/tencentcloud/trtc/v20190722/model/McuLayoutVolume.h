@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 音量布局SEI参数，可以自定义AppData和PayloadType类型。
 该参数内容可以为空，表示携带默认的音量布局SEI。
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     McuLayoutVolume();
+                    ~McuLayoutVolume() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

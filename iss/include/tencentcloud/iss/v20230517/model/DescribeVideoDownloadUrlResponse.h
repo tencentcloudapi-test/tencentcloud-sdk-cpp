@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeVideoDownloadUrlData;
-
                 /**
                 * DescribeVideoDownloadUrl返回参数结构体
                 */

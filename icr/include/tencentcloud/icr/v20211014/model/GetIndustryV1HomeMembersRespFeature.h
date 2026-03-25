@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 获取成员列表接口回包Feature
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GetIndustryV1HomeMembersRespFeature();
+                    ~GetIndustryV1HomeMembersRespFeature() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

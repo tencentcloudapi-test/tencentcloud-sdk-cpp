@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CertInfo;
-
                 /**
                 * CLB监听器或规则绑定的多证书信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MultiCertInfo();
+                    ~MultiCertInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

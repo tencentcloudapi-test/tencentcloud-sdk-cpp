@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Certificate;
-                class ClbListenerRule;
-
                 /**
                 * CLB实例监听器
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ClbListener();
+                    ~ClbListener() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

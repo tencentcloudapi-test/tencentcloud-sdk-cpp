@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogstashInstanceInfo;
-
                 /**
                 * DescribeLogstashInstances返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 各实例对应的异步任务执行结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SubtaskStatus();
+                    ~SubtaskStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

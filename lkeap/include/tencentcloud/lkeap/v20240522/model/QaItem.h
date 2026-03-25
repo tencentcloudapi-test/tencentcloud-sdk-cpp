@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AttributeLabelReferItem;
-
                 /**
                 * 问答对信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     QaItem();
+                    ~QaItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

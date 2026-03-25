@@ -20,6 +20,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <memory>
 #include <tencentcloud/core/utils/rapidjson/document.h>
 #include <tencentcloud/core/utils/rapidjson/writer.h>
 #include <tencentcloud/core/utils/rapidjson/stringbuffer.h>
@@ -34,7 +35,7 @@ namespace TencentCloud
         {
             namespace Model
             {
-
+                class SpaceRelation;
                 /**
                 * 空间层级关系
                 */
@@ -42,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     SpaceRelation();
+                    ~SpaceRelation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 
@@ -156,14 +158,14 @@ namespace TencentCloud
                      * @return Children 子构件信息
                      * 
                      */
-                    std::vector<SpaceRelation> GetChildren() const;
+                    std::vector<std::shared_ptr<SpaceRelation>> GetChildren() const;
 
                     /**
                      * 设置子构件信息
                      * @param _children 子构件信息
                      * 
                      */
-                    void SetChildren(const std::vector<SpaceRelation>& _children);
+                    void SetChildren(const std::vector<std::shared_ptr<SpaceRelation>>& _children);
 
                     /**
                      * 判断参数 Children 是否已赋值
@@ -207,7 +209,7 @@ namespace TencentCloud
                     /**
                      * 子构件信息
                      */
-                    std::vector<SpaceRelation> m_children;
+                    std::vector<std::shared_ptr<SpaceRelation>> m_children;
                     bool m_childrenHasBeenSet;
 
                 };

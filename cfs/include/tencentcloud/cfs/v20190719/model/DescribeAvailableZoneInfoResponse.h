@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AvailableRegion;
-
                 /**
                 * DescribeAvailableZoneInfo返回参数结构体
                 */

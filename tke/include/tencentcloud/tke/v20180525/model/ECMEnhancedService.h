@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ECMRunMonitorServiceEnabled;
-                class ECMRunSecurityServiceEnabled;
-
                 /**
                 * ECM增强服务
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ECMEnhancedService();
+                    ~ECMEnhancedService() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

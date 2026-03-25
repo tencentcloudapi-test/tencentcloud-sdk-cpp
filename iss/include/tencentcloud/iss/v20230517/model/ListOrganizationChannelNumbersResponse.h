@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListOrganizationChannelNumbersData;
-
                 /**
                 * ListOrganizationChannelNumbers返回参数结构体
                 */

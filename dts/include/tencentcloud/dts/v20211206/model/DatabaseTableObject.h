@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DBItem;
-
                 /**
                 * 迁移对象选项，需要告知迁移服务迁移哪些库表对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DatabaseTableObject();
+                    ~DatabaseTableObject() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

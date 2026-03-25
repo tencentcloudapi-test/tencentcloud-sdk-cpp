@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudStorageTimeInfo;
-
                 /**
                 * 云存时间轴接口返回数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudStorageTimeData();
+                    ~CloudStorageTimeData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

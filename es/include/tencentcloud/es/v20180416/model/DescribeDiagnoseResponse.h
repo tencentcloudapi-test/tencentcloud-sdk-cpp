@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DiagnoseResult;
-
                 /**
                 * DescribeDiagnose返回参数结构体
                 */

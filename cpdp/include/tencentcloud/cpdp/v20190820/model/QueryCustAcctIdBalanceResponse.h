@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Acct;
-
                 /**
                 * QueryCustAcctIdBalance返回参数结构体
                 */

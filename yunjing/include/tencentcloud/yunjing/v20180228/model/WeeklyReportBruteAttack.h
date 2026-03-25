@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 专业周报密码破解数据。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WeeklyReportBruteAttack();
+                    ~WeeklyReportBruteAttack() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

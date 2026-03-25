@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TsfPageApiDetailInfo;
-
                 /**
                 * DescribeGatewayApis返回参数结构体
                 */

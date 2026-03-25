@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 并发录制路数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ConcurrentRecordStreamNum();
+                    ~ConcurrentRecordStreamNum() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

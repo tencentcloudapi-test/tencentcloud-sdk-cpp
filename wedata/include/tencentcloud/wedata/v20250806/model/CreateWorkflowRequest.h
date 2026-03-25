@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ParamInfo;
-                class WorkflowSchedulerConfigurationInfo;
-
                 /**
                 * CreateWorkflow请求参数结构体
                 */

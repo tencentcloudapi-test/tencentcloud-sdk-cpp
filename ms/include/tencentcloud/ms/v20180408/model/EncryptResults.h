@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AndroidResult;
-                class IOSResult;
-                class SDKResult;
-                class AppletResult;
-
                 /**
                 * 渠道合作加固结果信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     EncryptResults();
+                    ~EncryptResults() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

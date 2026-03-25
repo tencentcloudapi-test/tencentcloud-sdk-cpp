@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AsyncRecognitionTaskInfo;
-
                 /**
                 * [音频流异步识别任务列表](https://cloud.tencent.com/document/product/1093/52060#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0)
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AsyncRecognitionTasks();
+                    ~AsyncRecognitionTasks() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

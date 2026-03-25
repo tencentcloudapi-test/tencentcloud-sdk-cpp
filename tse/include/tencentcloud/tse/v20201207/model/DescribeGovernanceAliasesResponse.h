@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GovernanceAlias;
-
                 /**
                 * DescribeGovernanceAliases返回参数结构体
                 */

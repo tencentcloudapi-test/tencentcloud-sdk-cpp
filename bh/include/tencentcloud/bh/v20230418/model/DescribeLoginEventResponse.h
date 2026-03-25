@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LoginEvent;
-
                 /**
                 * DescribeLoginEvent返回参数结构体
                 */

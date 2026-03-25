@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LabelResult;
-                class ObjectResult;
-                class OcrResult;
-                class LibResult;
-                class RecognitionResult;
-
                 /**
                 * ImageModeration返回参数结构体
                 */

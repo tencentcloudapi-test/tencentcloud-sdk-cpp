@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 年龄语音识别子任务
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AgeDetectTask();
+                    ~AgeDetectTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

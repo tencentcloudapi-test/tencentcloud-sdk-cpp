@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NetDeviceModel;
-
                 /**
                 * CreateNetDeviceModel请求参数结构体
                 */

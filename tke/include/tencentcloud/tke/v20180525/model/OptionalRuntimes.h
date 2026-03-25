@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 可选运行时
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OptionalRuntimes();
+                    ~OptionalRuntimes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

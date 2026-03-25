@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceFilePage;
-
                 /**
                 * ListResourceFiles返回参数结构体
                 */

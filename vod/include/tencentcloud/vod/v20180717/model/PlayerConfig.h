@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DrmStreamingsInfo;
-                class ResolutionNameInfo;
-
                 /**
                 * 播放器配置详情
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     PlayerConfig();
+                    ~PlayerConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

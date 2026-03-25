@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 声纹配置参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VoicePrint();
+                    ~VoicePrint() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

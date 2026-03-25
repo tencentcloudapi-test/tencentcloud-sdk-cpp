@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceActiveResult;
-
                 /**
                 * ActivateTWeCallLicense返回参数结构体
                 */

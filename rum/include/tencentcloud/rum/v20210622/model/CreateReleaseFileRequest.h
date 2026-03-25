@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReleaseFile;
-
                 /**
                 * CreateReleaseFile请求参数结构体
                 */

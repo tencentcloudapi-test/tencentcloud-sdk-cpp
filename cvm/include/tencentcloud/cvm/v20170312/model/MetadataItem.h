@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 自定义metadata key和value
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MetadataItem();
+                    ~MetadataItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

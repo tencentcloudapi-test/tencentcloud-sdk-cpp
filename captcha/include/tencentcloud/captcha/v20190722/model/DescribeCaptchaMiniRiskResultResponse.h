@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OutputManageMarketingRiskValue;
-
                 /**
                 * DescribeCaptchaMiniRiskResult返回参数结构体
                 */

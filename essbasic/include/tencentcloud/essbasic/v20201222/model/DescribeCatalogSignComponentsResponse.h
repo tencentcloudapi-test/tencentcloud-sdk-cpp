@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CatalogComponents;
-
                 /**
                 * DescribeCatalogSignComponents返回参数结构体
                 */

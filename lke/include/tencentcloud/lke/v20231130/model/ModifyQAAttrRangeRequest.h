@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AttrLabelRefer;
-
                 /**
                 * ModifyQAAttrRange请求参数结构体
                 */

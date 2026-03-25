@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TalkProductConfigV2Info;
-
                 /**
                 * DescribeTWeTalkProductConfigV2返回参数结构体
                 */

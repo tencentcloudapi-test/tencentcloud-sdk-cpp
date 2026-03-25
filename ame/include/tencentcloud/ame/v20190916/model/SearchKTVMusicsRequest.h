@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SortBy;
-
                 /**
                 * SearchKTVMusics请求参数结构体
                 */

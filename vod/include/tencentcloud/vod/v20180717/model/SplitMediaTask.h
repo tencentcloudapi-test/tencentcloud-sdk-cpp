@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SplitMediaTaskSegmentInfo;
-
                 /**
                 * 视频拆条任务信息，仅当 TaskType 为 SplitMedia，该字段有值。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SplitMediaTask();
+                    ~SplitMediaTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

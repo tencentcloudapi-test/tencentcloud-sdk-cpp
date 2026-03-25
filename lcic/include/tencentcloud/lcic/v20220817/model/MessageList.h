@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MessageItem;
-
                 /**
                 * 历史消息列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MessageList();
+                    ~MessageList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

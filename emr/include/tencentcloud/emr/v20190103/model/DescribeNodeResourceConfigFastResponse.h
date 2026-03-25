@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeResourceConfig;
-
                 /**
                 * DescribeNodeResourceConfigFast返回参数结构体
                 */

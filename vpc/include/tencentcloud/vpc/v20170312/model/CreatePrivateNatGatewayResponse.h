@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrivateNatGateway;
-
                 /**
                 * CreatePrivateNatGateway返回参数结构体
                 */

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NotificationTarget;
-                class LifecycleCommand;
-
                 /**
                 * CreateLifecycleHook请求参数结构体
                 */

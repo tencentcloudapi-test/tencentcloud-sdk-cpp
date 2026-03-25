@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 单IP默认告警阈值配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DefaultAlarmThreshold();
+                    ~DefaultAlarmThreshold() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

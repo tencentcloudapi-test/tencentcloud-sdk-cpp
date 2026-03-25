@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RefreshBatch;
-                class RefreshSettings;
-
                 /**
                 * 实例刷新活动。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     RefreshActivity();
+                    ~RefreshActivity() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

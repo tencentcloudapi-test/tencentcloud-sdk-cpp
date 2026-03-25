@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Group;
-
                 /**
                 * DescribeDeviceGroups返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 攻击趋势统计数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     NetAttackTrend();
+                    ~NetAttackTrend() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

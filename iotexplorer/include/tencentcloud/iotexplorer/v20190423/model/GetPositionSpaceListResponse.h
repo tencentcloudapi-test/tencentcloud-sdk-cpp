@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PositionSpaceInfo;
-
                 /**
                 * GetPositionSpaceList返回参数结构体
                 */

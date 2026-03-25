@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulItem;
-
                 /**
                 * 漏洞管理漏洞列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VulList();
+                    ~VulList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

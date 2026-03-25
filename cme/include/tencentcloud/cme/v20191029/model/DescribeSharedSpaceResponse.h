@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Authorizer;
-
                 /**
                 * DescribeSharedSpace返回参数结构体
                 */

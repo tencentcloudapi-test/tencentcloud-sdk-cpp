@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SchedulingDomainInfo;
-
                 /**
                 * DescribeListSchedulingDomain返回参数结构体
                 */

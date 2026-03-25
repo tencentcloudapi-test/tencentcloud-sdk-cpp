@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ModifyDisasterRecoverGroupAttribute请求参数结构体
                 */

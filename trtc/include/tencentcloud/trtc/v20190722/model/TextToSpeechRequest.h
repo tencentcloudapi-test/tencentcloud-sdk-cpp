@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Voice;
-                class AudioFormat;
-
                 /**
                 * TextToSpeech请求参数结构体
                 */

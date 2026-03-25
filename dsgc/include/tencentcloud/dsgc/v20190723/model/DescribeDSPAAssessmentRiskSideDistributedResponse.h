@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RiskSideDistributed;
-
                 /**
                 * DescribeDSPAAssessmentRiskSideDistributed返回参数结构体
                 */

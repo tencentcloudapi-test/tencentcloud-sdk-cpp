@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UnitRule;
-
                 /**
                 * 单元化规则翻页对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageUnitRuleV2();
+                    ~TsfPageUnitRuleV2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

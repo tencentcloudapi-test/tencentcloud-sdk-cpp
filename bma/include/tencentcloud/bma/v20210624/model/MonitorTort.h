@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 监测侵权信息详情
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MonitorTort();
+                    ~MonitorTort() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

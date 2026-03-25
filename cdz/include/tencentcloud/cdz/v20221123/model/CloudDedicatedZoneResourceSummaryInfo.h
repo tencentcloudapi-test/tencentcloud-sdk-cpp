@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudDedicatedZoneResourceStatisticsInfo;
-
                 /**
                 * 专属可用区资源水位数据详情，对应一个具体的垂直产品。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudDedicatedZoneResourceSummaryInfo();
+                    ~CloudDedicatedZoneResourceSummaryInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 自定义模板中有效，指定用户视频在混合画面中的位置。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PresetLayoutConfig();
+                    ~PresetLayoutConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

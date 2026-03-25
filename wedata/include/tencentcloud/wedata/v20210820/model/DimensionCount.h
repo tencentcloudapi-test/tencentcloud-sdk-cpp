@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 维度统计业务视图
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DimensionCount();
+                    ~DimensionCount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

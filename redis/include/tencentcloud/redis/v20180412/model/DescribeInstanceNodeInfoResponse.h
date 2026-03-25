@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyNodes;
-                class RedisNodes;
-                class TendisNodes;
-
                 /**
                 * DescribeInstanceNodeInfo返回参数结构体
                 */

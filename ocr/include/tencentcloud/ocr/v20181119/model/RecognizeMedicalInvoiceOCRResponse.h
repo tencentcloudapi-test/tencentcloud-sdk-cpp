@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MedicalInvoiceInfo;
-
                 /**
                 * RecognizeMedicalInvoiceOCR返回参数结构体
                 */

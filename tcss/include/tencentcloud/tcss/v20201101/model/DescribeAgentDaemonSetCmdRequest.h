@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClusterCustomParameters;
-
                 /**
                 * DescribeAgentDaemonSetCmd请求参数结构体
                 */

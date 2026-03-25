@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StaffSkillGroupList;
-
                 /**
                 * BindStaffSkillGroupList请求参数结构体
                 */

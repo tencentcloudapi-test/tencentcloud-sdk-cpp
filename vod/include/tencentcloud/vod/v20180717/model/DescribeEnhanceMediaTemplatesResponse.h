@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RebuildMediaTemplate;
-
                 /**
                 * DescribeEnhanceMediaTemplates返回参数结构体
                 */

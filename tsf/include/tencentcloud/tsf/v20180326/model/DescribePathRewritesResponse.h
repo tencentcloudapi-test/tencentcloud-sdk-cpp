@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PathRewritePage;
-
                 /**
                 * DescribePathRewrites返回参数结构体
                 */

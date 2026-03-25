@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupInfo;
-                class DeliveryKafkaInfo;
-
                 /**
                 * 描述投递配置项绑定的部署组
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DeliveryConfigBindGroup();
+                    ~DeliveryConfigBindGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

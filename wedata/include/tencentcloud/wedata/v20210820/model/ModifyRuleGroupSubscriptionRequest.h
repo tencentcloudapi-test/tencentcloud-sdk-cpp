@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubscribeReceiver;
-                class SubscribeWebHook;
-
                 /**
                 * ModifyRuleGroupSubscription请求参数结构体
                 */

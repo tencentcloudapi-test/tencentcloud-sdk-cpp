@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserNotice;
-                class URLNotice;
-                class CLSNotice;
-
                 /**
                 * ModifyAlarmNotice请求参数结构体
                 */

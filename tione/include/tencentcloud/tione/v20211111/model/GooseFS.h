@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 配置GooseFS参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     GooseFS();
+                    ~GooseFS() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuditStorageParams;
-
                 /**
                 * CreateBasicModeration请求参数结构体
                 */

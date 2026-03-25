@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SlotInfo;
-
                 /**
                 * 视频编辑模板素材信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VideoEditTemplateMaterial();
+                    ~VideoEditTemplateMaterial() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

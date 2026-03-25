@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 可回档的时间范围
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RollbackTimeRange();
+                    ~RollbackTimeRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

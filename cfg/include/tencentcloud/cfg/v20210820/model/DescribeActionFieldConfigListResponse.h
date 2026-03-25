@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ActionFieldConfigResult;
-                class ResourceOffline;
-
                 /**
                 * DescribeActionFieldConfigList返回参数结构体
                 */

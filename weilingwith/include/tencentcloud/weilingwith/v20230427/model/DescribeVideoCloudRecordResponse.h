@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoCloudRecordRes;
-
                 /**
                 * DescribeVideoCloudRecord返回参数结构体
                 */

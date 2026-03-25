@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 设置销毁模式
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SetDestroyModeCommandInput();
+                    ~SetDestroyModeCommandInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

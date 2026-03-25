@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiGatewayInstanceDetail;
-
                 /**
                 * apigateway实例详情 - 异步关联云资源数据结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ApiGatewayInstanceList();
+                    ~ApiGatewayInstanceList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

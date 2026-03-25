@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StatisticInfo;
-
                 /**
                 * 工作流节点运行详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NodeRunDetail();
+                    ~NodeRunDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

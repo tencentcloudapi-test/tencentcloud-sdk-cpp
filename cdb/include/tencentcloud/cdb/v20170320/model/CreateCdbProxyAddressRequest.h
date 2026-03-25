@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyAllocation;
-
                 /**
                 * CreateCdbProxyAddress请求参数结构体
                 */

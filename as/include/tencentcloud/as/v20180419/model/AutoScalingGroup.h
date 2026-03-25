@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ForwardLoadBalancer;
-                class Tag;
-                class ServiceSettings;
-                class SpotMixedAllocationPolicy;
-                class InstanceNameIndexSettings;
-
                 /**
                 * 伸缩组
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     AutoScalingGroup();
+                    ~AutoScalingGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

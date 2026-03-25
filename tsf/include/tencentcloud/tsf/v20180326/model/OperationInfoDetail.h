@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 提供给前端控制按钮显示逻辑的字段
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OperationInfoDetail();
+                    ~OperationInfoDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

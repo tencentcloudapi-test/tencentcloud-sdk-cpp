@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IngressRule;
-                class IngressTls;
-
                 /**
                 * ModifyGatewayIngress请求参数结构体
                 */

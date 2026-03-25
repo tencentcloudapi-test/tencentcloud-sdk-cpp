@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConsoleSharingConfig;
-
                 /**
                 * CreateConsoleSharing请求参数结构体
                 */

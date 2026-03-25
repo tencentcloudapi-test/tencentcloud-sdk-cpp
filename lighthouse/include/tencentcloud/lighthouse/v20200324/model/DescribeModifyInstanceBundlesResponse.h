@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ModifyBundle;
-
                 /**
                 * DescribeModifyInstanceBundles返回参数结构体
                 */

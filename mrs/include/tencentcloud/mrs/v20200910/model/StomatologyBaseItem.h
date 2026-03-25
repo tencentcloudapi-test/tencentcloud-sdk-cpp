@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StomatologyToothDecay;
-                class StomatologyGingiva;
-                class StomatologyPeriodontics;
-                class KeyValueItem;
-                class StomatologyBriefSummary;
-
                 /**
                 * 体检报告-口腔科
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     StomatologyBaseItem();
+                    ~StomatologyBaseItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

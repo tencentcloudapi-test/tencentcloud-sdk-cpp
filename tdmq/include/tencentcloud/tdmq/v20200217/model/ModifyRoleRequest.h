@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EnvironmentRoleSet;
-
                 /**
                 * ModifyRole请求参数结构体
                 */

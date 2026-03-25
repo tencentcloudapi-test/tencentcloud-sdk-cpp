@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-                class ComputeNodeMetrics;
-                class Tag;
-
                 /**
                 * 计算环境信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ComputeEnvView();
+                    ~ComputeEnvView() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

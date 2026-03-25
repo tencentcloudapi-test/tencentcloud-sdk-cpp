@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 孕妇及哺乳期妇女用药
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ChemicalProductInfoPregnancyLactationUse();
+                    ~ChemicalProductInfoPregnancyLactationUse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

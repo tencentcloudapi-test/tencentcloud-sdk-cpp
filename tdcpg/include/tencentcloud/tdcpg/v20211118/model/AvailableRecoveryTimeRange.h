@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 可以回档时间范围
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AvailableRecoveryTimeRange();
+                    ~AvailableRecoveryTimeRange() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

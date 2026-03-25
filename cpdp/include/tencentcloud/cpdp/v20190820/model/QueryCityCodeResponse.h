@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CityCodeResult;
-
                 /**
                 * QueryCityCode返回参数结构体
                 */

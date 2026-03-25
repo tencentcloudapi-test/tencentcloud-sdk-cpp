@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiSecKey;
-
                 /**
                 * ModifyApiSecEventChange请求参数结构体
                 */

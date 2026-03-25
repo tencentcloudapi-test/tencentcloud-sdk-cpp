@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 调度任务日志错误提示信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     JobLogErrorTip();
+                    ~JobLogErrorTip() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

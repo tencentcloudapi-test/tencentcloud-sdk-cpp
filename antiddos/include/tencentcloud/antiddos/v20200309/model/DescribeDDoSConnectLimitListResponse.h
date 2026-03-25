@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConnectLimitRelation;
-
                 /**
                 * DescribeDDoSConnectLimitList返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 安心计划二维码扫码记录
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PlanQRCodeRecord();
+                    ~PlanQRCodeRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceDeleteOption;
-
                 /**
                 * DeleteClusterInstances请求参数结构体
                 */

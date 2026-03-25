@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceListInfo;
-
                 /**
                 * ListDiscoveredResources返回参数结构体
                 */

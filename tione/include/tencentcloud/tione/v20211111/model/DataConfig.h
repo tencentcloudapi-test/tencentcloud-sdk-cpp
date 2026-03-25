@@ -43,16 +43,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataSetConfig;
-                class CosPathInfo;
-                class CFSConfig;
-                class HDFSConfig;
-                class GooseFS;
-                class CFSTurbo;
-                class LocalDisk;
-                class CBSConfig;
-                class HostPath;
-
                 /**
                 * 数据配置
                 */
@@ -60,6 +50,7 @@ namespace TencentCloud
                 {
                 public:
                     DataConfig();
+                    ~DataConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

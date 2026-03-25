@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PayloadLogItem;
-
                 /**
                 * ListLogPayload返回参数结构体
                 */

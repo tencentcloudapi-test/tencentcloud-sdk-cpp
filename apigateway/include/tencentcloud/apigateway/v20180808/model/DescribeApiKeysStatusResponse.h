@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiKeysStatus;
-
                 /**
                 * DescribeApiKeysStatus返回参数结构体
                 */

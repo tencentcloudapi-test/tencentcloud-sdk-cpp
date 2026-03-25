@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskRecord;
-
                 /**
                 * 翻页查询的任务记录返回
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskRecordPage();
+                    ~TaskRecordPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

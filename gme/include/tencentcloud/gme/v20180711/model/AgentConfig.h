@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AmbientSound;
-                class VoicePrint;
-                class TurnDetection;
-
                 /**
                 * 机器人参数
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     AgentConfig();
+                    ~AgentConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

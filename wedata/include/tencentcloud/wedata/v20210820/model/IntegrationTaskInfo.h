@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IntegrationNodeInfo;
-                class RecordField;
-                class IntegrationNodeMapping;
-                class OfflineTaskAddParam;
-                class TaskImportInfo;
-                class IntegrationTag;
-
                 /**
                 * 集成任务
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     IntegrationTaskInfo();
+                    ~IntegrationTaskInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

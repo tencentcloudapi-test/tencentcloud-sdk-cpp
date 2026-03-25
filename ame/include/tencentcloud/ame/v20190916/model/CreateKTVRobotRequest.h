@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JoinRoomInput;
-                class ApplicationLicenseInput;
-                class SyncRobotCommand;
-
                 /**
                 * CreateKTVRobot请求参数结构体
                 */

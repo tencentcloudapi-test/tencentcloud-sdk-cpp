@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 机动车登记证书识别结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VehicleRegCertInfo();
+                    ~VehicleRegCertInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

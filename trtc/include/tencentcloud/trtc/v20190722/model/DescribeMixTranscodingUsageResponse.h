@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TrtcUsage;
-
                 /**
                 * DescribeMixTranscodingUsage返回参数结构体
                 */

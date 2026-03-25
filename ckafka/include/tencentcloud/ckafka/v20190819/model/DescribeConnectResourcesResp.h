@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeConnectResource;
-
                 /**
                 * 查询连接源列表的返参
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeConnectResourcesResp();
+                    ~DescribeConnectResourcesResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

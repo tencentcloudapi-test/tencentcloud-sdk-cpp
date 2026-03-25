@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Objects;
-                class Endpoint;
-                class SyncDBEndpointInfos;
-                class Options;
-
                 /**
                 * ConfigureSyncJob请求参数结构体
                 */

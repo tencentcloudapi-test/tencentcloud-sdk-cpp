@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagsInfoOfCluster;
-
                 /**
                 * DescribeClusterTags返回参数结构体
                 */

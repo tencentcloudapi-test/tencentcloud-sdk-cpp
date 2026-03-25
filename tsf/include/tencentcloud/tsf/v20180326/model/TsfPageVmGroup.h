@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VmGroupSimple;
-
                 /**
                 * 列表中部署组分页信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TsfPageVmGroup();
+                    ~TsfPageVmGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

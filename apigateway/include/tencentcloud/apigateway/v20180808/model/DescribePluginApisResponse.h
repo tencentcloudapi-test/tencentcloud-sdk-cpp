@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AttachedApiSummary;
-
                 /**
                 * DescribePluginApis返回参数结构体
                 */

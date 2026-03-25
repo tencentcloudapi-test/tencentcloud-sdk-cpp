@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FamilySubDevice;
-
                 /**
                 * DescribeGatewaySubDeviceList返回参数结构体
                 */

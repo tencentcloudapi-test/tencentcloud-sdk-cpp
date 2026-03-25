@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 快递寄件信息,快递寄件必填
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ExpressDelivery();
+                    ~ExpressDelivery() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

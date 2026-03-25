@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplicationVersion;
-                class RunOption;
-                class NFOption;
-                class VolumeInfo;
-                class RunStatusCount;
-                class ExecutionTime;
-                class RunGroupNotification;
-
                 /**
                 * 任务。
                 */
@@ -56,6 +48,7 @@ namespace TencentCloud
                 {
                 public:
                     RunGroup();
+                    ~RunGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

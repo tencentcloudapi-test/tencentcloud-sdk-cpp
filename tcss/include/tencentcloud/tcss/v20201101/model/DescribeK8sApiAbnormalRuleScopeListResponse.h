@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class K8sApiAbnormalRuleScopeInfo;
-
                 /**
                 * DescribeK8sApiAbnormalRuleScopeList返回参数结构体
                 */

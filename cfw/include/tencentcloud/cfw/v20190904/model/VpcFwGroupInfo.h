@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpcFwInstanceInfo;
-
                 /**
                 * VPC防火墙(组)及防火墙实例详情信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VpcFwGroupInfo();
+                    ~VpcFwGroupInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

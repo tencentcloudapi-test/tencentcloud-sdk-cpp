@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Condition;
-
                 /**
                 * DescribeDeviceDetailList请求参数结构体
                 */

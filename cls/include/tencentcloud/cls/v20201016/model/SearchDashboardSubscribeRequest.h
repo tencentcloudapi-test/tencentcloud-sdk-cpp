@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DashboardSubscribeData;
-
                 /**
                 * SearchDashboardSubscribe请求参数结构体
                 */

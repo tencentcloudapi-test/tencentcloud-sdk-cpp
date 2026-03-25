@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RiskRuleItem;
-                class AttributeOptionSet;
-
                 /**
                 * DescribeRiskRules返回参数结构体
                 */

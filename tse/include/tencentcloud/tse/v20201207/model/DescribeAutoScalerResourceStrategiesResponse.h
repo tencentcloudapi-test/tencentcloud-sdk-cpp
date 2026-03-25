@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListCloudNativeAPIGatewayStrategyResult;
-
                 /**
                 * DescribeAutoScalerResourceStrategies返回参数结构体
                 */

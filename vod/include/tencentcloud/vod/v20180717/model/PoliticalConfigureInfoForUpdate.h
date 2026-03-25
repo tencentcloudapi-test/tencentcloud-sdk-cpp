@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PoliticalImgReviewTemplateInfoForUpdate;
-                class PoliticalAsrReviewTemplateInfoForUpdate;
-                class PoliticalOcrReviewTemplateInfoForUpdate;
-
                 /**
                 * 鉴别涉及令人不适宜的信息的控制参数。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     PoliticalConfigureInfoForUpdate();
+                    ~PoliticalConfigureInfoForUpdate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonMixLayoutParams;
-                class CommonMixCropParams;
-                class MixPortraitSegmentParams;
-
                 /**
                 * 通用混流输入参数。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     CommonMixInputParam();
+                    ~CommonMixInputParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

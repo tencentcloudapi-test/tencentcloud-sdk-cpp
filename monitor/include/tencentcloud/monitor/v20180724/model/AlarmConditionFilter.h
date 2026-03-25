@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 策略过滤条件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AlarmConditionFilter();
+                    ~AlarmConditionFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

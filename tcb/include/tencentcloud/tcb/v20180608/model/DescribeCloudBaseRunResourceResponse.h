@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudBaseRunVpcSubnet;
-
                 /**
                 * DescribeCloudBaseRunResource返回参数结构体
                 */

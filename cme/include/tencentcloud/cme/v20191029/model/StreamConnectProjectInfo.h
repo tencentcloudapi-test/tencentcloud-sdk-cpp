@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StreamInputInfo;
-                class StreamConnectOutputInfo;
-
                 /**
                 * 云转推项目信息，包含输入源、输出源、当前转推开始时间等信息。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     StreamConnectProjectInfo();
+                    ~StreamConnectProjectInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

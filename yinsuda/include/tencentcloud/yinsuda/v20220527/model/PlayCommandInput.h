@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 播放指令输入参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PlayCommandInput();
+                    ~PlayCommandInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

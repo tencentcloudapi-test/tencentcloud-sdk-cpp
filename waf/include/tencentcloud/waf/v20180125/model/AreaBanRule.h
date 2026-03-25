@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Area;
-                class JobDateTime;
-
                 /**
                 * 地域封禁规则详情
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AreaBanRule();
+                    ~AreaBanRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

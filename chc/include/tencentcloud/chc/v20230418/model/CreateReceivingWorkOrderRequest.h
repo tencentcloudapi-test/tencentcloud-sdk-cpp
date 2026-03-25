@@ -38,14 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExpressDelivery;
-                class ServerReceivingInfo;
-                class NetReceivingInfo;
-                class WireReceivingInfo;
-                class OtherDevReceivingInfo;
-                class DeviceRackOn;
-                class SelfOperation;
-
                 /**
                 * CreateReceivingWorkOrder请求参数结构体
                 */

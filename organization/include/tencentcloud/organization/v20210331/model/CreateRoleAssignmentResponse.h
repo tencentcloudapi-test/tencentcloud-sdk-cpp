@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskInfo;
-
                 /**
                 * CreateRoleAssignment返回参数结构体
                 */

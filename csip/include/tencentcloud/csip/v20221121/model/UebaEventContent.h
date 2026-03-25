@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WhereFilter;
-                class StatisticalFilter;
-
                 /**
                 * 用户行为分析 发生事件结构体
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     UebaEventContent();
+                    ~UebaEventContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

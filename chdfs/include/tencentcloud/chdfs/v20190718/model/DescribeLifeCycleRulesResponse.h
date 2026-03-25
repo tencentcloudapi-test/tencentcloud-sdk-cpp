@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LifeCycleRule;
-
                 /**
                 * DescribeLifeCycleRules返回参数结构体
                 */

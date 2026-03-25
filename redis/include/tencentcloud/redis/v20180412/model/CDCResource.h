@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceBundle;
-
                 /**
                 * redis独享集群详细信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CDCResource();
+                    ~CDCResource() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AnswerStat;
-
                 /**
                 * 房间问答问题详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     QuestionInfo();
+                    ~QuestionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

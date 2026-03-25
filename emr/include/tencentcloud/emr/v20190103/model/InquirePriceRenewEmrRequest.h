@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Placement;
-
                 /**
                 * InquirePriceRenewEmr请求参数结构体
                 */

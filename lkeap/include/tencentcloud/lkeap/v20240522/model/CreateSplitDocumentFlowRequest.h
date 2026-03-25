@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateSplitDocumentFlowConfig;
-
                 /**
                 * CreateSplitDocumentFlow请求参数结构体
                 */

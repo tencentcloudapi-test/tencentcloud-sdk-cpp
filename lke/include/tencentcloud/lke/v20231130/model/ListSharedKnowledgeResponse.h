@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KnowledgeDetailInfo;
-
                 /**
                 * ListSharedKnowledge返回参数结构体
                 */

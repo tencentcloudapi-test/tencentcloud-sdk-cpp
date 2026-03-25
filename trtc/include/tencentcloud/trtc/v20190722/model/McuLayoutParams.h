@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class McuLayout;
-                class MaxVideoUser;
-
                 /**
                 * 混流布局参数。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     McuLayoutParams();
+                    ~McuLayoutParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

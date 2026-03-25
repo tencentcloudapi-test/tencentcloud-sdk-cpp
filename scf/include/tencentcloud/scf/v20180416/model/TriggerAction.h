@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 预置定时任务动作
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TriggerAction();
+                    ~TriggerAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

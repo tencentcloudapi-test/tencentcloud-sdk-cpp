@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Doris 连接源修改参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DorisModifyConnectParam();
+                    ~DorisModifyConnectParam() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

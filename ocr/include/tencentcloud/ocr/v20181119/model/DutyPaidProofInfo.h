@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Rect;
-
                 /**
                 * 识别出的字段
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DutyPaidProofInfo();
+                    ~DutyPaidProofInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

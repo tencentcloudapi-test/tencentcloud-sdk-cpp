@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodePool;
-
                 /**
                 * DescribeClusterNodePoolDetail返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 新插帧配置，支持分数帧率
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     FrameRateWithDenConfig();
+                    ~FrameRateWithDenConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

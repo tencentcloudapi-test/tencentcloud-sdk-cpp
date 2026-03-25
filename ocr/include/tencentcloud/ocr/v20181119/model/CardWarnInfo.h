@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 卡证告警信息返回
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CardWarnInfo();
+                    ~CardWarnInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

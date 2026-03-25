@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Template;
-                class TextType;
-                class Block;
-
                 /**
                 * TurnPDFToObjectAsyncGetResult返回参数结构体
                 */

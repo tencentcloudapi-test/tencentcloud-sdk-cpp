@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 测试数据集
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TestData();
+                    ~TestData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

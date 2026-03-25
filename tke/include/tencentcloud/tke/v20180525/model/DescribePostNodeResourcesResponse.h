@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SuperNodeResource;
-
                 /**
                 * DescribePostNodeResources返回参数结构体
                 */

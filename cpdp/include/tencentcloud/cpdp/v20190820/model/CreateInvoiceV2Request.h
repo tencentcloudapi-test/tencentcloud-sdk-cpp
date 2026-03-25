@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateInvoiceItem;
-
                 /**
                 * CreateInvoiceV2请求参数结构体
                 */

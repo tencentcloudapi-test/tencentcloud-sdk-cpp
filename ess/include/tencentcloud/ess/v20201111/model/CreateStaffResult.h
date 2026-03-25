@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SuccessCreateStaffData;
-                class FailedCreateStaffData;
-
                 /**
                 * 创建员工的结果
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateStaffResult();
+                    ~CreateStaffResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

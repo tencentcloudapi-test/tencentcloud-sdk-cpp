@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Addresses;
-
                 /**
                 * 当前生效的回源 IP 网段。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MultiPathGatewayCurrentOriginACL();
+                    ~MultiPathGatewayCurrentOriginACL() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

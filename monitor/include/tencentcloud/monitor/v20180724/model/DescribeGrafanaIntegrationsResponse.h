@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GrafanaIntegrationConfig;
-
                 /**
                 * DescribeGrafanaIntegrations返回参数结构体
                 */

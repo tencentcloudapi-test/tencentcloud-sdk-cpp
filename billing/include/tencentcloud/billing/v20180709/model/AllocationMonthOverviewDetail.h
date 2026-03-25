@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分账账单月概览金额明细
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AllocationMonthOverviewDetail();
+                    ~AllocationMonthOverviewDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

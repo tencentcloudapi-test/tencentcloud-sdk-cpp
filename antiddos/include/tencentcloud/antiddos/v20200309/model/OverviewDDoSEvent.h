@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 防护概览DDoS攻击事件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OverviewDDoSEvent();
+                    ~OverviewDDoSEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MQTTClientInfo;
-
                 /**
                 * DescribeClientList返回参数结构体
                 */

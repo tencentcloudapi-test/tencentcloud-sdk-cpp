@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 转诊提醒
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ReferralInfo();
+                    ~ReferralInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

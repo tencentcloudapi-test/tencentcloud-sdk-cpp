@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 绑定关系，包含监听器名字、协议、url、vport。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BindDetailItem();
+                    ~BindDetailItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

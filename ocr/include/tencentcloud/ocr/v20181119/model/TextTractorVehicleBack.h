@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 拖拉机行驶证副页正面的识别结果
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TextTractorVehicleBack();
+                    ~TextTractorVehicleBack() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

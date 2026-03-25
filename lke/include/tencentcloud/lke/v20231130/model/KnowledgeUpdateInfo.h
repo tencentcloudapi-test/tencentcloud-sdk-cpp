@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 共享知识库更新信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KnowledgeUpdateInfo();
+                    ~KnowledgeUpdateInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskImportInfo;
-
                 /**
                 * CreateOfflineTask请求参数结构体
                 */

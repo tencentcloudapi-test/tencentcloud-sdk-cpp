@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GroupOffsetPartition;
-
                 /**
                 * 消费分组主题对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     GroupOffsetTopic();
+                    ~GroupOffsetTopic() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

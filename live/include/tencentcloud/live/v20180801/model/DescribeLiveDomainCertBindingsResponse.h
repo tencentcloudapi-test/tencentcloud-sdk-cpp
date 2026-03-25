@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LiveDomainCertBindings;
-
                 /**
                 * DescribeLiveDomainCertBindings返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * k8s Label
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     K8sLabel();
+                    ~K8sLabel() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

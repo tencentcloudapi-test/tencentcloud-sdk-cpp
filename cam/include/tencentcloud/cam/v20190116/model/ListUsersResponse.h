@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubAccountInfo;
-
                 /**
                 * ListUsers返回参数结构体
                 */

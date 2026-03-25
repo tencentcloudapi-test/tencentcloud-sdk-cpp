@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityTemplateBinding;
-
                 /**
                 * DescribeSecurityTemplateBindings返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PlanQRCode;
-
                 /**
                 * DescribePlanQRCodes返回参数结构体
                 */

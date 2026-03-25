@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TransferItem;
-
                 /**
                 * QueryCommonTransferRecharge返回参数结构体
                 */

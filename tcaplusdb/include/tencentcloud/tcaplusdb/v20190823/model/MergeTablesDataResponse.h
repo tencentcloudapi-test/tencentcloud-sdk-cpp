@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MergeTableResult;
-
                 /**
                 * MergeTablesData返回参数结构体
                 */

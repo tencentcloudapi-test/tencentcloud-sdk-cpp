@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplyFlexPaymentResult;
-
                 /**
                 * ApplyFlexPayment返回参数结构体
                 */

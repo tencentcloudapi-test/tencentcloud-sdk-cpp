@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplicationAuthorizationInfo;
-
                 /**
                 * ListAuthorizedApplicationsToUser返回参数结构体
                 */

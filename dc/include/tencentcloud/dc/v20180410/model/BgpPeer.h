@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * bgp参数，包括CloudAsn，Asn，AuthKey
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BgpPeer();
+                    ~BgpPeer() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

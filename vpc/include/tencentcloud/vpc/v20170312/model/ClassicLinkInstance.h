@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 私有网络和基础网络互通设备
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ClassicLinkInstance();
+                    ~ClassicLinkInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Policy;
-
                 /**
                 * ModifyAutoSnapshotPolicyAttribute请求参数结构体
                 */

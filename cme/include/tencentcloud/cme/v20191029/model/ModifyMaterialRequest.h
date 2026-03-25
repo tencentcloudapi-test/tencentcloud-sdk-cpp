@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Entity;
-
                 /**
                 * ModifyMaterial请求参数结构体
                 */

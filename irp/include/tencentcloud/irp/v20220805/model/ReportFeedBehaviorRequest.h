@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FeedBehaviorInfo;
-
                 /**
                 * ReportFeedBehavior请求参数结构体
                 */

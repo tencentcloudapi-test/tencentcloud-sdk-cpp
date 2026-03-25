@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceApiOpsRequest;
-                class InstanceOpsDto;
-                class ProjectBaseInfoOpsRequest;
-
                 /**
                 * DiagnosePro请求参数结构体
                 */

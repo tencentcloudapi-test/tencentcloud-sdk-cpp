@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 生效运营商白名单号码
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ActiveCarrierPrivilegeNumber();
+                    ~ActiveCarrierPrivilegeNumber() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

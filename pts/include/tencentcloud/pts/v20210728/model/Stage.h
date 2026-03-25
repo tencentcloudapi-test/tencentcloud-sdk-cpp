@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 分阶段施压时，对单个阶段的配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Stage();
+                    ~Stage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateDataReplenishmentPlan;
-
                 /**
                 * CreateDataBackfillPlan返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 部分key导入快照数据时所需要的key文件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KeyFile();
+                    ~KeyFile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserAndGroup;
-
                 /**
                 * DeleteUserManagerUserList请求参数结构体
                 */

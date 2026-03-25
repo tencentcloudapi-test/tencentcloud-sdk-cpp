@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConsumerLog;
-
                 /**
                 * 消费信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ConsumerLogs();
+                    ~ConsumerLogs() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

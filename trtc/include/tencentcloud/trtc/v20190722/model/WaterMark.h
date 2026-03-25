@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WaterMarkImage;
-                class WaterMarkChar;
-                class WaterMarkTimestamp;
-
                 /**
                 * 水印布局参数
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     WaterMark();
+                    ~WaterMark() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

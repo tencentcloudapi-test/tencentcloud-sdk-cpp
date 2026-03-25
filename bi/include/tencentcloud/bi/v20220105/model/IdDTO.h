@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 仅包含id的对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IdDTO();
+                    ~IdDTO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

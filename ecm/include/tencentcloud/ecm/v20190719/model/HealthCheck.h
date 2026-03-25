@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 负载均衡健康检查
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HealthCheck();
+                    ~HealthCheck() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

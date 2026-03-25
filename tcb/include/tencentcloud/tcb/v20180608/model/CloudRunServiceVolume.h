@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudBaseRunNfsVolumeSource;
-                class CloudBaseRunEmptyDirVolumeSource;
-                class CloudBaseRunServiceVolumeHostPath;
-
                 /**
                 * 服务的volume
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     CloudRunServiceVolume();
+                    ~CloudRunServiceVolume() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

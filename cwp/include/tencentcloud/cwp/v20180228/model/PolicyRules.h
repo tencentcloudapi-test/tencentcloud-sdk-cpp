@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommandLine;
-
                 /**
                 * 策略规则表达式
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PolicyRules();
+                    ~PolicyRules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

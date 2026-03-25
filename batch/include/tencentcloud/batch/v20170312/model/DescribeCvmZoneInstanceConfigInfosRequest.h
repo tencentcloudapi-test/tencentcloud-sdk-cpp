@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Filter;
-
                 /**
                 * DescribeCvmZoneInstanceConfigInfos请求参数结构体
                 */

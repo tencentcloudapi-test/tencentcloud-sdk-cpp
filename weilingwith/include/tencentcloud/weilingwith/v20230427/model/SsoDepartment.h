@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 部门用户
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SsoDepartment();
+                    ~SsoDepartment() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

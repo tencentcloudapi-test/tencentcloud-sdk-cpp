@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据库账号权限信息。创建数据库时设置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AccountPrivilege();
+                    ~AccountPrivilege() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

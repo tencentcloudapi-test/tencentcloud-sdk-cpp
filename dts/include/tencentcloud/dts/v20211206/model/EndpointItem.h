@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KeyValuePairOption;
-
                 /**
                 * 数据订阅的实例节点信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     EndpointItem();
+                    ~EndpointItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

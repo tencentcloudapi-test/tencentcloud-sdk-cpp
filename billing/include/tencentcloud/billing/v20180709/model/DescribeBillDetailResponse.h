@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BillDetail;
-
                 /**
                 * DescribeBillDetail返回参数结构体
                 */

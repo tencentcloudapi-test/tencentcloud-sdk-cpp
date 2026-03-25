@@ -38,14 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZoneDetail;
-                class NodeInfo;
-                class TagInfo;
-                class WebNodeTypeInfo;
-                class OperationDuration;
-                class EnableScheduleOperationDuration;
-                class AutoScaleDiskInfo;
-
                 /**
                 * CreateInstance请求参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AILatencyStatisticsInfo;
-
                 /**
                 * AI时延统计
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AILatencyStatistics();
+                    ~AILatencyStatistics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

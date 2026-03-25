@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreateMQTTInsPublicEndpoint返回参数结构体
                 */

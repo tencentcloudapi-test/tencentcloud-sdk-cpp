@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Part;
-                class Coord;
-
                 /**
                 * 单淋巴结转移信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     LymphNode();
+                    ~LymphNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

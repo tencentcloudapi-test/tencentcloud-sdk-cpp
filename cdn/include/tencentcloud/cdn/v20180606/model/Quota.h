@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 刷新/预热 可用量及配额
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Quota();
+                    ~Quota() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

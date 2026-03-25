@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JoinedGroups;
-
                 /**
                 * ListJoinedGroupsForUser返回参数结构体
                 */

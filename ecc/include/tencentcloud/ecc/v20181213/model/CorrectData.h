@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScoreCategory;
-                class SentenceCom;
-
                 /**
                 * 批改的结果
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CorrectData();
+                    ~CorrectData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

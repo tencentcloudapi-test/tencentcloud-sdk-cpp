@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GovernanceNamespaceInput;
-
                 /**
                 * DeleteGovernanceNamespaces请求参数结构体
                 */

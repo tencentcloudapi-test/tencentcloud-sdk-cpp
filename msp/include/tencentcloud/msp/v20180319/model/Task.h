@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SrcInfo;
-                class TimeObj;
-                class DstInfo;
-
                 /**
                 * 迁移任务类别
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     Task();
+                    ~Task() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

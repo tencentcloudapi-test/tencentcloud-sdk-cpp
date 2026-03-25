@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RunTimeFilters;
-
                 /**
                 * DescribeK8sApiAbnormalRuleScopeList请求参数结构体
                 */

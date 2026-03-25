@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DvAuths;
-
                 /**
                 * 获取证书列表（DescribeCertificate）返回参数键为 DvAuthDetail 的内容。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DvAuthDetail();
+                    ~DvAuthDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

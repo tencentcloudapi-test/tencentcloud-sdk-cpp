@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HiveQuery;
-
                 /**
                 * DescribeHiveQueries返回参数结构体
                 */

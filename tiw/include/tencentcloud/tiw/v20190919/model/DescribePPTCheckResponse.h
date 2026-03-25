@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PPTErrSlide;
-                class PPTErr;
-
                 /**
                 * DescribePPTCheck返回参数结构体
                 */

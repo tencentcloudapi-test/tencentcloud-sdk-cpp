@@ -43,19 +43,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RequestConfig;
-                class ConstantParameter;
-                class ReqParameter;
-                class MicroServiceReq;
-                class TsfLoadBalanceConfResp;
-                class HealthCheckConf;
-                class Tag;
-                class ServiceConfig;
-                class ServiceParameter;
-                class OauthConfig;
-                class ResponseErrorCodeReq;
-                class Base64EncodedTriggerRule;
-
                 /**
                 * ModifyApi请求参数结构体
                 */

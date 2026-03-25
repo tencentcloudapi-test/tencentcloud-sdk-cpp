@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyVersionInfo;
-
                 /**
                 * DescribeSupportProxyVersion返回参数结构体
                 */

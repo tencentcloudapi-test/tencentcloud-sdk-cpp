@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ActivityJoinDetail;
-
                 /**
                 * QueryActivityJoinList返回参数结构体
                 */

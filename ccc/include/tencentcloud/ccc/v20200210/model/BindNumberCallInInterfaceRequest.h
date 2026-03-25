@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Interface;
-
                 /**
                 * BindNumberCallInInterface请求参数结构体
                 */

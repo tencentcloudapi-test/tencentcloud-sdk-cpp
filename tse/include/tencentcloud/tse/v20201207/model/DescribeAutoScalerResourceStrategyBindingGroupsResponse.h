@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListCloudNativeAPIGatewayStrategyBindingGroupInfoResult;
-
                 /**
                 * DescribeAutoScalerResourceStrategyBindingGroups返回参数结构体
                 */

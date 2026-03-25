@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserInfo;
-                class Agent;
-                class ReviewerInfo;
-                class EmbedUrlOption;
-
                 /**
                 * CreateEmbedWebUrl请求参数结构体
                 */

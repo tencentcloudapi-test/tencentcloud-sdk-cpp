@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PackSpec;
-
                 /**
                 * 码包类型
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CodePack();
+                    ~CodePack() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

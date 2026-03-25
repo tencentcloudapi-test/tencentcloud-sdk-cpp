@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessKeyUser;
-
                 /**
                 * DescribeAccessKeyUserList返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IncrementalMigrationHttpOriginConfig;
-
                 /**
                 * ModifyIncrementalMigrationStrategy请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 专家服务-月巡检报告
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MonthInspectionReport();
+                    ~MonthInspectionReport() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

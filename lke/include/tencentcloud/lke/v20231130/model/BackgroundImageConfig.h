@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 背景图相关配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BackgroundImageConfig();
+                    ~BackgroundImageConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

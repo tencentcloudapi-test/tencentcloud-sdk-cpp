@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Snapshot;
-                class Tag;
-
                 /**
                 * 一个关于镜像详细信息的结构体，主要包括镜像的主要状态与属性。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     Image();
+                    ~Image() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

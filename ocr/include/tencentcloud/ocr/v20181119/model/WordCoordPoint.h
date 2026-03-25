@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Coord;
-
                 /**
                 * 英文OCR识别出的单词在原图中的四点坐标数组
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     WordCoordPoint();
+                    ~WordCoordPoint() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

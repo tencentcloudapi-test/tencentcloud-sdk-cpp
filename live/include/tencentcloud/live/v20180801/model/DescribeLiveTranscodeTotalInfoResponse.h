@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TranscodeTotalInfo;
-
                 /**
                 * DescribeLiveTranscodeTotalInfo返回参数结构体
                 */

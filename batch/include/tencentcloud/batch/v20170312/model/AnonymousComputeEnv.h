@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EnvData;
-                class MountDataDisk;
-                class AgentRunningMode;
-
                 /**
                 * 计算环境
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     AnonymousComputeEnv();
+                    ~AnonymousComputeEnv() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

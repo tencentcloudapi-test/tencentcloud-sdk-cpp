@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeScript;
-
                 /**
                 * DescribeInitNodeScripts返回参数结构体
                 */

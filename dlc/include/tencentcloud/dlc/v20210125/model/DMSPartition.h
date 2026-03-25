@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KVPair;
-                class DMSSds;
-
                 /**
                 * 迁移元数据分区对象
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DMSPartition();
+                    ~DMSPartition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

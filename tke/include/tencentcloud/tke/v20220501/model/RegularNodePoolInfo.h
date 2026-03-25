@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeCountSummary;
-                class InstanceAdvancedSettings;
-
                 /**
                 * 普通节点池信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     RegularNodePoolInfo();
+                    ~RegularNodePoolInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

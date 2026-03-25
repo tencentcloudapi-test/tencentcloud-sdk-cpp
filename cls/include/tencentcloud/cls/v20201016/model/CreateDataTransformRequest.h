@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataTransformResouceInfo;
-                class PreviewLogStatistic;
-                class DataTransformSqlDataSource;
-                class EnvInfo;
-
                 /**
                 * CreateDataTransform请求参数结构体
                 */

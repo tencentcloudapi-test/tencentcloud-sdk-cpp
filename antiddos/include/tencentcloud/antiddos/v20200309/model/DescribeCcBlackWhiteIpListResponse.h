@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CcBlackWhiteIpPolicy;
-
                 /**
                 * DescribeCcBlackWhiteIpList返回参数结构体
                 */

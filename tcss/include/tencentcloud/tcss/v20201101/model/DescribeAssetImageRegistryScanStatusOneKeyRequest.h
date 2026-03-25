@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageInfo;
-
                 /**
                 * DescribeAssetImageRegistryScanStatusOneKey请求参数结构体
                 */

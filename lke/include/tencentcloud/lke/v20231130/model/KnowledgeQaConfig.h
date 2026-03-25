@@ -49,22 +49,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AppModel;
-                class KnowledgeQaSearch;
-                class KnowledgeQaOutput;
-                class KnowledgeWorkflow;
-                class SearchRange;
-                class SearchStrategy;
-                class KnowledgeQaSingleWorkflow;
-                class KnowledgeQaPlugin;
-                class IntentAchievement;
-                class AICallConfig;
-                class ShareKnowledgeBase;
-                class BackgroundImageConfig;
-                class KnowledgeQaAgent;
-                class KnowledgeModelConfig;
-                class KnowledgeAdvancedConfig;
-
                 /**
                 * 知识问答配置
                 */
@@ -72,6 +56,7 @@ namespace TencentCloud
                 {
                 public:
                     KnowledgeQaConfig();
+                    ~KnowledgeQaConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 水印策略参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WaterPrintPolicy();
+                    ~WaterPrintPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

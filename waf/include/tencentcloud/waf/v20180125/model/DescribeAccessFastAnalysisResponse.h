@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessFieldValueRatioInfo;
-
                 /**
                 * DescribeAccessFastAnalysis返回参数结构体
                 */

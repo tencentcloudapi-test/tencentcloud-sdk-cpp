@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateMerchantResult;
-
                 /**
                 * CreateMerchant返回参数结构体
                 */

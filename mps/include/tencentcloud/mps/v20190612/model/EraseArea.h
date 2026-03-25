@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 智能擦除，擦除区域坐标配置。
 区域由左上角与右下角点的坐标确定。
@@ -50,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     EraseArea();
+                    ~EraseArea() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

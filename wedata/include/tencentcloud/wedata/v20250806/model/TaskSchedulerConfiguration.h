@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DependencyTaskBrief;
-                class EventListener;
-                class OutTaskParameter;
-                class InTaskParameter;
-                class TaskDataRegistry;
-
                 /**
                 * 任务调度配置信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskSchedulerConfiguration();
+                    ~TaskSchedulerConfiguration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DisasterRecoverGroup;
-
                 /**
                 * DescribeDisasterRecoverGroups返回参数结构体
                 */

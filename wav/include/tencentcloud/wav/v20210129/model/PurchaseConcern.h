@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 购车关注点
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PurchaseConcern();
+                    ~PurchaseConcern() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

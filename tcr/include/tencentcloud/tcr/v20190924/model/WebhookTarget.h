@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Header;
-
                 /**
                 * 触发器目标
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     WebhookTarget();
+                    ~WebhookTarget() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

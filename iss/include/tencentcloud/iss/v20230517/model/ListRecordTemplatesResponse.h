@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordTemplateInfo;
-
                 /**
                 * ListRecordTemplates返回参数结构体
                 */

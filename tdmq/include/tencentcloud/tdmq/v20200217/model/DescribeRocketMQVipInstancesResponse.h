@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RocketMQVipInstance;
-
                 /**
                 * DescribeRocketMQVipInstances返回参数结构体
                 */

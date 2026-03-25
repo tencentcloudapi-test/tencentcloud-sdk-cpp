@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskInput;
-
                 /**
                 * DescribeTaskStatus请求参数结构体
                 */

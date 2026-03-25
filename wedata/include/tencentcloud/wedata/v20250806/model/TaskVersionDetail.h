@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Task;
-
                 /**
                 * 任务版本列表信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskVersionDetail();
+                    ~TaskVersionDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

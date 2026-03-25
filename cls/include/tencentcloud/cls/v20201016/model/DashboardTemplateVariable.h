@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 仪表盘订阅模板变量
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DashboardTemplateVariable();
+                    ~DashboardTemplateVariable() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

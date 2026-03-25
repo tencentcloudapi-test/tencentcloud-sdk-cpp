@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JavaMemShellDetail;
-
                 /**
                 * DescribeJavaMemShellInfo返回参数结构体
                 */

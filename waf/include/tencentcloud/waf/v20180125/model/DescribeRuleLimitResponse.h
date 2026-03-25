@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WafRuleLimit;
-
                 /**
                 * DescribeRuleLimit返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryOpenBankBillData;
-
                 /**
                 * 云企付-分页查询对账单数据结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryOpenBankBillDataPageResult();
+                    ~QueryOpenBankBillDataPageResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

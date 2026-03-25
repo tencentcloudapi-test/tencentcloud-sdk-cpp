@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LiveInstanceDetail;
-
                 /**
                 * DescribeHostLiveInstanceList返回参数结构体
                 */

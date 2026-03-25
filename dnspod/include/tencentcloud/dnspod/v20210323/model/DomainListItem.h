@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagItem;
-
                 /**
                 * 域名列表元素
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DomainListItem();
+                    ~DomainListItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

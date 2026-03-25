@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplyFlexSettlementResult;
-
                 /**
                 * ApplyFlexSettlement返回参数结构体
                 */

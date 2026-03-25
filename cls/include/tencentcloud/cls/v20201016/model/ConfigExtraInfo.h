@@ -40,13 +40,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HostFileInfo;
-                class ContainerFileInfo;
-                class ContainerStdoutInfo;
-                class ExtractRuleInfo;
-                class ExcludePathInfo;
-                class CollectInfo;
-
                 /**
                 * 特殊采集规则配置信息
                 */
@@ -54,6 +47,7 @@ namespace TencentCloud
                 {
                 public:
                     ConfigExtraInfo();
+                    ~ConfigExtraInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComplexAdaptiveDynamicStreamingTaskStreamPara;
-
                 /**
                 * 自适应码流任务的输入参数。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ComplexAdaptiveDynamicStreamingTaskInput();
+                    ~ComplexAdaptiveDynamicStreamingTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

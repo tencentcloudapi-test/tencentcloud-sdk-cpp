@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Ckafka主题名称
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CKafkaTopicInfo();
+                    ~CKafkaTopicInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LaunchTemplateVersionData;
-
                 /**
                 * 实例启动模板版本集合
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     LaunchTemplateVersionInfo();
+                    ~LaunchTemplateVersionInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

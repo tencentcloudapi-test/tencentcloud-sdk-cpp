@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowFileInfo;
-                class Agent;
-                class FlowGroupOptions;
-                class UserInfo;
-
                 /**
                 * ChannelCreateFlowGroupByFiles请求参数结构体
                 */

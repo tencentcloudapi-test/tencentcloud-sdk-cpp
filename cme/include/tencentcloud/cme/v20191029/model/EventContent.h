@@ -47,20 +47,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StorageNewFileCreatedEvent;
-                class ProjectStreamConnectStatusChangedEvent;
-                class ProjectSwitcherStatusChangedEvent;
-                class MaterialImportedEvent;
-                class MaterialAddedEvent;
-                class MaterialMovedEvent;
-                class MaterialModifiedEvent;
-                class MaterialDeletedEvent;
-                class ClassCreatedEvent;
-                class ClassMovedEvent;
-                class ClassDeletedEvent;
-                class VideoExportCompletedEvent;
-                class ProjectMediaCastStatusChangedEvent;
-
                 /**
                 * 回调事件内容。
                 */
@@ -68,6 +54,7 @@ namespace TencentCloud
                 {
                 public:
                     EventContent();
+                    ~EventContent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

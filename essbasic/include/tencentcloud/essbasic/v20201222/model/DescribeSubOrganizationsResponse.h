@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SubOrganizationDetail;
-
                 /**
                 * DescribeSubOrganizations返回参数结构体
                 */

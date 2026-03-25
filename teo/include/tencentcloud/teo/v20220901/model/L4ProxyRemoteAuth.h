@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 四层远程鉴权信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     L4ProxyRemoteAuth();
+                    ~L4ProxyRemoteAuth() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

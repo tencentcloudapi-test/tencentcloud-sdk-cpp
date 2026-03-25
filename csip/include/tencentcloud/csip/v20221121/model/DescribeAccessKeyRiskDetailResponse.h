@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessKeyRisk;
-                class AccessKeyAlarmCount;
-
                 /**
                 * DescribeAccessKeyRiskDetail返回参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZoneInfo;
-
                 /**
                 * 客户对应月份的带宽信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MonthNetwork();
+                    ~MonthNetwork() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JavaMemShellPluginSetting;
-
                 /**
                 * DescribeJavaMemShellPluginList返回参数结构体
                 */

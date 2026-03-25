@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Caller;
-                class Component;
-
                 /**
                 * CreateServerFlowSign请求参数结构体
                 */

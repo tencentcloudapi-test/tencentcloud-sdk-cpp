@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AITaskInfo;
-
                 /**
                 * 获取AI任务列表的数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ListAITaskData();
+                    ~ListAITaskData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

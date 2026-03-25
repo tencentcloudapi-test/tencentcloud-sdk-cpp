@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MedicalInvoiceItem;
-
                 /**
                 * 医疗发票识别结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MedicalInvoiceInfo();
+                    ~MedicalInvoiceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

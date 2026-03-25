@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogOutputConf;
-                class NodeInfo;
-                class DescribeRunPodPage;
-                class WorkloadInfo;
-
                 /**
                 * 服务版本信息列表
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     ServiceVersionBrief();
+                    ~ServiceVersionBrief() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

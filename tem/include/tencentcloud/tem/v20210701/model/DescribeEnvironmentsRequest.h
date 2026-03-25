@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryFilter;
-                class SortType;
-
                 /**
                 * DescribeEnvironments请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AutoAuthorizedRuleHostInfo;
-
                 /**
                 * DescribeAutoAuthorizedRuleHost返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KVPair;
-
                 /**
                 * CreateSparkAppTask请求参数结构体
                 */

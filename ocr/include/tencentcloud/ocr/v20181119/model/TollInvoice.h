@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 过路过桥费发票
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TollInvoice();
+                    ~TollInvoice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

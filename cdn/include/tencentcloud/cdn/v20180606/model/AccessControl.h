@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessControlRule;
-
                 /**
                 * 请求头部及请求url访问控制
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AccessControl();
+                    ~AccessControl() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

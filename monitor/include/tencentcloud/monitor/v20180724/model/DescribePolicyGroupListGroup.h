@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribePolicyGroupInfoCondition;
-                class DescribePolicyGroupInfoEventCondition;
-                class DescribePolicyGroupInfoReceiverInfo;
-                class DescribePolicyGroupInfoConditionTpl;
-                class DescribePolicyGroupListGroupInstanceGroup;
-
                 /**
                 * DescribePolicyGroupList.Group
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribePolicyGroupListGroup();
+                    ~DescribePolicyGroupListGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

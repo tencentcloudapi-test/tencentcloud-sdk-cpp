@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 云原生网关证书预览信息
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KongCertificatesPreview();
+                    ~KongCertificatesPreview() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

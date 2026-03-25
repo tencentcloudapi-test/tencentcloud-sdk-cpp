@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkflowExtOpsDtoPage;
-
                 /**
                 * DescribeOpsWorkflows返回参数结构体
                 */

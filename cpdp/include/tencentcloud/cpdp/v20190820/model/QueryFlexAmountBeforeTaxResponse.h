@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AmountBeforeTaxResult;
-
                 /**
                 * QueryFlexAmountBeforeTax返回参数结构体
                 */

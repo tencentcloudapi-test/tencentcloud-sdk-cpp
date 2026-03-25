@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LineagePair;
-
                 /**
                 * DeleteLineage请求参数结构体
                 */

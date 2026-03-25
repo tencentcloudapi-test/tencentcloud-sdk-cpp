@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 选项卡索引
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OptionCardIndex();
+                    ~OptionCardIndex() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

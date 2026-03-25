@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 承接语气词
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ZHToneWordsInfo();
+                    ~ZHToneWordsInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

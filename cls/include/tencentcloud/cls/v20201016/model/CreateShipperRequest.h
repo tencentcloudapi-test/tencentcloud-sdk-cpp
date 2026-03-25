@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FilterRuleInfo;
-                class CompressInfo;
-                class ContentInfo;
-
                 /**
                 * CreateShipper请求参数结构体
                 */

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ExtParam;
-
                 /**
                 * 表血缘节点
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TableLineage();
+                    ~TableLineage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

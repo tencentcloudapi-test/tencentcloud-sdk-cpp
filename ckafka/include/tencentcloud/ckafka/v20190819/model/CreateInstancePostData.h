@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DealInstanceDTO;
-
                 /**
                 * 创建后付费接口返回的 Data 数据结构
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateInstancePostData();
+                    ~CreateInstancePostData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

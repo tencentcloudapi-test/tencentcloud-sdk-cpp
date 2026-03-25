@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 应用市场中部署的应用版本历史
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ReleaseHistory();
+                    ~ReleaseHistory() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

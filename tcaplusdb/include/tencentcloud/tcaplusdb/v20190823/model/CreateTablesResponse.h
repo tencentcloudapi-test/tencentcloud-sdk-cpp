@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableResultNew;
-
                 /**
                 * CreateTables返回参数结构体
                 */

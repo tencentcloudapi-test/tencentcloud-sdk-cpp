@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DatasourceConnectionLocation;
-                class MysqlInfo;
-                class KerberosInfo;
-
                 /**
                 * hive类型数据源的信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     HiveInfo();
+                    ~HiveInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

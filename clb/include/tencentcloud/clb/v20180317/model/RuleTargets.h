@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Backend;
-                class FunctionTarget;
-
                 /**
                 * HTTP/HTTPS监听器下的转发规则绑定的后端服务信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     RuleTargets();
+                    ~RuleTargets() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

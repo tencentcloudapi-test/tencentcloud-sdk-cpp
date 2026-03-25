@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReceiveInfo;
-
                 /**
                 * 通知模板
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AlarmProfileList();
+                    ~AlarmProfileList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

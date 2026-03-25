@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceParamHistory;
-
                 /**
                 * DescribeInstanceParamRecords返回参数结构体
                 */

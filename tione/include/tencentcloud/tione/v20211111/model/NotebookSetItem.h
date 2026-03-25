@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceConf;
-                class Tag;
-                class CFSConfig;
-                class SSHConfig;
-                class GooseFS;
-
                 /**
                 * Notebook列表元素
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     NotebookSetItem();
+                    ~NotebookSetItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

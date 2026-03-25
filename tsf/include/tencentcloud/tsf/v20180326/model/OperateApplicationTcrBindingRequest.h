@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TcrRepoInfo;
-
                 /**
                 * OperateApplicationTcrBinding请求参数结构体
                 */

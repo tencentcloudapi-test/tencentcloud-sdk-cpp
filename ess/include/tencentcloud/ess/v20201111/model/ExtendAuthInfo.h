@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HasAuthUser;
-
                 /**
                 * 扩展服务开通和授权的详细信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ExtendAuthInfo();
+                    ~ExtendAuthInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

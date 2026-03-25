@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 镜像分享信息结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SharePermission();
+                    ~SharePermission() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

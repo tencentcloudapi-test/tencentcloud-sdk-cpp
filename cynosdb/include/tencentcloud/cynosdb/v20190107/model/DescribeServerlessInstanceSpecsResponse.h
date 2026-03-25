@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServerlessSpec;
-
                 /**
                 * DescribeServerlessInstanceSpecs返回参数结构体
                 */

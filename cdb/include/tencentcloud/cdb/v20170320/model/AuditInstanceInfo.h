@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagInfoUnit;
-
                 /**
                 * 审计实例详情
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     AuditInstanceInfo();
+                    ~AuditInstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

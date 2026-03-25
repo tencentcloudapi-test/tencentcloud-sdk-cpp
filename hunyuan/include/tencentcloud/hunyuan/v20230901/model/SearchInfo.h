@@ -39,12 +39,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SearchResult;
-                class Mindmap;
-                class RelevantEvent;
-                class RelevantEntity;
-                class Timeline;
-
                 /**
                 * 搜索结果信息
                 */
@@ -52,6 +46,7 @@ namespace TencentCloud
                 {
                 public:
                     SearchInfo();
+                    ~SearchInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

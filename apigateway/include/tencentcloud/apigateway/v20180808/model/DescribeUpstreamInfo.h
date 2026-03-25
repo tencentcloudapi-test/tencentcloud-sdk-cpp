@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UpstreamInfo;
-
                 /**
                 * 查询后端通道返回信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeUpstreamInfo();
+                    ~DescribeUpstreamInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

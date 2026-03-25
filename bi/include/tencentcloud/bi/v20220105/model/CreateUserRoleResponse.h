@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ErrorInfo;
-                class DataId;
-
                 /**
                 * CreateUserRole返回参数结构体
                 */

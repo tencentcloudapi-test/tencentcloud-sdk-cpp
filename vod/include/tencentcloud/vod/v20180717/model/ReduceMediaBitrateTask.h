@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaMetaData;
-                class ReduceMediaBitrateMediaProcessTaskResult;
-
                 /**
                 * 降码率任务信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ReduceMediaBitrateTask();
+                    ~ReduceMediaBitrateTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

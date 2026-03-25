@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AgentAuditedClient;
-
                 /**
                 * DescribeAgentAuditedClients返回参数结构体
                 */

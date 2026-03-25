@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkflowTrigger;
-                class TaskOutputStorage;
-                class MediaProcessTaskInput;
-                class AiContentReviewTaskInput;
-                class AiAnalysisTaskInput;
-                class AiRecognitionTaskInput;
-                class TaskNotifyConfig;
-
                 /**
                 * 工作流信息详情。
                 */
@@ -56,6 +48,7 @@ namespace TencentCloud
                 {
                 public:
                     WorkflowInfo();
+                    ~WorkflowInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

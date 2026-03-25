@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用户麦克风状态
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UserMicStatus();
+                    ~UserMicStatus() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NetworkAclEntrySet;
-
                 /**
                 * DeleteNetworkAclEntries请求参数结构体
                 */

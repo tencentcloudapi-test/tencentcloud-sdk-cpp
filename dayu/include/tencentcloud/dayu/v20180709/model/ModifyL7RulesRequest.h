@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class L7RuleEntry;
-
                 /**
                 * ModifyL7Rules请求参数结构体
                 */

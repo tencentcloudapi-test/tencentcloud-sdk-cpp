@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InvokeAPI;
-                class ValueInfo;
-
                 /**
                 * 节点信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     RunNodeInfo();
+                    ~RunNodeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableNameFilter;
-
                 /**
                 * DescribeTableMeta请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InvocationMetricScatterPlot;
-
                 /**
                 * DescribeInvocationMetricScatterPlot返回参数结构体
                 */

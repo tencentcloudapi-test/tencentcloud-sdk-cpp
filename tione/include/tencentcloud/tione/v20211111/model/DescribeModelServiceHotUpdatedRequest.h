@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageInfo;
-                class ModelInfo;
-                class VolumeMount;
-
                 /**
                 * DescribeModelServiceHotUpdated请求参数结构体
                 */

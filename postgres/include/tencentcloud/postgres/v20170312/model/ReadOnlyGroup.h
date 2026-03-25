@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DBInstance;
-                class DBInstanceNetInfo;
-                class NetworkAccess;
-
                 /**
                 * 只读组信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ReadOnlyGroup();
+                    ~ReadOnlyGroup() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

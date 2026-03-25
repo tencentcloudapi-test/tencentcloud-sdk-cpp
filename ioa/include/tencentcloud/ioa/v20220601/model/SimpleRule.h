@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleExpression;
-
                 /**
                 * 简单规则表达式
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SimpleRule();
+                    ~SimpleRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

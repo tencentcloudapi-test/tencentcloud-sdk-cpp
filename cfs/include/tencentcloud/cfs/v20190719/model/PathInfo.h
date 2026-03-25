@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 生命周期管理策略关联目录的绝对路径
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PathInfo();
+                    ~PathInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

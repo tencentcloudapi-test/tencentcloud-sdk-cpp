@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SQLContentActionResult;
-
                 /**
                 * UpdateSQLFolder返回参数结构体
                 */

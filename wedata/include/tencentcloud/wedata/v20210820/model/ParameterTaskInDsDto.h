@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 查询任务输入参数Dto
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ParameterTaskInDsDto();
+                    ~ParameterTaskInDsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -45,18 +45,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CCN;
-                class Tag;
-                class ClusterVersion;
-                class WorkSpaceClusterItem;
-                class ClusterSession;
-                class Order;
-                class SqlGatewayItem;
-                class SubEks;
-                class Setats;
-                class HadoopYarnItem;
-                class SlaveZone;
-
                 /**
                 * 描述用户创建的集群信息
                 */
@@ -64,6 +52,7 @@ namespace TencentCloud
                 {
                 public:
                     Cluster();
+                    ~Cluster() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

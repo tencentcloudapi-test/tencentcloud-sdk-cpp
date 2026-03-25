@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZoneInfo;
-
                 /**
                 * DescribeZones返回参数结构体
                 */

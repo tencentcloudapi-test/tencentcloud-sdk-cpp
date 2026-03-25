@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 需要过滤日志的key，及其对应的regex
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KeyRegexInfo();
+                    ~KeyRegexInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NetworkAclQuintupleEntries;
-
                 /**
                 * ModifyNetworkAclQuintupleEntries请求参数结构体
                 */

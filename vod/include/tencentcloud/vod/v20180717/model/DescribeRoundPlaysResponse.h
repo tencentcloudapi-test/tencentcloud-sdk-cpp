@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RoundPlayInfo;
-
                 /**
                 * DescribeRoundPlays返回参数结构体
                 */

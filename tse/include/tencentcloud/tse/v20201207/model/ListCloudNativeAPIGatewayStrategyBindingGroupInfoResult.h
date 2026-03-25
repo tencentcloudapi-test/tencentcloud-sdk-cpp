@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudNativeAPIGatewayStrategyBindingGroupInfo;
-
                 /**
                 * 获取云原生API网关实例策略绑定网关分组列表响应结果。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ListCloudNativeAPIGatewayStrategyBindingGroupInfoResult();
+                    ~ListCloudNativeAPIGatewayStrategyBindingGroupInfoResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

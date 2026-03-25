@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 节点IP、访问IP、访问时间
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IpTimePair();
+                    ~IpTimePair() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

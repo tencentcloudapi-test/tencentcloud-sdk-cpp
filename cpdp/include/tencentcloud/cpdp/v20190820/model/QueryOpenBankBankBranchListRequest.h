@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Paging;
-
                 /**
                 * QueryOpenBankBankBranchList请求参数结构体
                 */

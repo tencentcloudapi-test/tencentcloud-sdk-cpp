@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CynosdbInstance;
-                class OldAddrInfo;
-                class ObjectTask;
-
                 /**
                 * 实例组信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     CynosdbInstanceGrp();
+                    ~CynosdbInstanceGrp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

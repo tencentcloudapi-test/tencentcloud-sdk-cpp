@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaInputInfo;
-                class MediaMetaData;
-                class ActivityResult;
-
                 /**
                 * 编排任务信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ScheduleTask();
+                    ~ScheduleTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

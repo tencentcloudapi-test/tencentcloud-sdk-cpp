@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DDosProtectionConfig;
-
                 /**
                 * CreateL4Proxy请求参数结构体
                 */

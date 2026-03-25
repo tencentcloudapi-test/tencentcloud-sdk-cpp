@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class IpTraceConfig;
-
                 /**
                 * UpdateIpTraceStatus请求参数结构体
                 */

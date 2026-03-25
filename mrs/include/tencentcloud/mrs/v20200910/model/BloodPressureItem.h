@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PhysicalBaseItem;
-
                 /**
                 * 体检报告血压检测信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BloodPressureItem();
+                    ~BloodPressureItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

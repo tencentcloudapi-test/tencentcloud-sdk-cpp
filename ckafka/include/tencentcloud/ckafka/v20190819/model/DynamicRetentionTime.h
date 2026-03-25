@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 动态消息保留时间配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DynamicRetentionTime();
+                    ~DynamicRetentionTime() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

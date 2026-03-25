@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-                class FillApproverInfo;
-                class UserInfo;
-
                 /**
                 * ChannelCreateFlowApprovers请求参数结构体
                 */

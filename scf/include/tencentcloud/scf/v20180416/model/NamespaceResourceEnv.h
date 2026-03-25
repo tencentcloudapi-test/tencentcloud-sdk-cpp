@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NamespaceResourceEnvTKE;
-
                 /**
                 * 命名空间资源池配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     NamespaceResourceEnv();
+                    ~NamespaceResourceEnv() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FenceBindProductItem;
-
                 /**
                 * DeleteFenceBind请求参数结构体
                 */

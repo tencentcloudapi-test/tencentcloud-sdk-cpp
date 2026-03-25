@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 思维链开关类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Thinking();
+                    ~Thinking() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

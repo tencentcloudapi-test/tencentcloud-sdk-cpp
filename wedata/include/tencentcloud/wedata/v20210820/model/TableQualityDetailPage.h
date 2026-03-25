@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TableQualityDetail;
-
                 /**
                 * 表质量分分页结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TableQualityDetailPage();
+                    ~TableQualityDetailPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

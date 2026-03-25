@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoConfigureInfoForUpdate;
-                class WatermarkConfigureInfoForUpdate;
-
                 /**
                 * ModifyJustInTimeTranscodeTemplate请求参数结构体
                 */

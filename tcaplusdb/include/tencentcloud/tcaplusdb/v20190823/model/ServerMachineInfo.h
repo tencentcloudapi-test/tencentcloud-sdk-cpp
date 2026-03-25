@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * svr的机器列表ServerList
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ServerMachineInfo();
+                    ~ServerMachineInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

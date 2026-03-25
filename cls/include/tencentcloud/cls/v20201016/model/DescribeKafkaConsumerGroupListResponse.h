@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ConsumerGroup;
-
                 /**
                 * DescribeKafkaConsumerGroupList返回参数结构体
                 */

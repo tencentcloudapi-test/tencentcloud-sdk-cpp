@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DiskChargePrepaid;
-
                 /**
                 * RenewDisk请求参数结构体
                 */

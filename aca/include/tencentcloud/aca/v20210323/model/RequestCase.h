@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PatientBaseInfo;
-                class DoctorInfo;
-                class PatientHistory;
-                class PatientFamilyHistory;
-                class PhysicalExam;
-                class EmrDiagnosises;
-                class DrugUsage;
-
                 /**
                 * 预测数据
                 */
@@ -56,6 +48,7 @@ namespace TencentCloud
                 {
                 public:
                     RequestCase();
+                    ~RequestCase() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

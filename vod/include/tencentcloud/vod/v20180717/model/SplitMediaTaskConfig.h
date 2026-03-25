@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SplitMediaOutputConfig;
-
                 /**
                 * 视频拆条任务配置信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     SplitMediaTaskConfig();
+                    ~SplitMediaTaskConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

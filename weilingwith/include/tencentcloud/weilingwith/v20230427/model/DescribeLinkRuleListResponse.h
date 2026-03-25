@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeLinkRuleListRes;
-
                 /**
                 * DescribeLinkRuleList返回参数结构体
                 */

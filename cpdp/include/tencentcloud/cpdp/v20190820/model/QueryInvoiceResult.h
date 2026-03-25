@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryInvoiceResultData;
-                class Order;
-
                 /**
                 * 查询发票结果
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryInvoiceResult();
+                    ~QueryInvoiceResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

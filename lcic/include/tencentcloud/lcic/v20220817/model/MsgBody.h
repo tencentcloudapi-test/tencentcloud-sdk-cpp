@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TextMsgContent;
-                class FaceMsgContent;
-                class ImageMsgContent;
-                class CustomMsgContent;
-
                 /**
                 * 自定义消息结构
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     MsgBody();
+                    ~MsgBody() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

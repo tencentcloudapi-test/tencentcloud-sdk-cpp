@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Drm加密对象输出参数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DrmOutputPara();
+                    ~DrmOutputPara() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

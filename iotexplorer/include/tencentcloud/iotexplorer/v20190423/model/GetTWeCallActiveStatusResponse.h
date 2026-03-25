@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TWeCallActiveInfo;
-
                 /**
                 * GetTWeCallActiveStatus返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AMQPClusterDetail;
-
                 /**
                 * DescribeAMQPClusters返回参数结构体
                 */

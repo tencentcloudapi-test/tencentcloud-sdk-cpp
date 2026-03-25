@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InsightResult;
-
                 /**
                 * DescribeInsightList返回参数结构体
                 */

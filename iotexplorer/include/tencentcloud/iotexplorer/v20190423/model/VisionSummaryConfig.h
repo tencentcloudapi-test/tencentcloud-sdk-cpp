@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VisionCustomDetectQuery;
-
                 /**
                 * 视频摘要配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VisionSummaryConfig();
+                    ~VisionSummaryConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

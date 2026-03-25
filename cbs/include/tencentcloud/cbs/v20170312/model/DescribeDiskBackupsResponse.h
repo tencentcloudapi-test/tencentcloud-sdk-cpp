@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DiskBackup;
-
                 /**
                 * DescribeDiskBackups返回参数结构体
                 */

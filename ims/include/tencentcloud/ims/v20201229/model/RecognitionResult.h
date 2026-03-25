@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecognitionTag;
-
                 /**
                 * 识别类型标签结果信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RecognitionResult();
+                    ~RecognitionResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

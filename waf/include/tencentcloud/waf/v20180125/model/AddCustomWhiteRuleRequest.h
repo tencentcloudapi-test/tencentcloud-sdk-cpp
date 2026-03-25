@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Strategy;
-                class JobDateTime;
-
                 /**
                 * AddCustomWhiteRule请求参数结构体
                 */

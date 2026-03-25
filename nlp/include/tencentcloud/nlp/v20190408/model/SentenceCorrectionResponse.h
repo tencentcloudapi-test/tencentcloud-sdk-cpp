@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CorrectionItem;
-
                 /**
                 * SentenceCorrection返回参数结构体
                 */

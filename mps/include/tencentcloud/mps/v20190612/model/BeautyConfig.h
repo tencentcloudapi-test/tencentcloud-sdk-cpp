@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BeautyEffectItemConfig;
-                class BeautyFilterItemConfig;
-
                 /**
                 * 美颜配置
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     BeautyConfig();
+                    ~BeautyConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceIp;
-                class DDoSPolicyDropOption;
-                class DDoSPolicyPortLimit;
-                class DDoSPolicyPacketFilter;
-                class IpBlackWhite;
-                class WaterPrintPolicy;
-                class WaterPrintKey;
-
                 /**
                 * DDoS高级策略
                 */
@@ -56,6 +48,7 @@ namespace TencentCloud
                 {
                 public:
                     DDosPolicy();
+                    ~DDosPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

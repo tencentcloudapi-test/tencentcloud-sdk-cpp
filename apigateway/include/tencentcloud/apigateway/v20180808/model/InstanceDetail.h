@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceChargePrepaid;
-                class NetworkConfig;
-                class VpcConfig;
-                class ParameterInfo;
-
                 /**
                 * 独享实例详情
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceDetail();
+                    ~InstanceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PlayStatFileInfo;
-
                 /**
                 * DescribeDailyPlayStatFileList返回参数结构体
                 */

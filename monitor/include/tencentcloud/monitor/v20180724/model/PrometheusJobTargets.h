@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusTarget;
-
                 /**
                 * prometheus一个job的targets
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusJobTargets();
+                    ~PrometheusJobTargets() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

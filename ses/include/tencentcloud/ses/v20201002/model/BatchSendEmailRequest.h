@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Template;
-                class Simple;
-                class Attachment;
-                class CycleEmailParam;
-                class TimedEmailParam;
-
                 /**
                 * BatchSendEmail请求参数结构体
                 */

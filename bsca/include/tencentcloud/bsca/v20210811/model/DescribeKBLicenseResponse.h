@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LicenseUnion;
-
                 /**
                 * DescribeKBLicense返回参数结构体
                 */

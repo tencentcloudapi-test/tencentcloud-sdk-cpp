@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * k8sapi异常请求趋势Item
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     K8sApiAbnormalTendencyItem();
+                    ~K8sApiAbnormalTendencyItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

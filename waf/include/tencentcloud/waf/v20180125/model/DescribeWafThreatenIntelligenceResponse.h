@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WafThreatenIntelligenceDetails;
-
                 /**
                 * DescribeWafThreatenIntelligence返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 地域过滤条件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ConditionRegion();
+                    ~ConditionRegion() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

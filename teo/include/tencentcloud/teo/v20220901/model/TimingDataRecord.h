@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TimingTypeValue;
-
                 /**
                 * 时序数据信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     TimingDataRecord();
+                    ~TimingDataRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

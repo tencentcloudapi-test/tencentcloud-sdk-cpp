@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 物模型历史版本
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IotModelData();
+                    ~IotModelData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

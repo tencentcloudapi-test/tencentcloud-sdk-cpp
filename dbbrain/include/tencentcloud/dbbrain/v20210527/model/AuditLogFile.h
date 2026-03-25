@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 审计日志文件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AuditLogFile();
+                    ~AuditLogFile() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

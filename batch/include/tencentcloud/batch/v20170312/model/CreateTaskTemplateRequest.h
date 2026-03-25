@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Task;
-                class Tag;
-
                 /**
                 * CreateTaskTemplate请求参数结构体
                 */

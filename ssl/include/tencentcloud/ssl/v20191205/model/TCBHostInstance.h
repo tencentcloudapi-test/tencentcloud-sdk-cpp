@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TCB静态托管服务实例
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TCBHostInstance();
+                    ~TCBHostInstance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

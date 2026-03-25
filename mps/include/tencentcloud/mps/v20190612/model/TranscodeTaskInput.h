@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RawTranscodeParameter;
-                class OverrideTranscodeParameter;
-                class WatermarkInput;
-                class BlindWatermarkInput;
-                class MosaicInput;
-                class TaskOutputStorage;
-                class NumberFormat;
-                class HeadTailParameter;
-
                 /**
                 * 转码任务输入参数类型
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     TranscodeTaskInput();
+                    ~TranscodeTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

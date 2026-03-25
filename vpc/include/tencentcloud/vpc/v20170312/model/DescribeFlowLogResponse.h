@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowLog;
-
                 /**
                 * DescribeFlowLog返回参数结构体
                 */

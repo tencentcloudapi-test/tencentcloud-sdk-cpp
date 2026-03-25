@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 微服务API数组
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MsApiArray();
+                    ~MsApiArray() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

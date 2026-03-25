@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-
                 /**
                 * ChannelCreateFlowSignReview请求参数结构体
                 */

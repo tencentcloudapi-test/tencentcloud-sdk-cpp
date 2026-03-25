@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LogicBackupConfigInfo;
-
                 /**
                 * DescribeBackupConfig返回参数结构体
                 */

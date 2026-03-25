@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 水印类型为图片的参数列表
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WaterMarkImage();
+                    ~WaterMarkImage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

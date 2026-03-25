@@ -57,30 +57,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SmartRoutingParameters;
-                class CacheConfigParameters;
-                class MaxAgeParameters;
-                class CacheKeyConfigParameters;
-                class CachePrefreshParameters;
-                class OfflineCacheParameters;
-                class CompressionParameters;
-                class ForceRedirectHTTPSParameters;
-                class HSTSParameters;
-                class TLSConfigParameters;
-                class OCSPStaplingParameters;
-                class HTTP2Parameters;
-                class QUICParameters;
-                class UpstreamHTTP2Parameters;
-                class IPv6Parameters;
-                class WebSocketParameters;
-                class PostMaxSizeParameters;
-                class ClientIPHeaderParameters;
-                class ClientIPCountryParameters;
-                class GrpcParameters;
-                class NetworkErrorLoggingParameters;
-                class AccelerateMainlandParameters;
-                class StandardDebugParameters;
-
                 /**
                 * 站点加速配置。
                 */
@@ -88,6 +64,7 @@ namespace TencentCloud
                 {
                 public:
                     ZoneConfig();
+                    ~ZoneConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

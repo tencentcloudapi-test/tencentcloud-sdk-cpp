@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BashRule;
-
                 /**
                 * DescribeBashRules返回参数结构体
                 */

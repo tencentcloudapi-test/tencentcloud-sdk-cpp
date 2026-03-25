@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 检查项资产组每一项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CheckAssetItem();
+                    ~CheckAssetItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

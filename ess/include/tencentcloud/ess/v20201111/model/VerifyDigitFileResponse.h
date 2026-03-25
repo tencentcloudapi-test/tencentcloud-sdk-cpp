@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VerifyDigitFileResult;
-
                 /**
                 * VerifyDigitFile返回参数结构体
                 */

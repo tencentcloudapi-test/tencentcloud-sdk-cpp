@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoTemplateInfo;
-                class AudioTemplateInfo;
-                class TEHDConfig;
-
                 /**
                 * 转码模板详情
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TranscodeTemplate();
+                    ~TranscodeTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

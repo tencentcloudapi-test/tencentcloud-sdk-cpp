@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeServiceTemplateGroupInstances请求参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 版本保留执行的规则
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     RetentionTask();
+                    ~RetentionTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AmsDetailInfo;
-
                 /**
                 * DescribeAmsList返回参数结构体
                 */

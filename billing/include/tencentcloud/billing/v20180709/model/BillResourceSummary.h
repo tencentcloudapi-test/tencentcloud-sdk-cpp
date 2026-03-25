@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BillTagInfo;
-
                 /**
                 * 账单资源汇总数据对象
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     BillResourceSummary();
+                    ~BillResourceSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

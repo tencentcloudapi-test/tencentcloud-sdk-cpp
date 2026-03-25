@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeSelectorTerm;
-
                 /**
                 * Pod容忍调度节点选择项
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PreferredSchedulingTerm();
+                    ~PreferredSchedulingTerm() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

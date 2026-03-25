@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LineageParamRecord;
-                class RecordField;
-
                 /**
                 * 表血缘详细信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     TableLineageBaseInfo();
+                    ~TableLineageBaseInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

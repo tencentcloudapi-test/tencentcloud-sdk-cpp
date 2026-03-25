@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * VPN网关对象。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VpnGateway();
+                    ~VpnGateway() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ImageAreaBoxInfo;
-
                 /**
                 * 图标擦除配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageEraseLogoConfig();
+                    ~ImageEraseLogoConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

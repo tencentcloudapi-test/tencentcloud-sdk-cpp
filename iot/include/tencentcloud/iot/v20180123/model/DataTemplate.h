@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NumberData;
-                class StringData;
-                class EnumData;
-                class BoolData;
-
                 /**
                 * 数据模版
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     DataTemplate();
+                    ~DataTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

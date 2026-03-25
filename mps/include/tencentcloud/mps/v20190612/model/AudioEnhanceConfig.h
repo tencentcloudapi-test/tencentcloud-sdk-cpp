@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AudioDenoiseConfig;
-                class AudioSeparateConfig;
-                class VolumeBalanceConfig;
-                class AudioBeautifyConfig;
-
                 /**
                 * 音频增强配置
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     AudioEnhanceConfig();
+                    ~AudioEnhanceConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

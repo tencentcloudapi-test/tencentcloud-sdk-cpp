@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InternetChargeTypeConfig;
-
                 /**
                 * DescribeInternetChargeTypeConfigs返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MessageProfile;
-
                 /**
                 * ReportAppMessage请求参数结构体
                 */

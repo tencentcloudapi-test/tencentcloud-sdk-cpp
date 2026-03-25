@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceConfigItem;
-
                 /**
                 * ModifyInstanceKeyValConfigs请求参数结构体
                 */

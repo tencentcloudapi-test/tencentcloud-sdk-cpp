@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkSpaceSetItem;
-
                 /**
                 * DescribeWorkSpaces返回参数结构体
                 */

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Module;
-                class ModuleCounter;
-
                 /**
                 * DescribeModuleDetail返回参数结构体
                 */

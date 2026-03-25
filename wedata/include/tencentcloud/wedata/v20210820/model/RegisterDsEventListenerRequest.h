@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ParamInfoDs;
-
                 /**
                 * RegisterDsEventListener请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AclRuleInfo;
-
                 /**
                 * BatchCreateAcl请求参数结构体
                 */

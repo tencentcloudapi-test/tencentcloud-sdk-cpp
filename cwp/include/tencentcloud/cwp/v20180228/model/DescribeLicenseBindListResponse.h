@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LicenseBindDetail;
-
                 /**
                 * DescribeLicenseBindList返回参数结构体
                 */

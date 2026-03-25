@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccountPrivilegeModifyInfo;
-
                 /**
                 * ModifyAccountPrivilege请求参数结构体
                 */

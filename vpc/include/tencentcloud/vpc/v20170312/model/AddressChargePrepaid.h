@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 用于描述弹性公网IP的费用对象
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AddressChargePrepaid();
+                    ~AddressChargePrepaid() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

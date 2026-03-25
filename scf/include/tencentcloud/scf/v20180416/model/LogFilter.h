@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 日志过滤条件，用于区分正确与错误日志
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     LogFilter();
+                    ~LogFilter() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

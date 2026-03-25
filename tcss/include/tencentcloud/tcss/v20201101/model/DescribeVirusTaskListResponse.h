@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VirusTaskInfo;
-
                 /**
                 * DescribeVirusTaskList返回参数结构体
                 */

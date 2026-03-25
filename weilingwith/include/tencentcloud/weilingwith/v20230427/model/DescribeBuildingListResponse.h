@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BuildingListRes;
-
                 /**
                 * DescribeBuildingList返回参数结构体
                 */

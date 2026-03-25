@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 组织身份策略
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     IdentityPolicy();
+                    ~IdentityPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

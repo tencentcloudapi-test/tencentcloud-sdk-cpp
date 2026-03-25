@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RabbitMQVirtualHostInfo;
-
                 /**
                 * DescribeRabbitMQVirtualHost返回参数结构体
                 */

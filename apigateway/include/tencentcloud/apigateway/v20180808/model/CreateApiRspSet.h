@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreateApiRsp;
-
                 /**
                 * CreateApiRsp  返回加TotalCount
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CreateApiRspSet();
+                    ~CreateApiRspSet() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

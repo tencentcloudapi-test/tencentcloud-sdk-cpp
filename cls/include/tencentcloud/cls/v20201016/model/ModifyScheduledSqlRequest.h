@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScheduledSqlResouceInfo;
-
                 /**
                 * ModifyScheduledSql请求参数结构体
                 */

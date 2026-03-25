@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ListGatewaysData;
-
                 /**
                 * ListGateways返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AccessRegionDetial;
-
                 /**
                 * DescribeAccessRegionsByDestRegion返回参数结构体
                 */

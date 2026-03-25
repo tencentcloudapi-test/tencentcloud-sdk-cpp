@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GitConfig;
-                class GitSecret;
-
                 /**
                 * CreateCodeRepository请求参数结构体
                 */

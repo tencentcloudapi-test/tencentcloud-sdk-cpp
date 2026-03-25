@@ -43,16 +43,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ArtifactReduction;
-                class Denoising;
-                class ColorEnhance;
-                class Sharp;
-                class FaceProtect;
-                class ScratchRepair;
-                class LowLightEnhance;
-                class VideoSuperResolution;
-                class VideoRepair;
-
                 /**
                 * 画质增强参数信息
                 */
@@ -60,6 +50,7 @@ namespace TencentCloud
                 {
                 public:
                     VideoEnhance();
+                    ~VideoEnhance() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

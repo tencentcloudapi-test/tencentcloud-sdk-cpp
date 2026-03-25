@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AssetPlanTask;
-
                 /**
                 * DescribeAssetPlanTaskList返回参数结构体
                 */

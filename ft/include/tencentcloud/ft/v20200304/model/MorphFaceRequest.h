@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GradientInfo;
-
                 /**
                 * MorphFace请求参数结构体
                 */

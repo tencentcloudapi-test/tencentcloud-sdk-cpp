@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BackupItem;
-
                 /**
                 * CreateBackup请求参数结构体
                 */

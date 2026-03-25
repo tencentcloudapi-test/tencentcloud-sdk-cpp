@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AttributeLabelItem;
-
                 /**
                 * ModifyAttributeLabel请求参数结构体
                 */

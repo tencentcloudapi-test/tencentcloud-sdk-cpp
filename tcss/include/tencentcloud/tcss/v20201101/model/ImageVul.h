@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComponentsInfo;
-                class ImageVulLayerInfo;
-
                 /**
                 * 容器安全镜像漏洞信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ImageVul();
+                    ~ImageVul() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

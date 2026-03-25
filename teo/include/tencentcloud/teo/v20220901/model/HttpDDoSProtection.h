@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AdaptiveFrequencyControl;
-                class ClientFiltering;
-                class BandwidthAbuseDefense;
-                class SlowAttackDefense;
-
                 /**
                 * HTTP DDOS防护配置。
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     HttpDDoSProtection();
+                    ~HttpDDoSProtection() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

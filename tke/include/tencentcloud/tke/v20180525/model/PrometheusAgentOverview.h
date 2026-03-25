@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Label;
-
                 /**
                 * 托管prometheus agent概览
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PrometheusAgentOverview();
+                    ~PrometheusAgentOverview() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

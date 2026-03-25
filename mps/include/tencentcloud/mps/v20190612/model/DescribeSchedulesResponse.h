@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SchedulesInfo;
-
                 /**
                 * DescribeSchedules返回参数结构体
                 */

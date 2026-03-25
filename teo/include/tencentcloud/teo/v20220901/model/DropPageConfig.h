@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DropPageDetail;
-
                 /**
                 * 拦截页面的总体配置，用于配置各个模块的拦截后行为。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DropPageConfig();
+                    ~DropPageConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ComposeTransitionOperation;
-
                 /**
                 * 视频编辑/合成任务 转场元素信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ComposeTransitionItem();
+                    ~ComposeTransitionItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

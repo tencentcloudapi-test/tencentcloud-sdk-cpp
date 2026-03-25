@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleQuery;
-                class Action;
-
                 /**
                 * UpdateRule请求参数结构体
                 */

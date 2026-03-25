@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 创建资源实例时同时绑定的标签对说明
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Tag();
+                    ~Tag() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

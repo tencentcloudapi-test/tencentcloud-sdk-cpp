@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EdgeClusterAdvancedSettings;
-                class EdgeClusterPublicLB;
-                class TagSpecification;
-
                 /**
                 * CreateTKEEdgeCluster请求参数结构体
                 */

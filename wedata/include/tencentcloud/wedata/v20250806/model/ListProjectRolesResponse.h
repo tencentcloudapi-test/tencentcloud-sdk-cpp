@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PageRoles;
-
                 /**
                 * ListProjectRoles返回参数结构体
                 */

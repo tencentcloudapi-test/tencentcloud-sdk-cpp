@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 企业安全组域名解析的IP统计
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SgDnsParseCount();
+                    ~SgDnsParseCount() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

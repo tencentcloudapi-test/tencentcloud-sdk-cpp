@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JSInjectionRule;
-
                 /**
                 * CreateSecurityJSInjectionRule请求参数结构体
                 */

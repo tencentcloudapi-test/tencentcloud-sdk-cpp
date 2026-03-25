@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BindL4Backend;
-
                 /**
                 * BindL4Backends请求参数结构体
                 */

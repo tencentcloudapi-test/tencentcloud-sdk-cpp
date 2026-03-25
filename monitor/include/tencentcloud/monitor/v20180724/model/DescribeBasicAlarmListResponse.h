@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeBasicAlarmListAlarms;
-
                 /**
                 * DescribeBasicAlarmList返回参数结构体
                 */

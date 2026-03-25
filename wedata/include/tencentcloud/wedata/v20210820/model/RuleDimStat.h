@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RuleDimCnt;
-
                 /**
                 * 规则维度数统计
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RuleDimStat();
+                    ~RuleDimStat() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

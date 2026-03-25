@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaInputInfo;
-                class ExpressionConfigInfo;
-                class ActionConfigInfo;
-
                 /**
                 * RecognizeMediaForZhiXue请求参数结构体
                 */

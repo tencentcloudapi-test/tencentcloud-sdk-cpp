@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AuditKeyword;
-
                 /**
                 * CreateAuditKeywords请求参数结构体
                 */

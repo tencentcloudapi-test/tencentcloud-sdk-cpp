@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Source;
-                class MainAddressPool;
-
                 /**
                 * ModifyStrategy请求参数结构体
                 */

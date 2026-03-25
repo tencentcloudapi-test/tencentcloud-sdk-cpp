@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudOrderReturn;
-
                 /**
                 * QueryCloudOrder返回参数结构体
                 */

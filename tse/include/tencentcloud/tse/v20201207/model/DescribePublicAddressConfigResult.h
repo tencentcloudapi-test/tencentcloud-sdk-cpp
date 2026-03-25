@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PublicAddressConfig;
-
                 /**
                 * 获取云原生api网关公网地址信息响应结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribePublicAddressConfigResult();
+                    ~DescribePublicAddressConfigResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

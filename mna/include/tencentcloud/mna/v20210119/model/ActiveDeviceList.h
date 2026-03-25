@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 激活设备数统计
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ActiveDeviceList();
+                    ~ActiveDeviceList() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

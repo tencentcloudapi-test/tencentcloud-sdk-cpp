@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RecordParam;
-                class HlsSpecialParam;
-                class FlvSpecialParam;
-
                 /**
                 * 录制模板信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     RecordTemplateInfo();
+                    ~RecordTemplateInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

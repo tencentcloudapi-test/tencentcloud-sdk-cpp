@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class JobLogResult;
-
                 /**
                 * ListTaskJobLogDetail返回参数结构体
                 */

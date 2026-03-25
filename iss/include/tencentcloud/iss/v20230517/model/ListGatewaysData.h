@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class GatewaysData;
-
                 /**
                 * 查询网关列表返回结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ListGatewaysData();
+                    ~ListGatewaysData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

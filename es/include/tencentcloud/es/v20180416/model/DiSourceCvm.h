@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 数据接入cvm数据源
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     DiSourceCvm();
+                    ~DiSourceCvm() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

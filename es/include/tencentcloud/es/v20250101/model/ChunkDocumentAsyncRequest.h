@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Document;
-                class ChunkConfigAsync;
-
                 /**
                 * ChunkDocumentAsync请求参数结构体
                 */

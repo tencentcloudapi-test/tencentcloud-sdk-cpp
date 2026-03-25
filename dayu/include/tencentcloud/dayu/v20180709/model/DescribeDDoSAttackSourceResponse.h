@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DDoSAttackSourceRecord;
-
                 /**
                 * DescribeDDoSAttackSource返回参数结构体
                 */

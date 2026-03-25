@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyInst;
-
                 /**
                 * 代理节点权重分布
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ProxyAllocation();
+                    ~ProxyAllocation() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

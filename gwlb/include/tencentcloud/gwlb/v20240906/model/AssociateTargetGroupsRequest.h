@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TargetGroupAssociation;
-
                 /**
                 * AssociateTargetGroups请求参数结构体
                 */

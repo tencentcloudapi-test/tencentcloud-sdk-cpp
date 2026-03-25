@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusAlertCustomReceiver;
-                class PrometheusAlertGroupRuleSet;
-
                 /**
                 * UpdatePrometheusAlertGroup请求参数结构体
                 */

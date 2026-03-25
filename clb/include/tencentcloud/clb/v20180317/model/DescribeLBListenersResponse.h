@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LBItem;
-
                 /**
                 * DescribeLBListeners返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TargetEntity;
-
                 /**
                 * ModifyApiAnalyzeStatus请求参数结构体
                 */

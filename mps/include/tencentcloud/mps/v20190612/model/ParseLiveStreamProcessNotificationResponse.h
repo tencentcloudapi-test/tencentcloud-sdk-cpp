@@ -37,13 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class LiveStreamProcessErrorInfo;
-                class LiveStreamAiReviewResultInfo;
-                class LiveStreamAiRecognitionResultInfo;
-                class LiveStreamAiAnalysisResultInfo;
-                class LiveStreamAiQualityControlResultInfo;
-                class LiveStreamRecordResultInfo;
-
                 /**
                 * ParseLiveStreamProcessNotification返回参数结构体
                 */

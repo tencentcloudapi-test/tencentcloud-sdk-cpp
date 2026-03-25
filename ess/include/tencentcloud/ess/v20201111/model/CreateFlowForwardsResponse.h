@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowForwardResult;
-
                 /**
                 * CreateFlowForwards返回参数结构体
                 */

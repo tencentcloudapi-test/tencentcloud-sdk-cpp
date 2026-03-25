@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WhoisInfo;
-
                 /**
                 * DescribeDomainWhois返回参数结构体
                 */

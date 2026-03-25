@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class L7ListenerInfoLocation;
-
                 /**
                 * 查询绑定了某主机的七层监听器时返回的转发规则。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     L7ListenerInfoRule();
+                    ~L7ListenerInfoRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

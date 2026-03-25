@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServiceConfig;
-                class ExclusiveInstance;
-
                 /**
                 * 服务治理相关配置项
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ContainerGroupServiceGovernanceConfig();
+                    ~ContainerGroupServiceGovernanceConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

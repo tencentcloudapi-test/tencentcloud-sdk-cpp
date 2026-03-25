@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * HTTPS回源SNI
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OriginSni();
+                    ~OriginSni() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

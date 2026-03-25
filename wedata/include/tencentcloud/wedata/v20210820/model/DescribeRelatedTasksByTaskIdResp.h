@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RelatedTask;
-
                 /**
                 * 查询任务绑定的事件的响应
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DescribeRelatedTasksByTaskIdResp();
+                    ~DescribeRelatedTasksByTaskIdResp() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RunTimeTendencyInfo;
-
                 /**
                 * 漏洞趋势信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VulTendencyInfo();
+                    ~VulTendencyInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

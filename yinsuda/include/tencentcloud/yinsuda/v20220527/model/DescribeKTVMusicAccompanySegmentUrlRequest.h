@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeKTVMusicAccompanySegmentUrl请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Result;
-
                 /**
                 * InvokeFunction返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RansomDefenseStrategyMachineDetail;
-
                 /**
                 * DescribeRansomDefenseStrategyMachines返回参数结构体
                 */

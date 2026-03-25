@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AutoDelStrategyInfoResp;
-
                 /**
                 * DescribeImageLifecyclePersonal返回参数结构体
                 */

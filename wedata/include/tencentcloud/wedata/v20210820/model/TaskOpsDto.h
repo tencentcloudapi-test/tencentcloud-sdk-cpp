@@ -41,14 +41,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskTypeOpsDto;
-                class LinkOpsDto;
-                class AiOpsEventListenerDTO;
-                class AiopsScriptInfo;
-                class AiopsDLCResourceConfigDto;
-                class AiopsSimpleTaskDto;
-                class ExtResourceFlagDto;
-
                 /**
                 * 任务运维详情
                 */
@@ -56,6 +48,7 @@ namespace TencentCloud
                 {
                 public:
                     TaskOpsDto();
+                    ~TaskOpsDto() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

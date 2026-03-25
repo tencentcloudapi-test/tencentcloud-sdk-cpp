@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 一条 asr 语音结果的结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AsrResult();
+                    ~AsrResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

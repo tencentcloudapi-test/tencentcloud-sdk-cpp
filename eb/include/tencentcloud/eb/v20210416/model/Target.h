@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TargetDescription;
-
                 /**
                 * Target信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Target();
+                    ~Target() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RelatedEvent;
-                class KeyValue;
-
                 /**
                 * 告警下拉字段
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     AlertExtraInfo();
+                    ~AlertExtraInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

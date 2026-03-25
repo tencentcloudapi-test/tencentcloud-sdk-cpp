@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApproverItem;
-
                 /**
                 * ChannelCreateFlowByFiles返回参数结构体
                 */

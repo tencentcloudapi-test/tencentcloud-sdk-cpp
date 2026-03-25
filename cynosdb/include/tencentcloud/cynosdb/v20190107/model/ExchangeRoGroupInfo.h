@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RollbackRoGroupInfo;
-
                 /**
                 * 交换RO组信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ExchangeRoGroupInfo();
+                    ~ExchangeRoGroupInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

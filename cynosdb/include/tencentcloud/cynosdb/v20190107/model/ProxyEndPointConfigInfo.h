@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InstanceNameWeight;
-
                 /**
                 * 集成集群proxy地址配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ProxyEndPointConfigInfo();
+                    ~ProxyEndPointConfigInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

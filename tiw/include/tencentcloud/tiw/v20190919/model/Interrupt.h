@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实时录制中出现的用户视频流断流次数统计
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Interrupt();
+                    ~Interrupt() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

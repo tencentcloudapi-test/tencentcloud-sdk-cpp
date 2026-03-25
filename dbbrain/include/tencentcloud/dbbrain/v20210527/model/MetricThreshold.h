@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 自治指标阈值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MetricThreshold();
+                    ~MetricThreshold() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

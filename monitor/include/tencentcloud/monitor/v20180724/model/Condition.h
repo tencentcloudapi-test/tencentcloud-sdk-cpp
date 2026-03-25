@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AlarmHierarchicalValue;
-
                 /**
                 * 告警条件
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     Condition();
+                    ~Condition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TWeSee 语义理解自定义标签请求
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VisionCustomDetectQuery();
+                    ~VisionCustomDetectQuery() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

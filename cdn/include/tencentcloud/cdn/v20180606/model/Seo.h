@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * SEO 搜索引擎优化配置，默认为关闭状态
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Seo();
+                    ~Seo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

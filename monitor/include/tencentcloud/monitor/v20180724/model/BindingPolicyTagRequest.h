@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PolicyTag;
-
                 /**
                 * BindingPolicyTag请求参数结构体
                 */

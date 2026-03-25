@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonIndexInfo;
-                class DataStreamInfo;
-
                 /**
                 * 无
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CosSnapShotInfo();
+                    ~CosSnapShotInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

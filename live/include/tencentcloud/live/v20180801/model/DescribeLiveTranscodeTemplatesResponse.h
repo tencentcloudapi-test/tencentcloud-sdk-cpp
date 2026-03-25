@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TemplateInfo;
-
                 /**
                 * DescribeLiveTranscodeTemplates返回参数结构体
                 */

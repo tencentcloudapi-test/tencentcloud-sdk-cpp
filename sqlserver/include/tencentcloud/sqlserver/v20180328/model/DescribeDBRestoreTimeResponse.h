@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DBRenameRes;
-
                 /**
                 * DescribeDBRestoreTime返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DSPA评估模板
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AssessmentTemplate();
+                    ~AssessmentTemplate() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

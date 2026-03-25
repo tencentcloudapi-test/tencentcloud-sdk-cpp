@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Task;
-
                 /**
                 * ModifyTaskTemplate请求参数结构体
                 */

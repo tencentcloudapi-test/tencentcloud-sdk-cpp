@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * RetryDeviceFirmwareTask请求参数结构体
                 */

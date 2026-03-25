@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UnauthorizedCoresTendency;
-
                 /**
                 * DescribeUnauthorizedCoresTendency返回参数结构体
                 */

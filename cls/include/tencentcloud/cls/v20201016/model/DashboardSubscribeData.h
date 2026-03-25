@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DashboardNoticeMode;
-                class DashboardTemplateVariable;
-
                 /**
                 * 仪表盘订阅相关数据
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DashboardSubscribeData();
+                    ~DashboardSubscribeData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

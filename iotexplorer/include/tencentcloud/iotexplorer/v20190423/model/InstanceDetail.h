@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 实例信息
 公共实例过期时间 0001-01-01T00:00:00Z，公共实例是永久有效
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InstanceDetail();
+                    ~InstanceDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DspaDiscoveryTaskDataSource;
-                class ScanTaskResult;
-
                 /**
                 * 分类分级任务相关信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     DspaDiscoveryTask();
+                    ~DspaDiscoveryTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

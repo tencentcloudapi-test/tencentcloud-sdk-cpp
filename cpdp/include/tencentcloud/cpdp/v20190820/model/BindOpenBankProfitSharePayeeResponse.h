@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BindOpenBankProfitSharePayeeResult;
-
                 /**
                 * BindOpenBankProfitSharePayee返回参数结构体
                 */

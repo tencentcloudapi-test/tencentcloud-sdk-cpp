@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RollingUpdateSettings;
-
                 /**
                 * 实例刷新设置。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RefreshSettings();
+                    ~RefreshSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

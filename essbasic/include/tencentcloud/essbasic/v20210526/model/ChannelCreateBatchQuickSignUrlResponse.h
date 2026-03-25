@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FlowApproverUrlInfo;
-
                 /**
                 * ChannelCreateBatchQuickSignUrl返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TeamMemberInfo;
-
                 /**
                 * DescribeTeamMembers返回参数结构体
                 */

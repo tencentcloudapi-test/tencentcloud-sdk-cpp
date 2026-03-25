@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FeeRangInfo;
-
                 /**
                 * CreateOpenBankSubMerchantRateConfigure请求参数结构体
                 */

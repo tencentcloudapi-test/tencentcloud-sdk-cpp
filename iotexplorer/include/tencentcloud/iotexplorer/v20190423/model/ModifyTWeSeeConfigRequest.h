@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VisionSummaryConfig;
-
                 /**
                 * ModifyTWeSeeConfig请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class NodeConfigParams;
-
                 /**
                 * ModifyDBParameters请求参数结构体
                 */

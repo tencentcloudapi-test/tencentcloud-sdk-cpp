@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Agent;
-                class WebThemeConfig;
-
                 /**
                 * ChannelCreateWebThemeConfig请求参数结构体
                 */

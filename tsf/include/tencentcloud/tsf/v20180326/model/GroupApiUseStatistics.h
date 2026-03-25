@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiUseStatisticsEntity;
-                class QuantileEntity;
-
                 /**
                 * API监控明细数据
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     GroupApiUseStatistics();
+                    ~GroupApiUseStatistics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

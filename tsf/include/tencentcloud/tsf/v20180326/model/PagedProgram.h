@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Program;
-
                 /**
                 * tsf-privilege模块，分页数据集列表
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PagedProgram();
+                    ~PagedProgram() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

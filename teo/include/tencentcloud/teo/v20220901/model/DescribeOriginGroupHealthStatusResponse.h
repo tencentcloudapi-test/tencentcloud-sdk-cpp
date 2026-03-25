@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OriginGroupHealthStatusDetail;
-
                 /**
                 * DescribeOriginGroupHealthStatus返回参数结构体
                 */

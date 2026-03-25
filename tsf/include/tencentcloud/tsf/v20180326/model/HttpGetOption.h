@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * HttpGet 执行内容
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     HttpGetOption();
+                    ~HttpGetOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

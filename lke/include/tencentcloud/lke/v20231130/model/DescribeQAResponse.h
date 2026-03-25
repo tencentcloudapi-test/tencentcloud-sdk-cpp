@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Highlight;
-                class AttrLabel;
-                class SimilarQuestion;
-
                 /**
                 * DescribeQA返回参数结构体
                 */

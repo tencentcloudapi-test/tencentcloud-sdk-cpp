@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class QueryItem;
-
                 /**
                 * QueryBalance返回参数结构体
                 */

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PlateContent;
-                class Location;
-
                 /**
                 * 车辆车牌识别结果信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     CarAIResultInfo();
+                    ~CarAIResultInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

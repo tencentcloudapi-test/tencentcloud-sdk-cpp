@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 房间内录制信息。
 注意：此字段可能返回 null，表示取不到有效值。
@@ -43,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RecordInfo();
+                    ~RecordInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

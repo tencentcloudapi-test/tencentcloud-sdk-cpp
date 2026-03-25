@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FwGroupSwitchShow;
-
                 /**
                 * DescribeVpcFwGroupSwitch返回参数结构体
                 */

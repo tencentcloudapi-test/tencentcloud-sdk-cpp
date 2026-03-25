@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OriginACLInfo;
-
                 /**
                 * DescribeOriginACL返回参数结构体
                 */

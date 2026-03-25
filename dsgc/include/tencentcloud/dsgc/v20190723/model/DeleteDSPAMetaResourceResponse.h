@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DspaTaskResult;
-
                 /**
                 * DeleteDSPAMetaResource返回参数结构体
                 */

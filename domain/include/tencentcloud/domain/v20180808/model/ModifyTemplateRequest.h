@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CertificateInfo;
-                class ContactInfo;
-
                 /**
                 * ModifyTemplate请求参数结构体
                 */

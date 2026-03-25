@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DynamicFlowInfo;
-                class Agent;
-
                 /**
                 * ChannelCreateDynamicFlowApprover请求参数结构体
                 */

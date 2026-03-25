@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 表的分区数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TablePartition();
+                    ~TablePartition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

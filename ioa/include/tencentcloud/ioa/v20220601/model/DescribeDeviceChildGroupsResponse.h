@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeDeviceChildGroupsRspData;
-
                 /**
                 * DescribeDeviceChildGroups返回参数结构体
                 */

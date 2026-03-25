@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DescribeSocCheckItemListRspRsp;
-
                 /**
                 * DescribeSocCheckItemList返回参数结构体
                 */

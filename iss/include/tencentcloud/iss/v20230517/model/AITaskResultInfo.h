@@ -42,15 +42,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BodyAIResultInfo;
-                class PetAIResultInfo;
-                class CarAIResultInfo;
-                class ChefHatAIResultInfo;
-                class ChefClothAIResultInfo;
-                class FaceMaskAIResultInfo;
-                class SmokingAIResultInfo;
-                class PhoneCallAIResultInfo;
-
                 /**
                 * AI分析结果详情
                 */
@@ -58,6 +49,7 @@ namespace TencentCloud
                 {
                 public:
                     AITaskResultInfo();
+                    ~AITaskResultInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

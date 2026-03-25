@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CosCredentials;
-
                 /**
                 * cos上传所需信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     CosUploadInfo();
+                    ~CosUploadInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

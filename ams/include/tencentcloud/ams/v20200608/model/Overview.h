@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 识别结果统计
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Overview();
+                    ~Overview() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

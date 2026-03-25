@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class OperateResp;
-
                 /**
                 * UploadDrugs返回参数结构体
                 */

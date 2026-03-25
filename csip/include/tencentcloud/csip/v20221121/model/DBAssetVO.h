@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tag;
-
                 /**
                 * db资产输出字段
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DBAssetVO();
+                    ~DBAssetVO() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

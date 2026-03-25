@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaMetaData;
-                class LiveRealTimeClipMediaSegmentInfo;
-
                 /**
                 * LiveRealTimeClip返回参数结构体
                 */

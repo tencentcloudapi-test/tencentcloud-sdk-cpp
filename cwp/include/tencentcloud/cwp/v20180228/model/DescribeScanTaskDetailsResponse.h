@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScanTaskDetails;
-                class VulDetailInfo;
-
                 /**
                 * DescribeScanTaskDetails返回参数结构体
                 */

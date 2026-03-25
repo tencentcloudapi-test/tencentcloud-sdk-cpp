@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Disk;
-                class InternetAccessible;
-                class GPUParams;
-                class DataDisk;
-
                 /**
                 * 节点信息
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     NativeNodeInfo();
+                    ~NativeNodeInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -38,14 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MonitorTime;
-                class MultiCondition;
-                class AlarmTarget;
-                class CallBackInfo;
-                class AnalysisDimensional;
-                class Tag;
-                class AlarmClassification;
-
                 /**
                 * ModifyAlarm请求参数结构体
                 */

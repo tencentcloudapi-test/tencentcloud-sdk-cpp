@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserInfo;
-                class RegistrationOrganizationInfo;
-                class Agent;
-
                 /**
                 * CreateBatchOrganizationRegistrationTasks请求参数结构体
                 */

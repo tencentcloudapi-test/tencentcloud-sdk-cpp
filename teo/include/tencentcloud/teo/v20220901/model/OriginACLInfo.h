@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CurrentOriginACL;
-                class NextOriginACL;
-
                 /**
                 * 七层加速域名/四层代理实例与回源 IP 网段的绑定关系，以及回源 IP 网段详情。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     OriginACLInfo();
+                    ~OriginACLInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

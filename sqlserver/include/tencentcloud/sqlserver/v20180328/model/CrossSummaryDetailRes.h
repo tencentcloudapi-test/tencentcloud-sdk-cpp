@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 跨地域备份实时统计列表项
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CrossSummaryDetailRes();
+                    ~CrossSummaryDetailRes() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

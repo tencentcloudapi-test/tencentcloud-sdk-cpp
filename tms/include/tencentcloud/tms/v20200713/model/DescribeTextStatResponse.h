@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Overview;
-                class TrendCount;
-                class EvilCount;
-
                 /**
                 * DescribeTextStat返回参数结构体
                 */

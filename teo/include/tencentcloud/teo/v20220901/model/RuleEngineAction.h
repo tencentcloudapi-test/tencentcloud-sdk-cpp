@@ -72,45 +72,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CacheParameters;
-                class CacheKeyParameters;
-                class CachePrefreshParameters;
-                class AccessURLRedirectParameters;
-                class UpstreamURLRewriteParameters;
-                class QUICParameters;
-                class WebSocketParameters;
-                class AuthenticationParameters;
-                class MaxAgeParameters;
-                class StatusCodeCacheParameters;
-                class OfflineCacheParameters;
-                class SmartRoutingParameters;
-                class RangeOriginPullParameters;
-                class UpstreamHTTP2Parameters;
-                class HostHeaderParameters;
-                class ForceRedirectHTTPSParameters;
-                class OriginPullProtocolParameters;
-                class CompressionParameters;
-                class HSTSParameters;
-                class ClientIPHeaderParameters;
-                class OCSPStaplingParameters;
-                class HTTP2Parameters;
-                class PostMaxSizeParameters;
-                class ClientIPCountryParameters;
-                class UpstreamFollowRedirectParameters;
-                class UpstreamRequestParameters;
-                class TLSConfigParameters;
-                class ModifyOriginParameters;
-                class HTTPUpstreamTimeoutParameters;
-                class HTTPResponseParameters;
-                class ErrorPageParameters;
-                class ModifyResponseHeaderParameters;
-                class ModifyRequestHeaderParameters;
-                class ResponseSpeedLimitParameters;
-                class SetContentIdentifierParameters;
-                class VaryParameters;
-                class ContentCompressionParameters;
-                class OriginAuthenticationParameters;
-
                 /**
                 * 规则引擎操作。
                 */
@@ -118,6 +79,7 @@ namespace TencentCloud
                 {
                 public:
                     RuleEngineAction();
+                    ~RuleEngineAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

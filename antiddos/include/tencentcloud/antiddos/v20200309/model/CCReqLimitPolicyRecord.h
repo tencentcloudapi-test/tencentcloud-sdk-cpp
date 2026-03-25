@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CC频率限制策略项字段
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CCReqLimitPolicyRecord();
+                    ~CCReqLimitPolicyRecord() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

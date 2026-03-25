@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceCpuInfo;
-                class DeviceMemInfo;
-                class DeviceNetInfo;
-                class DeviceDiskInfo;
-
                 /**
                 * DescribeDeviceMonitorInfo返回参数结构体
                 */

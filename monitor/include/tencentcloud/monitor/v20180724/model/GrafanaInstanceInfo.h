@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PrometheusTag;
-
                 /**
                 * 查询 Grafana 实例时的实例类型
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     GrafanaInstanceInfo();
+                    ~GrafanaInstanceInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

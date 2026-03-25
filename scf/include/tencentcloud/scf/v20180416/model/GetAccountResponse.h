@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UsageInfo;
-                class LimitsInfo;
-
                 /**
                 * GetAccount返回参数结构体
                 */

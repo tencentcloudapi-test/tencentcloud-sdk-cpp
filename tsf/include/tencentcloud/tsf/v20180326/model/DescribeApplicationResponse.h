@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApplicationForPage;
-
                 /**
                 * DescribeApplication返回参数结构体
                 */

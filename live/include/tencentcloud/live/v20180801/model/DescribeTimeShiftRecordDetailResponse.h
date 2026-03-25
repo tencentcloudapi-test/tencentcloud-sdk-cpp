@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TimeShiftRecord;
-
                 /**
                 * DescribeTimeShiftRecordDetail返回参数结构体
                 */

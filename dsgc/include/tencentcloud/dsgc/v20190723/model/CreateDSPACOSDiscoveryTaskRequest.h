@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * CreateDSPACOSDiscoveryTask请求参数结构体
                 */

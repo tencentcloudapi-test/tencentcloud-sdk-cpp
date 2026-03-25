@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FileDeleteResultItem;
-
                 /**
                 * 文件删除任务
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     FileDeleteTask();
+                    ~FileDeleteTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

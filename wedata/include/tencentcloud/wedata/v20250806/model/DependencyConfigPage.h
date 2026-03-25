@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskDependDto;
-
                 /**
                 * 查询任务上游依赖详情分页
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DependencyConfigPage();
+                    ~DependencyConfigPage() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

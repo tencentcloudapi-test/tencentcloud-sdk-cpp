@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DiffDetail;
-
                 /**
                 * DescribeResourceScheduleDiffDetail返回参数结构体
                 */

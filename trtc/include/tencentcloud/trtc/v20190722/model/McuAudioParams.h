@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AudioEncode;
-                class McuUserInfoParams;
-
                 /**
                 * 混流转推的音频相关参数。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     McuAudioParams();
+                    ~McuAudioParams() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

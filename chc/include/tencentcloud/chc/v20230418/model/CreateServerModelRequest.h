@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ServerModel;
-
                 /**
                 * CreateServerModel请求参数结构体
                 */

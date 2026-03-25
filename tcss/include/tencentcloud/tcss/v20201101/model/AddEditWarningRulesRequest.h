@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WarningRule;
-
                 /**
                 * AddEditWarningRules请求参数结构体
                 */

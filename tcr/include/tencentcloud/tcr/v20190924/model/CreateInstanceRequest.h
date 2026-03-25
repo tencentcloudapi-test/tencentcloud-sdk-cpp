@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagSpecification;
-                class RegistryChargePrepaid;
-
                 /**
                 * CreateInstance请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KTVSingerCategoryInfo;
-
                 /**
                 * DescribeKTVSingerCategories返回参数结构体
                 */

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FilePathInfo;
-                class ContainerWorkLoadInfo;
-
                 /**
                 * 自建k8s-容器文件路径信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ContainerFileInfo();
+                    ~ContainerFileInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

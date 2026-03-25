@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Qualifier;
-
                 /**
                 * PURL(Package URL)用于定位一个产品或组件，见 https://github.com/package-url/purl-spec。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     PURL();
+                    ~PURL() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

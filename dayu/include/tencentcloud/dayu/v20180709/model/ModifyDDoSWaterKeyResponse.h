@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WaterPrintKey;
-
                 /**
                 * ModifyDDoSWaterKey返回参数结构体
                 */

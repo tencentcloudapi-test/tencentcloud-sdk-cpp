@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TaxiInvoiceOCR请求参数结构体
                 */

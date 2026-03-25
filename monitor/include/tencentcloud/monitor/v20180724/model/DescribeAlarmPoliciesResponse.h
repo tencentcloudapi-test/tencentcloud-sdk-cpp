@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AlarmPolicy;
-
                 /**
                 * DescribeAlarmPolicies返回参数结构体
                 */

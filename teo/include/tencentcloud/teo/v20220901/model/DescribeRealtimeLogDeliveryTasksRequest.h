@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AdvancedFilter;
-
                 /**
                 * DescribeRealtimeLogDeliveryTasks请求参数结构体
                 */

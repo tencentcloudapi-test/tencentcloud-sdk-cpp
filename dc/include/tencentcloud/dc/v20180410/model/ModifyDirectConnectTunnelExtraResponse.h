@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * ModifyDirectConnectTunnelExtra返回参数结构体
                 */

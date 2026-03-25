@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KTVMusicBaseInfo;
-                class KTVMusicDefinitionInfo;
-                class ChorusClip;
-
                 /**
                 * DescribeKTVMusicDetail返回参数结构体
                 */

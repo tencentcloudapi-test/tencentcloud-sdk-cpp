@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EmptyRes;
-
                 /**
                 * ModifyDeviceField返回参数结构体
                 */

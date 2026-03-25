@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HostStatistic;
-
                 /**
                 * DescribeDedicatedClusterHostStatistics返回参数结构体
                 */

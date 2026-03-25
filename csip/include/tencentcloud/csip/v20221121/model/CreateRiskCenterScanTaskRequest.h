@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TaskAssetObject;
-                class TaskAdvanceCFG;
-                class AssetTag;
-
                 /**
                 * CreateRiskCenterScanTask请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DeviceCommLogItem;
-
                 /**
                 * DescribeDeviceCommLog返回参数结构体
                 */

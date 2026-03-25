@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class HostPathVolumeSource;
-
                 /**
                 * 数据卷目录设置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     VolumeSetting();
+                    ~VolumeSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

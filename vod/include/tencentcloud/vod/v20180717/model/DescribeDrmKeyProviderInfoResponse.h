@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SDMCDrmKeyProviderInfo;
-
                 /**
                 * DescribeDrmKeyProviderInfo返回参数结构体
                 */

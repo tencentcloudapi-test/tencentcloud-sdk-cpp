@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WebpAdapter;
-                class TpgAdapter;
-                class GuetzliAdapter;
-                class AvifAdapter;
-
                 /**
                 * UpdateImageConfig请求参数结构体
                 */

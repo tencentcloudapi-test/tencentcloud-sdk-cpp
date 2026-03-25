@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaInputInfo;
-                class EvaluationTaskInput;
-                class TaskOutputStorage;
-                class TaskNotifyConfig;
-
                 /**
                 * CreateMediaEvaluation请求参数结构体
                 */

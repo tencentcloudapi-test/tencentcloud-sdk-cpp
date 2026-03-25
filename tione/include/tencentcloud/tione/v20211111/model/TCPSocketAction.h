@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * tcp socket 健康探针检查行为
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TCPSocketAction();
+                    ~TCPSocketAction() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ScreenInstanceInfo;
-
                 /**
                 * DescribeSchedulerInstanceStatus返回参数结构体
                 */

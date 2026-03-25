@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ContainerAdditionalResourceRequirementMap;
-
                 /**
                 * 容器部署组相关的参数配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ContainerGroupResourceConfig();
+                    ~ContainerGroupResourceConfig() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

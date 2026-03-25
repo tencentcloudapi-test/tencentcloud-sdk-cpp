@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Presto监控指标
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     PrestoMonitorMetrics();
+                    ~PrestoMonitorMetrics() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

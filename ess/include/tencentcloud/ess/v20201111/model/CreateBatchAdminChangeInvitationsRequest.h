@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserInfo;
-                class AdminChangeInvitationInfo;
-                class Agent;
-
                 /**
                 * CreateBatchAdminChangeInvitations请求参数结构体
                 */

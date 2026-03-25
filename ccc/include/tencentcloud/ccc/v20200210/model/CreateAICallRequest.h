@@ -35,11 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AITransferItem;
-                class Variable;
-                class AICallExtractConfigElement;
-                class ToneWordInfo;
-
                 /**
                 * CreateAICall请求参数结构体
                 */

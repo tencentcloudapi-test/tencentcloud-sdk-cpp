@@ -34,10 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaCastPlayInfo;
-                class MediaCastSourceInfo;
-                class MediaCastDestinationInfo;
-
                 /**
                 * HandleMediaCastProject返回参数结构体
                 */

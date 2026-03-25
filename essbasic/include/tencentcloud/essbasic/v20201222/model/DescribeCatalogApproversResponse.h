@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CatalogApprovers;
-
                 /**
                 * DescribeCatalogApprovers返回参数结构体
                 */

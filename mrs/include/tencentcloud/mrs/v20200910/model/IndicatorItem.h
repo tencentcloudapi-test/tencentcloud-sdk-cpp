@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Coordinate;
-
                 /**
                 * 检验指标项
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     IndicatorItem();
+                    ~IndicatorItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

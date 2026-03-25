@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VulLevelInfo;
-
                 /**
                 * DescribeVulLevelCount返回参数结构体
                 */

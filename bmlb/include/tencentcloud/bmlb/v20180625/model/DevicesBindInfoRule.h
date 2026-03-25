@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DevicesBindInfoLocation;
-
                 /**
                 * 获取设备绑定信息时返回的设备所绑定的转发规则信息。
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     DevicesBindInfoRule();
+                    ~DevicesBindInfoRule() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

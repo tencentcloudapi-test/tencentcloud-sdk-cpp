@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 集群安全检查受影响的工作负载Item
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     AffectedWorkloadItem();
+                    ~AffectedWorkloadItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EtcdOverrideConfig;
-                class ClusterExtraArgs;
-
                 /**
                 * 集群高级配置
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ClusterAdvancedSettings();
+                    ~ClusterAdvancedSettings() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

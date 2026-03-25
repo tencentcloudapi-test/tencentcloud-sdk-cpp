@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SupportBankInfo;
-
                 /**
                 * 查询支持的银行列表返回结果
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     QueryOpenBankSupportBankListResult();
+                    ~QueryOpenBankSupportBankListResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

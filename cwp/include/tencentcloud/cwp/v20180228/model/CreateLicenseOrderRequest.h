@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tags;
-                class OrderModifyObject;
-
                 /**
                 * CreateLicenseOrder请求参数结构体
                 */

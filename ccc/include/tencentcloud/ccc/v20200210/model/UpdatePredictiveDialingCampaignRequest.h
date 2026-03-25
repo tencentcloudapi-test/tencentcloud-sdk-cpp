@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Variable;
-                class CalleeAttribute;
-
                 /**
                 * UpdatePredictiveDialingCampaign请求参数结构体
                 */

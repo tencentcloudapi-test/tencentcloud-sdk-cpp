@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class EditMediaTaskInput;
-                class EditMediaTaskOutput;
-
                 /**
                 * 编辑视频任务信息
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     EditMediaTask();
+                    ~EditMediaTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

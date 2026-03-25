@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VehicleInfo;
-
                 /**
                 * QueryVehicleInfoList返回参数结构体
                 */

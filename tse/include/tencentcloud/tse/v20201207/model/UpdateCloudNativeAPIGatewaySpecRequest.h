@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudNativeAPIGatewayNodeConfig;
-
                 /**
                 * UpdateCloudNativeAPIGatewaySpec请求参数结构体
                 */

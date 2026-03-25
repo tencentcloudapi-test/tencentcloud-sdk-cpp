@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 转发目标，即绑定在负载均衡上的后端服务
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Target();
+                    ~Target() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

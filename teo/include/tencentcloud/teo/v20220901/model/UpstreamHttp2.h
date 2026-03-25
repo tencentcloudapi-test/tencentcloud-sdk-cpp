@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * Http2回源配置
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UpstreamHttp2();
+                    ~UpstreamHttp2() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

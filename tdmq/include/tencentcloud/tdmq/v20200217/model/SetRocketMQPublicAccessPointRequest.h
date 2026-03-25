@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PublicAccessRule;
-
                 /**
                 * SetRocketMQPublicAccessPoint请求参数结构体
                 */

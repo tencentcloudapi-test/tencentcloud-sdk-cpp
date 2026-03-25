@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Tracks;
-
                 /**
                 * DescribeAuditTracks返回参数结构体
                 */

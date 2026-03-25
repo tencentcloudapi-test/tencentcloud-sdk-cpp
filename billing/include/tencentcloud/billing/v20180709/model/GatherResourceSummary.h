@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BillTag;
-                class AllocationTreeNode;
-                class AllocationRule;
-
                 /**
                 * 资源归集汇总
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     GatherResourceSummary();
+                    ~GatherResourceSummary() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CreatePublicNetworkResult;
-
                 /**
                 * CreateCloudNativeAPIGatewayPublicNetwork返回参数结构体
                 */

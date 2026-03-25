@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResponseCode;
-
                 /**
                 * DeleteCustomRule返回参数结构体
                 */

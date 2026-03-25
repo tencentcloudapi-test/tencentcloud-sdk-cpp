@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Customer;
-
                 /**
                 * DescribeCustomers返回参数结构体
                 */

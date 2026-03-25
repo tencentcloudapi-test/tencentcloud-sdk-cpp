@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class RabbitMQQueueListConsumerDetailInfo;
-
                 /**
                 * RabbitMQ队列列表成员信息
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RabbitMQQueueListInfo();
+                    ~RabbitMQQueueListInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ApiRequestDescr;
-                class ApiResponseDescr;
-                class ApiDefinitionDescr;
-
                 /**
                 * ApiDetailResponse描述
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ApiDetailResponse();
+                    ~ApiDetailResponse() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

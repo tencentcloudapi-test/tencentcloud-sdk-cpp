@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 后端通道后端节点元数据
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UpstreamNode();
+                    ~UpstreamNode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class StandardEngineResourceGroupInfo;
-
                 /**
                 * DescribeStandardEngineResourceGroups返回参数结构体
                 */

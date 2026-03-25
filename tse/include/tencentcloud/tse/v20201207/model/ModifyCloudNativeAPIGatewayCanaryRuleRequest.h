@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CloudNativeAPIGatewayCanaryRule;
-                class CanaryPriorityRule;
-
                 /**
                 * ModifyCloudNativeAPIGatewayCanaryRule请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MerchantClassificationId;
-
                 /**
                 * QueryMerchantClassification返回参数结构体
                 */

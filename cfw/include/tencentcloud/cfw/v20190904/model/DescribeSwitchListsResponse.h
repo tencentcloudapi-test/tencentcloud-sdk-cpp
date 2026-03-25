@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SwitchListsData;
-
                 /**
                 * DescribeSwitchLists返回参数结构体
                 */

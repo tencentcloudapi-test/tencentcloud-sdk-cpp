@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 订阅的UserProperty结构
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     SubscriptionUserProperty();
+                    ~SubscriptionUserProperty() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

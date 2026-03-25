@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VpcBindRecord;
-
                 /**
                 * DescribeBindVpcs返回参数结构体
                 */

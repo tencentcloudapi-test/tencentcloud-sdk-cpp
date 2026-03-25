@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 微信小程序发布任务类型
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     WechatMiniProgramPublishTaskInput();
+                    ~WechatMiniProgramPublishTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

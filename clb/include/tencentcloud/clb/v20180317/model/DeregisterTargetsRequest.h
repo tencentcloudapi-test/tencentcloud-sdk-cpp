@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Target;
-
                 /**
                 * DeregisterTargets请求参数结构体
                 */

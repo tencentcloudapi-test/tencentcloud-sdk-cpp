@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class SecurityAction;
-                class BotManagementActionOverrides;
-
                 /**
                 * 商业或开源工具 UA 特征配置（原 UA 特征规则）。
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     KnownBotCategories();
+                    ~KnownBotCategories() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

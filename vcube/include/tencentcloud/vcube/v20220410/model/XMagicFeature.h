@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 优图的的功能，Trial 为true的可以开通测试
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     XMagicFeature();
+                    ~XMagicFeature() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

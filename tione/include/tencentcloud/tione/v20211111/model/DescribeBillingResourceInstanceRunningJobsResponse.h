@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ResourceInstanceRunningJobInfo;
-
                 /**
                 * DescribeBillingResourceInstanceRunningJobs返回参数结构体
                 */

@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class User;
-                class Device;
-
                 /**
                 * CreateImageModerationAsyncTask请求参数结构体
                 */

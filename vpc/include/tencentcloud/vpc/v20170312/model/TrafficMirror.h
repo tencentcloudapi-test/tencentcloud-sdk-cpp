@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TrafficMirrorFilter;
-                class TrafficMirrorTarget;
-                class TrafficMirrorTargetResourceInfo;
-
                 /**
                 * 流量镜像实例
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     TrafficMirror();
+                    ~TrafficMirror() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

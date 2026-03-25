@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 场景匹配条件
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     BotSceneMatchCondition();
+                    ~BotSceneMatchCondition() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

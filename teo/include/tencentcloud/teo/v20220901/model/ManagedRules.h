@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ManagedRuleAutoUpdate;
-                class ManagedRuleGroup;
-                class FrequentScanningProtection;
-
                 /**
                 * Web安全的托管规则
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     ManagedRules();
+                    ~ManagedRules() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

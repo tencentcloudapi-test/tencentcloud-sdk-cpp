@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 扩展字段，对多模型返回结果的说明，被如下接口引用：GetAntiFraud。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     OtherModelScoresDetail();
+                    ~OtherModelScoresDetail() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

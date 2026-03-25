@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReferredSecurityGroup;
-
                 /**
                 * DescribeSecurityGroupReferences返回参数结构体
                 */

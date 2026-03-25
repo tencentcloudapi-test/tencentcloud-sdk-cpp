@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineExtraInfo;
-
                 /**
                 * 异常进程事件
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     RiskProcessEvent();
+                    ~RiskProcessEvent() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

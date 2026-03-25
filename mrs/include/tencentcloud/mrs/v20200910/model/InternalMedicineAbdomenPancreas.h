@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class KeyValueItem;
-
                 /**
                 * 体检报告-内科-腹部-胰腺
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     InternalMedicineAbdomenPancreas();
+                    ~InternalMedicineAbdomenPancreas() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

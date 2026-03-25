@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 任务流模板音视频审核输入参数类型。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     ProcedureReviewAudioVideoTaskInput();
+                    ~ProcedureReviewAudioVideoTaskInput() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

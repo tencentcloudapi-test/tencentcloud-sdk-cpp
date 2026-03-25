@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TasksInfo;
-
                 /**
                 * CreateTasksInOrder请求参数结构体
                 */

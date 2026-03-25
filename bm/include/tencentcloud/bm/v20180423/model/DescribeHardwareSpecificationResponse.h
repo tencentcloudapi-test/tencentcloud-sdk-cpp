@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CpuInfo;
-                class DiskInfo;
-
                 /**
                 * DescribeHardwareSpecification返回参数结构体
                 */

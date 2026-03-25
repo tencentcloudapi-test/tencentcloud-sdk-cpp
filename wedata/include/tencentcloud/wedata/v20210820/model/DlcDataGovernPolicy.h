@@ -38,11 +38,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DlcRewriteDataInfo;
-                class DlcExpiredSnapshotsInfo;
-                class DlcRemoveOrphanFilesInfo;
-                class DlcMergeManifestsInfo;
-
                 /**
                 * 数据治理配置项
                 */
@@ -50,6 +45,7 @@ namespace TencentCloud
                 {
                 public:
                     DlcDataGovernPolicy();
+                    ~DlcDataGovernPolicy() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

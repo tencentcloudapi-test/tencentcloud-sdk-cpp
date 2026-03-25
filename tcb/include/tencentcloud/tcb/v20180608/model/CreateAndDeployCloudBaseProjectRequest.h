@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CodeSource;
-                class KVPair;
-
                 /**
                 * CreateAndDeployCloudBaseProject请求参数结构体
                 */

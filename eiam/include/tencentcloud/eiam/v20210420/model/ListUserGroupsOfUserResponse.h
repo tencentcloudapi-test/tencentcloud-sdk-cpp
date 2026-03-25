@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class UserGroupInfo;
-
                 /**
                 * ListUserGroupsOfUser返回参数结构体
                 */

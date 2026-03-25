@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopicSet;
-
                 /**
                 * DescribeTopicDetail返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class FunctionResource;
-
                 /**
                 * SaveCustomFunction请求参数结构体
                 */

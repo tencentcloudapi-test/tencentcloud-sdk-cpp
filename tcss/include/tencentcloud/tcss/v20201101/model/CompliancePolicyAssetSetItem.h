@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 检查项+资产ids 的集合单元
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CompliancePolicyAssetSetItem();
+                    ~CompliancePolicyAssetSetItem() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

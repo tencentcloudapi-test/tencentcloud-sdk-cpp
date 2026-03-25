@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Column;
-
                 /**
                 * QueryResult返回参数结构体
                 */

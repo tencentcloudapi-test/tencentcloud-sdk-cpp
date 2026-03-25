@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class WorkOrderTypeDetail;
-                class WorkOrderFamilyDetail;
-
                 /**
                 * DescribeWorkOrderTypes返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Xlog;
-
                 /**
                 * DescribeDBXlogs返回参数结构体
                 */

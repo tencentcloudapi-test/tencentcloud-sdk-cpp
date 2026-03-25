@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class VideoFeature;
-                class XMagicFeature;
-
                 /**
                 * DescribeFeatureList返回参数结构体
                 */

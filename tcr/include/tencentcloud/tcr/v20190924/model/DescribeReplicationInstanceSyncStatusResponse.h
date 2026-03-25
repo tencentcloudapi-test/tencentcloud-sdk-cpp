@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ReplicationLog;
-
                 /**
                 * DescribeReplicationInstanceSyncStatus返回参数结构体
                 */

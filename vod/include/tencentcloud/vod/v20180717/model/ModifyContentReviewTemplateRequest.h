@@ -36,12 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TerrorismConfigureInfoForUpdate;
-                class PornConfigureInfoForUpdate;
-                class PoliticalConfigureInfoForUpdate;
-                class ProhibitedConfigureInfoForUpdate;
-                class UserDefineConfigureInfoForUpdate;
-
                 /**
                 * ModifyContentReviewTemplate请求参数结构体
                 */

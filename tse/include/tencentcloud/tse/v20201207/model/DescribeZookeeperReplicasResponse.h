@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ZookeeperReplica;
-
                 /**
                 * DescribeZookeeperReplicas返回参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Operation;
-
                 /**
                 * KillOps请求参数结构体
                 */

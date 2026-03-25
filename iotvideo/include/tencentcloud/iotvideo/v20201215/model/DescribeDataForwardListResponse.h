@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DataForward;
-
                 /**
                 * DescribeDataForwardList返回参数结构体
                 */

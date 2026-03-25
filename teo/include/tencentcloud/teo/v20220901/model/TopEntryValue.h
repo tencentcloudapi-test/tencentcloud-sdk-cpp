@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TopN数据Entry
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     TopEntryValue();
+                    ~TopEntryValue() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

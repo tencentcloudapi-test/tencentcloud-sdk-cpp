@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PageQuery;
-
                 /**
                 * DescribeKnowledgeDocumentSetList请求参数结构体
                 */

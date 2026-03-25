@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DomainInfoList;
-
                 /**
                 * DescribeLiveDomainPlayInfoList返回参数结构体
                 */

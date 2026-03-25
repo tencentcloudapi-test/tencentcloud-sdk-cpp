@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * DescribeDedicatedClusterCbsStatistics请求参数结构体
                 */

@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class InternalTenant;
-
                 /**
                 * DescribeAllTenants返回参数结构体
                 */

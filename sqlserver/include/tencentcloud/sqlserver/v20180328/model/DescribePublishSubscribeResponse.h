@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class PublishSubscribe;
-
                 /**
                 * DescribePublishSubscribe返回参数结构体
                 */

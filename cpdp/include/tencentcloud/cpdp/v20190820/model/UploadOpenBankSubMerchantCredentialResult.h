@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 上传子商户资质文件返回值
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     UploadOpenBankSubMerchantCredentialResult();
+                    ~UploadOpenBankSubMerchantCredentialResult() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

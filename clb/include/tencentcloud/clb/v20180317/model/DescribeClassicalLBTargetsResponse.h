@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ClassicalTarget;
-
                 /**
                 * DescribeClassicalLBTargets返回参数结构体
                 */

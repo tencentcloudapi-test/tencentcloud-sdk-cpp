@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ProxyNode;
-                class ProxyAddress;
-
                 /**
                 * 代理组详情
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     ProxyGroupInfo();
+                    ~ProxyGroupInfo() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

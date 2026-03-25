@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 聊天详情Refer
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     MsgRecordReference();
+                    ~MsgRecordReference() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

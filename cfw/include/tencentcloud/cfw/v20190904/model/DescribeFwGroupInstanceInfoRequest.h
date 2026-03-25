@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonFilter;
-
                 /**
                 * DescribeFwGroupInstanceInfo请求参数结构体
                 */

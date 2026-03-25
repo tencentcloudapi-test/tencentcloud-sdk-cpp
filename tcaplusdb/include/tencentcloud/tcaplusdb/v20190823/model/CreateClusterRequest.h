@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TagInfoUnit;
-                class MachineInfo;
-
                 /**
                 * CreateCluster请求参数结构体
                 */

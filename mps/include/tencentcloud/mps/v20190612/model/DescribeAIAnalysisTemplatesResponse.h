@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AIAnalysisTemplateItem;
-
                 /**
                 * DescribeAIAnalysisTemplates返回参数结构体
                 */

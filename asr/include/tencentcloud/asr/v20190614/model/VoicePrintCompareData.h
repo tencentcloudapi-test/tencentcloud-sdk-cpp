@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 音频声纹比对结果，包含比对分数
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     VoicePrintCompareData();
+                    ~VoicePrintCompareData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

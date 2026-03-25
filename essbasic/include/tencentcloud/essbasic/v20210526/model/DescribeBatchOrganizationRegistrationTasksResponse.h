@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class BatchOrganizationRegistrationTasksDetails;
-
                 /**
                 * DescribeBatchOrganizationRegistrationTasks返回参数结构体
                 */

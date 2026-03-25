@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 时间戳防盗链模式 A 配置
 时间戳防盗链模式 A 的访问 URL 格式为：http://DomainName/Filename?sign=timestamp-rand-uid-md5hash
@@ -47,6 +46,7 @@ md5hash：MD5（文件路径-timestamp-rand-uid-自定义密钥）
                 {
                 public:
                     AuthenticationTypeA();
+                    ~AuthenticationTypeA() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

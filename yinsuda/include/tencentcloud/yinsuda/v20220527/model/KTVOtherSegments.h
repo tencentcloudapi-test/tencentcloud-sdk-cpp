@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 其它片段时间（可用于抢唱）
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     KTVOtherSegments();
+                    ~KTVOtherSegments() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

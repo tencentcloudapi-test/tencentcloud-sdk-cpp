@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class AgentDealNewElem;
-
                 /**
                 * DescribeAgentPayDealsV2返回参数结构体
                 */

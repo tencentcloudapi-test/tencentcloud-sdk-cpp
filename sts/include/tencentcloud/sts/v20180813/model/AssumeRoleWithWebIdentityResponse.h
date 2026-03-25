@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Credentials;
-
                 /**
                 * AssumeRoleWithWebIdentity返回参数结构体
                 */

@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class DMSSds;
-                class DMSColumn;
-                class DMSPartition;
-
                 /**
                 * DMSTable基本信息
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     DMSTable();
+                    ~DMSTable() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

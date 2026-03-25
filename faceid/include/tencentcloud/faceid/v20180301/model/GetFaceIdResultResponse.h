@@ -32,8 +32,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class Encryption;
-
                 /**
                 * GetFaceIdResult返回参数结构体
                 */

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 告警通知中的推送CLS操作
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CLSNotice();
+                    ~CLSNotice() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

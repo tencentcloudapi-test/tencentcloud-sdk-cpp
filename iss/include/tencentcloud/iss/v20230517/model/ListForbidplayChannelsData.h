@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class ChannelAttrInfo;
-
                 /**
                 * 用户禁止播流的通道列表返回数据
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     ListForbidplayChannelsData();
+                    ~ListForbidplayChannelsData() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

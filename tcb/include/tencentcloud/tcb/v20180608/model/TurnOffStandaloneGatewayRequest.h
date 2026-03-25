@@ -31,7 +31,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * TurnOffStandaloneGateway请求参数结构体
                 */

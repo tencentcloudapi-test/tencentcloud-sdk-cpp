@@ -36,9 +36,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class TopicRule;
-                class KeyValuePairOption;
-
                 /**
                 * 目标端为kafka时添加的同步选项字段
                 */
@@ -46,6 +43,7 @@ namespace TencentCloud
                 {
                 public:
                     KafkaOption();
+                    ~KafkaOption() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

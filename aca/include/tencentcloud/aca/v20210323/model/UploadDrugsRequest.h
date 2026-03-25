@@ -33,9 +33,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class CommonHeader;
-                class UploadDrugData;
-
                 /**
                 * UploadDrugs请求参数结构体
                 */

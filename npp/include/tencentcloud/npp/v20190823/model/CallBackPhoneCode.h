@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 回拨号码字段
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     CallBackPhoneCode();
+                    ~CallBackPhoneCode() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

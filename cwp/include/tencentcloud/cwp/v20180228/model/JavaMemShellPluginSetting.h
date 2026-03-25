@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MachineExtraInfo;
-
                 /**
                 * Java内存马插件配置
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     JavaMemShellPluginSetting();
+                    ~JavaMemShellPluginSetting() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * {
   "Rate": "0.01",  ///如1%转换为0.01
@@ -47,6 +46,7 @@ Operator
                 {
                 public:
                     TraceModeConfiguration();
+                    ~TraceModeConfiguration() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

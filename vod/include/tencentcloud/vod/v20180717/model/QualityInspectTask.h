@@ -37,10 +37,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MediaMetaData;
-                class QualityInspectTaskInput;
-                class QualityInspectTaskOutput;
-
                 /**
                 * 音画质检测任务信息。
                 */
@@ -48,6 +44,7 @@ namespace TencentCloud
                 {
                 public:
                     QualityInspectTask();
+                    ~QualityInspectTask() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

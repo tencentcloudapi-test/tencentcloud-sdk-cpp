@@ -34,7 +34,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-
                 /**
                 * 此结构体 (Component) 用于描述控件属性。
                 */
@@ -42,6 +41,7 @@ namespace TencentCloud
                 {
                 public:
                     Component();
+                    ~Component() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 

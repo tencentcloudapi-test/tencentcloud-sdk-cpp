@@ -35,8 +35,6 @@ namespace TencentCloud
         {
             namespace Model
             {
-                class MetricDataPoint;
-
                 /**
                 * 监控统计数据点Map集合（单元化网关使用）
                 */
@@ -44,6 +42,7 @@ namespace TencentCloud
                 {
                 public:
                     MetricDataPointMap();
+                    ~MetricDataPointMap() = default;
                     void ToJsonObject(rapidjson::Value &value, rapidjson::Document::AllocatorType& allocator) const;
                     CoreInternalOutcome Deserialize(const rapidjson::Value &value);
 
